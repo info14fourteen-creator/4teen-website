@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { PageLoaderOverlay } from "@/components/site/page-loader-overlay";
+import { SiteFooter } from "@/components/site/site-footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full scroll-smooth">
       <body className="min-h-full antialiased">
+        <PageLoaderOverlay />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

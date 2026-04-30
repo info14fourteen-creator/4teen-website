@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LoaderLink } from "@/components/site/loader-link";
 import { SiteLogo } from "@/components/site/site-logo";
 import { desktopNav, siteLocales, utilityNav } from "@/lib/site-config";
 
@@ -21,25 +21,25 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
         <div className="ft-site-header__lane">
           <nav aria-label="Primary site navigation" className="ft-site-nav">
             {desktopNav.map((link) => (
-              <Link
+              <LoaderLink
                 key={link.href}
                 className={`ft-site-nav-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
                 href={link.href}
               >
                 {link.label}
-              </Link>
+              </LoaderLink>
             ))}
           </nav>
 
           <nav aria-label="Secondary site surfaces" className="ft-site-subnav">
             {utilityNav.map((link) => (
-              <Link
+              <LoaderLink
                 key={link.href}
                 className={`ft-site-subnav-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
                 href={link.href}
               >
                 {link.label}
-              </Link>
+              </LoaderLink>
             ))}
           </nav>
         </div>
@@ -59,12 +59,12 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
             ))}
           </div>
 
-          <Link
+          <LoaderLink
             className="ft-header-app-link"
             href={appMode ? "/buy" : "/app"}
           >
             {appMode ? "Open buy" : "Open app"}
-          </Link>
+          </LoaderLink>
         </div>
       </div>
     </header>

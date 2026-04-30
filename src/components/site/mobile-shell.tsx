@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
+import { LoaderLink } from "@/components/site/loader-link";
 import { SiteLogo } from "@/components/site/site-logo";
 import {
   coreNav,
@@ -68,7 +68,7 @@ export function FourteenMobileShell({
                 <div className="ft-mobile-menu-group">
                   <p className="ft-mobile-menu-group__label">Core surfaces</p>
                   {coreNav.map((link) => (
-                    <Link
+                    <LoaderLink
                       key={link.href}
                       className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
                       href={link.href}
@@ -76,14 +76,14 @@ export function FourteenMobileShell({
                     >
                       <span>{link.label}</span>
                       <span className="ft-device-label">Open</span>
-                    </Link>
+                    </LoaderLink>
                   ))}
                 </div>
 
                 <div className="ft-mobile-menu-group">
                   <p className="ft-mobile-menu-group__label">Docs and routes</p>
                   {[...docsNav, ...utilityNav].map((link) => (
-                    <Link
+                    <LoaderLink
                       key={link.href}
                       className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
                       href={link.href}
@@ -91,7 +91,7 @@ export function FourteenMobileShell({
                     >
                       <span>{link.label}</span>
                       <span className="ft-device-label">Open</span>
-                    </Link>
+                    </LoaderLink>
                   ))}
                 </div>
               </div>
@@ -117,13 +117,13 @@ export function FourteenMobileShell({
 
         <div className="ft-mobile-dock">
           {dockLinks.map((link) => (
-            <Link
+            <LoaderLink
               key={link.href}
               className={`ft-mobile-dock-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
               href={link.href}
             >
               <span>{link.shortLabel ?? link.label}</span>
-            </Link>
+            </LoaderLink>
           ))}
         </div>
       </div>
