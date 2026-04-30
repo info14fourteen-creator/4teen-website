@@ -2,15 +2,16 @@
 
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
+import { LocaleSwitcher } from "@/components/site/locale-switcher";
 import { LoaderLink } from "@/components/site/loader-link";
 import { SiteLogo } from "@/components/site/site-logo";
 import {
   coreNav,
   docsNav,
   mobileDockNav,
-  siteLocales,
   utilityNav,
 } from "@/lib/site-config";
+import { defaultSiteLocale } from "@/lib/site-locale";
 
 function isActivePath(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -52,17 +53,7 @@ export function FourteenMobileShell({
               <div className="ft-mobile-menu-sheet">
                 <div className="ft-mobile-menu-group">
                   <p className="ft-mobile-menu-group__label">Languages</p>
-                  <div className="ft-mobile-locale-rail">
-                    {siteLocales.map((locale) => (
-                      <span
-                        key={locale.code}
-                        className={`ft-mobile-locale-link ${locale.status === "live" ? "is-active" : ""}`}
-                      >
-                        <span>{locale.code}</span>
-                        <span>{locale.status === "live" ? "live" : "next"}</span>
-                      </span>
-                    ))}
-                  </div>
+                  <LocaleSwitcher compact currentLocale={defaultSiteLocale} />
                 </div>
 
                 <div className="ft-mobile-menu-group">
@@ -103,15 +94,19 @@ export function FourteenMobileShell({
           <div className="ft-mobile-topbar__bar">
             <SiteLogo compact />
 
-            <button
-              aria-expanded={menuOpen}
-              aria-label="Open mobile menu"
-              className="ft-mobile-menu-toggle"
-              onClick={() => setMenuOpen((open) => !open)}
-              type="button"
-            >
-              {menuOpen ? "×" : "≡"}
-            </button>
+            <div className="ft-mobile-topbar__actions">
+              <LocaleSwitcher compact currentLocale={defaultSiteLocale} />
+
+              <button
+                aria-expanded={menuOpen}
+                aria-label="Open mobile menu"
+                className="ft-mobile-menu-toggle"
+                onClick={() => setMenuOpen((open) => !open)}
+                type="button"
+              >
+                {menuOpen ? "×" : "≡"}
+              </button>
+            </div>
           </div>
         </div>
 

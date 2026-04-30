@@ -1,5 +1,8 @@
 import Image from "next/image";
+import { LocaleSwitcher } from "@/components/site/locale-switcher";
 import { LoaderLink } from "@/components/site/loader-link";
+import { SiteLogo } from "@/components/site/site-logo";
+import { defaultSiteLocale } from "@/lib/site-locale";
 
 const socialLinks = [
   { label: "Telegram", href: "https://t.me/fourteentoken", icon: "/socials/telegram_social.svg" },
@@ -38,27 +41,23 @@ const footerColumns = [
 export function SiteFooter() {
   return (
     <footer className="ft-site-footer">
-      <div className="ft-container--wide ft-site-footer__grid">
-        <div className="ft-site-footer__brand">
-          <LoaderLink className="ft-site-footer__logo" href="/">
-            <Image
-              alt="4TEEN"
-              className="ft-site-footer__logo-mark"
-              height={46}
-              src="/brand/logo.svg"
-              width={46}
-            />
-            <span className="ft-site-footer__logo-copy">
-              <span className="ft-site-footer__eyebrow">4TEEN</span>
-              <span className="ft-site-footer__title">Protocol / Tools / Ambassadors</span>
-            </span>
-          </LoaderLink>
+      <div className="ft-site-footer__glass">
+        <div className="ft-site-footer__head">
+          <SiteLogo />
+          <LocaleSwitcher currentLocale={defaultSiteLocale} />
+        </div>
 
+        <div className="ft-container--wide ft-site-footer__grid">
+        <div className="ft-site-footer__brand">
           <p className="ft-site-footer__text">
-            Mint-on-purchase entry, 14-day lock visibility, controller-side
-            liquidity logic, ambassador accounting, and staged airdrop
-            distribution on TRON.
+            Protocol-native entry on TRON with visible lock timing, controller
+            logic, separated routing, ambassador accounting, and staged
+            ecosystem distribution.
           </p>
+
+          <LoaderLink className="ft-site-footer__brand-link" href="/buy">
+            Enter through direct buy
+          </LoaderLink>
         </div>
 
         <div className="ft-site-footer__nav">
@@ -106,9 +105,10 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="ft-container--wide ft-site-footer__bottom">
-        <span>© 2026 4TEEN. Structured on-chain entry on TRON.</span>
-        <span>Official website: 4teen.me</span>
+        <div className="ft-container--wide ft-site-footer__bottom">
+          <span>© 2026 4TEEN. Structured on-chain entry on TRON.</span>
+          <span>Official website: 4teen.me</span>
+        </div>
       </div>
     </footer>
   );

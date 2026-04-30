@@ -1,6 +1,11 @@
+import type { SupportedSiteLocale } from "@/lib/site-locale";
+
 export type SiteLocale = {
-  code: string;
+  code: SupportedSiteLocale;
   label: string;
+  nativeLabel: string;
+  flag: string;
+  href: string;
   status: "live" | "next";
 };
 
@@ -11,9 +16,30 @@ export type SiteNavLink = {
 };
 
 export const siteLocales: SiteLocale[] = [
-  { code: "en", label: "English", status: "live" },
-  { code: "ru", label: "Russian", status: "next" },
-  { code: "uz", label: "Uzbek", status: "next" },
+  {
+    code: "en",
+    label: "English",
+    nativeLabel: "English",
+    flag: "🇺🇸",
+    href: "/",
+    status: "live",
+  },
+  {
+    code: "ru",
+    label: "Russian",
+    nativeLabel: "Русский",
+    flag: "🇷🇺",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "uz",
+    label: "Uzbek",
+    nativeLabel: "O'zbekcha",
+    flag: "🇺🇿",
+    href: "/",
+    status: "next",
+  },
 ];
 
 export const coreNav: SiteNavLink[] = [

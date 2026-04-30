@@ -1,9 +1,11 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { LocaleSwitcher } from "@/components/site/locale-switcher";
 import { LoaderLink } from "@/components/site/loader-link";
 import { SiteLogo } from "@/components/site/site-logo";
-import { desktopNav, siteLocales, utilityNav } from "@/lib/site-config";
+import { desktopNav, utilityNav } from "@/lib/site-config";
+import { defaultSiteLocale } from "@/lib/site-locale";
 
 function isActivePath(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -45,25 +47,13 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
         </div>
 
         <div className="ft-site-header__utility">
-          <div aria-label="Site locale rollout plan" className="ft-locale-rail">
-            {siteLocales.map((locale) => (
-              <span
-                key={locale.code}
-                className={`ft-locale-link ${locale.status === "live" ? "is-active" : ""}`}
-              >
-                <span className="ft-locale-link__code">{locale.code}</span>
-                <span className="ft-locale-link__status">
-                  {locale.status === "live" ? "live" : "next"}
-                </span>
-              </span>
-            ))}
-          </div>
+          <LocaleSwitcher currentLocale={defaultSiteLocale} />
 
           <LoaderLink
             className="ft-header-app-link"
             href={appMode ? "/buy" : "/app"}
           >
-            {appMode ? "Open buy" : "Open app"}
+            {appMode ? "Open Buy" : "Open App"}
           </LoaderLink>
         </div>
       </div>
