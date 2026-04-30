@@ -178,23 +178,58 @@ function initGlow(prefersReducedMotion: boolean) {
 
   const glowTargets = Array.from(
     document.querySelectorAll<HTMLElement>(
-      [".ft-card", ".ft-price-card", ".ft-highlight"].join(","),
+      [
+        ".ft-card",
+        ".ft-price-card",
+        ".ft-highlight",
+        ".ft-home-surface-card",
+        ".ft-home-verify-card__link",
+        ".ft-site-footer__social",
+        ".ft-header-app-link",
+        ".ft-locale-switcher__button",
+        ".ft-locale-switcher__option",
+        ".ft-mobile-menu-link",
+        ".ft-mobile-dock-link",
+      ].join(","),
     ),
   );
 
   const cleanups = glowTargets.map((element) => {
     element.classList.add("ft-glow");
+    element.style.setProperty("--ft-glow-x", "50%");
+    element.style.setProperty("--ft-glow-y", "50%");
+
+    let frame = 0;
 
     const handleMove = (event: MouseEvent) => {
-      const rect = element.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      element.style.setProperty("--ft-glow-x", `${x}%`);
-      element.style.setProperty("--ft-glow-y", `${y}%`);
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+
+      frame = window.requestAnimationFrame(() => {
+        const rect = element.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        element.style.setProperty("--ft-glow-x", `${x}%`);
+        element.style.setProperty("--ft-glow-y", `${y}%`);
+      });
+    };
+
+    const handleLeave = () => {
+      element.style.setProperty("--ft-glow-x", "50%");
+      element.style.setProperty("--ft-glow-y", "50%");
     };
 
     element.addEventListener("mousemove", handleMove);
-    return () => element.removeEventListener("mousemove", handleMove);
+    element.addEventListener("mouseleave", handleLeave);
+
+    return () => {
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+      element.removeEventListener("mousemove", handleMove);
+      element.removeEventListener("mouseleave", handleLeave);
+    };
   });
 
   return () => cleanups.forEach((cleanup) => cleanup());

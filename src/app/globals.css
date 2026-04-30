@@ -2473,16 +2473,43 @@ a.is-active-anchor {
     border-radius: inherit;
     background:
       radial-gradient(
-        320px circle at var(--ft-glow-x, 50%) var(--ft-glow-y, 50%),
-        rgba(255, 105, 0, 0.14),
-        transparent 42%
+        360px circle at var(--ft-glow-x, 50%) var(--ft-glow-y, 50%),
+        rgba(255, 105, 0, 0.24),
+        rgba(255, 105, 0, 0.1) 24%,
+        transparent 52%
+      ),
+      radial-gradient(
+        160px circle at var(--ft-glow-x, 50%) var(--ft-glow-y, 50%),
+        rgba(255, 255, 255, 0.08),
+        transparent 54%
       );
     opacity: 0;
-    transition: opacity 0.25s ease;
+    mix-blend-mode: screen;
+    transition: opacity 0.22s ease;
     pointer-events: none;
   }
 
   .ft-glow:hover::before {
+    opacity: 1;
+  }
+
+  .ft-glow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.04),
+        rgba(255, 255, 255, 0) 35%
+      );
+    opacity: 0;
+    transition: opacity 0.22s ease;
+    pointer-events: none;
+  }
+
+  .ft-glow:hover::after {
     opacity: 1;
   }
 }
