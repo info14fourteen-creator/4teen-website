@@ -1,7 +1,14 @@
+import Link from "next/link";
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { FourteenTopbar } from "@/components/site/topbar";
 
-const sidebarItems = ["Overview", "Wallet", "Ambassadors", "Activity", "Settings"];
+const sidebarItems = [
+  "Overview",
+  "Buy",
+  "Unlock",
+  "Liquidity",
+  "Ambassadors",
+];
 
 const metrics = [
   { label: "Wallet state", value: "Pending", tone: "ft-status-wait" },
@@ -11,13 +18,12 @@ const metrics = [
 
 export default function AppPreviewPage() {
   return (
-    <main className="ft-theme">
+    <main className="ft-theme ft-page-main ft-page-main--chrome">
       <FourteenMobileShell appMode />
+      <FourteenTopbar appMode />
 
       <section className="ft-section ft-section--hero">
         <div className="ft-container--wide ft-stack ft-stack--xl">
-          <FourteenTopbar appMode />
-
           <div className="ft-grid ft-grid--shell">
             <aside className="ft-sidebar" id="wallet">
               <div className="ft-stack ft-stack--lg">
@@ -39,9 +45,9 @@ export default function AppPreviewPage() {
                 </nav>
 
                 <div className="ft-note">
-                  Mobile gets a fixed shell. Tablet collapses this rail into a
-                  stacked block. Desktop and laptop keep it as a left command
-                  lane.
+                  Web app stays aligned to the wallet architecture: buy,
+                  unlock, liquidity, ambassador state, then deeper wallet
+                  actions.
                 </div>
               </div>
             </aside>
@@ -60,6 +66,15 @@ export default function AppPreviewPage() {
                     ambassador metrics, and activity will land after migration
                     from <code>4teen-wallet-app</code>.
                   </p>
+                </div>
+
+                <div className="ft-actions ft-actions--stack-mobile">
+                  <Link className="ft-btn ft-btn--primary" href="/buy">
+                    Open Buy
+                  </Link>
+                  <Link className="ft-btn ft-btn--secondary" href="/ambassadors">
+                    Open Ambassadors
+                  </Link>
                 </div>
               </article>
 

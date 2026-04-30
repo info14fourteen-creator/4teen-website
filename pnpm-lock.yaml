@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/sora':
+        specifier: ^5.2.8
+        version: 5.2.8
       next:
         specifier: 16.2.4
         version: 16.2.4(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -792,6 +795,9 @@ packages:
   '@eslint/plugin-kit@0.4.1':
     resolution: {integrity: sha512-43/qtrDUokr7LJqoF2c3+RInu/t4zfrpYdoSDfYyhg52rwLV6TnOvdG4fXm7IkSB3wErkcmJS9iEhjVtOSEjjA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@fontsource/sora@5.2.8':
+    resolution: {integrity: sha512-1G6iTXUx8rcCKzi3mjaTQ1DE8PQz0OmW3Qnku+64S+bqRr1o/gGeiw8fxIQhhBU9ZP8ZofIqai7o00DNOPnlDw==}
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -4558,6 +4564,8 @@ snapshots:
     dependencies:
       '@eslint/core': 0.17.0
       levn: 0.4.1
+
+  '@fontsource/sora@5.2.8': {}
 
   '@humanfs/core@0.19.2':
     dependencies:

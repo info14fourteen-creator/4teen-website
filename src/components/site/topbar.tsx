@@ -1,53 +1,71 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { SiteLogo } from "@/components/site/site-logo";
+import { desktopNav, siteLocales, utilityNav } from "@/lib/site-config";
 
-const marketingLinks = [
-  { href: "#adaptive", label: "Adaptive" },
-  { href: "#modules", label: "Modules" },
-  { href: "#roadmap", label: "Roadmap" },
-  { href: "#stack", label: "Stack" },
-];
-
-const appLinks = [
-  { href: "/app", label: "Overview" },
-  { href: "#wallet", label: "Wallet" },
-  { href: "#ambassadors", label: "Ambassadors" },
-  { href: "#activity", label: "Activity" },
-];
+function isActivePath(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
-  const links = appMode ? appLinks : marketingLinks;
+  const pathname = usePathname();
 
   return (
-    <header className="ft-topbar">
-      <div className="ft-brand">
-        <span className="ft-brand-mark">4TEEN</span>
-        <span className="ft-brand-sub">
-          {appMode ? "Application shell" : "App-like website foundation"}
-        </span>
-      </div>
+    <header className="ft-site-header">
+      <div className="ft-site-header__bar">
+        <SiteLogo />
 
-      <nav className="ft-nav">
-        {links.map((link) =>
-          link.href.startsWith("/") ? (
-            <Link key={link.href} className="ft-nav-link" href={link.href}>
-              {link.label}
-            </Link>
-          ) : (
-            <a key={link.href} className="ft-nav-link" href={link.href}>
-              {link.label}
-            </a>
-          ),
-        )}
-      </nav>
+        <div className="ft-site-header__lane">
+          <nav aria-label="Primary site navigation" className="ft-site-nav">
+            {desktopNav.map((link) => (
+              <Link
+                key={link.href}
+                className={`ft-site-nav-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
+                href={link.href}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
-      <div className="ft-cluster ft-cluster--sm">
-        <span className="ft-status-pill wait">Cloudflare live</span>
-        <Link
-          className="ft-btn ft-btn--primary ft-pulse-cta"
-          href={appMode ? "/" : "/app"}
-        >
-          {appMode ? "Landing" : "Open app"}
-        </Link>
+          <nav aria-label="Secondary site surfaces" className="ft-site-subnav">
+            {utilityNav.map((link) => (
+              <Link
+                key={link.href}
+                className={`ft-site-subnav-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
+                href={link.href}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <div className="ft-site-header__utility">
+          <div aria-label="Site locale rollout plan" className="ft-locale-rail">
+            {siteLocales.map((locale) => (
+              <span
+                key={locale.code}
+                className={`ft-locale-link ${locale.status === "live" ? "is-active" : ""}`}
+              >
+                <span className="ft-locale-link__code">{locale.code}</span>
+                <span className="ft-locale-link__status">
+                  {locale.status === "live" ? "live" : "next"}
+                </span>
+              </span>
+            ))}
+          </div>
+
+          <Link
+            className="ft-header-app-link"
+            href={appMode ? "/buy" : "/app"}
+          >
+            {appMode ? "Open buy" : "Open app"}
+          </Link>
+        </div>
       </div>
     </header>
   );
