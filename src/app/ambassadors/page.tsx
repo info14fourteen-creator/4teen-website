@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
+import { SiteSnapshotRefresh } from "@/components/site/site-snapshot-refresh";
 import { FourteenTopbar } from "@/components/site/topbar";
-import type { LiveAmbassadorSnapshot } from "@/lib/ambassador-live";
-import { getDeferredLiveSnapshot } from "@/lib/deferred-live-snapshot";
+import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
+import type { LiveAmbassadorSnapshot } from "@/lib/site-snapshot-types";
 
 export const metadata: Metadata = {
   title: "Ambassadors",
@@ -46,9 +47,8 @@ function shortenAddress(address: string | null | undefined) {
 }
 
 export default async function AmbassadorsPage() {
-  const snapshot = getDeferredLiveSnapshot<LiveAmbassadorSnapshot>();
-  const errorText =
-    "The page shell is prioritized right now while the live earn snapshot is moved off server render.";
+  const snapshot =
+    await getServerSiteSnapshot<LiveAmbassadorSnapshot>("ambassador");
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-ambassador-page">
@@ -62,6 +62,7 @@ export default async function AmbassadorsPage() {
               <div className="ft-cluster ft-cluster--sm">
                 <span className="ft-eyebrow">FourteenController</span>
                 <span className="ft-status-pill live">Public earn cabinet snapshot</span>
+                <SiteSnapshotRefresh snapshotKeys={["ambassador"]} />
               </div>
 
               <div className="ft-stack ft-stack--md">
@@ -104,7 +105,8 @@ export default async function AmbassadorsPage() {
                 </div>
               ) : (
                 <div className="ft-note">
-                  <strong>Live earn snapshot failed.</strong> {errorText || "Try refreshing in a moment."}
+                  <strong>Live earn snapshot failed.</strong> Try refreshing in a
+                  moment.
                 </div>
               )}
             </div>

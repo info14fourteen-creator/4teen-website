@@ -1,13 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { LiveBuyEvent } from "@/lib/buy-live";
 import type { SupportedSiteLocale } from "@/lib/site-locale";
 import { formatUtcDate } from "@/lib/site-intl";
+import type { LiveBuyEvent } from "@/lib/site-snapshot-types";
 
 type BuyLatestEventsPayload = {
   ok?: boolean;
   events?: LiveBuyEvent[];
+  snapshot?: {
+    events?: LiveBuyEvent[];
+  } | null;
 };
 
 export function BuyLatestEvents({
@@ -34,7 +37,7 @@ export function BuyLatestEvents({
   useEffect(() => {
     let cancelled = false;
 
-    fetch("/api/buy-latest", {
+    fetch("/api/site/buy-latest?refresh=1", {
       cache: "no-store",
     })
       .then((response) => {
@@ -46,7 +49,7 @@ export function BuyLatestEvents({
       })
       .then((payload) => {
         if (cancelled) return;
-        setEvents(Array.isArray(payload.events) ? payload.events : []);
+        setEvents(Array.isArray(payload.snapshot?.events) ? payload.snapshot.events : []);
       })
       .catch(() => {
         if (cancelled) return;

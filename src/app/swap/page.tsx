@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
+import { SiteSnapshotRefresh } from "@/components/site/site-snapshot-refresh";
 import { FourteenTopbar } from "@/components/site/topbar";
 import { officialWalletRepoUrl } from "@/content/official-links";
 import { getSwapPageContent } from "@/content/swap-content";
-import { getDeferredLiveSnapshot } from "@/lib/deferred-live-snapshot";
+import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
 import { formatUtcDate } from "@/lib/site-intl";
-import { type SwapSnapshot, swapVerificationLinks } from "@/lib/swap-live";
+import { type SwapSnapshot, swapVerificationLinks } from "@/lib/site-snapshot-types";
 
 const metadataContent = getSwapPageContent(defaultSiteLocale);
 
@@ -17,7 +18,7 @@ export const metadata: Metadata = metadataContent.metadata;
 export default async function SwapPage() {
   const locale = defaultSiteLocale;
   const content = getSwapPageContent(locale);
-  const snapshot = getDeferredLiveSnapshot<SwapSnapshot>();
+  const snapshot = await getServerSiteSnapshot<SwapSnapshot>("swap");
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-swap-page">
@@ -31,6 +32,7 @@ export default async function SwapPage() {
               <div className="ft-cluster ft-cluster--sm">
                 <span className="ft-eyebrow">{content.hero.eyebrow}</span>
                 <span className="ft-status-pill live">{content.hero.status}</span>
+                <SiteSnapshotRefresh snapshotKeys={["swap"]} />
               </div>
 
               <div className="ft-stack ft-stack--md">

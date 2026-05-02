@@ -748,6 +748,50 @@ a.is-active-anchor {
   border: 1px solid rgba(255, 48, 73, 0.18);
 }
 
+.ft-snapshot-refresh {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 105, 0, 0.18);
+  border-radius: var(--ft-radius-pill);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ft-text);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color 140ms ease,
+    background 140ms ease,
+    color 140ms ease,
+    transform 140ms ease;
+}
+
+.ft-snapshot-refresh:hover {
+  border-color: rgba(255, 105, 0, 0.42);
+  background: rgba(255, 105, 0, 0.08);
+  color: var(--ft-white);
+}
+
+.ft-snapshot-refresh:active {
+  transform: translateY(1px);
+}
+
+.ft-snapshot-refresh.is-refreshing {
+  color: var(--ft-white);
+  border-color: rgba(255, 105, 0, 0.42);
+  background: rgba(255, 105, 0, 0.1);
+}
+
+.ft-snapshot-refresh__icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
 /* =========================================
    SITE CHROME
 ========================================= */

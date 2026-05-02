@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
+import { BuyLatestEvents } from "@/components/site/buy-latest-events";
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
+import { SiteSnapshotRefresh } from "@/components/site/site-snapshot-refresh";
 import { FourteenTopbar } from "@/components/site/topbar";
 import { getBuyPageContent } from "@/content/buy-content";
 import {
@@ -9,6 +11,8 @@ import {
   officialWalletRepoUrl,
 } from "@/content/official-links";
 import { defaultSiteLocale } from "@/lib/site-locale";
+import { formatUtcDate } from "@/lib/site-intl";
+import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 
 const metadataContent = getBuyPageContent(defaultSiteLocale);
 
@@ -22,6 +26,16 @@ const FOURTEEN_CONTROLLER_SCAN_URL =
 export default async function BuyPage() {
   const locale = defaultSiteLocale;
   const content = getBuyPageContent(locale);
+  const marketSnapshot = await getServerSiteSnapshot<{
+    direct?: {
+      trx?: string;
+    };
+    updatedAt?: string;
+  }>("market-price");
+  const directPrice = marketSnapshot?.direct?.trx?.trim() || content.hero.stats.priceFallback;
+  const directPriceMeta = marketSnapshot?.updatedAt
+    ? `${content.hero.stats.directPriceMeta} ${formatUtcDate(marketSnapshot.updatedAt, locale)}`
+    : content.hero.stats.priceUnavailable;
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-buy-page">
@@ -35,6 +49,7 @@ export default async function BuyPage() {
               <div className="ft-cluster ft-cluster--sm">
                 <span className="ft-eyebrow">{content.hero.eyebrow}</span>
                 <span className="ft-status-pill live">{content.hero.status}</span>
+                <SiteSnapshotRefresh snapshotKeys={["market-price", "buy-latest"]} />
               </div>
 
               <div className="ft-stack ft-stack--md">
@@ -45,8 +60,8 @@ export default async function BuyPage() {
               <div className="ft-grid ft-grid--4 ft-buy-page__hero-stats">
                 <article className="ft-price-card">
                   <p className="ft-price-label">{content.hero.stats.directPrice}</p>
-                  <p className="ft-price-main">{content.hero.stats.priceFallback} TRX</p>
-                  <p className="ft-price-sub">{content.hero.stats.directPriceMeta}</p>
+                  <p className="ft-price-main">{directPrice} TRX</p>
+                  <p className="ft-price-sub">{directPriceMeta}</p>
                 </article>
                 <article className="ft-price-card">
                   <p className="ft-price-label">{content.hero.stats.lockRule}</p>
@@ -95,23 +110,10 @@ export default async function BuyPage() {
                 <p className="ft-overline">{content.sections.latestPurchases.eyebrow}</p>
                 <h2 className="ft-subtitle">{content.sections.latestPurchases.title}</h2>
               </div>
-              <p className="ft-text">
-                {content.sections.latestPurchases.fallbackBody}
-              </p>
-              <div className="ft-actions ft-actions--stack-mobile">
-                <LoaderLink className="ft-btn ft-btn--primary" href="/app">
-                  {content.sections.latestPurchases.fallbackPrimaryCta}
-                </LoaderLink>
-                <a
-                  className="ft-btn ft-btn--secondary"
-                  href={FOURTEEN_TOKEN_SCAN_URL}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {content.sections.latestPurchases.fallbackSecondaryCta}
-                </a>
-              </div>
-              <p className="ft-note">{content.sections.latestPurchases.note}</p>
+              <BuyLatestEvents
+                content={content.sections.latestPurchases}
+                locale={locale}
+              />
             </div>
           </article>
 

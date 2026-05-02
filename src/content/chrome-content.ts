@@ -10,6 +10,11 @@ export type ChromeContent = {
     loading: string;
     unavailable: string;
   };
+  refresh: {
+    idle: string;
+    busy: string;
+    aria: string;
+  };
   mobileSearch: {
     ariaLabel: string;
     placeholder: string;
@@ -85,6 +90,11 @@ const chromeContentEn: ChromeContent = {
   market: {
     loading: "Loading price",
     unavailable: "Price unavailable",
+  },
+  refresh: {
+    idle: "Refresh data",
+    busy: "Refreshing",
+    aria: "Refresh live data snapshot",
   },
   mobileSearch: {
     ariaLabel: "Search routes, contracts, and docs",

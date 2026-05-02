@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
+import { SiteSnapshotRefresh } from "@/components/site/site-snapshot-refresh";
 import { FourteenTopbar } from "@/components/site/topbar";
 import { getAirdropPageContent } from "@/content/airdrop-content";
-import type { LiveAirdropSnapshot } from "@/lib/airdrop-live";
-import { getDeferredLiveSnapshot } from "@/lib/deferred-live-snapshot";
+import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
+import type { LiveAirdropSnapshot } from "@/lib/site-snapshot-types";
 import { formatUtcDate } from "@/lib/site-intl";
 
 const metadataContent = getAirdropPageContent(defaultSiteLocale);
@@ -25,9 +26,7 @@ function shortenAddress(address: string) {
 export default async function AirdropPage() {
   const locale = defaultSiteLocale;
   const content = getAirdropPageContent(locale);
-  const snapshot = getDeferredLiveSnapshot<LiveAirdropSnapshot>();
-  const errorText =
-    "The page shell is prioritized right now while the live airdrop snapshot is moved off server render.";
+  const snapshot = await getServerSiteSnapshot<LiveAirdropSnapshot>("airdrop");
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-airdrop-page">
@@ -41,6 +40,7 @@ export default async function AirdropPage() {
               <div className="ft-cluster ft-cluster--sm">
                 <span className="ft-eyebrow">{content.hero.eyebrow}</span>
                 <span className="ft-status-pill live">{content.hero.status}</span>
+                <SiteSnapshotRefresh snapshotKeys={["airdrop"]} />
               </div>
 
               <div className="ft-stack ft-stack--md">
@@ -81,7 +81,8 @@ export default async function AirdropPage() {
                 </div>
               ) : (
                 <div className="ft-note">
-                  <strong>{content.hero.stats.readFailed}</strong> {errorText || content.hero.stats.readRetry}
+                  <strong>{content.hero.stats.readFailed}</strong>{" "}
+                  {content.hero.stats.readRetry}
                 </div>
               )}
             </div>

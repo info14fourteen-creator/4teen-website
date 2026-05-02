@@ -2,19 +2,20 @@ import type { Metadata } from "next";
 
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
+import { SiteSnapshotRefresh } from "@/components/site/site-snapshot-refresh";
 import { FourteenTopbar } from "@/components/site/topbar";
 import { getLiquidityPageContent } from "@/content/liquidity-content";
 import {
   officialContractsRepoUrl,
   officialWalletRepoUrl,
 } from "@/content/official-links";
-import { getDeferredLiveSnapshot } from "@/lib/deferred-live-snapshot";
+import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
-import { formatUtcDate } from "@/lib/site-intl";
 import {
   type LiveLiquiditySnapshot,
   liquidityVerificationLinks,
-} from "@/lib/liquidity-live";
+} from "@/lib/site-snapshot-types";
+import { formatUtcDate } from "@/lib/site-intl";
 
 const metadataContent = getLiquidityPageContent(defaultSiteLocale);
 
@@ -23,9 +24,8 @@ export const metadata: Metadata = metadataContent.metadata;
 export default async function LiquidityPage() {
   const locale = defaultSiteLocale;
   const content = getLiquidityPageContent(locale);
-  const snapshot = getDeferredLiveSnapshot<LiveLiquiditySnapshot>();
-  const errorText =
-    "The page shell is prioritized right now while the live liquidity snapshot is moved off server render.";
+  const snapshot =
+    await getServerSiteSnapshot<LiveLiquiditySnapshot>("liquidity");
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-liquidity-page">
@@ -39,6 +39,7 @@ export default async function LiquidityPage() {
               <div className="ft-cluster ft-cluster--sm">
                 <span className="ft-eyebrow">{content.hero.eyebrow}</span>
                 <span className="ft-status-pill live">{content.hero.status}</span>
+                <SiteSnapshotRefresh snapshotKeys={["liquidity"]} />
               </div>
 
               <div className="ft-stack ft-stack--md">
@@ -74,7 +75,7 @@ export default async function LiquidityPage() {
               ) : (
                 <div className="ft-note">
                   <strong>{content.hero.stats.readFailed}</strong>{" "}
-                  {errorText || content.hero.stats.readRetry}
+                  {content.hero.stats.readRetry}
                 </div>
               )}
             </div>

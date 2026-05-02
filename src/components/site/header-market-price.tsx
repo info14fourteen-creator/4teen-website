@@ -11,14 +11,16 @@ type Quote = {
 };
 
 type MarketPricePayload = {
-  ok: true;
-  base: {
-    symbol: string;
-    value: string;
-    icon: string;
-  };
-  quotes: Quote[];
-  updatedAt: string;
+  ok?: boolean;
+  snapshot?: {
+    base: {
+      symbol: string;
+      value: string;
+      icon: string;
+    };
+    quotes: Quote[];
+    updatedAt: string;
+  } | null;
 };
 
 function MarketPriceLoading({ compact = false }: { compact?: boolean }) {
@@ -39,20 +41,22 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
   useEffect(() => {
     let active = true;
 
-    async function readPrice() {
+    async function readViaSnapshotProxy() {
       try {
-        const response = await fetch("/api/market-price", {
+        const response = await fetch("/api/site/market-price?refresh=1", {
           cache: "no-store",
         });
+        const json = (await response.json()) as MarketPricePayload;
+        const snapshot = json.snapshot;
 
-        if (!response.ok) {
+        if (!response.ok || !active || !json.ok || !snapshot || !snapshot.quotes.length) {
           throw new Error(`Price fetch failed: ${response.status}`);
         }
 
-        const json = (await response.json()) as MarketPricePayload;
-        if (!active || !json.ok || !json.quotes.length) return;
-
-        setPayload(json);
+        setPayload({
+          ok: true,
+          snapshot,
+        });
         setHasError(false);
       } catch {
         if (!active) return;
@@ -60,9 +64,9 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
       }
     }
 
-    void readPrice();
+    void readViaSnapshotProxy();
     const refreshId = window.setInterval(() => {
-      void readPrice();
+      void readViaSnapshotProxy();
     }, 60000);
 
     return () => {
@@ -72,10 +76,11 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
   }, []);
 
   useEffect(() => {
-    if (!payload || payload.quotes.length < 2) return;
+    const quotes = payload?.snapshot?.quotes ?? [];
+    if (quotes.length < 2) return;
 
     const rotateId = window.setInterval(() => {
-      setQuoteIndex((current) => (current + 1) % payload.quotes.length);
+      setQuoteIndex((current) => (current + 1) % quotes.length);
     }, 2400);
 
     return () => {
@@ -95,7 +100,12 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
     return <MarketPriceLoading compact={compact} />;
   }
 
-  const quote = payload.quotes[quoteIndex] ?? payload.quotes[0];
+  const quote = payload.snapshot?.quotes[quoteIndex] ?? payload.snapshot?.quotes[0];
+  const base = payload.snapshot?.base;
+
+  if (!quote || !base) {
+    return <MarketPriceLoading compact={compact} />;
+  }
 
   return (
     <div
@@ -103,14 +113,14 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
       className={`ft-header-market ${compact ? "is-compact" : ""}`}
     >
       <span className="ft-header-market__group">
-        <span className="ft-header-market__value">{payload.base.value}</span>
+        <span className="ft-header-market__value">{base.value}</span>
         <img
           alt=""
           className="ft-header-market__icon"
           height={18}
           loading="eager"
           referrerPolicy="no-referrer"
-          src={payload.base.icon}
+          src={base.icon}
           width={18}
         />
       </span>

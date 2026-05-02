@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 
 type MarketPayload = {
   ok: boolean;
-  direct?: {
-    trx: string;
-  };
-  dex?: {
-    trx: string;
-    usdt: string;
-  };
+  snapshot?: {
+    direct?: {
+      trx: string;
+    };
+    dex?: {
+      trx: string;
+      usdt: string;
+    };
+  } | null;
 };
 
 function HomePriceCard({
@@ -43,7 +45,7 @@ export function HomePriceCards({
 
     async function readPrices() {
       try {
-        const response = await fetch("/api/market-price", {
+        const response = await fetch("/api/site/market-price?refresh=1", {
           cache: "no-store",
         });
 
@@ -73,14 +75,14 @@ export function HomePriceCards({
     };
   }, []);
 
-  const directMain = payload?.ok && payload.direct?.trx
-    ? `${payload.direct.trx} TRX`
+  const directMain = payload?.ok && payload.snapshot?.direct?.trx
+    ? `${payload.snapshot.direct.trx} TRX`
     : "Unavailable";
-  const dexMain = payload?.ok && payload.dex?.trx
-    ? `${payload.dex.trx} TRX`
+  const dexMain = payload?.ok && payload.snapshot?.dex?.trx
+    ? `${payload.snapshot.dex.trx} TRX`
     : "Unavailable";
-  const dexSub = payload?.ok && payload.dex?.usdt
-    ? `~ $${payload.dex.usdt} per 4TEEN`
+  const dexSub = payload?.ok && payload.snapshot?.dex?.usdt
+    ? `~ $${payload.snapshot.dex.usdt} per 4TEEN`
     : "Router quote read failed";
 
   return (
