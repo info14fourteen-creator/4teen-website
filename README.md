@@ -48,3 +48,5 @@ The project is configured for Cloudflare Workers with:
 1. Bring over real wallet and ambassador flows from `4teen-wallet-app`.
 2. Replace placeholder app cards with live wallet state and dashboard data.
 3. Split the shell into production routes for landing, wallet, ambassadors, and activity.
+
+_Remote runner verification: README updated as part of smoke testing._
