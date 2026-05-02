@@ -4,10 +4,9 @@ import { spawnSync } from 'node:child_process';
 
 const REPO_KEY = 'website';
 const RUNNER_ID = process.env.OPS_EXECUTOR_RUNNER_ID || 'github-actions-website';
-const MODEL = process.env.OPENAI_CODEX_MODEL || 'gpt-5-codex';
-const OPENAI_BASE_URL = 'https://api.openai.com/v1';
 const DEFAULT_BASE_URL = 'https://fourteen-wallet-api-7af291023d36.herokuapp.com';
 const DEFAULT_BRANCH = process.env.GITHUB_REF_NAME || 'main';
+const DEFAULT_AUDIENCE = process.env.OPS_GITHUB_OIDC_AUDIENCE || '4teen-ops-runner';
 const MAX_ALLOWED_FILES = 6;
 const MAX_FILE_CHARS = 35_000;
 
@@ -58,13 +57,6 @@ function getBaseUrl() {
   return getEnv('OPS_EXPORT_BASE_URL') || DEFAULT_BASE_URL;
 }
 
-function getControlHeaders(extra = {}) {
-  return {
-    Authorization: `Bearer ${getEnv('ADMIN_SYNC_TOKEN', { required: true })}`,
-    ...extra
-  };
-}
-
 async function readJson(response) {
   try {
     return await response.json();
@@ -73,8 +65,46 @@ async function readJson(response) {
   }
 }
 
+let cachedControlToken = null;
+
+async function fetchGithubOidcToken() {
+  const requestUrl = getEnv('ACTIONS_ID_TOKEN_REQUEST_URL', { required: true });
+  const requestToken = getEnv('ACTIONS_ID_TOKEN_REQUEST_TOKEN', { required: true });
+  const separator = requestUrl.includes('?') ? '&' : '?';
+  const audience = encodeURIComponent(DEFAULT_AUDIENCE);
+  const response = await fetch(`${requestUrl}${separator}audience=${audience}`, {
+    headers: {
+      Authorization: `Bearer ${requestToken}`
+    }
+  });
+  const payload = await readJson(response);
+  if (!response.ok || !payload?.value) {
+    throw new Error(payload?.message || `Failed to fetch GitHub Actions OIDC token (${response.status})`);
+  }
+  return payload.value;
+}
+
+async function getControlToken() {
+  if (getEnv('ADMIN_SYNC_TOKEN')) {
+    return getEnv('ADMIN_SYNC_TOKEN');
+  }
+
+  if (!cachedControlToken) {
+    cachedControlToken = await fetchGithubOidcToken();
+  }
+
+  return cachedControlToken;
+}
+
 async function requestControl(pathname, init = {}) {
-  const response = await fetch(`${getBaseUrl().replace(/\/+$/, '')}${pathname}`, init);
+  const token = await getControlToken();
+  const response = await fetch(`${getBaseUrl().replace(/\/+$/, '')}${pathname}`, {
+    ...init,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...(init.headers || {})
+    }
+  });
   const payload = await readJson(response);
   if (!response.ok || payload?.ok === false) {
     throw new Error(payload?.error || `Control plane request failed with status ${response.status}`);
@@ -86,9 +116,9 @@ async function claimNextRequest() {
   for (const actionType of ['apply', 'publish', 'deploy', 'restart']) {
     const payload = await requestControl('/ops/execution-requests/claim', {
       method: 'POST',
-      headers: getControlHeaders({
+      headers: {
         'Content-Type': 'application/json'
-      }),
+      },
       body: JSON.stringify({
         repoKey: REPO_KEY,
         actionType,
@@ -104,19 +134,30 @@ async function claimNextRequest() {
   return null;
 }
 
-async function fetchWorkOrder(taskId) {
-  const payload = await requestControl(`/ops/tasks/${encodeURIComponent(taskId)}/work-order`, {
-    headers: getControlHeaders()
-  });
+async function fetchRequestWorkOrder(requestId) {
+  const payload = await requestControl(`/ops/execution-requests/${encodeURIComponent(requestId)}/work-order`);
   return payload?.item || null;
+}
+
+async function requestServerApplyPlan(requestId, fileSnapshots) {
+  const payload = await requestControl(`/ops/execution-requests/${encodeURIComponent(requestId)}/apply-plan`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      fileSnapshots
+    })
+  });
+  return payload?.result || null;
 }
 
 async function finishRequest(requestId, status, summary, resultMessage, details = null) {
   return requestControl(`/ops/execution-requests/${encodeURIComponent(requestId)}/finish`, {
     method: 'POST',
-    headers: getControlHeaders({
+    headers: {
       'Content-Type': 'application/json'
-    }),
+    },
     body: JSON.stringify({
       status,
       summary,
@@ -169,144 +210,6 @@ async function loadCandidateFiles(workOrder) {
   }
 
   return existing;
-}
-
-function buildOpenAiHeaders() {
-  const headers = {
-    Authorization: `Bearer ${getEnv('OPENAI_API_KEY', { required: true })}`,
-    'Content-Type': 'application/json'
-  };
-
-  const orgId = getEnv('OPENAI_ORG_ID');
-  const projectId = getEnv('OPENAI_PROJECT_ID');
-  if (orgId) headers['OpenAI-Organization'] = orgId;
-  if (projectId) headers['OpenAI-Project'] = projectId;
-  return headers;
-}
-
-function extractResponseText(payload) {
-  if (!payload) return '';
-  if (typeof payload.output_text === 'string' && payload.output_text.trim()) {
-    return payload.output_text.trim();
-  }
-
-  const parts = [];
-  const output = Array.isArray(payload.output) ? payload.output : [];
-  for (const item of output) {
-    const content = Array.isArray(item?.content) ? item.content : [];
-    for (const chunk of content) {
-      const text = normalizeValue(chunk?.text || chunk?.output_text);
-      if (text) parts.push(text);
-    }
-  }
-  return parts.join('\n').trim();
-}
-
-async function requestOpenAiJson(body) {
-  const response = await fetch(`${OPENAI_BASE_URL}/responses`, {
-    method: 'POST',
-    headers: buildOpenAiHeaders(),
-    body: JSON.stringify(body)
-  });
-
-  const payload = await readJson(response);
-  if (!response.ok) {
-    throw new Error(payload?.error?.message || `OpenAI request failed with status ${response.status}`);
-  }
-
-  return payload;
-}
-
-async function generateApplyPlan(workOrder, fileSnapshots) {
-  const schema = {
-    type: 'object',
-    additionalProperties: false,
-    required: ['outcome', 'summary', 'commitMessage', 'blockedReason', 'changes', 'verificationHints'],
-    properties: {
-      outcome: {
-        type: 'string',
-        enum: ['apply', 'blocked']
-      },
-      summary: {
-        type: 'string'
-      },
-      commitMessage: {
-        type: 'string'
-      },
-      blockedReason: {
-        anyOf: [{ type: 'string' }, { type: 'null' }]
-      },
-      verificationHints: {
-        type: 'array',
-        items: {
-          type: 'string'
-        }
-      },
-      changes: {
-        type: 'array',
-        items: {
-          type: 'object',
-          additionalProperties: false,
-          required: ['path', 'content', 'rationale'],
-          properties: {
-            path: { type: 'string' },
-            content: { type: 'string' },
-            rationale: { type: 'string' }
-          }
-        }
-      }
-    }
-  };
-
-  const payload = await requestOpenAiJson({
-    model: MODEL,
-    input: [
-      {
-        role: 'system',
-        content: [
-          {
-            type: 'input_text',
-            text:
-              'You are an exacting remote coding runner for a production marketing website repository. Work only from the supplied work order and file snapshots. Do not invent files, APIs, or routes that are not grounded in the provided content. If the task is too ambiguous or the files are not enough, return outcome=blocked with a precise blockedReason. Otherwise return minimal production-ready code changes with full updated file contents for changed files only.'
-          }
-        ]
-      },
-      {
-        role: 'user',
-        content: [
-          {
-            type: 'input_text',
-            text: JSON.stringify({
-              repoKey: REPO_KEY,
-              branchConvention: 'codex/ops-task-<taskId>',
-              workOrder,
-              allowedPaths: fileSnapshots.map((item) => item.path),
-              fileSnapshots
-            })
-          }
-        ]
-      }
-    ],
-    text: {
-      format: {
-        type: 'json_schema',
-        name: 'remote_runner_apply_result',
-        schema,
-        strict: true
-      }
-    },
-    reasoning: {
-      effort: 'medium'
-    },
-    max_output_tokens: 16000
-  });
-
-  const text = extractResponseText(payload);
-  if (!text) {
-    throw new Error('OpenAI returned empty apply plan');
-  }
-
-  return JSON.parse(text);
 }
 
 function validateChanges(plan, allowedPaths) {
@@ -420,7 +323,7 @@ async function findOrCreateDraftPr(branchName, taskId, taskTitle) {
 }
 
 async function processApply(request) {
-  const workOrder = await fetchWorkOrder(request.task_id);
+  const workOrder = await fetchRequestWorkOrder(request.id);
   if (!workOrder?.readyToImplement) {
     return {
       status: 'blocked',
@@ -441,12 +344,12 @@ async function processApply(request) {
   const branchName = `codex/ops-task-${Number(request.task_id || 0)}`;
   ensureTaskBranch(branchName);
 
-  const plan = await generateApplyPlan(workOrder, fileSnapshots);
+  const plan = await requestServerApplyPlan(request.id, fileSnapshots);
   if (normalizeValue(plan?.outcome) !== 'apply') {
     return {
       status: 'blocked',
-      summary: normalizeValue(plan?.summary) || 'Runner blocked by Codex plan',
-      resultMessage: normalizeValue(plan?.blockedReason) || 'Codex refused to generate a safe grounded patch.'
+      summary: normalizeValue(plan?.summary) || 'Runner blocked by server-side Codex plan',
+      resultMessage: normalizeValue(plan?.blockedReason) || 'Control plane refused to generate a safe grounded patch.'
     };
   }
 
@@ -495,7 +398,7 @@ async function processPublish(request) {
     };
   }
 
-  const workOrder = await fetchWorkOrder(request.task_id);
+  const workOrder = await fetchRequestWorkOrder(request.id);
   const pr = await findOrCreateDraftPr(branchName, request.task_id, workOrder?.title || `Task ${request.task_id}`);
   return {
     status: 'done',
