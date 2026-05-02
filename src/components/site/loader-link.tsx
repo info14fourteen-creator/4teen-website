@@ -41,7 +41,7 @@ export function LoaderLink({
   onClick,
   href,
   target,
-  triggerLoader = true,
+  triggerLoader = false,
   ...props
 }: LoaderLinkProps) {
   return (
