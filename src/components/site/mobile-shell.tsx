@@ -19,6 +19,7 @@ import supportServiceLoop from "@/assets/lottie/mobile-support-service-loop.json
 import swapFooterLoop from "@/assets/lottie/mobile-swap-footer-loop.json";
 import termsPolicyLoop from "@/assets/lottie/mobile-terms-policy-loop.json";
 import unlockDocumentLoop from "@/assets/lottie/mobile-unlock-document-loop.json";
+import verificationBlockchainLoop from "@/assets/lottie/mobile-verification-blockchain-loop.json";
 import navHomeLoop from "@/assets/lottie/nav-home-loop.json";
 import { getChromeContent } from "@/content/chrome-content";
 import {
@@ -173,7 +174,13 @@ export function FourteenMobileShell({
                   >
                     <span>{link.label}</span>
                     <AnimatedLottieIcon
-                      animationData={link.href === "/app" ? appSmartphoneLoop : navHomeLoop}
+                      animationData={
+                        link.href === "/app"
+                          ? appSmartphoneLoop
+                          : link.href === "/verification"
+                            ? verificationBlockchainLoop
+                            : navHomeLoop
+                      }
                       className="ft-mobile-menu-link__icon"
                       loop={isActivePath(pathname, link.href)}
                     />

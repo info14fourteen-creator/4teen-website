@@ -4620,6 +4620,7 @@ a.is-active-anchor {
 .ft-buy-page .ft-price-card,
 .ft-liquidity-page .ft-price-card,
 .ft-unlock-page .ft-price-card,
+.ft-verification-page .ft-price-card,
 .ft-public-page__panel,
 .ft-airdrop-page__panel,
 .ft-app-page__panel,
@@ -4627,6 +4628,7 @@ a.is-active-anchor {
 .ft-buy-page__panel,
 .ft-liquidity-page__panel,
 .ft-unlock-page__panel,
+.ft-verification-page__panel,
 .ft-public-page__channel-card,
 .ft-public-page__scope-card,
 .ft-public-page__contact-card,
@@ -4643,7 +4645,10 @@ a.is-active-anchor {
 .ft-liquidity-page__detail-card,
 .ft-liquidity-page__cta-panel,
 .ft-unlock-page__detail-card,
-.ft-unlock-page__cta-panel {
+.ft-unlock-page__cta-panel,
+.ft-verification-page__detail-card,
+.ft-verification-page__asset-card,
+.ft-verification-page__cta-panel {
   height: 100%;
   min-width: 0;
 }
@@ -4685,7 +4690,12 @@ a.is-active-anchor {
 .ft-unlock-page__vault-grid,
 .ft-unlock-page__section-grid,
 .ft-unlock-page__hero-stats,
-.ft-buy-page__section-grid {
+.ft-buy-page__section-grid,
+.ft-verification-page__hero-stats,
+.ft-verification-page__section-grid,
+.ft-verification-page__detail-grid,
+.ft-verification-page__asset-grid,
+.ft-verification-page__proof-grid {
   align-items: stretch;
   gap: clamp(16px, 2vw, 22px);
 }
@@ -4696,7 +4706,8 @@ a.is-active-anchor {
 .ft-ambassador-page__panel-stack,
 .ft-buy-page__panel-stack,
 .ft-liquidity-page__panel-stack,
-.ft-unlock-page__panel-stack {
+.ft-unlock-page__panel-stack,
+.ft-verification-page__panel-stack {
   height: 100%;
   grid-template-rows: auto 1fr auto;
   gap: 14px;
@@ -4708,7 +4719,8 @@ a.is-active-anchor {
 .ft-ambassador-page .ft-container--wide.ft-stack--xl,
 .ft-buy-page .ft-container--wide.ft-stack--xl,
 .ft-liquidity-page .ft-container--wide.ft-stack--xl,
-.ft-unlock-page .ft-container--wide.ft-stack--xl {
+.ft-unlock-page .ft-container--wide.ft-stack--xl,
+.ft-verification-page .ft-container--wide.ft-stack--xl {
   gap: clamp(24px, 3vw, 34px);
 }
 
@@ -4725,17 +4737,20 @@ a.is-active-anchor {
 .ft-buy-page .ft-placeholder-hero,
 .ft-liquidity-page .ft-placeholder-hero,
 .ft-unlock-page .ft-placeholder-hero,
+.ft-verification-page .ft-placeholder-hero,
 .ft-airdrop-page__panel,
 .ft-app-page__panel,
 .ft-ambassador-page__panel,
 .ft-buy-page__panel,
 .ft-liquidity-page__panel,
 .ft-unlock-page__panel,
+.ft-verification-page__panel,
 .ft-airdrop-page__table-panel,
 .ft-app-page__download-card,
 .ft-buy-page__cta-panel,
 .ft-liquidity-page__cta-panel,
-.ft-unlock-page__cta-panel {
+.ft-unlock-page__cta-panel,
+.ft-verification-page__cta-panel {
   padding: clamp(20px, 2.4vw, 30px);
 }
 
@@ -4751,7 +4766,9 @@ a.is-active-anchor {
 .ft-liquidity-page__panel,
 .ft-liquidity-page__cta-panel,
 .ft-unlock-page__panel,
-.ft-unlock-page__cta-panel {
+.ft-unlock-page__cta-panel,
+.ft-verification-page__panel,
+.ft-verification-page__cta-panel {
   min-width: 0;
 }
 
@@ -4761,7 +4778,8 @@ a.is-active-anchor {
 .ft-ambassador-page__hero-stats,
 .ft-buy-page__hero-stats,
 .ft-liquidity-page__hero-stats,
-.ft-unlock-page__hero-stats {
+.ft-unlock-page__hero-stats,
+.ft-verification-page__hero-stats {
   margin-top: 0;
 }
 
@@ -4790,7 +4808,10 @@ a.is-active-anchor {
 .ft-liquidity-page .ft-price-main,
 .ft-unlock-page .ft-subtitle,
 .ft-unlock-page .ft-card-title,
-.ft-unlock-page .ft-price-main {
+.ft-unlock-page .ft-price-main,
+.ft-verification-page .ft-subtitle,
+.ft-verification-page .ft-card-title,
+.ft-verification-page .ft-price-main {
   overflow-wrap: anywhere;
   hyphens: auto;
   text-wrap: pretty;
@@ -4823,7 +4844,11 @@ a.is-active-anchor {
 .ft-unlock-page .ft-price-label,
 .ft-unlock-page .ft-price-sub,
 .ft-unlock-page .ft-card-title-top,
-.ft-unlock-page .ft-overline {
+.ft-unlock-page .ft-overline,
+.ft-verification-page .ft-price-label,
+.ft-verification-page .ft-price-sub,
+.ft-verification-page .ft-card-title-top,
+.ft-verification-page .ft-overline {
   white-space: normal;
   overflow-wrap: anywhere;
 }
@@ -4840,7 +4865,9 @@ a.is-active-anchor {
 .ft-buy-page__detail-card,
 .ft-buy-page__routing-card,
 .ft-liquidity-page__detail-card,
-.ft-unlock-page__detail-card {
+.ft-unlock-page__detail-card,
+.ft-verification-page__detail-card,
+.ft-verification-page__asset-card {
   display: grid;
   align-content: start;
   grid-template-rows: auto auto 1fr auto;
@@ -5009,7 +5036,8 @@ a.is-active-anchor {
 .ft-airdrop-page__mini-table tr,
 .ft-ambassador-page__mini-table tr,
 .ft-liquidity-page__mini-table tr,
-.ft-unlock-page__mini-table tr {
+.ft-unlock-page__mini-table tr,
+.ft-verification-page__mini-table tr {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 16px;
@@ -5021,7 +5049,9 @@ a.is-active-anchor {
 .ft-ambassador-page__mini-table th,
 .ft-ambassador-page__mini-table td,
 .ft-unlock-page__mini-table th,
-.ft-unlock-page__mini-table td {
+.ft-unlock-page__mini-table td,
+.ft-verification-page__mini-table th,
+.ft-verification-page__mini-table td {
   min-width: 0;
   padding: 14px 0;
   vertical-align: top;
@@ -5031,7 +5061,8 @@ a.is-active-anchor {
 .ft-ambassador-page__mini-table td,
 .ft-liquidity-page__mini-table td,
 .ft-ambassador-page__timestamp-card,
-.ft-unlock-page__mini-table td {
+.ft-unlock-page__mini-table td,
+.ft-verification-page__mini-table td {
   overflow-wrap: anywhere;
 }
 
@@ -5197,6 +5228,50 @@ a.is-active-anchor {
   line-height: 1.05;
 }
 
+.ft-verification-page__panel-stack {
+  gap: 12px;
+}
+
+.ft-verification-page__detail-grid,
+.ft-verification-page__asset-grid,
+.ft-verification-page__proof-grid {
+  gap: 12px;
+}
+
+.ft-verification-page__detail-card,
+.ft-verification-page__asset-card {
+  padding: 18px 20px;
+  border-radius: 20px;
+}
+
+.ft-verification-page__detail-card .ft-card-title,
+.ft-verification-page__asset-card .ft-card-title {
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.05;
+}
+
+.ft-verification-page__asset-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0)),
+    linear-gradient(135deg, rgba(255, 105, 0, 0.05), transparent 44%);
+}
+
+.ft-verification-page__proof-grid > * {
+  min-width: 0;
+}
+
+.ft-verification-page__address {
+  font-family: var(--ft-font-mono);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.ft-verification-page__cta-panel {
+  background:
+    radial-gradient(circle at top right, rgba(255, 105, 0, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(22, 22, 22, 0.96), rgba(11, 11, 11, 0.92));
+}
+
 .ft-swap-page .ft-price-card,
 .ft-swap-page__panel,
 .ft-swap-page__detail-card,
@@ -5314,7 +5389,10 @@ a.is-active-anchor {
   .ft-swap-page__detail-grid,
   .ft-swap-page__route-grid,
   .ft-unlock-page__detail-grid,
-  .ft-unlock-page__vault-grid {
+  .ft-unlock-page__vault-grid,
+  .ft-verification-page__detail-grid,
+  .ft-verification-page__asset-grid,
+  .ft-verification-page__proof-grid {
     grid-template-columns: 1fr;
   }
 
@@ -5334,7 +5412,8 @@ a.is-active-anchor {
   .ft-buy-page__section-grid,
   .ft-liquidity-page__section-grid,
   .ft-swap-page__section-grid,
-  .ft-unlock-page__section-grid {
+  .ft-unlock-page__section-grid,
+  .ft-verification-page__section-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -5343,7 +5422,8 @@ a.is-active-anchor {
   .ft-airdrop-page__mini-table tr,
   .ft-ambassador-page__mini-table tr,
   .ft-liquidity-page__mini-table tr,
-  .ft-unlock-page__mini-table tr {
+  .ft-unlock-page__mini-table tr,
+  .ft-verification-page__mini-table tr {
     grid-template-columns: 1fr;
     gap: 6px;
   }
@@ -5359,7 +5439,10 @@ a.is-active-anchor {
   .ft-liquidity-page .ft-right,
   .ft-unlock-page__mini-table td,
   .ft-unlock-page__mini-table td.ft-right,
-  .ft-unlock-page .ft-right {
+  .ft-unlock-page .ft-right,
+  .ft-verification-page__mini-table td,
+  .ft-verification-page__mini-table td.ft-right,
+  .ft-verification-page .ft-right {
     text-align: left;
   }
 
@@ -5373,7 +5456,8 @@ a.is-active-anchor {
   .ft-buy-page__hero-stats,
   .ft-liquidity-page__hero-stats,
   .ft-swap-page__hero-stats,
-  .ft-unlock-page__hero-stats {
+  .ft-unlock-page__hero-stats,
+  .ft-verification-page__hero-stats {
     grid-template-columns: 1fr;
   }
 
@@ -5435,7 +5519,8 @@ a.is-active-anchor {
   .ft-buy-page__panel-stack,
   .ft-liquidity-page__panel-stack,
   .ft-swap-page__panel-stack,
-  .ft-unlock-page__panel-stack {
+  .ft-unlock-page__panel-stack,
+  .ft-verification-page__panel-stack {
     grid-template-rows: auto;
   }
 
@@ -5464,7 +5549,10 @@ a.is-active-anchor {
   .ft-swap-page__route-card,
   .ft-swap-page__cta-panel,
   .ft-unlock-page__detail-card,
-  .ft-unlock-page__cta-panel {
+  .ft-unlock-page__cta-panel,
+  .ft-verification-page__detail-card,
+  .ft-verification-page__asset-card,
+  .ft-verification-page__cta-panel {
     padding: 16px;
   }
 
@@ -5514,7 +5602,9 @@ a.is-active-anchor {
   .ft-swap-page .ft-price-main,
   .ft-swap-page .ft-card-title,
   .ft-unlock-page .ft-price-main,
-  .ft-unlock-page .ft-card-title {
+  .ft-unlock-page .ft-card-title,
+  .ft-verification-page .ft-price-main,
+  .ft-verification-page .ft-card-title {
     font-size: clamp(20px, 7vw, 26px);
   }
 
@@ -5525,7 +5615,9 @@ a.is-active-anchor {
   .ft-liquidity-page .ft-mini-table th,
   .ft-liquidity-page .ft-mini-table td,
   .ft-unlock-page .ft-mini-table th,
-  .ft-unlock-page .ft-mini-table td {
+  .ft-unlock-page .ft-mini-table td,
+  .ft-verification-page .ft-mini-table th,
+  .ft-verification-page .ft-mini-table td {
     padding-top: 12px;
     padding-bottom: 12px;
   }
