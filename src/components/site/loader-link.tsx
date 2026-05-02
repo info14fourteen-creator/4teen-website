@@ -30,6 +30,10 @@ export function navigateHard(href: string) {
   window.location.assign(href);
 }
 
+function isInternalStringHref(href: LinkProps["href"]): href is string {
+  return typeof href === "string" && href.startsWith("/");
+}
+
 type LoaderLinkProps = LinkProps &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
     children: ReactNode;
@@ -44,6 +48,28 @@ export function LoaderLink({
   triggerLoader = false,
   ...props
 }: LoaderLinkProps) {
+  if (isInternalStringHref(href)) {
+    const internalHref: string = href;
+    return (
+      <a
+        {...props}
+        href={internalHref}
+        onClick={(event) => {
+          onClick?.(event);
+
+          if (!triggerLoader || shouldIgnoreClick(event, target)) {
+            return;
+          }
+
+          triggerFourteenLoader();
+        }}
+        target={target}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link
       {...props}
