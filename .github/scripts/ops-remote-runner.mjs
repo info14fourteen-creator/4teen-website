@@ -139,6 +139,11 @@ async function fetchRequestWorkOrder(requestId) {
   return payload?.item || null;
 }
 
+async function fetchRunnerConfig(requestId) {
+  const payload = await requestControl(`/ops/execution-requests/${encodeURIComponent(requestId)}/runner-config`);
+  return payload?.result || null;
+}
+
 async function requestServerApplyPlan(requestId, fileSnapshots) {
   const payload = await requestControl(`/ops/execution-requests/${encodeURIComponent(requestId)}/apply-plan`, {
     method: 'POST',
@@ -420,6 +425,15 @@ async function processPublish(request) {
 }
 
 async function processDeploy(request) {
+  const config = await fetchRunnerConfig(request.id);
+  if (!config?.cloudflare?.configured || !normalizeValue(config?.cloudflare?.apiToken)) {
+    return {
+      status: 'blocked',
+      summary: 'Cloudflare deploy credentials are not configured',
+      resultMessage: 'Control plane did not provide a usable Cloudflare deploy config for website.'
+    };
+  }
+
   const branchName = `codex/ops-task-${Number(request.task_id || 0)}`;
   if (!remoteBranchExists(branchName)) {
     return {
@@ -433,7 +447,7 @@ async function processDeploy(request) {
   run('pnpm', ['install', '--frozen-lockfile']);
   run('pnpm', ['cf:deploy'], {
     env: {
-      CLOUDFLARE_API_TOKEN: getEnv('CLOUDFLARE_API_TOKEN', { required: true })
+      CLOUDFLARE_API_TOKEN: normalizeValue(config?.cloudflare?.apiToken)
     }
   });
 
