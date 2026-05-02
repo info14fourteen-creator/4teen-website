@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { startTransition, useEffect, useMemo, useRef, useState } from "react";
-import { triggerFourteenLoader } from "@/components/site/loader-link";
+import { usePathname } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { LoaderLink, navigateHard, triggerFourteenLoader } from "@/components/site/loader-link";
 import { searchSiteEntries } from "@/lib/site-search";
 
 export function MobileSiteSearch({
@@ -23,7 +22,6 @@ export function MobileSiteSearch({
   open: boolean;
   onNavigate?: () => void;
 }) {
-  const router = useRouter();
   const pathname = usePathname();
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [query, setQuery] = useState("");
@@ -63,9 +61,9 @@ export function MobileSiteSearch({
     }
 
     triggerFourteenLoader();
-    startTransition(() => {
-      router.push(href);
-    });
+    window.setTimeout(() => {
+      navigateHard(href);
+    }, 24);
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -100,17 +98,18 @@ export function MobileSiteSearch({
         {results.length ? (
           results.map((entry, index) =>
             entry.kind === "internal" ? (
-              <Link
+              <LoaderLink
                 key={`${entry.kind}:${entry.href}`}
                 className={`ft-mobile-search-panel__result ${index === 0 ? "is-primary" : ""}`}
                 href={entry.href}
+                onClick={finishNavigate}
               >
                 <span className="ft-mobile-search-panel__result-kicker">
                   {entry.kind === "internal" ? content.route : content.external}
                 </span>
                 <span className="ft-mobile-search-panel__result-title">{entry.title}</span>
                 <span className="ft-mobile-search-panel__result-meta">{entry.meta}</span>
-              </Link>
+              </LoaderLink>
             ) : (
               <button
                 key={`${entry.kind}:${entry.href}`}

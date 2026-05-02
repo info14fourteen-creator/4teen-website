@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
-  startTransition,
   useDeferredValue,
   useEffect,
   useMemo,
@@ -13,7 +11,7 @@ import {
 import { AnimatedLottieIcon } from "@/components/site/animated-lottie-icon";
 import searchOpenResultsHover from "@/assets/lottie/search-open-results-hover.json";
 import utilitySearchHover from "@/assets/lottie/utility-search-hover.json";
-import { triggerFourteenLoader } from "@/components/site/loader-link";
+import { LoaderLink, navigateHard, triggerFourteenLoader } from "@/components/site/loader-link";
 import { searchSiteEntries } from "@/lib/site-search";
 
 export function SiteSearch({
@@ -37,7 +35,6 @@ export function SiteSearch({
   };
 }) {
   const pathname = usePathname();
-  const router = useRouter();
   const rootRef = useRef<HTMLFormElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [query, setQuery] = useState("");
@@ -151,9 +148,9 @@ export function SiteSearch({
     }
 
     triggerFourteenLoader();
-    startTransition(() => {
-      router.push(href);
-    });
+    window.setTimeout(() => {
+      navigateHard(href);
+    }, 24);
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -254,12 +251,11 @@ export function SiteSearch({
               {results.length ? (
                 results.map((entry, index) =>
                   entry.kind === "internal" ? (
-                    <Link
+                    <LoaderLink
                       key={`${entry.kind}:${entry.href}`}
                       className={`ft-site-search__result ${index === 0 ? "is-primary" : ""}`}
                       href={entry.href}
                       onClick={() => {
-                        triggerFourteenLoader();
                         setModalOpen(false);
                       }}
                     >
@@ -268,7 +264,7 @@ export function SiteSearch({
                       </span>
                       <span className="ft-site-search__result-title">{entry.title}</span>
                       <span className="ft-site-search__result-meta">{entry.meta}</span>
-                    </Link>
+                    </LoaderLink>
                   ) : (
                     <button
                       key={`${entry.kind}:${entry.href}`}

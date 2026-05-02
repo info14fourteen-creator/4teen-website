@@ -66,20 +66,18 @@ export function FourteenMobileShell({
   const menuPanelRef = useRef<HTMLDivElement | null>(null);
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  function closeAllPanels() {
     setMenuOpen(false);
     setSearchOpen(false);
     setLocaleOpen(false);
+  }
+
+  useEffect(() => {
+    closeAllPanels();
   }, [pathname]);
 
   useEffect(() => {
     if (!hasOpenPanel) return;
-
-    function closeAllPanels() {
-      setMenuOpen(false);
-      setSearchOpen(false);
-      setLocaleOpen(false);
-    }
 
     function handlePointerDown(event: PointerEvent) {
       const target = event.target;
@@ -137,6 +135,7 @@ export function FourteenMobileShell({
                     key={link.href}
                     className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
                     href={link.href}
+                    onClick={closeAllPanels}
                   >
                     <span>{link.label}</span>
                     <AnimatedLottieIcon
@@ -171,6 +170,7 @@ export function FourteenMobileShell({
                     key={link.href}
                     className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
                     href={link.href}
+                    onClick={closeAllPanels}
                   >
                     <span>{link.label}</span>
                     <AnimatedLottieIcon
@@ -195,6 +195,7 @@ export function FourteenMobileShell({
                     key={link.href}
                     className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
                     href={link.href}
+                    onClick={closeAllPanels}
                   >
                     <span>{link.label}</span>
                     <AnimatedLottieIcon
