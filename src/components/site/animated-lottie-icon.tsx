@@ -1,13 +1,24 @@
 "use client";
 
-import Lottie, { type LottieRef } from "lottie-react";
+import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, type MutableRefObject } from "react";
+
+const Lottie = dynamic(() => import("lottie-react").then((module) => module.default), {
+  ssr: false,
+});
 
 type AnimationData = {
   fr?: number;
   ip?: number;
   op?: number;
 } & Record<string, unknown>;
+
+type LottieRuntimeHandle = {
+  setDirection?: (direction: number) => void;
+  playSegments?: (segments: [number, number], forceFlag?: boolean) => void;
+  goToAndStop?: (value: number, isFrame?: boolean) => void;
+  play?: () => void;
+};
 
 export type AnimatedLottieIconApi = {
   playOnce: () => void;
@@ -36,7 +47,7 @@ export function AnimatedLottieIcon({
   loop?: boolean;
   playOnHover?: boolean;
 }) {
-  const lottieRef = useRef<LottieRef["current"]>(null);
+  const lottieRef = useRef<LottieRuntimeHandle | null>(null);
   const startFrame = animationData.ip ?? 0;
   const endFrame = useMemo(
     () => Math.max(startFrame + 1, animationData.op ?? startFrame + (animationData.fr ?? 60)),
@@ -44,12 +55,12 @@ export function AnimatedLottieIcon({
   );
 
   function playOnce() {
-    lottieRef.current?.setDirection(1);
-    lottieRef.current?.playSegments([startFrame, endFrame], true);
+    lottieRef.current?.setDirection?.(1);
+    lottieRef.current?.playSegments?.([startFrame, endFrame], true);
   }
 
   function reset() {
-    lottieRef.current?.goToAndStop(startFrame, true);
+    lottieRef.current?.goToAndStop?.(startFrame, true);
   }
 
   useEffect(() => {
@@ -64,7 +75,7 @@ export function AnimatedLottieIcon({
 
   useEffect(() => {
     if (loop) {
-      lottieRef.current?.play();
+      lottieRef.current?.play?.();
       return;
     }
 
@@ -82,7 +93,7 @@ export function AnimatedLottieIcon({
         animationData={animationData}
         autoplay={loop}
         loop={loop}
-        lottieRef={lottieRef}
+        lottieRef={lottieRef as never}
         onDOMLoaded={loop ? undefined : reset}
       />
     </span>
