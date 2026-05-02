@@ -3,11 +3,8 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 const OPS_REPO_KEY = normalizeValue(process.env.OPS_REPO_KEY) || 'website';
-const REQUEST_ID = Number(process.env.OPS_REQUEST_ID || 0);
-const TASK_ID = Number(process.env.OPS_TASK_ID || 0);
-const ACTION_TYPE = normalizeValue(process.env.OPS_ACTION_TYPE) || 'apply';
 const OPS_BASE_URL = normalizeValue(process.env.OPS_BASE_URL).replace(/\/+$/, '');
-const OPS_RUNNER_TOKEN = normalizeValue(process.env.OPS_RUNNER_TOKEN);
+const GITHUB_TOKEN = normalizeValue(process.env.GITHUB_TOKEN);
 const RUNNER_ID = `github-actions/${process.env.GITHUB_REPOSITORY || OPS_REPO_KEY}/${process.env.GITHUB_RUN_ID || 'manual'}`;
 
 function normalizeValue(value) {
@@ -45,17 +42,18 @@ async function remoteApi(pathname, body = {}) {
   return payload.result || null;
 }
 
-async function bootstrap() {
-  return remoteApi(`/ops/execution-requests/${REQUEST_ID}/bootstrap`, {
-    token: OPS_RUNNER_TOKEN,
-    runnerId: RUNNER_ID
+async function claimNext() {
+  return remoteApi('/ops/execution-requests/claim-github-runner', {
+    repoKey: OPS_REPO_KEY,
+    runnerId: RUNNER_ID,
+    githubToken: GITHUB_TOKEN
   });
 }
 
-async function finish(status, summary, resultMessage, details = {}) {
-  return remoteApi(`/ops/execution-requests/${REQUEST_ID}/finish-remote`, {
-    token: OPS_RUNNER_TOKEN,
+async function finish(requestId, status, summary, resultMessage, details = {}) {
+  return remoteApi(`/ops/execution-requests/${requestId}/finish-github-runner`, {
     runnerId: RUNNER_ID,
+    githubToken: GITHUB_TOKEN,
     status,
     summary,
     resultMessage,
@@ -300,8 +298,8 @@ function checkoutRemoteBranch(branch) {
   run('git', ['checkout', '-B', branch, `origin/${branch}`], { stdio: 'inherit' });
 }
 
-async function handleApply(bootstrapResult) {
-  const workOrder = bootstrapResult?.workOrder;
+async function handleApply(claimed) {
+  const workOrder = claimed?.workOrder;
   if (!workOrder?.readyToImplement) {
     throw new Error('Task does not have a ready work order yet');
   }
@@ -317,7 +315,7 @@ async function handleApply(bootstrapResult) {
     }
   }
 
-  const implementation = await generateImplementation(workOrder, contextFiles, bootstrapResult?.credentials || {});
+  const implementation = await generateImplementation(workOrder, contextFiles, claimed?.credentials || {});
   if (implementation.blocked) {
     throw new Error(normalizeValue(implementation.reason) || 'Model reported blocked');
   }
@@ -348,8 +346,8 @@ async function handleApply(bootstrapResult) {
   };
 }
 
-async function handlePublish(bootstrapResult) {
-  const taskId = TASK_ID || bootstrapResult?.request?.task_id;
+async function handlePublish(claimed) {
+  const taskId = Number(claimed?.request?.task_id || 0);
   const remote = remoteBranchExists(taskId);
   if (!remote.exists) {
     throw new Error(`Branch ${remote.branch} is not on origin yet. Run apply first.`);
@@ -365,13 +363,13 @@ async function handlePublish(bootstrapResult) {
   };
 }
 
-async function handleDeploy(bootstrapResult) {
-  const token = normalizeValue(bootstrapResult?.credentials?.cloudflareApiToken);
+async function handleDeploy(claimed) {
+  const token = normalizeValue(claimed?.credentials?.cloudflareApiToken);
   if (!token) {
     throw new Error('Remote runner did not receive Cloudflare deployment credentials');
   }
 
-  const taskId = TASK_ID || bootstrapResult?.request?.task_id;
+  const taskId = Number(claimed?.request?.task_id || 0);
   const remote = remoteBranchExists(taskId);
   if (!remote.exists) {
     throw new Error(`Branch ${remote.branch} is not on origin yet. Apply the task first.`);
@@ -399,46 +397,47 @@ async function handleRestart() {
 }
 
 async function main() {
-  if (!Number.isFinite(REQUEST_ID) || REQUEST_ID <= 0) {
-    throw new Error('Missing or invalid OPS_REQUEST_ID');
+  if (!OPS_BASE_URL || !GITHUB_TOKEN) {
+    throw new Error('Missing OPS_BASE_URL or GITHUB_TOKEN');
   }
 
-  if (!OPS_BASE_URL || !OPS_RUNNER_TOKEN) {
-    throw new Error('Missing bootstrap payload for remote runner');
-  }
-
-  let bootstrapResult = null;
+  let claimed = null;
   try {
-    bootstrapResult = await bootstrap();
-    if (!bootstrapResult?.request) {
-      throw new Error('Remote runner did not receive a claimed request');
+    claimed = await claimNext();
+    if (!claimed?.request) {
+      console.log('No confirmed execution requests for this repository. Exiting quietly.');
+      return;
     }
 
+    const actionType = normalizeValue(claimed.request.action_type) || 'apply';
     let outcome;
-    if (ACTION_TYPE === 'apply') {
-      outcome = await handleApply(bootstrapResult);
-    } else if (ACTION_TYPE === 'publish') {
-      outcome = await handlePublish(bootstrapResult);
-    } else if (ACTION_TYPE === 'deploy') {
-      outcome = await handleDeploy(bootstrapResult);
-    } else if (ACTION_TYPE === 'restart') {
-      outcome = await handleRestart(bootstrapResult);
+    if (actionType === 'apply') {
+      outcome = await handleApply(claimed);
+    } else if (actionType === 'publish') {
+      outcome = await handlePublish(claimed);
+    } else if (actionType === 'deploy') {
+      outcome = await handleDeploy(claimed);
+    } else if (actionType === 'restart') {
+      outcome = await handleRestart(claimed);
     } else {
-      throw new Error(`Unsupported action type: ${ACTION_TYPE}`);
+      throw new Error(`Unsupported action type: ${actionType}`);
     }
 
-    await finish('done', outcome.summary, outcome.resultMessage, outcome.details);
+    await finish(claimed.request.id, 'done', outcome.summary, outcome.resultMessage, outcome.details);
   } catch (error) {
     console.error(error);
-    await finish(
-      'blocked',
-      `Remote runner blocked ${ACTION_TYPE} for task #${TASK_ID || bootstrapResult?.request?.task_id || REQUEST_ID}`,
-      normalizeValue(error?.message) || 'Unknown runner failure',
-      {
-        actionType: ACTION_TYPE,
-        repoKey: OPS_REPO_KEY
-      }
-    ).catch(() => null);
+    if (claimed?.request?.id) {
+      await finish(
+        claimed.request.id,
+        'blocked',
+        `Remote runner blocked ${normalizeValue(claimed.request.action_type) || 'request'} for task #${Number(claimed.request.task_id || 0)}`,
+        normalizeValue(error?.message) || 'Unknown runner failure',
+        {
+          actionType: normalizeValue(claimed.request.action_type) || 'unknown',
+          repoKey: OPS_REPO_KEY
+        }
+      ).catch(() => null);
+    }
     process.exitCode = 1;
   }
 }
