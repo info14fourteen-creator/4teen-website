@@ -2,12 +2,10 @@ import { createHash } from "node:crypto";
 
 const FOURTEEN_TOKEN_CONTRACT = "TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A";
 const TRONGRID_PROXY_EVENTS_BASE_URL = "https://api.4teen.me/trongrid/v1/contracts";
-const TRONGRID_DIRECT_EVENTS_BASE_URL = "https://api.trongrid.io/v1/contracts";
-const TRONGRID_API_KEY = "d4fcb4c1-89d8-4651-9e34-11dd7848789b";
 const BUY_TOKEN_DECIMALS = 6;
 const TRX_DECIMALS = 6;
 const LIVE_REVALIDATE_SECONDS = 120;
-const LIVE_FETCH_TIMEOUT_MS = 8000;
+const LIVE_FETCH_TIMEOUT_MS = 1800;
 
 type ContractEventsResponse = {
   data?: {
@@ -79,50 +77,26 @@ function shortenAddress(address: string) {
 }
 
 async function fetchLatestBuyEvents() {
-  const paths = [
-    {
-      url: new URL(
-        `${TRONGRID_PROXY_EVENTS_BASE_URL}/${FOURTEEN_TOKEN_CONTRACT}/events`,
-      ),
-      headers: {} as Record<string, string>,
-    },
-    {
-      url: new URL(
-        `${TRONGRID_DIRECT_EVENTS_BASE_URL}/${FOURTEEN_TOKEN_CONTRACT}/events`,
-      ),
-      headers: {
-        "TRON-PRO-API-KEY": TRONGRID_API_KEY,
-      },
-    },
-  ];
+  const url = new URL(
+    `${TRONGRID_PROXY_EVENTS_BASE_URL}/${FOURTEEN_TOKEN_CONTRACT}/events`,
+  );
 
-  let lastError: Error | null = null;
+  url.searchParams.set("event_name", "BuyTokens");
+  url.searchParams.set("only_confirmed", "true");
+  url.searchParams.set("order_by", "block_timestamp,desc");
+  url.searchParams.set("limit", "5");
 
-  for (const target of paths) {
-    target.url.searchParams.set("event_name", "BuyTokens");
-    target.url.searchParams.set("only_confirmed", "true");
-    target.url.searchParams.set("order_by", "block_timestamp,desc");
-    target.url.searchParams.set("limit", "5");
+  const response = await fetch(url.toString(), {
+    next: { revalidate: LIVE_REVALIDATE_SECONDS },
+    signal: AbortSignal.timeout(LIVE_FETCH_TIMEOUT_MS),
+  });
 
-    try {
-      const response = await fetch(target.url.toString(), {
-        headers: target.headers,
-        next: { revalidate: LIVE_REVALIDATE_SECONDS },
-        signal: AbortSignal.timeout(LIVE_FETCH_TIMEOUT_MS),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status} for latest buy events`);
-      }
-
-      const payload = (await response.json()) as ContractEventsResponse;
-      return payload.data ?? [];
-    } catch (error) {
-      lastError = error instanceof Error ? error : new Error("Latest buy events failed");
-    }
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status} for latest buy events`);
   }
 
-  throw lastError ?? new Error("Latest buy events failed");
+  const payload = (await response.json()) as ContractEventsResponse;
+  return payload.data ?? [];
 }
 
 export async function getLiveBuyEvents() {

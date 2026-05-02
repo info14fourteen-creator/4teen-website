@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { BuyLatestEvents } from "@/components/site/buy-latest-events";
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
 import { FourteenTopbar } from "@/components/site/topbar";
@@ -8,7 +9,6 @@ import {
   officialContractsRepoUrl,
   officialWalletRepoUrl,
 } from "@/content/official-links";
-import { getLiveBuyEvents } from "@/lib/buy-live";
 import { defaultSiteLocale } from "@/lib/site-locale";
 import { formatUtcDate } from "@/lib/site-intl";
 
@@ -65,10 +65,7 @@ async function getDirectBuySnapshot() {
 export default async function BuyPage() {
   const locale = defaultSiteLocale;
   const content = getBuyPageContent(locale);
-  const [priceSnapshot, liveBuyEvents] = await Promise.all([
-    getDirectBuySnapshot(),
-    getLiveBuyEvents().catch(() => []),
-  ]);
+  const priceSnapshot = await getDirectBuySnapshot();
 
   const directPriceValue = priceSnapshot?.directTrx
     ? `${priceSnapshot.directTrx} TRX`
@@ -149,81 +146,10 @@ export default async function BuyPage() {
                 <p className="ft-overline">{content.sections.latestPurchases.eyebrow}</p>
                 <h2 className="ft-subtitle">{content.sections.latestPurchases.title}</h2>
               </div>
-
-              {liveBuyEvents.length > 0 ? (
-                <div className="ft-buy-page__latest-list" role="table">
-                  <div className="ft-buy-page__latest-head" role="row">
-                    <span>{content.sections.latestPurchases.headers.buyer}</span>
-                    <span>{content.sections.latestPurchases.headers.spent}</span>
-                    <span>{content.sections.latestPurchases.headers.minted}</span>
-                    <span>{content.sections.latestPurchases.headers.happened}</span>
-                    <span>{content.sections.latestPurchases.headers.verify}</span>
-                  </div>
-
-                  {liveBuyEvents.map((event) => (
-                    <div
-                      key={event.txId}
-                      className="ft-buy-page__latest-row"
-                      role="row"
-                    >
-                      <div className="ft-buy-page__latest-cell">
-                        <span className="ft-buy-page__latest-label">
-                          {content.sections.latestPurchases.headers.buyer}
-                        </span>
-                        <div className="ft-stack ft-stack--xs">
-                          <strong>{event.buyerShort}</strong>
-                          <span className="ft-note ft-buy-page__latest-address">
-                            {event.buyerAddress}
-                          </span>
-                        </div>
-                      </div>
-
-                      <div className="ft-buy-page__latest-cell">
-                        <span className="ft-buy-page__latest-label">
-                          {content.sections.latestPurchases.headers.spent}
-                        </span>
-                        <strong>{event.trxAmountDisplay} TRX</strong>
-                      </div>
-
-                      <div className="ft-buy-page__latest-cell">
-                        <span className="ft-buy-page__latest-label">
-                          {content.sections.latestPurchases.headers.minted}
-                        </span>
-                        <strong>{event.tokensAmountDisplay} 4TEEN</strong>
-                      </div>
-
-                      <div className="ft-buy-page__latest-cell">
-                        <span className="ft-buy-page__latest-label">
-                          {content.sections.latestPurchases.headers.happened}
-                        </span>
-                        <span>
-                          {event.happenedAt > 0
-                            ? formatUtcDate(event.happenedAt, locale)
-                            : content.sections.latestPurchases.unknownTime}
-                        </span>
-                      </div>
-
-                      <div className="ft-buy-page__latest-cell ft-buy-page__latest-cell--action">
-                        <span className="ft-buy-page__latest-label">
-                          {content.sections.latestPurchases.headers.verify}
-                        </span>
-                        <a
-                          className="ft-link"
-                          href={event.txUrl}
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          {content.sections.latestPurchases.openTx}
-                        </a>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="ft-note">{content.sections.latestPurchases.empty}</p>
-              )}
-
-              <p className="ft-note">{content.sections.latestPurchases.note}</p>
+              <BuyLatestEvents
+                content={content.sections.latestPurchases}
+                locale={locale}
+              />
             </div>
           </article>
 
