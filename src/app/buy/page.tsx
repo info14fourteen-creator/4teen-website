@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { BuyDirectPriceStat } from "@/components/site/buy-direct-price-stat";
 import { BuyLatestEvents } from "@/components/site/buy-latest-events";
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
@@ -10,69 +11,20 @@ import {
   officialWalletRepoUrl,
 } from "@/content/official-links";
 import { defaultSiteLocale } from "@/lib/site-locale";
-import { formatUtcDate } from "@/lib/site-intl";
 
 const metadataContent = getBuyPageContent(defaultSiteLocale);
 
 export const metadata: Metadata = metadataContent.metadata;
 
 export const revalidate = 120;
-
-const SITE_PUBLIC_MARKET_PRICE_URL = "https://api.4teen.me/site/market-price";
 const FOURTEEN_TOKEN_SCAN_URL =
   "https://tronscan.org/#/token20/TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A";
 const FOURTEEN_CONTROLLER_SCAN_URL =
   "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ";
 
-type MarketPricePayload = {
-  ok?: boolean;
-  snapshot?: {
-    direct?: {
-      trx?: string;
-    };
-    updatedAt?: string;
-  } | null;
-};
-
-async function getDirectBuySnapshot() {
-  try {
-    const response = await fetch(SITE_PUBLIC_MARKET_PRICE_URL, {
-      next: { revalidate },
-      signal: AbortSignal.timeout(8000),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-
-    const payload = (await response.json()) as MarketPricePayload;
-    const directTrx = payload?.snapshot?.direct?.trx?.trim();
-    const updatedAt = payload?.snapshot?.updatedAt;
-
-    if (!payload?.ok || !directTrx) {
-      throw new Error("Missing direct price snapshot");
-    }
-
-    return {
-      directTrx,
-      updatedAt: updatedAt ?? "",
-    };
-  } catch {
-    return null;
-  }
-}
-
 export default async function BuyPage() {
   const locale = defaultSiteLocale;
   const content = getBuyPageContent(locale);
-  const priceSnapshot = await getDirectBuySnapshot();
-
-  const directPriceValue = priceSnapshot?.directTrx
-    ? `${priceSnapshot.directTrx} TRX`
-    : content.hero.stats.priceFallback;
-  const directPriceMeta = priceSnapshot?.updatedAt
-    ? `${content.hero.stats.directPriceMeta} ${formatUtcDate(priceSnapshot.updatedAt, locale)}`
-    : content.hero.stats.priceUnavailable;
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-buy-page">
@@ -94,11 +46,15 @@ export default async function BuyPage() {
               </div>
 
               <div className="ft-grid ft-grid--4 ft-buy-page__hero-stats">
-                <article className="ft-price-card">
-                  <p className="ft-price-label">{content.hero.stats.directPrice}</p>
-                  <p className="ft-price-main">{directPriceValue}</p>
-                  <p className="ft-price-sub">{directPriceMeta}</p>
-                </article>
+                <BuyDirectPriceStat
+                  content={{
+                    label: content.hero.stats.directPrice,
+                    directPriceMeta: content.hero.stats.directPriceMeta,
+                    fallback: content.hero.stats.priceFallback,
+                    unavailable: content.hero.stats.priceUnavailable,
+                  }}
+                  locale={locale}
+                />
                 <article className="ft-price-card">
                   <p className="ft-price-label">{content.hero.stats.lockRule}</p>
                   <p className="ft-price-main">{content.hero.stats.lockRuleValue}</p>
