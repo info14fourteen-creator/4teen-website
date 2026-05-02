@@ -5,61 +5,64 @@ import { useEffect, useRef, useState } from "react";
 import { FourteenLoader } from "@/components/site/fourteen-loader";
 import { FOURTEEN_LOADER_EVENT } from "@/components/site/loader-link";
 
-const INITIAL_DURATION_MS = 900;
 const TRANSITION_DURATION_MS = 760;
+const LEAVE_DURATION_MS = 220;
 
 export function PageLoaderOverlay() {
   const pathname = usePathname();
-  const [visible, setVisible] = useState(true);
-  const [active, setActive] = useState(true);
+  const [visible, setVisible] = useState(false);
+  const [active, setActive] = useState(false);
   const mountedRef = useRef(false);
-  const transitionTimerRef = useRef<number | null>(null);
+  const firstPathRef = useRef(true);
+  const activeTimerRef = useRef<number | null>(null);
+  const hideTimerRef = useRef<number | null>(null);
+
+  function clearTimers() {
+    if (activeTimerRef.current) {
+      window.clearTimeout(activeTimerRef.current);
+      activeTimerRef.current = null;
+    }
+
+    if (hideTimerRef.current) {
+      window.clearTimeout(hideTimerRef.current);
+      hideTimerRef.current = null;
+    }
+  }
+
+  function showLoader(durationMs: number) {
+    clearTimers();
+    setVisible(true);
+    setActive(true);
+
+    activeTimerRef.current = window.setTimeout(() => {
+      setActive(false);
+      hideTimerRef.current = window.setTimeout(() => {
+        setVisible(false);
+      }, LEAVE_DURATION_MS);
+    }, durationMs);
+  }
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setActive(false);
-      window.setTimeout(() => setVisible(false), 260);
-    }, INITIAL_DURATION_MS);
-
     mountedRef.current = true;
 
     return () => {
-      window.clearTimeout(timer);
-      if (transitionTimerRef.current) {
-        window.clearTimeout(transitionTimerRef.current);
-      }
+      clearTimers();
     };
   }, []);
 
   useEffect(() => {
     if (!mountedRef.current) return;
-
-    setVisible(true);
-    setActive(true);
-
-    if (transitionTimerRef.current) {
-      window.clearTimeout(transitionTimerRef.current);
+    if (firstPathRef.current) {
+      firstPathRef.current = false;
+      return;
     }
 
-    transitionTimerRef.current = window.setTimeout(() => {
-      setActive(false);
-      window.setTimeout(() => setVisible(false), 240);
-    }, 240);
+    showLoader(240);
   }, [pathname]);
 
   useEffect(() => {
     const handleStart = () => {
-      setVisible(true);
-      setActive(true);
-
-      if (transitionTimerRef.current) {
-        window.clearTimeout(transitionTimerRef.current);
-      }
-
-      transitionTimerRef.current = window.setTimeout(() => {
-        setActive(false);
-        window.setTimeout(() => setVisible(false), 240);
-      }, TRANSITION_DURATION_MS);
+      showLoader(TRANSITION_DURATION_MS);
     };
 
     window.addEventListener(FOURTEEN_LOADER_EVENT, handleStart);

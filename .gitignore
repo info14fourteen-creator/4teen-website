@@ -17,6 +17,8 @@
 /.next/
 /out/
 /.open-next/
+/.open-next-stale-*/
+/_hold-open-next-stale-*/
 /.wrangler/
 
 # production

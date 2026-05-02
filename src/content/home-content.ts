@@ -17,6 +17,7 @@ export type HomePageContent = {
     title: string;
     lead: string;
     body: string;
+    proofStrip: string[];
     actions: [InternalLink, InternalLink];
     points: string[];
     railEyebrow: string;
@@ -107,6 +108,11 @@ const homeContentEn: HomePageContent = {
       "4TEEN is a protocol-native entry layer on TRON. When you buy through the contract, the system mints your position, locks it for 14 days, and routes incoming TRX by visible rules.",
     body:
       "This is the right place to understand what you are entering before you open the buy flow: how direct entry differs from a swap, where liquidity goes, how ambassador rewards are accounted for, and what can be verified on-chain.",
+    proofStrip: [
+      "Direct contract entry",
+      "14-day fixed lock",
+      "Visible TRX routing",
+    ],
     actions: [
       { label: "Open direct buy", href: "/buy" },
       { label: "Read verification", href: "/verification" },

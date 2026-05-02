@@ -184,7 +184,6 @@ function initGlow(prefersReducedMotion: boolean) {
         ".ft-highlight",
         ".ft-home-surface-card",
         ".ft-home-verify-card__link",
-        ".ft-site-footer__social",
         ".ft-header-app-link",
         ".ft-locale-switcher__button",
         ".ft-locale-switcher__option",

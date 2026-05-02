@@ -1,11 +1,9 @@
-const taglines = [
-  "Early Entry. Higher Exit.",
-  "Winners Don't Wait.",
-  "Turn 14 Days Into Profit.",
-  "Move Early. Win Early.",
-];
+import { getChromeContent } from "@/content/chrome-content";
+import { defaultSiteLocale } from "@/lib/site-locale";
 
 export function RotatingTagline({ compact = false }: { compact?: boolean }) {
+  const taglines = getChromeContent(defaultSiteLocale).taglines;
+
   return (
     <span
       aria-label={taglines[0]}

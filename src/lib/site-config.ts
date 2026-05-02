@@ -1,7 +1,8 @@
-import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getNavContent } from "@/content/nav-content";
+import { defaultSiteLocale, type SupportedSiteLocale } from "@/lib/site-locale";
 
 export type SiteLocale = {
-  code: SupportedSiteLocale;
+  code: string;
   label: string;
   nativeLabel: string;
   flag: string;
@@ -13,6 +14,11 @@ export type SiteNavLink = {
   href: string;
   label: string;
   shortLabel?: string;
+};
+
+export type SiteNavGroup = {
+  label: string;
+  links: SiteNavLink[];
 };
 
 export const siteLocales: SiteLocale[] = [
@@ -40,37 +46,195 @@ export const siteLocales: SiteLocale[] = [
     href: "/",
     status: "next",
   },
+  {
+    code: "tr",
+    label: "Turkish",
+    nativeLabel: "Türkçe",
+    flag: "🇹🇷",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "de",
+    label: "German",
+    nativeLabel: "Deutsch",
+    flag: "🇩🇪",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "fr",
+    label: "French",
+    nativeLabel: "Français",
+    flag: "🇫🇷",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "es",
+    label: "Spanish",
+    nativeLabel: "Español",
+    flag: "🇪🇸",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "it",
+    label: "Italian",
+    nativeLabel: "Italiano",
+    flag: "🇮🇹",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "pt",
+    label: "Portuguese",
+    nativeLabel: "Português",
+    flag: "🇵🇹",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "nl",
+    label: "Dutch",
+    nativeLabel: "Nederlands",
+    flag: "🇳🇱",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "pl",
+    label: "Polish",
+    nativeLabel: "Polski",
+    flag: "🇵🇱",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "ar",
+    label: "Arabic",
+    nativeLabel: "العربية",
+    flag: "🇸🇦",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "hi",
+    label: "Hindi",
+    nativeLabel: "हिन्दी",
+    flag: "🇮🇳",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "ja",
+    label: "Japanese",
+    nativeLabel: "日本語",
+    flag: "🇯🇵",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "zh-CN",
+    label: "Chinese",
+    nativeLabel: "简体中文",
+    flag: "🇨🇳",
+    href: "/",
+    status: "next",
+  },
+  {
+    code: "ko",
+    label: "Korean",
+    nativeLabel: "한국어",
+    flag: "🇰🇷",
+    href: "/",
+    status: "next",
+  },
 ];
 
-export const coreNav: SiteNavLink[] = [
-  { href: "/", label: "Home" },
-  { href: "/buy", label: "Buy", shortLabel: "Buy" },
-  { href: "/unlock", label: "Unlock", shortLabel: "Unlock" },
-  { href: "/liquidity", label: "Liquidity", shortLabel: "Liquidity" },
-  { href: "/airdrop", label: "Airdrop", shortLabel: "Airdrop" },
-  { href: "/ambassadors", label: "Ambassadors", shortLabel: "Ambassadors" },
-];
+export function getCoreNav(locale: SupportedSiteLocale = defaultSiteLocale): SiteNavLink[] {
+  const copy = getNavContent(locale);
 
-export const docsNav: SiteNavLink[] = [
-  { href: "/whitepaper", label: "Whitepaper" },
-  { href: "/verification", label: "Verification" },
-  { href: "/blog", label: "Blog" },
-];
+  return [
+    { href: "/", label: copy.links.home, shortLabel: copy.shortLinks.home },
+    { href: "/buy", label: copy.links.buy, shortLabel: copy.shortLinks.buy },
+    { href: "/unlock", label: copy.links.unlock, shortLabel: copy.shortLinks.unlock },
+    { href: "/liquidity", label: copy.links.liquidity, shortLabel: copy.shortLinks.liquidity },
+    { href: "/swap", label: copy.links.swap, shortLabel: copy.shortLinks.swap },
+    { href: "/airdrop", label: copy.links.airdrop, shortLabel: copy.shortLinks.airdrop },
+    { href: "/ambassadors", label: copy.links.ambassadors, shortLabel: copy.shortLinks.earn },
+  ];
+}
 
-export const utilityNav: SiteNavLink[] = [
-  { href: "/swap", label: "Swap", shortLabel: "Swap" },
-  { href: "/app", label: "App Shell", shortLabel: "App" },
-];
+export function getDocsNav(locale: SupportedSiteLocale = defaultSiteLocale): SiteNavLink[] {
+  const copy = getNavContent(locale);
 
+  return [
+    { href: "/whitepaper", label: copy.links.whitepaper },
+    { href: "/verification", label: copy.links.verification },
+    { href: "/blog", label: copy.links.blog },
+  ];
+}
+
+export function getUtilityNav(locale: SupportedSiteLocale = defaultSiteLocale): SiteNavLink[] {
+  const copy = getNavContent(locale);
+
+  return [{ href: "/app", label: copy.links.mobileApp, shortLabel: copy.shortLinks.app }];
+}
+
+export function getHeaderNavGroups(locale: SupportedSiteLocale = defaultSiteLocale): SiteNavGroup[] {
+  const copy = getNavContent(locale);
+
+  return [
+    {
+      label: copy.groups.protocol,
+      links: [
+        { href: "/buy", label: copy.links.buy },
+        { href: "/unlock", label: copy.links.unlock },
+        { href: "/liquidity", label: copy.links.liquidity },
+        { href: "/swap", label: copy.links.swap },
+      ],
+    },
+    {
+      label: copy.groups.growth,
+      links: [
+        { href: "/airdrop", label: copy.links.airdrop },
+        { href: "/ambassadors", label: copy.links.ambassadors },
+      ],
+    },
+    {
+      label: copy.groups.proof,
+      links: [
+        { href: "/whitepaper", label: copy.links.whitepaper },
+        { href: "/verification", label: copy.links.verification },
+        { href: "/blog", label: copy.links.blog },
+      ],
+    },
+  ];
+}
+
+export function getAllSiteNav(locale: SupportedSiteLocale = defaultSiteLocale) {
+  return [...getCoreNav(locale), ...getDocsNav(locale), ...getUtilityNav(locale)] as const;
+}
+
+export function getMobileDockNav(locale: SupportedSiteLocale = defaultSiteLocale): SiteNavLink[] {
+  const copy = getNavContent(locale);
+
+  return [
+    { href: "/", label: copy.links.home, shortLabel: copy.shortLinks.home },
+    { href: "/buy", label: copy.links.buy, shortLabel: copy.shortLinks.buy },
+    { href: "/unlock", label: copy.links.unlock, shortLabel: copy.shortLinks.unlock },
+    { href: "/app", label: copy.links.mobileApp, shortLabel: copy.shortLinks.app },
+  ];
+}
+
+export const coreNav = getCoreNav();
+export const docsNav = getDocsNav();
+export const utilityNav = getUtilityNav();
+export const headerNavGroups = getHeaderNavGroups();
 export const desktopNav = [...coreNav, ...docsNav] as const;
-export const allSiteNav = [...coreNav, ...docsNav, ...utilityNav] as const;
-
-export const mobileDockNav: SiteNavLink[] = [
-  { href: "/", label: "Home", shortLabel: "Home" },
-  { href: "/buy", label: "Buy", shortLabel: "Buy" },
-  { href: "/unlock", label: "Unlock", shortLabel: "Unlock" },
-  { href: "/app", label: "App Shell", shortLabel: "App" },
-];
+export const allSiteNav = getAllSiteNav();
+export const mobileDockNav = getMobileDockNav();
 
 export const legacyRouteMap: Record<string, string> = {
   wp: "/whitepaper",

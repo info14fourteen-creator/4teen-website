@@ -1,20 +1,31 @@
-import Image from "next/image";
 import { LocaleSwitcher } from "@/components/site/locale-switcher";
+import { AnimatedBrandMark } from "@/components/site/animated-brand-mark";
 import { LoaderLink } from "@/components/site/loader-link";
-import { SiteLogo } from "@/components/site/site-logo";
+import { SocialLottieLink } from "@/components/site/social-lottie-link";
+import socialDiscordHover from "@/assets/lottie/social-discord-hover.json";
+import socialFacebookHover from "@/assets/lottie/social-facebook-hover.json";
+import socialGithubHover from "@/assets/lottie/social-github-hover.json";
+import socialInstagramHover from "@/assets/lottie/social-instagram-hover.json";
+import socialTelegramHover from "@/assets/lottie/social-telegram-hover.json";
+import socialThreadsHover from "@/assets/lottie/social-threads-hover.json";
+import socialTiktokHover from "@/assets/lottie/social-tiktok-hover.json";
+import socialWhatsappHover from "@/assets/lottie/social-whatsapp-hover.json";
+import socialXHover from "@/assets/lottie/social-x-hover.json";
+import socialYoutubeHover from "@/assets/lottie/social-youtube-hover.json";
+import { getChromeContent } from "@/content/chrome-content";
 import { defaultSiteLocale } from "@/lib/site-locale";
 
 const socialLinks = [
-  { label: "Telegram", href: "https://t.me/fourteentoken", icon: "/socials/telegram_social.svg" },
-  { label: "Discord", href: "https://discord.gg/jWZF6KzPCB", icon: "/socials/discord_social.svg" },
-  { label: "X", href: "https://x.com/4teen_me", icon: "/socials/x_social.svg" },
-  { label: "Facebook", href: "https://facebook.com/Fourteentoken", icon: "/socials/facebook_social.svg" },
-  { label: "Instagram", href: "https://instagram.com/fourteentoken", icon: "/socials/instagram_social.svg" },
-  { label: "Threads", href: "https://www.threads.com/@fourteentoken", icon: "/socials/threads_social.svg" },
-  { label: "TikTok", href: "https://www.tiktok.com/@4teentoken", icon: "/socials/tiktok_social.svg" },
-  { label: "YouTube", href: "https://www.youtube.com/@4teentoken", icon: "/socials/youtube_social.svg" },
-  { label: "WhatsApp", href: "https://wa.me/16462178070", icon: "/socials/whatsapp_social.svg" },
-  { label: "GitHub", href: "https://github.com/info14fourteen-creator", icon: "/socials/github_social.svg" },
+  { label: "Telegram", href: "https://t.me/fourteentoken", animationData: socialTelegramHover },
+  { label: "Discord", href: "https://discord.gg/jWZF6KzPCB", animationData: socialDiscordHover },
+  { label: "X", href: "https://x.com/4teen_me", animationData: socialXHover },
+  { label: "Facebook", href: "https://facebook.com/Fourteentoken", animationData: socialFacebookHover },
+  { label: "Instagram", href: "https://instagram.com/fourteentoken", animationData: socialInstagramHover },
+  { label: "Threads", href: "https://www.threads.com/@fourteentoken", animationData: socialThreadsHover },
+  { label: "TikTok", href: "https://www.tiktok.com/@4teentoken", animationData: socialTiktokHover },
+  { label: "YouTube", href: "https://www.youtube.com/@4teentoken", animationData: socialYoutubeHover },
+  { label: "WhatsApp", href: "https://wa.me/16462178070", animationData: socialWhatsappHover },
+  { label: "GitHub", href: "https://github.com/info14fourteen-creator", animationData: socialGithubHover },
 ];
 
 const footerColumns = [
@@ -38,76 +49,80 @@ const footerColumns = [
   },
 ];
 
+const footerMetaLinks = [
+  { href: "/privacy", key: "privacy" },
+  { href: "/terms", key: "terms" },
+  { href: "/support", key: "support" },
+] as const;
+
 export function SiteFooter() {
+  const chrome = getChromeContent(defaultSiteLocale);
   return (
     <footer className="ft-site-footer">
       <div className="ft-site-footer__glass">
+        <div aria-hidden="true" className="ft-site-footer__background-mark">
+          <AnimatedBrandMark autoplay />
+        </div>
+
         <div className="ft-site-footer__head">
-          <SiteLogo />
-          <LocaleSwitcher currentLocale={defaultSiteLocale} />
+          <LocaleSwitcher content={chrome.locale} currentLocale={defaultSiteLocale} footerCompact />
         </div>
 
         <div className="ft-container--wide ft-site-footer__grid">
-        <div className="ft-site-footer__brand">
-          <p className="ft-site-footer__text">
-            Protocol-native entry on TRON with visible lock timing, controller
-            logic, separated routing, ambassador accounting, and staged
-            ecosystem distribution.
-          </p>
+          <div className="ft-site-footer__brand">
+            <p className="ft-site-footer__text">{chrome.footer.brandText}</p>
 
-          <LoaderLink className="ft-site-footer__brand-link" href="/buy">
-            Enter through direct buy
-          </LoaderLink>
-        </div>
+            <LoaderLink className="ft-site-footer__brand-link" href="/app">
+              {chrome.footer.getApp}
+            </LoaderLink>
+          </div>
 
-        <div className="ft-site-footer__nav">
-          {footerColumns.map((column) => (
-            <div key={column.title} className="ft-site-footer__column">
-              <p className="ft-site-footer__column-title">{column.title}</p>
-              <div className="ft-site-footer__links">
-                {column.links.map((link) => (
-                  <LoaderLink
-                    key={link.href}
-                    className="ft-site-footer__link"
-                    href={link.href}
-                  >
-                    {link.label}
-                  </LoaderLink>
-                ))}
+          <div className="ft-site-footer__nav">
+            {footerColumns.map((column) => (
+              <div key={column.title} className="ft-site-footer__column">
+                <p className="ft-site-footer__column-title">
+                  {column.title === "Protocol" ? chrome.footer.protocol : chrome.footer.ecosystem}
+                </p>
+                <div className="ft-site-footer__links">
+                  {column.links.map((link) => (
+                    <LoaderLink
+                      key={link.href}
+                      className="ft-site-footer__link"
+                      href={link.href}
+                    >
+                      {link.label}
+                    </LoaderLink>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="ft-site-footer__socials">
-          <p className="ft-site-footer__column-title">Official Channels</p>
-          <div className="ft-site-footer__social-grid">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                className="ft-site-footer__social"
-                href={social.href}
-                rel="noreferrer"
-                target="_blank"
-              >
-                <span className="ft-site-footer__social-icon">
-                  <Image
-                    alt={social.label}
-                    height={28}
-                    src={social.icon}
-                    width={28}
-                  />
-                </span>
-                <span className="ft-site-footer__social-label">{social.label}</span>
-              </a>
             ))}
           </div>
+
+          <div className="ft-site-footer__socials">
+            <p className="ft-site-footer__column-title">{chrome.footer.officialChannels}</p>
+            <div className="ft-site-footer__social-grid">
+              {socialLinks.map((social) => (
+                <SocialLottieLink
+                  key={social.label}
+                  animationData={social.animationData}
+                  href={social.href}
+                  label={social.label}
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
 
         <div className="ft-container--wide ft-site-footer__bottom">
-          <span>© 2026 4TEEN. Structured on-chain entry on TRON.</span>
-          <span>Official website: 4teen.me</span>
+          <span>{chrome.footer.copyright}</span>
+          <div className="ft-site-footer__meta-links">
+            {footerMetaLinks.map((link) => (
+              <LoaderLink key={link.href} className="ft-site-footer__meta-link" href={link.href}>
+                {chrome.footer[link.key]}
+              </LoaderLink>
+            ))}
+          </div>
+          <span>{chrome.footer.officialWebsite}</span>
         </div>
       </div>
     </footer>
