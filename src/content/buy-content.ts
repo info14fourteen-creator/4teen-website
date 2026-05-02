@@ -96,6 +96,9 @@ export type BuyPageContent = {
       note: string;
       empty: string;
       unknownTime: string;
+      fallbackBody: string;
+      fallbackPrimaryCta: string;
+      fallbackSecondaryCta: string;
     };
     comparison: {
       eyebrow: string;
@@ -321,6 +324,10 @@ const buyContentEn: BuyPageContent = {
         "These rows come from the latest confirmed BuyTokens events on FourteenToken. They show real contract activity, not mock volume.",
       empty: "Latest direct-buy events are unavailable right now.",
       unknownTime: "Time unavailable",
+      fallbackBody:
+        "Recent direct buys are temporarily hidden on the public site while the route is being stabilized. The mobile app remains the primary execution surface, and public verification links stay available.",
+      fallbackPrimaryCta: "Open Mobile App Route",
+      fallbackSecondaryCta: "Open Token Contract",
     },
     comparison: {
       eyebrow: "Why Buy != Swap",

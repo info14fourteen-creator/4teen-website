@@ -1157,6 +1157,7 @@ a.is-active-anchor {
   right: 0;
   z-index: 120;
   display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   gap: 10px;
   max-height: min(72vh, 640px);
   overflow: hidden;
@@ -1204,7 +1205,11 @@ a.is-active-anchor {
 .ft-site-search-modal__results {
   display: grid;
   gap: 8px;
+  max-height: 100%;
+  overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding-right: 4px;
   min-height: 0;
 }

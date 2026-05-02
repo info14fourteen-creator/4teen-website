@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 
-import { BuyDirectPriceStat } from "@/components/site/buy-direct-price-stat";
-import { BuyLatestEvents } from "@/components/site/buy-latest-events";
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
 import { FourteenTopbar } from "@/components/site/topbar";
@@ -46,15 +44,11 @@ export default async function BuyPage() {
               </div>
 
               <div className="ft-grid ft-grid--4 ft-buy-page__hero-stats">
-                <BuyDirectPriceStat
-                  content={{
-                    label: content.hero.stats.directPrice,
-                    directPriceMeta: content.hero.stats.directPriceMeta,
-                    fallback: content.hero.stats.priceFallback,
-                    unavailable: content.hero.stats.priceUnavailable,
-                  }}
-                  locale={locale}
-                />
+                <article className="ft-price-card">
+                  <p className="ft-price-label">{content.hero.stats.directPrice}</p>
+                  <p className="ft-price-main">{content.hero.stats.priceFallback} TRX</p>
+                  <p className="ft-price-sub">{content.hero.stats.directPriceMeta}</p>
+                </article>
                 <article className="ft-price-card">
                   <p className="ft-price-label">{content.hero.stats.lockRule}</p>
                   <p className="ft-price-main">{content.hero.stats.lockRuleValue}</p>
@@ -102,10 +96,23 @@ export default async function BuyPage() {
                 <p className="ft-overline">{content.sections.latestPurchases.eyebrow}</p>
                 <h2 className="ft-subtitle">{content.sections.latestPurchases.title}</h2>
               </div>
-              <BuyLatestEvents
-                content={content.sections.latestPurchases}
-                locale={locale}
-              />
+              <p className="ft-text">
+                {content.sections.latestPurchases.fallbackBody}
+              </p>
+              <div className="ft-actions ft-actions--stack-mobile">
+                <LoaderLink className="ft-btn ft-btn--primary" href="/app">
+                  {content.sections.latestPurchases.fallbackPrimaryCta}
+                </LoaderLink>
+                <a
+                  className="ft-btn ft-btn--secondary"
+                  href={FOURTEEN_TOKEN_SCAN_URL}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {content.sections.latestPurchases.fallbackSecondaryCta}
+                </a>
+              </div>
+              <p className="ft-note">{content.sections.latestPurchases.note}</p>
             </div>
           </article>
 

@@ -185,13 +185,14 @@ function isCurrentRoute(currentPath: string, href: string) {
 }
 
 export function searchSiteEntries(query: string, currentPath?: string) {
+  const resultLimit = 14;
   const siteSearchEntries = getSiteSearchEntries();
   const normalized = normalize(query);
   if (!normalized) {
     const entries = siteSearchEntries.slice();
 
     if (!currentPath) {
-      return entries.slice(0, 8);
+      return entries.slice(0, resultLimit);
     }
 
     const activeIndex = entries.findIndex(
@@ -203,7 +204,7 @@ export function searchSiteEntries(query: string, currentPath?: string) {
       entries.unshift(activeEntry);
     }
 
-    return entries.slice(0, 8);
+    return entries.slice(0, resultLimit);
   }
 
   const tokens = normalized.split(/\s+/).filter(Boolean);
@@ -227,6 +228,6 @@ export function searchSiteEntries(query: string, currentPath?: string) {
     })
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score || a.entry.title.localeCompare(b.entry.title))
-    .slice(0, 8)
+    .slice(0, resultLimit)
     .map((item) => item.entry);
 }
