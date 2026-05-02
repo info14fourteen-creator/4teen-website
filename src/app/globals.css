@@ -1151,35 +1151,25 @@ a.is-active-anchor {
 }
 
 .ft-site-search-modal {
-  position: fixed;
-  inset: 0;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
   z-index: 120;
   display: grid;
-  place-items: center;
-  padding: 28px;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.82)),
-    radial-gradient(circle at 74% 16%, rgba(255, 105, 0, 0.1), transparent 24%);
-  backdrop-filter: blur(8px);
-}
-
-.ft-site-search-modal__dialog {
-  position: relative;
-  display: grid;
   gap: 18px;
-  width: min(720px, calc(100vw - 40px));
-  max-height: min(72vh, 760px);
+  max-height: min(72vh, 640px);
   overflow: hidden;
-  padding: 22px;
+  padding: 18px;
   border: 1px solid rgba(77, 77, 77, 0.4);
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(26, 26, 26, 0.98)),
     radial-gradient(circle at top right, rgba(255, 105, 0, 0.08), transparent 26%),
     rgba(26, 26, 26, 0.99);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.44);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.44);
 }
 
-.ft-site-search-modal__dialog::before {
+.ft-site-search-modal::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1202,7 +1192,7 @@ a.is-active-anchor {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
 }
 
 .ft-site-search-modal__titlewrap {
@@ -1254,7 +1244,7 @@ a.is-active-anchor {
   align-items: center;
   justify-content: space-between;
   gap: 10px 16px;
-  padding: 12px 0 0;
+  padding: 10px 0 0;
   border-top: 1px solid rgba(77, 77, 77, 0.34);
   color: rgba(242, 242, 242, 0.56);
   font-size: 12px;

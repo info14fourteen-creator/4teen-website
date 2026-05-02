@@ -38,7 +38,7 @@ export function SiteSearch({
   const rootRef = useRef<HTMLFormElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [query, setQuery] = useState("");
-  const [modalOpen, setModalOpen] = useState(false);
+  const [panelOpen, setPanelOpen] = useState(false);
   const [placeholder, setPlaceholder] = useState(content.prompts[0]);
   const deferredQuery = useDeferredValue(query);
 
@@ -110,12 +110,12 @@ export function SiteSearch({
         if (!isEditable) {
           event.preventDefault();
           inputRef.current?.focus();
-          setModalOpen(true);
+          setPanelOpen(true);
         }
       }
 
       if (event.key === "Escape") {
-        setModalOpen(false);
+        setPanelOpen(false);
       }
     }
 
@@ -127,20 +127,23 @@ export function SiteSearch({
   }, []);
 
   useEffect(() => {
-    if (!modalOpen) {
-      return undefined;
+    if (!panelOpen) return;
+
+    function handlePointerDown(event: PointerEvent) {
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      if (rootRef.current?.contains(target)) return;
+      setPanelOpen(false);
     }
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
+    document.addEventListener("pointerdown", handlePointerDown, true);
     return () => {
-      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("pointerdown", handlePointerDown, true);
     };
-  }, [modalOpen]);
+  }, [panelOpen]);
 
   function openEntry(href: string, kind: "internal" | "external") {
-    setModalOpen(false);
+    setPanelOpen(false);
 
     if (kind === "external") {
       window.open(href, "_blank", "noopener,noreferrer");
@@ -156,8 +159,8 @@ export function SiteSearch({
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (!modalOpen) {
-      setModalOpen(true);
+    if (!panelOpen) {
+      setPanelOpen(true);
       return;
     }
 
@@ -170,7 +173,7 @@ export function SiteSearch({
   return (
     <form
       ref={rootRef}
-      className={`ft-site-search ${modalOpen ? "is-open" : ""}`}
+      className={`ft-site-search ${panelOpen ? "is-open" : ""}`}
       onSubmit={handleSubmit}
       role="search"
     >
@@ -190,7 +193,7 @@ export function SiteSearch({
           setQuery(event.target.value);
         }}
         onFocus={() => {
-          setModalOpen(true);
+          setPanelOpen(true);
         }}
         placeholder={placeholder}
         type="search"
@@ -209,86 +212,75 @@ export function SiteSearch({
         />
       </button>
 
-      {modalOpen ? (
+      {panelOpen ? (
         <div
-          aria-hidden="true"
+          aria-label={content.dialogAria}
           className="ft-site-search-modal"
-          onClick={(event) => {
-            if (event.target === event.currentTarget) {
-              setModalOpen(false);
-            }
-          }}
+          role="dialog"
         >
-          <div
-            aria-label={content.dialogAria}
-            aria-modal="true"
-            className="ft-site-search-modal__dialog"
-            role="dialog"
-          >
-            <div className="ft-site-search-modal__head">
-              <div className="ft-site-search-modal__titlewrap">
-                <p className="ft-site-search-modal__eyebrow">{content.eyebrow}</p>
-                <h3 className="ft-site-search-modal__title">{content.title}</h3>
+          <div className="ft-site-search-modal__head">
+            <div className="ft-site-search-modal__titlewrap">
+              <p className="ft-site-search-modal__eyebrow">{content.eyebrow}</p>
+              <h3 className="ft-site-search-modal__title">{content.title}</h3>
+            </div>
+
+            <button
+              aria-label={content.closeAria}
+              className="ft-site-search-modal__close"
+              onClick={() => setPanelOpen(false)}
+              type="button"
+            >
+              ×
+            </button>
+          </div>
+
+          <div className="ft-site-search-modal__summary">
+            <span>
+              {results.length
+                ? `${results.length} ${content.resultsSuffix}`
+                : content.noResultsYet}
+            </span>
+            <span>{content.pressEnter}</span>
+          </div>
+
+          <div className="ft-site-search-modal__results">
+            {results.length ? (
+              results.map((entry, index) =>
+                entry.kind === "internal" ? (
+                  <LoaderLink
+                    key={`${entry.kind}:${entry.href}`}
+                    className={`ft-site-search__result ${index === 0 ? "is-primary" : ""}`}
+                    href={entry.href}
+                    onClick={() => {
+                      setPanelOpen(false);
+                    }}
+                  >
+                    <span className="ft-site-search__result-kicker">
+                      {index === 0 ? content.topMatch : entry.kind === "internal" ? content.route : content.external}
+                    </span>
+                    <span className="ft-site-search__result-title">{entry.title}</span>
+                    <span className="ft-site-search__result-meta">{entry.meta}</span>
+                  </LoaderLink>
+                ) : (
+                  <button
+                    key={`${entry.kind}:${entry.href}`}
+                    className={`ft-site-search__result ${index === 0 ? "is-primary" : ""}`}
+                    onClick={() => openEntry(entry.href, entry.kind)}
+                    type="button"
+                  >
+                    <span className="ft-site-search__result-kicker">
+                      {index === 0 ? content.topMatch : content.external}
+                    </span>
+                    <span className="ft-site-search__result-title">{entry.title}</span>
+                    <span className="ft-site-search__result-meta">{entry.meta}</span>
+                  </button>
+                ),
+              )
+            ) : (
+              <div className="ft-site-search__empty">
+                {content.empty}
               </div>
-
-              <button
-                aria-label={content.closeAria}
-                className="ft-site-search-modal__close"
-                onClick={() => setModalOpen(false)}
-                type="button"
-              >
-                ×
-              </button>
-            </div>
-
-            <div className="ft-site-search-modal__summary">
-              <span>
-                {results.length
-                  ? `${results.length} ${content.resultsSuffix}`
-                  : content.noResultsYet}
-              </span>
-              <span>{content.pressEnter}</span>
-            </div>
-
-            <div className="ft-site-search-modal__results">
-              {results.length ? (
-                results.map((entry, index) =>
-                  entry.kind === "internal" ? (
-                    <LoaderLink
-                      key={`${entry.kind}:${entry.href}`}
-                      className={`ft-site-search__result ${index === 0 ? "is-primary" : ""}`}
-                      href={entry.href}
-                      onClick={() => {
-                        setModalOpen(false);
-                      }}
-                    >
-                      <span className="ft-site-search__result-kicker">
-                        {index === 0 ? content.topMatch : entry.kind === "internal" ? content.route : content.external}
-                      </span>
-                      <span className="ft-site-search__result-title">{entry.title}</span>
-                      <span className="ft-site-search__result-meta">{entry.meta}</span>
-                    </LoaderLink>
-                  ) : (
-                    <button
-                      key={`${entry.kind}:${entry.href}`}
-                      className={`ft-site-search__result ${index === 0 ? "is-primary" : ""}`}
-                      onClick={() => openEntry(entry.href, entry.kind)}
-                      type="button"
-                    >
-                      <span className="ft-site-search__result-kicker">
-                        {index === 0 ? content.topMatch : content.external}
-                      </span>
-                      <span className="ft-site-search__result-title">{entry.title}</span>
-                      <span className="ft-site-search__result-meta">{entry.meta}</span>
-                    </button>
-                  ),
-                )
-              ) : (
-                <div className="ft-site-search__empty">
-                  {content.empty}
-                </div>
-              )}
-            </div>
+            )}
           </div>
         </div>
       ) : null}
