@@ -240,16 +240,24 @@ async function writeChanges(changes) {
 function collectChangedFiles() {
   return run('git', ['status', '--short'])
     .split('\n')
+    .map((line) => line.replace(/^\s*[A-Z?]{1,2}\s+/, ''))
     .map((line) => line.trim())
     .filter(Boolean)
-    .map((line) => line.slice(3).trim())
     .filter(Boolean);
 }
 
-function runVerification() {
-  run('pnpm', ['lint']);
-  run('pnpm', ['build']);
-  return ['website-lint', 'website-build'];
+function runVerification(changedFiles) {
+  const codeFiles = changedFiles.filter((item) => /\.(?:[cm]?[jt]sx?)$/i.test(item));
+  const verification = [];
+
+  if (codeFiles.length) {
+    run('pnpm', ['exec', 'eslint', ...codeFiles]);
+    verification.push('website-eslint(targeted)');
+    run('pnpm', ['build']);
+    verification.push('website-build');
+  }
+
+  return verification;
 }
 
 function gitCommitAndPush(branchName, commitMessage) {
@@ -364,7 +372,7 @@ async function processApply(request) {
 
   await writeChanges(changes);
   const changedFiles = collectChangedFiles();
-  const verification = runVerification();
+  const verification = runVerification(changedFiles);
   const gitResult = gitCommitAndPush(branchName, normalizeValue(plan?.commitMessage) || `ops: apply task #${request.task_id}`);
 
   return {
