@@ -189,6 +189,9 @@ export function SiteSearch({
         onChange={(event) => {
           setQuery(event.target.value);
         }}
+        onFocus={() => {
+          setModalOpen(true);
+        }}
         placeholder={placeholder}
         type="search"
         value={query}
