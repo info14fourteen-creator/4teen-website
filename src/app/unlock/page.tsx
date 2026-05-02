@@ -20,8 +20,6 @@ const metadataContent = getUnlockPageContent(defaultSiteLocale);
 
 export const metadata: Metadata = metadataContent.metadata;
 
-export const revalidate = 120;
-
 export default async function UnlockPage() {
   const locale = defaultSiteLocale;
   const content = getUnlockPageContent(locale);

@@ -20,8 +20,6 @@ const metadataContent = getLiquidityPageContent(defaultSiteLocale);
 
 export const metadata: Metadata = metadataContent.metadata;
 
-export const revalidate = 120;
-
 export default async function LiquidityPage() {
   const locale = defaultSiteLocale;
   const content = getLiquidityPageContent(locale);

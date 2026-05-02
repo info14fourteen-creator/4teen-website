@@ -5,24 +5,19 @@ import { LoaderLink } from "@/components/site/loader-link";
 import { FourteenTopbar } from "@/components/site/topbar";
 import { officialWalletRepoUrl } from "@/content/official-links";
 import { getSwapPageContent } from "@/content/swap-content";
+import { getDeferredLiveSnapshot } from "@/lib/deferred-live-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
 import { formatUtcDate } from "@/lib/site-intl";
-import { getLiveSwapSnapshot, swapVerificationLinks } from "@/lib/swap-live";
+import { type SwapSnapshot, swapVerificationLinks } from "@/lib/swap-live";
 
 const metadataContent = getSwapPageContent(defaultSiteLocale);
 
 export const metadata: Metadata = metadataContent.metadata;
 
-export const revalidate = 120;
-
 export default async function SwapPage() {
   const locale = defaultSiteLocale;
   const content = getSwapPageContent(locale);
-  let snapshot: Awaited<ReturnType<typeof getLiveSwapSnapshot>> | null = null;
-
-  try {
-    snapshot = await getLiveSwapSnapshot();
-  } catch {}
+  const snapshot = getDeferredLiveSnapshot<SwapSnapshot>();
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-swap-page">

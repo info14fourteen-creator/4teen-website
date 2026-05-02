@@ -14,7 +14,6 @@ const metadataContent = getBuyPageContent(defaultSiteLocale);
 
 export const metadata: Metadata = metadataContent.metadata;
 
-export const revalidate = 120;
 const FOURTEEN_TOKEN_SCAN_URL =
   "https://tronscan.org/#/token20/TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A";
 const FOURTEEN_CONTROLLER_SCAN_URL =
@@ -116,49 +115,6 @@ export default async function BuyPage() {
             </div>
           </article>
 
-          <div className="ft-grid ft-grid--2-even ft-buy-page__section-grid">
-            <article className="ft-card ft-buy-page__panel">
-              <div className="ft-stack ft-stack--md ft-buy-page__panel-stack">
-                <div className="ft-stack ft-stack--xs">
-                  <p className="ft-overline">{content.sections.priceLogic.eyebrow}</p>
-                  <h2 className="ft-subtitle">{content.sections.priceLogic.title}</h2>
-                </div>
-
-                <div className="ft-grid ft-grid--2-even ft-buy-page__detail-grid">
-                  {content.sections.priceLogic.cards.map((card) => (
-                    <article
-                      key={card.title}
-                      className="ft-card ft-card--plain ft-buy-page__detail-card"
-                    >
-                      <p className="ft-card-title-top">{card.eyebrow}</p>
-                      <h3 className="ft-card-title">{card.title}</h3>
-                      <p className="ft-text">{card.text}</p>
-                    </article>
-                  ))}
-                </div>
-
-                <p className="ft-note">{content.sections.priceLogic.note}</p>
-              </div>
-            </article>
-
-            <article className="ft-card ft-buy-page__panel">
-              <div className="ft-stack ft-stack--md ft-buy-page__panel-stack">
-                <div className="ft-stack ft-stack--xs">
-                  <p className="ft-overline">{content.sections.lockLayer.eyebrow}</p>
-                  <h2 className="ft-subtitle">{content.sections.lockLayer.title}</h2>
-                </div>
-
-                <ul className="ft-list">
-                  {content.sections.lockLayer.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-
-                <p className="ft-note">{content.sections.lockLayer.note}</p>
-              </div>
-            </article>
-          </div>
-
           <article className="ft-card ft-buy-page__panel">
             <div className="ft-stack ft-stack--md ft-buy-page__panel-stack">
               <div className="ft-stack ft-stack--xs">
@@ -206,78 +162,6 @@ export default async function BuyPage() {
           </article>
 
           <div className="ft-grid ft-grid--2-even ft-buy-page__section-grid">
-            <article className="ft-card ft-buy-page__panel">
-              <div className="ft-stack ft-stack--md ft-buy-page__panel-stack">
-                <div className="ft-stack ft-stack--xs">
-                  <p className="ft-overline">{content.sections.walletFlow.eyebrow}</p>
-                  <h2 className="ft-subtitle">{content.sections.walletFlow.title}</h2>
-                </div>
-
-                <div className="ft-grid ft-grid--2-even ft-buy-page__flow-grid">
-                  {content.sections.walletFlow.steps.map((step) => (
-                    <article
-                      key={step.title}
-                      className="ft-card ft-card--plain ft-buy-page__detail-card"
-                    >
-                      <p className="ft-card-title-top">{step.eyebrow}</p>
-                      <h3 className="ft-card-title">{step.title}</h3>
-                      <p className="ft-text">{step.text}</p>
-                    </article>
-                  ))}
-                </div>
-
-                <p className="ft-note">{content.sections.walletFlow.note}</p>
-              </div>
-            </article>
-
-            <article className="ft-card ft-buy-page__panel">
-              <div className="ft-stack ft-stack--md ft-buy-page__panel-stack">
-                <div className="ft-stack ft-stack--xs">
-                  <p className="ft-overline">{content.sections.resourceLayer.eyebrow}</p>
-                  <h2 className="ft-subtitle">{content.sections.resourceLayer.title}</h2>
-                </div>
-
-                <div className="ft-grid ft-buy-page__resource-grid">
-                  {content.sections.resourceLayer.cards.map((card) => (
-                    <article
-                      key={card.title}
-                      className="ft-card ft-card--plain ft-buy-page__detail-card"
-                    >
-                      <p className="ft-card-title-top">{card.eyebrow}</p>
-                      <h3 className="ft-card-title">{card.title}</h3>
-                      <p className="ft-text">{card.text}</p>
-                    </article>
-                  ))}
-                </div>
-
-                <p className="ft-note">{content.sections.resourceLayer.note}</p>
-              </div>
-            </article>
-          </div>
-
-          <div className="ft-grid ft-grid--2-even ft-buy-page__section-grid">
-            <article className="ft-card ft-buy-page__panel">
-              <div className="ft-stack ft-stack--md ft-buy-page__panel-stack">
-                <div className="ft-stack ft-stack--xs">
-                  <p className="ft-overline">{content.sections.afterPurchase.eyebrow}</p>
-                  <h2 className="ft-subtitle">{content.sections.afterPurchase.title}</h2>
-                </div>
-
-                <div className="ft-grid ft-grid--3 ft-buy-page__after-grid">
-                  {content.sections.afterPurchase.steps.map((step) => (
-                    <article
-                      key={step.title}
-                      className="ft-card ft-card--plain ft-buy-page__detail-card"
-                    >
-                      <p className="ft-card-title-top">{step.eyebrow}</p>
-                      <h3 className="ft-card-title">{step.title}</h3>
-                      <p className="ft-text">{step.text}</p>
-                    </article>
-                  ))}
-                </div>
-              </div>
-            </article>
-
             <article className="ft-card ft-buy-page__panel">
               <div className="ft-stack ft-stack--md ft-buy-page__panel-stack">
                 <div className="ft-stack ft-stack--xs">

@@ -20,8 +20,6 @@ const metadataContent = getVerificationPageContent(defaultSiteLocale);
 
 export const metadata: Metadata = metadataContent.metadata;
 
-export const revalidate = 120;
-
 export default async function VerificationPage() {
   const locale = defaultSiteLocale;
   const content = getVerificationPageContent(locale);

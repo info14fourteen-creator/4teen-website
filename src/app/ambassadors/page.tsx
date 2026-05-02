@@ -12,8 +12,6 @@ export const metadata: Metadata = {
     "Live FourteenController ambassador snapshot with totals for ambassadors, bound buyers, verified purchases, claimed rewards, reserved rewards, and public cabinet readiness.",
 };
 
-export const revalidate = 120;
-
 const FOURTEEN_CONTROLLER_SCAN_URL =
   "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ";
 

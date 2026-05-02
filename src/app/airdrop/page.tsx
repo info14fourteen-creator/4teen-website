@@ -13,8 +13,6 @@ const metadataContent = getAirdropPageContent(defaultSiteLocale);
 
 export const metadata: Metadata = metadataContent.metadata;
 
-export const revalidate = 120;
-
 const AIRDROP_VAULT_SCAN_URL =
   "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ";
 
