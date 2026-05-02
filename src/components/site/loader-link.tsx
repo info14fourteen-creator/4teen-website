@@ -25,10 +25,6 @@ export function triggerFourteenLoader() {
   window.dispatchEvent(new CustomEvent(FOURTEEN_LOADER_EVENT));
 }
 
-function isHardNavigationHref(href: LinkProps["href"]) {
-  return typeof href === "string" && href.startsWith("/");
-}
-
 export function navigateHard(href: string) {
   if (typeof window === "undefined") return;
   window.location.assign(href);
@@ -60,18 +56,6 @@ export function LoaderLink({
         }
 
         triggerFourteenLoader();
-
-        if (
-          !event.defaultPrevented &&
-          typeof href === "string" &&
-          isHardNavigationHref(href)
-        ) {
-          const nextHref = href;
-          event.preventDefault();
-          window.setTimeout(() => {
-            navigateHard(nextHref);
-          }, 24);
-        }
       }}
       target={target}
     >
