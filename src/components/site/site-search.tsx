@@ -192,7 +192,13 @@ export function SiteSearch({
         onChange={(event) => {
           setQuery(event.target.value);
         }}
+        onClick={() => {
+          setPanelOpen(true);
+        }}
         onFocus={() => {
+          setPanelOpen(true);
+        }}
+        onPointerDown={() => {
           setPanelOpen(true);
         }}
         placeholder={placeholder}
@@ -203,6 +209,9 @@ export function SiteSearch({
       <button
         aria-label={content.actionAria}
         className="ft-site-search__action"
+        onClick={() => {
+          setPanelOpen(true);
+        }}
         type="submit"
       >
         <AnimatedLottieIcon
