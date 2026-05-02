@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import { AnimatedBrandMark } from "@/components/site/animated-brand-mark";
 import { AnimatedLottieIcon } from "@/components/site/animated-lottie-icon";
 import { HeaderMarketPrice } from "@/components/site/header-market-price";
@@ -72,6 +72,15 @@ export function FourteenMobileShell({
     setLocaleOpen(false);
   }
 
+  function handleMenuLinkClick(href: string) {
+    return (event: MouseEvent<HTMLAnchorElement>) => {
+      if (isActivePath(pathname, href)) {
+        event.preventDefault();
+        closeAllPanels();
+      }
+    };
+  }
+
   useEffect(() => {
     closeAllPanels();
   }, [pathname]);
@@ -135,7 +144,7 @@ export function FourteenMobileShell({
                     key={link.href}
                     className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
                     href={link.href}
-                    onClick={closeAllPanels}
+                    onClick={handleMenuLinkClick(link.href)}
                   >
                     <span>{link.label}</span>
                     <AnimatedLottieIcon
@@ -170,7 +179,7 @@ export function FourteenMobileShell({
                     key={link.href}
                     className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
                     href={link.href}
-                    onClick={closeAllPanels}
+                    onClick={handleMenuLinkClick(link.href)}
                   >
                     <span>{link.label}</span>
                     <AnimatedLottieIcon
@@ -195,7 +204,7 @@ export function FourteenMobileShell({
                     key={link.href}
                     className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
                     href={link.href}
-                    onClick={closeAllPanels}
+                    onClick={handleMenuLinkClick(link.href)}
                   >
                     <span>{link.label}</span>
                     <AnimatedLottieIcon
