@@ -13,6 +13,9 @@ const routes = [
   "/ambassadors",
   "/verification",
   "/whitepaper",
+  "/whitepaper/v1-2",
+  "/whitepaper/v1-1",
+  "/whitepaper/v1-0",
   "/blog",
   "/swap",
 ] as const;

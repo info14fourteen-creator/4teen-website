@@ -4673,7 +4673,8 @@ a.is-active-anchor {
 .ft-verification-page__proof-grid,
 .ft-whitepaper-page__summary-grid,
 .ft-whitepaper-page__archive-grid,
-.ft-whitepaper-page__cards-grid {
+.ft-whitepaper-page__cards-grid,
+.ft-whitepaper-page__switcher-grid {
   align-items: stretch;
   gap: clamp(16px, 2vw, 22px);
 }
@@ -4859,13 +4860,16 @@ a.is-active-anchor {
 .ft-whitepaper-page__links-panel,
 .ft-whitepaper-page__toc-panel,
 .ft-whitepaper-page__section-card,
-.ft-whitepaper-page__version-hero {
+.ft-whitepaper-page__version-hero,
+.ft-whitepaper-page__switcher-panel,
+.ft-whitepaper-page__document-card {
   border-color: rgba(255, 120, 24, 0.16);
 }
 
 .ft-whitepaper-page__summary-card,
 .ft-whitepaper-page__detail-card,
-.ft-whitepaper-page__archive-card {
+.ft-whitepaper-page__archive-card,
+.ft-whitepaper-page__switcher-card {
   min-height: 100%;
 }
 
@@ -4880,6 +4884,22 @@ a.is-active-anchor {
 .ft-whitepaper-page__archive-card:hover,
 .ft-whitepaper-page__archive-card:focus-visible {
   border-color: rgba(255, 120, 24, 0.3);
+  transform: translateY(-1px);
+}
+
+.ft-whitepaper-page__switcher-card {
+  text-decoration: none;
+  transition:
+    transform 140ms ease,
+    border-color 140ms ease,
+    background-color 140ms ease;
+}
+
+.ft-whitepaper-page__switcher-card:hover,
+.ft-whitepaper-page__switcher-card:focus-visible,
+.ft-whitepaper-page__switcher-card.is-active {
+  border-color: rgba(255, 120, 24, 0.34);
+  background: linear-gradient(180deg, rgba(255, 120, 24, 0.08), rgba(255, 120, 24, 0.02));
   transform: translateY(-1px);
 }
 
@@ -4899,6 +4919,16 @@ a.is-active-anchor {
 
 .ft-whitepaper-page__section-card {
   scroll-margin-top: 104px;
+}
+
+.ft-whitepaper-page__document-pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  font: inherit;
+  line-height: 1.72;
+  color: rgba(244, 238, 228, 0.92);
 }
 
 .ft-public-page__links-panel .ft-links {
