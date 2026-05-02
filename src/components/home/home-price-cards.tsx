@@ -45,8 +45,8 @@ export function HomePriceCards({
 
     async function readPrices() {
       try {
-        const response = await fetch("/api/site/market-price?refresh=1", {
-          cache: "no-store",
+        const response = await fetch("/api/site/market-price", {
+          cache: "force-cache",
         });
 
         if (!response.ok) {

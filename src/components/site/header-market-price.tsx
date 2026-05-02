@@ -43,8 +43,8 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
 
     async function readViaSnapshotProxy() {
       try {
-        const response = await fetch("/api/site/market-price?refresh=1", {
-          cache: "no-store",
+        const response = await fetch("/api/site/market-price", {
+          cache: "force-cache",
         });
         const json = (await response.json()) as MarketPricePayload;
         const snapshot = json.snapshot;
@@ -60,7 +60,7 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
         setHasError(false);
       } catch {
         if (!active) return;
-        setHasError(true);
+        setHasError((current) => !payload ? true : current);
       }
     }
 

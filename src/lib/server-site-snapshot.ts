@@ -20,13 +20,18 @@ type SiteSnapshotEnvelope<T> = {
 
 export async function getServerSiteSnapshot<T>(
   snapshotKey: SiteSnapshotKey,
+  options?: {
+    refresh?: boolean;
+  },
 ): Promise<T | null> {
   const url = new URL(`/site/${snapshotKey}`, SITE_PUBLIC_DATA_BASE_URL);
-  url.searchParams.set("refresh", "1");
+  if (options?.refresh) {
+    url.searchParams.set("refresh", "1");
+  }
 
   try {
     const response = await fetch(url.toString(), {
-      cache: "no-store",
+      cache: options?.refresh ? "no-store" : "force-cache",
       headers: {
         Accept: "application/json",
       },

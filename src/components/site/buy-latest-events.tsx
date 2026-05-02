@@ -37,8 +37,8 @@ export function BuyLatestEvents({
   useEffect(() => {
     let cancelled = false;
 
-    fetch("/api/site/buy-latest?refresh=1", {
-      cache: "no-store",
+    fetch("/api/site/buy-latest", {
+      cache: "force-cache",
     })
       .then((response) => {
         if (!response.ok) {

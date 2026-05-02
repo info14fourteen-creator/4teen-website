@@ -37,7 +37,7 @@ export function BuyDirectPriceStat({
   useEffect(() => {
     let cancelled = false;
 
-    fetch("/api/site/market-price?refresh=1", { cache: "no-store" })
+    fetch("/api/site/market-price", { cache: "force-cache" })
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}`);
