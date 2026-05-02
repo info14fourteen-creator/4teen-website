@@ -1157,10 +1157,10 @@ a.is-active-anchor {
   right: 0;
   z-index: 120;
   display: grid;
-  gap: 18px;
+  gap: 10px;
   max-height: min(72vh, 640px);
   overflow: hidden;
-  padding: 18px;
+  padding: 14px;
   border: 1px solid rgba(77, 77, 77, 0.4);
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.98), rgba(26, 26, 26, 0.98)),
@@ -1181,61 +1181,10 @@ a.is-active-anchor {
   pointer-events: none;
 }
 
-.ft-site-search-modal__head,
 .ft-site-search-modal__summary,
 .ft-site-search-modal__results {
   position: relative;
   z-index: 1;
-}
-
-.ft-site-search-modal__head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.ft-site-search-modal__titlewrap {
-  display: grid;
-  gap: 6px;
-}
-
-.ft-site-search-modal__eyebrow {
-  margin: 0;
-  color: rgb(255, 105, 0);
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.ft-site-search-modal__title {
-  margin: 0;
-  color: rgb(255, 255, 255);
-  font-size: clamp(24px, 2vw, 32px);
-  line-height: 1.04;
-  letter-spacing: -0.04em;
-  text-wrap: balance;
-}
-
-.ft-site-search-modal__close {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 1px solid rgba(77, 77, 77, 0.4);
-  border-radius: 12px;
-  background: rgba(26, 26, 26, 0.92);
-  color: rgb(242, 242, 242);
-  font-size: 24px;
-  line-height: 1;
-}
-
-.ft-site-search-modal__close:hover {
-  border-color: rgba(255, 105, 0, 0.3);
-  background: rgba(255, 105, 0, 0.08);
 }
 
 .ft-site-search-modal__summary {
@@ -1243,11 +1192,10 @@ a.is-active-anchor {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 10px 16px;
-  padding: 10px 0 0;
-  border-top: 1px solid rgba(77, 77, 77, 0.34);
+  gap: 8px 14px;
+  padding: 0 0 2px;
   color: rgba(242, 242, 242, 0.56);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1255,9 +1203,10 @@ a.is-active-anchor {
 
 .ft-site-search-modal__results {
   display: grid;
-  gap: 10px;
+  gap: 8px;
   overflow-y: auto;
   padding-right: 4px;
+  min-height: 0;
 }
 
 .ft-site-search__result {

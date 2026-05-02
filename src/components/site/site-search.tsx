@@ -218,22 +218,6 @@ export function SiteSearch({
           className="ft-site-search-modal"
           role="dialog"
         >
-          <div className="ft-site-search-modal__head">
-            <div className="ft-site-search-modal__titlewrap">
-              <p className="ft-site-search-modal__eyebrow">{content.eyebrow}</p>
-              <h3 className="ft-site-search-modal__title">{content.title}</h3>
-            </div>
-
-            <button
-              aria-label={content.closeAria}
-              className="ft-site-search-modal__close"
-              onClick={() => setPanelOpen(false)}
-              type="button"
-            >
-              ×
-            </button>
-          </div>
-
           <div className="ft-site-search-modal__summary">
             <span>
               {results.length
