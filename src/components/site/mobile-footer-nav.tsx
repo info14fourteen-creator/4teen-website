@@ -1,9 +1,9 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import { startTransition, useEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatedLottieIcon } from "@/components/site/animated-lottie-icon";
-import { triggerFourteenLoader } from "@/components/site/loader-link";
+import { LoaderLink } from "@/components/site/loader-link";
 import airdropGiftLoop from "@/assets/lottie/mobile-airdrop-gift-loop.json";
 import ambassadorDemandLoop from "@/assets/lottie/mobile-ambassador-demand-loop.json";
 import appSmartphoneLoop from "@/assets/lottie/mobile-app-smartphone-loop.json";
@@ -70,17 +70,12 @@ function FooterNavButton({
   onNavigateStart?: () => void;
 }) {
   const pathname = usePathname();
-  const router = useRouter();
   const active = item.match(pathname);
-  const timeoutRef = useRef<number | null>(null);
   const resetRef = useRef<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
     return () => {
-      if (timeoutRef.current !== null) {
-        window.clearTimeout(timeoutRef.current);
-      }
       if (resetRef.current !== null) {
         window.clearTimeout(resetRef.current);
       }
@@ -98,39 +93,32 @@ function FooterNavButton({
   }, [pathname]);
 
   return (
-    <button
+    <LoaderLink
       className={`ft-mobile-dock-button ${active ? "is-active" : ""}`}
-      onClick={() => {
-        if (active || isTransitioning) return;
+      href={item.href}
+      onClick={(event) => {
+        if (active || isTransitioning) {
+          event.preventDefault();
+          return;
+        }
 
         onNavigateStart?.();
         setIsTransitioning(true);
 
-        if (timeoutRef.current !== null) {
-          window.clearTimeout(timeoutRef.current);
-        }
         if (resetRef.current !== null) {
           window.clearTimeout(resetRef.current);
         }
-
-        timeoutRef.current = window.setTimeout(() => {
-          triggerFourteenLoader();
-          startTransition(() => {
-            router.push(item.href);
-          });
-        }, 40);
 
         resetRef.current = window.setTimeout(() => {
           setIsTransitioning(false);
         }, 1600);
       }}
-      type="button"
     >
       <span aria-hidden="true" className="ft-mobile-footer-icon ft-mobile-footer-icon--glyph">
         <FooterGlyph active={active} icon={item.icon} />
       </span>
       <span className="ft-mobile-dock-button__label">{item.label}</span>
-    </button>
+    </LoaderLink>
   );
 }
 
