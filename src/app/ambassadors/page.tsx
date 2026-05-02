@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
 import { FourteenTopbar } from "@/components/site/topbar";
-import { getLiveAmbassadorSnapshot } from "@/lib/ambassador-live";
+import type { LiveAmbassadorSnapshot } from "@/lib/ambassador-live";
+import { getDeferredLiveSnapshot } from "@/lib/deferred-live-snapshot";
 
 export const metadata: Metadata = {
   title: "Ambassadors",
@@ -47,17 +48,9 @@ function shortenAddress(address: string | null | undefined) {
 }
 
 export default async function AmbassadorsPage() {
-  let snapshot:
-    | Awaited<ReturnType<typeof getLiveAmbassadorSnapshot>>
-    | null = null;
-  let errorText = "";
-
-  try {
-    snapshot = await getLiveAmbassadorSnapshot();
-  } catch (error) {
-    errorText =
-      error instanceof Error ? error.message : "Failed to load live ambassador state.";
-  }
+  const snapshot = getDeferredLiveSnapshot<LiveAmbassadorSnapshot>();
+  const errorText =
+    "The page shell is prioritized right now while the live earn snapshot is moved off server render.";
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-ambassador-page">

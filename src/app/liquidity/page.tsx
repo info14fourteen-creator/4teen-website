@@ -8,10 +8,11 @@ import {
   officialContractsRepoUrl,
   officialWalletRepoUrl,
 } from "@/content/official-links";
+import { getDeferredLiveSnapshot } from "@/lib/deferred-live-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
 import { formatUtcDate } from "@/lib/site-intl";
 import {
-  getLiveLiquiditySnapshot,
+  type LiveLiquiditySnapshot,
   liquidityVerificationLinks,
 } from "@/lib/liquidity-live";
 
@@ -24,17 +25,9 @@ export const revalidate = 120;
 export default async function LiquidityPage() {
   const locale = defaultSiteLocale;
   const content = getLiquidityPageContent(locale);
-  let snapshot:
-    | Awaited<ReturnType<typeof getLiveLiquiditySnapshot>>
-    | null = null;
-  let errorText = "";
-
-  try {
-    snapshot = await getLiveLiquiditySnapshot();
-  } catch (error) {
-    errorText =
-      error instanceof Error ? error.message : "Failed to load live liquidity state.";
-  }
+  const snapshot = getDeferredLiveSnapshot<LiveLiquiditySnapshot>();
+  const errorText =
+    "The page shell is prioritized right now while the live liquidity snapshot is moved off server render.";
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-liquidity-page">

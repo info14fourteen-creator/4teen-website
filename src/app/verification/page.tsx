@@ -7,11 +7,12 @@ import {
   officialContractsRepoUrl,
   officialWalletRepoUrl,
 } from "@/content/official-links";
+import { getDeferredLiveSnapshot } from "@/lib/deferred-live-snapshot";
 import { getVerificationPageContent } from "@/content/verification-content";
 import { formatUtcDate } from "@/lib/site-intl";
 import { defaultSiteLocale } from "@/lib/site-locale";
 import {
-  getLiveVerificationSnapshot,
+  type LiveVerificationSnapshot,
   verificationLinks,
 } from "@/lib/verification-live";
 
@@ -24,17 +25,9 @@ export const revalidate = 120;
 export default async function VerificationPage() {
   const locale = defaultSiteLocale;
   const content = getVerificationPageContent(locale);
-  let snapshot:
-    | Awaited<ReturnType<typeof getLiveVerificationSnapshot>>
-    | null = null;
-  let errorText = "";
-
-  try {
-    snapshot = await getLiveVerificationSnapshot();
-  } catch (error) {
-    errorText =
-      error instanceof Error ? error.message : "Failed to load live verification state.";
-  }
+  const snapshot = getDeferredLiveSnapshot<LiveVerificationSnapshot>();
+  const errorText =
+    "The page shell is prioritized right now while the live verification snapshot is moved off server render.";
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-verification-page">

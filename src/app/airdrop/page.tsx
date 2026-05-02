@@ -4,7 +4,8 @@ import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
 import { FourteenTopbar } from "@/components/site/topbar";
 import { getAirdropPageContent } from "@/content/airdrop-content";
-import { getLiveAirdropSnapshot } from "@/lib/airdrop-live";
+import type { LiveAirdropSnapshot } from "@/lib/airdrop-live";
+import { getDeferredLiveSnapshot } from "@/lib/deferred-live-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
 import { formatUtcDate } from "@/lib/site-intl";
 
@@ -26,17 +27,9 @@ function shortenAddress(address: string) {
 export default async function AirdropPage() {
   const locale = defaultSiteLocale;
   const content = getAirdropPageContent(locale);
-  let snapshot:
-    | Awaited<ReturnType<typeof getLiveAirdropSnapshot>>
-    | null = null;
-  let errorText = "";
-
-  try {
-    snapshot = await getLiveAirdropSnapshot();
-  } catch (error) {
-    errorText =
-      error instanceof Error ? error.message : "Failed to load live airdrop state.";
-  }
+  const snapshot = getDeferredLiveSnapshot<LiveAirdropSnapshot>();
+  const errorText =
+    "The page shell is prioritized right now while the live airdrop snapshot is moved off server render.";
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-airdrop-page">

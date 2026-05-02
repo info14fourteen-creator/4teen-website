@@ -8,10 +8,11 @@ import {
   officialContractsRepoUrl,
   officialWalletRepoUrl,
 } from "@/content/official-links";
+import { getDeferredLiveSnapshot } from "@/lib/deferred-live-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
 import { formatUtcDate } from "@/lib/site-intl";
 import {
-  getLiveUnlockSnapshot,
+  type LiveUnlockSnapshot,
   unlockVerificationLinks,
 } from "@/lib/unlock-live";
 
@@ -24,17 +25,9 @@ export const revalidate = 120;
 export default async function UnlockPage() {
   const locale = defaultSiteLocale;
   const content = getUnlockPageContent(locale);
-  let snapshot:
-    | Awaited<ReturnType<typeof getLiveUnlockSnapshot>>
-    | null = null;
-  let errorText = "";
-
-  try {
-    snapshot = await getLiveUnlockSnapshot();
-  } catch (error) {
-    errorText =
-      error instanceof Error ? error.message : "Failed to load live unlock state.";
-  }
+  const snapshot = getDeferredLiveSnapshot<LiveUnlockSnapshot>();
+  const errorText =
+    "The page shell is prioritized right now while the live unlock snapshot is moved off server render.";
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-unlock-page">
