@@ -5457,8 +5457,11 @@ a.is-active-anchor {
 }
 
 .ft-buy-page__latest-action-link {
-  display: inline-flex;
+  display: inline-grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
   min-height: auto;
+  width: 100%;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -5470,7 +5473,8 @@ a.is-active-anchor {
 }
 
 .ft-buy-page__latest-action-link > .ft-link__content {
-  flex: 0 0 auto;
+  min-width: 0;
+  text-align: left;
 }
 
 .ft-buy-page__latest-action-link .ft-link__icon {
@@ -6045,6 +6049,10 @@ a.is-active-anchor {
 
   .ft-buy-page__latest-cell--action {
     justify-items: start;
+  }
+
+  .ft-buy-page__latest-action-link {
+    margin-top: 2px;
   }
 
   .ft-buy-page__latest-label {

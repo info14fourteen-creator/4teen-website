@@ -247,7 +247,7 @@ const buyContentEn: BuyPageContent = {
         {
           share: "7%",
           title: "Controller / owner rail",
-          text: "A smaller share is forwarded to the owner layer, which in the current system is FourteenController. That is where protocol accounting and ambassador reward logic are anchored.",
+          text: "A smaller share is forwarded to the owner layer, which in the current system is FourteenController. That is where protocol accounting, buyer binding, verified-purchase recording, and ambassador reward logic are anchored.",
         },
         {
           share: "3%",
@@ -279,12 +279,17 @@ const buyContentEn: BuyPageContent = {
         },
         {
           eyebrow: "4. Continue",
+          title: "Controller-side attribution clears after the buy",
+          text: "After the buy lands, the system can bind that buyer to an ambassador, record a verified purchase once per purchase ID, and later finalize claimable reward state through FourteenController when operator-side allocation succeeds.",
+        },
+        {
+          eyebrow: "5. Continue",
           title: "Use unlock timeline right after purchase",
           text: "As soon as a direct buy lands, the lock route becomes useful: per-batch unlock time, countdown, and transferability status are already part of the wallet flow.",
         },
       ],
       note:
-        "The website keeps this route informational. It should explain the actual product path clearly, then hand the user to the app instead of pretending to be the execution surface itself.",
+        "The website keeps this route informational. It should explain the actual product path clearly, including controller-side attribution and reward settlement, then hand the user to the app instead of pretending to be the execution surface itself.",
     },
     resourceLayer: {
       eyebrow: "Resource Readiness",
@@ -368,6 +373,11 @@ const buyContentEn: BuyPageContent = {
           eyebrow: "Tracked",
           title: "Unlock timeline becomes the next useful screen",
           text: "The lock route tells the user what is still locked, what unlocks next, and when transferability actually begins.",
+        },
+        {
+          eyebrow: "Attributed",
+          title: "Ambassador linkage is settled on the controller side",
+          text: "If the purchase belongs under an ambassador path, FourteenController can bind the buyer to that ambassador and record the verified purchase once per purchase ID. Claimable reward state appears only after the controller-side allocation write succeeds.",
         },
       ],
     },
