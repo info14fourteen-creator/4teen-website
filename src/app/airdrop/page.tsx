@@ -307,12 +307,12 @@ export default async function AirdropPage() {
                               data-label={content.sections.waveSchedule.headers.status}
                             >
                               <span
-                                className={`ft-status-pill ${
+                                className={`ft-airdrop-page__table-status-text ${
                                   wave.status === "current"
-                                    ? "live"
+                                    ? "is-current"
                                     : wave.status === "unlocked"
-                                      ? "wait"
-                                      : "off"
+                                      ? "is-unlocked"
+                                      : "is-upcoming"
                                 }`}
                               >
                                 {wave.status === "current"

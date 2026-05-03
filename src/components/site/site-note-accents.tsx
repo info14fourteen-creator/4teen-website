@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import noteDropcapAccent from "@/assets/lottie/note-dropcap-accent.json";
@@ -84,9 +85,16 @@ function NoteAccentPortal({ target }: { target: HTMLElement }) {
 }
 
 export function SiteNoteAccents() {
+  const pathname = usePathname();
+  const isWhitepaperRoute = pathname.startsWith("/whitepaper");
   const [targets, setTargets] = useState<HTMLElement[]>([]);
 
   useEffect(() => {
+    if (isWhitepaperRoute) {
+      setTargets([]);
+      return () => {};
+    }
+
     function syncTargets() {
       const nextTargets = collectNotes();
 
@@ -108,7 +116,7 @@ export function SiteNoteAccents() {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [isWhitepaperRoute, pathname]);
 
   const portals = useMemo(
     () =>

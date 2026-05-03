@@ -288,8 +288,13 @@ function initPulseCta() {
 
 export function SiteMotionPack() {
   const pathname = usePathname();
+  const isWhitepaperRoute = pathname.startsWith("/whitepaper");
 
   useEffect(() => {
+    if (isWhitepaperRoute) {
+      return () => {};
+    }
+
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
@@ -306,9 +311,13 @@ export function SiteMotionPack() {
     return () => {
       cleanups.forEach((cleanup) => cleanup());
     };
-  }, [pathname]);
+  }, [isWhitepaperRoute, pathname]);
 
   useEffect(() => {
+    if (isWhitepaperRoute) {
+      return () => {};
+    }
+
     const handleCopyClick = async (event: MouseEvent) => {
       const target = event.target as HTMLElement | null;
       const button = target?.closest(".ft-copy-btn");
@@ -402,7 +411,7 @@ export function SiteMotionPack() {
       document.removeEventListener("click", handleModalClose);
       document.removeEventListener("keydown", handleEscape);
     };
-  }, []);
+  }, [isWhitepaperRoute]);
 
   return null;
 }

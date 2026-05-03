@@ -608,25 +608,22 @@ export function WhitepaperVersionPage({
 
               <p className="ft-text">{content.document.body}</p>
 
-              <div className="ft-whitepaper-page__document">
+              <div className="ft-whitepaper-page__document ft-whitepaper-page__document-body">
                 {intro.length > 0 ? (
-                  <section className="ft-card ft-card--soft ft-whitepaper-page__markdown-section">
-                    <div className="ft-stack ft-stack--md">
-                      {intro.map((block, index) => renderMarkdownBlock(block, index))}
-                    </div>
+                  <section className="ft-whitepaper-page__markdown-section ft-whitepaper-page__markdown-section--intro">
+                    {intro.map((block, index) => renderMarkdownBlock(block, index))}
                   </section>
                 ) : null}
 
                 {sections.map((section, sectionIndex) => (
                   <section
                     key={section.id}
-                    className="ft-card ft-card--soft ft-whitepaper-page__markdown-section"
+                    className="ft-whitepaper-page__markdown-section"
+                    id={section.id}
                   >
-                    <div className="ft-stack ft-stack--md">
-                      {section.blocks.map((block, blockIndex) =>
-                        renderMarkdownBlock(block, sectionIndex * 1000 + blockIndex),
-                      )}
-                    </div>
+                    {section.blocks.map((block, blockIndex) =>
+                      renderMarkdownBlock(block, sectionIndex * 1000 + blockIndex),
+                    )}
                   </section>
                 ))}
               </div>

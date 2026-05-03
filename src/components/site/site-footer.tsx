@@ -1,3 +1,6 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { LoaderLink } from "@/components/site/loader-link";
 import { SocialLottieLink } from "@/components/site/social-lottie-link";
 import socialDiscordHover from "@/assets/lottie/social-discord-hover.json";
@@ -54,7 +57,13 @@ const footerMetaLinks = [
 ] as const;
 
 export function SiteFooter() {
+  const pathname = usePathname();
   const chrome = getChromeContent(defaultSiteLocale);
+
+  if (pathname.startsWith("/whitepaper")) {
+    return null;
+  }
+
   return (
     <footer className="ft-site-footer">
       <div className="ft-site-footer__glass">
