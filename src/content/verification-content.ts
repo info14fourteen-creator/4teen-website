@@ -134,15 +134,15 @@ const verificationContentEn: VerificationPageContent = {
   metadata: {
     title: "Verification",
     description:
-      "Public 4TEEN verification map with live on-chain module addresses, token and controller state, reserve custody balances, liquidity execution pointers, and source repositories.",
+      "4TEEN verification route with live addresses, reserve balances, protocol ownership map, and direct proof links for deeper research.",
   },
   hero: {
     eyebrow: "Verification Surface",
     status: "Public architecture map",
     title:
-      "This route is the compact proof layer: which contracts own what, where the reserves sit, how purchase value is routed, and which public addresses back the system right now.",
+      "This is the confidence layer: who owns what, where reserves sit, how value moves, and which public addresses back the project right now.",
     lead:
-      "The mobile app already uses an info-style screen to orient the user around token minting, controller logic, liquidity execution, vault custody, and operator-side rails. The public website can do the same without pretending to be a wallet: live contract addresses, live balances, public treasury state, and direct explorer paths are enough to verify the system honestly.",
+      "Serious users and investors do not stop at the landing page. This route gives them a fast way to inspect ownership, custody, balances, and contract paths without dropping them into a wall of raw explorer tabs on the first click.",
     stats: {
       totalSupply: "Total Supply",
       totalSupplyMeta: "Current FourteenToken totalSupply on-chain.",
@@ -161,7 +161,7 @@ const verificationContentEn: VerificationPageContent = {
       eyebrow: "Orientation",
       title: "Use this page to answer two questions quickly",
       body:
-        "First: which contract or vault is responsible for a protocol job. Second: whether the public state still matches the architecture we describe everywhere else. The page stays read-only on purpose. Its job is proof, not execution.",
+        "First: which contract or vault owns a specific protocol job. Second: whether the public state still matches the story the project is telling everywhere else. The page stays read-only on purpose. Its job is confidence, not execution.",
       bullets: [
         "FourteenToken is the buy, mint, lock, and split-entry contract.",
         "FourteenController is the admin and attribution layer, not the token itself.",
@@ -184,7 +184,7 @@ const verificationContentEn: VerificationPageContent = {
         snapshotUpdated: "Snapshot Updated",
       },
       note:
-        "The useful verification detail here is the ownership chain. FourteenToken does not sit under an ordinary owner wallet in practice. The owner path resolves into FourteenController, which is exactly why the verification layer should show both contracts together.",
+        "The key detail is the ownership chain. FourteenToken does not sit under a casual owner-wallet story. The owner path resolves into FourteenController, which is why both surfaces belong together here.",
     },
     controllerState: {
       eyebrow: "Controller State",
@@ -202,7 +202,7 @@ const verificationContentEn: VerificationPageContent = {
         rewardsClaimed: "Rewards Claimed",
       },
       note:
-        "This is why ambassador and controller stories cannot be reduced to a single referral slogan. The contract keeps separate public buckets for owner-available funds, reserved rewards, tracked volume, and buyer attribution counts.",
+        "This is why the controller story matters. It keeps separate public buckets for owner-available funds, reserved rewards, tracked volume, and buyer attribution counts instead of flattening everything into one vanity metric.",
     },
     liquidityState: {
       eyebrow: "Liquidity Rail",
@@ -216,7 +216,7 @@ const verificationContentEn: VerificationPageContent = {
         sunExecutor: "Sun.io V3 Executor",
       },
       note:
-        "Automation may wake the route up, but the release threshold and percentage remain contract-enforced. Even this proof page should keep that distinction clear: convenience sits outside the rules, not above them.",
+        "Automation can wake the route up, but the release threshold and percentage still live in the contracts. Convenience sits outside the rules, not above them.",
     },
     architecture: {
       eyebrow: "Architecture",
@@ -244,15 +244,15 @@ const verificationContentEn: VerificationPageContent = {
         },
       ],
       note:
-        "That separation is one of the easiest things to verify publicly. Explorer links, repository code, and live balances all point back to the same modular architecture story.",
+        "That separation is one of the easiest strengths to verify publicly. Explorer links, repository code, and live balances all point back to the same modular architecture.",
     },
     reserveLayer: {
       eyebrow: "Reserve Layer",
       title: "Live 4TEEN balances across vault and execution addresses",
       body:
-        "These balances are useful because they show where token inventory actually sits. Vault custody should not be treated as free circulation, and executor inventory should not be confused with user balances. The page keeps them together so the architecture can be read as a system, not as random addresses.",
+        "These balances show where token inventory actually sits. Vault custody is not free circulation, and executor inventory is not a user wallet balance. Keeping them together makes the system readable at a glance.",
       note:
-        "Executor balances can change as bootstrap and liquidity flow move inventory around. Vault balances are the more stable proof layer for reserve custody.",
+        "Executor balances can move as bootstrap and liquidity flow shift inventory around. Vault balances are the steadier proof layer for reserve custody.",
       labels: {
         balance: "Balance",
         verify: "Verify on Tronscan",
@@ -260,9 +260,9 @@ const verificationContentEn: VerificationPageContent = {
     },
     verification: {
       eyebrow: "Proof Links",
-      title: "Explorer routes and repositories behind the public system",
+      title: "Open the proof layer directly",
       body:
-        "When frontend copy and on-chain state ever disagree, on-chain state wins. This page therefore keeps the verification exits close: core contracts, vault contracts, execution contracts, and the source repositories that explain the architecture in plain language.",
+        "Each group below takes the user straight from the story into the proof layer: contracts, vaults, execution rails, and the repos behind the product.",
       groups: {
         core: "Core contracts",
         vaults: "Vault contracts",
@@ -285,9 +285,9 @@ const verificationContentEn: VerificationPageContent = {
     },
     cta: {
       eyebrow: "Next Step",
-      title: "Use the app when proof needs to become action",
+      title: "Build conviction here, then move in the app",
       body:
-        "Verification belongs on the public site. Signing, buy, unlock, swap, airdrop claim, and manual liquidity triggering belong in the mobile wallet because that is where resources, approval, and transaction intent are actually handled.",
+        "Use the public route to inspect the system. Use the wallet when you want signing, buy, unlock, swap, airdrop claim, or manual liquidity action with real account state behind it.",
       openApp: "Open Mobile App",
       openBuy: "Open Buy Route",
     },

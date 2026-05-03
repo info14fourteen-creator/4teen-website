@@ -12,6 +12,7 @@ import { getVerificationPageContent } from "@/content/verification-content";
 import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 import { formatUtcDate } from "@/lib/site-intl";
 import { defaultSiteLocale } from "@/lib/site-locale";
+import { formatCompactMetric, shortenAddress } from "@/lib/site-format";
 import {
   type LiveVerificationSnapshot,
   verificationLinks,
@@ -51,22 +52,22 @@ export default async function VerificationPage() {
                 <div className="ft-grid ft-grid--4 ft-verification-page__hero-stats">
                   <article className="ft-price-card">
                     <p className="ft-price-label">{content.hero.stats.totalSupply}</p>
-                    <p className="ft-price-main">{snapshot.totalSupplyDisplay}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.totalSupplyDisplay)}</p>
                     <p className="ft-price-sub">{content.hero.stats.totalSupplyMeta}</p>
                   </article>
                   <article className="ft-price-card">
                     <p className="ft-price-label">{content.hero.stats.currentPrice}</p>
-                    <p className="ft-price-main">{snapshot.currentPriceDisplay} TRX</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.currentPriceDisplay)} TRX</p>
                     <p className="ft-price-sub">{content.hero.stats.currentPriceMeta}</p>
                   </article>
                   <article className="ft-price-card">
                     <p className="ft-price-label">{content.hero.stats.vaultCustody}</p>
-                    <p className="ft-price-main">{snapshot.vaultCustodyDisplay}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.vaultCustodyDisplay)}</p>
                     <p className="ft-price-sub">{content.hero.stats.vaultCustodyMeta}</p>
                   </article>
                   <article className="ft-price-card">
                     <p className="ft-price-label">{content.hero.stats.controllerBalance}</p>
-                    <p className="ft-price-main">{snapshot.controllerBalanceDisplay} TRX</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.controllerBalanceDisplay)} TRX</p>
                     <p className="ft-price-sub">{content.hero.stats.controllerBalanceMeta}</p>
                   </article>
                 </div>
@@ -119,19 +120,25 @@ export default async function VerificationPage() {
                       <tbody>
                         <tr>
                           <th>{content.sections.tokenMap.rows.tokenOwner}</th>
-                          <td className="ft-right">{snapshot.tokenOwnerAddress}</td>
+                          <td className="ft-right" title={snapshot.tokenOwnerAddress}>
+                            {shortenAddress(snapshot.tokenOwnerAddress)}
+                          </td>
                         </tr>
                         <tr>
                           <th>{content.sections.tokenMap.rows.liquidityRoute}</th>
-                          <td className="ft-right">{snapshot.liquidityPoolAddress}</td>
+                          <td className="ft-right" title={snapshot.liquidityPoolAddress}>
+                            {shortenAddress(snapshot.liquidityPoolAddress)}
+                          </td>
                         </tr>
                         <tr>
                           <th>{content.sections.tokenMap.rows.airdropRoute}</th>
-                          <td className="ft-right">{snapshot.airdropAddress}</td>
+                          <td className="ft-right" title={snapshot.airdropAddress}>
+                            {shortenAddress(snapshot.airdropAddress)}
+                          </td>
                         </tr>
                         <tr>
                           <th>{content.sections.tokenMap.rows.directPrice}</th>
-                          <td className="ft-right">{snapshot.currentPriceDisplay} TRX</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.currentPriceDisplay)} TRX</td>
                         </tr>
                         <tr>
                           <th>{content.sections.tokenMap.rows.growthRule}</th>
@@ -165,47 +172,49 @@ export default async function VerificationPage() {
                       <tbody>
                         <tr>
                           <th>{content.sections.controllerState.rows.controllerOwner}</th>
-                          <td className="ft-right">{snapshot.controllerOwnerAddress}</td>
+                          <td className="ft-right" title={snapshot.controllerOwnerAddress}>
+                            {shortenAddress(snapshot.controllerOwnerAddress)}
+                          </td>
                         </tr>
                         <tr>
                           <th>{content.sections.controllerState.rows.contractBalance}</th>
-                          <td className="ft-right">{snapshot.controllerBalanceDisplay} TRX</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.controllerBalanceDisplay)} TRX</td>
                         </tr>
                         <tr>
                           <th>{content.sections.controllerState.rows.ownerAvailable}</th>
-                          <td className="ft-right">{snapshot.ownerAvailableDisplay} TRX</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.ownerAvailableDisplay)} TRX</td>
                         </tr>
                         <tr>
                           <th>{content.sections.controllerState.rows.reservedRewards}</th>
-                          <td className="ft-right">{snapshot.reservedRewardsDisplay} TRX</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.reservedRewardsDisplay)} TRX</td>
                         </tr>
                         <tr>
                           <th>
                             {content.sections.controllerState.rows.unallocatedPurchaseFunds}
                           </th>
                           <td className="ft-right">
-                            {snapshot.unallocatedPurchaseFundsDisplay} TRX
+                            {formatCompactMetric(snapshot.unallocatedPurchaseFundsDisplay)} TRX
                           </td>
                         </tr>
                         <tr>
                           <th>{content.sections.controllerState.rows.ambassadors}</th>
-                          <td className="ft-right">{snapshot.ambassadorsCount}</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.ambassadorsCount)}</td>
                         </tr>
                         <tr>
                           <th>{content.sections.controllerState.rows.activeAmbassadors}</th>
-                          <td className="ft-right">{snapshot.activeAmbassadorsCount}</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.activeAmbassadorsCount)}</td>
                         </tr>
                         <tr>
                           <th>{content.sections.controllerState.rows.boundBuyers}</th>
-                          <td className="ft-right">{snapshot.boundBuyersCount}</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.boundBuyersCount)}</td>
                         </tr>
                         <tr>
                           <th>{content.sections.controllerState.rows.trackedVolume}</th>
-                          <td className="ft-right">{snapshot.trackedVolumeDisplay} TRX</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.trackedVolumeDisplay)} TRX</td>
                         </tr>
                         <tr>
                           <th>{content.sections.controllerState.rows.rewardsClaimed}</th>
-                          <td className="ft-right">{snapshot.rewardsClaimedDisplay} TRX</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.rewardsClaimedDisplay)} TRX</td>
                         </tr>
                       </tbody>
                     </table>
@@ -228,19 +237,22 @@ export default async function VerificationPage() {
                         <tr>
                           <th>{content.sections.liquidityState.rows.controllerBalance}</th>
                           <td className="ft-right">
-                            {snapshot.liquidityControllerBalanceDisplay} TRX
+                            {formatCompactMetric(snapshot.liquidityControllerBalanceDisplay)} TRX
                           </td>
                         </tr>
                         <tr>
                           <th>{content.sections.liquidityState.rows.controllerOwner}</th>
-                          <td className="ft-right">
-                            {snapshot.liquidityControllerOwnerAddress}
+                          <td
+                            className="ft-right"
+                            title={snapshot.liquidityControllerOwnerAddress}
+                          >
+                            {shortenAddress(snapshot.liquidityControllerOwnerAddress)}
                           </td>
                         </tr>
                         <tr>
                           <th>{content.sections.liquidityState.rows.minBalance}</th>
                           <td className="ft-right">
-                            {snapshot.liquidityMinBalanceDisplay} TRX
+                            {formatCompactMetric(snapshot.liquidityMinBalanceDisplay)} TRX
                           </td>
                         </tr>
                         <tr>
@@ -249,11 +261,15 @@ export default async function VerificationPage() {
                         </tr>
                         <tr>
                           <th>{content.sections.liquidityState.rows.justMoneyExecutor}</th>
-                          <td className="ft-right">{snapshot.justMoneyExecutorAddress}</td>
+                          <td className="ft-right" title={snapshot.justMoneyExecutorAddress}>
+                            {shortenAddress(snapshot.justMoneyExecutorAddress)}
+                          </td>
                         </tr>
                         <tr>
                           <th>{content.sections.liquidityState.rows.sunExecutor}</th>
-                          <td className="ft-right">{snapshot.sunV3ExecutorAddress}</td>
+                          <td className="ft-right" title={snapshot.sunV3ExecutorAddress}>
+                            {shortenAddress(snapshot.sunV3ExecutorAddress)}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -279,18 +295,21 @@ export default async function VerificationPage() {
                         >
                           <p className="ft-card-title-top">{asset.title}</p>
                           <h3 className="ft-card-title">
-                            {asset.balanceDisplay} 4TEEN
+                            {formatCompactMetric(asset.balanceDisplay)} 4TEEN
                           </h3>
                           <p className="ft-text">{asset.role}</p>
-                          <p className="ft-note">{asset.address}</p>
-                          <a
+                          <p className="ft-text" title={asset.address}>
+                            {shortenAddress(asset.address)}
+                          </p>
+                          <LoaderLink
                             className="ft-link ft-verification-page__address"
                             href={asset.href}
+                            showLinkIcon
                             rel="noopener noreferrer"
                             target="_blank"
                           >
                             {content.sections.reserveLayer.labels.verify}
-                          </a>
+                          </LoaderLink>
                         </article>
                       ))}
                     </div>
@@ -340,30 +359,30 @@ export default async function VerificationPage() {
                   <div className="ft-stack ft-stack--xs">
                     <p className="ft-price-label">{content.sections.verification.groups.core}</p>
                     <div className="ft-links ft-links--stack">
-                      <a className="ft-link" href={verificationLinks.token} rel="noopener noreferrer" target="_blank">
+                      <LoaderLink className="ft-link" href={verificationLinks.token} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.token}
-                      </a>
-                      <a className="ft-link" href={verificationLinks.controller} rel="noopener noreferrer" target="_blank">
+                      </LoaderLink>
+                      <LoaderLink className="ft-link" href={verificationLinks.controller} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.controller}
-                      </a>
-                      <a className="ft-link" href={verificationLinks.liquidityController} rel="noopener noreferrer" target="_blank">
+                      </LoaderLink>
+                      <LoaderLink className="ft-link" href={verificationLinks.liquidityController} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.liquidityController}
-                      </a>
+                      </LoaderLink>
                     </div>
                   </div>
 
                   <div className="ft-stack ft-stack--xs">
                     <p className="ft-price-label">{content.sections.verification.groups.vaults}</p>
                     <div className="ft-links ft-links--stack">
-                      <a className="ft-link" href={verificationLinks.fourteenVault} rel="noopener noreferrer" target="_blank">
+                      <LoaderLink className="ft-link" href={verificationLinks.fourteenVault} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.fourteenVault}
-                      </a>
-                      <a className="ft-link" href={verificationLinks.teamLockVault} rel="noopener noreferrer" target="_blank">
+                      </LoaderLink>
+                      <LoaderLink className="ft-link" href={verificationLinks.teamLockVault} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.teamLockVault}
-                      </a>
-                      <a className="ft-link" href={verificationLinks.airdropVault} rel="noopener noreferrer" target="_blank">
+                      </LoaderLink>
+                      <LoaderLink className="ft-link" href={verificationLinks.airdropVault} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.airdropVault}
-                      </a>
+                      </LoaderLink>
                     </div>
                   </div>
 
@@ -372,27 +391,27 @@ export default async function VerificationPage() {
                       {content.sections.verification.groups.execution}
                     </p>
                     <div className="ft-links ft-links--stack">
-                      <a className="ft-link" href={verificationLinks.bootstrapper} rel="noopener noreferrer" target="_blank">
+                      <LoaderLink className="ft-link" href={verificationLinks.bootstrapper} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.bootstrapper}
-                      </a>
-                      <a className="ft-link" href={verificationLinks.justMoneyExecutor} rel="noopener noreferrer" target="_blank">
+                      </LoaderLink>
+                      <LoaderLink className="ft-link" href={verificationLinks.justMoneyExecutor} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.justMoneyExecutor}
-                      </a>
-                      <a className="ft-link" href={verificationLinks.sunV3Executor} rel="noopener noreferrer" target="_blank">
+                      </LoaderLink>
+                      <LoaderLink className="ft-link" href={verificationLinks.sunV3Executor} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.sunV3Executor}
-                      </a>
+                      </LoaderLink>
                     </div>
                   </div>
 
                   <div className="ft-stack ft-stack--xs">
                     <p className="ft-price-label">{content.sections.verification.groups.source}</p>
                     <div className="ft-links ft-links--stack">
-                      <a className="ft-link" href={officialContractsRepoUrl} rel="noopener noreferrer" target="_blank">
+                      <LoaderLink className="ft-link" href={officialContractsRepoUrl} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.contractsRepo}
-                      </a>
-                      <a className="ft-link" href={officialWalletRepoUrl} rel="noopener noreferrer" target="_blank">
+                      </LoaderLink>
+                      <LoaderLink className="ft-link" href={officialWalletRepoUrl} rel="noopener noreferrer" showLinkIcon target="_blank">
                         {content.sections.verification.labels.walletRepo}
-                      </a>
+                      </LoaderLink>
                     </div>
                   </div>
                 </div>

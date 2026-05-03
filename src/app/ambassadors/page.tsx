@@ -1,52 +1,24 @@
 import type { Metadata } from "next";
 
+import { getAmbassadorsPageContent } from "@/content/ambassadors-content";
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
 import { SiteSnapshotRefresh } from "@/components/site/site-snapshot-refresh";
 import { FourteenTopbar } from "@/components/site/topbar";
 import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
+import { defaultSiteLocale } from "@/lib/site-locale";
+import { formatCompactMetric, shortenAddress } from "@/lib/site-format";
+import { formatUtcDate } from "@/lib/site-intl";
 import type { LiveAmbassadorSnapshot } from "@/lib/site-snapshot-types";
 
 export const metadata: Metadata = {
-  title: "Ambassadors",
-  description:
-    "Live FourteenController ambassador snapshot with totals for ambassadors, bound buyers, verified purchases, claimed rewards, reserved rewards, and public cabinet readiness.",
+  title: getAmbassadorsPageContent(defaultSiteLocale).metadata.title,
+  description: getAmbassadorsPageContent(defaultSiteLocale).metadata.description,
 };
 
-const FOURTEEN_CONTROLLER_SCAN_URL =
-  "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ";
-
-const earnFlow = [
-  {
-    eyebrow: "Register",
-    title: "Identity first",
-    text: "The wallet route begins with ambassador registration, slug ownership, and cabinet identity. The public website does not fake this step as a generic referral form.",
-  },
-  {
-    eyebrow: "Bind",
-    title: "Buyer attribution",
-    text: "Purchases are not counted from loose traffic guesses. A buyer is bound, the purchase is verified, and only then the controller tracks reward state.",
-  },
-  {
-    eyebrow: "Accrue",
-    title: "Reward reservation",
-    text: "The controller separates accrued rewards, claimed rewards, owner balance, and reserved rewards, so the cabinet can explain what belongs to ambassadors and what is still waiting.",
-  },
-  {
-    eyebrow: "Withdraw",
-    title: "Claimable cabinet",
-    text: "The same route later becomes the cabinet: purchases, level progress, pending replay, and withdrawable reward balance live in one place.",
-  },
-] as const;
-
-function shortenAddress(address: string | null | undefined) {
-  const safe = String(address || "").trim();
-  if (!safe) return "Not configured";
-  if (safe.length <= 14) return safe;
-  return `${safe.slice(0, 6)}...${safe.slice(-6)}`;
-}
-
 export default async function AmbassadorsPage() {
+  const locale = defaultSiteLocale;
+  const content = getAmbassadorsPageContent(locale);
   const snapshot =
     await getServerSiteSnapshot<LiveAmbassadorSnapshot>("ambassador");
 
@@ -60,53 +32,44 @@ export default async function AmbassadorsPage() {
           <article className="ft-card ft-card--strong ft-placeholder-hero">
             <div className="ft-stack ft-stack--lg">
               <div className="ft-cluster ft-cluster--sm">
-                <span className="ft-eyebrow">FourteenController</span>
-                <span className="ft-status-pill live">Public earn cabinet snapshot</span>
+                <span className="ft-eyebrow">{content.hero.eyebrow}</span>
+                <span className="ft-status-pill live">{content.hero.status}</span>
                 <SiteSnapshotRefresh snapshotKeys={["ambassador"]} />
               </div>
 
               <div className="ft-stack ft-stack--md">
-                <h1 className="ft-title-lg">
-                  The ambassador route is a real earn system with tracked buyers, verified
-                  purchases, reserved rewards, and controlled withdrawals.
-                </h1>
-                <p className="ft-lead">
-                  In the wallet, this surface starts with registration and turns into the cabinet
-                  for the same wallet. On the website, we keep it informational: public controller
-                  totals, purchase footprint, withdrawal history, reward balances, level ladder,
-                  and operator readiness are shown without pretending to connect a wallet here.
-                </p>
+                <h1 className="ft-title-lg">{content.hero.title}</h1>
+                <p className="ft-lead">{content.hero.lead}</p>
               </div>
 
               {snapshot ? (
                 <div className="ft-grid ft-grid--4 ft-ambassador-page__hero-stats">
                   <article className="ft-price-card">
-                    <p className="ft-price-label">Total Ambassadors</p>
-                    <p className="ft-price-main">{snapshot.system.ambassadorsCount}</p>
+                    <p className="ft-price-label">{content.hero.stats.ambassadorsLabel}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.system.ambassadorsCount)}</p>
                     <p className="ft-price-sub">
-                      {snapshot.system.activeAmbassadorsCount} active on-chain right now.
+                      {formatCompactMetric(snapshot.system.activeAmbassadorsCount)} {content.hero.stats.ambassadorsSubtext}
                     </p>
                   </article>
                   <article className="ft-price-card">
-                    <p className="ft-price-label">Rewards Claimed</p>
-                    <p className="ft-price-main">{snapshot.system.rewardsClaimedDisplay}</p>
-                    <p className="ft-price-sub">TRX already withdrawn by ambassadors.</p>
+                    <p className="ft-price-label">{content.hero.stats.claimedLabel}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.system.rewardsClaimedDisplay)}</p>
+                    <p className="ft-price-sub">{content.hero.stats.claimedSubtext}</p>
                   </article>
                   <article className="ft-price-card">
-                    <p className="ft-price-label">Verified Purchases</p>
-                    <p className="ft-price-main">{snapshot.db.purchasesProcessed}</p>
-                    <p className="ft-price-sub">Purchases already processed into the earn flow.</p>
+                    <p className="ft-price-label">{content.hero.stats.purchasesLabel}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.db.purchasesProcessed)}</p>
+                    <p className="ft-price-sub">{content.hero.stats.purchasesSubtext}</p>
                   </article>
                   <article className="ft-price-card">
-                    <p className="ft-price-label">Bound Buyers</p>
-                    <p className="ft-price-main">{snapshot.system.boundBuyersCount}</p>
-                    <p className="ft-price-sub">Buyer identities currently tied to ambassadors.</p>
+                    <p className="ft-price-label">{content.hero.stats.buyersLabel}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.system.boundBuyersCount)}</p>
+                    <p className="ft-price-sub">{content.hero.stats.buyersSubtext}</p>
                   </article>
                 </div>
               ) : (
                 <div className="ft-note">
-                  <strong>Live earn snapshot failed.</strong> Try refreshing in a
-                  moment.
+                  <strong>{content.hero.noSnapshotTitle}</strong> {content.hero.noSnapshotText}
                 </div>
               )}
             </div>
@@ -118,90 +81,83 @@ export default async function AmbassadorsPage() {
                 <article className="ft-card ft-ambassador-page__panel">
                   <div className="ft-stack ft-stack--md ft-ambassador-page__panel-stack">
                     <div className="ft-stack ft-stack--xs">
-                      <p className="ft-overline">System Counts</p>
-                      <h2 className="ft-subtitle">Who is inside the controller footprint</h2>
+                      <p className="ft-overline">{content.systemCounts.eyebrow}</p>
+                      <h2 className="ft-subtitle">{content.systemCounts.title}</h2>
                     </div>
 
                     <table className="ft-mini-table ft-ambassador-page__mini-table">
                       <tbody>
                         <tr>
-                          <th>Total Ambassadors</th>
-                          <td className="ft-right">{snapshot.system.ambassadorsCount}</td>
+                          <th>{content.systemCounts.rows.totalAmbassadors}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.system.ambassadorsCount)}</td>
                         </tr>
                         <tr>
-                          <th>Active Ambassadors</th>
-                          <td className="ft-right">{snapshot.system.activeAmbassadorsCount}</td>
+                          <th>{content.systemCounts.rows.activeAmbassadors}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.system.activeAmbassadorsCount)}</td>
                         </tr>
                         <tr>
-                          <th>Bound Buyers</th>
-                          <td className="ft-right">{snapshot.system.boundBuyersCount}</td>
+                          <th>{content.systemCounts.rows.boundBuyers}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.system.boundBuyersCount)}</td>
                         </tr>
                         <tr>
-                          <th>Profiles On Chain</th>
-                          <td className="ft-right">{snapshot.db.profilesOnChain}</td>
+                          <th>{content.systemCounts.rows.profilesOnChain}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.db.profilesOnChain)}</td>
                         </tr>
                         <tr>
-                          <th>Profiles Marked Active</th>
-                          <td className="ft-right">{snapshot.db.profilesActive}</td>
+                          <th>{content.systemCounts.rows.profilesActive}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.db.profilesActive)}</td>
                         </tr>
                         <tr>
-                          <th>Ambassadors With Purchases</th>
-                          <td className="ft-right">{snapshot.db.ambassadorsWithPurchases}</td>
+                          <th>{content.systemCounts.rows.ambassadorsWithPurchases}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.db.ambassadorsWithPurchases)}</td>
                         </tr>
                       </tbody>
                     </table>
 
-                    <p className="ft-note">
-                      This combines public controller totals with cabinet-side profile and purchase
-                      footprint from the wallet backend. That keeps the website informative without
-                      pretending to be the cabinet itself.
-                    </p>
+                    <p className="ft-note">{content.systemCounts.note}</p>
                   </div>
                 </article>
 
                 <article className="ft-card ft-ambassador-page__panel">
                   <div className="ft-stack ft-stack--md ft-ambassador-page__panel-stack">
                     <div className="ft-stack ft-stack--xs">
-                      <p className="ft-overline">Reward Ledger</p>
-                      <h2 className="ft-subtitle">What the controller says about money flow</h2>
+                      <p className="ft-overline">{content.rewardLedger.eyebrow}</p>
+                      <h2 className="ft-subtitle">{content.rewardLedger.title}</h2>
                     </div>
 
                     <table className="ft-mini-table ft-ambassador-page__mini-table">
                       <tbody>
                         <tr>
-                          <th>Tracked Volume</th>
-                          <td className="ft-right">{snapshot.system.trackedVolumeDisplay} TRX</td>
+                          <th>{content.rewardLedger.rows.trackedVolume}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.system.trackedVolumeDisplay)} TRX</td>
                         </tr>
                         <tr>
-                          <th>Rewards Accrued</th>
-                          <td className="ft-right">{snapshot.system.rewardsAccruedDisplay} TRX</td>
+                          <th>{content.rewardLedger.rows.rewardsAccrued}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.system.rewardsAccruedDisplay)} TRX</td>
                         </tr>
                         <tr>
-                          <th>Rewards Claimed</th>
-                          <td className="ft-right">{snapshot.system.rewardsClaimedDisplay} TRX</td>
+                          <th>{content.rewardLedger.rows.rewardsClaimed}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.system.rewardsClaimedDisplay)} TRX</td>
                         </tr>
                         <tr>
-                          <th>Reserved Rewards</th>
-                          <td className="ft-right">{snapshot.system.reservedRewardsDisplay} TRX</td>
+                          <th>{content.rewardLedger.rows.reservedRewards}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.system.reservedRewardsDisplay)} TRX</td>
                         </tr>
                         <tr>
-                          <th>Owner Available</th>
-                          <td className="ft-right">{snapshot.system.ownerAvailableBalanceDisplay} TRX</td>
+                          <th>{content.rewardLedger.rows.ownerAvailable}</th>
+                          <td className="ft-right">{formatCompactMetric(snapshot.system.ownerAvailableBalanceDisplay)} TRX</td>
                         </tr>
                         <tr>
-                          <th>Unallocated Purchase Funds</th>
+                          <th>{content.rewardLedger.rows.unallocatedFunds}</th>
                           <td className="ft-right">
-                            {snapshot.system.unallocatedPurchaseFundsDisplay} TRX
+                            {formatCompactMetric(snapshot.system.unallocatedPurchaseFundsDisplay)} TRX
                           </td>
                         </tr>
                       </tbody>
                     </table>
 
                     <p className="ft-note">
-                      <strong>Useful reading:</strong> claimed rewards show what ambassadors have
-                      already withdrawn, reserved rewards show what is still ring-fenced for them,
-                      and tracked volume shows how much verified purchase flow passed through the
-                      controller.
+                      <strong>{content.rewardLedger.noteTitle}:</strong> {content.rewardLedger.noteText}
                     </p>
                   </div>
                 </article>
@@ -211,91 +167,81 @@ export default async function AmbassadorsPage() {
                 <article className="ft-card ft-ambassador-page__panel">
                   <div className="ft-stack ft-stack--md ft-ambassador-page__panel-stack">
                     <div className="ft-stack ft-stack--xs">
-                      <p className="ft-overline">Purchase Footprint</p>
-                      <h2 className="ft-subtitle">What the earn pipeline has already processed</h2>
+                      <p className="ft-overline">{content.purchaseFootprint.eyebrow}</p>
+                      <h2 className="ft-subtitle">{content.purchaseFootprint.title}</h2>
                     </div>
 
                     <div className="ft-grid ft-grid--2-even ft-ambassador-page__summary-grid">
                       <article className="ft-card ft-card--plain ft-ambassador-page__detail-card">
-                        <p className="ft-card-title-top">Recorded Purchases</p>
-                        <h3 className="ft-card-title">{snapshot.db.purchasesTotal}</h3>
-                        <p className="ft-text">
-                          Purchases tied to ambassadors across processed and pending rows.
-                        </p>
+                        <p className="ft-card-title-top">{content.purchaseFootprint.cards.recordedPurchases.title}</p>
+                        <h3 className="ft-card-title">{formatCompactMetric(snapshot.db.purchasesTotal)}</h3>
+                        <p className="ft-text">{content.purchaseFootprint.cards.recordedPurchases.text}</p>
                       </article>
                       <article className="ft-card ft-card--plain ft-ambassador-page__detail-card">
-                        <p className="ft-card-title-top">Pending Replay</p>
-                        <h3 className="ft-card-title">{snapshot.db.purchasesPending}</h3>
-                        <p className="ft-text">
-                          Rows still waiting for controller-side processing or operator readiness.
-                        </p>
+                        <p className="ft-card-title-top">{content.purchaseFootprint.cards.pendingReplay.title}</p>
+                        <h3 className="ft-card-title">{formatCompactMetric(snapshot.db.purchasesPending)}</h3>
+                        <p className="ft-text">{content.purchaseFootprint.cards.pendingReplay.text}</p>
                       </article>
                       <article className="ft-card ft-card--plain ft-ambassador-page__detail-card">
-                        <p className="ft-card-title-top">Withdrawal Events</p>
-                        <h3 className="ft-card-title">{snapshot.db.withdrawalsCount}</h3>
-                        <p className="ft-text">
-                          Confirmed reward withdrawal rows already written by the backend.
-                        </p>
+                        <p className="ft-card-title-top">{content.purchaseFootprint.cards.withdrawalEvents.title}</p>
+                        <h3 className="ft-card-title">{formatCompactMetric(snapshot.db.withdrawalsCount)}</h3>
+                        <p className="ft-text">{content.purchaseFootprint.cards.withdrawalEvents.text}</p>
                       </article>
                       <article className="ft-card ft-card--plain ft-ambassador-page__detail-card">
-                        <p className="ft-card-title-top">Last Purchase Seen</p>
+                        <p className="ft-card-title-top">{content.purchaseFootprint.cards.lastPurchaseSeen.title}</p>
                         <h3 className="ft-card-title ft-ambassador-page__timestamp-card">
                           {snapshot.db.latestPurchaseLabel}
                         </h3>
-                        <p className="ft-text">Latest ambassador-attributed purchase timestamp.</p>
+                        <p className="ft-text">{content.purchaseFootprint.cards.lastPurchaseSeen.text}</p>
                       </article>
                     </div>
 
-                    <p className="ft-note">
-                      Purchases and withdrawals are counted from the backend ledger that the wallet
-                      cabinet already uses. This gives the website a public proof layer without
-                      needing wallet connection.
-                    </p>
+                    <p className="ft-note">{content.purchaseFootprint.note}</p>
                   </div>
                 </article>
 
                 <article className="ft-card ft-ambassador-page__panel">
                   <div className="ft-stack ft-stack--md ft-ambassador-page__panel-stack">
                     <div className="ft-stack ft-stack--xs">
-                      <p className="ft-overline">Runtime Readiness</p>
-                      <h2 className="ft-subtitle">Can the operator side process rewards now</h2>
+                      <p className="ft-overline">{content.runtime.eyebrow}</p>
+                      <h2 className="ft-subtitle">{content.runtime.title}</h2>
                     </div>
 
                     <table className="ft-mini-table ft-ambassador-page__mini-table">
                       <tbody>
                         <tr>
-                          <th>Operator Wallet</th>
+                          <th>{content.runtime.rows.operatorWallet}</th>
                           <td className="ft-right">{shortenAddress(snapshot.runtime.operatorWallet)}</td>
                         </tr>
                         <tr>
-                          <th>Ready Now</th>
-                          <td className="ft-right">{snapshot.runtime.readyNow ? "Yes" : "Needs top-up"}</td>
+                          <th>{content.runtime.rows.readyNow}</th>
+                          <td className="ft-right">{snapshot.runtime.readyNow ? content.runtime.readyYes : content.runtime.readyNo}</td>
                         </tr>
                         <tr>
-                          <th>Energy Available</th>
+                          <th>{content.runtime.rows.energyAvailable}</th>
                           <td className="ft-right">
-                            {snapshot.runtime.resourceState?.energyAvailable ??
+                            {formatCompactMetric(snapshot.runtime.resourceState?.energyAvailable ??
                               snapshot.runtime.resources?.energyAvailable ??
-                              0}
+                              0)}
                           </td>
                         </tr>
                         <tr>
-                          <th>Bandwidth Available</th>
+                          <th>{content.runtime.rows.bandwidthAvailable}</th>
                           <td className="ft-right">
-                            {snapshot.runtime.resourceState?.bandwidthAvailable ??
+                            {formatCompactMetric(snapshot.runtime.resourceState?.bandwidthAvailable ??
                               snapshot.runtime.resources?.bandwidthAvailable ??
-                              0}
+                              0)}
                           </td>
                         </tr>
                         <tr>
-                          <th>Need per Allocation</th>
+                          <th>{content.runtime.rows.needPerAllocation}</th>
                           <td className="ft-right">
                             {snapshot.runtime.requirements.requiredEnergy} energy /{" "}
                             {snapshot.runtime.requirements.requiredBandwidth} bandwidth
                           </td>
                         </tr>
                         <tr>
-                          <th>Safe Floor After Run</th>
+                          <th>{content.runtime.rows.safeFloorAfterRun}</th>
                           <td className="ft-right">
                             {snapshot.runtime.requirements.minEnergyFloor} energy /{" "}
                             {snapshot.runtime.requirements.minBandwidthFloor} bandwidth
@@ -304,10 +250,7 @@ export default async function AmbassadorsPage() {
                       </tbody>
                     </table>
 
-                    <p className="ft-note">
-                      This is the public version of the same idea the wallet uses: if resources are
-                      not safe, reward rows queue instead of pretending everything completed.
-                    </p>
+                    <p className="ft-note">{content.runtime.note}</p>
                   </div>
                 </article>
               </div>
@@ -315,8 +258,8 @@ export default async function AmbassadorsPage() {
               <article className="ft-card ft-ambassador-page__panel">
                 <div className="ft-stack ft-stack--md ft-ambassador-page__panel-stack">
                   <div className="ft-stack ft-stack--xs">
-                    <p className="ft-overline">Level Ladder</p>
-                    <h2 className="ft-subtitle">Buyer count changes the reward share</h2>
+                    <p className="ft-overline">{content.levels.eyebrow}</p>
+                    <h2 className="ft-subtitle">{content.levels.title}</h2>
                   </div>
 
                   <div className="ft-grid ft-grid--4 ft-ambassador-page__levels-grid">
@@ -327,7 +270,7 @@ export default async function AmbassadorsPage() {
                       >
                         <p className="ft-card-title-top">{level.buyersRange}</p>
                         <h3 className="ft-card-title">{level.label}</h3>
-                        <p className="ft-text">{level.rewardPercent}% reward share on qualified flow.</p>
+                        <p className="ft-text">{formatCompactMetric(level.rewardPercent)}{content.levels.suffix}</p>
                       </article>
                     ))}
                   </div>
@@ -338,12 +281,12 @@ export default async function AmbassadorsPage() {
                 <article className="ft-card ft-ambassador-page__panel">
                   <div className="ft-stack ft-stack--md ft-ambassador-page__panel-stack">
                     <div className="ft-stack ft-stack--xs">
-                      <p className="ft-overline">Earn Flow</p>
-                      <h2 className="ft-subtitle">How the product moves from identity to withdrawal</h2>
+                      <p className="ft-overline">{content.flow.eyebrow}</p>
+                      <h2 className="ft-subtitle">{content.flow.title}</h2>
                     </div>
 
                     <div className="ft-grid ft-grid--2-even ft-ambassador-page__flow-grid">
-                      {earnFlow.map((item) => (
+                      {content.flow.cards.map((item) => (
                         <article
                           key={item.title}
                           className="ft-card ft-card--plain ft-ambassador-page__detail-card"
@@ -360,45 +303,35 @@ export default async function AmbassadorsPage() {
                 <article className="ft-card ft-ambassador-page__panel">
                   <div className="ft-stack ft-stack--md ft-ambassador-page__panel-stack">
                     <div className="ft-stack ft-stack--xs">
-                      <p className="ft-overline">Public Route</p>
-                      <h2 className="ft-subtitle">Useful exits from the informational layer</h2>
+                      <p className="ft-overline">{content.route.eyebrow}</p>
+                      <h2 className="ft-subtitle">{content.route.title}</h2>
                     </div>
 
                     <div className="ft-grid ft-grid--2-even ft-ambassador-page__summary-grid">
-                      <a
+                      <LoaderLink
                         className="ft-card ft-card--plain ft-ambassador-page__detail-card"
-                        href={FOURTEEN_CONTROLLER_SCAN_URL}
+                        href={content.route.actions.contract.href}
                         rel="noopener noreferrer"
+                        showLinkIcon
                         target="_blank"
                       >
-                        <p className="ft-card-title-top">Contract</p>
-                        <h3 className="ft-card-title">Open FourteenController</h3>
-                        <p className="ft-text">
-                          Inspect the live contract on TronScan with the same address this page
-                          reads.
-                        </p>
-                      </a>
+                        <p className="ft-card-title-top">{content.route.cards.contract.eyebrow}</p>
+                        <h3 className="ft-card-title">{content.route.cards.contract.title}</h3>
+                        <p className="ft-text">{content.route.cards.contract.text}</p>
+                      </LoaderLink>
 
                       <LoaderLink
                         className="ft-card ft-card--plain ft-ambassador-page__detail-card"
-                        href="/app"
+                        href={content.route.actions.app.href}
                       >
-                        <p className="ft-card-title-top">Wallet Route</p>
-                        <h3 className="ft-card-title">See the mobile app</h3>
-                        <p className="ft-text">
-                          Registration, cabinet, and withdrawal UX live in the wallet product.
-                        </p>
+                        <p className="ft-card-title-top">{content.route.cards.app.eyebrow}</p>
+                        <h3 className="ft-card-title">{content.route.cards.app.title}</h3>
+                        <p className="ft-text">{content.route.cards.app.text}</p>
                       </LoaderLink>
                     </div>
 
                     <p className="ft-note">
-                      Snapshot updated{" "}
-                      {new Date(snapshot.loadedAt).toLocaleString("en-US", {
-                        dateStyle: "medium",
-                        timeStyle: "medium",
-                        timeZone: "UTC",
-                      })}{" "}
-                      UTC.
+                      {content.route.updatedPrefix} {formatUtcDate(snapshot.loadedAt, locale)}.
                     </p>
                   </div>
                 </article>

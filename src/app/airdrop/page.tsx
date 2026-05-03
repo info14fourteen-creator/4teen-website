@@ -9,6 +9,7 @@ import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
 import type { LiveAirdropSnapshot } from "@/lib/site-snapshot-types";
 import { formatUtcDate } from "@/lib/site-intl";
+import { formatCompactMetric, shortenAddress } from "@/lib/site-format";
 
 const metadataContent = getAirdropPageContent(defaultSiteLocale);
 
@@ -16,12 +17,6 @@ export const metadata: Metadata = metadataContent.metadata;
 
 const AIRDROP_VAULT_SCAN_URL =
   "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ";
-
-function shortenAddress(address: string) {
-  const safe = String(address || "").trim();
-  if (safe.length <= 14) return safe;
-  return `${safe.slice(0, 6)}...${safe.slice(-6)}`;
-}
 
 export default async function AirdropPage() {
   const locale = defaultSiteLocale;
@@ -50,7 +45,7 @@ export default async function AirdropPage() {
 
               {snapshot ? (
                 <div className="ft-grid ft-grid--4 ft-airdrop-page__hero-stats">
-                  <article className="ft-price-card">
+                  <article className="ft-price-card ft-price-card--warning">
                     <p className="ft-price-label">{content.hero.stats.currentWave}</p>
                     <p className="ft-price-main">{content.sections.waveSchedule.waveLabel(snapshot.currentWave + 1)} of 6</p>
                     <p className="ft-price-sub">
@@ -59,14 +54,14 @@ export default async function AirdropPage() {
                         : content.hero.stats.completed}
                     </p>
                   </article>
-                  <article className="ft-price-card">
+                  <article className="ft-price-card ft-price-card--positive">
                     <p className="ft-price-label">{content.hero.stats.vaultBalance}</p>
-                    <p className="ft-price-main">{snapshot.vaultBalanceDisplay}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.vaultBalanceDisplay)}</p>
                     <p className="ft-price-sub">{content.hero.stats.vaultBalanceMeta}</p>
                   </article>
-                  <article className="ft-price-card">
+                  <article className="ft-price-card ft-price-card--warning">
                     <p className="ft-price-label">{content.hero.stats.availableNow}</p>
-                    <p className="ft-price-main">{snapshot.availableNowDisplay}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.availableNowDisplay)}</p>
                     <p className="ft-price-sub">{content.hero.stats.availableNowMeta}</p>
                   </article>
                   <article className="ft-price-card">
@@ -134,28 +129,28 @@ export default async function AirdropPage() {
                         <tr>
                           <th>{content.sections.vaultState.rows.totalAllocation}</th>
                           <td className="ft-right">
-                            <strong>{snapshot.totalAllocationDisplay} 4TEEN</strong>
+                            <strong>{formatCompactMetric(snapshot.totalAllocationDisplay)} 4TEEN</strong>
                           </td>
                         </tr>
                         <tr>
                           <th>{content.sections.vaultState.rows.unlockedTotal}</th>
-                          <td className="ft-right">{snapshot.unlockedDisplay} 4TEEN</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.unlockedDisplay)} 4TEEN</td>
                         </tr>
                         <tr>
                           <th>{content.sections.vaultState.rows.totalDistributed}</th>
-                          <td className="ft-right">{snapshot.distributedDisplay} 4TEEN</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.distributedDisplay)} 4TEEN</td>
                         </tr>
                         <tr>
                           <th>{content.sections.vaultState.rows.remainingUnlocked}</th>
-                          <td className="ft-right">{snapshot.remainingUnlockedDisplay} 4TEEN</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.remainingUnlockedDisplay)} 4TEEN</td>
                         </tr>
                         <tr>
                           <th>{content.sections.vaultState.rows.remainingPlanned}</th>
-                          <td className="ft-right">{snapshot.remainingPlannedDisplay} 4TEEN</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.remainingPlannedDisplay)} 4TEEN</td>
                         </tr>
                         <tr>
                           <th>{content.sections.vaultState.rows.vaultBalance}</th>
-                          <td className="ft-right">{snapshot.vaultBalanceDisplay} 4TEEN</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.vaultBalanceDisplay)} 4TEEN</td>
                         </tr>
                       </tbody>
                     </table>
@@ -175,27 +170,27 @@ export default async function AirdropPage() {
                     </div>
 
                     <div className="ft-grid ft-grid--2-even ft-airdrop-page__summary-grid">
-                      <article className="ft-card ft-card--plain ft-airdrop-page__metric-card">
+                      <article className="ft-card ft-card--plain ft-card--positive ft-airdrop-page__metric-card">
                         <p className="ft-card-title-top">{content.sections.distribution.cards.distributed.title}</p>
-                        <h3 className="ft-card-title">{snapshot.distributedDisplay}</h3>
+                        <h3 className="ft-card-title">{formatCompactMetric(snapshot.distributedDisplay)}</h3>
                         <p className="ft-text">{content.sections.distribution.cards.distributed.text}</p>
                       </article>
 
-                      <article className="ft-card ft-card--plain ft-airdrop-page__metric-card">
+                      <article className="ft-card ft-card--plain ft-card--warning ft-airdrop-page__metric-card">
                         <p className="ft-card-title-top">{content.sections.distribution.cards.planned.title}</p>
-                        <h3 className="ft-card-title">{snapshot.remainingPlannedDisplay}</h3>
+                        <h3 className="ft-card-title">{formatCompactMetric(snapshot.remainingPlannedDisplay)}</h3>
                         <p className="ft-text">{content.sections.distribution.cards.planned.text}</p>
                       </article>
 
-                      <article className="ft-card ft-card--plain ft-airdrop-page__metric-card">
+                      <article className="ft-card ft-card--plain ft-card--positive ft-airdrop-page__metric-card">
                         <p className="ft-card-title-top">{content.sections.distribution.cards.lastDrop.title}</p>
-                        <h3 className="ft-card-title">{snapshot.lastClaimAmountDisplay}</h3>
+                        <h3 className="ft-card-title">{formatCompactMetric(snapshot.lastClaimAmountDisplay)}</h3>
                         <p className="ft-text">{content.sections.distribution.cards.lastDrop.text}</p>
                       </article>
 
                       <article className="ft-card ft-card--plain ft-airdrop-page__metric-card">
                         <p className="ft-card-title-top">{content.sections.distribution.cards.unlockedUndistributed.title}</p>
-                        <h3 className="ft-card-title">{snapshot.remainingUnlockedDisplay}</h3>
+                        <h3 className="ft-card-title">{formatCompactMetric(snapshot.remainingUnlockedDisplay)}</h3>
                         <p className="ft-text">{content.sections.distribution.cards.unlockedUndistributed.text}</p>
                       </article>
                     </div>
@@ -302,12 +297,15 @@ export default async function AirdropPage() {
                       <tbody>
                         {snapshot.waves.map((wave) => (
                           <tr key={wave.number}>
-                            <td>
+                            <td data-label={content.sections.waveSchedule.headers.wave}>
                               <strong>{content.sections.waveSchedule.waveLabel(wave.number)}</strong>
                             </td>
-                            <td>{wave.capDisplay} 4TEEN</td>
-                            <td>{wave.unlockLabel}</td>
-                            <td>
+                            <td data-label={content.sections.waveSchedule.headers.cap}>{formatCompactMetric(wave.capDisplay)} 4TEEN</td>
+                            <td data-label={content.sections.waveSchedule.headers.unlockTime}>{wave.unlockLabel}</td>
+                            <td
+                              className="ft-airdrop-page__table-status"
+                              data-label={content.sections.waveSchedule.headers.status}
+                            >
                               <span
                                 className={`ft-status-pill ${
                                   wave.status === "current"
@@ -338,17 +336,18 @@ export default async function AirdropPage() {
                   <h2 className="ft-card-title">{content.sections.verification.title}</h2>
                   <p className="ft-text">{content.sections.verification.body}</p>
                   <div className="ft-links" style={{ marginTop: 18 }}>
-                    <a className="ft-link" href={AIRDROP_VAULT_SCAN_URL} rel="noopener noreferrer" target="_blank">
+                    <LoaderLink className="ft-link" href={AIRDROP_VAULT_SCAN_URL} rel="noopener noreferrer" showLinkIcon target="_blank">
                       {content.sections.verification.vaultLabel}: {shortenAddress(snapshot.contractAddress)}
-                    </a>
-                    <a
+                    </LoaderLink>
+                    <LoaderLink
                       className="ft-link"
                       href={`https://tronscan.org/#/address/${snapshot.operatorAddress}`}
                       rel="noopener noreferrer"
+                      showLinkIcon
                       target="_blank"
                     >
                       {content.sections.verification.operatorLabel}: {shortenAddress(snapshot.operatorAddress)}
-                    </a>
+                    </LoaderLink>
                   </div>
                 </article>
 

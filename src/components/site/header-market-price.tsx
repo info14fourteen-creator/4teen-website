@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getChromeContent } from "@/content/chrome-content";
 import { defaultSiteLocale } from "@/lib/site-locale";
+import { parseNumberish } from "@/lib/site-format";
 
 type Quote = {
   symbol: string;
@@ -22,6 +23,16 @@ type MarketPricePayload = {
     updatedAt: string;
   } | null;
 };
+
+function formatHeaderPrice(value: string | number | null | undefined) {
+  const numeric = parseNumberish(value);
+
+  if (numeric === null) {
+    return typeof value === "string" && value.trim() ? value.trim() : "—";
+  }
+
+  return numeric.toFixed(2);
+}
 
 function MarketPriceLoading({ compact = false }: { compact?: boolean }) {
   const chrome = getChromeContent(defaultSiteLocale);
@@ -113,7 +124,7 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
       className={`ft-header-market ${compact ? "is-compact" : ""}`}
     >
       <span className="ft-header-market__group">
-        <span className="ft-header-market__value">{base.value}</span>
+        <span className="ft-header-market__value">{formatHeaderPrice(base.value)}</span>
         <img
           alt=""
           className="ft-header-market__icon"
@@ -128,7 +139,7 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
       <span className="ft-header-market__eq">=</span>
 
       <span className="ft-header-market__group ft-header-market__group--quote">
-        <span className="ft-header-market__value">{quote.value}</span>
+        <span className="ft-header-market__value">{formatHeaderPrice(quote.value)}</span>
         <img
           alt=""
           className="ft-header-market__icon"

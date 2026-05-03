@@ -11,6 +11,7 @@ import {
 } from "@/content/official-links";
 import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
+import { formatCompactMetric, shortenAddress } from "@/lib/site-format";
 import {
   type LiveUnlockSnapshot,
   unlockVerificationLinks,
@@ -48,24 +49,24 @@ export default async function UnlockPage() {
 
               {snapshot ? (
                 <div className="ft-grid ft-grid--4 ft-unlock-page__hero-stats">
-                  <article className="ft-price-card">
+                  <article className="ft-price-card ft-price-card--negative">
                     <p className="ft-price-label">{content.hero.stats.totalSupply}</p>
-                    <p className="ft-price-main">{snapshot.totalSupplyDisplay}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.totalSupplyDisplay)}</p>
                     <p className="ft-price-sub">{content.hero.stats.totalSupplyMeta}</p>
                   </article>
-                  <article className="ft-price-card">
+                  <article className="ft-price-card ft-price-card--positive">
                     <p className="ft-price-label">{content.hero.stats.lockedNow}</p>
-                    <p className="ft-price-main">{snapshot.currentlyLockedDisplay}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.currentlyLockedDisplay)}</p>
                     <p className="ft-price-sub">{content.hero.stats.lockedNowMeta}</p>
                   </article>
                   <article className="ft-price-card">
                     <p className="ft-price-label">{content.hero.stats.vaultCustody}</p>
-                    <p className="ft-price-main">{snapshot.vaultCustodyDisplay}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.vaultCustodyDisplay)}</p>
                     <p className="ft-price-sub">{content.hero.stats.vaultCustodyMeta}</p>
                   </article>
                   <article className="ft-price-card">
                     <p className="ft-price-label">{content.hero.stats.circulatingNow}</p>
-                    <p className="ft-price-main">{snapshot.freelyCirculatingDisplay}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.freelyCirculatingDisplay)}</p>
                     <p className="ft-price-sub">{content.hero.stats.circulatingNowMeta}</p>
                   </article>
                 </div>
@@ -119,7 +120,7 @@ export default async function UnlockPage() {
                         <tr>
                           <th>{content.sections.liveLockMap.rows.totalSupply}</th>
                           <td className="ft-right">
-                            <strong>{snapshot.totalSupplyDisplay} 4TEEN</strong>
+                            <strong>{formatCompactMetric(snapshot.totalSupplyDisplay)} 4TEEN</strong>
                           </td>
                         </tr>
                         <tr>
@@ -128,15 +129,15 @@ export default async function UnlockPage() {
                         </tr>
                         <tr>
                           <th>{content.sections.liveLockMap.rows.currentlyLocked}</th>
-                          <td className="ft-right">{snapshot.currentlyLockedDisplay} 4TEEN</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.currentlyLockedDisplay)} 4TEEN</td>
                         </tr>
                         <tr>
                           <th>{content.sections.liveLockMap.rows.vaultCustody}</th>
-                          <td className="ft-right">{snapshot.vaultCustodyDisplay} 4TEEN</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.vaultCustodyDisplay)} 4TEEN</td>
                         </tr>
                         <tr>
                           <th>{content.sections.liveLockMap.rows.freelyCirculating}</th>
-                          <td className="ft-right">{snapshot.freelyCirculatingDisplay} 4TEEN</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.freelyCirculatingDisplay)} 4TEEN</td>
                         </tr>
                         <tr>
                           <th>{content.sections.liveLockMap.rows.nextUnlock}</th>
@@ -173,16 +174,17 @@ export default async function UnlockPage() {
                           className="ft-card ft-card--plain ft-unlock-page__detail-card"
                         >
                           <p className="ft-card-title-top">{vault.title}</p>
-                          <h3 className="ft-card-title">{vault.balanceDisplay}</h3>
+                          <h3 className="ft-card-title">{formatCompactMetric(vault.balanceDisplay)}</h3>
                           <p className="ft-text">{vault.role}</p>
-                          <a
+                          <LoaderLink
                             className="ft-link"
                             href={vault.href}
+                            showLinkIcon
                             rel="noopener noreferrer"
                             target="_blank"
                           >
-                            {vault.address}
-                          </a>
+                            <span title={vault.address}>{shortenAddress(vault.address)}</span>
+                          </LoaderLink>
                         </article>
                       ))}
                     </div>
@@ -214,17 +216,14 @@ export default async function UnlockPage() {
                             <span className="ft-unlock-page__latest-label">
                               {content.sections.upcomingUnlocks.headers.buyer}
                             </span>
-                            <div className="ft-stack ft-stack--xs">
-                              <strong>{batch.buyerShort}</strong>
-                              <span className="ft-note">{batch.buyerAddress}</span>
-                            </div>
+                            <strong title={batch.buyerAddress}>{batch.buyerShort}</strong>
                           </div>
 
                           <div className="ft-unlock-page__latest-cell">
                             <span className="ft-unlock-page__latest-label">
                               {content.sections.upcomingUnlocks.headers.amount}
                             </span>
-                            <strong>{batch.amountDisplay} 4TEEN</strong>
+                            <strong>{formatCompactMetric(batch.amountDisplay)} 4TEEN</strong>
                           </div>
 
                           <div className="ft-unlock-page__latest-cell">
@@ -238,14 +237,15 @@ export default async function UnlockPage() {
                             <span className="ft-unlock-page__latest-label">
                               {content.sections.upcomingUnlocks.headers.source}
                             </span>
-                            <a
+                            <LoaderLink
                               className="ft-link"
                               href={batch.txUrl}
+                              showLinkIcon
                               rel="noopener noreferrer"
                               target="_blank"
                             >
                               {content.sections.upcomingUnlocks.openTx}
-                            </a>
+                            </LoaderLink>
                           </div>
                         </div>
                       ))}
@@ -317,38 +317,42 @@ export default async function UnlockPage() {
                     <p className="ft-text">{content.sections.verification.body}</p>
 
                     <div className="ft-links">
-                      <a
+                      <LoaderLink
                         className="ft-link"
                         href={unlockVerificationLinks.token}
+                        showLinkIcon
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {content.sections.verification.tokenLabel}
-                      </a>
-                      <a
+                      </LoaderLink>
+                      <LoaderLink
                         className="ft-link"
                         href={unlockVerificationLinks.controller}
+                        showLinkIcon
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {content.sections.verification.controllerLabel}
-                      </a>
-                      <a
+                      </LoaderLink>
+                      <LoaderLink
                         className="ft-link"
                         href={officialContractsRepoUrl}
+                        showLinkIcon
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {content.sections.verification.contractsRepoLabel}
-                      </a>
-                      <a
+                      </LoaderLink>
+                      <LoaderLink
                         className="ft-link"
                         href={officialWalletRepoUrl}
+                        showLinkIcon
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {content.sections.verification.walletRepoLabel}
-                      </a>
+                      </LoaderLink>
                     </div>
                   </div>
                 </article>

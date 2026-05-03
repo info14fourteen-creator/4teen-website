@@ -120,15 +120,15 @@ const liquidityContentEn: LiquidityPageContent = {
   metadata: {
     title: "Liquidity",
     description:
-      "Public 4TEEN liquidity controller map with live controller balance, next release size, FourteenVault reserve, latest confirmed executions, and contract-enforced trigger rules.",
+      "4TEEN liquidity route with live controller balance, upcoming release size, reserve visibility, and a cleaner path into the app.",
   },
   hero: {
     eyebrow: "Liquidity Controller",
     status: "Public execution rail",
     title:
-      "Liquidity is not a vague market promise here: direct-buy TRX lands in a controller, release rules live on-chain, and the execution path is visible.",
+      "Liquidity here is a visible growth engine: buy-side TRX lands in the controller, release timing stays on-chain, and the route into market depth can be followed publicly.",
     lead:
-      "The mobile wallet exposes liquidity as a real control surface. The public site should stay informational, but it can still show the live controller balance, the size of the next release, the reserve tokens parked in FourteenVault, and the latest confirmed execution rows that already moved TRX into DEX paths.",
+      "The site does not need to act like an ops console. It should make the growth path understandable fast: where the buy-side TRX waits, how much is next in line, which reserve backs the move, and whether fresh executions are still landing.",
     stats: {
       controllerBalance: "Controller Balance",
       controllerBalanceMeta: "TRX currently sitting inside FourteenLiquidityController.",
@@ -150,9 +150,9 @@ const liquidityContentEn: LiquidityPageContent = {
   sections: {
     appRoute: {
       eyebrow: "Wallet Route",
-      title: "Execution belongs to the mobile wallet, not to the website",
+      title: "The wallet is where a real trigger becomes a real move",
       body:
-        "The website can explain controller state and show public execution history. The actual trigger route belongs to the app because it needs a full-access signing wallet, live resource estimation, and final transaction approval.",
+        "The site can build confidence. The app is where a user with the right wallet can actually wake the route up. That takes a signing wallet, live resource checks, and a final approval step.",
       bullets: [
         "Direct 4TEEN buy routes 90% of purchase TRX into the controller balance.",
         "LiquidityBootstrapper tops up executor token balances from FourteenVault before each release.",
@@ -180,11 +180,11 @@ const liquidityContentEn: LiquidityPageContent = {
         waitForThreshold: "Wait for funding",
       },
       note:
-        "Auto-trigger can wake the flow up, but it does not own the rules. Threshold, percentage, split, and once-per-UTC-day cadence remain enforced inside the controller and bootstrapper contracts.",
+        "Automation can keep the rhythm moving, but the real edge stays on-chain: timing, threshold, split, and release size still belong to the contracts.",
     },
     triggerModel: {
       eyebrow: "Trigger Model",
-      title: "How liquidity actually fires",
+      title: "How the route wakes up",
       cards: [
         {
           eyebrow: "Automatic",
@@ -203,7 +203,7 @@ const liquidityContentEn: LiquidityPageContent = {
         },
       ],
       note:
-        "That is the important product distinction: automation is convenience, not authority. The rule set remains live even if the automation side pauses.",
+        "That distinction matters: automation is convenience, not authority. The route stays alive even if the wake-up layer pauses.",
     },
     latestExecutions: {
       eyebrow: "Latest Executions",
@@ -224,7 +224,7 @@ const liquidityContentEn: LiquidityPageContent = {
     },
     reserveLayer: {
       eyebrow: "Reserve Path",
-      title: "What sits behind the release before TRX reaches DEX liquidity",
+      title: "What backs the move before TRX reaches the market",
       body:
         "FourteenVault is a reserve contract, not free circulation. The bootstrapper uses it to supply executor-side 4TEEN before the controller pushes TRX out. That keeps liquidity inventory isolated from ordinary wallet balances and from other reserve vaults.",
       cards: [
@@ -245,13 +245,13 @@ const liquidityContentEn: LiquidityPageContent = {
         },
       ],
       note:
-        "This is why liquidity is shown as architecture, not as a single marketing number. Controller TRX, reserve tokens, and executor routes are separate layers.",
+        "This is why the page shows a route, not one noisy headline number. Controller TRX, reserve tokens, and executor paths are different layers of the same engine.",
     },
     verification: {
       eyebrow: "Verification",
-      title: "Where the explanation and numbers come from",
+      title: "Open the proof layer",
       body:
-        "This page reads the deployed controller state and the latest confirmed execution events, then aligns that with the wallet-side liquidity controller implementation and the published contract repository. It explains the real trigger topology instead of flattening it into a generic market card.",
+        "These links let the user jump straight from story to proof: controller, bootstrapper, executors, and source repos. It keeps the page investor-friendly without hiding the real rails underneath.",
       labels: {
         controller: "FourteenLiquidityController",
         bootstrapper: "LiquidityBootstrapper",

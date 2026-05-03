@@ -29,8 +29,10 @@ export function CopyLinkRow({
   return (
     <div className="ft-copy-row">
       <a className="ft-verify-link" href={href} rel="noreferrer" target="_blank">
-        <span className="ft-verify-link__label">{label}</span>
-        <span className="ft-verify-link__value">{value}</span>
+        <span className="ft-verify-link__copy">
+          <span className="ft-verify-link__label">{label}</span>
+          <span className="ft-verify-link__value">{value}</span>
+        </span>
       </a>
       <button className="ft-copy-btn" onClick={handleCopy} type="button">
         {buttonText}

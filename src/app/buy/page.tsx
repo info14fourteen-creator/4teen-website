@@ -11,6 +11,7 @@ import {
   officialWalletRepoUrl,
 } from "@/content/official-links";
 import { defaultSiteLocale } from "@/lib/site-locale";
+import { formatCompactMetric } from "@/lib/site-format";
 import { formatUtcDate } from "@/lib/site-intl";
 import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 
@@ -60,7 +61,7 @@ export default async function BuyPage() {
               <div className="ft-grid ft-grid--4 ft-buy-page__hero-stats">
                 <article className="ft-price-card">
                   <p className="ft-price-label">{content.hero.stats.directPrice}</p>
-                  <p className="ft-price-main">{directPrice} TRX</p>
+                  <p className="ft-price-main">{formatCompactMetric(directPrice)} TRX</p>
                   <p className="ft-price-sub">{directPriceMeta}</p>
                 </article>
                 <article className="ft-price-card">
@@ -191,38 +192,42 @@ export default async function BuyPage() {
                 <p className="ft-text">{content.sections.verification.body}</p>
 
                 <div className="ft-links">
-                  <a
+                  <LoaderLink
                     className="ft-link"
                     href={FOURTEEN_TOKEN_SCAN_URL}
+                    showLinkIcon
                     rel="noopener noreferrer"
                     target="_blank"
                   >
                     {content.sections.verification.tokenLabel}
-                  </a>
-                  <a
+                  </LoaderLink>
+                  <LoaderLink
                     className="ft-link"
                     href={FOURTEEN_CONTROLLER_SCAN_URL}
+                    showLinkIcon
                     rel="noopener noreferrer"
                     target="_blank"
                   >
                     {content.sections.verification.controllerLabel}
-                  </a>
-                  <a
+                  </LoaderLink>
+                  <LoaderLink
                     className="ft-link"
                     href={officialContractsRepoUrl}
+                    showLinkIcon
                     rel="noopener noreferrer"
                     target="_blank"
                   >
                     {content.sections.verification.contractsRepoLabel}
-                  </a>
-                  <a
+                  </LoaderLink>
+                  <LoaderLink
                     className="ft-link"
                     href={officialWalletRepoUrl}
+                    showLinkIcon
                     rel="noopener noreferrer"
                     target="_blank"
                   >
                     {content.sections.verification.walletRepoLabel}
-                  </a>
+                  </LoaderLink>
                 </div>
               </div>
             </article>

@@ -3,6 +3,10 @@
 import { useRouter } from "next/navigation";
 import { startTransition, useMemo, useState } from "react";
 import { AnimatedLottieIcon } from "@/components/site/animated-lottie-icon";
+import {
+  resolveFourteenLoader,
+  triggerFourteenLoader,
+} from "@/components/site/loader-link";
 import { getChromeContent } from "@/content/chrome-content";
 import refreshAnimationData from "@/assets/lottie/site-refresh-rotate-loop.json";
 import { defaultSiteLocale } from "@/lib/site-locale";
@@ -29,6 +33,7 @@ export function SiteSnapshotRefresh({
     if (isRefreshing || uniqueSnapshotKeys.length === 0) return;
 
     setIsRefreshing(true);
+    triggerFourteenLoader();
 
     try {
       await Promise.all(
@@ -51,6 +56,7 @@ export function SiteSnapshotRefresh({
     } finally {
       window.setTimeout(() => {
         setIsRefreshing(false);
+        resolveFourteenLoader();
       }, RESET_DELAY_MS);
     }
   }

@@ -40,6 +40,7 @@ export type PublicPageContent = {
   summaryCards: PublicPageCard[];
   sections: PublicPageSection[];
   links?: PublicPageLink[];
+  linksEyebrow?: string;
   footerNote?: string;
 };
 
@@ -158,6 +159,7 @@ const privacyContentEn: PublicPageContent = {
     { label: "Wallet app repository", href: officialWalletRepoUrl },
     { label: "Smart contracts repository", href: officialContractsRepoUrl },
   ],
+  linksEyebrow: "Public Exits",
   footerNote: officialSupportEmail
     ? `Privacy questions can be directed to ${officialSupportEmail}.`
     : "A dedicated public privacy mailbox is not published yet. Until it is, use the official support channels on the Support page and avoid sharing private keys or seed phrases there.",
@@ -257,8 +259,80 @@ const termsContentEn: PublicPageContent = {
     { label: "Open verification", href: "/verification" },
     { label: "Open smart contracts repository", href: officialContractsRepoUrl },
   ],
+  linksEyebrow: "Public Exits",
   footerNote:
     "Read these terms together with contract addresses, explorer state, and the wallet confirmation screen. Those surfaces define reality more strongly than any marketing sentence.",
+};
+
+const blogContentEn: PublicPageContent = {
+  metadata: {
+    title: "Blog",
+    description:
+      "The 4TEEN publishing layer for launches, protocol reading, ecosystem updates, and investor-facing product narratives.",
+  },
+  hero: {
+    eyebrow: "Blog",
+    status: "Publishing layer",
+    title:
+      "The blog is where 4TEEN can speak in a market voice without flattening the product into banners and slogans.",
+    lead:
+      "Whitepaper is the long-form structural document. Verification is the proof layer. The blog is where launches, route updates, ecosystem context, and investor-facing narratives should live in a lighter format that can later expand into multiple languages.",
+  },
+  summaryCards: [
+    {
+      eyebrow: "Role",
+      title: "Narrative layer",
+      body:
+        "Use blog for launches, updates, explainers, and momentum-building writing that does not belong inside product routes.",
+    },
+    {
+      eyebrow: "Audience",
+      title: "New users and investors",
+      body:
+        "This route should reduce friction for people who want a faster read before they open the app, buy route, or whitepaper.",
+    },
+    {
+      eyebrow: "Format",
+      title: "Translation-ready",
+      body:
+        "Posts should be able to grow into multilingual publishing without rewriting the whole shell or changing the route model.",
+    },
+  ],
+  sections: [
+    {
+      eyebrow: "1. What belongs here",
+      title: "Publishing that creates interest without lying",
+      body:
+        "The blog is the right surface for launch notes, product milestones, route explainers, ecosystem partnerships, market-facing stories, and readable breakdowns of what changed in the app or on-chain stack.",
+    },
+    {
+      eyebrow: "2. What does not belong here",
+      title: "Not a substitute for proof",
+      body:
+        "Blog should not replace contract links, verification pages, or whitepaper sections. If a claim needs proof, the post should point to the proof layer instead of pretending narrative is enough.",
+      bullets: [
+        "Whitepaper stays the long-form structural reading route",
+        "Verification stays the proof route",
+        "Blog stays the publishing and momentum route",
+      ],
+    },
+    {
+      eyebrow: "3. Why this route matters",
+      title: "The site needs a flexible growth surface",
+      body:
+        "Home cannot hold every story, and whitepaper should not carry campaign writing. Blog gives the website a cleaner way to attract, educate, and update people without bloating the main routes.",
+      note:
+        "This is also the easiest place to grow a future multilingual publishing flow one article at a time.",
+    },
+  ],
+  links: [
+    { label: "Open the app", href: "/app" },
+    { label: "Open buy", href: "/buy" },
+    { label: "Read whitepaper", href: "/whitepaper" },
+  ],
+  linksEyebrow: "Next Routes",
+  footerNote:
+    "The current route is a clean shell for future publishing, not a fake feed. When articles land, they should stay aligned with the proof and product layers.",
 };
 
 const supportContentEn: SupportPageContent = {
@@ -391,6 +465,7 @@ const supportContentEn: SupportPageContent = {
     { label: "Open privacy", href: "/privacy" },
     { label: "Open terms", href: "/terms" },
   ],
+  linksEyebrow: "Public Exits",
   footerNote:
     "For release links, contract references, or public state pages, start from the official website or the official wallet repository so you do not drift into unofficial mirrors.",
 };
@@ -401,6 +476,7 @@ const publicPagesContentByLocale: Partial<
     {
       privacy: PublicPageContent;
       terms: PublicPageContent;
+      blog: PublicPageContent;
       support: SupportPageContent;
     }
   >
@@ -408,6 +484,7 @@ const publicPagesContentByLocale: Partial<
   en: {
     privacy: privacyContentEn,
     terms: termsContentEn,
+    blog: blogContentEn,
     support: supportContentEn,
   },
 };

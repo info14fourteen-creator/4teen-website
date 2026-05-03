@@ -1,18 +1,29 @@
 import { LoaderLink } from "@/components/site/loader-link";
+import { SocialLottieLink } from "@/components/site/social-lottie-link";
+import socialDiscordHover from "@/assets/lottie/social-discord-hover.json";
+import socialFacebookHover from "@/assets/lottie/social-facebook-hover.json";
+import socialGithubHover from "@/assets/lottie/social-github-hover.json";
+import socialInstagramHover from "@/assets/lottie/social-instagram-hover.json";
+import socialTelegramHover from "@/assets/lottie/social-telegram-hover.json";
+import socialThreadsHover from "@/assets/lottie/social-threads-hover.json";
+import socialTiktokHover from "@/assets/lottie/social-tiktok-hover.json";
+import socialWhatsappHover from "@/assets/lottie/social-whatsapp-hover.json";
+import socialXHover from "@/assets/lottie/social-x-hover.json";
+import socialYoutubeHover from "@/assets/lottie/social-youtube-hover.json";
 import { getChromeContent } from "@/content/chrome-content";
 import { defaultSiteLocale } from "@/lib/site-locale";
 
 const socialLinks = [
-  { label: "Telegram", href: "https://t.me/fourteentoken" },
-  { label: "Discord", href: "https://discord.gg/jWZF6KzPCB" },
-  { label: "X", href: "https://x.com/4teen_me" },
-  { label: "Facebook", href: "https://facebook.com/Fourteentoken" },
-  { label: "Instagram", href: "https://instagram.com/fourteentoken" },
-  { label: "Threads", href: "https://www.threads.com/@fourteentoken" },
-  { label: "TikTok", href: "https://www.tiktok.com/@4teentoken" },
-  { label: "YouTube", href: "https://www.youtube.com/@4teentoken" },
-  { label: "WhatsApp", href: "https://wa.me/16462178070" },
-  { label: "GitHub", href: "https://github.com/info14fourteen-creator" },
+  { label: "Telegram", href: "https://t.me/fourteentoken", animationData: socialTelegramHover },
+  { label: "Discord", href: "https://discord.gg/jWZF6KzPCB", animationData: socialDiscordHover },
+  { label: "X", href: "https://x.com/4teen_me", animationData: socialXHover },
+  { label: "Facebook", href: "https://facebook.com/Fourteentoken", animationData: socialFacebookHover },
+  { label: "Instagram", href: "https://instagram.com/fourteentoken", animationData: socialInstagramHover },
+  { label: "Threads", href: "https://www.threads.com/@fourteentoken", animationData: socialThreadsHover },
+  { label: "TikTok", href: "https://www.tiktok.com/@4teentoken", animationData: socialTiktokHover },
+  { label: "YouTube", href: "https://www.youtube.com/@4teentoken", animationData: socialYoutubeHover },
+  { label: "WhatsApp", href: "https://wa.me/16462178070", animationData: socialWhatsappHover },
+  { label: "GitHub", href: "https://github.com/info14fourteen-creator", animationData: socialGithubHover },
 ];
 
 const footerColumns = [
@@ -81,15 +92,12 @@ export function SiteFooter() {
             <p className="ft-site-footer__column-title">{chrome.footer.officialChannels}</p>
             <div className="ft-site-footer__social-grid">
               {socialLinks.map((social) => (
-                <a
+                <SocialLottieLink
                   key={social.label}
-                  className="ft-site-footer__social"
+                  animationData={social.animationData}
                   href={social.href}
-                  rel="noreferrer"
-                  target="_blank"
-                >
-                  <span className="ft-site-footer__social-label">{social.label}</span>
-                </a>
+                  label={social.label}
+                />
               ))}
             </div>
           </div>

@@ -1,7 +1,9 @@
 "use client";
 
+import { LoaderLink } from "@/components/site/loader-link";
 import { useEffect, useState } from "react";
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { formatCompactMetric } from "@/lib/site-format";
 import { formatUtcDate } from "@/lib/site-intl";
 import type { LiveBuyEvent } from "@/lib/site-snapshot-types";
 
@@ -87,26 +89,21 @@ export function BuyLatestEvents({
                 <span className="ft-buy-page__latest-label">
                   {content.headers.buyer}
                 </span>
-                <div className="ft-stack ft-stack--xs">
-                  <strong>{event.buyerShort}</strong>
-                  <span className="ft-note ft-buy-page__latest-address">
-                    {event.buyerAddress}
-                  </span>
-                </div>
+                <strong title={event.buyerAddress}>{event.buyerShort}</strong>
               </div>
 
               <div className="ft-buy-page__latest-cell">
                 <span className="ft-buy-page__latest-label">
                   {content.headers.spent}
                 </span>
-                <strong>{event.trxAmountDisplay} TRX</strong>
+                <strong>{formatCompactMetric(event.trxAmountDisplay)} TRX</strong>
               </div>
 
               <div className="ft-buy-page__latest-cell">
                 <span className="ft-buy-page__latest-label">
                   {content.headers.minted}
                 </span>
-                <strong>{event.tokensAmountDisplay} 4TEEN</strong>
+                <strong>{formatCompactMetric(event.tokensAmountDisplay)} 4TEEN</strong>
               </div>
 
               <div className="ft-buy-page__latest-cell">
@@ -124,14 +121,15 @@ export function BuyLatestEvents({
                 <span className="ft-buy-page__latest-label">
                   {content.headers.verify}
                 </span>
-                <a
-                  className="ft-link"
+                <LoaderLink
+                  className="ft-link ft-buy-page__latest-action-link"
                   href={event.txUrl}
+                  showLinkIcon
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   {content.openTx}
-                </a>
+                </LoaderLink>
               </div>
             </div>
           ))}

@@ -11,6 +11,7 @@ import {
 } from "@/content/official-links";
 import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
+import { formatCompactMetric, shortenAddress } from "@/lib/site-format";
 import {
   type LiveLiquiditySnapshot,
   liquidityVerificationLinks,
@@ -49,19 +50,27 @@ export default async function LiquidityPage() {
 
               {snapshot ? (
                 <div className="ft-grid ft-grid--4 ft-liquidity-page__hero-stats">
-                  <article className="ft-price-card">
+                  <article className="ft-price-card ft-price-card--positive">
                     <p className="ft-price-label">{content.hero.stats.controllerBalance}</p>
-                    <p className="ft-price-main">{snapshot.controllerBalanceDisplay} TRX</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.controllerBalanceDisplay)} TRX</p>
                     <p className="ft-price-sub">{content.hero.stats.controllerBalanceMeta}</p>
                   </article>
-                  <article className="ft-price-card">
+                  <article
+                    className={`ft-price-card ${
+                      snapshot.currentWindowState === "ready"
+                        ? "ft-price-card--positive"
+                        : snapshot.currentWindowState === "threshold"
+                          ? "ft-price-card--negative"
+                          : "ft-price-card--warning"
+                    }`}
+                  >
                     <p className="ft-price-label">{content.hero.stats.nextRelease}</p>
-                    <p className="ft-price-main">{snapshot.nextReleaseDisplay} TRX</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.nextReleaseDisplay)} TRX</p>
                     <p className="ft-price-sub">{content.hero.stats.nextReleaseMeta}</p>
                   </article>
                   <article className="ft-price-card">
                     <p className="ft-price-label">{content.hero.stats.vaultReserve}</p>
-                    <p className="ft-price-main">{snapshot.fourteenvaultBalanceDisplay}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.fourteenvaultBalanceDisplay)}</p>
                     <p className="ft-price-sub">{content.hero.stats.vaultReserveMeta}</p>
                   </article>
                   <article className="ft-price-card">
@@ -122,12 +131,12 @@ export default async function LiquidityPage() {
                         <tr>
                           <th>{content.sections.liveState.rows.controllerBalance}</th>
                           <td className="ft-right">
-                            <strong>{snapshot.controllerBalanceDisplay} TRX</strong>
+                            <strong>{formatCompactMetric(snapshot.controllerBalanceDisplay)} TRX</strong>
                           </td>
                         </tr>
                         <tr>
                           <th>{content.sections.liveState.rows.latestFunding}</th>
-                          <td className="ft-right">{snapshot.latestFundingDisplay} TRX</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.latestFundingDisplay)} TRX</td>
                         </tr>
                         <tr>
                           <th>{content.sections.liveState.rows.latestFundingAt}</th>
@@ -147,7 +156,7 @@ export default async function LiquidityPage() {
                         </tr>
                         <tr>
                           <th>{content.sections.liveState.rows.minBalance}</th>
-                          <td className="ft-right">{snapshot.minBalanceDisplay} TRX</td>
+                          <td className="ft-right">{formatCompactMetric(snapshot.minBalanceDisplay)} TRX</td>
                         </tr>
                         <tr>
                           <th>{content.sections.liveState.rows.dailyRelease}</th>
@@ -233,7 +242,7 @@ export default async function LiquidityPage() {
                             <span className="ft-liquidity-page__latest-label">
                               {content.sections.latestExecutions.headers.total}
                             </span>
-                            <strong>{operation.totalTrxDisplay} TRX</strong>
+                            <strong>{formatCompactMetric(operation.totalTrxDisplay)} TRX</strong>
                           </div>
 
                           <div className="ft-liquidity-page__latest-cell">
@@ -241,8 +250,8 @@ export default async function LiquidityPage() {
                               {content.sections.latestExecutions.headers.split}
                             </span>
                             <div className="ft-stack ft-stack--xs">
-                              <span>JM {operation.justMoneyTrxDisplay} TRX</span>
-                              <span>SUN {operation.sunV3TrxDisplay} TRX</span>
+                              <span>JM {formatCompactMetric(operation.justMoneyTrxDisplay)} TRX</span>
+                              <span>SUN {formatCompactMetric(operation.sunV3TrxDisplay)} TRX</span>
                             </div>
                           </div>
 
@@ -264,14 +273,15 @@ export default async function LiquidityPage() {
                             <span className="ft-liquidity-page__latest-label">
                               {content.sections.latestExecutions.headers.source}
                             </span>
-                            <a
+                            <LoaderLink
                               className="ft-link"
                               href={operation.txUrl}
+                              showLinkIcon
                               rel="noopener noreferrer"
                               target="_blank"
                             >
                               {content.sections.latestExecutions.openTx}
-                            </a>
+                            </LoaderLink>
                           </div>
                         </div>
                       ))}
@@ -303,18 +313,19 @@ export default async function LiquidityPage() {
                           <p className="ft-card-title-top">
                             {content.sections.reserveLayer.cards[index]?.title ?? reserve.title}
                           </p>
-                          <h3 className="ft-card-title">{reserve.balanceDisplay}</h3>
+                          <h3 className="ft-card-title">{formatCompactMetric(reserve.balanceDisplay)}</h3>
                           <p className="ft-text">
                             {content.sections.reserveLayer.cards[index]?.body ?? reserve.role}
                           </p>
-                          <a
+                          <LoaderLink
                             className="ft-link"
                             href={reserve.href}
+                            showLinkIcon
                             rel="noopener noreferrer"
                             target="_blank"
                           >
-                            {reserve.address}
-                          </a>
+                            <span title={reserve.address}>{shortenAddress(reserve.address)}</span>
+                          </LoaderLink>
                         </article>
                       ))}
                     </div>
@@ -333,54 +344,60 @@ export default async function LiquidityPage() {
                     <p className="ft-text">{content.sections.verification.body}</p>
 
                     <div className="ft-links">
-                      <a
+                      <LoaderLink
                         className="ft-link"
                         href={liquidityVerificationLinks.controller}
+                        showLinkIcon
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {content.sections.verification.labels.controller}
-                      </a>
-                      <a
+                      </LoaderLink>
+                      <LoaderLink
                         className="ft-link"
                         href={liquidityVerificationLinks.bootstrapper}
+                        showLinkIcon
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {content.sections.verification.labels.bootstrapper}
-                      </a>
-                      <a
+                      </LoaderLink>
+                      <LoaderLink
                         className="ft-link"
                         href={snapshot.reserves[1]?.href}
+                        showLinkIcon
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {content.sections.verification.labels.justMoney}
-                      </a>
-                      <a
+                      </LoaderLink>
+                      <LoaderLink
                         className="ft-link"
                         href={snapshot.reserves[2]?.href}
+                        showLinkIcon
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {content.sections.verification.labels.sunV3}
-                      </a>
-                      <a
+                      </LoaderLink>
+                      <LoaderLink
                         className="ft-link"
                         href={officialContractsRepoUrl}
+                        showLinkIcon
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {content.sections.verification.labels.contractsRepo}
-                      </a>
-                      <a
+                      </LoaderLink>
+                      <LoaderLink
                         className="ft-link"
                         href={officialWalletRepoUrl}
+                        showLinkIcon
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {content.sections.verification.labels.walletRepo}
-                      </a>
+                      </LoaderLink>
                     </div>
                   </div>
                 </article>

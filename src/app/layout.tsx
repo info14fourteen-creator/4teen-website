@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { PageLoaderOverlay } from "@/components/site/page-loader-overlay";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteMotionPack } from "@/components/site/site-motion-pack";
+import { SiteNoteAccents } from "@/components/site/site-note-accents";
+import { PageLoaderOverlay } from "@/components/site/page-loader-overlay";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -88,6 +89,7 @@ export default function RootLayout({
       <body className="min-h-full antialiased">
         <SiteMotionPack />
         <PageLoaderOverlay />
+        <SiteNoteAccents />
         {children}
         <SiteFooter />
       </body>

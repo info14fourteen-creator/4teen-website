@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { PublicPageShell } from "@/components/site/public-page-shell";
+import { LoaderLink } from "@/components/site/loader-link";
 import { getPublicPagesContent } from "@/content/public-pages-content";
 import { officialSupportEmail } from "@/content/official-links";
 import { defaultSiteLocale } from "@/lib/site-locale";
@@ -29,17 +30,18 @@ export default function SupportPage() {
 
             <div className="ft-grid ft-grid--2-even ft-public-page__channel-grid">
               {content.channels.map((channel) => (
-                <a
+                <LoaderLink
                   key={channel.label}
                   className="ft-card ft-card--plain ft-public-page__channel-card"
                   href={channel.href}
                   rel="noopener noreferrer"
+                  showLinkIcon
                   target="_blank"
                 >
                   <p className="ft-card-title-top">{content.channelPanel.routeLabel}</p>
                   <h3 className="ft-card-title">{channel.label}</h3>
                   <p className="ft-text">{channel.note}</p>
-                </a>
+                </LoaderLink>
               ))}
             </div>
           </div>
@@ -53,7 +55,7 @@ export default function SupportPage() {
             </div>
 
             <div className="ft-grid ft-grid--2-even ft-public-page__scope-grid">
-              <article className="ft-card ft-card--plain ft-public-page__scope-card">
+              <article className="ft-card ft-card--plain ft-card--positive ft-public-page__scope-card">
                 <p className="ft-card-title-top">{content.scopePanel.canHelp}</p>
                 <ul className="ft-list ft-public-page__list">
                   {content.supportScope.canHelp.map((item) => (
@@ -62,7 +64,7 @@ export default function SupportPage() {
                 </ul>
               </article>
 
-              <article className="ft-card ft-card--plain ft-public-page__scope-card">
+              <article className="ft-card ft-card--plain ft-card--negative ft-public-page__scope-card">
                 <p className="ft-card-title-top">{content.scopePanel.cannotHelp}</p>
                 <ul className="ft-list ft-public-page__list">
                   {content.supportScope.cannotHelp.map((item) => (
@@ -89,9 +91,9 @@ export default function SupportPage() {
             <article className="ft-card ft-card--plain ft-public-page__contact-card">
               <p className="ft-card-title-top">{content.contactPanel.emailTitle}</p>
               {officialSupportEmail ? (
-                <a className="ft-link" href={`mailto:${officialSupportEmail}`}>
+                <LoaderLink className="ft-link" href={`mailto:${officialSupportEmail}`} showLinkIcon>
                   {officialSupportEmail}
-                </a>
+                </LoaderLink>
               ) : (
                 <p className="ft-text">{content.contactPanel.emailMissing}</p>
               )}

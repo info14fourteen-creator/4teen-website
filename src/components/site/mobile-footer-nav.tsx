@@ -71,6 +71,8 @@ function FooterNavButton({
 }) {
   const pathname = usePathname();
   const active = item.match(pathname);
+  const isCurrentLocation =
+    pathname === item.href || pathname.startsWith(`${item.href}/`);
   const resetRef = useRef<number | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -97,7 +99,7 @@ function FooterNavButton({
       className={`ft-mobile-dock-button ${active ? "is-active" : ""}`}
       href={item.href}
       onClick={(event) => {
-        if (active || isTransitioning) {
+        if (isCurrentLocation || isTransitioning) {
           event.preventDefault();
           return;
         }

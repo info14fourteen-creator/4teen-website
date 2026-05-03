@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { formatCompactMetric } from "@/lib/site-format";
 
 type MarketPayload = {
   ok: boolean;
@@ -76,13 +77,13 @@ export function HomePriceCards({
   }, []);
 
   const directMain = payload?.ok && payload.snapshot?.direct?.trx
-    ? `${payload.snapshot.direct.trx} TRX`
+    ? `${formatCompactMetric(payload.snapshot.direct.trx)} TRX`
     : "Unavailable";
   const dexMain = payload?.ok && payload.snapshot?.dex?.trx
-    ? `${payload.snapshot.dex.trx} TRX`
+    ? `${formatCompactMetric(payload.snapshot.dex.trx)} TRX`
     : "Unavailable";
   const dexSub = payload?.ok && payload.snapshot?.dex?.usdt
-    ? `~ $${payload.snapshot.dex.usdt} per 4TEEN`
+    ? `~ $${formatCompactMetric(payload.snapshot.dex.usdt)} per 4TEEN`
     : "Router quote read failed";
 
   return (

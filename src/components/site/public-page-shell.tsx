@@ -87,7 +87,7 @@ export function PublicPageShell({
           {content.links?.length ? (
             <article className="ft-card ft-card--plain ft-public-page__links-panel">
               <div className="ft-stack ft-stack--sm">
-                <p className="ft-overline">Public Exits</p>
+                <p className="ft-overline">{content.linksEyebrow ?? "Public Exits"}</p>
                 <div className="ft-actions ft-actions--stack-mobile ft-public-page__links-actions">
                   {content.links.map((link) =>
                     link.href.startsWith("/") ? (
@@ -95,15 +95,16 @@ export function PublicPageShell({
                         {link.label}
                       </LoaderLink>
                     ) : (
-                      <a
+                      <LoaderLink
                         key={link.label}
                         className="ft-btn ft-btn--ghost"
                         href={link.href}
                         rel="noopener noreferrer"
+                        showLinkIcon
                         target="_blank"
                       >
                         {link.label}
-                      </a>
+                      </LoaderLink>
                     ),
                   )}
                 </div>

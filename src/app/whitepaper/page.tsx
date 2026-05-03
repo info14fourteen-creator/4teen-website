@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 
-import { WhitepaperVersionPage } from "@/components/site/whitepaper-version-page";
-import { getWhitepaperVersionDocument } from "@/content/whitepaper-content";
+import { WhitepaperArchivePage } from "@/components/site/whitepaper-version-page";
+import { getWhitepaperArchivePageContent } from "@/content/whitepaper-content";
 import { defaultSiteLocale } from "@/lib/site-locale";
 
-const document = getWhitepaperVersionDocument(defaultSiteLocale, "v1-3");
+const content = getWhitepaperArchivePageContent(defaultSiteLocale);
 
 export const metadata: Metadata = {
-  title: `Whitepaper ${document.version}`,
-  description: document.lead,
+  title: content.metadata.title,
+  description: content.metadata.description,
 };
 
 export default function WhitepaperPage() {
-  return <WhitepaperVersionPage slug="v1-3" />;
+  return <WhitepaperArchivePage />;
 }

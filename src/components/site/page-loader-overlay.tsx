@@ -3,10 +3,13 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { FourteenLoader } from "@/components/site/fourteen-loader";
-import { FOURTEEN_LOADER_EVENT } from "@/components/site/loader-link";
+import {
+  FOURTEEN_LOADER_DONE_EVENT,
+  FOURTEEN_LOADER_EVENT,
+} from "@/components/site/loader-link";
 
-const TRANSITION_DURATION_MS = 760;
 const LEAVE_DURATION_MS = 220;
+const MAX_WAIT_DURATION_MS = 4000;
 
 export function PageLoaderOverlay() {
   const pathname = usePathname();
@@ -29,17 +32,34 @@ export function PageLoaderOverlay() {
     }
   }
 
-  function showLoader(durationMs: number) {
+  function showLoader() {
     clearTimers();
     setVisible(true);
     setActive(true);
 
     activeTimerRef.current = window.setTimeout(() => {
-      setActive(false);
-      hideTimerRef.current = window.setTimeout(() => {
-        setVisible(false);
-      }, LEAVE_DURATION_MS);
-    }, durationMs);
+      finishLoader();
+    }, MAX_WAIT_DURATION_MS);
+  }
+
+  function finishLoader() {
+    if (!visible && !active) return;
+
+    if (activeTimerRef.current) {
+      window.clearTimeout(activeTimerRef.current);
+      activeTimerRef.current = null;
+    }
+
+    setActive(false);
+
+    if (hideTimerRef.current) {
+      window.clearTimeout(hideTimerRef.current);
+    }
+
+    hideTimerRef.current = window.setTimeout(() => {
+      setVisible(false);
+      hideTimerRef.current = null;
+    }, LEAVE_DURATION_MS);
   }
 
   useEffect(() => {
@@ -57,17 +77,23 @@ export function PageLoaderOverlay() {
       return;
     }
 
-    showLoader(240);
+    finishLoader();
   }, [pathname]);
 
   useEffect(() => {
     const handleStart = () => {
-      showLoader(TRANSITION_DURATION_MS);
+      showLoader();
+    };
+
+    const handleDone = () => {
+      finishLoader();
     };
 
     window.addEventListener(FOURTEEN_LOADER_EVENT, handleStart);
+    window.addEventListener(FOURTEEN_LOADER_DONE_EVENT, handleDone);
     return () => {
       window.removeEventListener(FOURTEEN_LOADER_EVENT, handleStart);
+      window.removeEventListener(FOURTEEN_LOADER_DONE_EVENT, handleDone);
     };
   }, []);
 

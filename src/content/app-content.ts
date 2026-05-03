@@ -82,9 +82,9 @@ const appContentEn: AppPageContent = {
     eyebrow: "4TEEN Mobile App",
     status: "Universal wallet + live protocol layer",
     title:
-      "A multilingual TRON wallet that already understands real execution, not just token marketing.",
+      "A multilingual TRON wallet that already manages real crypto activity, not just one ecosystem token.",
     lead:
-      "The mobile app is not limited to our ecosystem. It already works as a broader wallet product with wallets, transfers, assets, QR flow, contacts, language, and settings. Inside that wallet core, the full 4TEEN system is already built in: direct buy, unlock tracking, liquidity control, airdrop state, ambassador cabinet, contract map, and runtime readiness.",
+      "The mobile app is not limited to 4TEEN. It already behaves like a broader TRON wallet with wallets, assets, transfers, QR flow, contacts, language, and settings. Manage Crypto is part of the real product, not decoration: users can browse assets, filter them, add custom tokens, and move across a much wider token surface. Inside that wallet core, the full 4TEEN system is already built in: direct buy, swap, unlock tracking, liquidity control, airdrop state, ambassador cabinet, contract map, and runtime readiness.",
     stayOnWeb: "Stay on Web",
     stats: [
       {
@@ -93,19 +93,19 @@ const appContentEn: AppPageContent = {
         meta: "Wallets, send, asset management, scan, contacts, settings.",
       },
       {
+        label: "Asset scope",
+        value: "Wide",
+        meta: "TRX, 4TEEN, stable assets, and user-managed custom token entries.",
+      },
+      {
         label: "Languages",
         value: "16",
         meta: "Dedicated language route with app-wide locale control.",
       },
       {
-        label: "Resources",
-        value: "Aware",
-        meta: "Energy, Bandwidth, shortfall, burn, and top-up state.",
-      },
-      {
         label: "4TEEN layer",
         value: "Built in",
-        meta: "Buy, unlock, liquidity, airdrop, ambassadors, and info.",
+        meta: "Buy, swap, unlock, liquidity, airdrop, ambassadors, and info.",
       },
     ],
   },
@@ -152,7 +152,7 @@ const appContentEn: AppPageContent = {
     {
       eyebrow: "Manage Crypto",
       title: "Broader than one ecosystem asset",
-      text: "The app already manages TRX, USDT, 4TEEN, and custom tokens. Portfolio behavior is treated as first-class wallet behavior, not as an afterthought around a single token.",
+      text: "Manage Crypto already treats assets as a real product layer: TRX, 4TEEN, stable assets, custom token entries, filters, sort modes, and target-asset selection for send and swap live in the same wallet surface.",
     },
     {
       eyebrow: "Language",
@@ -190,6 +190,12 @@ const appContentEn: AppPageContent = {
       href: "/buy",
     },
     {
+      eyebrow: "Swap Token",
+      title: "Route comparison, not blind exchange",
+      text: "The swap route can compare paths, switch target assets, surface protected minimum receive, and stop the flow early if allowance or network resources are not ready.",
+      href: "/swap",
+    },
+    {
       eyebrow: "Unlock Timeline",
       title: "Per-purchase lock visibility",
       text: "Each locked batch is shown by wallet, amount, UTC unlock time, countdown, and source transaction. This is a purpose-built lock surface, not just generic history.",
@@ -223,7 +229,7 @@ const appContentEn: AppPageContent = {
   operatingRules: [
     {
       title: "Universal wallet first",
-      text: "The strongest reading of this app is not “an ecosystem shell”. It already behaves like a broader TRON wallet, and 4TEEN is built into that foundation as a live product layer.",
+      text: "The strongest reading of this app is not “an ecosystem shell”. It already behaves like a broader TRON wallet with a wider token universe, and 4TEEN is built into that foundation as a live product layer.",
     },
     {
       title: "Watch-only and signing are different states",
@@ -240,9 +246,9 @@ const appContentEn: AppPageContent = {
   ],
   downloadReasons: [
     "Use it as a broader TRON wallet, not only as a 4TEEN access point.",
-    "Keep portfolio, transfers, scanning, contacts, and language control in the same product.",
+    "Keep portfolio, custom token handling, transfers, scanning, contacts, and language control in the same product.",
     "Open the full 4TEEN layer inside the wallet: buy, unlock, liquidity, airdrop, ambassadors, and info.",
-    "See network load, resource shortfall, and operational readiness before signing or waiting blindly.",
+    "See network load, resource shortfall, route protection, and operational readiness before signing or waiting blindly.",
   ],
   sections: {
     entryFlow: {

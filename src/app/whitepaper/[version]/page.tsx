@@ -20,9 +20,7 @@ function resolveVersionSlug(version: string): WhitepaperVersionSlug | null {
 }
 
 export function generateStaticParams() {
-  return whitepaperVersionOrder
-    .filter((slug) => slug !== "v1-3")
-    .map((slug) => ({ version: slug }));
+  return whitepaperVersionOrder.map((slug) => ({ version: slug }));
 }
 
 export async function generateMetadata({
@@ -33,7 +31,7 @@ export async function generateMetadata({
   const { version } = await params;
   const slug = resolveVersionSlug(version);
 
-  if (!slug || slug === "v1-3") {
+  if (!slug) {
     return {};
   }
 
@@ -53,7 +51,7 @@ export default async function WhitepaperVersionRoute({
   const { version } = await params;
   const slug = resolveVersionSlug(version);
 
-  if (!slug || slug === "v1-3") {
+  if (!slug) {
     notFound();
   }
 

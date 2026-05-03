@@ -198,13 +198,6 @@ export default function AppPage() {
                 </a>
               </div>
 
-              <div className="ft-links ft-app-page__download-links">
-                {content.storeLinks.map((store) => (
-                  <a key={store.label} className="ft-link" href={store.href} rel="noopener noreferrer" target="_blank">
-                    {store.label}: {store.meta}
-                  </a>
-                ))}
-              </div>
             </div>
           </article>
         </div>

@@ -35,6 +35,25 @@ function isActivePath(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
+function getBurgerMenuLabel(href: string, fallback: string) {
+  switch (href) {
+    case "/buy":
+      return "Direct Buy";
+    case "/unlock":
+      return "Unlock Timeline";
+    case "/liquidity":
+      return "Liquidity Controller";
+    case "/swap":
+      return "Swap Token";
+    case "/privacy":
+      return "Privacy Policy";
+    case "/terms":
+      return "Terms of Use";
+    default:
+      return fallback;
+  }
+}
+
 export function FourteenMobileShell({
   appMode: _appMode = false,
 }: {
@@ -146,7 +165,9 @@ export function FourteenMobileShell({
                     href={link.href}
                     onClick={handleMenuLinkClick(link.href)}
                   >
-                    <span>{link.label}</span>
+                    <span className="ft-mobile-menu-link__label">
+                      {getBurgerMenuLabel(link.href, link.label)}
+                    </span>
                     <AnimatedLottieIcon
                       animationData={
                         link.href === "/buy"
@@ -181,7 +202,7 @@ export function FourteenMobileShell({
                     href={link.href}
                     onClick={handleMenuLinkClick(link.href)}
                   >
-                    <span>{link.label}</span>
+                    <span className="ft-mobile-menu-link__label">{link.label}</span>
                     <AnimatedLottieIcon
                       animationData={
                         link.href === "/app"
@@ -206,7 +227,9 @@ export function FourteenMobileShell({
                     href={link.href}
                     onClick={handleMenuLinkClick(link.href)}
                   >
-                    <span>{link.label}</span>
+                    <span className="ft-mobile-menu-link__label">
+                      {getBurgerMenuLabel(link.href, link.label)}
+                    </span>
                     <AnimatedLottieIcon
                       animationData={
                         link.href === "/privacy"

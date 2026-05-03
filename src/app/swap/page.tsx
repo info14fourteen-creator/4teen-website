@@ -8,6 +8,7 @@ import { officialWalletRepoUrl } from "@/content/official-links";
 import { getSwapPageContent } from "@/content/swap-content";
 import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 import { defaultSiteLocale } from "@/lib/site-locale";
+import { formatCompactMetric } from "@/lib/site-format";
 import { formatUtcDate } from "@/lib/site-intl";
 import { type SwapSnapshot, swapVerificationLinks } from "@/lib/site-snapshot-types";
 
@@ -42,19 +43,27 @@ export default async function SwapPage() {
 
               {snapshot ? (
                 <div className="ft-grid ft-grid--4 ft-swap-page__hero-stats">
-                  <article className="ft-price-card">
+                  <article className="ft-price-card ft-price-card--positive">
                     <p className="ft-price-label">{content.hero.stats.sampleAmount}</p>
-                    <p className="ft-price-main">{snapshot.sampleAmount} 4TEEN</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.sampleAmount)} 4TEEN</p>
                     <p className="ft-price-sub">{content.hero.stats.sampleAmountMeta}</p>
                   </article>
-                  <article className="ft-price-card">
+                  <article className="ft-price-card ft-price-card--warning">
                     <p className="ft-price-label">{content.hero.stats.supportedTargets}</p>
-                    <p className="ft-price-main">{snapshot.supportedTargets}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.supportedTargets)}</p>
                     <p className="ft-price-sub">{content.hero.stats.supportedTargetsMeta}</p>
                   </article>
-                  <article className="ft-price-card">
+                  <article
+                    className={`ft-price-card ${
+                      snapshot.routerState === "live"
+                        ? "ft-price-card--positive"
+                        : snapshot.routerState === "offline"
+                          ? "ft-price-card--negative"
+                          : "ft-price-card--warning"
+                    }`}
+                  >
                     <p className="ft-price-label">{content.hero.stats.remainderGuard}</p>
-                    <p className="ft-price-main">{snapshot.protectedRemainder}</p>
+                    <p className="ft-price-main">{formatCompactMetric(snapshot.protectedRemainder)}</p>
                     <p className="ft-price-sub">{content.hero.stats.remainderGuardMeta}</p>
                   </article>
                   <article className="ft-price-card">
@@ -115,7 +124,7 @@ export default async function SwapPage() {
                       >
                         <p className="ft-card-title-top">{route.targetSymbol}</p>
                         <h3 className="ft-card-title">
-                          {route.expectedOutDisplay} {route.targetSymbol}
+                          {formatCompactMetric(route.expectedOutDisplay)} {route.targetSymbol}
                         </h3>
                         <div className="ft-stack ft-stack--xs">
                           <p className="ft-price-label">{content.sections.liveRoutes.labels.route}</p>
@@ -226,13 +235,13 @@ export default async function SwapPage() {
                 <p className="ft-text">{content.sections.verification.body}</p>
 
                 <div className="ft-links ft-links--stack">
-                  <LoaderLink className="ft-link" href={swapVerificationLinks.router}>
+                  <LoaderLink className="ft-link" href={swapVerificationLinks.router} showLinkIcon>
                     {content.sections.verification.labels.router}
                   </LoaderLink>
-                  <LoaderLink className="ft-link" href={swapVerificationLinks.token}>
+                  <LoaderLink className="ft-link" href={swapVerificationLinks.token} showLinkIcon>
                     {content.sections.verification.labels.token}
                   </LoaderLink>
-                  <LoaderLink className="ft-link" href={officialWalletRepoUrl}>
+                  <LoaderLink className="ft-link" href={officialWalletRepoUrl} showLinkIcon>
                     {content.sections.verification.labels.walletRepo}
                   </LoaderLink>
                 </div>
