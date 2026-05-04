@@ -1,15 +1,17 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatedLottieIcon } from "@/components/site/animated-lottie-icon";
 import { LoaderLink } from "@/components/site/loader-link";
 import localeGlobeHover from "@/assets/lottie/locale-globe-hover.json";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import { localizePathnameForLocale } from "@/lib/site-locale";
 import { siteLocales } from "@/lib/site-config";
+import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 export function LocaleSwitcher({
-  content,
-  currentLocale = defaultSiteLocale,
+  content: copy,
+  currentLocale,
   compact = false,
   footerCompact = false,
   minimal = false,
@@ -27,11 +29,13 @@ export function LocaleSwitcher({
 }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
+  const pathname = usePathname() ?? "/";
+  const resolvedCurrentLocale = currentLocale ?? useCurrentSiteLocale();
 
   const current = useMemo(
     () =>
-      siteLocales.find((locale) => locale.code === currentLocale) ?? siteLocales[0],
-    [currentLocale],
+      siteLocales.find((locale) => locale.code === resolvedCurrentLocale) ?? siteLocales[0],
+    [resolvedCurrentLocale],
   );
 
   useEffect(() => {
@@ -56,12 +60,9 @@ export function LocaleSwitcher({
     };
   }, []);
 
-  const copy = content ?? {
-    eyebrow: "Language",
-    title: "Choose interface language",
-    active: "Active",
-    soon: "Soon",
-  };
+  if (!copy) {
+    return null;
+  }
 
   return (
     <div
@@ -85,7 +86,7 @@ export function LocaleSwitcher({
                 <LoaderLink
                   key={locale.code}
                   className="ft-locale-switcher__inline-option"
-                  href={locale.href}
+                  href={localizePathnameForLocale(pathname, locale.code)}
                   onClick={() => setOpen(false)}
                 >
                   {content}
@@ -144,11 +145,11 @@ export function LocaleSwitcher({
                     </span>
                   </span>
                   <span className="ft-locale-switcher__option-status">
-                    {locale.status === "live"
-                      ? locale.code === current.code
-                        ? `${locale.label} / ${copy.active}`
-                        : locale.label
-                      : `${locale.label} / ${copy.soon}`}
+                    {locale.code === current.code
+                      ? `${locale.label} / ${copy.active}`
+                      : locale.status === "live"
+                        ? locale.label
+                        : `${locale.label} / ${copy.soon}`}
                   </span>
                 </span>
               </>
@@ -159,7 +160,7 @@ export function LocaleSwitcher({
                 <LoaderLink
                   key={locale.code}
                   className={`ft-locale-switcher__option ${locale.code === current.code ? "is-active" : ""}`}
-                  href={locale.href}
+                  href={localizePathnameForLocale(pathname, locale.code)}
                   onClick={() => setOpen(false)}
                 >
                   {content}

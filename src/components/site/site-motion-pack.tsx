@@ -2,6 +2,9 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { getChromeContent } from "@/content/chrome-content";
+import { stripSiteLocaleSegment } from "@/lib/site-locale";
+import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 function createToast(message: string) {
   let wrap = document.querySelector<HTMLElement>(".ft-toast-wrap");
@@ -288,7 +291,10 @@ function initPulseCta() {
 
 export function SiteMotionPack() {
   const pathname = usePathname();
-  const isWhitepaperRoute = pathname.startsWith("/whitepaper");
+  const locale = useCurrentSiteLocale();
+  const chrome = getChromeContent(locale);
+  const routePath = stripSiteLocaleSegment(pathname ?? "/");
+  const isWhitepaperRoute = routePath.startsWith("/whitepaper");
 
   useEffect(() => {
     if (isWhitepaperRoute) {
@@ -311,7 +317,7 @@ export function SiteMotionPack() {
     return () => {
       cleanups.forEach((cleanup) => cleanup());
     };
-  }, [isWhitepaperRoute, pathname]);
+  }, [isWhitepaperRoute, routePath]);
 
   useEffect(() => {
     if (isWhitepaperRoute) {
@@ -329,7 +335,7 @@ export function SiteMotionPack() {
 
       try {
         await navigator.clipboard.writeText(value);
-        createToast("Copied");
+        createToast(button.getAttribute("data-copy-success") ?? chrome.common.copied);
       } catch {
         const textarea = document.createElement("textarea");
         textarea.value = value;
@@ -337,7 +343,7 @@ export function SiteMotionPack() {
         textarea.select();
         document.execCommand("copy");
         textarea.remove();
-        createToast("Copied");
+        createToast(button.getAttribute("data-copy-success") ?? chrome.common.copied);
       }
     };
 
@@ -356,7 +362,7 @@ export function SiteMotionPack() {
         modal.innerHTML = `
           <div class="ft-modal__backdrop"></div>
           <div class="ft-modal__dialog">
-            <button class="ft-modal__close" type="button" aria-label="Close">✕</button>
+            <button class="ft-modal__close" type="button" aria-label="${chrome.common.close.replace(/"/g, "&quot;")}">✕</button>
             <div class="ft-modal__img-wrap"></div>
           </div>
         `;
@@ -366,7 +372,7 @@ export function SiteMotionPack() {
       const imgWrap = modal.querySelector<HTMLElement>(".ft-modal__img-wrap");
       if (!imgWrap) return;
 
-      const alt = img.getAttribute("alt") || "QR code";
+      const alt = img.getAttribute("alt") || chrome.common.qrCode;
       imgWrap.innerHTML = `<img src="${src}" alt="${alt.replace(/"/g, "&quot;")}">`;
       modal.classList.add("is-open");
       document.body.style.overflow = "hidden";
@@ -411,7 +417,12 @@ export function SiteMotionPack() {
       document.removeEventListener("click", handleModalClose);
       document.removeEventListener("keydown", handleEscape);
     };
-  }, [isWhitepaperRoute]);
+  }, [
+    chrome.common.close,
+    chrome.common.copied,
+    chrome.common.qrCode,
+    isWhitepaperRoute,
+  ]);
 
   return null;
 }

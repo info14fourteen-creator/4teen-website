@@ -1,0 +1,95 @@
+name: Daily Blog Publish
+
+on:
+  repository_dispatch:
+    types:
+      - daily-blog-publish
+  workflow_dispatch:
+    inputs:
+      run_date:
+        description: Optional YYYY-MM-DD override
+        required: false
+        type: string
+      force:
+        description: Force publish even if the day already has a post
+        required: false
+        default: false
+        type: boolean
+      skip_deploy:
+        description: Skip Cloudflare deploy
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-blog-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      DATABASE_URL: ${{ github.event.client_payload.databaseUrl || secrets.DATABASE_URL }}
+      BLOG_DATABASE_URL: ${{ github.event.client_payload.blogDatabaseUrl || '' }}
+      OPENAI_API_KEY: ${{ github.event.client_payload.openAiApiKey || secrets.OPENAI_API_KEY }}
+      OPENAI_ORG_ID: ${{ github.event.client_payload.openAiOrgId || secrets.OPENAI_ORG_ID }}
+      OPENAI_PROJECT_ID: ${{ github.event.client_payload.openAiProjectId || secrets.OPENAI_PROJECT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ github.event.client_payload.cloudflareApiToken || secrets.CLOUDFLARE_API_TOKEN }}
+      DAILY_DIGEST_FEED_URL: ${{ github.event.client_payload.feedUrl || '' }}
+      DAILY_DIGEST_WRITER_MODEL: ${{ github.event.client_payload.writerModel || 'gpt-5.5' }}
+      DAILY_DIGEST_WRITER_EFFORT: ${{ github.event.client_payload.writerEffort || 'high' }}
+      DAILY_DIGEST_TRIAGE_MODEL: ${{ github.event.client_payload.triageModel || 'gpt-5-nano' }}
+      DAILY_DIGEST_ANALYSIS_MODEL: ${{ github.event.client_payload.analysisModel || 'gpt-5-mini' }}
+      DAILY_DIGEST_METADATA_MODEL: ${{ github.event.client_payload.metadataModel || 'gpt-5-nano' }}
+      DAILY_DIGEST_IMAGE_MODE: ${{ github.event.client_payload.imageMode || 'openai-generate' }}
+      DAILY_DIGEST_SCAN_ARTICLES: ${{ github.event.client_payload.scanArticles || '24' }}
+      DAILY_DIGEST_DEEP_ANALYSIS_ARTICLES: ${{ github.event.client_payload.deepAnalysisArticles || '8' }}
+      DAILY_DIGEST_MAX_ARTICLES: ${{ github.event.client_payload.maxArticles || '12' }}
+      DAILY_DIGEST_LOOKBACK_HOURS: ${{ github.event.client_payload.lookbackHours || '24' }}
+      DAILY_DIGEST_SIGNATURE: ${{ github.event.client_payload.signature || 'Stan At, 4teen Founder' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.0
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Publish daily article
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          args=(--skip-notify)
+
+          run_date="${{ github.event.client_payload.runDate || inputs.run_date }}"
+          if [ -n "${run_date}" ]; then
+            args+=(--date "${run_date}")
+          fi
+
+          force_flag="${{ github.event.client_payload.force || inputs.force || false }}"
+          if [ "${force_flag}" = "true" ]; then
+            args+=(--force)
+          fi
+
+          skip_deploy_flag="${{ github.event.client_payload.skipDeploy || inputs.skip_deploy || false }}"
+          if [ "${skip_deploy_flag}" = "true" ]; then
+            args+=(--skip-deploy)
+          fi
+
+          node scripts/blog-automation/daily-digest-runner.mjs "${args[@]}"

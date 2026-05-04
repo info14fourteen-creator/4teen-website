@@ -59,6 +59,7 @@ export type AppPageContent = {
       eyebrow: string;
       title: string;
       notePrefix: string;
+      noteNeedNow: string;
       noteMiddle: string;
       noteMissing: string;
       noteSuffix: string;
@@ -263,6 +264,7 @@ const appContentEn: AppPageContent = {
       eyebrow: "Resource Intelligence",
       title: "Energy and Bandwidth are part of the product logic",
       notePrefix: "Inside the app, network-load cards already surface",
+      noteNeedNow: "Need now",
       noteMiddle: "Available now",
       noteMissing: "Missing",
       noteSuffix:

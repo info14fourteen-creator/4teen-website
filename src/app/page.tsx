@@ -1,6 +1,9 @@
-import { HomePage } from "@/components/home/home-page";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import type { Metadata } from "next";
+
+import { HomePageView, getHomePageMetadata } from "@/app/page-view";
+
+export const metadata: Metadata = getHomePageMetadata();
 
 export default function Home() {
-  return <HomePage locale={defaultSiteLocale} />;
+  return <HomePageView />;
 }

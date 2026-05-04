@@ -87,7 +87,9 @@ export function PublicPageShell({
           {content.links?.length ? (
             <article className="ft-card ft-card--plain ft-public-page__links-panel">
               <div className="ft-stack ft-stack--sm">
-                <p className="ft-overline">{content.linksEyebrow ?? "Public Exits"}</p>
+                {content.linksEyebrow ? (
+                  <p className="ft-overline">{content.linksEyebrow}</p>
+                ) : null}
                 <div className="ft-actions ft-actions--stack-mobile ft-public-page__links-actions">
                   {content.links.map((link) =>
                     link.href.startsWith("/") ? (

@@ -1,6 +1,4 @@
 "use client";
-
-import { usePathname } from "next/navigation";
 import {
   useDeferredValue,
   useEffect,
@@ -13,6 +11,7 @@ import searchOpenResultsHover from "@/assets/lottie/search-open-results-hover.js
 import utilitySearchHover from "@/assets/lottie/utility-search-hover.json";
 import { LoaderLink, navigateHard, triggerFourteenLoader } from "@/components/site/loader-link";
 import { searchSiteEntries } from "@/lib/site-search";
+import { useCurrentSiteLocale, useLocaleAwarePathname } from "@/lib/use-current-site-locale";
 
 export function SiteSearch({
   content,
@@ -34,7 +33,8 @@ export function SiteSearch({
     empty: string;
   };
 }) {
-  const pathname = usePathname();
+  const locale = useCurrentSiteLocale();
+  const localeAwarePathname = useLocaleAwarePathname();
   const rootRef = useRef<HTMLFormElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [query, setQuery] = useState("");
@@ -43,8 +43,8 @@ export function SiteSearch({
   const deferredQuery = useDeferredValue(query);
 
   const results = useMemo(
-    () => searchSiteEntries(deferredQuery, pathname),
-    [deferredQuery, pathname],
+    () => searchSiteEntries(deferredQuery, localeAwarePathname, locale),
+    [deferredQuery, locale, localeAwarePathname],
   );
 
   useEffect(() => {

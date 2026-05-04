@@ -1,9 +1,8 @@
 "use client";
-
-import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { LoaderLink, navigateHard, triggerFourteenLoader } from "@/components/site/loader-link";
 import { searchSiteEntries } from "@/lib/site-search";
+import { useCurrentSiteLocale, useLocaleAwarePathname } from "@/lib/use-current-site-locale";
 
 export function MobileSiteSearch({
   content,
@@ -22,13 +21,14 @@ export function MobileSiteSearch({
   open: boolean;
   onNavigate?: () => void;
 }) {
-  const pathname = usePathname();
+  const locale = useCurrentSiteLocale();
+  const localeAwarePathname = useLocaleAwarePathname();
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [query, setQuery] = useState("");
 
   const results = useMemo(
-    () => searchSiteEntries(query, pathname).slice(0, 6),
-    [pathname, query],
+    () => searchSiteEntries(query, localeAwarePathname, locale).slice(0, 6),
+    [locale, localeAwarePathname, query],
   );
 
   useEffect(() => {

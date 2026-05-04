@@ -1,23 +1,16 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { WhitepaperVersionPage } from "@/components/site/whitepaper-version-page";
 import {
-  getWhitepaperVersionDocument,
+  WhitepaperVersionRouteView,
+  getWhitepaperVersionMetadata,
+  resolveVersionSlug,
   whitepaperVersionOrder,
-  type WhitepaperVersionSlug,
-} from "@/content/whitepaper-content";
-import { defaultSiteLocale } from "@/lib/site-locale";
+} from "@/app/whitepaper/[version]/page-view";
 
 type Params = {
   version: string;
 };
-
-function resolveVersionSlug(version: string): WhitepaperVersionSlug | null {
-  return whitepaperVersionOrder.includes(version as WhitepaperVersionSlug)
-    ? (version as WhitepaperVersionSlug)
-    : null;
-}
 
 export function generateStaticParams() {
   return whitepaperVersionOrder.map((slug) => ({ version: slug }));
@@ -29,18 +22,7 @@ export async function generateMetadata({
   params: Promise<Params>;
 }): Promise<Metadata> {
   const { version } = await params;
-  const slug = resolveVersionSlug(version);
-
-  if (!slug) {
-    return {};
-  }
-
-  const document = getWhitepaperVersionDocument(defaultSiteLocale, slug);
-
-  return {
-    title: `Whitepaper ${document.version}`,
-    description: document.lead,
-  };
+  return getWhitepaperVersionMetadata(version);
 }
 
 export default async function WhitepaperVersionRoute({
@@ -55,5 +37,5 @@ export default async function WhitepaperVersionRoute({
     notFound();
   }
 
-  return <WhitepaperVersionPage slug={slug} />;
+  return <WhitepaperVersionRouteView slug={slug} />;
 }

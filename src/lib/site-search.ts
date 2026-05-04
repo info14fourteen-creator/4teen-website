@@ -1,7 +1,12 @@
 import { getSearchContent } from "@/content/search-content";
 import { getPublicPagesContent } from "@/content/public-pages-content";
 import { getAllSiteNav } from "@/lib/site-config";
-import { defaultSiteLocale, type SupportedSiteLocale } from "@/lib/site-locale";
+import {
+  defaultSiteLocale,
+  localizeSiteHref,
+  stripSiteLocaleSegment,
+  type SupportedSiteLocale,
+} from "@/lib/site-locale";
 
 export type SiteSearchEntry = {
   title: string;
@@ -24,98 +29,98 @@ export function getSiteSearchEntries(
   return [
     {
       title: navLabel("/", locale),
-      href: "/",
+      href: localizeSiteHref("/", locale),
       meta: copy.meta.mainRoute,
       kind: "internal",
       keywords: ["home", "main", "overview", "protocol"],
     },
     {
       title: navLabel("/buy", locale),
-      href: "/buy",
+      href: localizeSiteHref("/buy", locale),
       meta: copy.meta.protocolSurface,
       kind: "internal",
       keywords: ["buy", "direct buy", "mint", "purchase", "entry", "fourteentoken"],
     },
     {
       title: navLabel("/unlock", locale),
-      href: "/unlock",
+      href: localizeSiteHref("/unlock", locale),
       meta: copy.meta.protocolSurface,
       kind: "internal",
       keywords: ["unlock", "timeline", "lock", "14 days", "locked balance"],
     },
     {
       title: navLabel("/liquidity", locale),
-      href: "/liquidity",
+      href: localizeSiteHref("/liquidity", locale),
       meta: copy.meta.protocolSurface,
       kind: "internal",
       keywords: ["liquidity", "controller", "bootstrapper", "execution", "release"],
     },
     {
       title: navLabel("/swap", locale),
-      href: "/swap",
+      href: localizeSiteHref("/swap", locale),
       meta: copy.meta.protocolSurface,
       kind: "internal",
       keywords: ["swap", "market", "dex", "pair", "quote"],
     },
     {
       title: navLabel("/airdrop", locale),
-      href: "/airdrop",
+      href: localizeSiteHref("/airdrop", locale),
       meta: copy.meta.growthSurface,
       kind: "internal",
       keywords: ["airdrop", "telegram", "instagram", "x", "claim", "vault"],
     },
     {
       title: navLabel("/ambassadors", locale),
-      href: "/ambassadors",
+      href: localizeSiteHref("/ambassadors", locale),
       meta: copy.meta.growthSurface,
       kind: "internal",
       keywords: ["ambassador", "earn", "referral", "buyers", "rewards", "cabinet", "dashboard"],
     },
     {
       title: navLabel("/whitepaper", locale),
-      href: "/whitepaper",
+      href: localizeSiteHref("/whitepaper", locale),
       meta: copy.meta.proofSurface,
       kind: "internal",
       keywords: ["whitepaper", "docs", "mechanics", "architecture", "documentation"],
     },
     {
       title: navLabel("/verification", locale),
-      href: "/verification",
+      href: localizeSiteHref("/verification", locale),
       meta: copy.meta.proofSurface,
       kind: "internal",
       keywords: ["verification", "contracts", "explorer", "repo", "trust", "proof"],
     },
     {
       title: navLabel("/blog", locale),
-      href: "/blog",
+      href: localizeSiteHref("/blog", locale),
       meta: copy.meta.proofSurface,
       kind: "internal",
       keywords: ["blog", "updates", "articles", "posts", "news"],
     },
     {
       title: navLabel("/app", locale),
-      href: "/app",
+      href: localizeSiteHref("/app", locale),
       meta: copy.meta.downloadRoute,
       kind: "internal",
       keywords: ["app", "mobile app", "wallet", "download", "app store", "google play"],
     },
     {
       title: publicPages.privacy.metadata.title,
-      href: "/privacy",
+      href: localizeSiteHref("/privacy", locale),
       meta: copy.meta.publicPolicy,
       kind: "internal",
       keywords: ["privacy", "data", "wallet addresses", "external links", "policy"],
     },
     {
       title: publicPages.terms.metadata.title,
-      href: "/terms",
+      href: localizeSiteHref("/terms", locale),
       meta: copy.meta.publicPolicy,
       kind: "internal",
       keywords: ["terms", "risk", "non-custodial", "responsibility", "policy"],
     },
     {
       title: publicPages.support.metadata.title,
-      href: "/support",
+      href: localizeSiteHref("/support", locale),
       meta: copy.meta.supportRoute,
       kind: "internal",
       keywords: ["support", "contact", "telegram", "discord", "help", "official channels"],
@@ -177,16 +182,26 @@ function normalize(value: string) {
 }
 
 function isCurrentRoute(currentPath: string, href: string) {
-  if (href === "/") {
-    return currentPath === "/";
+  const normalizedCurrentPath = stripSiteLocaleSegment(currentPath);
+  const normalizedHref = stripSiteLocaleSegment(href);
+
+  if (normalizedHref === "/") {
+    return normalizedCurrentPath === "/";
   }
 
-  return currentPath === href || currentPath.startsWith(`${href}/`);
+  return (
+    normalizedCurrentPath === normalizedHref ||
+    normalizedCurrentPath.startsWith(`${normalizedHref}/`)
+  );
 }
 
-export function searchSiteEntries(query: string, currentPath?: string) {
+export function searchSiteEntries(
+  query: string,
+  currentPath?: string,
+  locale: SupportedSiteLocale = defaultSiteLocale,
+) {
   const resultLimit = 14;
-  const siteSearchEntries = getSiteSearchEntries();
+  const siteSearchEntries = getSiteSearchEntries(locale);
   const normalized = normalize(query);
   if (!normalized) {
     const entries = siteSearchEntries.slice();

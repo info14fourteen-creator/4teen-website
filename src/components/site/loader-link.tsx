@@ -8,6 +8,8 @@ import {
   getLottieDurationMs,
 } from "@/components/site/animated-lottie-icon";
 import Link, { type LinkProps } from "next/link";
+import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
+import { localizeSiteHref } from "@/lib/site-locale";
 import {
   useMemo,
   useRef,
@@ -96,11 +98,15 @@ export function LoaderLink({
   showLinkIcon = false,
   ...props
 }: LoaderLinkProps) {
+  const currentLocale = useCurrentSiteLocale();
   const iconApiRef = useRef<AnimatedLottieIconApi | null>(null);
   const timeoutRef = useRef<number | null>(null);
   const [isPending, setIsPending] = useState(false);
   const isInternal = isInternalStringHref(href);
   const isString = isStringHref(href);
+  const resolvedInternalHref = isInternal ? localizeSiteHref(href, currentLocale) : null;
+  const resolvedStringHref = isString ? (resolvedInternalHref ?? href) : "";
+  const resolvedHref = resolvedInternalHref ?? href;
   const animationData = isInternal ? internalLinkHover : externalLinkHover;
   const durationMs = useMemo(() => getLottieDurationMs(animationData), [animationData]);
 
@@ -133,7 +139,7 @@ export function LoaderLink({
 
     timeoutRef.current = window.setTimeout(() => {
       if (isInternal) {
-        navigateHard(href);
+        navigateHard(resolvedInternalHref!);
       } else {
         resolveExternalNavigation(href, target);
       }
@@ -167,7 +173,7 @@ export function LoaderLink({
       <a
         {...props}
         className={`${props.className ?? ""}${isPending ? " is-pending" : ""}`.trim()}
-        href={href}
+        href={resolvedStringHref}
         onClick={handleAnimatedNavigation}
         target={target}
       >
@@ -179,7 +185,7 @@ export function LoaderLink({
   return (
     <Link
       {...props}
-      href={href}
+      href={isInternal ? resolvedHref : href}
       onClick={(event) => {
         onClick?.(event);
 

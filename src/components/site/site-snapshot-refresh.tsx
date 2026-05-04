@@ -9,8 +9,8 @@ import {
 } from "@/components/site/loader-link";
 import { getChromeContent } from "@/content/chrome-content";
 import refreshAnimationData from "@/assets/lottie/site-refresh-rotate-loop.json";
-import { defaultSiteLocale } from "@/lib/site-locale";
 import type { SiteSnapshotKey } from "@/lib/server-site-snapshot";
+import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 const RESET_DELAY_MS = 900;
 
@@ -22,7 +22,7 @@ export function SiteSnapshotRefresh({
   label?: string;
 }) {
   const router = useRouter();
-  const chrome = getChromeContent(defaultSiteLocale);
+  const chrome = getChromeContent(useCurrentSiteLocale());
   const [isRefreshing, setIsRefreshing] = useState(false);
   const uniqueSnapshotKeys = useMemo(
     () => Array.from(new Set(snapshotKeys)),

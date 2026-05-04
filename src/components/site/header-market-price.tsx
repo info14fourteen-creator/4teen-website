@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { getChromeContent } from "@/content/chrome-content";
-import { defaultSiteLocale } from "@/lib/site-locale";
 import { parseNumberish } from "@/lib/site-format";
+import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 type Quote = {
   symbol: string;
@@ -35,7 +35,7 @@ function formatHeaderPrice(value: string | number | null | undefined) {
 }
 
 function MarketPriceLoading({ compact = false }: { compact?: boolean }) {
-  const chrome = getChromeContent(defaultSiteLocale);
+  const chrome = getChromeContent(useCurrentSiteLocale());
   return (
     <div className={`ft-header-market ${compact ? "is-compact" : ""} is-loading`}>
       <span className="ft-header-market__status">{chrome.market.loading}</span>
@@ -44,7 +44,7 @@ function MarketPriceLoading({ compact = false }: { compact?: boolean }) {
 }
 
 export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
-  const chrome = getChromeContent(defaultSiteLocale);
+  const chrome = getChromeContent(useCurrentSiteLocale());
   const [payload, setPayload] = useState<MarketPricePayload | null>(null);
   const [quoteIndex, setQuoteIndex] = useState(0);
   const [hasError, setHasError] = useState(false);
@@ -120,7 +120,7 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
 
   return (
     <div
-      aria-label="Live market price"
+      aria-label={chrome.market.liveAria}
       className={`ft-header-market ${compact ? "is-compact" : ""}`}
     >
       <span className="ft-header-market__group">

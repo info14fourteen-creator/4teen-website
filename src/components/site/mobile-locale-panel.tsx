@@ -1,14 +1,16 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { LoaderLink } from "@/components/site/loader-link";
 import { siteLocales } from "@/lib/site-config";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import { localizePathnameForLocale } from "@/lib/site-locale";
+import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 export function MobileLocalePanel({
-  content,
+  content: copy,
   open,
   onClose,
-  currentLocale = defaultSiteLocale,
+  currentLocale,
 }: {
   content?: {
     eyebrow: string;
@@ -20,12 +22,12 @@ export function MobileLocalePanel({
   onClose?: () => void;
   currentLocale?: string;
 }) {
-  const copy = content ?? {
-    eyebrow: "Language",
-    title: "Choose interface language",
-    active: "Active",
-    soon: "Soon",
-  };
+  const pathname = usePathname() ?? "/";
+  const resolvedCurrentLocale = currentLocale ?? useCurrentSiteLocale();
+
+  if (!copy) {
+    return null;
+  }
 
   if (!open) {
     return null;
@@ -40,7 +42,7 @@ export function MobileLocalePanel({
 
       <div className="ft-mobile-locale-panel__results" role="listbox">
         {siteLocales.map((locale) => {
-          const isCurrent = locale.code === currentLocale;
+          const isCurrent = locale.code === resolvedCurrentLocale;
 
           const content = (
             <>
@@ -55,11 +57,11 @@ export function MobileLocalePanel({
                   </span>
                 </span>
                 <span className="ft-mobile-locale-panel__meta">
-                  {locale.status === "live"
-                    ? isCurrent
-                      ? `${locale.label} / ${copy.active}`
-                      : locale.label
-                    : `${locale.label} / ${copy.soon}`}
+                  {isCurrent
+                    ? `${locale.label} / ${copy.active}`
+                    : locale.status === "live"
+                      ? locale.label
+                      : `${locale.label} / ${copy.soon}`}
                 </span>
               </span>
             </>
@@ -70,7 +72,7 @@ export function MobileLocalePanel({
               <LoaderLink
                 key={locale.code}
                 className={`ft-mobile-locale-panel__option ${isCurrent ? "is-active" : ""}`}
-                href={locale.href}
+                href={localizePathnameForLocale(pathname, locale.code)}
               >
                 {content}
               </LoaderLink>

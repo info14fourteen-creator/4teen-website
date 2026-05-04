@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
 
-import { WhitepaperArchivePage } from "@/components/site/whitepaper-version-page";
-import { getWhitepaperArchivePageContent } from "@/content/whitepaper-content";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import {
+  WhitepaperRouteView,
+  getWhitepaperMetadata,
+} from "@/app/whitepaper/page-view";
 
-const content = getWhitepaperArchivePageContent(defaultSiteLocale);
-
-export const metadata: Metadata = {
-  title: content.metadata.title,
-  description: content.metadata.description,
-};
+export const metadata: Metadata = getWhitepaperMetadata();
 
 export default function WhitepaperPage() {
-  return <WhitepaperArchivePage />;
+  return <WhitepaperRouteView />;
 }

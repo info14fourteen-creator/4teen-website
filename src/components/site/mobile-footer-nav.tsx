@@ -1,6 +1,4 @@
 "use client";
-
-import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatedLottieIcon } from "@/components/site/animated-lottie-icon";
 import { LoaderLink } from "@/components/site/loader-link";
@@ -10,7 +8,7 @@ import appSmartphoneLoop from "@/assets/lottie/mobile-app-smartphone-loop.json";
 import buyCoinsLoop from "@/assets/lottie/mobile-buy-coins-loop.json";
 import { getChromeContent } from "@/content/chrome-content";
 import { getNavContent } from "@/content/nav-content";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import { useCurrentSiteLocale, useLocaleAwarePathname } from "@/lib/use-current-site-locale";
 
 type FooterItemConfig = {
   href: string;
@@ -69,7 +67,7 @@ function FooterNavButton({
   item: FooterItemConfig;
   onNavigateStart?: () => void;
 }) {
-  const pathname = usePathname();
+  const pathname = useLocaleAwarePathname();
   const active = item.match(pathname);
   const isCurrentLocation =
     pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -133,8 +131,9 @@ export function MobileFooterNav({
   onToggleMenu: () => void;
   onNavigateStart?: () => void;
 }) {
-  const nav = getNavContent(defaultSiteLocale);
-  const chrome = getChromeContent(defaultSiteLocale);
+  const locale = useCurrentSiteLocale();
+  const nav = getNavContent(locale);
+  const chrome = getChromeContent(locale);
   const footerItems: FooterItemConfig[] = useMemo(
     () => [
       {

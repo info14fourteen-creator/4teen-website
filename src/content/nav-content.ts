@@ -30,6 +30,14 @@ export type NavContent = {
     app: string;
     home: string;
   };
+  menuLinks: {
+    buy: string;
+    unlock: string;
+    liquidity: string;
+    swap: string;
+    privacy: string;
+    terms: string;
+  };
 };
 
 const navContentEn: NavContent = {
@@ -61,6 +69,14 @@ const navContentEn: NavContent = {
     swap: "Swap",
     app: "App",
     home: "Home",
+  },
+  menuLinks: {
+    buy: "Direct Buy",
+    unlock: "Unlock Timeline",
+    liquidity: "Liquidity Controller",
+    swap: "Swap Token",
+    privacy: "Privacy Policy",
+    terms: "Terms of Use",
   },
 };
 

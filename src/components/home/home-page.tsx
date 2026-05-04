@@ -63,7 +63,7 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
                     <p className="ft-lead ft-hero-lead">{content.hero.lead}</p>
                   </div>
 
-                  <div className="ft-stack ft-stack--sm ft-hero-points" aria-label="Protocol highlights">
+                  <div className="ft-stack ft-stack--sm ft-hero-points" aria-label={content.ui.aria.heroPoints}>
                     {content.hero.points.map((point) => (
                       <div key={point} className="ft-hero-point">
                         {point}
@@ -103,11 +103,11 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
               </aside>
             </div>
 
-            <div className="ft-price-strip ft-price-strip--hero" aria-label="Live price summary">
-              <HomePriceCards />
+            <div className="ft-price-strip ft-price-strip--hero" aria-label={content.ui.aria.livePriceSummary}>
+              <HomePriceCards copy={content.ui.marketStrip} />
             </div>
 
-            <div className="ft-hero-tools" aria-label="Quick links">
+            <div className="ft-hero-tools" aria-label={content.ui.aria.quickLinks}>
               {content.hero.tools.map((tool) => (
                 <LoaderLink key={tool.href} className="ft-hero-tool" href={tool.href}>
                   <span className="ft-hero-tool__title">{tool.title}</span>
@@ -186,7 +186,7 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
                 <h2 className="ft-subtitle">{content.trust.title}</h2>
               </div>
 
-              <div className="ft-trust-strip__links" aria-label="Verification links">
+              <div className="ft-trust-strip__links" aria-label={content.ui.aria.verificationLinks}>
                 {content.trust.links.map((link) => (
                   <SmartLink
                     key={link.href}
@@ -482,7 +482,7 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
             </div>
 
             <div className="ft-grid ft-grid--4 ft-metrics-top">
-              <HomePriceCards includeDailyRule />
+              <HomePriceCards copy={content.ui.marketStrip} includeDailyRule />
             </div>
 
             <div className="ft-grid ft-grid--3 ft-metrics-grid">

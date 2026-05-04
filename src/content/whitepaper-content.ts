@@ -1,6 +1,17 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { whitepaperCurrentDocumentEn } from "@/content/whitepaper-v1-4";
 
 export type WhitepaperVersionSlug = "v1-3" | "v1-2" | "v1-1" | "v1-0";
+
+export type WhitepaperCurrentDocument = {
+  href: string;
+  version: string;
+  date: string;
+  status: string;
+  title: string;
+  lead: string;
+  document: string;
+};
 
 export type WhitepaperVersionDocument = {
   slug: WhitepaperVersionSlug;
@@ -13,16 +24,21 @@ export type WhitepaperVersionDocument = {
   document: string;
 };
 
-export type WhitepaperArchivePageContent = {
+export type WhitepaperPageContent = {
   metadata: {
     title: string;
     description: string;
   };
-  hero: {
-    eyebrow: string;
-    title: string;
-    lead: string;
+  ui: {
+    brandSubtitle: string;
+    whitepaperLabel: string;
+    currentLabel: string;
+    historicalLabel: string;
+    buyLabel: string;
+    routesLabel: string;
+    tableColumnPrefix: string;
   };
+  current: WhitepaperCurrentDocument;
   note: {
     eyebrow: string;
     title: string;
@@ -42,34 +58,38 @@ export type WhitepaperArchivePageContent = {
 
 export const whitepaperVersionOrder: WhitepaperVersionSlug[] = ["v1-3", "v1-2", "v1-1", "v1-0"];
 
-const whitepaperContentEn: WhitepaperArchivePageContent = {
+const whitepaperContentEn: WhitepaperPageContent = {
   metadata: {
-    title: "Whitepaper Archive",
+    title: "4TEEN Whitepaper 1.4",
     description:
-      "Read the preserved historical 4TEEN whitepapers v1.3, v1.2, v1.1, and v1.0. The new current edition will be assembled separately from the live repositories and deployed state.",
+      whitepaperCurrentDocumentEn.lead,
   },
-  hero: {
-    eyebrow: "Whitepaper Archive",
-    title: "Preserved historical versions, separated cleanly from the next current edition.",
-    lead:
-      "This route is now the archive entry. Historical versions live on their own pages so we do not mix them with the next current whitepaper that will be rebuilt later from repositories and live protocol reality.",
+  ui: {
+    brandSubtitle: "Whitepaper",
+    whitepaperLabel: "Whitepaper",
+    currentLabel: "V1-4",
+    historicalLabel: "History",
+    buyLabel: "Buy",
+    routesLabel: "Whitepaper routes",
+    tableColumnPrefix: "Column",
   },
+  current: whitepaperCurrentDocumentEn,
   note: {
-    eyebrow: "Archive Status",
-    title: "The historical record stays readable. The next current document comes later.",
+    eyebrow: "Historical Archive",
+    title: "Earlier versions stay readable and separate from the current document.",
     body:
-      "These four pages are preserved as historical documents in a simple format that keeps the text intact and makes later translation work easier. The future current whitepaper for May 4, 2026 will be written separately on top of the real repositories and the deployed system.",
+      "The current route now serves the May 4, 2026 whitepaper. Earlier versions remain preserved on their own routes so the historical record stays intact, readable, and easier to localize later.",
   },
   switcher: {
-    eyebrow: "Historical Versions",
-    title: "Open each preserved document on its own route.",
+    eyebrow: "Version Timeline",
+    title: "Current first, historical versions kept beside it.",
     body:
-      "Each version below is separated into its own page. That keeps the archive stable now and gives us a cleaner translation path later, because every document can be localized independently.",
+      "V1.4 is the current whitepaper. V1.3, V1.2, V1.1, and V1.0 remain available as preserved historical documents on their own routes.",
   },
   document: {
-    eyebrow: "Historical Document",
+    eyebrow: "Whitepaper Document",
     body:
-      "The text below is preserved as a reading document. We are keeping the full historical wording instead of compressing it into a rewritten summary.",
+      "The text below is rendered as a reading document. Current and historical versions stay separate so we can update the live document without rewriting the archive.",
   },
   versions: {
     "v1-3": {
@@ -1618,15 +1638,27 @@ The combination of real TRX backing, dynamic supply, and structured liquidity di
   },
 };
 
-export function getWhitepaperArchivePageContent(
+export function getWhitepaperPageContent(
   _locale: SupportedSiteLocale,
-): WhitepaperArchivePageContent {
+): WhitepaperPageContent {
   return whitepaperContentEn;
+}
+
+export function getCurrentWhitepaperDocument(
+  locale: SupportedSiteLocale,
+): WhitepaperCurrentDocument {
+  return getWhitepaperPageContent(locale).current;
+}
+
+export function getWhitepaperArchivePageContent(
+  locale: SupportedSiteLocale,
+): WhitepaperPageContent {
+  return getWhitepaperPageContent(locale);
 }
 
 export function getWhitepaperVersionDocument(
   locale: SupportedSiteLocale,
   slug: WhitepaperVersionSlug,
 ): WhitepaperVersionDocument {
-  return getWhitepaperArchivePageContent(locale).versions[slug];
+  return getWhitepaperPageContent(locale).versions[slug];
 }

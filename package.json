@@ -13,19 +13,31 @@
     "cf:deploy": "pnpm run cf:build && opennextjs-cloudflare deploy",
     "start": "next start",
     "lint": "eslint",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "blog:normalize": "node scripts/blog-migration/normalize-sheet.mjs",
+    "blog:fixtures": "node scripts/blog-migration/emit-db-fixtures.mjs",
+    "blog:upload-media": "node scripts/blog-migration/upload-media-to-r2.mjs",
+    "blog:import-db": "node scripts/blog-migration/import-db.mjs",
+    "blog:daily-digest": "node scripts/blog-automation/daily-digest-runner.mjs"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1041.0",
     "@fontsource/sora": "^5.2.8",
+    "@next/env": "^16.2.4",
+    "cheerio": "^1.2.0",
     "lottie-react": "^2.4.1",
+    "mime-types": "^3.0.2",
     "next": "16.2.4",
+    "pg": "^8.20.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@opennextjs/cloudflare": "^1.19.5",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.20.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

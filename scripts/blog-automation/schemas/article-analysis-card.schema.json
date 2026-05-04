@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://4teen.me/schemas/article-analysis-card.schema.json",
+  "title": "ArticleAnalysisCard",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "article_id",
+    "title",
+    "source",
+    "date",
+    "url",
+    "article_type",
+    "main_entities",
+    "sector_tags",
+    "main_thesis",
+    "short_summary",
+    "facts",
+    "unsupported_or_weak_claims",
+    "verifiable_data_present",
+    "missing_data",
+    "economic_mechanism",
+    "tokenomics_analysis",
+    "liquidity_analysis",
+    "incentives_and_growth_analysis",
+    "risks",
+    "what_the_article_leaves_out",
+    "onchain_or_external_checks_needed",
+    "scores",
+    "risk_level",
+    "confidence",
+    "stan_style_verdict",
+    "digest_ready_takeaway"
+  ],
+  "properties": {
+    "article_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "article_type": {
+      "type": "string",
+      "enum": [
+        "news",
+        "project announcement",
+        "token launch",
+        "protocol update",
+        "partnership announcement",
+        "funding news",
+        "regulatory news",
+        "security incident",
+        "market analysis",
+        "opinion piece",
+        "press release",
+        "unclear / low-signal content"
+      ]
+    },
+    "main_entities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sector_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "main_thesis": {
+      "type": "string"
+    },
+    "short_summary": {
+      "type": "string"
+    },
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unsupported_or_weak_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verifiable_data_present": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_data": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "economic_mechanism": {
+      "type": "string"
+    },
+    "tokenomics_analysis": {
+      "type": "string"
+    },
+    "liquidity_analysis": {
+      "type": "string"
+    },
+    "incentives_and_growth_analysis": {
+      "type": "string"
+    },
+    "risks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "technical",
+        "economic",
+        "market",
+        "regulatory",
+        "governance",
+        "execution"
+      ],
+      "properties": {
+        "technical": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "economic": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "market": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "regulatory": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "governance": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "execution": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "what_the_article_leaves_out": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "onchain_or_external_checks_needed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "importance",
+        "credibility",
+        "verifiability",
+        "mechanism_depth",
+        "daily_digest_priority"
+      ],
+      "properties": {
+        "importance": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "credibility": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "verifiability": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "mechanism_depth": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10
+        },
+        "daily_digest_priority": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      }
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "stan_style_verdict": {
+      "type": "string"
+    },
+    "digest_ready_takeaway": {
+      "type": "string"
+    }
+  }
+}

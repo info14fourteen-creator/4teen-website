@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { getChromeContent } from "@/content/chrome-content";
+import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 export function CopyLinkRow({
   href,
@@ -11,18 +13,19 @@ export function CopyLinkRow({
   label: string;
   value: string;
 }) {
-  const [buttonText, setButtonText] = useState("Copy");
+  const chrome = getChromeContent(useCurrentSiteLocale());
+  const [buttonText, setButtonText] = useState(chrome.common.copy);
 
   async function handleCopy() {
     try {
       await navigator.clipboard.writeText(href);
-      setButtonText("Copied");
+      setButtonText(chrome.common.copied);
     } catch {
-      setButtonText("Failed");
+      setButtonText(chrome.common.failed);
     }
 
     window.setTimeout(() => {
-      setButtonText("Copy");
+      setButtonText(chrome.common.copy);
     }, 1400);
   }
 
@@ -34,7 +37,12 @@ export function CopyLinkRow({
           <span className="ft-verify-link__value">{value}</span>
         </span>
       </a>
-      <button className="ft-copy-btn" onClick={handleCopy} type="button">
+      <button
+        className="ft-copy-btn"
+        data-copy-success={chrome.common.copied}
+        onClick={handleCopy}
+        type="button"
+      >
         {buttonText}
       </button>
     </div>

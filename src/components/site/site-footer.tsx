@@ -14,7 +14,9 @@ import socialWhatsappHover from "@/assets/lottie/social-whatsapp-hover.json";
 import socialXHover from "@/assets/lottie/social-x-hover.json";
 import socialYoutubeHover from "@/assets/lottie/social-youtube-hover.json";
 import { getChromeContent } from "@/content/chrome-content";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import { getNavContent } from "@/content/nav-content";
+import { stripSiteLocaleSegment } from "@/lib/site-locale";
+import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 const socialLinks = [
   { label: "Telegram", href: "https://t.me/fourteentoken", animationData: socialTelegramHover },
@@ -31,24 +33,24 @@ const socialLinks = [
 
 const footerColumns = [
   {
-    title: "Protocol",
+    key: "protocol",
     links: [
-      { href: "/buy", label: "Direct Buy" },
-      { href: "/unlock", label: "Unlock Timeline" },
-      { href: "/liquidity", label: "Liquidity" },
-      { href: "/airdrop", label: "Airdrop" },
+      { href: "/buy", key: "buy" },
+      { href: "/unlock", key: "unlock" },
+      { href: "/liquidity", key: "liquidity" },
+      { href: "/airdrop", key: "airdrop" },
     ],
   },
   {
-    title: "Ecosystem",
+    key: "ecosystem",
     links: [
-      { href: "/ambassadors", label: "Ambassadors" },
-      { href: "/verification", label: "Verification" },
-      { href: "/whitepaper", label: "Whitepaper" },
-      { href: "/blog", label: "Blog" },
+      { href: "/ambassadors", key: "ambassadors" },
+      { href: "/verification", key: "verification" },
+      { href: "/whitepaper", key: "whitepaper" },
+      { href: "/blog", key: "blog" },
     ],
   },
-];
+] as const;
 
 const footerMetaLinks = [
   { href: "/privacy", key: "privacy" },
@@ -58,9 +60,12 @@ const footerMetaLinks = [
 
 export function SiteFooter() {
   const pathname = usePathname();
-  const chrome = getChromeContent(defaultSiteLocale);
+  const locale = useCurrentSiteLocale();
+  const chrome = getChromeContent(locale);
+  const nav = getNavContent(locale);
+  const routePath = stripSiteLocaleSegment(pathname ?? "/");
 
-  if (pathname.startsWith("/whitepaper")) {
+  if (routePath.startsWith("/whitepaper")) {
     return null;
   }
 
@@ -78,9 +83,9 @@ export function SiteFooter() {
 
           <div className="ft-site-footer__nav">
             {footerColumns.map((column) => (
-              <div key={column.title} className="ft-site-footer__column">
+              <div key={column.key} className="ft-site-footer__column">
                 <p className="ft-site-footer__column-title">
-                  {column.title === "Protocol" ? chrome.footer.protocol : chrome.footer.ecosystem}
+                  {column.key === "protocol" ? chrome.footer.protocol : chrome.footer.ecosystem}
                 </p>
                 <div className="ft-site-footer__links">
                   {column.links.map((link) => (
@@ -89,7 +94,7 @@ export function SiteFooter() {
                       className="ft-site-footer__link"
                       href={link.href}
                     >
-                      {link.label}
+                      {nav.links[link.key]}
                     </LoaderLink>
                   ))}
                 </div>

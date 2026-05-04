@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
 
-import { PublicPageShell } from "@/components/site/public-page-shell";
-import { getPublicPagesContent } from "@/content/public-pages-content";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import { BlogPageView, getBlogPageMetadata } from "@/app/blog/page-view";
 
-const locale = defaultSiteLocale;
-const content = getPublicPagesContent(locale).blog;
+export async function generateMetadata(): Promise<Metadata> {
+  return getBlogPageMetadata();
+}
+export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
-  title: content.metadata.title,
-  description: content.metadata.description,
-  alternates: {
-    canonical: "/blog",
-  },
-};
-
-export default function BlogPage() {
-  return <PublicPageShell content={content} pageClassName="ft-blog-page" />;
+export default async function BlogPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tag?: string }>;
+}) {
+  const { tag } = await searchParams;
+  return <BlogPageView selectedTag={tag} />;
 }

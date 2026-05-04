@@ -11,7 +11,8 @@ import { SiteLogo } from "@/components/site/site-logo";
 import { SiteSearch } from "@/components/site/site-search";
 import { getChromeContent } from "@/content/chrome-content";
 import { getHeaderNavGroups } from "@/lib/site-config";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import { stripSiteLocaleSegment } from "@/lib/site-locale";
+import { useCurrentSiteLocale, useLocaleAwarePathname } from "@/lib/use-current-site-locale";
 
 function isActivePath(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -19,9 +20,11 @@ function isActivePath(pathname: string, href: string) {
 }
 
 export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
-  const pathname = usePathname();
-  const chrome = getChromeContent(defaultSiteLocale);
-  const headerNavGroups = getHeaderNavGroups(defaultSiteLocale);
+  const pathname = usePathname() ?? "/";
+  const locale = useCurrentSiteLocale();
+  const localeAwarePathname = useLocaleAwarePathname();
+  const chrome = getChromeContent(locale);
+  const headerNavGroups = getHeaderNavGroups(locale);
 
   return (
     <header className="ft-site-header">
@@ -31,7 +34,7 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
         </div>
 
         <div className="ft-site-header__main">
-          <nav aria-label="Primary site navigation" className="ft-site-nav-shell">
+          <nav aria-label={chrome.header.primaryNavAria} className="ft-site-nav-shell">
             <div className="ft-site-nav-groups">
               {headerNavGroups.map((group) => (
                 <div key={group.label} className="ft-site-nav-group">
@@ -40,7 +43,7 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
                     {group.links.map((link) => (
                       <LoaderLink
                         key={link.href}
-                        className={`ft-site-nav-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
+                        className={`ft-site-nav-link ${isActivePath(localeAwarePathname, link.href) ? "is-active" : ""}`}
                         href={link.href}
                       >
                         {link.label}
@@ -58,19 +61,19 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
 
           <div className="ft-site-header__utilityactions">
             <LoaderLink
-              className={`ft-site-header__utilityhome ${isActivePath(pathname, "/") ? "is-active" : ""}`}
+              className={`ft-site-header__utilityhome ${isActivePath(localeAwarePathname, "/") ? "is-active" : ""}`}
               href="/"
             >
               <AnimatedLottieIcon
                 animationData={navHomeLoop}
                 className="ft-site-header__utilityhome-icon"
-                loop={pathname === "/"}
-                playOnHover={pathname !== "/"}
+                loop={stripSiteLocaleSegment(pathname) === "/"}
+                playOnHover={stripSiteLocaleSegment(pathname) !== "/"}
               />
               <span>{chrome.header.home}</span>
             </LoaderLink>
 
-            <LocaleSwitcher content={chrome.locale} currentLocale={defaultSiteLocale} />
+            <LocaleSwitcher content={chrome.locale} currentLocale={locale} />
 
             <LoaderLink
               className="ft-header-app-link"

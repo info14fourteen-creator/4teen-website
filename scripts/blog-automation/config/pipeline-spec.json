@@ -1,0 +1,54 @@
+{
+  "feedUrl": "https://rss.app/feeds/v1.1/tKryunfPwo68YKWa.json",
+  "schedule": {
+    "cadence": "daily",
+    "runsPerDay": 1,
+    "runtime": "heroku"
+  },
+  "contentStrategy": {
+    "format": "daily_blog_article",
+    "language": "en",
+    "persona": "Stan At",
+    "signature": "Stan At, 4teen Founder"
+  },
+  "images": {
+    "sourcePolicy": "contextual-image-generation",
+    "selectedSourceImages": 3,
+    "outputImages": 3,
+    "outputAspectRatio": "16:9",
+    "treatment": [
+      "orange-graphite-grade",
+      "darken",
+      "grid-overlay",
+      "subtle-noise",
+      "editorial-composition"
+    ]
+  },
+  "publishing": {
+    "target": "site-only",
+    "socialPosting": false,
+    "preferredSourceMode": "snapshot-first"
+  },
+  "siteFields": [
+    "slug",
+    "title",
+    "excerpt",
+    "seoTitle",
+    "seoDescription",
+    "publishedAt",
+    "coverImageUrl",
+    "coverImageAlt",
+    "keywords",
+    "sourceUrl",
+    "contentMarkdown",
+    "previewImageUrls"
+  ],
+  "legacyCheapGeneratedFields": [
+    "title",
+    "slug",
+    "keywords",
+    "metaDescription",
+    "summary",
+    "contentMarkdown"
+  ]
+}

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { HtmlLocaleSync } from "@/components/site/html-locale-sync";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteMotionPack } from "@/components/site/site-motion-pack";
 import { SiteNoteAccents } from "@/components/site/site-note-accents";
@@ -85,8 +86,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
-      <body className="min-h-full antialiased">
+    <html dir="ltr" lang="en" className="h-full scroll-smooth">
+      <body className="min-h-full antialiased" data-site-dir="ltr" data-site-locale="en">
+        <HtmlLocaleSync />
         <SiteMotionPack />
         <PageLoaderOverlay />
         <SiteNoteAccents />

@@ -1,14 +1,23 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
 
 export type ChromeContent = {
+  common: {
+    copy: string;
+    copied: string;
+    failed: string;
+    close: string;
+    qrCode: string;
+  };
   taglines: string[];
   header: {
     home: string;
     getApp: string;
+    primaryNavAria: string;
   };
   market: {
     loading: string;
     unavailable: string;
+    liveAria: string;
   };
   refresh: {
     idle: string;
@@ -77,6 +86,13 @@ export type ChromeContent = {
 };
 
 const chromeContentEn: ChromeContent = {
+  common: {
+    copy: "Copy",
+    copied: "Copied",
+    failed: "Failed",
+    close: "Close",
+    qrCode: "QR code",
+  },
   taglines: [
     "Early Entry. Higher Exit.",
     "Winners Don't Wait.",
@@ -86,10 +102,12 @@ const chromeContentEn: ChromeContent = {
   header: {
     home: "Home",
     getApp: "Get App",
+    primaryNavAria: "Primary site navigation",
   },
   market: {
     loading: "Loading price",
     unavailable: "Price unavailable",
+    liveAria: "Live market price",
   },
   refresh: {
     idle: "Refresh data",

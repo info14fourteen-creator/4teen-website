@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { formatCompactMetric } from "@/lib/site-format";
+import type { HomePageContent } from "@/content/home-content";
 
 type MarketPayload = {
   ok: boolean;
@@ -36,8 +37,10 @@ function HomePriceCard({
 
 export function HomePriceCards({
   includeDailyRule = false,
+  copy,
 }: {
   includeDailyRule?: boolean;
+  copy: HomePageContent["ui"]["marketStrip"];
 }) {
   const [payload, setPayload] = useState<MarketPayload | null>(null);
 
@@ -78,36 +81,36 @@ export function HomePriceCards({
 
   const directMain = payload?.ok && payload.snapshot?.direct?.trx
     ? `${formatCompactMetric(payload.snapshot.direct.trx)} TRX`
-    : "Unavailable";
+    : copy.unavailable;
   const dexMain = payload?.ok && payload.snapshot?.dex?.trx
     ? `${formatCompactMetric(payload.snapshot.dex.trx)} TRX`
-    : "Unavailable";
+    : copy.unavailable;
   const dexSub = payload?.ok && payload.snapshot?.dex?.usdt
-    ? `~ $${formatCompactMetric(payload.snapshot.dex.usdt)} per 4TEEN`
-    : "Router quote read failed";
+    ? `~ $${formatCompactMetric(payload.snapshot.dex.usdt)} ${copy.dexSubSuffix}`
+    : copy.routerQuoteReadFailed;
 
   return (
     <>
       <HomePriceCard
-        label="Direct Price"
+        label={copy.directPriceLabel}
         main={directMain}
-        sub="Per 1 4TEEN via protocol"
+        sub={copy.directPriceSub}
       />
       <HomePriceCard
-        label={includeDailyRule ? "DEX Reference" : "DEX Price"}
+        label={includeDailyRule ? copy.dexReferenceLabel : copy.dexPriceLabel}
         main={dexMain}
         sub={dexSub}
       />
       <HomePriceCard
-        label="Unlock Cycle"
-        main="14 Days"
-        sub={includeDailyRule ? "Fixed lock for direct purchases" : "Direct purchase lock period"}
+        label={copy.unlockCycleLabel}
+        main={copy.unlockCycleValue}
+        sub={includeDailyRule ? copy.unlockCycleDailyRuleSub : copy.unlockCycleSub}
       />
       {includeDailyRule ? (
         <HomePriceCard
-          label="Daily Liquidity Rule"
-          main="6.43%"
-          sub="Released once per UTC day by controller logic"
+          label={copy.dailyLiquidityRuleLabel}
+          main={copy.dailyLiquidityRuleValue}
+          sub={copy.dailyLiquidityRuleSub}
         />
       ) : null}
     </>

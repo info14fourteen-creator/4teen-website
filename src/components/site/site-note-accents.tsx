@@ -8,6 +8,7 @@ import {
   AnimatedLottieIcon,
   type AnimatedLottieIconApi,
 } from "@/components/site/animated-lottie-icon";
+import { stripSiteLocaleSegment } from "@/lib/site-locale";
 
 const NOTE_SELECTOR = ".ft-note";
 
@@ -86,7 +87,8 @@ function NoteAccentPortal({ target }: { target: HTMLElement }) {
 
 export function SiteNoteAccents() {
   const pathname = usePathname();
-  const isWhitepaperRoute = pathname.startsWith("/whitepaper");
+  const routePath = stripSiteLocaleSegment(pathname ?? "/");
+  const isWhitepaperRoute = routePath.startsWith("/whitepaper");
   const [targets, setTargets] = useState<HTMLElement[]>([]);
 
   useEffect(() => {
@@ -116,7 +118,7 @@ export function SiteNoteAccents() {
     return () => {
       observer.disconnect();
     };
-  }, [isWhitepaperRoute, pathname]);
+  }, [isWhitepaperRoute, routePath]);
 
   const portals = useMemo(
     () =>

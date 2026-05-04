@@ -54,6 +54,30 @@ type FaqItem = {
 };
 
 export type HomePageContent = {
+  ui: {
+    aria: {
+      heroPoints: string;
+      livePriceSummary: string;
+      quickLinks: string;
+      verificationLinks: string;
+    };
+    marketStrip: {
+      unavailable: string;
+      routerQuoteReadFailed: string;
+      directPriceLabel: string;
+      directPriceSub: string;
+      dexReferenceLabel: string;
+      dexPriceLabel: string;
+      dexSubSuffix: string;
+      unlockCycleLabel: string;
+      unlockCycleValue: string;
+      unlockCycleSub: string;
+      unlockCycleDailyRuleSub: string;
+      dailyLiquidityRuleLabel: string;
+      dailyLiquidityRuleValue: string;
+      dailyLiquidityRuleSub: string;
+    };
+  };
   hero: {
     eyebrow: string;
     meta: string;
@@ -310,6 +334,30 @@ export type HomePageContent = {
 };
 
 const homeContentEn: HomePageContent = {
+  ui: {
+    aria: {
+      heroPoints: "Protocol highlights",
+      livePriceSummary: "Live price summary",
+      quickLinks: "Quick links",
+      verificationLinks: "Verification links",
+    },
+    marketStrip: {
+      unavailable: "Unavailable",
+      routerQuoteReadFailed: "Router quote read failed",
+      directPriceLabel: "Direct Price",
+      directPriceSub: "Per 1 4TEEN via protocol",
+      dexReferenceLabel: "DEX Reference",
+      dexPriceLabel: "DEX Price",
+      dexSubSuffix: "per 4TEEN",
+      unlockCycleLabel: "Unlock Cycle",
+      unlockCycleValue: "14 Days",
+      unlockCycleSub: "Direct purchase lock period",
+      unlockCycleDailyRuleSub: "Fixed lock for direct purchases",
+      dailyLiquidityRuleLabel: "Daily Liquidity Rule",
+      dailyLiquidityRuleValue: "6.43%",
+      dailyLiquidityRuleSub: "Released once per UTC day by controller logic",
+    },
+  },
   hero: {
     eyebrow: "4TEEN Mobile App",
     meta: "TRON • Direct Buy • Unlock • Liquidity • Growth",

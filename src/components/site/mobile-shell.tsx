@@ -14,44 +14,28 @@ import ambassadorDemandLoop from "@/assets/lottie/mobile-ambassador-demand-loop.
 import appSmartphoneLoop from "@/assets/lottie/mobile-app-smartphone-loop.json";
 import buyCoinsLoop from "@/assets/lottie/mobile-buy-coins-loop.json";
 import liquidityGrowthLoop from "@/assets/lottie/mobile-liquidity-growth-loop.json";
+import blogWritingLoop from "@/assets/lottie/mobile-blog-writing-loop.json";
 import privacyPolicyLoop from "@/assets/lottie/mobile-privacy-policy-loop.json";
 import supportServiceLoop from "@/assets/lottie/mobile-support-service-loop.json";
 import swapFooterLoop from "@/assets/lottie/mobile-swap-footer-loop.json";
 import termsPolicyLoop from "@/assets/lottie/mobile-terms-policy-loop.json";
 import unlockDocumentLoop from "@/assets/lottie/mobile-unlock-document-loop.json";
 import verificationBlockchainLoop from "@/assets/lottie/mobile-verification-blockchain-loop.json";
+import whitepaperDocumentLoop from "@/assets/lottie/mobile-whitepaper-document-loop.json";
 import navHomeLoop from "@/assets/lottie/nav-home-loop.json";
 import { getChromeContent } from "@/content/chrome-content";
+import { getNavContent } from "@/content/nav-content";
 import {
   getCoreNav,
   getDocsNav,
   siteLocales,
   getUtilityNav,
 } from "@/lib/site-config";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import { useCurrentSiteLocale, useLocaleAwarePathname } from "@/lib/use-current-site-locale";
 
 function isActivePath(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
-}
-
-function getBurgerMenuLabel(href: string, fallback: string) {
-  switch (href) {
-    case "/buy":
-      return "Direct Buy";
-    case "/unlock":
-      return "Unlock Timeline";
-    case "/liquidity":
-      return "Liquidity Controller";
-    case "/swap":
-      return "Swap Token";
-    case "/privacy":
-      return "Privacy Policy";
-    case "/terms":
-      return "Terms of Use";
-    default:
-      return fallback;
-  }
 }
 
 export function FourteenMobileShell({
@@ -59,13 +43,15 @@ export function FourteenMobileShell({
 }: {
   appMode?: boolean;
 }) {
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "/";
+  const localeAwarePathname = useLocaleAwarePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [localeOpen, setLocaleOpen] = useState(false);
   const hasOpenPanel = menuOpen || searchOpen || localeOpen;
-  const currentLocale = defaultSiteLocale;
+  const currentLocale = useCurrentSiteLocale();
   const chrome = getChromeContent(currentLocale);
+  const nav = getNavContent(currentLocale);
   const coreNav = getCoreNav(currentLocale);
   const docsNav = getDocsNav(currentLocale);
   const utilityNav = getUtilityNav(currentLocale);
@@ -93,7 +79,7 @@ export function FourteenMobileShell({
 
   function handleMenuLinkClick(href: string) {
     return (event: MouseEvent<HTMLAnchorElement>) => {
-      if (isActivePath(pathname, href)) {
+      if (isActivePath(localeAwarePathname, href)) {
         event.preventDefault();
         closeAllPanels();
       }
@@ -161,12 +147,20 @@ export function FourteenMobileShell({
                 {coreNav.map((link) => (
                   <LoaderLink
                     key={link.href}
-                    className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
+                    className={`ft-mobile-menu-link ${isActivePath(localeAwarePathname, link.href) ? "is-active" : ""}`}
                     href={link.href}
                     onClick={handleMenuLinkClick(link.href)}
                   >
                     <span className="ft-mobile-menu-link__label">
-                      {getBurgerMenuLabel(link.href, link.label)}
+                      {link.href === "/buy"
+                        ? nav.menuLinks.buy
+                        : link.href === "/unlock"
+                          ? nav.menuLinks.unlock
+                          : link.href === "/liquidity"
+                            ? nav.menuLinks.liquidity
+                            : link.href === "/swap"
+                              ? nav.menuLinks.swap
+                              : link.label}
                     </span>
                     <AnimatedLottieIcon
                       animationData={
@@ -187,7 +181,7 @@ export function FourteenMobileShell({
                             : navHomeLoop
                       }
                       className="ft-mobile-menu-link__icon"
-                      loop={isActivePath(pathname, link.href)}
+                      loop={isActivePath(localeAwarePathname, link.href)}
                     />
                   </LoaderLink>
                 ))}
@@ -198,7 +192,7 @@ export function FourteenMobileShell({
                 {[...docsNav, ...utilityNav].map((link) => (
                   <LoaderLink
                     key={link.href}
-                    className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
+                    className={`ft-mobile-menu-link ${isActivePath(localeAwarePathname, link.href) ? "is-active" : ""}`}
                     href={link.href}
                     onClick={handleMenuLinkClick(link.href)}
                   >
@@ -207,12 +201,16 @@ export function FourteenMobileShell({
                       animationData={
                         link.href === "/app"
                           ? appSmartphoneLoop
+                          : link.href === "/whitepaper"
+                            ? whitepaperDocumentLoop
+                            : link.href === "/blog"
+                              ? blogWritingLoop
                           : link.href === "/verification"
                             ? verificationBlockchainLoop
                             : navHomeLoop
                       }
                       className="ft-mobile-menu-link__icon"
-                      loop={isActivePath(pathname, link.href)}
+                      loop={isActivePath(localeAwarePathname, link.href)}
                     />
                   </LoaderLink>
                 ))}
@@ -223,12 +221,16 @@ export function FourteenMobileShell({
                 {legalNav.map((link) => (
                   <LoaderLink
                     key={link.href}
-                    className={`ft-mobile-menu-link ${isActivePath(pathname, link.href) ? "is-active" : ""}`}
+                    className={`ft-mobile-menu-link ${isActivePath(localeAwarePathname, link.href) ? "is-active" : ""}`}
                     href={link.href}
                     onClick={handleMenuLinkClick(link.href)}
                   >
                     <span className="ft-mobile-menu-link__label">
-                      {getBurgerMenuLabel(link.href, link.label)}
+                      {link.href === "/privacy"
+                        ? nav.menuLinks.privacy
+                        : link.href === "/terms"
+                          ? nav.menuLinks.terms
+                          : link.label}
                     </span>
                     <AnimatedLottieIcon
                       animationData={
@@ -241,7 +243,7 @@ export function FourteenMobileShell({
                               : navHomeLoop
                       }
                       className="ft-mobile-menu-link__icon"
-                      loop={isActivePath(pathname, link.href)}
+                      loop={isActivePath(localeAwarePathname, link.href)}
                     />
                   </LoaderLink>
                 ))}
@@ -320,18 +322,18 @@ export function FourteenMobileShell({
 
         <div ref={footerRef}>
           <MobileFooterNav
-          menuOpen={menuOpen}
-          onNavigateStart={() => {
-            setMenuOpen(false);
-            setSearchOpen(false);
-            setLocaleOpen(false);
-          }}
-          onToggleMenu={() => {
-            setSearchOpen(false);
-            setLocaleOpen(false);
-            setMenuOpen((open) => !open);
-          }}
-        />
+            menuOpen={menuOpen}
+            onNavigateStart={() => {
+              setMenuOpen(false);
+              setSearchOpen(false);
+              setLocaleOpen(false);
+            }}
+            onToggleMenu={() => {
+              setSearchOpen(false);
+              setLocaleOpen(false);
+              setMenuOpen((open) => !open);
+            }}
+          />
         </div>
       </div>
     </div>

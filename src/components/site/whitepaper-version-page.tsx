@@ -1,12 +1,20 @@
 import {
-  getWhitepaperArchivePageContent,
+  getCurrentWhitepaperDocument,
+  getWhitepaperPageContent,
   getWhitepaperVersionDocument,
   whitepaperVersionOrder,
+  type WhitepaperCurrentDocument,
   type WhitepaperVersionDocument,
   type WhitepaperVersionSlug,
 } from "@/content/whitepaper-content";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import {
+  defaultSiteLocale,
+  localizeSiteHref,
+  type SupportedSiteLocale,
+} from "@/lib/site-locale";
 import type { ReactNode } from "react";
+import { FourteenMobileShell } from "@/components/site/mobile-shell";
+import { FourteenTopbar } from "@/components/site/topbar";
 
 type MarkdownBlock =
   | { type: "heading"; level: 1 | 2 | 3 | 4; text: string }
@@ -197,7 +205,10 @@ function parseMarkdownDocument(document: string): MarkdownBlock[] {
   return blocks;
 }
 
-function renderInline(text: string): ReactNode[] {
+function renderInline(
+  text: string,
+  locale: SupportedSiteLocale = defaultSiteLocale,
+): ReactNode[] {
   const nodes: ReactNode[] = [];
   const regex =
     /(\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|`([^`]+)`|\*([^*]+)\*)/g;
@@ -231,7 +242,11 @@ function renderInline(text: string): ReactNode[] {
             {label}
           </a>
         ) : internal ? (
-          <a key={`link-${matchIndex}`} className="ft-link" href={href}>
+          <a
+            key={`link-${matchIndex}`}
+            className="ft-link"
+            href={localizeSiteHref(href, locale)}
+          >
             {label}
           </a>
         ) : (
@@ -265,7 +280,12 @@ function renderInline(text: string): ReactNode[] {
   return nodes;
 }
 
-function renderMarkdownBlock(block: MarkdownBlock, index: number) {
+function renderMarkdownBlock(
+  block: MarkdownBlock,
+  index: number,
+  tableColumnPrefix: string,
+  locale: SupportedSiteLocale,
+) {
   switch (block.type) {
     case "heading": {
       const id = block.level === 2 ? getHeadingId(block.text) : undefined;
@@ -273,7 +293,7 @@ function renderMarkdownBlock(block: MarkdownBlock, index: number) {
       if (block.level === 1) {
         return (
           <h2 key={index} className="ft-whitepaper-page__md-h1">
-            {renderInline(block.text)}
+            {renderInline(block.text, locale)}
           </h2>
         );
       }
@@ -285,7 +305,7 @@ function renderMarkdownBlock(block: MarkdownBlock, index: number) {
             className="ft-whitepaper-page__md-h2"
             id={id}
           >
-            {renderInline(block.text)}
+            {renderInline(block.text, locale)}
           </h2>
         );
       }
@@ -293,14 +313,14 @@ function renderMarkdownBlock(block: MarkdownBlock, index: number) {
       if (block.level === 3) {
         return (
           <h3 key={index} className="ft-whitepaper-page__md-h3">
-            {renderInline(block.text)}
+            {renderInline(block.text, locale)}
           </h3>
         );
       }
 
       return (
         <h4 key={index} className="ft-whitepaper-page__md-h4">
-          {renderInline(block.text)}
+          {renderInline(block.text, locale)}
         </h4>
       );
     }
@@ -308,7 +328,7 @@ function renderMarkdownBlock(block: MarkdownBlock, index: number) {
     case "paragraph":
       return (
         <p key={index} className="ft-whitepaper-page__md-p">
-          {renderInline(block.text)}
+          {renderInline(block.text, locale)}
         </p>
       );
 
@@ -316,7 +336,7 @@ function renderMarkdownBlock(block: MarkdownBlock, index: number) {
       return (
         <ul key={index} className="ft-list ft-whitepaper-page__md-list">
           {block.items.map((item, itemIndex) => (
-            <li key={itemIndex}>{renderInline(item)}</li>
+            <li key={itemIndex}>{renderInline(item, locale)}</li>
           ))}
         </ul>
       );
@@ -326,7 +346,7 @@ function renderMarkdownBlock(block: MarkdownBlock, index: number) {
         <blockquote key={index} className="ft-note ft-whitepaper-page__md-quote">
           {block.lines.map((line, lineIndex) => (
             <p key={lineIndex} className="ft-whitepaper-page__md-quote-line">
-              {renderInline(line)}
+              {renderInline(line, locale)}
             </p>
           ))}
         </blockquote>
@@ -339,7 +359,7 @@ function renderMarkdownBlock(block: MarkdownBlock, index: number) {
             <thead>
               <tr>
                 {block.headers.map((header, headerIndex) => (
-                  <th key={headerIndex}>{renderInline(header)}</th>
+                  <th key={headerIndex}>{renderInline(header, locale)}</th>
                 ))}
               </tr>
             </thead>
@@ -349,9 +369,11 @@ function renderMarkdownBlock(block: MarkdownBlock, index: number) {
                   {row.map((cell, cellIndex) => (
                     <td
                       key={cellIndex}
-                      data-label={block.headers[cellIndex] ?? `Column ${cellIndex + 1}`}
+                      data-label={
+                        block.headers[cellIndex] ?? `${tableColumnPrefix} ${cellIndex + 1}`
+                      }
                     >
-                      {renderInline(cell)}
+                      {renderInline(cell, locale)}
                     </td>
                   ))}
                 </tr>
@@ -406,17 +428,21 @@ function WhitepaperStaticLink({
   className,
   active = false,
   external = false,
+  locale = defaultSiteLocale,
 }: {
   href: string;
   children: ReactNode;
   className?: string;
   active?: boolean;
   external?: boolean;
+  locale?: SupportedSiteLocale;
 }) {
+  const resolvedHref = external ? href : localizeSiteHref(href, locale);
+
   return (
     <a
       className={`${className ?? ""}${active ? " is-active" : ""}`}
-      href={href}
+      href={resolvedHref}
       rel={external ? "noopener noreferrer" : undefined}
       target={external ? "_blank" : undefined}
     >
@@ -425,26 +451,37 @@ function WhitepaperStaticLink({
   );
 }
 
-function WhitepaperHeader({ activeSlug }: { activeSlug?: WhitepaperVersionSlug }) {
+function WhitepaperHeader({
+  activeSlug,
+  activeCurrent = false,
+  locale,
+}: {
+  activeSlug?: WhitepaperVersionSlug;
+  activeCurrent?: boolean;
+  locale: SupportedSiteLocale;
+}) {
+  const content = getWhitepaperPageContent(locale);
+
   return (
     <header className="ft-whitepaper-page__header">
       <div className="ft-container--wide">
         <div className="ft-whitepaper-page__header-bar">
-          <a className="ft-whitepaper-page__brand" href="/">
+          <a className="ft-whitepaper-page__brand" href={localizeSiteHref("/", locale)}>
             <span className="ft-whitepaper-page__brand-mark">4</span>
             <span className="ft-whitepaper-page__brand-copy">
               <span className="ft-whitepaper-page__brand-title">4TEEN</span>
-              <span className="ft-whitepaper-page__brand-subtitle">Whitepaper Archive</span>
+              <span className="ft-whitepaper-page__brand-subtitle">{content.ui.brandSubtitle}</span>
             </span>
           </a>
 
-          <nav aria-label="Whitepaper routes" className="ft-whitepaper-page__header-nav">
+          <nav aria-label={content.ui.routesLabel} className="ft-whitepaper-page__header-nav">
             <WhitepaperStaticLink
               className="ft-whitepaper-page__header-link"
               href="/whitepaper"
-              active={!activeSlug}
+              active={activeCurrent}
+              locale={locale}
             >
-              Archive
+              {content.ui.currentLabel}
             </WhitepaperStaticLink>
             {whitepaperVersionOrder.map((slug) => (
               <WhitepaperStaticLink
@@ -452,12 +489,17 @@ function WhitepaperHeader({ activeSlug }: { activeSlug?: WhitepaperVersionSlug }
                 className="ft-whitepaper-page__header-link"
                 href={`/whitepaper/${slug}`}
                 active={activeSlug === slug}
+                locale={locale}
               >
                 {slug.toUpperCase()}
               </WhitepaperStaticLink>
             ))}
-            <WhitepaperStaticLink className="ft-whitepaper-page__header-link" href="/buy">
-              Buy
+            <WhitepaperStaticLink
+              className="ft-whitepaper-page__header-link"
+              href="/buy"
+              locale={locale}
+            >
+              {content.ui.buyLabel}
             </WhitepaperStaticLink>
           </nav>
         </div>
@@ -469,15 +511,18 @@ function WhitepaperHeader({ activeSlug }: { activeSlug?: WhitepaperVersionSlug }
 function WhitepaperVersionCard({
   document,
   active = false,
+  locale,
 }: {
   document: WhitepaperVersionDocument;
   active?: boolean;
+  locale: SupportedSiteLocale;
 }) {
   return (
     <WhitepaperStaticLink
       className="ft-card ft-card--plain ft-whitepaper-page__switcher-card"
       href={document.href}
       active={active}
+      locale={locale}
     >
       <p className="ft-card-title-top">{document.version}</p>
       <h3 className="ft-card-title">{document.date}</h3>
@@ -487,34 +532,103 @@ function WhitepaperVersionCard({
   );
 }
 
-export function WhitepaperArchivePage() {
-  const locale = defaultSiteLocale;
-  const content = getWhitepaperArchivePageContent(locale);
+function WhitepaperCurrentCard({
+  document,
+  active = false,
+  locale,
+}: {
+  document: WhitepaperCurrentDocument;
+  active?: boolean;
+  locale: SupportedSiteLocale;
+}) {
+  return (
+    <WhitepaperStaticLink
+      className="ft-card ft-card--plain ft-whitepaper-page__switcher-card"
+      href={document.href}
+      active={active}
+      locale={locale}
+    >
+      <p className="ft-card-title-top">{document.version}</p>
+      <h3 className="ft-card-title">{document.date}</h3>
+      <p className="ft-overline">{document.status}</p>
+      <p className="ft-text">{document.lead}</p>
+    </WhitepaperStaticLink>
+  );
+}
+
+export function WhitepaperCurrentPage({
+  locale = defaultSiteLocale,
+}: {
+  locale?: SupportedSiteLocale;
+}) {
+  const content = getWhitepaperPageContent(locale);
+  const document = getCurrentWhitepaperDocument(locale);
+  const blocks = parseMarkdownDocument(document.document);
+  const { intro, sections } = splitMarkdownSections(blocks);
 
   return (
-    <main className="ft-theme ft-page-main ft-whitepaper-page">
-      <WhitepaperHeader />
-
+    <main className="ft-theme ft-page-main ft-page-main--chrome ft-whitepaper-page">
+      <FourteenMobileShell />
+      <FourteenTopbar />
       <section className="ft-section ft-section--hero ft-whitepaper-page__section">
         <div className="ft-container--wide ft-stack ft-stack--xl">
+          <WhitepaperHeader activeCurrent locale={locale} />
+
           <article className="ft-card ft-card--strong ft-whitepaper-page__version-hero">
             <div className="ft-stack ft-stack--lg">
-              <div className="ft-stack ft-stack--sm">
-                <span className="ft-eyebrow">{content.hero.eyebrow}</span>
-                <h1 className="ft-title-lg">{content.hero.title}</h1>
-                <p className="ft-lead">{content.hero.lead}</p>
+              <div className="ft-whitepaper-page__hero-meta">
+                <span className="ft-eyebrow ft-whitepaper-page__hero-meta-pill">
+                  {content.ui.whitepaperLabel}
+                </span>
+                <span className="ft-whitepaper-page__hero-meta-pill">{document.version}</span>
+                <span className="ft-whitepaper-page__hero-meta-pill">{document.date}</span>
+                <span className="ft-whitepaper-page__hero-meta-pill">{document.status}</span>
+              </div>
+
+              <div className="ft-stack ft-stack--md">
+                <h1 className="ft-title-lg">{document.title}</h1>
+                <p className="ft-lead">{document.lead}</p>
               </div>
             </div>
           </article>
 
-          <article className="ft-card ft-card--plain ft-whitepaper-page__history-intro">
+          <article className="ft-card ft-card--plain ft-whitepaper-page__document-card">
             <div className="ft-stack ft-stack--md">
               <div className="ft-stack ft-stack--xs">
-                <p className="ft-overline">{content.note.eyebrow}</p>
-                <h2 className="ft-subtitle">{content.note.title}</h2>
+                <p className="ft-overline">{content.document.eyebrow}</p>
+                <h2 className="ft-subtitle">
+                  {document.version} • {document.title}
+                </h2>
               </div>
 
-              <p className="ft-text">{content.note.body}</p>
+              <p className="ft-text">{content.document.body}</p>
+
+              <div className="ft-whitepaper-page__document ft-whitepaper-page__document-body">
+                {intro.length > 0 ? (
+                  <section className="ft-whitepaper-page__markdown-section ft-whitepaper-page__markdown-section--intro">
+                    {intro.map((block, index) =>
+                      renderMarkdownBlock(block, index, content.ui.tableColumnPrefix, locale),
+                    )}
+                  </section>
+                ) : null}
+
+                {sections.map((section, sectionIndex) => (
+                  <section
+                    key={section.id}
+                    className="ft-whitepaper-page__markdown-section"
+                    id={section.id}
+                  >
+                    {section.blocks.map((block, blockIndex) =>
+                      renderMarkdownBlock(
+                        block,
+                        sectionIndex * 1000 + blockIndex,
+                        content.ui.tableColumnPrefix,
+                        locale,
+                      ),
+                    )}
+                  </section>
+                ))}
+              </div>
             </div>
           </article>
 
@@ -532,6 +646,7 @@ export function WhitepaperArchivePage() {
                   <WhitepaperVersionCard
                     key={slug}
                     document={content.versions[slug]}
+                    locale={locale}
                   />
                 ))}
               </div>
@@ -543,30 +658,44 @@ export function WhitepaperArchivePage() {
   );
 }
 
+export function WhitepaperArchivePage({
+  locale = defaultSiteLocale,
+}: {
+  locale?: SupportedSiteLocale;
+}) {
+  return <WhitepaperCurrentPage locale={locale} />;
+}
+
 export function WhitepaperVersionPage({
   slug,
+  locale = defaultSiteLocale,
 }: {
   slug: WhitepaperVersionSlug;
+  locale?: SupportedSiteLocale;
 }) {
-  const locale = defaultSiteLocale;
-  const content = getWhitepaperArchivePageContent(locale);
+  const content = getWhitepaperPageContent(locale);
+  const currentDocument = getCurrentWhitepaperDocument(locale);
   const document = getWhitepaperVersionDocument(locale, slug);
   const blocks = parseMarkdownDocument(document.document);
   const { intro, sections } = splitMarkdownSections(blocks);
 
   return (
-    <main className="ft-theme ft-page-main ft-whitepaper-page">
-      <WhitepaperHeader activeSlug={slug} />
-
+    <main className="ft-theme ft-page-main ft-page-main--chrome ft-whitepaper-page">
+      <FourteenMobileShell />
+      <FourteenTopbar />
       <section className="ft-section ft-section--hero ft-whitepaper-page__section">
         <div className="ft-container--wide ft-stack ft-stack--xl">
+          <WhitepaperHeader activeSlug={slug} locale={locale} />
+
           <article className="ft-card ft-card--strong ft-whitepaper-page__version-hero">
             <div className="ft-stack ft-stack--lg">
-              <div className="ft-cluster ft-cluster--sm">
-                <span className="ft-eyebrow">Whitepaper</span>
-                <span className="ft-status-pill">{document.version}</span>
-                <span className="ft-status-pill">{document.date}</span>
-                <span className="ft-status-pill">{document.status}</span>
+              <div className="ft-whitepaper-page__hero-meta">
+                <span className="ft-eyebrow ft-whitepaper-page__hero-meta-pill">
+                  {content.ui.whitepaperLabel}
+                </span>
+                <span className="ft-whitepaper-page__hero-meta-pill">{document.version}</span>
+                <span className="ft-whitepaper-page__hero-meta-pill">{document.date}</span>
+                <span className="ft-whitepaper-page__hero-meta-pill">{document.status}</span>
               </div>
 
               <div className="ft-stack ft-stack--md">
@@ -586,11 +715,17 @@ export function WhitepaperVersionPage({
               <p className="ft-text">{content.switcher.body}</p>
 
               <div className="ft-grid ft-grid--4 ft-whitepaper-page__switcher-grid">
+                <WhitepaperCurrentCard
+                  active={false}
+                  document={currentDocument}
+                  locale={locale}
+                />
                 {whitepaperVersionOrder.map((versionSlug) => (
                   <WhitepaperVersionCard
                     key={versionSlug}
                     active={versionSlug === slug}
                     document={content.versions[versionSlug]}
+                    locale={locale}
                   />
                 ))}
               </div>
@@ -611,7 +746,9 @@ export function WhitepaperVersionPage({
               <div className="ft-whitepaper-page__document ft-whitepaper-page__document-body">
                 {intro.length > 0 ? (
                   <section className="ft-whitepaper-page__markdown-section ft-whitepaper-page__markdown-section--intro">
-                    {intro.map((block, index) => renderMarkdownBlock(block, index))}
+                    {intro.map((block, index) =>
+                      renderMarkdownBlock(block, index, content.ui.tableColumnPrefix, locale),
+                    )}
                   </section>
                 ) : null}
 
@@ -622,7 +759,12 @@ export function WhitepaperVersionPage({
                     id={section.id}
                   >
                     {section.blocks.map((block, blockIndex) =>
-                      renderMarkdownBlock(block, sectionIndex * 1000 + blockIndex),
+                      renderMarkdownBlock(
+                        block,
+                        sectionIndex * 1000 + blockIndex,
+                        content.ui.tableColumnPrefix,
+                        locale,
+                      ),
                     )}
                   </section>
                 ))}

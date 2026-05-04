@@ -1,8 +1,8 @@
 import { getChromeContent } from "@/content/chrome-content";
-import { defaultSiteLocale } from "@/lib/site-locale";
+import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 export function RotatingTagline({ compact = false }: { compact?: boolean }) {
-  const taglines = getChromeContent(defaultSiteLocale).taglines;
+  const taglines = getChromeContent(useCurrentSiteLocale()).taglines;
 
   return (
     <span
