@@ -60,6 +60,22 @@ function getEnv(name, fallback = "") {
   return value || fallback;
 }
 
+async function writeRunResult(status, payload = {}) {
+  const resultPath = getEnv("DAILY_DIGEST_RESULT_PATH");
+  if (!resultPath) {
+    return;
+  }
+
+  const result = {
+    status,
+    generatedAt: new Date().toISOString(),
+    ...payload,
+  };
+
+  await fs.mkdir(path.dirname(resultPath), { recursive: true });
+  await fs.writeFile(resultPath, `${JSON.stringify(result, null, 2)}\n`, "utf8");
+}
+
 function requireEnv(name) {
   const value = getEnv(name);
   if (!value) {
@@ -362,13 +378,55 @@ function parseJsonResponse(text) {
     throw new Error("OpenAI returned empty JSON payload");
   }
 
+  const fencedMatch = safe.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
+  const candidate = fencedMatch?.[1]?.trim() || safe;
+
   try {
-    return JSON.parse(safe);
+    return JSON.parse(candidate);
   } catch {
-    const start = safe.indexOf("{");
-    const end = safe.lastIndexOf("}");
-    if (start >= 0 && end > start) {
-      return JSON.parse(safe.slice(start, end + 1));
+    const start = candidate.indexOf("{");
+    if (start >= 0) {
+      let depth = 0;
+      let inString = false;
+      let escaped = false;
+
+      for (let index = start; index < candidate.length; index += 1) {
+        const char = candidate[index];
+
+        if (inString) {
+          if (escaped) {
+            escaped = false;
+            continue;
+          }
+
+          if (char === "\\") {
+            escaped = true;
+            continue;
+          }
+
+          if (char === '"') {
+            inString = false;
+          }
+          continue;
+        }
+
+        if (char === '"') {
+          inString = true;
+          continue;
+        }
+
+        if (char === "{") {
+          depth += 1;
+          continue;
+        }
+
+        if (char === "}") {
+          depth -= 1;
+          if (depth === 0) {
+            return JSON.parse(candidate.slice(start, index + 1));
+          }
+        }
+      }
     }
   }
 
@@ -1564,11 +1622,29 @@ async function run() {
       2,
     ),
   );
+
+  await writeRunResult("ok", {
+    ok: true,
+    digestUrl: publishResult.digestUrl,
+    slug: publishResult.slug,
+    sourceArticles: deepAnalysisCandidates.length,
+    publishedAt: publishResult.publishedAt,
+    runDate,
+    skippedDeploy: args.skipDeploy,
+    dryRun: args.dryRun,
+  });
 }
 
 run().catch(async (error) => {
   const message = `Daily digest failed: ${error.message}`;
   console.error(message);
+
+  await writeRunResult("error", {
+    ok: false,
+    error: error.message,
+  }).catch((writeError) => {
+    console.error(`Result file write failed: ${writeError.message}`);
+  });
 
   try {
     if (!process.argv.includes("--skip-notify")) {

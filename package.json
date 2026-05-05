@@ -6,7 +6,7 @@
     "clean:build-artifacts": "rm -rf .next .open-next && mkdir -p ../4teen-trash && sh -c 'for d in .next_stale_* .open-next_stale_* _hold-open-next-stale-*; do if [ -e \"$d\" ]; then mv \"$d\" ../4teen-trash/$(basename \"$d\").$(date +%s); fi; done'",
     "dev": "next dev --webpack",
     "build": "next build --webpack",
-    "cf:build": "pnpm run clean:build-artifacts && pnpm build && opennextjs-cloudflare build --skipNextBuild",
+    "cf:build": "pnpm run clean:build-artifacts && opennextjs-cloudflare build",
     "preview": "pnpm run cf:preview",
     "cf:preview": "pnpm run cf:build && opennextjs-cloudflare preview",
     "deploy": "pnpm run cf:deploy",

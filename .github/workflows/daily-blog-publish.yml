@@ -35,6 +35,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
+      CI: "1"
+      NEXT_TELEMETRY_DISABLED: "1"
+      NODE_OPTIONS: --max-old-space-size=4096
+      BLOG_CONTENT_SOURCE: snapshot
       DATABASE_URL: ${{ github.event.client_payload.databaseUrl || secrets.DATABASE_URL }}
       BLOG_DATABASE_URL: ${{ github.event.client_payload.blogDatabaseUrl || '' }}
       OPENAI_API_KEY: ${{ github.event.client_payload.openAiApiKey || secrets.OPENAI_API_KEY }}
@@ -53,6 +57,7 @@ jobs:
       DAILY_DIGEST_MAX_ARTICLES: ${{ github.event.client_payload.maxArticles || '12' }}
       DAILY_DIGEST_LOOKBACK_HOURS: ${{ github.event.client_payload.lookbackHours || '24' }}
       DAILY_DIGEST_SIGNATURE: ${{ github.event.client_payload.signature || 'Stan At, 4teen Founder' }}
+      DAILY_DIGEST_RESULT_PATH: ${{ runner.temp }}/daily-blog-result.json
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -73,11 +78,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Publish daily article
+        id: publish
         shell: bash
         run: |
           set -euo pipefail
 
           args=(--skip-notify)
+          skip_deploy_value="false"
 
           run_date="${{ github.event.client_payload.runDate || inputs.run_date }}"
           if [ -n "${run_date}" ]; then
@@ -92,6 +99,48 @@ jobs:
           skip_deploy_flag="${{ github.event.client_payload.skipDeploy || inputs.skip_deploy || false }}"
           if [ "${skip_deploy_flag}" = "true" ]; then
             args+=(--skip-deploy)
+            skip_deploy_value="true"
           fi
 
           node scripts/blog-automation/daily-digest-runner.mjs "${args[@]}"
+          echo "skip_deploy=${skip_deploy_value}" >> "$GITHUB_OUTPUT"
+
+      - name: Print publish result
+        if: always()
+        run: |
+          if [ -f "${DAILY_DIGEST_RESULT_PATH}" ]; then
+            cat "${DAILY_DIGEST_RESULT_PATH}"
+          else
+            echo "No publish result file found"
+          fi
+
+      - name: Confirm deployed article is live
+        if: steps.publish.outputs.skip_deploy != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ ! -f "${DAILY_DIGEST_RESULT_PATH}" ]; then
+            echo "Publish result file is missing"
+            exit 1
+          fi
+
+          digest_url="$(node -e "const fs=require('fs'); const payload=JSON.parse(fs.readFileSync(process.env.DAILY_DIGEST_RESULT_PATH,'utf8')); if(!payload.digestUrl){process.exit(1)}; process.stdout.write(payload.digestUrl)")"
+
+          attempts=12
+          delay=10
+
+          for attempt in $(seq 1 "${attempts}"); do
+            if curl --fail --silent --show-error --location "${digest_url}" > /dev/null; then
+              echo "Digest is live: ${digest_url}"
+              exit 0
+            fi
+
+            if [ "${attempt}" -lt "${attempts}" ]; then
+              echo "Digest not live yet, retry ${attempt}/${attempts}..."
+              sleep "${delay}"
+            fi
+          done
+
+          echo "Digest did not become live after deploy: ${digest_url}"
+          exit 1
