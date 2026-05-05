@@ -32,6 +32,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 concurrency:
   group: daily-blog-publish
@@ -46,12 +47,7 @@ jobs:
       NEXT_TELEMETRY_DISABLED: "1"
       NODE_OPTIONS: --max-old-space-size=4096
       BLOG_CONTENT_SOURCE: snapshot
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
       BLOG_DATABASE_URL: ""
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      OPENAI_ORG_ID: ${{ secrets.OPENAI_ORG_ID }}
-      OPENAI_PROJECT_ID: ${{ secrets.OPENAI_PROJECT_ID }}
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       DAILY_DIGEST_FEED_URL: ""
       DAILY_DIGEST_WRITER_MODEL: gpt-5.5
       DAILY_DIGEST_WRITER_EFFORT: high
@@ -74,6 +70,106 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - name: Fetch automation config from ops control plane
+        env:
+          OPS_EXPORT_BASE_URL: ${{ vars.OPS_EXPORT_BASE_URL || 'https://fourteen-wallet-api-7af291023d36.herokuapp.com' }}
+          OPS_GITHUB_OIDC_AUDIENCE: ${{ vars.OPS_GITHUB_OIDC_AUDIENCE || '4teen-ops-runner' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          node - <<'NODE'
+          const fs = require('node:fs');
+
+          async function readJson(response) {
+            try {
+              return await response.json();
+            } catch {
+              return null;
+            }
+          }
+
+          async function fetchOidcToken() {
+            const requestUrl = process.env.ACTIONS_ID_TOKEN_REQUEST_URL;
+            const requestToken = process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN;
+            const audience = encodeURIComponent(process.env.OPS_GITHUB_OIDC_AUDIENCE || '4teen-ops-runner');
+
+            if (!requestUrl || !requestToken) {
+              throw new Error('GitHub OIDC request metadata is missing');
+            }
+
+            const separator = requestUrl.includes('?') ? '&' : '?';
+            const response = await fetch(`${requestUrl}${separator}audience=${audience}`, {
+              headers: {
+                Authorization: `Bearer ${requestToken}`
+              }
+            });
+
+            const payload = await readJson(response);
+            if (!response.ok || !payload?.value) {
+              throw new Error(payload?.message || `Failed to fetch OIDC token (${response.status})`);
+            }
+
+            return payload.value;
+          }
+
+          async function main() {
+            const baseUrl = String(process.env.OPS_EXPORT_BASE_URL || 'https://fourteen-wallet-api-7af291023d36.herokuapp.com').replace(/\/+$/, '');
+            const githubEnvPath = process.env.GITHUB_ENV;
+            if (!githubEnvPath) {
+              throw new Error('GITHUB_ENV is missing');
+            }
+
+            const oidcToken = await fetchOidcToken();
+            const response = await fetch(`${baseUrl}/ops/blog-daily-publish-config`, {
+              headers: {
+                Authorization: `Bearer ${oidcToken}`,
+                Accept: 'application/json'
+              }
+            });
+
+            const payload = await readJson(response);
+            if (!response.ok || payload?.ok === false || !payload?.result) {
+              throw new Error(payload?.error || `Ops control plane returned status ${response.status}`);
+            }
+
+            const lines = [];
+            const mappings = {
+              DATABASE_URL: payload.result.databaseUrl,
+              BLOG_DATABASE_URL: payload.result.blogDatabaseUrl,
+              OPENAI_API_KEY: payload.result.openAiApiKey,
+              OPENAI_ORG_ID: payload.result.openAiOrgId,
+              OPENAI_PROJECT_ID: payload.result.openAiProjectId,
+              CLOUDFLARE_API_TOKEN: payload.result.cloudflareApiToken,
+              DAILY_DIGEST_FEED_URL: payload.result.feedUrl,
+              DAILY_DIGEST_WRITER_MODEL: payload.result.writerModel,
+              DAILY_DIGEST_WRITER_EFFORT: payload.result.writerEffort,
+              DAILY_DIGEST_TRIAGE_MODEL: payload.result.triageModel,
+              DAILY_DIGEST_ANALYSIS_MODEL: payload.result.analysisModel,
+              DAILY_DIGEST_METADATA_MODEL: payload.result.metadataModel,
+              DAILY_DIGEST_IMAGE_MODE: payload.result.imageMode,
+              DAILY_DIGEST_SCAN_ARTICLES: payload.result.scanArticles,
+              DAILY_DIGEST_DEEP_ANALYSIS_ARTICLES: payload.result.deepAnalysisArticles,
+              DAILY_DIGEST_MAX_ARTICLES: payload.result.maxArticles,
+              DAILY_DIGEST_LOOKBACK_HOURS: payload.result.lookbackHours,
+              DAILY_DIGEST_SIGNATURE: payload.result.signature
+            };
+
+            for (const [key, value] of Object.entries(mappings)) {
+              if (typeof value === 'string' && value.trim()) {
+                lines.push(`${key}=${value.trim()}`);
+              }
+            }
+
+            fs.appendFileSync(githubEnvPath, `${lines.join('\n')}\n`);
+          }
+
+          main().catch((error) => {
+            console.error(error instanceof Error ? error.message : String(error));
+            process.exit(1);
+          });
+          NODE
 
       - name: Install dependencies
         shell: bash
