@@ -1359,15 +1359,34 @@ async function run() {
 
   logStage("Digest run started", `date=${runDate} dryRun=${args.dryRun ? "yes" : "no"}`);
   const feed = await fetchJson(feedUrl);
+  const dedupedFeedItems = dedupeFeedItems(feed.items || []);
   logStage("RSS feed loaded", `${Array.isArray(feed.items) ? feed.items.length : 0} items`);
-  const windowItems = pickDigestWindow(dedupeFeedItems(feed.items || []), runDate, lookbackHours).slice(
-    0,
-    scanArticles,
-  );
+  let windowItems = pickDigestWindow(dedupedFeedItems, runDate, lookbackHours).slice(0, scanArticles);
   logStage("Digest window selected", `${windowItems.length} candidate articles`);
 
   if (windowItems.length === 0) {
-    const message = `Daily digest failed: no RSS items found for ${runDate}.`;
+    const fallbackLookbackHours = Math.max(lookbackHours * 3, 72);
+    const fallbackWindow = pickDigestWindow(dedupedFeedItems, runDate, fallbackLookbackHours).slice(
+      0,
+      scanArticles,
+    );
+
+    if (fallbackWindow.length > 0) {
+      windowItems = fallbackWindow;
+      logStage(
+        "Digest window fallback",
+        `${windowItems.length} candidate articles from ${fallbackLookbackHours}h lookback`,
+      );
+    } else {
+      windowItems = dedupedFeedItems.slice(0, scanArticles);
+      if (windowItems.length > 0) {
+        logStage("Digest window fallback", `${windowItems.length} latest feed articles`);
+      }
+    }
+  }
+
+  if (windowItems.length === 0) {
+    const message = `Daily digest failed: no RSS items found for ${runDate}, even after fallback.`;
     if (!args.skipNotify) {
       await notifyAdminBot(message).catch(() => {});
     }
