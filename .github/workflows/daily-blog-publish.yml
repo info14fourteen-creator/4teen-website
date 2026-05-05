@@ -64,7 +64,6 @@ jobs:
       DAILY_DIGEST_MAX_ARTICLES: "12"
       DAILY_DIGEST_LOOKBACK_HOURS: "24"
       DAILY_DIGEST_SIGNATURE: Stan At, 4teen Founder
-      DAILY_DIGEST_RESULT_PATH: ${{ runner.temp }}/daily-blog-result.json
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -88,6 +87,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+
+          echo "DAILY_DIGEST_RESULT_PATH=${RUNNER_TEMP}/daily-blog-result.json" >> "${GITHUB_ENV}"
 
           node - <<'NODE'
           const fs = require('node:fs');
