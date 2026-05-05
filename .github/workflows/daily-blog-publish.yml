@@ -75,13 +75,35 @@ jobs:
         with:
           node-version: 22
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.33.0
-
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        shell: bash
+        run: |
+          set -euo pipefail
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Validate required automation secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          missing=()
+          required_vars=(
+            DATABASE_URL
+            OPENAI_API_KEY
+            CLOUDFLARE_API_TOKEN
+          )
+
+          for var_name in "${required_vars[@]}"; do
+            if [ -z "${!var_name:-}" ]; then
+              missing+=("${var_name}")
+            fi
+          done
+
+          if [ "${#missing[@]}" -gt 0 ]; then
+            echo "::error::Missing required GitHub Actions secrets: ${missing[*]}"
+            exit 1
+          fi
 
       - name: Apply event overrides
         shell: bash
