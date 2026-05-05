@@ -1,6 +1,13 @@
 name: Daily Blog Publish
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/daily-blog-publish.yml
+      - .npmrc
+      - scripts/blog-automation/daily-digest-runner.mjs
   schedule:
     - cron: '30 6 * * *'
   repository_dispatch:
