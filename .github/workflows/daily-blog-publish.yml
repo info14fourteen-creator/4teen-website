@@ -144,3 +144,33 @@ jobs:
 
           echo "Digest did not become live after deploy: ${digest_url}"
           exit 1
+
+      - name: Persist digest snapshot and assets
+        if: success()
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ ! -f "${DAILY_DIGEST_RESULT_PATH}" ]; then
+            echo "Publish result file is missing"
+            exit 1
+          fi
+
+          slug="$(node -e "const fs=require('fs'); const payload=JSON.parse(fs.readFileSync(process.env.DAILY_DIGEST_RESULT_PATH,'utf8')); if(!payload.slug){process.exit(1)}; process.stdout.write(payload.slug)")"
+          run_date="$(node -e "const fs=require('fs'); const payload=JSON.parse(fs.readFileSync(process.env.DAILY_DIGEST_RESULT_PATH,'utf8')); if(!payload.runDate){process.exit(1)}; process.stdout.write(payload.runDate)")"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add scripts/blog-migration/out/content-table/blog-import.bundle.json
+          if [ -d "public/blog/digests/${run_date}/${slug}" ]; then
+            git add "public/blog/digests/${run_date}/${slug}"
+          fi
+
+          if git diff --cached --quiet; then
+            echo "No generated digest artifacts to commit"
+            exit 0
+          fi
+
+          git commit -m "Persist daily digest artifacts for ${run_date} [skip ci]"
+          git push origin HEAD:main

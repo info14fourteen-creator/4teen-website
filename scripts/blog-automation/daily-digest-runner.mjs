@@ -1351,6 +1351,7 @@ async function publishDigest({
   };
 
   const digestUrl = `https://4teen.me/blog/${siteSlug}`;
+  let databaseSync = "skipped";
 
   if (args.dryRun) {
     logStage("Dry run complete", "skipped DB/snapshot/deploy/notify");
@@ -1360,78 +1361,81 @@ async function publishDigest({
       legacySourceId,
       publishedAt,
       snapshotPost,
+      databaseSync,
     };
-  }
-
-  const databaseUrl = getEnv("BLOG_DATABASE_URL", getEnv("DATABASE_URL"));
-  if (!databaseUrl) {
-    throw new Error("DATABASE_URL or BLOG_DATABASE_URL is required for digest publishing");
-  }
-
-  const pool = new Pool({
-    connectionString: databaseUrl,
-    ssl: getEnv("PGSSL_DISABLE") === "1" ? false : { rejectUnauthorized: false },
-    max: 4,
-  });
-
-  try {
-    logStage("Ensuring blog schema");
-    await ensureBlogSchema(pool);
-    const client = await pool.connect();
-
-    try {
-      logStage("Writing digest to Postgres");
-      await client.query("begin");
-
-      const mediaIds = [];
-      for (const [index, image] of images.entries()) {
-        const mediaId = await upsertMediaAsset(client, {
-          storageKey: `daily-digest/${runDate}/${siteSlug}-${index + 1}.jpg`,
-          publicUrl: image.publicUrl,
-          altText: metadata.title,
-          variant: index === 0 ? "cover-16x9" : index === 1 ? "social-9x16" : "thumb-1x1",
-        });
-
-        mediaIds.push({
-          id: mediaId,
-          sortOrder: index,
-          usage: index === 0 ? "cover" : "gallery",
-        });
-      }
-
-      const postId = await upsertBlogPost(client, {
-        legacySourceId,
-        locale: DEFAULTS.locale,
-        slug: siteSlug,
-        title: metadata.title,
-        excerpt: metadata.excerpt,
-        contentMarkdown: digestMarkdown,
-        status: "published",
-        publishedAt,
-        coverMediaId: mediaIds[0]?.id || null,
-        seoTitle: metadata.seo_title,
-        seoDescription: metadata.seo_description,
-        sourceUrl,
-        sourcePayload,
-      });
-
-      await syncPostMedia(client, postId, mediaIds);
-      await client.query("commit");
-      logStage("Postgres write complete", siteSlug);
-    } catch (error) {
-      await client.query("rollback");
-      throw error;
-    } finally {
-      client.release();
-    }
-  } finally {
-    await pool.end();
   }
 
   await updateSnapshotFile(snapshotPost);
 
   if (!args.skipDeploy) {
     deploySite();
+  }
+
+  const databaseUrl = getEnv("BLOG_DATABASE_URL", getEnv("DATABASE_URL"));
+  if (!databaseUrl) {
+    console.warn("Skipping Postgres sync because DATABASE_URL and BLOG_DATABASE_URL are missing");
+  } else {
+    const pool = new Pool({
+      connectionString: databaseUrl,
+      ssl: getEnv("PGSSL_DISABLE") === "1" ? false : { rejectUnauthorized: false },
+      max: 4,
+    });
+
+    try {
+      logStage("Ensuring blog schema");
+      await ensureBlogSchema(pool);
+      const client = await pool.connect();
+
+      try {
+        logStage("Writing digest to Postgres");
+        await client.query("begin");
+
+        const mediaIds = [];
+        for (const [index, image] of images.entries()) {
+          const mediaId = await upsertMediaAsset(client, {
+            storageKey: `daily-digest/${runDate}/${siteSlug}-${index + 1}.jpg`,
+            publicUrl: image.publicUrl,
+            altText: metadata.title,
+            variant: index === 0 ? "cover-16x9" : index === 1 ? "social-9x16" : "thumb-1x1",
+          });
+
+          mediaIds.push({
+            id: mediaId,
+            sortOrder: index,
+            usage: index === 0 ? "cover" : "gallery",
+          });
+        }
+
+        const postId = await upsertBlogPost(client, {
+          legacySourceId,
+          locale: DEFAULTS.locale,
+          slug: siteSlug,
+          title: metadata.title,
+          excerpt: metadata.excerpt,
+          contentMarkdown: digestMarkdown,
+          status: "published",
+          publishedAt,
+          coverMediaId: mediaIds[0]?.id || null,
+          seoTitle: metadata.seo_title,
+          seoDescription: metadata.seo_description,
+          sourceUrl,
+          sourcePayload,
+        });
+
+        await syncPostMedia(client, postId, mediaIds);
+        await client.query("commit");
+        databaseSync = "ok";
+        logStage("Postgres write complete", siteSlug);
+      } catch (error) {
+        await client.query("rollback");
+        databaseSync = "failed";
+        console.warn(`Postgres sync failed after deploy: ${error.message}`);
+      } finally {
+        client.release();
+      }
+    } finally {
+      await pool.end();
+    }
   }
 
   if (!args.skipNotify) {
@@ -1447,6 +1451,7 @@ async function publishDigest({
     slug: siteSlug,
     legacySourceId,
     publishedAt,
+    databaseSync,
   };
 }
 
@@ -1629,6 +1634,7 @@ async function run() {
     slug: publishResult.slug,
     sourceArticles: deepAnalysisCandidates.length,
     publishedAt: publishResult.publishedAt,
+    databaseSync: publishResult.databaseSync,
     runDate,
     skippedDeploy: args.skipDeploy,
     dryRun: args.dryRun,
