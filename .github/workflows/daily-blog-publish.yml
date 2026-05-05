@@ -156,9 +156,22 @@ jobs:
               DAILY_DIGEST_SIGNATURE: payload.result.signature
             };
 
+            const maskedKeys = new Set([
+              'DATABASE_URL',
+              'BLOG_DATABASE_URL',
+              'OPENAI_API_KEY',
+              'OPENAI_ORG_ID',
+              'OPENAI_PROJECT_ID',
+              'CLOUDFLARE_API_TOKEN'
+            ]);
+
             for (const [key, value] of Object.entries(mappings)) {
               if (typeof value === 'string' && value.trim()) {
-                lines.push(`${key}=${value.trim()}`);
+                const normalized = value.trim();
+                if (maskedKeys.has(key)) {
+                  process.stdout.write(`::add-mask::${normalized}\n`);
+                }
+                lines.push(`${key}=${normalized}`);
               }
             }
 

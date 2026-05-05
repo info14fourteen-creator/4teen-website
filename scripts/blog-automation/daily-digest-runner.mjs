@@ -378,14 +378,43 @@ function parseJsonResponse(text) {
     throw new Error("OpenAI returned empty JSON payload");
   }
 
-  const fencedMatch = safe.match(/```(?:json)?\s*([\s\S]*?)\s*```/i);
-  const candidate = fencedMatch?.[1]?.trim() || safe;
+  const candidates = [];
+  const fencedMatches = [...safe.matchAll(/```(?:json)?\s*([\s\S]*?)\s*```/gi)];
+  if (fencedMatches.length) {
+    for (const match of fencedMatches) {
+      const block = normalizeValue(match[1]);
+      if (block) {
+        candidates.push(block);
+      }
+    }
+  }
+  candidates.push(safe);
 
-  try {
-    return JSON.parse(candidate);
-  } catch {
-    const start = candidate.indexOf("{");
-    if (start >= 0) {
+  const tryParse = (candidate) => {
+    if (!candidate) {
+      return null;
+    }
+
+    try {
+      return JSON.parse(candidate);
+    } catch {
+      return null;
+    }
+  };
+
+  const extractBalancedJson = (candidate) => {
+    const opens = new Map([
+      ["{", "}"],
+      ["[", "]"],
+    ]);
+
+    for (let start = 0; start < candidate.length; start += 1) {
+      const opener = candidate[start];
+      const closer = opens.get(opener);
+      if (!closer) {
+        continue;
+      }
+
       let depth = 0;
       let inString = false;
       let escaped = false;
@@ -415,18 +444,33 @@ function parseJsonResponse(text) {
           continue;
         }
 
-        if (char === "{") {
+        if (char === opener) {
           depth += 1;
           continue;
         }
 
-        if (char === "}") {
+        if (char === closer) {
           depth -= 1;
           if (depth === 0) {
-            return JSON.parse(candidate.slice(start, index + 1));
+            return candidate.slice(start, index + 1);
           }
         }
       }
+    }
+
+    return null;
+  };
+
+  for (const candidate of candidates) {
+    const direct = tryParse(candidate);
+    if (direct !== null) {
+      return direct;
+    }
+
+    const extracted = extractBalancedJson(candidate);
+    const reparsed = tryParse(extracted);
+    if (reparsed !== null) {
+      return reparsed;
     }
   }
 
@@ -513,8 +557,27 @@ async function callOpenAiText({ model, prompt, input, effort = "medium" }) {
 }
 
 async function callOpenAiJson({ model, prompt, input, effort = "medium" }) {
-  const text = await callOpenAiText({ model, prompt, input, effort });
-  return parseJsonResponse(text);
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= 2; attempt += 1) {
+    const strictPrompt =
+      attempt === 1
+        ? prompt
+        : `${prompt}\n\nReturn valid JSON only. No markdown fences, no commentary, no leading text, no trailing text.`;
+
+    const text = await callOpenAiText({ model, prompt: strictPrompt, input, effort });
+
+    try {
+      return parseJsonResponse(text);
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+      if (attempt < 2) {
+        logStage("OpenAI JSON retry", `model=${model} attempt=${attempt + 1}/2`);
+      }
+    }
+  }
+
+  throw lastError || new Error("Could not parse OpenAI JSON response");
 }
 
 function collectDigestSignals(analysisCards) {
