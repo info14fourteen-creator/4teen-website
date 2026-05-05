@@ -1,6 +1,8 @@
 name: Daily Blog Publish
 
 on:
+  schedule:
+    - cron: '30 6 * * *'
   repository_dispatch:
     types:
       - daily-blog-publish

@@ -375,31 +375,80 @@ function parseJsonResponse(text) {
   throw new Error("Could not parse OpenAI JSON response");
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isRetryableOpenAiStatus(status) {
+  return status === 408 || status === 409 || status === 429 || status >= 500;
+}
+
+async function fetchOpenAiJsonWithRetry(url, init, options = {}) {
+  const maxAttempts = options.maxAttempts ?? 3;
+  const label = options.label || "OpenAI request";
+
+  let lastError = null;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      const response = await fetch(url, init);
+      const payload = await response.json().catch(() => null);
+
+      if (response.ok) {
+        return payload;
+      }
+
+      const message = payload?.error?.message || `${label} failed: ${response.status}`;
+      if (!isRetryableOpenAiStatus(response.status) || attempt === maxAttempts) {
+        throw new Error(message);
+      }
+
+      lastError = new Error(message);
+      const delayMs = 1500 * attempt;
+      logStage(`${label} retry`, `attempt=${attempt + 1}/${maxAttempts} after ${response.status}`);
+      await sleep(delayMs);
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+      if (attempt === maxAttempts) {
+        throw lastError;
+      }
+
+      const delayMs = 1500 * attempt;
+      logStage(`${label} retry`, `attempt=${attempt + 1}/${maxAttempts} after network error`);
+      await sleep(delayMs);
+    }
+  }
+
+  throw lastError || new Error(`${label} failed`);
+}
+
 async function callOpenAiText({ model, prompt, input, effort = "medium" }) {
   logStage("OpenAI request started", `model=${model} effort=${effort}`);
-  const response = await fetch("https://api.openai.com/v1/responses", {
-    method: "POST",
-    headers: buildOpenAiHeaders(),
-    body: JSON.stringify({
-      model,
-      reasoning: { effort },
-      input: [
-        {
-          role: "developer",
-          content: [{ type: "input_text", text: prompt }],
-        },
-        {
-          role: "user",
-          content: [{ type: "input_text", text: JSON.stringify(input, null, 2) }],
-        },
-      ],
-    }),
-  });
-
-  const payload = await response.json().catch(() => null);
-  if (!response.ok) {
-    throw new Error(payload?.error?.message || `OpenAI request failed: ${response.status}`);
-  }
+  const payload = await fetchOpenAiJsonWithRetry(
+    "https://api.openai.com/v1/responses",
+    {
+      method: "POST",
+      headers: buildOpenAiHeaders(),
+      body: JSON.stringify({
+        model,
+        reasoning: { effort },
+        input: [
+          {
+            role: "developer",
+            content: [{ type: "input_text", text: prompt }],
+          },
+          {
+            role: "user",
+            content: [{ type: "input_text", text: JSON.stringify(input, null, 2) }],
+          },
+        ],
+      }),
+    },
+    {
+      label: "OpenAI request",
+      maxAttempts: 3,
+    },
+  );
 
   logStage("OpenAI request finished", `model=${model}`);
   return extractResponseText(payload);
@@ -701,16 +750,18 @@ async function createOpenAiRemixImage({
     headers["OpenAI-Organization"] = orgId;
   }
 
-  const response = await fetch("https://api.openai.com/v1/images/edits", {
-    method: "POST",
-    headers,
-    body: formData,
-  });
-
-  const payload = await response.json().catch(() => null);
-  if (!response.ok) {
-    throw new Error(payload?.error?.message || `OpenAI image edit failed: ${response.status}`);
-  }
+  const payload = await fetchOpenAiJsonWithRetry(
+    "https://api.openai.com/v1/images/edits",
+    {
+      method: "POST",
+      headers,
+      body: formData,
+    },
+    {
+      label: "OpenAI image edit",
+      maxAttempts: 3,
+    },
+  );
 
   const imageBase64 = payload?.data?.[0]?.b64_json;
   if (!imageBase64) {
@@ -727,22 +778,24 @@ async function createOpenAiGeneratedImage({
   quality,
   size,
 }) {
-  const response = await fetch("https://api.openai.com/v1/images/generations", {
-    method: "POST",
-    headers: buildOpenAiHeaders(),
-    body: JSON.stringify({
-      model,
-      prompt,
-      size,
-      quality,
-      output_format: "jpeg",
-    }),
-  });
-
-  const payload = await response.json().catch(() => null);
-  if (!response.ok) {
-    throw new Error(payload?.error?.message || `OpenAI image generation failed: ${response.status}`);
-  }
+  const payload = await fetchOpenAiJsonWithRetry(
+    "https://api.openai.com/v1/images/generations",
+    {
+      method: "POST",
+      headers: buildOpenAiHeaders(),
+      body: JSON.stringify({
+        model,
+        prompt,
+        size,
+        quality,
+        output_format: "jpeg",
+      }),
+    },
+    {
+      label: "OpenAI image generation",
+      maxAttempts: 3,
+    },
+  );
 
   const imageBase64 = payload?.data?.[0]?.b64_json;
   if (!imageBase64) {
