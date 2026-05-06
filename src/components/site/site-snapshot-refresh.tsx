@@ -1,19 +1,12 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { startTransition, useMemo, useState } from "react";
-import { AnimatedLottieIcon } from "@/components/site/animated-lottie-icon";
-import {
-  resolveFourteenLoader,
-  triggerFourteenLoader,
-} from "@/components/site/loader-link";
+import { useMemo, useState } from "react";
 import { getChromeContent } from "@/content/chrome-content";
-import refreshAnimationData from "@/assets/lottie/site-refresh-rotate-loop.json";
 import type { SiteSnapshotKey } from "@/lib/server-site-snapshot";
 import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
-const RESET_DELAY_MS = 900;
 const REFRESH_REQUEST_TIMEOUT_MS = 6000;
+const HARD_RELOAD_DELAY_MS = 180;
 
 export function SiteSnapshotRefresh({
   snapshotKeys,
@@ -22,7 +15,6 @@ export function SiteSnapshotRefresh({
   snapshotKeys: SiteSnapshotKey[];
   label?: string;
 }) {
-  const router = useRouter();
   const chrome = getChromeContent(useCurrentSiteLocale());
   const [isRefreshing, setIsRefreshing] = useState(false);
   const uniqueSnapshotKeys = useMemo(
@@ -54,39 +46,36 @@ export function SiteSnapshotRefresh({
     if (isRefreshing || uniqueSnapshotKeys.length === 0) return;
 
     setIsRefreshing(true);
-    triggerFourteenLoader();
 
     try {
-      await Promise.all(
+      await Promise.allSettled(
         uniqueSnapshotKeys.map((snapshotKey) => refreshSnapshot(snapshotKey)),
       );
-
-      startTransition(() => {
-        router.refresh();
-      });
     } finally {
       window.setTimeout(() => {
         setIsRefreshing(false);
-        resolveFourteenLoader();
-      }, RESET_DELAY_MS);
+        window.location.reload();
+      }, HARD_RELOAD_DELAY_MS);
     }
   }
 
   return (
     <button
       aria-label={chrome.refresh.aria}
+      aria-busy={isRefreshing}
       className={`ft-snapshot-refresh ${isRefreshing ? "is-refreshing" : ""}`}
+      disabled={isRefreshing}
       onClick={() => {
         void handleRefresh();
       }}
       type="button"
     >
-      <AnimatedLottieIcon
-        animationData={refreshAnimationData}
-        className="ft-snapshot-refresh__icon"
-        loop={isRefreshing}
-        playOnHover={!isRefreshing}
-      />
+      <span
+        aria-hidden="true"
+        className={`ft-snapshot-refresh__icon ${isRefreshing ? "is-spinning" : ""}`}
+      >
+        ↻
+      </span>
       <span>{isRefreshing ? chrome.refresh.busy : (label ?? chrome.refresh.idle)}</span>
     </button>
   );

@@ -1,11 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import Lottie from "lottie-react";
 import { useEffect, useMemo, useRef, type MutableRefObject } from "react";
-
-const Lottie = dynamic(() => import("lottie-react").then((module) => module.default), {
-  ssr: false,
-});
 
 type AnimationData = {
   fr?: number;
@@ -83,7 +79,7 @@ export function AnimatedLottieIcon({
   }, [loop, startFrame]);
 
   return (
-    <span
+    <div
       aria-hidden="true"
       className={`ft-lottie-icon ${className ?? ""}`}
       onMouseEnter={playOnHover && !loop ? playOnce : undefined}
@@ -96,6 +92,6 @@ export function AnimatedLottieIcon({
         lottieRef={lottieRef as never}
         onDOMLoaded={loop ? undefined : reset}
       />
-    </span>
+    </div>
   );
 }

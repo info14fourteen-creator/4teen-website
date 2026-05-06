@@ -20,19 +20,31 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 import { formatCompactMetric } from "@/lib/site-format";
 import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 
-export function getBuyPageMetadata(
-  locale: SupportedSiteLocale = defaultSiteLocale,
-): Metadata {
-  const metadata = getBuyPageContent(locale).metadata;
-  return buildPageMetadata({ ...metadata, locale, pathname: "/buy" });
-}
-
-export const metadata: Metadata = getBuyPageMetadata();
-
 const FOURTEEN_TOKEN_SCAN_URL =
   "https://tronscan.org/#/token20/TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A";
 const FOURTEEN_CONTROLLER_SCAN_URL =
   "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ";
+const BUY_HERO_POSTER_SRC = "/media/buy-demo.png";
+const BUY_HERO_MEDIA_ALT = "4TEEN wallet direct buy flow preview";
+
+export function getBuyPageMetadata(
+  locale: SupportedSiteLocale = defaultSiteLocale,
+): Metadata {
+  const metadata = getBuyPageContent(locale).metadata;
+  return buildPageMetadata({
+    ...metadata,
+    locale,
+    pathname: "/buy",
+    socialImages: [
+      {
+        url: BUY_HERO_POSTER_SRC,
+        alt: BUY_HERO_MEDIA_ALT,
+      },
+    ],
+  });
+}
+
+export const metadata: Metadata = getBuyPageMetadata();
 
 function accentizeTitle(text: string) {
   if (text.includes("4TEEN")) {
@@ -158,12 +170,12 @@ export async function BuyPageView({
                   <div className="ft-stack ft-stack--md ft-buy-page__hero-side-inner">
                     <div className="ft-buy-page__hero-media">
                       <ProgressiveAnimatedMedia
-                        alt="4TEEN wallet direct buy flow preview"
+                        alt={BUY_HERO_MEDIA_ALT}
                         animatedSrc="/media/buy-demo.gif"
-                        className="ft-buy-page__hero-media-image"
+                        className="ft-buy-page__hero-media-frame"
                         height={2220}
                         imageClassName="ft-buy-page__hero-media-image"
-                        posterSrc="/media/buy-demo.png"
+                        posterSrc={BUY_HERO_POSTER_SRC}
                         priority
                         width={1080}
                       />
