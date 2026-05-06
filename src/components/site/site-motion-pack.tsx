@@ -28,6 +28,13 @@ function createToast(message: string) {
 }
 
 function initReveal(prefersReducedMotion: boolean) {
+  const excludedCardSelectors = [
+    ".ft-blog-post-article",
+    ".ft-blog-post-share",
+    ".ft-blog-related",
+    ".ft-blog-post-rail__card",
+  ];
+
   const targets = Array.from(
     document.querySelectorAll<HTMLElement>(
       [
@@ -41,6 +48,9 @@ function initReveal(prefersReducedMotion: boolean) {
         ".ft-site-footer__social",
       ].join(","),
     ),
+  ).filter(
+    (element) =>
+      !excludedCardSelectors.some((selector) => element.matches(selector)),
   );
 
   if (!targets.length) return () => {};

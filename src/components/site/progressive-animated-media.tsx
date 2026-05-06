@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 type ProgressiveAnimatedMediaProps = {
@@ -59,7 +58,7 @@ export function ProgressiveAnimatedMedia({
         .filter(Boolean)
         .join(" ")}
     >
-      <Image
+      <img
         alt={alt}
         className={[
           "ft-progressive-animated-media__poster",
@@ -68,9 +67,10 @@ export function ProgressiveAnimatedMedia({
           .filter(Boolean)
           .join(" ")}
         height={height}
-        priority={priority}
         src={posterSrc}
         width={width}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
       />
       {shouldRenderAnimated ? (
         <img

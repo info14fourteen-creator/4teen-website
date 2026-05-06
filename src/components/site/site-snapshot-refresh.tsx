@@ -13,6 +13,7 @@ import type { SiteSnapshotKey } from "@/lib/server-site-snapshot";
 import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 const RESET_DELAY_MS = 900;
+const REFRESH_REQUEST_TIMEOUT_MS = 6000;
 
 export function SiteSnapshotRefresh({
   snapshotKeys,
@@ -29,6 +30,26 @@ export function SiteSnapshotRefresh({
     [snapshotKeys],
   );
 
+  async function refreshSnapshot(snapshotKey: SiteSnapshotKey) {
+    const controller = new AbortController();
+    const abortId = window.setTimeout(() => {
+      controller.abort();
+    }, REFRESH_REQUEST_TIMEOUT_MS);
+
+    try {
+      await fetch(`/api/site/${snapshotKey}?refresh=1`, {
+        cache: "no-store",
+        signal: controller.signal,
+      });
+    } catch {
+      return null;
+    } finally {
+      window.clearTimeout(abortId);
+    }
+
+    return null;
+  }
+
   async function handleRefresh() {
     if (isRefreshing || uniqueSnapshotKeys.length === 0) return;
 
@@ -37,17 +58,7 @@ export function SiteSnapshotRefresh({
 
     try {
       await Promise.all(
-        uniqueSnapshotKeys.map(async (snapshotKey) => {
-          try {
-            await fetch(`/api/site/${snapshotKey}?refresh=1`, {
-              cache: "no-store",
-            });
-          } catch {
-            return null;
-          }
-
-          return null;
-        }),
+        uniqueSnapshotKeys.map((snapshotKey) => refreshSnapshot(snapshotKey)),
       );
 
       startTransition(() => {

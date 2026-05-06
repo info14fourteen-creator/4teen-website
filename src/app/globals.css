@@ -2895,6 +2895,251 @@ a.is-active-anchor {
   height: 100%;
 }
 
+body:has(.ft-not-found-page) .ft-site-footer {
+  display: none;
+}
+
+.ft-not-found-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: clip;
+  background:
+    radial-gradient(circle at top right, rgba(255, 105, 0, 0.18), transparent 32%),
+    radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.06), transparent 24%),
+    linear-gradient(180deg, #050505 0%, #090909 52%, #060606 100%);
+}
+
+.ft-not-found-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.84), transparent);
+  pointer-events: none;
+}
+
+.ft-not-found-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(255, 105, 0, 0.08), transparent 38%),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.035), transparent 55%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.ft-not-found-shell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(28px, 5vw, 56px);
+}
+
+.ft-not-found-panel {
+  display: grid;
+  width: min(1120px, 100%);
+  grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 84px);
+  border: 1px solid rgba(255, 105, 0, 0.22);
+  border-radius: 34px;
+  padding: clamp(26px, 4vw, 46px);
+  background:
+    linear-gradient(180deg, rgba(15, 15, 15, 0.92), rgba(8, 8, 8, 0.96)),
+    rgba(8, 8, 8, 0.88);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.52),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.ft-404-keys {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(10px, 2vw, 22px);
+  align-items: center;
+}
+
+.ft-404-key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.ft-404-key__icon {
+  width: 100%;
+  max-width: 230px;
+  color: #f3f0ea;
+}
+
+.ft-not-found-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.ft-not-found-kicker {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+.ft-not-found-title {
+  margin: 0;
+  max-width: 12ch;
+  color: #fff;
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  line-height: 0.93;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.ft-not-found-body {
+  margin: 0;
+  max-width: 60ch;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(1rem, 1.7vw, 1.28rem);
+  line-height: 1.7;
+}
+
+.ft-404-typewriter {
+  display: grid;
+  width: min(100%, 760px);
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 105, 0, 0.24);
+}
+
+.ft-404-typewriter__label {
+  color: #ff6900;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.ft-404-typewriter__text {
+  min-height: 3.3em;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(1rem, 1.45vw, 1.08rem);
+  line-height: 1.65;
+}
+
+.ft-404-typewriter__caret {
+  display: inline-block;
+  width: 0.7ch;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: #ff6900;
+  animation: ft404CaretBlink 0.9s steps(1, end) infinite;
+}
+
+.ft-not-found-home {
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 0 24px;
+  border: 1px solid rgba(255, 105, 0, 0.4);
+  border-radius: 999px;
+  background: #ff6900;
+  color: #0d0d0d;
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+  box-shadow: 0 18px 40px rgba(255, 105, 0, 0.24);
+}
+
+.ft-not-found-home:hover {
+  transform: translateY(-2px);
+  background: #ff7b1f;
+  box-shadow: 0 24px 48px rgba(255, 105, 0, 0.28);
+}
+
+.ft-not-found-home:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.88);
+  outline-offset: 3px;
+}
+
+@keyframes ft404CaretBlink {
+  0%,
+  48% {
+    opacity: 1;
+  }
+
+  49%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 980px) {
+  .ft-not-found-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+
+  .ft-not-found-title {
+    max-width: 10ch;
+  }
+}
+
+@media (max-width: 720px) {
+  .ft-not-found-shell {
+    padding: 18px;
+  }
+
+  .ft-not-found-panel {
+    border-radius: 26px;
+    padding: 22px 18px 26px;
+  }
+
+  .ft-404-keys {
+    gap: 8px;
+  }
+
+  .ft-404-key {
+    border-radius: 18px;
+  }
+
+  .ft-404-typewriter {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .ft-404-typewriter__text {
+    min-height: 4.9em;
+  }
+
+  .ft-not-found-home {
+    width: 100%;
+  }
+}
+
 .ft-locale-switcher__button-glyph .ft-lottie-icon {
   width: 100%;
   height: 100%;
@@ -6499,6 +6744,14 @@ a.is-active-anchor {
   align-content: start;
 }
 
+.ft-buy-page .ft-card.ft-card--plain.ft-reveal.ft-glow.is-visible {
+  background:
+    linear-gradient(180deg, rgba(27, 88, 40, 0.2), rgba(10, 24, 14, 0.1)),
+    linear-gradient(135deg, rgba(63, 217, 87, 0.08), rgba(63, 217, 87, 0.02) 42%, rgba(255, 255, 255, 0) 100%),
+    rgba(255, 255, 255, 0.02);
+  border-color: rgba(63, 217, 87, 0.18);
+}
+
 .ft-buy-page__detail-card > .ft-stack--2xs {
   margin-top: 2px;
   padding-top: 10px;
@@ -6583,6 +6836,10 @@ a.is-active-anchor {
 
 .ft-buy-page__latest-row + .ft-buy-page__latest-row {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ft-buy-page__latest-row:hover {
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .ft-buy-page__latest-head-marker {
@@ -9168,6 +9425,7 @@ button:not(:disabled),
   }
 
   .ft-site-footer {
+    margin-top: 14px;
     padding-left: 14px;
     padding-right: 14px;
   }

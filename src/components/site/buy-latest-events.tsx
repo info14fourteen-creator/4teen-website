@@ -3,11 +3,12 @@
 import statusConfirmedCheck from "@/assets/lottie/status-confirmed-check.json";
 import { AnimatedLottieIcon } from "@/components/site/animated-lottie-icon";
 import { LoaderLink } from "@/components/site/loader-link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { SupportedSiteLocale } from "@/lib/site-locale";
 import { formatCompactMetric } from "@/lib/site-format";
 import { formatUtcDate } from "@/lib/site-intl";
 import type { LiveBuyEvent } from "@/lib/site-snapshot-types";
+import type { AnimatedLottieIconApi } from "@/components/site/animated-lottie-icon";
 
 const DIRECT_BUY_LOCK_MS = 14 * 24 * 60 * 60 * 1000;
 
@@ -18,6 +19,92 @@ type BuyLatestEventsPayload = {
     events?: LiveBuyEvent[];
   } | null;
 };
+
+function BuyLatestEventRow({
+  content,
+  event,
+  locale,
+}: {
+  content: {
+    headers: {
+      wallet: string;
+      trxIn: string;
+      minted: string;
+      lockEnds: string;
+      transaction: string;
+      status: string;
+    };
+    statusConfirmed: string;
+    unknownTime: string;
+    openTx: string;
+  };
+  event: LiveBuyEvent;
+  locale: SupportedSiteLocale;
+}) {
+  const iconApiRef = useRef<AnimatedLottieIconApi | null>(null);
+
+  return (
+    <div
+      key={event.txId}
+      className="ft-buy-page__latest-row"
+      role="row"
+      onMouseEnter={() => iconApiRef.current?.playOnce()}
+      onMouseLeave={() => iconApiRef.current?.reset()}
+      onFocus={() => iconApiRef.current?.playOnce()}
+      onBlur={() => iconApiRef.current?.reset()}
+    >
+      <div className="ft-buy-page__latest-cell ft-buy-page__latest-cell--mark">
+        <AnimatedLottieIcon
+          animationData={statusConfirmedCheck}
+          apiRef={iconApiRef}
+          className="ft-buy-page__latest-status-icon"
+        />
+      </div>
+
+      <div className="ft-buy-page__latest-cell ft-buy-page__latest-cell--wallet">
+        <span className="ft-buy-page__latest-label">{content.headers.wallet}</span>
+        <strong title={event.buyerAddress}>{event.buyerShort}</strong>
+      </div>
+
+      <div className="ft-buy-page__latest-cell">
+        <span className="ft-buy-page__latest-label">{content.headers.trxIn}</span>
+        <strong>{formatCompactMetric(event.trxAmountDisplay)} TRX</strong>
+      </div>
+
+      <div className="ft-buy-page__latest-cell">
+        <span className="ft-buy-page__latest-label">{content.headers.minted}</span>
+        <strong>{formatCompactMetric(event.tokensAmountDisplay)} 4TEEN</strong>
+      </div>
+
+      <div className="ft-buy-page__latest-cell">
+        <span className="ft-buy-page__latest-label">{content.headers.lockEnds}</span>
+        <span>
+          {event.happenedAt > 0
+            ? formatUtcDate(event.happenedAt + DIRECT_BUY_LOCK_MS, locale)
+            : content.unknownTime}
+        </span>
+      </div>
+
+      <div className="ft-buy-page__latest-cell ft-buy-page__latest-cell--action">
+        <span className="ft-buy-page__latest-label">{content.headers.transaction}</span>
+        <LoaderLink
+          className="ft-link ft-buy-page__latest-action-link"
+          href={event.txUrl}
+          showLinkIcon
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {content.openTx}
+        </LoaderLink>
+      </div>
+
+      <div className="ft-buy-page__latest-cell ft-buy-page__latest-cell--status">
+        <span className="ft-buy-page__latest-label">{content.headers.status}</span>
+        <span className="ft-buy-page__status-text">{content.statusConfirmed}</span>
+      </div>
+    </div>
+  );
+}
 
 export function BuyLatestEvents({
   content,
@@ -91,61 +178,12 @@ export function BuyLatestEvents({
           </div>
 
           {events.map((event) => (
-            <div
+            <BuyLatestEventRow
               key={event.txId}
-              className="ft-buy-page__latest-row"
-              role="row"
-            >
-              <div className="ft-buy-page__latest-cell ft-buy-page__latest-cell--mark">
-                <AnimatedLottieIcon
-                  animationData={statusConfirmedCheck}
-                  className="ft-buy-page__latest-status-icon"
-                  loop
-                />
-              </div>
-
-              <div className="ft-buy-page__latest-cell ft-buy-page__latest-cell--wallet">
-                <span className="ft-buy-page__latest-label">{content.headers.wallet}</span>
-                <strong title={event.buyerAddress}>{event.buyerShort}</strong>
-              </div>
-
-              <div className="ft-buy-page__latest-cell">
-                <span className="ft-buy-page__latest-label">{content.headers.trxIn}</span>
-                <strong>{formatCompactMetric(event.trxAmountDisplay)} TRX</strong>
-              </div>
-
-              <div className="ft-buy-page__latest-cell">
-                <span className="ft-buy-page__latest-label">{content.headers.minted}</span>
-                <strong>{formatCompactMetric(event.tokensAmountDisplay)} 4TEEN</strong>
-              </div>
-
-              <div className="ft-buy-page__latest-cell">
-                <span className="ft-buy-page__latest-label">{content.headers.lockEnds}</span>
-                <span>
-                  {event.happenedAt > 0
-                    ? formatUtcDate(event.happenedAt + DIRECT_BUY_LOCK_MS, locale)
-                    : content.unknownTime}
-                </span>
-              </div>
-
-              <div className="ft-buy-page__latest-cell ft-buy-page__latest-cell--action">
-                <span className="ft-buy-page__latest-label">{content.headers.transaction}</span>
-                <LoaderLink
-                  className="ft-link ft-buy-page__latest-action-link"
-                  href={event.txUrl}
-                  showLinkIcon
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  {content.openTx}
-                </LoaderLink>
-              </div>
-
-              <div className="ft-buy-page__latest-cell ft-buy-page__latest-cell--status">
-                <span className="ft-buy-page__latest-label">{content.headers.status}</span>
-                <span className="ft-buy-page__status-text">{content.statusConfirmed}</span>
-              </div>
-            </div>
+              content={content}
+              event={event}
+              locale={locale}
+            />
           ))}
         </div>
       ) : (
