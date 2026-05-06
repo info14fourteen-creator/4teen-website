@@ -6,9 +6,6 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: [
     "192.168.68.104",
   ],
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   experimental: {
     globalNotFound: true,
     webpackBuildWorker: false,
