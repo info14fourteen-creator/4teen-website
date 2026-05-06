@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { usePathname } from "next/navigation";
 import { LoaderLink } from "@/components/site/loader-link";
 import { SocialLottieLink } from "@/components/site/social-lottie-link";
@@ -38,12 +39,13 @@ const footerColumns = [
       { href: "/buy", key: "buy" },
       { href: "/unlock", key: "unlock" },
       { href: "/liquidity", key: "liquidity" },
-      { href: "/airdrop", key: "airdrop" },
+      { href: "/swap", key: "swap" },
     ],
   },
   {
     key: "ecosystem",
     links: [
+      { href: "/airdrop", key: "airdrop" },
       { href: "/ambassadors", key: "ambassadors" },
       { href: "/verification", key: "verification" },
       { href: "/whitepaper", key: "whitepaper" },
@@ -57,6 +59,11 @@ const footerMetaLinks = [
   { href: "/terms", key: "terms" },
   { href: "/support", key: "support" },
 ] as const;
+
+const footerNavRows = Array.from(
+  { length: Math.max(...footerColumns.map((column) => column.links.length)) },
+  (_, rowIndex) => footerColumns.map((column) => column.links[rowIndex] ?? null),
+);
 
 export function SiteFooter() {
   const pathname = usePathname();
@@ -83,12 +90,15 @@ export function SiteFooter() {
 
           <div className="ft-site-footer__nav">
             {footerColumns.map((column) => (
-              <div key={column.key} className="ft-site-footer__column">
-                <p className="ft-site-footer__column-title">
-                  {column.key === "protocol" ? chrome.footer.protocol : chrome.footer.ecosystem}
-                </p>
-                <div className="ft-site-footer__links">
-                  {column.links.map((link) => (
+              <p key={column.key} className="ft-site-footer__column-title">
+                {column.key === "protocol" ? chrome.footer.protocol : chrome.footer.ecosystem}
+              </p>
+            ))}
+
+            {footerNavRows.map((row, rowIndex) => (
+              <Fragment key={`footer-nav-row-${rowIndex}`}>
+                {row.map((link, columnIndex) =>
+                  link ? (
                     <LoaderLink
                       key={link.href}
                       className="ft-site-footer__link"
@@ -96,9 +106,15 @@ export function SiteFooter() {
                     >
                       {nav.links[link.key]}
                     </LoaderLink>
-                  ))}
-                </div>
-              </div>
+                  ) : (
+                    <span
+                      key={`footer-nav-placeholder-${rowIndex}-${columnIndex}`}
+                      aria-hidden="true"
+                      className="ft-site-footer__link-placeholder"
+                    />
+                  ),
+                )}
+              </Fragment>
             ))}
           </div>
 

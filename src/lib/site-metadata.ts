@@ -52,6 +52,10 @@ export function buildPageMetadata({
   description,
   pathname,
   locale = defaultSiteLocale,
+  openGraphTitle,
+  openGraphDescription,
+  twitterTitle,
+  twitterDescription,
   imageUrl,
   imageUrls,
   socialImages,
@@ -63,6 +67,10 @@ export function buildPageMetadata({
   description: string;
   pathname: string;
   locale?: SupportedSiteLocale;
+  openGraphTitle?: string | null;
+  openGraphDescription?: string | null;
+  twitterTitle?: string | null;
+  twitterDescription?: string | null;
   imageUrl?: string | null;
   imageUrls?: Array<string | null | undefined>;
   socialImages?: Array<PageMetadataImage | null | undefined>;
@@ -79,6 +87,10 @@ export function buildPageMetadata({
   );
   const images = normalizeMetadataImages({ imageUrl, imageUrls, socialImages });
   const normalizedKeywords = keywords?.filter(Boolean);
+  const ogTitle = openGraphTitle || title;
+  const ogDescription = openGraphDescription || description;
+  const twTitle = twitterTitle || ogTitle;
+  const twDescription = twitterDescription || ogDescription;
 
   return {
     title,
@@ -92,8 +104,8 @@ export function buildPageMetadata({
       },
     },
     openGraph: {
-      title,
-      description,
+      title: ogTitle,
+      description: ogDescription,
       url: canonical,
       images: images.length ? images : undefined,
       ...(openGraphType ? { type: openGraphType } : {}),
@@ -110,8 +122,8 @@ export function buildPageMetadata({
     },
     twitter: {
       card: images.length ? "summary_large_image" : "summary",
-      title,
-      description,
+      title: twTitle,
+      description: twDescription,
       images: images.length ? images.map((image) => image.url) : undefined,
     },
   };

@@ -17,6 +17,7 @@ export function SiteLogo({
       </span>
 
       <span className="ft-brand-copy">
+        <span className="ft-brand-copy__eyebrow">4TEEN on TRON</span>
         <RotatingTagline compact={compact} />
         {secondary ? <span className="ft-brand-copy__secondary">{secondary}</span> : null}
       </span>

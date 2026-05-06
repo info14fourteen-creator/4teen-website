@@ -37,9 +37,14 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
           <nav aria-label={chrome.header.primaryNavAria} className="ft-site-nav-shell">
             <div className="ft-site-nav-groups">
               {headerNavGroups.map((group) => (
-                <div key={group.label} className="ft-site-nav-group">
+                <div
+                  key={group.label}
+                  className={`ft-site-nav-group ft-site-nav-group--${group.links.length}`}
+                >
                   <span className="ft-site-nav-group__label">{group.label}</span>
-                  <div className="ft-site-nav-group__links">
+                  <div
+                    className={`ft-site-nav-group__links ft-site-nav-group__links--${group.links.length}`}
+                  >
                     {group.links.map((link) => (
                       <LoaderLink
                         key={link.href}
