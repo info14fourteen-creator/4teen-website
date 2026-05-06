@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     "192.168.68.104",
   ],
   experimental: {
+    globalNotFound: true,
     webpackBuildWorker: false,
   },
   images: {
