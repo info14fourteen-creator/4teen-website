@@ -9160,8 +9160,9 @@ button:not(:disabled),
   .ft-locale-switcher__button,
   .ft-header-app-link {
     min-height: 34px;
-    font-size: 8.1px;
-    letter-spacing: 0.075em;
+    font-size: 7.6px;
+    letter-spacing: 0.055em;
+    line-height: 1;
   }
 
   .ft-site-header__main,
@@ -9179,7 +9180,7 @@ button:not(:disabled),
     width: 100%;
     max-width: 100%;
     margin-inline: auto;
-    column-gap: 8px;
+    column-gap: 6px;
     align-items: flex-start;
     justify-content: center;
     justify-self: stretch;
@@ -9187,7 +9188,7 @@ button:not(:disabled),
 
   .ft-site-nav-group {
     display: grid;
-    gap: 10px;
+    gap: 12px;
     min-width: 0;
   }
 
@@ -9196,6 +9197,7 @@ button:not(:disabled),
     justify-self: stretch;
     font-size: 8.5px;
     letter-spacing: 0.18em;
+    line-height: 1;
   }
 
   .ft-site-nav-group--4 {
@@ -9214,7 +9216,7 @@ button:not(:disabled),
     display: grid;
     width: 100%;
     min-width: 0;
-    gap: 8px;
+    gap: 6px;
     align-items: stretch;
   }
 
@@ -9231,24 +9233,29 @@ button:not(:disabled),
   }
 
   .ft-site-nav-link {
-    padding-inline: 6px;
+    padding-inline: 5px;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .ft-site-header__utilityhome,
   .ft-locale-switcher__button,
   .ft-header-app-link {
-    padding-inline: 9px;
+    padding-inline: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .ft-site-search {
-    min-height: 38px;
-    gap: 10px;
-    padding-inline: 10px;
+    min-height: 36px;
+    gap: 8px;
+    padding-inline: 9px;
   }
 
   .ft-site-search__input {
-    font-size: 9px;
+    font-size: 8.4px;
   }
 
   .ft-site-header .ft-brand {
@@ -9512,12 +9519,16 @@ button:not(:disabled),
   .ft-site-footer__link,
   .ft-site-footer__brand-link,
   .ft-site-footer__meta-link {
-    font-size: 8.1px;
-    letter-spacing: 0.075em;
+    font-size: 7.7px;
+    letter-spacing: 0.055em;
+    line-height: 1;
   }
 
   .ft-site-footer__link {
     min-height: 1.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .ft-site-footer__brand-link {
