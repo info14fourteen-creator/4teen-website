@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
 
 type ProgressiveAnimatedMediaProps = {
@@ -50,6 +51,11 @@ export function ProgressiveAnimatedMedia({
 
   return (
     <div
+      style={
+        {
+          "--ft-progressive-media-mask": `url("${posterSrc}")`,
+        } as CSSProperties
+      }
       className={[
         "ft-progressive-animated-media",
         shouldRenderAnimated ? "is-animated-ready" : "",

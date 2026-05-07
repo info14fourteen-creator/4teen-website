@@ -25,7 +25,7 @@ import {
 } from "@/lib/site-snapshot-types";
 
 const UNLOCK_HERO_POSTER_SRC = "/media/unlock-demo.png";
-const UNLOCK_HERO_MEDIA_SRC = "/media/unlock-demo.png";
+const UNLOCK_HERO_MEDIA_SRC = "/media/unlock-demo.gif";
 const UNLOCK_HERO_MEDIA_ALT = "4TEEN unlock timeline mobile wallet preview";
 
 export function getUnlockPageMetadata(

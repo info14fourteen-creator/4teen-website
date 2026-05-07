@@ -6723,6 +6723,14 @@ body:has(.ft-not-found-page) .ft-site-footer {
   opacity: 0;
   transition: opacity 260ms ease;
   pointer-events: none;
+  -webkit-mask-image: var(--ft-progressive-media-mask);
+  mask-image: var(--ft-progressive-media-mask);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
 .ft-progressive-animated-media.is-animated-ready .ft-progressive-animated-media__poster {
@@ -6735,11 +6743,11 @@ body:has(.ft-not-found-page) .ft-site-footer {
 
 .ft-buy-page__hero-media-frame {
   width: min(100%, 520px);
-  overflow: hidden;
-  border-radius: 32px;
-  background: rgba(10, 10, 10, 0.92);
-  border: 1px solid rgba(255, 105, 0, 0.14);
-  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.28);
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
   isolation: isolate;
 }
 
@@ -6748,7 +6756,7 @@ body:has(.ft-not-found-page) .ft-site-footer {
   width: 100%;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.3));
+  filter: none;
 }
 
 .ft-buy-page__hero-side-actions {
@@ -9407,7 +9415,7 @@ button:not(:disabled),
   .ft-buy-page__hero-media-frame {
     width: min(100%, 388px);
     max-width: 388px;
-    border-radius: 34px;
+    border-radius: 0;
   }
 
   .ft-buy-page__hero-media-image {
