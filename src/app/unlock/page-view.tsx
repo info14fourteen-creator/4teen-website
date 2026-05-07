@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
+import { ProgressiveAnimatedMedia } from "@/components/site/progressive-animated-media";
 import { LoaderLink } from "@/components/site/loader-link";
+import { SignalPoints } from "@/components/site/signal-points";
 import { SiteSnapshotRefresh } from "@/components/site/site-snapshot-refresh";
 import { FourteenTopbar } from "@/components/site/topbar";
 import { getUnlockPageContent } from "@/content/unlock-content";
@@ -9,27 +11,162 @@ import {
   officialContractsRepoUrl,
   officialWalletRepoUrl,
 } from "@/content/official-links";
+import { formatCompactMetric, shortenAddress } from "@/lib/site-format";
+import { formatUtcDate } from "@/lib/site-intl";
 import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 import {
   defaultSiteLocale,
   type SupportedSiteLocale,
 } from "@/lib/site-locale";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { formatCompactMetric, shortenAddress } from "@/lib/site-format";
 import {
   type LiveUnlockSnapshot,
   unlockVerificationLinks,
 } from "@/lib/site-snapshot-types";
-import { formatUtcDate } from "@/lib/site-intl";
+
+const UNLOCK_HERO_POSTER_SRC = "/media/unlock-demo.png";
+const UNLOCK_HERO_MEDIA_SRC = "/media/unlock-demo.png";
+const UNLOCK_HERO_MEDIA_ALT = "4TEEN unlock timeline mobile wallet preview";
 
 export function getUnlockPageMetadata(
   locale: SupportedSiteLocale = defaultSiteLocale,
 ): Metadata {
   const metadata = getUnlockPageContent(locale).metadata;
-  return buildPageMetadata({ ...metadata, locale, pathname: "/unlock" });
+  return buildPageMetadata({
+    ...metadata,
+    locale,
+    pathname: "/unlock",
+    socialImages: [
+      {
+        url: UNLOCK_HERO_POSTER_SRC,
+        alt: UNLOCK_HERO_MEDIA_ALT,
+      },
+    ],
+  });
 }
 
 export const metadata: Metadata = getUnlockPageMetadata();
+
+function accentizeTitle(text: string) {
+  if (!text.includes("4TEEN")) {
+    return text;
+  }
+
+  const [before, after] = text.split("4TEEN");
+
+  return (
+    <>
+      {before}
+      <span className="ft-accent">4TEEN</span>
+      {after}
+    </>
+  );
+}
+
+function renderUnlockContextTitle(text: string) {
+  if (text === "Personal unlock timeline lives inside the mobile wallet") {
+    return (
+      <>
+        <span className="ft-accent">Personal unlock timeline</span> lives inside
+        the <span className="ft-meta-green">mobile wallet</span>
+      </>
+    );
+  }
+
+  return text;
+}
+
+function renderLiveLockMapTitle(text: string) {
+  if (text === "How much 4TEEN is locked and how much is actually liquid") {
+    return (
+      <>
+        How much <span className="ft-accent">4TEEN is locked</span> and how much
+        is actually <span className="ft-meta-green">liquid</span>
+      </>
+    );
+  }
+
+  return text;
+}
+
+function renderVaultLayerTitle(text: string) {
+  if (text === "Reserve custody is not the same as free circulation") {
+    return (
+      <>
+        <span className="ft-accent">Reserve custody</span> is not the same as{" "}
+        <span className="ft-meta-green">free circulation</span>
+      </>
+    );
+  }
+
+  return text;
+}
+
+function renderWalletRouteTitle(text: string) {
+  if (text === "How the app turns this contract state into a usable timeline") {
+    return (
+      <>
+        How the <span className="ft-meta-green">app</span> turns this contract
+        state into a usable <span className="ft-accent">timeline</span>
+      </>
+    );
+  }
+
+  return text;
+}
+
+function renderCtaTitle(text: string) {
+  if (text === "Use the app when you need your personal unlock timeline") {
+    return (
+      <>
+        Use the <span className="ft-meta-green">app</span> when you need your{" "}
+        <span className="ft-accent">personal unlock timeline</span>
+      </>
+    );
+  }
+
+  return text;
+}
+
+function getVaultCardClass(title: string) {
+  if (title === "FourteenVault") {
+    return "ft-card ft-card--plain ft-card--positive ft-unlock-page__detail-card";
+  }
+
+  if (title === "AirdropVault") {
+    return "ft-card ft-card--plain ft-card--warning ft-unlock-page__detail-card";
+  }
+
+  if (title === "TeamLockVault") {
+    return "ft-card ft-card--plain ft-card--negative ft-unlock-page__detail-card";
+  }
+
+  return "ft-card ft-card--plain ft-unlock-page__detail-card";
+}
+
+function getMechanicsCardClass(title: string) {
+  if (title === "Transfers are blocked by lockedBalanceOf()") {
+    return "ft-card ft-card--plain ft-card--negative ft-unlock-page__detail-card";
+  }
+
+  if (title === "Direct buy mints first") {
+    return "ft-card ft-card--plain ft-card--warning ft-unlock-page__detail-card";
+  }
+
+  return "ft-card ft-card--plain ft-card--positive ft-unlock-page__detail-card";
+}
+
+function getWalletRouteCardClass(title: string) {
+  if (title === "Points the user to the next valid route") {
+    return "ft-card ft-card--plain ft-card--positive ft-unlock-page__detail-card";
+  }
+
+  if (title === "Builds rows from confirmed BuyTokens events") {
+    return "ft-card ft-card--plain ft-card--warning ft-unlock-page__detail-card";
+  }
+
+  return "ft-card ft-card--plain ft-unlock-page__detail-card";
+}
 
 export async function UnlockPageView({
   locale = defaultSiteLocale,
@@ -37,7 +174,50 @@ export async function UnlockPageView({
   locale?: SupportedSiteLocale;
 }) {
   const content = getUnlockPageContent(locale);
-  const snapshot = await getServerSiteSnapshot<LiveUnlockSnapshot>("unlock");
+  const [snapshot, marketSnapshot] = await Promise.all([
+    getServerSiteSnapshot<LiveUnlockSnapshot>("unlock"),
+    getServerSiteSnapshot<{
+      direct?: {
+        trx?: string;
+      };
+      updatedAt?: string;
+    }>("market-price"),
+  ]);
+
+  const directPrice =
+    marketSnapshot?.direct?.trx?.trim() || content.hero.stats.priceFallback;
+  const directPriceMeta = marketSnapshot?.updatedAt
+    ? content.hero.stats.directPriceMeta
+    : content.hero.stats.priceUnavailable;
+  const heroSignals = content.hero.rotatingLines ?? [];
+  const heroStats = snapshot ? (
+    <>
+      <article className="ft-price-card">
+        <p className="ft-price-label">{content.hero.stats.directPrice}</p>
+        <p className="ft-price-main">{formatCompactMetric(directPrice)} TRX</p>
+        <p className="ft-price-sub">{directPriceMeta}</p>
+      </article>
+      <article className="ft-price-card">
+        <p className="ft-price-label">{content.hero.stats.lockWindow}</p>
+        <p className="ft-price-main">{snapshot.lockWindowDays} days</p>
+        <p className="ft-price-sub">{content.hero.stats.lockWindowMeta}</p>
+      </article>
+      <article className="ft-price-card ft-price-card--negative">
+        <p className="ft-price-label">{content.hero.stats.lockedNow}</p>
+        <p className="ft-price-main">
+          {formatCompactMetric(snapshot.currentlyLockedDisplay)} 4TEEN
+        </p>
+        <p className="ft-price-sub">{content.hero.stats.lockedNowMeta}</p>
+      </article>
+      <article className="ft-price-card ft-price-card--positive">
+        <p className="ft-price-label">{content.hero.stats.circulatingNow}</p>
+        <p className="ft-price-main">
+          {formatCompactMetric(snapshot.freelyCirculatingDisplay)} 4TEEN
+        </p>
+        <p className="ft-price-sub">{content.hero.stats.circulatingNowMeta}</p>
+      </article>
+    </>
+  ) : null;
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-unlock-page">
@@ -48,54 +228,107 @@ export async function UnlockPageView({
         <div className="ft-container--wide ft-stack ft-stack--xl">
           <article className="ft-card ft-card--strong ft-placeholder-hero">
             <div className="ft-stack ft-stack--lg">
-              <div className="ft-cluster ft-cluster--sm">
-                <span className="ft-eyebrow">{content.hero.eyebrow}</span>
-                <span className="ft-status-pill live">{content.hero.status}</span>
-                <SiteSnapshotRefresh snapshotKeys={["unlock"]} />
+              <div className="ft-buy-page__hero-layout">
+                <div className="ft-stack ft-stack--md ft-buy-page__hero-copy">
+                  <div className="ft-cluster ft-cluster--sm">
+                    <span className="ft-eyebrow">{content.hero.eyebrow}</span>
+                    <span className="ft-status-pill live">{content.hero.badge}</span>
+                    <SiteSnapshotRefresh snapshotKeys={["unlock", "market-price"]} />
+                  </div>
+
+                  <h1 className="ft-title-lg">{accentizeTitle(content.hero.title)}</h1>
+
+                  {content.hero.subtitle ? (
+                    <p className="ft-lead">{content.hero.subtitle}</p>
+                  ) : null}
+
+                  <div className="ft-stack ft-stack--sm">
+                    {content.hero.body.map((paragraph) => (
+                      <p key={paragraph} className="ft-text">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+
+                  {heroSignals.length ? (
+                    <SignalPoints
+                      className="ft-buy-page__signal-lines ft-buy-page__signal-lines--lead"
+                      items={heroSignals}
+                    />
+                  ) : null}
+
+                  {heroStats ? (
+                    <div className="ft-grid ft-buy-page__hero-stats ft-buy-page__hero-stats--desktop">
+                      {heroStats}
+                    </div>
+                  ) : (
+                    <div className="ft-note">
+                      <strong>{content.hero.stats.readFailed}</strong>{" "}
+                      {content.hero.stats.readRetry}
+                    </div>
+                  )}
+                </div>
+
+                <div className="ft-buy-page__hero-side">
+                  <div className="ft-stack ft-stack--md ft-buy-page__hero-side-inner">
+                    <div className="ft-buy-page__hero-media">
+                      <ProgressiveAnimatedMedia
+                        alt={UNLOCK_HERO_MEDIA_ALT}
+                        animatedSrc={UNLOCK_HERO_MEDIA_SRC}
+                        className="ft-buy-page__hero-media-frame"
+                        height={2205}
+                        imageClassName="ft-buy-page__hero-media-image"
+                        posterSrc={UNLOCK_HERO_POSTER_SRC}
+                        priority
+                        width={1020}
+                      />
+                    </div>
+
+                    {(content.hero.primaryCta || content.hero.secondaryCta) && (
+                      <div className="ft-actions ft-actions--stack-mobile ft-buy-page__hero-side-actions">
+                        {content.hero.primaryCta ? (
+                          <LoaderLink className="ft-btn ft-btn--primary" href="/app">
+                            {content.hero.primaryCta}
+                          </LoaderLink>
+                        ) : null}
+                        {content.hero.secondaryCta ? (
+                          <LoaderLink className="ft-btn ft-btn--secondary" href="/buy">
+                            {content.hero.secondaryCta}
+                          </LoaderLink>
+                        ) : null}
+                      </div>
+                    )}
+
+                    {content.hero.ctaNote ? (
+                      <p className="ft-note ft-buy-page__hero-note ft-buy-page__hero-note--desktop">
+                        {content.hero.ctaNote}
+                      </p>
+                    ) : null}
+                  </div>
+                </div>
               </div>
 
-              <div className="ft-stack ft-stack--md">
-                <h1 className="ft-title-lg">{content.hero.title}</h1>
-                <p className="ft-lead">{content.hero.lead}</p>
-              </div>
+              {content.hero.ctaNote ? (
+                <p className="ft-note ft-buy-page__hero-note ft-buy-page__hero-note--mobile">
+                  {content.hero.ctaNote}
+                </p>
+              ) : null}
 
-              {snapshot ? (
-                <div className="ft-grid ft-grid--4 ft-unlock-page__hero-stats">
-                  <article className="ft-price-card ft-price-card--negative">
-                    <p className="ft-price-label">{content.hero.stats.totalSupply}</p>
-                    <p className="ft-price-main">{formatCompactMetric(snapshot.totalSupplyDisplay)}</p>
-                    <p className="ft-price-sub">{content.hero.stats.totalSupplyMeta}</p>
-                  </article>
-                  <article className="ft-price-card ft-price-card--positive">
-                    <p className="ft-price-label">{content.hero.stats.lockedNow}</p>
-                    <p className="ft-price-main">{formatCompactMetric(snapshot.currentlyLockedDisplay)}</p>
-                    <p className="ft-price-sub">{content.hero.stats.lockedNowMeta}</p>
-                  </article>
-                  <article className="ft-price-card">
-                    <p className="ft-price-label">{content.hero.stats.vaultCustody}</p>
-                    <p className="ft-price-main">{formatCompactMetric(snapshot.vaultCustodyDisplay)}</p>
-                    <p className="ft-price-sub">{content.hero.stats.vaultCustodyMeta}</p>
-                  </article>
-                  <article className="ft-price-card">
-                    <p className="ft-price-label">{content.hero.stats.circulatingNow}</p>
-                    <p className="ft-price-main">{formatCompactMetric(snapshot.freelyCirculatingDisplay)}</p>
-                    <p className="ft-price-sub">{content.hero.stats.circulatingNowMeta}</p>
-                  </article>
+              {heroStats ? (
+                <div className="ft-grid ft-grid--4 ft-buy-page__hero-stats ft-buy-page__hero-stats--mobile">
+                  {heroStats}
                 </div>
-              ) : (
-                <div className="ft-note">
-                  <strong>{content.hero.stats.readFailed}</strong>{" "}
-                  {content.hero.stats.readRetry}
-                </div>
-              )}
+              ) : null}
             </div>
           </article>
 
-          <article className="ft-card ft-unlock-page__panel">
+          <article className="ft-card ft-card--warning ft-unlock-page__panel">
             <div className="ft-stack ft-stack--md ft-unlock-page__panel-stack">
               <div className="ft-stack ft-stack--xs">
                 <p className="ft-overline">{content.sections.unlockContext.eyebrow}</p>
-                <h2 className="ft-subtitle">{content.sections.unlockContext.title}</h2>
+                <h2 className="ft-subtitle">
+                  {renderUnlockContextTitle(content.sections.unlockContext.title)}
+                </h2>
               </div>
 
               <p className="ft-text">{content.sections.unlockContext.body}</p>
@@ -119,93 +352,6 @@ export async function UnlockPageView({
 
           {snapshot ? (
             <>
-              <div className="ft-grid ft-grid--2-even ft-unlock-page__section-grid">
-                <article className="ft-card ft-unlock-page__panel">
-                  <div className="ft-stack ft-stack--md ft-unlock-page__panel-stack">
-                    <div className="ft-stack ft-stack--xs">
-                      <p className="ft-overline">{content.sections.liveLockMap.eyebrow}</p>
-                      <h2 className="ft-subtitle">{content.sections.liveLockMap.title}</h2>
-                    </div>
-
-                    <table className="ft-mini-table ft-unlock-page__mini-table">
-                      <tbody>
-                        <tr>
-                          <th>{content.sections.liveLockMap.rows.totalSupply}</th>
-                          <td className="ft-right">
-                            <strong>{formatCompactMetric(snapshot.totalSupplyDisplay)} 4TEEN</strong>
-                          </td>
-                        </tr>
-                        <tr>
-                          <th>{content.sections.liveLockMap.rows.activeLockBatches}</th>
-                          <td className="ft-right">{snapshot.activeLockBatches}</td>
-                        </tr>
-                        <tr>
-                          <th>{content.sections.liveLockMap.rows.currentlyLocked}</th>
-                          <td className="ft-right">{formatCompactMetric(snapshot.currentlyLockedDisplay)} 4TEEN</td>
-                        </tr>
-                        <tr>
-                          <th>{content.sections.liveLockMap.rows.vaultCustody}</th>
-                          <td className="ft-right">{formatCompactMetric(snapshot.vaultCustodyDisplay)} 4TEEN</td>
-                        </tr>
-                        <tr>
-                          <th>{content.sections.liveLockMap.rows.freelyCirculating}</th>
-                          <td className="ft-right">{formatCompactMetric(snapshot.freelyCirculatingDisplay)} 4TEEN</td>
-                        </tr>
-                        <tr>
-                          <th>{content.sections.liveLockMap.rows.nextUnlock}</th>
-                          <td className="ft-right">
-                            {snapshot.nextUnlockAt > 0
-                              ? formatUtcDate(snapshot.nextUnlockAt, locale)
-                              : "—"}
-                          </td>
-                        </tr>
-                        <tr>
-                          <th>{content.sections.liveLockMap.rows.snapshotUpdated}</th>
-                          <td className="ft-right">{formatUtcDate(snapshot.loadedAt, locale)}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-
-                    <p className="ft-note">{content.sections.liveLockMap.note}</p>
-                  </div>
-                </article>
-
-                <article className="ft-card ft-unlock-page__panel">
-                  <div className="ft-stack ft-stack--md ft-unlock-page__panel-stack">
-                    <div className="ft-stack ft-stack--xs">
-                      <p className="ft-overline">{content.sections.vaultLayer.eyebrow}</p>
-                      <h2 className="ft-subtitle">{content.sections.vaultLayer.title}</h2>
-                    </div>
-
-                    <p className="ft-text">{content.sections.vaultLayer.body}</p>
-
-                    <div className="ft-grid ft-grid--3 ft-unlock-page__vault-grid">
-                      {snapshot.vaults.map((vault) => (
-                        <article
-                          key={vault.address}
-                          className="ft-card ft-card--plain ft-unlock-page__detail-card"
-                        >
-                          <p className="ft-card-title-top">{vault.title}</p>
-                          <h3 className="ft-card-title">{formatCompactMetric(vault.balanceDisplay)}</h3>
-                          <p className="ft-text">{vault.role}</p>
-                          <LoaderLink
-                            className="ft-link"
-                            href={vault.href}
-                            showLinkIcon
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          >
-                            <span title={vault.address}>{shortenAddress(vault.address)}</span>
-                          </LoaderLink>
-                        </article>
-                      ))}
-                    </div>
-
-                    <p className="ft-note">{content.sections.vaultLayer.note}</p>
-                  </div>
-                </article>
-              </div>
-
               <article className="ft-card ft-unlock-page__panel">
                 <div className="ft-stack ft-stack--md ft-unlock-page__panel-stack">
                   <div className="ft-stack ft-stack--xs">
@@ -271,7 +417,108 @@ export async function UnlockPageView({
               </article>
 
               <div className="ft-grid ft-grid--2-even ft-unlock-page__section-grid">
-                <article className="ft-card ft-unlock-page__panel">
+                <article className="ft-card ft-card--positive ft-unlock-page__panel">
+                  <div className="ft-stack ft-stack--md ft-unlock-page__panel-stack">
+                    <div className="ft-stack ft-stack--xs">
+                      <p className="ft-overline">{content.sections.liveLockMap.eyebrow}</p>
+                      <h2 className="ft-subtitle">
+                        {renderLiveLockMapTitle(content.sections.liveLockMap.title)}
+                      </h2>
+                    </div>
+
+                    <table className="ft-mini-table ft-unlock-page__mini-table">
+                      <tbody>
+                        <tr>
+                          <th>{content.sections.liveLockMap.rows.totalSupply}</th>
+                          <td className="ft-right">
+                            <strong>
+                              {formatCompactMetric(snapshot.totalSupplyDisplay)} 4TEEN
+                            </strong>
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>{content.sections.liveLockMap.rows.activeLockBatches}</th>
+                          <td className="ft-right">{snapshot.activeLockBatches}</td>
+                        </tr>
+                        <tr>
+                          <th>{content.sections.liveLockMap.rows.currentlyLocked}</th>
+                          <td className="ft-right">
+                            {formatCompactMetric(snapshot.currentlyLockedDisplay)} 4TEEN
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>{content.sections.liveLockMap.rows.vaultCustody}</th>
+                          <td className="ft-right">
+                            {formatCompactMetric(snapshot.vaultCustodyDisplay)} 4TEEN
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>{content.sections.liveLockMap.rows.freelyCirculating}</th>
+                          <td className="ft-right">
+                            {formatCompactMetric(snapshot.freelyCirculatingDisplay)} 4TEEN
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>{content.sections.liveLockMap.rows.nextUnlock}</th>
+                          <td className="ft-right">
+                            {snapshot.nextUnlockAt > 0
+                              ? formatUtcDate(snapshot.nextUnlockAt, locale)
+                              : "—"}
+                          </td>
+                        </tr>
+                        <tr>
+                          <th>{content.sections.liveLockMap.rows.snapshotUpdated}</th>
+                          <td className="ft-right">{formatUtcDate(snapshot.loadedAt, locale)}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <p className="ft-note">{content.sections.liveLockMap.note}</p>
+                  </div>
+                </article>
+
+                <article className="ft-card ft-card--warning ft-unlock-page__panel">
+                  <div className="ft-stack ft-stack--md ft-unlock-page__panel-stack">
+                    <div className="ft-stack ft-stack--xs">
+                      <p className="ft-overline">{content.sections.vaultLayer.eyebrow}</p>
+                      <h2 className="ft-subtitle">
+                        {renderVaultLayerTitle(content.sections.vaultLayer.title)}
+                      </h2>
+                    </div>
+
+                    <p className="ft-text">{content.sections.vaultLayer.body}</p>
+
+                    <div className="ft-grid ft-grid--3 ft-unlock-page__vault-grid">
+                      {snapshot.vaults.map((vault) => (
+                        <article
+                          key={vault.address}
+                          className={getVaultCardClass(vault.title)}
+                        >
+                          <p className="ft-card-title-top">{vault.title}</p>
+                          <h3 className="ft-card-title">
+                            {formatCompactMetric(vault.balanceDisplay)}
+                          </h3>
+                          <p className="ft-text">{vault.role}</p>
+                          <LoaderLink
+                            className="ft-link"
+                            href={vault.href}
+                            showLinkIcon
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            <span title={vault.address}>{shortenAddress(vault.address)}</span>
+                          </LoaderLink>
+                        </article>
+                      ))}
+                    </div>
+
+                    <p className="ft-note">{content.sections.vaultLayer.note}</p>
+                  </div>
+                </article>
+              </div>
+
+              <div className="ft-grid ft-grid--2-even ft-unlock-page__section-grid">
+                <article className="ft-card ft-card--warning ft-unlock-page__panel">
                   <div className="ft-stack ft-stack--md ft-unlock-page__panel-stack">
                     <div className="ft-stack ft-stack--xs">
                       <p className="ft-overline">{content.sections.lockMechanics.eyebrow}</p>
@@ -282,7 +529,7 @@ export async function UnlockPageView({
                       {content.sections.lockMechanics.cards.map((card) => (
                         <article
                           key={card.title}
-                          className="ft-card ft-card--plain ft-unlock-page__detail-card"
+                          className={getMechanicsCardClass(card.title)}
                         >
                           <p className="ft-card-title-top">{card.eyebrow}</p>
                           <h3 className="ft-card-title">{card.title}</h3>
@@ -293,18 +540,20 @@ export async function UnlockPageView({
                   </div>
                 </article>
 
-                <article className="ft-card ft-unlock-page__panel">
+                <article className="ft-card ft-card--positive ft-unlock-page__panel">
                   <div className="ft-stack ft-stack--md ft-unlock-page__panel-stack">
                     <div className="ft-stack ft-stack--xs">
                       <p className="ft-overline">{content.sections.walletRoute.eyebrow}</p>
-                      <h2 className="ft-subtitle">{content.sections.walletRoute.title}</h2>
+                      <h2 className="ft-subtitle">
+                        {renderWalletRouteTitle(content.sections.walletRoute.title)}
+                      </h2>
                     </div>
 
                     <div className="ft-grid ft-grid--3 ft-unlock-page__detail-grid">
                       {content.sections.walletRoute.cards.map((card) => (
                         <article
                           key={card.title}
-                          className="ft-card ft-card--plain ft-unlock-page__detail-card"
+                          className={getWalletRouteCardClass(card.title)}
                         >
                           <p className="ft-card-title-top">{card.eyebrow}</p>
                           <h3 className="ft-card-title">{card.title}</h3>
@@ -373,7 +622,9 @@ export async function UnlockPageView({
                   <div className="ft-stack ft-stack--lg ft-unlock-page__panel-stack">
                     <div className="ft-stack ft-stack--sm">
                       <p className="ft-overline">{content.sections.cta.eyebrow}</p>
-                      <h2 className="ft-title-md">{content.sections.cta.title}</h2>
+                      <h2 className="ft-title-md">
+                        {renderCtaTitle(content.sections.cta.title)}
+                      </h2>
                       <p className="ft-text">{content.sections.cta.body}</p>
                     </div>
 
