@@ -4,21 +4,30 @@ export type UnlockPageContent = {
   metadata: {
     title: string;
     description: string;
+    openGraphTitle?: string;
+    openGraphDescription?: string;
   };
   hero: {
     eyebrow: string;
-    status: string;
+    badge: string;
     title: string;
-    lead: string;
+    subtitle?: string;
+    body: string[];
+    primaryCta?: string;
+    secondaryCta?: string;
+    ctaNote?: string;
+    rotatingLines?: string[];
     stats: {
-      totalSupply: string;
-      totalSupplyMeta: string;
+      directPrice: string;
+      directPriceMeta: string;
+      lockWindow: string;
+      lockWindowMeta: string;
       lockedNow: string;
       lockedNowMeta: string;
-      vaultCustody: string;
-      vaultCustodyMeta: string;
       circulatingNow: string;
       circulatingNowMeta: string;
+      priceFallback: string;
+      priceUnavailable: string;
       readFailed: string;
       readRetry: string;
     };
@@ -105,26 +114,47 @@ export type UnlockPageContent = {
 
 const unlockContentEn: UnlockPageContent = {
   metadata: {
-    title: "Unlock",
+    title: "Unlock 4TEEN | Lock Map And Release Timing",
     description:
       "Public 4TEEN unlock map with current locked supply, vault custody, freely circulating estimate, upcoming unlock batches, and wallet-side unlock timeline context.",
+    openGraphTitle: "Unlock 4TEEN",
+    openGraphDescription:
+      "Read the public 4TEEN lock map: current locked supply, freely circulating estimate, upcoming unlock batches, and the wallet route for personal release tracking.",
   },
   hero: {
     eyebrow: "Unlock Timeline",
-    status: "Public lock topology",
-    title:
-      "Unlock is where direct-buy batches become liquid: each purchase mints immediately, locks immediately, and releases only when its own 14-day timer expires.",
-    lead:
-      "The mobile wallet shows a personal unlock timeline for the selected signing wallet. The public site should not fake that personal state, but it can show the global picture: how much 4TEEN is currently locked by active direct-buy batches, how much sits in reserve vault custody, and which recent batches unlock next.",
+    badge: "Public lock topology",
+    title: "Track 4TEEN Unlocks Before a Locked Batch Becomes Liquid",
+    subtitle:
+      "Every direct buy mints immediately, locks immediately, and becomes transferable only after its own 14-day timer expires.",
+    body: [
+      "The mobile wallet shows the personal unlock timeline for the selected signing wallet. The public site should show the system map: what is still locked, what is already liquid, and which direct-buy batches unlock next.",
+      "That means no fake personal portfolio on the website. Just the public topology of release timing, reserve custody, and the batch-by-batch path from locked mint to movable balance.",
+    ],
+    primaryCta: "Open Unlock in App",
+    secondaryCta: "Open Buy Route",
+    ctaNote:
+      "Personal unlock rows, countdowns, and address-specific availability still live in the mobile wallet. The site explains the release mechanics and the public lock map.",
+    rotatingLines: [
+      "Every Buy Gets Its Own Timer.",
+      "Locked First. Liquid Later.",
+      "Public Map. Wallet Timeline.",
+      "Release Depends On The Batch.",
+      "Transferability Starts After Unlock.",
+    ],
     stats: {
-      totalSupply: "Total Supply",
-      totalSupplyMeta: "Current FourteenToken totalSupply including direct-buy minting.",
+      directPrice: "Direct Buy Price",
+      directPriceMeta:
+        "Current contract-side entry price per 4TEEN before the batch hits its own 14-day lock window.",
+      lockWindow: "Lock Window",
+      lockWindowMeta:
+        "Each direct-buy batch stays frozen until its own release timestamp arrives.",
       lockedNow: "Locked Now",
       lockedNowMeta: "System-wide direct-buy batches still inside the 14-day lock window.",
-      vaultCustody: "Vault Custody",
-      vaultCustodyMeta: "4TEEN held by FourteenVault, AirdropVault, and TeamLockVault.",
       circulatingNow: "Freely Circulating",
       circulatingNowMeta: "Public estimate after removing active locks and vault custody from total supply.",
+      priceFallback: "1.147500",
+      priceUnavailable: "Live price unavailable right now. Fallback reflects the latest known direct route.",
       readFailed: "Live unlock read failed.",
       readRetry: "Try refreshing in a moment.",
     },
