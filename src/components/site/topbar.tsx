@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatedLottieIcon } from "@/components/site/animated-lottie-icon";
 import navHomeLoop from "@/assets/lottie/nav-home-loop.json";
@@ -25,6 +26,23 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
   const localeAwarePathname = useLocaleAwarePathname();
   const chrome = getChromeContent(locale);
   const headerNavGroups = getHeaderNavGroups(locale);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const ua = navigator.userAgent;
+    const vendor = navigator.vendor ?? "";
+    const isSafari =
+      /Safari/i.test(ua) &&
+      !/Chrome|Chromium|CriOS|EdgiOS|Edg\/|Firefox|FxiOS|OPiOS|OPR\//i.test(ua) &&
+      /Apple/i.test(vendor);
+
+    if (isSafari) {
+      root.setAttribute("data-ft-browser-safari", "true");
+      return;
+    }
+
+    root.removeAttribute("data-ft-browser-safari");
+  }, []);
 
   return (
     <header className="ft-site-header">
