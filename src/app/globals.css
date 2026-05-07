@@ -9549,6 +9549,12 @@ button:not(:disabled),
   }
 
   @supports (-webkit-touch-callout: none) {
+    .ft-site-header,
+    .ft-site-footer {
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+    }
+
     .ft-site-nav-groups {
       column-gap: 5px;
     }
@@ -9565,8 +9571,8 @@ button:not(:disabled),
     .ft-site-nav-link {
       min-height: 34px;
       padding-inline: 4px;
-      font-size: 7.2px;
-      letter-spacing: 0.045em;
+      font-size: 6.9px;
+      letter-spacing: 0.04em;
     }
 
     .ft-site-header__utility {
@@ -9583,8 +9589,8 @@ button:not(:disabled),
     .ft-header-app-link {
       min-height: 34px;
       padding-inline: 7px;
-      font-size: 7.2px;
-      letter-spacing: 0.045em;
+      font-size: 6.9px;
+      letter-spacing: 0.04em;
     }
 
     .ft-site-search {
@@ -9593,7 +9599,7 @@ button:not(:disabled),
     }
 
     .ft-site-search__input {
-      font-size: 8px;
+      font-size: 7.7px;
     }
 
     .ft-site-footer__nav {
@@ -9604,8 +9610,8 @@ button:not(:disabled),
     .ft-site-footer__link,
     .ft-site-footer__brand-link,
     .ft-site-footer__meta-link {
-      font-size: 7.2px;
-      letter-spacing: 0.045em;
+      font-size: 6.9px;
+      letter-spacing: 0.04em;
     }
 
     .ft-site-footer__brand-link,
