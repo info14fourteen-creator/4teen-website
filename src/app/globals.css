@@ -9176,13 +9176,13 @@ button:not(:disabled),
   }
 
   .ft-site-nav-groups {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 2fr) minmax(0, 3fr);
     width: 100%;
     max-width: 100%;
     margin-inline: auto;
     column-gap: 6px;
     align-items: flex-start;
-    justify-content: center;
     justify-self: stretch;
   }
 
@@ -9200,16 +9200,10 @@ button:not(:disabled),
     line-height: 1;
   }
 
-  .ft-site-nav-group--4 {
-    flex: 4 1 0;
-  }
-
-  .ft-site-nav-group--2 {
-    flex: 2 1 0;
-  }
-
+  .ft-site-nav-group--4,
+  .ft-site-nav-group--2,
   .ft-site-nav-group--3 {
-    flex: 3 1 0;
+    width: 100%;
   }
 
   .ft-site-nav-group__links {
@@ -9552,5 +9546,76 @@ button:not(:disabled),
 
   .ft-site-footer__meta-links {
     gap: 8px 12px;
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    .ft-site-nav-groups {
+      column-gap: 5px;
+    }
+
+    .ft-site-nav-group {
+      gap: 10px;
+    }
+
+    .ft-site-nav-group__label {
+      font-size: 8.2px;
+      letter-spacing: 0.16em;
+    }
+
+    .ft-site-nav-link {
+      min-height: 34px;
+      padding-inline: 4px;
+      font-size: 7.2px;
+      letter-spacing: 0.045em;
+    }
+
+    .ft-site-header__utility {
+      min-width: clamp(304px, 24vw, 360px);
+      padding-left: 10px;
+    }
+
+    .ft-site-header__utilityactions {
+      gap: 5px;
+    }
+
+    .ft-site-header__utilityhome,
+    .ft-locale-switcher__button,
+    .ft-header-app-link {
+      min-height: 34px;
+      padding-inline: 7px;
+      font-size: 7.2px;
+      letter-spacing: 0.045em;
+    }
+
+    .ft-site-search {
+      min-height: 34px;
+      padding-inline: 8px;
+    }
+
+    .ft-site-search__input {
+      font-size: 8px;
+    }
+
+    .ft-site-footer__nav {
+      column-gap: 18px;
+      row-gap: 8px;
+    }
+
+    .ft-site-footer__link,
+    .ft-site-footer__brand-link,
+    .ft-site-footer__meta-link {
+      font-size: 7.2px;
+      letter-spacing: 0.045em;
+    }
+
+    .ft-site-footer__brand-link,
+    .ft-site-footer__meta-link {
+      min-height: 34px;
+      padding-inline: 10px;
+    }
+
+    .ft-site-footer__meta-links {
+      gap: 8px 10px;
+    }
   }
 }
