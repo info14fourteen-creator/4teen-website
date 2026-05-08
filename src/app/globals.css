@@ -9915,3 +9915,160 @@ html[data-ft-browser-safari="true"] .ft-site-footer__meta-links {
     display: grid;
   }
 }
+
+.ft-swap-page .ft-buy-page__hero-note--desktop {
+  display: none;
+}
+
+.ft-swap-page__hero-stats--desktop,
+.ft-swap-page__hero-stats--mobile {
+  gap: 18px;
+}
+
+.ft-swap-page__story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.ft-swap-page__story-main {
+  height: 100%;
+}
+
+.ft-swap-page__story-stack {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.ft-swap-page__story-main .ft-card-title {
+  max-width: 18ch;
+}
+
+.ft-swap-page__story-main .ft-list {
+  margin-top: 4px;
+}
+
+@media (min-width: 821px) {
+  .ft-swap-page .ft-buy-page__hero-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 33.4%);
+    gap: 34px;
+    align-items: stretch;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-copy,
+  .ft-swap-page .ft-buy-page__hero-side {
+    min-height: 100%;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-side {
+    align-content: stretch;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-side-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-media {
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    overflow: visible;
+    padding: 0 0 18px;
+    margin: 0;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-media-frame {
+    width: min(100%, 388px);
+    max-width: 388px;
+    border-radius: 0;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-media-image {
+    width: 100%;
+    max-width: 388px;
+    max-height: 660px;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-side-actions {
+    width: min(100%, 388px);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-side-actions .ft-btn {
+    width: 100%;
+    min-height: 50px;
+    font-size: 14px;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-note--desktop {
+    display: block;
+    width: min(100%, 388px);
+    margin: 0;
+    color: var(--ft-text-dim);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-note--mobile {
+    display: none !important;
+  }
+
+  .ft-swap-page__hero-stats--desktop {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ft-swap-page__hero-stats--mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ft-swap-page__story-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .ft-swap-page .ft-buy-page__hero-side {
+    gap: 16px;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-note--desktop {
+    display: none !important;
+  }
+
+  .ft-swap-page .ft-buy-page__hero-note--mobile {
+    display: block;
+  }
+
+  .ft-swap-page__hero-stats--desktop {
+    display: none !important;
+  }
+
+  .ft-swap-page__hero-stats--mobile {
+    display: grid;
+  }
+}

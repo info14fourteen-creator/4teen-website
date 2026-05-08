@@ -1,5 +1,20 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
 
+type HeroStatContent = {
+  label: string;
+  meta: string;
+};
+
+type SimpleCard = {
+  eyebrow: string;
+  title: string;
+  text: string;
+};
+
+type BulletCard = SimpleCard & {
+  bullets?: string[];
+};
+
 export type SwapPageContent = {
   metadata: {
     title: string;
@@ -7,35 +22,36 @@ export type SwapPageContent = {
   };
   hero: {
     eyebrow: string;
-    status: string;
+    badge: string;
     title: string;
-    lead: string;
+    subtitle: string;
+    body: string[];
+    rotatingLines: string[];
+    primaryCta: string;
+    secondaryCta: string;
+    ctaNote: string;
     stats: {
-      sampleAmount: string;
-      sampleAmountMeta: string;
-      supportedTargets: string;
-      supportedTargetsMeta: string;
-      remainderGuard: string;
-      remainderGuardMeta: string;
-      routerState: string;
-      routerStateMeta: string;
+      sampleAmount: HeroStatContent;
+      supportedTargets: HeroStatContent;
+      protectedRemainder: HeroStatContent;
+      routerState: HeroStatContent;
       readFailed: string;
       readRetry: string;
-    };
-    states: {
-      live: string;
-      partial: string;
-      offline: string;
+      states: {
+        live: string;
+        partial: string;
+        offline: string;
+      };
     };
   };
   sections: {
-    walletRoute: {
+    tokenUniverse: {
       eyebrow: string;
       title: string;
-      body: string;
-      bullets: string[];
-      openApp: string;
-      openUnlock: string;
+      intro: string;
+      mainCard: BulletCard;
+      cards: SimpleCard[];
+      note: string;
     };
     liveRoutes: {
       eyebrow: string;
@@ -56,24 +72,12 @@ export type SwapPageContent = {
       empty: string;
       note: string;
     };
-    convenience: {
+    reviewLayer: {
       eyebrow: string;
       title: string;
-      cards: Array<{
-        eyebrow: string;
-        title: string;
-        text: string;
-      }>;
-      note: string;
-    };
-    discipline: {
-      eyebrow: string;
-      title: string;
-      cards: Array<{
-        eyebrow: string;
-        title: string;
-        text: string;
-      }>;
+      intro: string;
+      mainCard: BulletCard;
+      cards: SimpleCard[];
       note: string;
     };
     verification: {
@@ -100,52 +104,92 @@ const swapContentEn: SwapPageContent = {
   metadata: {
     title: "Swap",
     description:
-      "4TEEN swap overview with live route ranking, broader token coverage inside the wallet, allowance and minimum-receive protection, and a cleaner path into the mobile app.",
+      "4TEEN swap route with broad wallet token coverage, ranked routes, minimum-receive protection, approval review, and live public route samples.",
   },
   hero: {
     eyebrow: "Swap Route",
-    status: "Wallet-first execution rail",
-    title:
-      "Swap already works like a real wallet product: choose a target asset, compare ranked routes, review protection rules, and sign only when the path still looks right.",
-    lead:
-      "The site should create confidence, not cosplay a DEX. In the wallet, route discovery is tied to a real signing wallet, a broader target-asset list, automatic route ranking, minimum-receive protection, allowance checks, and network-resource readiness. The website keeps only a small public preview of that engine and points the user to the app when it is time to act.",
+    badge: "Wallet-first swap route",
+    title: "Swap 4TEEN Into a Broader TRON Token Universe",
+    subtitle:
+      "The site only shows anchor samples. The wallet already searches a much wider token universe, ranks routes, and takes the user through approve, review, and swap.",
+    body: [
+      "This page should not read like 4TEEN only swaps into one or two house tokens. In the wallet, the target set is pulled from sendable assets, custom token catalog, and the Tronscan token list, then filtered by whether routing actually exists.",
+      "That means the route is broader than the public website preview. If liquidity exists and the router can quote it, the wallet can surface it, rank it, and move the user into a real confirmation step.",
+    ],
+    rotatingLines: [
+      "BROAD TOKEN UNIVERSE. RANKED ROUTES.",
+      "PREVIEW ON SITE. EXECUTION IN WALLET.",
+      "MIN OUT. APPROVE. SWAP.",
+    ],
+    primaryCta: "Open Wallet Route",
+    secondaryCta: "Jump to Live Route Samples",
+    ctaNote:
+      "The site is the proof layer. The wallet is where token switching, route ranking, minimum-receive protection, allowance checks, and final signing actually happen.",
     stats: {
-      sampleAmount: "Sample Quote Size",
-      sampleAmountMeta: "Read-only route samples below are refreshed for the same 4TEEN amount.",
-      supportedTargets: "Public Sample Routes",
-      supportedTargetsMeta: "The website keeps only anchor routes public. The wallet can browse a much broader target set when router liquidity exists.",
-      remainderGuard: "Protected Remainder",
-      remainderGuardMeta: "The wallet keeps a minimal 4TEEN remainder instead of draining the balance flat.",
-      routerState: "Router State",
-      routerStateMeta: "A fast signal for whether public route sampling is responding right now.",
+      sampleAmount: {
+        label: "Sample Quote Size",
+        meta: "Public route samples refresh against the same 4TEEN amount.",
+      },
+      supportedTargets: {
+        label: "Public Sample Routes",
+        meta: "The website keeps only a tiny anchor set public. The wallet can browse far more targets when routes exist.",
+      },
+      protectedRemainder: {
+        label: "Protected Remainder",
+        meta: "The wallet keeps a minimal 4TEEN remainder instead of flattening the balance to zero.",
+      },
+      routerState: {
+        label: "Router State",
+        meta: "Fast signal for whether public route sampling is fully responding right now.",
+      },
       readFailed: "Live swap routing read failed.",
       readRetry: "Try refreshing in a moment.",
-    },
-    states: {
-      live: "Live",
-      partial: "Partial",
-      offline: "Offline",
+      states: {
+        live: "Live",
+        partial: "Partial",
+        offline: "Offline",
+      },
     },
   },
   sections: {
-    walletRoute: {
-      eyebrow: "Wallet Route",
-      title: "The app is where interest turns into action",
-      body:
-        "The swap experience is intentionally split in two. First comes asset choice and route discovery. Then comes the confirmation step that checks approvals, protected minimum receive, network resources, and final signing readiness before anything is sent.",
-      bullets: [
-        "The quote screen is for comparing opportunity, not blind submission.",
-        "Target assets are not limited to two website tokens; the wallet can browse a much broader TRON asset universe when routes exist.",
-        "A watch-only wallet can inspect the route, but only a signing wallet can pass allowance and final confirmation.",
+    tokenUniverse: {
+      eyebrow: "Token Universe",
+      title: "The wallet is not boxed into two promotional targets.",
+      intro:
+        "The public site deliberately keeps the story small. The wallet does the opposite: it merges sendable wallet assets, custom token catalog entries, and the Tronscan token list, then lets routing determine what is actually swappable.",
+      mainCard: {
+        eyebrow: "Broad target access",
+        title: "If the router can quote it, the wallet can usually surface it.",
+        text:
+          "That is the important distinction. The website preview is intentionally narrow. The wallet is where target switching becomes real because it can pull a wider token universe and test it directly against the routing layer.",
+        bullets: [
+          "Sendable wallet balances can become source assets.",
+          "Custom catalog entries and Tronscan token list expand the target set far beyond TRX and USDT.",
+          "Routes are still filtered by whether real quoting exists, so the interface stays honest instead of pretending every token is liquid.",
+        ],
+      },
+      cards: [
+        {
+          eyebrow: "Target switching",
+          title: "The user can change both source and receive asset in the wallet",
+          text:
+            "The mobile flow is not frozen around one pair. It supports asset switching before quotes are requested, which is why the swap route should be framed as a broader market utility.",
+        },
+        {
+          eyebrow: "Route ranking",
+          title: "Routes are sorted by output, not by a hard-coded preference",
+          text:
+            "Available routes are ranked from better output to worse output, with executable routes prioritized first. The user sees what actually wins instead of one opaque path.",
+        },
       ],
-      openApp: "Open Mobile App Route",
-      openUnlock: "Open Unlock Route",
+      note:
+        "So the right product message is not “swap into TRX or USDT.” The right message is “the wallet can search across a much wider target universe when routing is available.”",
     },
     liveRoutes: {
       eyebrow: "Live Route Samples",
-      title: "A small public window into the live routing engine",
+      title: "A small public window into the routing engine",
       body:
-        "These cards are a preview, not the full product. They show what the public router is returning right now for a sample 4TEEN amount, which is enough to show how the route behaves without flattening the whole experience into a fake website swap form.",
+        "These cards stay intentionally narrow. They show only a couple of anchor samples so the site can prove the engine is alive without pretending to be the whole swap product.",
       labels: {
         route: "Route",
         execution: "Execution",
@@ -160,59 +204,46 @@ const swapContentEn: SwapPageContent = {
       },
       empty: "No public route sample is available right now.",
       note:
-        "Inside the wallet, routes are sorted by expected output and refreshed against the currently selected target token. This public layer keeps only a small sample visible and leaves full route choice to the app.",
+        "Inside the wallet, target switching and route ranking happen against a much wider token universe. The website keeps only a compact public sample visible.",
     },
-    convenience: {
-      eyebrow: "Convenience Layer",
-      title: "Why the wallet route feels lighter than a generic DEX screen",
+    reviewLayer: {
+      eyebrow: "Review Layer",
+      title: "The wallet does not jump straight into swap. It builds a controlled review first.",
+      intro:
+        "The most important part of the route is not the marketing screenshot. It is the controlled handoff between quote preview and final execution: protected minimum, approval state, network resource picture, and the final signature step.",
+      mainCard: {
+        eyebrow: "Approve & swap",
+        title: "Minimum out, approval, and resource review are all part of the route before anything is sent.",
+        text:
+          "A route can be visible and still not be executable yet. That is healthy behavior. The wallet waits until approval state, route validity, and resource readiness all line up before it offers the final action.",
+        bullets: [
+          "Slippage protects the minimum amount received before the swap leaves the wallet.",
+          "Approval is checked first when the allowance is missing.",
+          "Energy and bandwidth costs are surfaced before the final confirmation step.",
+        ],
+      },
       cards: [
         {
-          eyebrow: "Target Assets",
-          title: "The route starts from a broader wallet asset list",
-          text: "The target picker is not boxed into one promotional pair. The wallet can work with TRX, stable assets, and user-managed token entries when router liquidity exists.",
+          eyebrow: "Resource rent",
+          title: "The route can steer the user into rent-first execution when it is cheaper",
+          text:
+            "The wallet already frames save-resources logic as part of the flow. That keeps execution practical instead of letting users discover burn costs only after they sign.",
         },
         {
-          eyebrow: "Route Review",
-          title: "The user sees ranked options, not one opaque path",
-          text: "Routes are sorted from highest output to lowest, so the user can review what actually wins before the app asks for a signature.",
-        },
-        {
-          eyebrow: "Protected Minimum",
-          title: "Minimum receive is visible before signing",
-          text: "The wallet carries slippage protection into confirmation, so the user sees the protected floor before the swap leaves the account.",
-        },
-      ],
-      note:
-        "That is the real convenience story: broader token choice, less guesswork, less hidden friction, and a cleaner path from curiosity to action.",
-    },
-    discipline: {
-      eyebrow: "Execution Discipline",
-      title: "What keeps the route trustworthy when conditions move",
-      cards: [
-        {
-          eyebrow: "Allowance Check",
-          title: "Approval is checked before the route goes live",
-          text: "If approval is missing, the wallet surfaces the extra step first instead of dumping the user into a failing swap attempt.",
-        },
-        {
-          eyebrow: "Resource Picture",
-          title: "Energy and Bandwidth are part of the review",
-          text: "Approval cost and swap cost are estimated separately, extra headroom is added, and burn exposure is shown before the final tap.",
-        },
-        {
-          eyebrow: "Remainder Guard",
+          eyebrow: "Protected dust",
           title: "A tiny 4TEEN remainder stays behind on purpose",
-          text: "That protected dust unit keeps the wallet from ending in a brittle zero-balance edge case and makes later route handling calmer.",
+          text:
+            "The protected remainder avoids brittle zero-balance edge cases and makes later route handling calmer. It is a small rule, but it is a good wallet rule.",
         },
       ],
       note:
-        "A route only becomes real when the wallet can still sign it cleanly with the current account state, allowance state, and network resources.",
+        "That is what makes the product feel serious: broad token discovery on the front, controlled execution discipline on the back.",
     },
     verification: {
       eyebrow: "Verification",
       title: "Where this route story comes from",
       body:
-        "This page follows the real wallet implementation: live route reads, route ranking, target-token switching, allowance checks, and final swap execution through the same router family behind the app.",
+        "This page follows the real wallet implementation: target switching, wider token catalog loading, quote ranking, minimum-receive protection, approval checks, and final execution through the router layer behind the app.",
       labels: {
         router: "Smart router",
         token: "4TEEN token",
@@ -223,16 +254,17 @@ const swapContentEn: SwapPageContent = {
       eyebrow: "Open The Real Route",
       title: "Open the wallet when you want the full route map",
       body:
-        "The site should make the opportunity understandable. The mobile wallet is where the broader target list, ranked route choices, approval checks, protection rules, and final signature all come together.",
+        "The website should make the swap opportunity understandable. The mobile wallet is where the broader token universe, ranked routes, approval review, protected minimum, and final signature all come together.",
       openApp: "Open Mobile App",
       openBuy: "Open Buy Route",
     },
   },
 };
 
-const swapContentByLocale: Partial<Record<SupportedSiteLocale, SwapPageContent>> = {
-  en: swapContentEn,
-};
+const swapContentByLocale: Partial<Record<SupportedSiteLocale, SwapPageContent>> =
+  {
+    en: swapContentEn,
+  };
 
 export function getSwapPageContent(locale: SupportedSiteLocale) {
   return swapContentByLocale[locale] ?? swapContentEn;
