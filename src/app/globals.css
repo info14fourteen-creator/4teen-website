@@ -1358,6 +1358,13 @@ a.is-active-anchor {
     background 0.2s ease;
 }
 
+.ft-site-nav-link__text,
+.ft-site-header__utilitytext,
+.ft-header-app-link__text {
+  display: inline-block;
+  line-height: 1;
+}
+
 .ft-site-nav-link:hover,
 .ft-site-nav-link.is-active {
   color: rgb(255, 255, 255);
@@ -9617,40 +9624,38 @@ button:not(:disabled),
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__bar {
-    grid-template-columns: minmax(184px, 0.7fr) minmax(280px, 0.82fr);
-    align-items: start;
-    gap: 10px 14px;
-    padding-right: 8px;
+    grid-template-columns: 14% minmax(0, 65%) 21%;
+    align-items: end;
+    gap: 8px;
+    padding-right: 10px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__brandblock {
-    grid-column: 1;
-    grid-row: 1;
-    padding-right: 0;
+    padding-right: 6px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__main {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    align-self: start;
+    align-self: end;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__main::after {
-    content: none;
+    display: none;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-nav-shell {
     width: 100%;
-    justify-items: stretch;
+    justify-items: center;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-nav-groups {
     grid-template-columns: minmax(0, 4fr) minmax(0, 2fr) minmax(0, 3fr);
     column-gap: 6px;
+    width: 100%;
+    max-width: 100%;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-nav-group {
-    gap: 10px;
+    gap: 12px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-nav-group__label {
@@ -9661,14 +9666,12 @@ button:not(:disabled),
   html[data-ft-browser-safari="true"] .ft-site-nav-link {
     min-height: 34px;
     padding-inline: 4px;
-    font-size: 7.6px;
+    font-size: 12px;
     letter-spacing: 0.05em;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__utility {
-    grid-column: 2;
-    grid-row: 1;
-    min-width: clamp(320px, 25vw, 380px);
+    min-width: 0;
     padding-left: 8px;
   }
 
@@ -9681,7 +9684,7 @@ button:not(:disabled),
   html[data-ft-browser-safari="true"] .ft-header-app-link {
     min-height: 34px;
     padding-inline: 8px;
-    font-size: 7.6px;
+    font-size: 12px;
     letter-spacing: 0.05em;
   }
 
@@ -9692,7 +9695,33 @@ button:not(:disabled),
   }
 
   html[data-ft-browser-safari="true"] .ft-site-search__input {
-    font-size: 8px;
+    font-size: 12px;
+  }
+
+  html[data-ft-browser-safari="true"] .ft-site-nav-link__text,
+  html[data-ft-browser-safari="true"] .ft-site-header__utilitytext,
+  html[data-ft-browser-safari="true"] .ft-header-app-link__text,
+  html[data-ft-browser-safari="true"] .ft-locale-switcher__button-code {
+    transform: scale(0.7);
+    transform-origin: center center;
+    letter-spacing: 0.04em;
+  }
+
+  html[data-ft-browser-safari="true"] .ft-site-nav-link__text {
+    width: calc(100% / 0.7);
+    text-align: center;
+  }
+
+  html[data-ft-browser-safari="true"] .ft-site-header__utilitytext,
+  html[data-ft-browser-safari="true"] .ft-header-app-link__text,
+  html[data-ft-browser-safari="true"] .ft-locale-switcher__button-code {
+    white-space: nowrap;
+  }
+
+  html[data-ft-browser-safari="true"] .ft-site-search__input {
+    transform: scale(0.78);
+    transform-origin: left center;
+    width: calc(100% / 0.78);
   }
 
   html[data-ft-browser-safari="true"] .ft-site-footer__nav {
@@ -9713,7 +9742,176 @@ button:not(:disabled),
     padding-inline: 10px;
   }
 
-  html[data-ft-browser-safari="true"] .ft-site-footer__meta-links {
-    gap: 8px 10px;
+html[data-ft-browser-safari="true"] .ft-site-footer__meta-links {
+  gap: 8px 10px;
+}
+
+}
+
+.ft-liquidity-page .ft-buy-page__hero-note--desktop {
+  display: none;
+}
+
+.ft-liquidity-page__hero-stats--desktop,
+.ft-liquidity-page__hero-stats--mobile {
+  gap: 18px;
+}
+
+.ft-liquidity-page__story-grid,
+.ft-liquidity-page__reserve-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.ft-liquidity-page__story-main,
+.ft-liquidity-page__reserve-main {
+  height: 100%;
+}
+
+.ft-liquidity-page__story-stack,
+.ft-liquidity-page__reserve-side {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.ft-liquidity-page__story-main .ft-card-title,
+.ft-liquidity-page__reserve-main .ft-card-title {
+  max-width: 18ch;
+}
+
+.ft-liquidity-page__story-main .ft-list,
+.ft-liquidity-page__reserve-main .ft-list {
+  margin-top: 4px;
+}
+
+.ft-liquidity-page__reserve-side .ft-card-title {
+  font-size: clamp(18px, 1.55vw, 24px);
+  line-height: 1.12;
+}
+
+@media (min-width: 821px) {
+  .ft-liquidity-page .ft-buy-page__hero-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 33.4%);
+    gap: 34px;
+    align-items: stretch;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-copy,
+  .ft-liquidity-page .ft-buy-page__hero-side {
+    min-height: 100%;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-side {
+    align-content: stretch;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-side-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-media {
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    overflow: visible;
+    padding: 0 0 18px;
+    margin: 0;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-media-frame {
+    width: min(100%, 388px);
+    max-width: 388px;
+    border-radius: 0;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-media-image {
+    width: 100%;
+    max-width: 388px;
+    max-height: 660px;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-side-actions {
+    width: min(100%, 388px);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-side-actions .ft-btn {
+    width: 100%;
+    min-height: 50px;
+    font-size: 14px;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-note--desktop {
+    display: block;
+    width: min(100%, 388px);
+    margin: 0;
+    color: var(--ft-text-dim);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-note--mobile {
+    display: none !important;
+  }
+
+  .ft-liquidity-page__hero-stats--desktop {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ft-liquidity-page__hero-stats--mobile {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ft-liquidity-page__story-grid,
+  .ft-liquidity-page__reserve-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .ft-liquidity-page .ft-buy-page__hero-side {
+    gap: 16px;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-note--desktop {
+    display: none !important;
+  }
+
+  .ft-liquidity-page .ft-buy-page__hero-note--mobile {
+    display: block;
+  }
+
+  .ft-liquidity-page__hero-stats--desktop {
+    display: none !important;
+  }
+
+  .ft-liquidity-page__hero-stats--mobile {
+    display: grid;
   }
 }

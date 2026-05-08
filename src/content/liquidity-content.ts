@@ -1,5 +1,20 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
 
+type HeroStatContent = {
+  label: string;
+  meta: string;
+};
+
+type SimpleCard = {
+  eyebrow: string;
+  title: string;
+  text: string;
+};
+
+type BulletCard = SimpleCard & {
+  bullets?: string[];
+};
+
 export type LiquidityPageContent = {
   metadata: {
     title: string;
@@ -7,35 +22,31 @@ export type LiquidityPageContent = {
   };
   hero: {
     eyebrow: string;
-    status: string;
+    badge: string;
     title: string;
-    lead: string;
+    subtitle: string;
+    body: string[];
+    rotatingLines: string[];
+    primaryCta: string;
+    secondaryCta: string;
+    ctaNote: string;
     stats: {
-      controllerBalance: string;
-      controllerBalanceMeta: string;
-      nextRelease: string;
-      nextReleaseMeta: string;
-      vaultReserve: string;
-      vaultReserveMeta: string;
-      windowState: string;
-      windowStateMeta: string;
+      controllerBalance: HeroStatContent;
+      nextRelease: HeroStatContent;
+      triggerFloor: HeroStatContent;
+      cadence: HeroStatContent;
       readFailed: string;
       readRetry: string;
     };
-    states: {
-      ready: string;
-      waiting: string;
-      threshold: string;
-    };
   };
   sections: {
-    appRoute: {
+    publicRoute: {
       eyebrow: string;
       title: string;
-      body: string;
-      bullets: string[];
-      openApp: string;
-      openBuy: string;
+      intro: string;
+      mainCard: BulletCard;
+      cards: SimpleCard[];
+      note: string;
     };
     liveState: {
       eyebrow: string;
@@ -48,6 +59,7 @@ export type LiquidityPageContent = {
         minBalance: string;
         dailyRelease: string;
         split: string;
+        windowState: string;
         nextWindow: string;
         snapshotUpdated: string;
       };
@@ -55,16 +67,19 @@ export type LiquidityPageContent = {
         openNow: string;
         waitForThreshold: string;
       };
+      stateLabels: {
+        ready: string;
+        waiting: string;
+        threshold: string;
+      };
       note: string;
     };
     triggerModel: {
       eyebrow: string;
       title: string;
-      cards: Array<{
-        eyebrow: string;
-        title: string;
-        text: string;
-      }>;
+      intro: string;
+      mainCard: BulletCard;
+      cards: SimpleCard[];
       note: string;
     };
     latestExecutions: {
@@ -82,11 +97,12 @@ export type LiquidityPageContent = {
       openTx: string;
       note: string;
     };
-    reserveLayer: {
+    reservePath: {
       eyebrow: string;
       title: string;
-      body: string;
-      cards: Array<{
+      intro: string;
+      primaryCard: BulletCard;
+      secondaryCards: Array<{
         key: string;
         title: string;
         body: string;
@@ -118,52 +134,87 @@ export type LiquidityPageContent = {
 
 const liquidityContentEn: LiquidityPageContent = {
   metadata: {
-    title: "Liquidity",
+    title: "Public Liquidity Controller",
     description:
-      "4TEEN liquidity route with live controller balance, upcoming release size, reserve visibility, and a cleaner path into the app.",
+      "4TEEN public liquidity controller with live controller balance, public bootstrapper trigger path, reserve visibility, and confirmed execution feed.",
   },
   hero: {
     eyebrow: "Liquidity Controller",
-    status: "Public execution rail",
-    title:
-      "Liquidity here is a visible growth engine: buy-side TRX lands in the controller, release timing stays on-chain, and the route into market depth can be followed publicly.",
-    lead:
-      "The site does not need to act like an ops console. It should make the growth path understandable fast: where the buy-side TRX waits, how much is next in line, which reserve backs the move, and whether fresh executions are still landing.",
+    badge: "Public liquidity controller",
+    title: "Public 4TEEN Liquidity Controller",
+    subtitle:
+      "Automation can wake the route, but any wallet can still pull the bootstrapper when the contract gate is open.",
+    body: [
+      "This page should not read like a closed ops panel. It should make one thing obvious: controller-side TRX is visible, reserve-side inventory is visible, and the release rules still live on-chain.",
+      "If the UTC window is open, the controller is above threshold, and the signing wallet has enough network resources, liquidity can still execute from the wallet even if the automation layer misses a day.",
+    ],
+    rotatingLines: [
+      "PUBLIC TRIGGER. CONTRACT GATE.",
+      "AUTOMATION HELPS. CONTRACTS DECIDE.",
+      "BOOTSTRAP FIRST. EXECUTE ON-CHAIN.",
+    ],
+    primaryCta: "Open Wallet Route",
+    secondaryCta: "Jump to Live Executions",
+    ctaNote:
+      "The website is the proof layer. The wallet is the execution surface for manual trigger, resource checks, and final signing.",
     stats: {
-      controllerBalance: "Controller Balance",
-      controllerBalanceMeta: "TRX currently sitting inside FourteenLiquidityController.",
-      nextRelease: "Next Release",
-      nextReleaseMeta: "6.43% of controller balance when the contract window is open.",
-      vaultReserve: "FourteenVault Reserve",
-      vaultReserveMeta: "4TEEN token reserve used by the bootstrapper before execution.",
-      windowState: "Window State",
-      windowStateMeta: "Threshold and once-per-UTC-day rule are both enforced on-chain.",
+      controllerBalance: {
+        label: "Controller Balance",
+        meta: "TRX currently waiting inside FourteenLiquidityController.",
+      },
+      nextRelease: {
+        label: "Next Release",
+        meta: "Projected TRX release when the contract window is valid.",
+      },
+      triggerFloor: {
+        label: "Trigger Floor",
+        meta: "Minimum controller balance required before execution is valid.",
+      },
+      cadence: {
+        label: "Cadence",
+        meta: "Once per UTC day. The gate is enforced by contract, not by automation.",
+      },
       readFailed: "Live liquidity read failed.",
       readRetry: "Try refreshing in a moment.",
     },
-    states: {
-      ready: "Ready now",
-      waiting: "Already executed today",
-      threshold: "Below threshold",
-    },
   },
   sections: {
-    appRoute: {
-      eyebrow: "Wallet Route",
-      title: "The wallet is where a real trigger becomes a real move",
-      body:
-        "The site can build confidence. The app is where a user with the right wallet can actually wake the route up. That takes a signing wallet, live resource checks, and a final approval step.",
-      bullets: [
-        "Direct 4TEEN buy routes 90% of purchase TRX into the controller balance.",
-        "LiquidityBootstrapper tops up executor token balances from FourteenVault before each release.",
-        "The website stays read-only. The wallet is the execution surface when a real trigger is needed.",
+    publicRoute: {
+      eyebrow: "Public Route",
+      title: "Automation is configured. Public execution still belongs to the wallet.",
+      intro:
+        "The wallet app already carries the automation path, but the more important message is broader than that: this route is still public. A signing wallet can wake the bootstrapper when the contract conditions are already satisfied.",
+      mainCard: {
+        eyebrow: "Public Liquidity Controller",
+        title: "Any wallet can wake the route. The controller still decides whether liquidity actually moves.",
+        text:
+          "That is the right separation of powers. Automation is allowed to help with timing, but the controller and bootstrapper remain the authority layer. The execution path does not disappear if a bot pauses.",
+        bullets: [
+          "Direct 4TEEN buys send 90% of purchase TRX into the controller balance.",
+          "LiquidityBootstrapper prepares the token side from FourteenVault before the controller executes.",
+          "The once-per-UTC-day rule, the minimum balance, the release percentage, and the split stay on-chain.",
+        ],
+      },
+      cards: [
+        {
+          eyebrow: "Automation",
+          title: "The wallet repo already wires the wake-up path",
+          text:
+            "The mobile flow exposes the liquidity trigger and the automation helper together. That makes the scheduler visible, but it does not turn the scheduler into a hidden operator.",
+        },
+        {
+          eyebrow: "Manual trigger",
+          title: "If automation misses, a user can still sign the route manually",
+          text:
+            "The wallet can call bootstrapAndExecute() from a normal user session. If the gate is open and resources are available, liquidity still goes through.",
+        },
       ],
-      openApp: "Open Mobile App Route",
-      openBuy: "Open Buy Route",
+      note:
+        "This is why the page should speak about a public controller, not about a private back office. The route survives beyond the automation layer.",
     },
     liveState: {
       eyebrow: "Live Controller State",
-      title: "What the contracts say right now",
+      title: "What the controller says right now",
       rows: {
         controllerBalance: "Controller Balance",
         latestFunding: "Latest Funding",
@@ -172,6 +223,7 @@ const liquidityContentEn: LiquidityPageContent = {
         minBalance: "Min Balance",
         dailyRelease: "Daily Release",
         split: "Target Split",
+        windowState: "Window State",
         nextWindow: "Next Window",
         snapshotUpdated: "Snapshot Updated",
       },
@@ -179,37 +231,52 @@ const liquidityContentEn: LiquidityPageContent = {
         openNow: "Open now",
         waitForThreshold: "Wait for funding",
       },
+      stateLabels: {
+        ready: "Ready now",
+        waiting: "Already executed today",
+        threshold: "Below threshold",
+      },
       note:
-        "Automation can keep the rhythm moving, but the real edge stays on-chain: timing, threshold, split, and release size still belong to the contracts.",
+        "The snapshot is useful because it separates moving parts cleanly: controller TRX, funding cadence, release size, threshold, and time gate all stay visible at once.",
     },
     triggerModel: {
       eyebrow: "Trigger Model",
-      title: "How the route wakes up",
+      title: "What actually happens when someone taps Trigger Liquidity",
+      intro:
+        "The route is simple when stated honestly: first the bootstrapper checks the day gate and tops up executor inventory, then the controller releases TRX, then the two market paths receive their split.",
+      mainCard: {
+        eyebrow: "bootstrapAndExecute()",
+        title: "The trigger path is public, resource-aware, and still ruled by contracts.",
+        text:
+          "This is not a fake admin button. The wallet has to satisfy normal network conditions, and the route only continues if the same controller rules still pass at execution time.",
+        bullets: [
+          "Step 1: bootstrapper checks the controller window and computes the allowed release size.",
+          "Step 2: bootstrapper tops up executor-side 4TEEN from FourteenVault before the market-side leg runs.",
+          "Step 3: controller executes the release and splits flow 50 / 50 across JustMoney and Sun.io V3.",
+        ],
+      },
       cards: [
         {
-          eyebrow: "Automatic",
-          title: "Automation can call the route when conditions are satisfied",
-          text: "The wallet implementation describes automation as an external wake-up layer. It does not invent the release schedule. The contracts still decide whether the trigger is valid.",
+          eyebrow: "Resources",
+          title: "A normal wallet can cover the route with rent or preloaded energy",
+          text:
+            "The app already frames this as a resource-aware action. The point is not a hidden server key. The point is that a public wallet can still finish the route cleanly.",
         },
         {
-          eyebrow: "Bootstrapper",
-          title: "Vault top-up happens before the controller executes",
-          text: "LiquidityBootstrapper checks the open window, computes the same daily amount as the controller, prepares executor token balances from FourteenVault, and only then calls executeLiquidity().",
-        },
-        {
-          eyebrow: "Manual",
-          title: "If automation misses, a signing wallet can still pull the trigger",
-          text: "The route is public. If the UTC-day gate is open, the controller balance is above threshold, and a wallet has enough network resources, the mobile app can still call bootstrapAndExecute() manually.",
+          eyebrow: "Rule set",
+          title: "Scheduler convenience never overrides the contract rule set",
+          text:
+            "Missing the bot window does not rewrite the cadence. Hitting the button early does not bypass the gate. Contracts still accept or reject the route.",
         },
       ],
       note:
-        "That distinction matters: automation is convenience, not authority. The route stays alive even if the wake-up layer pauses.",
+        "That is the right market signal: public trigger, visible reserve prep, deterministic release rule.",
     },
     latestExecutions: {
       eyebrow: "Latest Executions",
-      title: "Recent confirmed liquidity releases from the live contract feed",
+      title: "Confirmed liquidity executions from the live feed",
       body:
-        "This table stays intentionally bounded. It shows only the latest confirmed execution rows, enough to verify that the route is alive without turning the page into an endless event archive.",
+        "This list stays intentionally tight. It shows the latest confirmed execution rows so a user can verify that the controller is alive without turning the page into a noisy block explorer clone.",
       headers: {
         total: "Total Released",
         split: "Split",
@@ -220,38 +287,46 @@ const liquidityContentEn: LiquidityPageContent = {
       empty: "No confirmed LiquidityExecuted rows are visible yet.",
       openTx: "Open tx",
       note:
-        "Only the latest 10 confirmed execution events are loaded here by design. Each row is taken from LiquidityExecuted(day, totalAmount, amountA, amountB).",
+        "Each row comes from confirmed LiquidityExecuted(day, totalAmount, amountA, amountB) events.",
     },
-    reserveLayer: {
+    reservePath: {
       eyebrow: "Reserve Path",
-      title: "What backs the move before TRX reaches the market",
-      body:
-        "FourteenVault is a reserve contract, not free circulation. The bootstrapper uses it to supply executor-side 4TEEN before the controller pushes TRX out. That keeps liquidity inventory isolated from ordinary wallet balances and from other reserve vaults.",
-      cards: [
-        {
-          key: "vault",
-          title: "FourteenVault",
-          body: "Token reserve used for liquidity preparation. These 4TEEN balances should not be treated as freely circulating supply.",
-        },
+      title: "Reserve tokens are inventory, not free circulation",
+      intro:
+        "Controller-side TRX is only half the route. The token side needs isolated inventory too, and that is why FourteenVault exists before the two execution paths receive their balances.",
+      primaryCard: {
+        eyebrow: "Reserve layer",
+        title: "FourteenVault backs the public liquidity route before market execution begins.",
+        text:
+          "These 4TEEN balances should be read as reserve-side working inventory. They are not ordinary wallet balances and they should not be framed like freely circulating supply.",
+        bullets: [
+          "Vault inventory is topped into the bootstrapper path before the controller executes.",
+          "JustMoney and Sun.io V3 receive prepared balances only when the route is valid.",
+          "Reserve custody, controller TRX, and executor destinations are separate layers of the same engine.",
+        ],
+      },
+      secondaryCards: [
         {
           key: "justmoney",
-          title: "JustMoney Path",
-          body: "Executor A receives half of the release amount in TRX and gets topped up with the token side before add-liquidity logic runs.",
+          title: "JustMoney path",
+          body:
+            "Executor A takes half of the allowed release and runs the AMM-side liquidity path after its token inventory has been prepared.",
         },
         {
           key: "sun",
-          title: "Sun.io V3 Path",
-          body: "Executor B receives the other half of the release and follows the concentrated-liquidity path after the bootstrapper has prepared token inventory.",
+          title: "Sun.io V3 path",
+          body:
+            "Executor B takes the other half and routes it through the concentrated-liquidity path with its own prepared token side.",
         },
       ],
       note:
-        "This is why the page shows a route, not one noisy headline number. Controller TRX, reserve tokens, and executor paths are different layers of the same engine.",
+        "This is why the page should explain a route, not just print one vanity total. Reserve inventory, controller balance, and execution destinations do different jobs.",
     },
     verification: {
       eyebrow: "Verification",
       title: "Open the proof layer",
       body:
-        "These links let the user jump straight from story to proof: controller, bootstrapper, executors, and source repos. It keeps the page investor-friendly without hiding the real rails underneath.",
+        "Jump straight from the story into the rails underneath it: the controller contract, bootstrapper route, executor contracts, and the wallet implementation that exposes both automation and manual trigger.",
       labels: {
         controller: "FourteenLiquidityController",
         bootstrapper: "LiquidityBootstrapper",
@@ -263,16 +338,18 @@ const liquidityContentEn: LiquidityPageContent = {
     },
     cta: {
       eyebrow: "Next Step",
-      title: "Use the app when you want to inspect resources or trigger execution",
+      title: "Open the wallet when you want to wake the route yourself",
       body:
-        "The site is the proof layer. The mobile wallet is the execution layer for manual trigger, resource estimation, and final signing.",
+        "The site is where you verify the state. The mobile wallet is where a real user can inspect resources, call the bootstrapper, and sign the route if the controller gate is already open.",
       openApp: "Open Liquidity in App",
       openBuy: "Open Buy Route",
     },
   },
 };
 
-const liquidityContentByLocale: Partial<Record<SupportedSiteLocale, LiquidityPageContent>> = {
+const liquidityContentByLocale: Partial<
+  Record<SupportedSiteLocale, LiquidityPageContent>
+> = {
   en: liquidityContentEn,
 };
 
