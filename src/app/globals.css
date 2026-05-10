@@ -6837,23 +6837,29 @@ body:has(.ft-not-found-page) .ft-site-footer {
 }
 
 .ft-ambassador-page__registration-grid {
-  align-items: center;
+  grid-template-columns: minmax(320px, 388px) minmax(0, 1fr);
+  gap: clamp(20px, 2.2vw, 28px);
+  align-items: start;
 }
 
 .ft-ambassador-page__registration-media-shell {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  align-self: start;
   min-width: 0;
+  padding-top: 6px;
 }
 
 .ft-ambassador-page__registration-media {
   width: min(100%, 388px);
+  flex: 0 0 auto;
 }
 
 .ft-ambassador-page__registration-media .ft-buy-page__hero-media-frame {
   width: min(100%, 388px);
   max-width: 388px;
+  margin: 0;
 }
 
 .ft-ambassador-page__registration-media .ft-buy-page__hero-media-image {
@@ -10146,6 +10152,11 @@ html[data-ft-browser-safari="true"] .ft-site-footer__meta-links {
   .ft-ambassador-page__registration-grid,
   .ft-ambassador-page__route-grid {
     grid-template-columns: 1fr;
+  }
+
+  .ft-ambassador-page__registration-media-shell {
+    justify-content: center;
+    padding-top: 0;
   }
 
   .ft-liquidity-page__story-grid,
