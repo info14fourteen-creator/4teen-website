@@ -333,6 +333,7 @@ export async function AmbassadorsPageView({
                     height={2220}
                     imageClassName="ft-buy-page__hero-media-image"
                     posterSrc={AMBASSADOR_REGISTRATION_POSTER_SRC}
+                    priority
                     width={1080}
                   />
                 </div>
@@ -713,6 +714,7 @@ export async function AmbassadorsPageView({
                 </p>
                 <p className="ft-note">
                   <LoaderLink
+                    className="ft-ambassador-page__repo-link"
                     href={officialContractsRepoUrl}
                     rel="noopener noreferrer"
                     showLinkIcon

@@ -6854,6 +6854,7 @@ body:has(.ft-not-found-page) .ft-site-footer {
 .ft-ambassador-page__registration-media {
   width: min(100%, 388px);
   flex: 0 0 auto;
+  margin-inline: auto;
 }
 
 .ft-ambassador-page__registration-media .ft-buy-page__hero-media-frame {
@@ -6871,6 +6872,30 @@ body:has(.ft-not-found-page) .ft-site-footer {
 
 .ft-ambassador-page__route-grid {
   align-items: stretch;
+}
+
+.ft-ambassador-page__repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  color: var(--ft-text-soft);
+  overflow-wrap: normal;
+  vertical-align: top;
+}
+
+.ft-ambassador-page__repo-link .ft-link__content {
+  display: inline;
+}
+
+.ft-ambassador-page__repo-link .ft-link__icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  justify-self: auto;
 }
 
 .ft-buy-page__signal-pill {
@@ -10188,6 +10213,16 @@ html[data-ft-browser-safari="true"] .ft-site-footer__meta-links {
 
   .ft-ambassador-page__registration-media-shell {
     justify-content: center;
+  }
+
+  .ft-ambassador-page__registration-media {
+    width: min(100%, 300px);
+  }
+
+  .ft-ambassador-page__registration-media .ft-buy-page__hero-media-frame,
+  .ft-ambassador-page__registration-media .ft-buy-page__hero-media-image {
+    width: 100%;
+    max-width: 300px;
   }
 
   .ft-liquidity-page .ft-buy-page__hero-side {
