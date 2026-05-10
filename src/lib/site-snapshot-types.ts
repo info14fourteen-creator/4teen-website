@@ -230,13 +230,31 @@ type RouteSample = {
   isExecutable: boolean;
 };
 
+export type SwapTransferSample = {
+  txId: string;
+  txUrl: string;
+  happenedAt: number;
+  amountRaw: string;
+  amountDisplay: string;
+  fromAddress: string;
+  fromShort: string;
+  toAddress: string;
+  toShort: string;
+  counterpartyAddress: string;
+  counterpartyShort: string;
+  counterpartyTag: string;
+  direction: "router_in" | "router_out" | "related";
+};
+
 export type SwapSnapshot = {
+  routerAddress: string;
   sampleAmount: string;
   supportedTargets: number;
   protectedRemainder: string;
   routerState: "live" | "partial" | "offline";
   updatedAt: number;
   routes: RouteSample[];
+  transfers: SwapTransferSample[];
 };
 
 export const swapVerificationLinks = {

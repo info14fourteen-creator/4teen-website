@@ -103,6 +103,19 @@ function renderCtaTitle(text: string) {
   return text;
 }
 
+function getTransferDirectionLabel(
+  direction: "router_in" | "router_out" | "related",
+  labels: {
+    routerIn: string;
+    routerOut: string;
+    related: string;
+  },
+) {
+  if (direction === "router_in") return labels.routerIn;
+  if (direction === "router_out") return labels.routerOut;
+  return labels.related;
+}
+
 export async function SwapPageView({
   locale = defaultSiteLocale,
 }: {
@@ -367,6 +380,93 @@ export async function SwapPageView({
                 ) : (
                   <p className="ft-note">{content.sections.liveRoutes.empty}</p>
                 )}
+
+                <div className="ft-stack ft-stack--sm">
+                  <div className="ft-stack ft-stack--xs">
+                    <p className="ft-price-label">
+                      {content.sections.liveRoutes.transfers.eyebrow}
+                    </p>
+                    <h3 className="ft-card-title">
+                      {content.sections.liveRoutes.transfers.title}
+                    </h3>
+                  </div>
+
+                  {snapshot && snapshot.transfers.length > 0 ? (
+                    <div className="ft-swap-page__latest-list">
+                      <div className="ft-swap-page__latest-head">
+                        <span>{content.sections.liveRoutes.transfers.labels.direction}</span>
+                        <span>{content.sections.liveRoutes.transfers.labels.counterparty}</span>
+                        <span>{content.sections.liveRoutes.transfers.labels.amount}</span>
+                        <span>{content.sections.liveRoutes.transfers.labels.updated}</span>
+                        <span>{content.sections.liveRoutes.transfers.labels.tx}</span>
+                      </div>
+
+                      {snapshot.transfers.map((transfer) => (
+                        <div
+                          key={`${transfer.txId}-${transfer.fromAddress}-${transfer.toAddress}-${transfer.amountRaw}`}
+                          className="ft-swap-page__latest-row"
+                        >
+                          <div className="ft-swap-page__latest-cell">
+                            <span className="ft-swap-page__latest-label">
+                              {content.sections.liveRoutes.transfers.labels.direction}
+                            </span>
+                            <strong>
+                              {getTransferDirectionLabel(
+                                transfer.direction,
+                                content.sections.liveRoutes.transfers.states,
+                              )}
+                            </strong>
+                          </div>
+
+                          <div className="ft-swap-page__latest-cell">
+                            <span className="ft-swap-page__latest-label">
+                              {content.sections.liveRoutes.transfers.labels.counterparty}
+                            </span>
+                            <strong>{transfer.counterpartyShort}</strong>
+                            {transfer.counterpartyTag ? (
+                              <span>{transfer.counterpartyTag}</span>
+                            ) : null}
+                          </div>
+
+                          <div className="ft-swap-page__latest-cell">
+                            <span className="ft-swap-page__latest-label">
+                              {content.sections.liveRoutes.transfers.labels.amount}
+                            </span>
+                            <strong>{transfer.amountDisplay} 4TEEN</strong>
+                          </div>
+
+                          <div className="ft-swap-page__latest-cell">
+                            <span className="ft-swap-page__latest-label">
+                              {content.sections.liveRoutes.transfers.labels.updated}
+                            </span>
+                            <span>{formatUtcDate(transfer.happenedAt, locale)}</span>
+                          </div>
+
+                          <div className="ft-swap-page__latest-cell ft-swap-page__latest-cell--action">
+                            <span className="ft-swap-page__latest-label">
+                              {content.sections.liveRoutes.transfers.labels.tx}
+                            </span>
+                            <LoaderLink
+                              className="ft-link"
+                              href={transfer.txUrl}
+                              showLinkIcon
+                            >
+                              View
+                            </LoaderLink>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="ft-note">
+                      {content.sections.liveRoutes.transfers.empty}
+                    </p>
+                  )}
+
+                  <p className="ft-note">
+                    {content.sections.liveRoutes.transfers.note}
+                  </p>
+                </div>
 
                 <p className="ft-note">{content.sections.liveRoutes.note}</p>
               </div>

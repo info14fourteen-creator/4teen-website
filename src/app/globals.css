@@ -7361,6 +7361,64 @@ body:has(.ft-not-found-page) .ft-site-footer {
     linear-gradient(180deg, rgba(22, 22, 22, 0.96), rgba(11, 11, 11, 0.92));
 }
 
+.ft-swap-page__latest-list {
+  display: grid;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0)),
+    linear-gradient(135deg, rgba(255, 105, 0, 0.05), transparent 44%);
+}
+
+.ft-swap-page__latest-head,
+.ft-swap-page__latest-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.15fr) minmax(0, 0.9fr) minmax(120px, 0.8fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 18px;
+}
+
+.ft-swap-page__latest-head {
+  color: var(--ft-text-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.ft-swap-page__latest-row + .ft-swap-page__latest-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.ft-swap-page__latest-cell {
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.ft-swap-page__latest-cell--action {
+  justify-items: end;
+}
+
+.ft-swap-page__latest-label {
+  display: none;
+  color: var(--ft-text-muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ft-swap-page__latest-cell strong,
+.ft-swap-page__latest-cell span,
+.ft-swap-page__latest-cell a {
+  overflow-wrap: anywhere;
+}
+
 .ft-ambassador-page__mini-table {
   table-layout: fixed;
 }
@@ -7853,6 +7911,27 @@ body:has(.ft-not-found-page) .ft-site-footer {
   .ft-liquidity-page__latest-row {
     grid-template-columns: 1fr;
     padding: 16px;
+  }
+
+  .ft-swap-page__latest-list {
+    border-radius: 18px;
+  }
+
+  .ft-swap-page__latest-row {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .ft-swap-page__latest-head {
+    display: none;
+  }
+
+  .ft-swap-page__latest-label {
+    display: block;
+  }
+
+  .ft-swap-page__latest-cell--action {
+    justify-items: start;
   }
 
   .ft-unlock-page__latest-list {

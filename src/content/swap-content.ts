@@ -65,6 +65,24 @@ export type SwapPageContent = {
         updated: string;
         state: string;
       };
+      transfers: {
+        eyebrow: string;
+        title: string;
+        empty: string;
+        note: string;
+        labels: {
+          direction: string;
+          counterparty: string;
+          amount: string;
+          updated: string;
+          tx: string;
+        };
+        states: {
+          routerIn: string;
+          routerOut: string;
+          related: string;
+        };
+      };
       states: {
         executable: string;
         reviewOnly: string;
@@ -197,6 +215,25 @@ const swapContentEn: SwapPageContent = {
         targets: "Targets",
         updated: "Updated",
         state: "State",
+      },
+      transfers: {
+        eyebrow: "Latest Router Transfers",
+        title: "Recent confirmed 4TEEN movement touching the public router",
+        empty: "No recent 4TEEN router transfers are cached right now.",
+        note:
+          "This list is loaded through the backend snapshot layer, cached in our database, and served stale-safe when the upstream explorer is noisy.",
+        labels: {
+          direction: "Direction",
+          counterparty: "Counterparty",
+          amount: "Amount",
+          updated: "Updated",
+          tx: "Tx",
+        },
+        states: {
+          routerIn: "Router received",
+          routerOut: "Router sent",
+          related: "Router-related",
+        },
       },
       states: {
         executable: "Executable route",
