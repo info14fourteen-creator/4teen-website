@@ -9835,14 +9835,14 @@ button:not(:disabled),
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__bar {
-    grid-template-columns: 14% minmax(0, 65%) 21%;
+    grid-template-columns: 15.5% minmax(0, 63.5%) 21%;
     align-items: end;
     gap: 8px;
     padding-right: 10px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__brandblock {
-    padding-right: 6px;
+    padding-right: 4px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__main {
@@ -9855,7 +9855,7 @@ button:not(:disabled),
 
   html[data-ft-browser-safari="true"] .ft-site-nav-shell {
     width: 100%;
-    justify-items: center;
+    justify-items: stretch;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-nav-groups {
@@ -9863,6 +9863,7 @@ button:not(:disabled),
     column-gap: 6px;
     width: 100%;
     max-width: 100%;
+    margin-inline: auto;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-nav-group {
@@ -9876,27 +9877,27 @@ button:not(:disabled),
 
   html[data-ft-browser-safari="true"] .ft-site-nav-link {
     min-height: 34px;
-    padding-inline: 4px;
-    font-size: 12px;
-    letter-spacing: 0.05em;
+    padding-inline: 6px;
+    font-size: 8px;
+    letter-spacing: 0.06em;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__utility {
     min-width: 0;
-    padding-left: 8px;
+    padding-left: 6px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__utilityactions {
-    gap: 6px;
+    gap: 8px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__utilityhome,
   html[data-ft-browser-safari="true"] .ft-locale-switcher__button,
   html[data-ft-browser-safari="true"] .ft-header-app-link {
     min-height: 34px;
-    padding-inline: 8px;
-    font-size: 12px;
-    letter-spacing: 0.05em;
+    padding-inline: 10px;
+    font-size: 8px;
+    letter-spacing: 0.06em;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-search {
@@ -9906,20 +9907,20 @@ button:not(:disabled),
   }
 
   html[data-ft-browser-safari="true"] .ft-site-search__input {
-    font-size: 12px;
+    font-size: 8.4px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-nav-link__text,
   html[data-ft-browser-safari="true"] .ft-site-header__utilitytext,
   html[data-ft-browser-safari="true"] .ft-header-app-link__text,
   html[data-ft-browser-safari="true"] .ft-locale-switcher__button-code {
-    transform: scale(0.7);
+    transform: scale(0.9);
     transform-origin: center center;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-nav-link__text {
-    width: calc(100% / 0.7);
+    width: calc(100% / 0.9);
     text-align: center;
   }
 
@@ -9930,31 +9931,31 @@ button:not(:disabled),
   }
 
   html[data-ft-browser-safari="true"] .ft-site-search__input {
-    transform: scale(0.78);
+    transform: scale(0.9);
     transform-origin: left center;
-    width: calc(100% / 0.78);
+    width: calc(100% / 0.9);
   }
 
   html[data-ft-browser-safari="true"] .ft-site-footer__nav {
-    column-gap: 18px;
-    row-gap: 8px;
+    column-gap: 22px;
+    row-gap: 10px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-footer__link,
   html[data-ft-browser-safari="true"] .ft-site-footer__brand-link,
   html[data-ft-browser-safari="true"] .ft-site-footer__meta-link {
-    font-size: 7.2px;
-    letter-spacing: 0.045em;
+    font-size: 7.7px;
+    letter-spacing: 0.055em;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-footer__brand-link,
   html[data-ft-browser-safari="true"] .ft-site-footer__meta-link {
     min-height: 34px;
-    padding-inline: 10px;
+    padding-inline: 12px;
   }
 
 html[data-ft-browser-safari="true"] .ft-site-footer__meta-links {
-  gap: 8px 10px;
+  gap: 8px 12px;
 }
 
 }

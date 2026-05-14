@@ -69,7 +69,7 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
                         className={`ft-site-nav-link ${isActivePath(localeAwarePathname, link.href) ? "is-active" : ""}`}
                         href={link.href}
                       >
-                        {link.label}
+                        <span className="ft-site-nav-link__text">{link.label}</span>
                       </LoaderLink>
                     ))}
                   </div>
@@ -93,7 +93,7 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
                 loop={stripSiteLocaleSegment(pathname) === "/"}
                 playOnHover={stripSiteLocaleSegment(pathname) !== "/"}
               />
-              <span>{chrome.header.home}</span>
+              <span className="ft-site-header__utilitytext">{chrome.header.home}</span>
             </LoaderLink>
 
             <LocaleSwitcher content={chrome.locale} currentLocale={locale} />
@@ -107,7 +107,7 @@ export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
                 className="ft-header-app-link__icon"
                 playOnHover
               />
-              {chrome.header.getApp}
+              <span className="ft-header-app-link__text">{chrome.header.getApp}</span>
             </LoaderLink>
           </div>
         </div>

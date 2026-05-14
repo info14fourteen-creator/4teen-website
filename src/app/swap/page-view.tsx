@@ -1,29 +1,120 @@
 import type { Metadata } from "next";
 
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
+import { ProgressiveAnimatedMedia } from "@/components/site/progressive-animated-media";
 import { LoaderLink } from "@/components/site/loader-link";
+import { SignalPoints } from "@/components/site/signal-points";
 import { SiteSnapshotRefresh } from "@/components/site/site-snapshot-refresh";
 import { FourteenTopbar } from "@/components/site/topbar";
 import { officialWalletRepoUrl } from "@/content/official-links";
 import { getSwapPageContent } from "@/content/swap-content";
+import { formatCompactMetric } from "@/lib/site-format";
+import { formatUtcDate } from "@/lib/site-intl";
 import { getServerSiteSnapshot } from "@/lib/server-site-snapshot";
 import {
   defaultSiteLocale,
   type SupportedSiteLocale,
 } from "@/lib/site-locale";
 import { buildPageMetadata } from "@/lib/site-metadata";
-import { formatCompactMetric } from "@/lib/site-format";
-import { formatUtcDate } from "@/lib/site-intl";
-import { type SwapSnapshot, swapVerificationLinks } from "@/lib/site-snapshot-types";
+import {
+  type SwapSnapshot,
+  swapVerificationLinks,
+} from "@/lib/site-snapshot-types";
+
+const SWAP_HERO_POSTER_SRC = "/media/swap-demo.png";
+const SWAP_HERO_MEDIA_SRC = "/media/swap-demo.gif";
+const SWAP_HERO_MEDIA_ALT = "4TEEN swap mobile wallet preview";
 
 export function getSwapPageMetadata(
   locale: SupportedSiteLocale = defaultSiteLocale,
 ): Metadata {
   const metadata = getSwapPageContent(locale).metadata;
-  return buildPageMetadata({ ...metadata, locale, pathname: "/swap" });
+  return buildPageMetadata({
+    ...metadata,
+    locale,
+    pathname: "/swap",
+    socialImages: [
+      {
+        url: SWAP_HERO_POSTER_SRC,
+        alt: SWAP_HERO_MEDIA_ALT,
+      },
+    ],
+  });
 }
 
 export const metadata: Metadata = getSwapPageMetadata();
+
+function accentizeTitle(text: string) {
+  if (!text.includes("4TEEN")) {
+    return text;
+  }
+
+  const [before, after] = text.split("4TEEN");
+
+  return (
+    <>
+      {before}
+      <span className="ft-accent">4TEEN</span>
+      {after}
+    </>
+  );
+}
+
+function renderUniverseTitle(text: string) {
+  if (text === "The wallet is not boxed into two promotional targets.") {
+    return (
+      <>
+        The <span className="ft-meta-green">wallet</span> is not boxed into{" "}
+        <span className="ft-accent">two promotional targets</span>.
+      </>
+    );
+  }
+
+  return text;
+}
+
+function renderReviewTitle(text: string) {
+  if (
+    text ===
+    "The wallet does not jump straight into swap. It builds a controlled review first."
+  ) {
+    return (
+      <>
+        The wallet does not jump straight into <span className="ft-accent">swap</span>.
+        It builds a <span className="ft-meta-green">controlled review</span>{" "}
+        first.
+      </>
+    );
+  }
+
+  return text;
+}
+
+function renderCtaTitle(text: string) {
+  if (text === "Open the wallet when you want the full route map") {
+    return (
+      <>
+        Open the <span className="ft-meta-green">wallet</span> when you want the{" "}
+        <span className="ft-accent">full route map</span>
+      </>
+    );
+  }
+
+  return text;
+}
+
+function getTransferDirectionLabel(
+  direction: "router_in" | "router_out" | "related",
+  labels: {
+    routerIn: string;
+    routerOut: string;
+    related: string;
+  },
+) {
+  if (direction === "router_in") return labels.routerIn;
+  if (direction === "router_out") return labels.routerOut;
+  return labels.related;
+}
 
 export async function SwapPageView({
   locale = defaultSiteLocale,
@@ -32,6 +123,46 @@ export async function SwapPageView({
 }) {
   const content = getSwapPageContent(locale);
   const snapshot = await getServerSiteSnapshot<SwapSnapshot>("swap");
+  const heroSignals = content.hero.rotatingLines ?? [];
+
+  const routerStateLabel = snapshot
+    ? content.hero.stats.states[snapshot.routerState]
+    : "—";
+
+  const heroStats = snapshot ? (
+    <>
+      <article className="ft-price-card ft-price-card--warning">
+        <p className="ft-price-label">{content.hero.stats.sampleAmount.label}</p>
+        <p className="ft-price-main">
+          {formatCompactMetric(snapshot.sampleAmount)} 4TEEN
+        </p>
+        <p className="ft-price-sub">{content.hero.stats.sampleAmount.meta}</p>
+      </article>
+      <article className="ft-price-card ft-price-card--positive">
+        <p className="ft-price-label">{content.hero.stats.supportedTargets.label}</p>
+        <p className="ft-price-main">{formatCompactMetric(snapshot.supportedTargets)}</p>
+        <p className="ft-price-sub">{content.hero.stats.supportedTargets.meta}</p>
+      </article>
+      <article className="ft-price-card">
+        <p className="ft-price-label">{content.hero.stats.protectedRemainder.label}</p>
+        <p className="ft-price-main">{snapshot.protectedRemainder}</p>
+        <p className="ft-price-sub">{content.hero.stats.protectedRemainder.meta}</p>
+      </article>
+      <article
+        className={`ft-price-card ${
+          snapshot.routerState === "live"
+            ? "ft-price-card--positive"
+            : snapshot.routerState === "offline"
+              ? "ft-price-card--negative"
+              : "ft-price-card--warning"
+        }`}
+      >
+        <p className="ft-price-label">{content.hero.stats.routerState.label}</p>
+        <p className="ft-price-main">{routerStateLabel}</p>
+        <p className="ft-price-sub">{content.hero.stats.routerState.meta}</p>
+      </article>
+    </>
+  ) : null;
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-swap-page">
@@ -42,84 +173,144 @@ export async function SwapPageView({
         <div className="ft-container--wide ft-stack ft-stack--xl">
           <article className="ft-card ft-card--strong ft-placeholder-hero">
             <div className="ft-stack ft-stack--lg">
-              <div className="ft-cluster ft-cluster--sm">
-                <span className="ft-eyebrow">{content.hero.eyebrow}</span>
-                <span className="ft-status-pill live">{content.hero.status}</span>
-                <SiteSnapshotRefresh snapshotKeys={["swap"]} />
+              <div className="ft-buy-page__hero-layout">
+                <div className="ft-stack ft-stack--md ft-buy-page__hero-copy">
+                  <div className="ft-cluster ft-cluster--sm">
+                    <span className="ft-eyebrow">{content.hero.eyebrow}</span>
+                    <span className="ft-status-pill live">{content.hero.badge}</span>
+                    <SiteSnapshotRefresh snapshotKeys={["swap"]} />
+                  </div>
+
+                  <h1 className="ft-title-lg">{accentizeTitle(content.hero.title)}</h1>
+                  <p className="ft-lead">{content.hero.subtitle}</p>
+
+                  <div className="ft-stack ft-stack--sm">
+                    {content.hero.body.map((paragraph) => (
+                      <p key={paragraph} className="ft-text">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+
+                  {heroSignals.length ? (
+                    <SignalPoints
+                      className="ft-buy-page__signal-lines ft-buy-page__signal-lines--lead"
+                      items={heroSignals}
+                    />
+                  ) : null}
+
+                  {snapshot ? (
+                    <div className="ft-grid ft-buy-page__hero-stats ft-swap-page__hero-stats--desktop">
+                      {heroStats}
+                    </div>
+                  ) : (
+                    <div className="ft-note">
+                      <strong>{content.hero.stats.readFailed}</strong>{" "}
+                      {content.hero.stats.readRetry}
+                    </div>
+                  )}
+                </div>
+
+                <div className="ft-buy-page__hero-side">
+                  <div className="ft-stack ft-stack--md ft-buy-page__hero-side-inner">
+                    <div className="ft-buy-page__hero-media">
+                      <ProgressiveAnimatedMedia
+                        alt={SWAP_HERO_MEDIA_ALT}
+                        animatedSrc={SWAP_HERO_MEDIA_SRC}
+                        className="ft-buy-page__hero-media-frame"
+                        height={2220}
+                        imageClassName="ft-buy-page__hero-media-image"
+                        posterSrc={SWAP_HERO_POSTER_SRC}
+                        priority
+                        width={1080}
+                      />
+                    </div>
+
+                    <div className="ft-actions ft-actions--stack-mobile ft-buy-page__hero-side-actions">
+                      <LoaderLink className="ft-btn ft-btn--primary" href="/app">
+                        {content.hero.primaryCta}
+                      </LoaderLink>
+                      <LoaderLink
+                        className="ft-btn ft-btn--secondary"
+                        href="#swap-live-routes"
+                      >
+                        {content.hero.secondaryCta}
+                      </LoaderLink>
+                    </div>
+
+                    <p className="ft-note ft-buy-page__hero-note ft-buy-page__hero-note--desktop">
+                      {content.hero.ctaNote}
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div className="ft-stack ft-stack--md">
-                <h1 className="ft-title-lg">{content.hero.title}</h1>
-                <p className="ft-lead">{content.hero.lead}</p>
-              </div>
+              <p className="ft-note ft-buy-page__hero-note ft-buy-page__hero-note--mobile">
+                {content.hero.ctaNote}
+              </p>
 
               {snapshot ? (
-                <div className="ft-grid ft-grid--4 ft-swap-page__hero-stats">
-                  <article className="ft-price-card ft-price-card--positive">
-                    <p className="ft-price-label">{content.hero.stats.sampleAmount}</p>
-                    <p className="ft-price-main">{formatCompactMetric(snapshot.sampleAmount)} 4TEEN</p>
-                    <p className="ft-price-sub">{content.hero.stats.sampleAmountMeta}</p>
-                  </article>
-                  <article className="ft-price-card ft-price-card--warning">
-                    <p className="ft-price-label">{content.hero.stats.supportedTargets}</p>
-                    <p className="ft-price-main">{formatCompactMetric(snapshot.supportedTargets)}</p>
-                    <p className="ft-price-sub">{content.hero.stats.supportedTargetsMeta}</p>
-                  </article>
-                  <article
-                    className={`ft-price-card ${
-                      snapshot.routerState === "live"
-                        ? "ft-price-card--positive"
-                        : snapshot.routerState === "offline"
-                          ? "ft-price-card--negative"
-                          : "ft-price-card--warning"
-                    }`}
-                  >
-                    <p className="ft-price-label">{content.hero.stats.remainderGuard}</p>
-                    <p className="ft-price-main">{formatCompactMetric(snapshot.protectedRemainder)}</p>
-                    <p className="ft-price-sub">{content.hero.stats.remainderGuardMeta}</p>
-                  </article>
-                  <article className="ft-price-card">
-                    <p className="ft-price-label">{content.hero.stats.routerState}</p>
-                    <p className="ft-price-main">{content.hero.states[snapshot.routerState]}</p>
-                    <p className="ft-price-sub">{content.hero.stats.routerStateMeta}</p>
-                  </article>
+                <div className="ft-grid ft-buy-page__hero-stats ft-swap-page__hero-stats--mobile">
+                  {heroStats}
                 </div>
-              ) : (
-                <div className="ft-note">
-                  <strong>{content.hero.stats.readFailed}</strong> {content.hero.stats.readRetry}
-                </div>
-              )}
+              ) : null}
             </div>
           </article>
 
           <article className="ft-card ft-swap-page__panel">
             <div className="ft-stack ft-stack--md ft-swap-page__panel-stack">
               <div className="ft-stack ft-stack--xs">
-                <p className="ft-overline">{content.sections.walletRoute.eyebrow}</p>
-                <h2 className="ft-subtitle">{content.sections.walletRoute.title}</h2>
+                <p className="ft-overline">{content.sections.tokenUniverse.eyebrow}</p>
+                <h2 className="ft-subtitle">
+                  {renderUniverseTitle(content.sections.tokenUniverse.title)}
+                </h2>
               </div>
 
-              <p className="ft-text">{content.sections.walletRoute.body}</p>
+              <p className="ft-text">{content.sections.tokenUniverse.intro}</p>
 
-              <ul className="ft-list">
-                {content.sections.walletRoute.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
+              <div className="ft-swap-page__story-grid">
+                <article className="ft-card ft-card--plain ft-card--positive ft-swap-page__detail-card ft-swap-page__story-main">
+                  <p className="ft-card-title-top">
+                    {content.sections.tokenUniverse.mainCard.eyebrow}
+                  </p>
+                  <h3 className="ft-card-title">
+                    {content.sections.tokenUniverse.mainCard.title}
+                  </h3>
+                  <p className="ft-text">{content.sections.tokenUniverse.mainCard.text}</p>
+                  {content.sections.tokenUniverse.mainCard.bullets?.length ? (
+                    <ul className="ft-list">
+                      {content.sections.tokenUniverse.mainCard.bullets.map((bullet) => (
+                        <li key={bullet}>{bullet}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </article>
 
-              <div className="ft-actions ft-actions--stack-mobile">
-                <LoaderLink className="ft-btn ft-btn--primary" href="/app">
-                  {content.sections.walletRoute.openApp}
-                </LoaderLink>
-                <LoaderLink className="ft-btn ft-btn--secondary" href="/unlock">
-                  {content.sections.walletRoute.openUnlock}
-                </LoaderLink>
+                <div className="ft-swap-page__story-stack">
+                  {content.sections.tokenUniverse.cards.map((card, index) => (
+                    <article
+                      key={card.title}
+                      className={`ft-card ft-card--plain ft-swap-page__detail-card ${
+                        index === 0 ? "ft-card--warning" : "ft-card--positive"
+                      }`}
+                    >
+                      <p className="ft-card-title-top">{card.eyebrow}</p>
+                      <h3 className="ft-card-title">{card.title}</h3>
+                      <p className="ft-text">{card.text}</p>
+                    </article>
+                  ))}
+                </div>
               </div>
+
+              <p className="ft-note">{content.sections.tokenUniverse.note}</p>
             </div>
           </article>
 
           <div className="ft-grid ft-grid--2-even ft-swap-page__section-grid">
-            <article className="ft-card ft-swap-page__panel">
+            <article
+              id="swap-live-routes"
+              className="ft-card ft-swap-page__panel"
+            >
               <div className="ft-stack ft-stack--md ft-swap-page__panel-stack">
                 <div className="ft-stack ft-stack--xs">
                   <p className="ft-overline">{content.sections.liveRoutes.eyebrow}</p>
@@ -136,10 +327,13 @@ export async function SwapPageView({
                       >
                         <p className="ft-card-title-top">{route.targetSymbol}</p>
                         <h3 className="ft-card-title">
-                          {formatCompactMetric(route.expectedOutDisplay)} {route.targetSymbol}
+                          {formatCompactMetric(route.expectedOutDisplay)}{" "}
+                          {route.targetSymbol}
                         </h3>
                         <div className="ft-stack ft-stack--xs">
-                          <p className="ft-price-label">{content.sections.liveRoutes.labels.route}</p>
+                          <p className="ft-price-label">
+                            {content.sections.liveRoutes.labels.route}
+                          </p>
                           <p className="ft-text">{route.routeLabel}</p>
                         </div>
                         <div className="ft-stack ft-stack--xs">
@@ -162,7 +356,9 @@ export async function SwapPageView({
                             <p className="ft-text">{route.impactLabel}</p>
                           </div>
                           <div>
-                            <p className="ft-price-label">{content.sections.liveRoutes.labels.state}</p>
+                            <p className="ft-price-label">
+                              {content.sections.liveRoutes.labels.state}
+                            </p>
                             <p className="ft-text">
                               {route.isExecutable
                                 ? content.sections.liveRoutes.states.executable
@@ -173,7 +369,9 @@ export async function SwapPageView({
                             <p className="ft-price-label">
                               {content.sections.liveRoutes.labels.updated}
                             </p>
-                            <p className="ft-text">{formatUtcDate(snapshot.updatedAt, locale)}</p>
+                            <p className="ft-text">
+                              {formatUtcDate(snapshot.updatedAt, locale)}
+                            </p>
                           </div>
                         </div>
                       </article>
@@ -183,6 +381,93 @@ export async function SwapPageView({
                   <p className="ft-note">{content.sections.liveRoutes.empty}</p>
                 )}
 
+                <div className="ft-stack ft-stack--sm">
+                  <div className="ft-stack ft-stack--xs">
+                    <p className="ft-price-label">
+                      {content.sections.liveRoutes.transfers.eyebrow}
+                    </p>
+                    <h3 className="ft-card-title">
+                      {content.sections.liveRoutes.transfers.title}
+                    </h3>
+                  </div>
+
+                  {snapshot && snapshot.transfers.length > 0 ? (
+                    <div className="ft-swap-page__latest-list">
+                      <div className="ft-swap-page__latest-head">
+                        <span>{content.sections.liveRoutes.transfers.labels.direction}</span>
+                        <span>{content.sections.liveRoutes.transfers.labels.counterparty}</span>
+                        <span>{content.sections.liveRoutes.transfers.labels.amount}</span>
+                        <span>{content.sections.liveRoutes.transfers.labels.updated}</span>
+                        <span>{content.sections.liveRoutes.transfers.labels.tx}</span>
+                      </div>
+
+                      {snapshot.transfers.map((transfer) => (
+                        <div
+                          key={`${transfer.txId}-${transfer.fromAddress}-${transfer.toAddress}-${transfer.amountRaw}`}
+                          className="ft-swap-page__latest-row"
+                        >
+                          <div className="ft-swap-page__latest-cell">
+                            <span className="ft-swap-page__latest-label">
+                              {content.sections.liveRoutes.transfers.labels.direction}
+                            </span>
+                            <strong>
+                              {getTransferDirectionLabel(
+                                transfer.direction,
+                                content.sections.liveRoutes.transfers.states,
+                              )}
+                            </strong>
+                          </div>
+
+                          <div className="ft-swap-page__latest-cell">
+                            <span className="ft-swap-page__latest-label">
+                              {content.sections.liveRoutes.transfers.labels.counterparty}
+                            </span>
+                            <strong>{transfer.counterpartyShort}</strong>
+                            {transfer.counterpartyTag ? (
+                              <span>{transfer.counterpartyTag}</span>
+                            ) : null}
+                          </div>
+
+                          <div className="ft-swap-page__latest-cell">
+                            <span className="ft-swap-page__latest-label">
+                              {content.sections.liveRoutes.transfers.labels.amount}
+                            </span>
+                            <strong>{transfer.amountDisplay} 4TEEN</strong>
+                          </div>
+
+                          <div className="ft-swap-page__latest-cell">
+                            <span className="ft-swap-page__latest-label">
+                              {content.sections.liveRoutes.transfers.labels.updated}
+                            </span>
+                            <span>{formatUtcDate(transfer.happenedAt, locale)}</span>
+                          </div>
+
+                          <div className="ft-swap-page__latest-cell ft-swap-page__latest-cell--action">
+                            <span className="ft-swap-page__latest-label">
+                              {content.sections.liveRoutes.transfers.labels.tx}
+                            </span>
+                            <LoaderLink
+                              className="ft-link"
+                              href={transfer.txUrl}
+                              showLinkIcon
+                            >
+                              View
+                            </LoaderLink>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="ft-note">
+                      {content.sections.liveRoutes.transfers.empty}
+                    </p>
+                  )}
+
+                  <p className="ft-note">
+                    {content.sections.liveRoutes.transfers.note}
+                  </p>
+                </div>
+
                 <p className="ft-note">{content.sections.liveRoutes.note}</p>
               </div>
             </article>
@@ -190,53 +475,54 @@ export async function SwapPageView({
             <article className="ft-card ft-swap-page__panel">
               <div className="ft-stack ft-stack--md ft-swap-page__panel-stack">
                 <div className="ft-stack ft-stack--xs">
-                  <p className="ft-overline">{content.sections.discipline.eyebrow}</p>
-                  <h2 className="ft-subtitle">{content.sections.discipline.title}</h2>
+                  <p className="ft-overline">{content.sections.reviewLayer.eyebrow}</p>
+                  <h2 className="ft-subtitle">
+                    {renderReviewTitle(content.sections.reviewLayer.title)}
+                  </h2>
                 </div>
 
-                <div className="ft-grid ft-grid--3 ft-swap-page__detail-grid">
-                  {content.sections.discipline.cards.map((card) => (
-                    <article
-                      key={card.title}
-                      className="ft-card ft-card--plain ft-swap-page__detail-card"
-                    >
-                      <p className="ft-card-title-top">{card.eyebrow}</p>
-                      <h3 className="ft-card-title">{card.title}</h3>
-                      <p className="ft-text">{card.text}</p>
-                    </article>
-                  ))}
+                <p className="ft-text">{content.sections.reviewLayer.intro}</p>
+
+                <div className="ft-swap-page__story-grid">
+                  <article className="ft-card ft-card--plain ft-card--warning ft-swap-page__detail-card ft-swap-page__story-main">
+                    <p className="ft-card-title-top">
+                      {content.sections.reviewLayer.mainCard.eyebrow}
+                    </p>
+                    <h3 className="ft-card-title">
+                      {content.sections.reviewLayer.mainCard.title}
+                    </h3>
+                    <p className="ft-text">{content.sections.reviewLayer.mainCard.text}</p>
+                    {content.sections.reviewLayer.mainCard.bullets?.length ? (
+                      <ul className="ft-list">
+                        {content.sections.reviewLayer.mainCard.bullets.map((bullet) => (
+                          <li key={bullet}>{bullet}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </article>
+
+                  <div className="ft-swap-page__story-stack">
+                    {content.sections.reviewLayer.cards.map((card, index) => (
+                      <article
+                        key={card.title}
+                        className={`ft-card ft-card--plain ft-swap-page__detail-card ${
+                          index === 0 ? "ft-card--positive" : "ft-card--negative"
+                        }`}
+                      >
+                        <p className="ft-card-title-top">{card.eyebrow}</p>
+                        <h3 className="ft-card-title">{card.title}</h3>
+                        <p className="ft-text">{card.text}</p>
+                      </article>
+                    ))}
+                  </div>
                 </div>
 
-                <p className="ft-note">{content.sections.discipline.note}</p>
+                <p className="ft-note">{content.sections.reviewLayer.note}</p>
               </div>
             </article>
           </div>
 
           <div className="ft-grid ft-grid--2-even ft-swap-page__section-grid">
-            <article className="ft-card ft-swap-page__panel">
-              <div className="ft-stack ft-stack--md ft-swap-page__panel-stack">
-                <div className="ft-stack ft-stack--xs">
-                  <p className="ft-overline">{content.sections.convenience.eyebrow}</p>
-                  <h2 className="ft-subtitle">{content.sections.convenience.title}</h2>
-                </div>
-
-                <div className="ft-grid ft-grid--3 ft-swap-page__detail-grid">
-                  {content.sections.convenience.cards.map((card) => (
-                    <article
-                      key={card.title}
-                      className="ft-card ft-card--plain ft-swap-page__detail-card"
-                    >
-                      <p className="ft-card-title-top">{card.eyebrow}</p>
-                      <h3 className="ft-card-title">{card.title}</h3>
-                      <p className="ft-text">{card.text}</p>
-                    </article>
-                  ))}
-                </div>
-
-                <p className="ft-note">{content.sections.convenience.note}</p>
-              </div>
-            </article>
-
             <article className="ft-card ft-swap-page__panel">
               <div className="ft-stack ft-stack--md ft-swap-page__panel-stack">
                 <div className="ft-stack ft-stack--xs">
@@ -247,39 +533,53 @@ export async function SwapPageView({
                 <p className="ft-text">{content.sections.verification.body}</p>
 
                 <div className="ft-links ft-links--stack">
-                  <LoaderLink className="ft-link" href={swapVerificationLinks.router} showLinkIcon>
+                  <LoaderLink
+                    className="ft-link"
+                    href={swapVerificationLinks.router}
+                    showLinkIcon
+                  >
                     {content.sections.verification.labels.router}
                   </LoaderLink>
-                  <LoaderLink className="ft-link" href={swapVerificationLinks.token} showLinkIcon>
+                  <LoaderLink
+                    className="ft-link"
+                    href={swapVerificationLinks.token}
+                    showLinkIcon
+                  >
                     {content.sections.verification.labels.token}
                   </LoaderLink>
-                  <LoaderLink className="ft-link" href={officialWalletRepoUrl} showLinkIcon>
+                  <LoaderLink
+                    className="ft-link"
+                    href={officialWalletRepoUrl}
+                    showLinkIcon
+                  >
                     {content.sections.verification.labels.walletRepo}
                   </LoaderLink>
                 </div>
               </div>
             </article>
+
+            <article className="ft-card ft-swap-page__cta-panel">
+              <div className="ft-stack ft-stack--md ft-swap-page__panel-stack">
+                <div className="ft-stack ft-stack--xs">
+                  <p className="ft-overline">{content.sections.cta.eyebrow}</p>
+                  <h2 className="ft-subtitle">
+                    {renderCtaTitle(content.sections.cta.title)}
+                  </h2>
+                </div>
+
+                <p className="ft-text">{content.sections.cta.body}</p>
+
+                <div className="ft-actions ft-actions--stack-mobile">
+                  <LoaderLink className="ft-btn ft-btn--primary" href="/app">
+                    {content.sections.cta.openApp}
+                  </LoaderLink>
+                  <LoaderLink className="ft-btn ft-btn--secondary" href="/buy">
+                    {content.sections.cta.openBuy}
+                  </LoaderLink>
+                </div>
+              </div>
+            </article>
           </div>
-
-          <article className="ft-card ft-swap-page__cta-panel">
-            <div className="ft-stack ft-stack--md ft-swap-page__panel-stack">
-              <div className="ft-stack ft-stack--xs">
-                <p className="ft-overline">{content.sections.cta.eyebrow}</p>
-                <h2 className="ft-subtitle">{content.sections.cta.title}</h2>
-              </div>
-
-              <p className="ft-text">{content.sections.cta.body}</p>
-
-              <div className="ft-actions ft-actions--stack-mobile">
-                <LoaderLink className="ft-btn ft-btn--primary" href="/app">
-                  {content.sections.cta.openApp}
-                </LoaderLink>
-                <LoaderLink className="ft-btn ft-btn--secondary" href="/buy">
-                  {content.sections.cta.openBuy}
-                </LoaderLink>
-              </div>
-            </div>
-          </article>
         </div>
       </section>
     </main>

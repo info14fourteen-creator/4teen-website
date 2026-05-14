@@ -71,6 +71,13 @@ function isStringHref(href: LinkProps["href"]): href is string {
   return typeof href === "string";
 }
 
+function isExternalStringHref(href: LinkProps["href"]): href is string {
+  return (
+    typeof href === "string" &&
+    (href.startsWith("http://") || href.startsWith("https://"))
+  );
+}
+
 function resolveExternalNavigation(href: string, target?: string) {
   if (typeof window === "undefined") return;
 
@@ -104,17 +111,19 @@ export function LoaderLink({
   const [isPending, setIsPending] = useState(false);
   const isInternal = isInternalStringHref(href);
   const isString = isStringHref(href);
+  const isExternal = isExternalStringHref(href);
   const resolvedInternalHref = isInternal ? localizeSiteHref(href, currentLocale) : null;
   const resolvedStringHref = isString ? (resolvedInternalHref ?? href) : "";
   const resolvedHref = resolvedInternalHref ?? href;
   const animationData = isInternal ? internalLinkHover : externalLinkHover;
   const durationMs = useMemo(() => getLottieDurationMs(animationData), [animationData]);
+  const resolvedTarget = !isInternal && isExternal && !target ? "_blank" : target;
 
   function handleAnimatedNavigation(event: MouseEvent<HTMLAnchorElement>) {
     onClick?.(event);
 
     if (!isString || !showLinkIcon || shouldIgnoreAnimatedClick(event)) {
-      if (triggerLoader && !shouldIgnoreClick(event, target)) {
+      if (triggerLoader && !shouldIgnoreClick(event, resolvedTarget)) {
         triggerFourteenLoader();
       }
       return;
@@ -141,7 +150,7 @@ export function LoaderLink({
       if (isInternal) {
         navigateHard(resolvedInternalHref!);
       } else {
-        resolveExternalNavigation(href, target);
+        resolveExternalNavigation(href, resolvedTarget);
       }
 
       iconApiRef.current?.reset();
@@ -175,7 +184,7 @@ export function LoaderLink({
         className={`${props.className ?? ""}${isPending ? " is-pending" : ""}`.trim()}
         href={resolvedStringHref}
         onClick={handleAnimatedNavigation}
-        target={target}
+        target={resolvedTarget}
       >
         {renderAnimatedChildren()}
       </a>
@@ -186,16 +195,16 @@ export function LoaderLink({
     <Link
       {...props}
       href={isInternal ? resolvedHref : href}
-      onClick={(event) => {
-        onClick?.(event);
+        onClick={(event) => {
+          onClick?.(event);
 
-        if (!triggerLoader || shouldIgnoreClick(event, target)) {
+        if (!triggerLoader || shouldIgnoreClick(event, resolvedTarget)) {
           return;
         }
 
         triggerFourteenLoader();
       }}
-      target={target}
+      target={resolvedTarget}
     >
       {children}
     </Link>
