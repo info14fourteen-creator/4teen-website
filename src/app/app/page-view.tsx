@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 
+import { ProgressiveAnimatedMedia } from "@/components/site/progressive-animated-media";
 import { getAppPageContent } from "@/content/app-content";
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
+import { SignalPoints } from "@/components/site/signal-points";
 import { FourteenTopbar } from "@/components/site/topbar";
 import {
   defaultSiteLocale,
@@ -10,15 +12,24 @@ import {
 } from "@/lib/site-locale";
 import { buildPageMetadata } from "@/lib/site-metadata";
 
+const APP_HERO_POSTER_SRC = "/media/app-demo.png";
+const APP_HERO_MEDIA_SRC = "/media/app-demo.gif";
+const APP_HERO_MEDIA_ALT = "4TEEN mobile app home wallet preview";
+
 export function getAppPageMetadata(
   locale: SupportedSiteLocale = defaultSiteLocale,
 ): Metadata {
+  const metadata = getAppPageContent(locale).metadata;
   return buildPageMetadata({
-    title: "4TEEN Mobile App",
-    description:
-      "A multilingual TRON wallet with 4TEEN direct buy, unlock tracking, liquidity control, resource-aware execution, and download routes for mobile users.",
+    ...metadata,
     locale,
     pathname: "/app",
+    socialImages: [
+      {
+        url: APP_HERO_POSTER_SRC,
+        alt: APP_HERO_MEDIA_ALT,
+      },
+    ],
   });
 }
 
@@ -30,6 +41,7 @@ export function AppPageView({
   locale?: SupportedSiteLocale;
 }) {
   const content = getAppPageContent(locale);
+  const heroSignals = content.hero.rotatingLines ?? [];
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-app-page">
       <FourteenMobileShell appMode />
@@ -39,59 +51,88 @@ export function AppPageView({
         <div className="ft-container--wide ft-stack ft-stack--xl">
           <article className="ft-card ft-card--strong ft-placeholder-hero">
             <div className="ft-stack ft-stack--lg">
-              <div className="ft-cluster ft-cluster--sm">
-                <span className="ft-eyebrow">{content.hero.eyebrow}</span>
-                <span className="ft-status-pill live">{content.hero.status}</span>
+              <div className="ft-buy-page__hero-layout">
+                <div className="ft-stack ft-stack--md ft-buy-page__hero-copy">
+                  <div className="ft-cluster ft-cluster--sm">
+                    <span className="ft-eyebrow">{content.hero.eyebrow}</span>
+                    <span className="ft-status-pill live">{content.hero.status}</span>
+                  </div>
+
+                  <h1 className="ft-title-lg">{content.hero.title}</h1>
+                  <p className="ft-lead">{content.hero.lead}</p>
+
+                  {heroSignals.length ? (
+                    <SignalPoints
+                      className="ft-buy-page__signal-lines ft-buy-page__signal-lines--lead"
+                      items={heroSignals}
+                    />
+                  ) : null}
+
+                  <div className="ft-grid ft-grid--4 ft-app-page__hero-stats ft-app-page__hero-stats--desktop">
+                    {content.hero.stats.map((item) => (
+                      <article key={item.label} className="ft-price-card">
+                        <p className="ft-price-label">{item.label}</p>
+                        <p className="ft-price-main">{item.value}</p>
+                        <p className="ft-price-sub">{item.meta}</p>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="ft-buy-page__hero-side">
+                  <div className="ft-stack ft-stack--md ft-buy-page__hero-side-inner">
+                    <div className="ft-buy-page__hero-media">
+                      <ProgressiveAnimatedMedia
+                        alt={APP_HERO_MEDIA_ALT}
+                        animatedSrc={APP_HERO_MEDIA_SRC}
+                        className="ft-buy-page__hero-media-frame"
+                        height={2220}
+                        imageClassName="ft-buy-page__hero-media-image"
+                        posterSrc={APP_HERO_POSTER_SRC}
+                        priority
+                        width={1080}
+                      />
+                    </div>
+
+                    <div className="ft-actions ft-actions--stack-mobile ft-buy-page__hero-side-actions">
+                      {content.hero.primaryCta ? (
+                        <LoaderLink className="ft-btn ft-btn--primary" href="#app-protocol-surfaces">
+                          {content.hero.primaryCta}
+                        </LoaderLink>
+                      ) : null}
+                      {content.hero.secondaryCta ? (
+                        <LoaderLink className="ft-btn ft-btn--secondary" href="#app-download">
+                          {content.hero.secondaryCta}
+                        </LoaderLink>
+                      ) : (
+                        <LoaderLink className="ft-btn ft-btn--secondary" href="/">
+                          {content.hero.stayOnWeb}
+                        </LoaderLink>
+                      )}
+                    </div>
+
+                    {content.hero.ctaNote ? (
+                      <p className="ft-note ft-buy-page__hero-note ft-buy-page__hero-note--desktop">
+                        {content.hero.ctaNote}
+                      </p>
+                    ) : null}
+                  </div>
+                </div>
               </div>
 
-              <div className="ft-stack ft-stack--md">
-                <h1 className="ft-title-lg">{content.hero.title}</h1>
-                <p className="ft-lead">{content.hero.lead}</p>
-              </div>
+              {content.hero.ctaNote ? (
+                <p className="ft-note ft-buy-page__hero-note ft-buy-page__hero-note--mobile">
+                  {content.hero.ctaNote}
+                </p>
+              ) : null}
 
-              <div className="ft-actions ft-actions--stack-mobile ft-app-page__hero-actions">
-                {content.storeLinks.map((store) => (
-                  <a
-                    key={store.label}
-                    className="ft-btn ft-btn--primary"
-                    href={store.href}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {store.label}
-                  </a>
-                ))}
-                <LoaderLink className="ft-btn ft-btn--secondary" href="/">
-                  {content.hero.stayOnWeb}
-                </LoaderLink>
-              </div>
-
-              <div className="ft-grid ft-grid--4 ft-app-page__hero-stats">
+              <div className="ft-grid ft-grid--4 ft-app-page__hero-stats ft-app-page__hero-stats--mobile">
                 {content.hero.stats.map((item) => (
                   <article key={item.label} className="ft-price-card">
                     <p className="ft-price-label">{item.label}</p>
                     <p className="ft-price-main">{item.value}</p>
                     <p className="ft-price-sub">{item.meta}</p>
                   </article>
-                ))}
-              </div>
-            </div>
-          </article>
-
-          <article className="ft-card ft-card--plain">
-            <div className="ft-stack ft-stack--md">
-              <div className="ft-stack ft-stack--xs">
-                <p className="ft-overline">{content.sections.entryFlow.eyebrow}</p>
-                <h2 className="ft-subtitle">{content.sections.entryFlow.title}</h2>
-              </div>
-
-              <div className="ft-price-strip ft-app-page__entry-strip">
-                {content.entryFlow.map((step) => (
-                  <div key={step.title}>
-                    <p className="ft-price-label">{step.eyebrow}</p>
-                    <p className="ft-price-main">{step.title}</p>
-                    <p className="ft-price-sub">{step.body}</p>
-                  </div>
                 ))}
               </div>
             </div>
@@ -144,7 +185,7 @@ export function AppPageView({
             </article>
           </div>
 
-          <article className="ft-card ft-app-page__panel">
+          <article id="app-protocol-surfaces" className="ft-card ft-app-page__panel">
             <div className="ft-stack ft-stack--md ft-app-page__panel-stack">
               <div className="ft-stack ft-stack--xs">
                 <p className="ft-overline">{content.sections.protocolSurfaces.eyebrow}</p>
@@ -177,7 +218,7 @@ export function AppPageView({
             ))}
           </div>
 
-          <article className="ft-card ft-card--strong ft-app-page__download-card">
+          <article id="app-download" className="ft-card ft-card--strong ft-app-page__download-card">
             <div className="ft-stack ft-stack--lg ft-app-page__panel-stack">
               <div className="ft-stack ft-stack--sm">
                 <p className="ft-overline">{content.sections.download.eyebrow}</p>
