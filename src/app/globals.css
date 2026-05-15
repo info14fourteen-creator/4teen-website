@@ -7137,27 +7137,86 @@ body:has(.ft-not-found-page) .ft-site-footer {
 
 .ft-app-page__section-grid,
 .ft-app-page__rules-grid {
-  align-items: start;
+  align-items: stretch;
+  gap: clamp(16px, 2vw, 22px);
 }
 
 .ft-app-page__panel,
 .ft-app-page__detail-card,
 .ft-app-page__surface-card,
 .ft-app-page__download-card {
-  height: auto;
-  min-height: 0;
+  height: 100%;
+  min-width: 0;
 }
 
 .ft-app-page__foundation-grid,
 .ft-app-page__resource-grid,
 .ft-app-page__surface-grid,
 .ft-app-page__rules-grid {
-  align-items: start;
+  align-items: stretch;
+  gap: 12px;
 }
 
 .ft-app-page__panel-stack {
-  grid-template-rows: auto auto auto;
-  height: auto;
+  height: 100%;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+}
+
+.ft-app-page .ft-container--wide.ft-stack--xl {
+  gap: clamp(24px, 3vw, 34px);
+}
+
+.ft-app-page .ft-placeholder-hero,
+.ft-app-page__panel,
+.ft-app-page__download-card {
+  padding: clamp(20px, 2.4vw, 30px);
+}
+
+.ft-app-page .ft-subtitle,
+.ft-app-page .ft-card-title,
+.ft-app-page .ft-price-main {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+  text-wrap: pretty;
+}
+
+.ft-app-page .ft-price-label,
+.ft-app-page .ft-price-sub,
+.ft-app-page .ft-card-title-top,
+.ft-app-page .ft-overline {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.ft-app-page__detail-card,
+.ft-app-page__surface-card {
+  display: grid;
+  align-content: start;
+  grid-template-rows: auto auto 1fr;
+  padding: 18px 20px;
+  border-radius: 20px;
+}
+
+.ft-app-page__surface-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.018), rgba(255, 255, 255, 0)),
+    linear-gradient(135deg, rgba(255, 105, 0, 0.05), transparent 44%);
+}
+
+.ft-app-page__detail-card .ft-card-title,
+.ft-app-page__surface-card .ft-card-title {
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.05;
+}
+
+.ft-app-page__panel.ft-reveal,
+.ft-app-page__detail-card.ft-reveal,
+.ft-app-page__surface-card.ft-reveal,
+.ft-app-page__download-card.ft-reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .ft-airdrop-page__mini-table {
