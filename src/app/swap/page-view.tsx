@@ -322,7 +322,7 @@ export async function SwapPageView({
                   <p className="ft-text">{content.sections.liveRoutes.body}</p>
                 </div>
 
-                {routeSamples.length > 0 ? (
+                {snapshot && routeSamples.length > 0 ? (
                   <div className="ft-grid ft-grid--2 ft-swap-page__route-grid">
                     {routeSamples.map((route) => (
                       <article
