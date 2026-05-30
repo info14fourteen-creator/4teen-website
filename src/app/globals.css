@@ -7125,6 +7125,42 @@ body:has(.ft-not-found-page) .ft-site-footer {
 
 .ft-ambassador-page__route-grid {
   align-items: stretch;
+  gap: clamp(16px, 1.8vw, 22px);
+}
+
+.ft-ambassador-page__route-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20px;
+  gap: 14px;
+  align-content: start;
+  align-items: start;
+  min-width: 0;
+  height: 100%;
+}
+
+.ft-ambassador-page__route-card .ft-link__content {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.ft-ambassador-page__route-card .ft-link__icon {
+  width: 20px;
+  height: 20px;
+  justify-self: end;
+  margin-top: 2px;
+}
+
+.ft-ambassador-page__route-card .ft-card-title {
+  max-width: none;
+  font-size: clamp(21px, 1.55vw, 25px);
+  line-height: 1.12;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+.ft-ambassador-page__route-card .ft-text {
+  max-width: 48ch;
 }
 
 .ft-ambassador-page__repo-link {
@@ -10515,6 +10551,12 @@ html[data-ft-browser-safari="true"] .ft-site-footer__meta-links {
 
   .ft-liquidity-page__hero-stats--mobile {
     display: none !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .ft-ambassador-page__route-panel {
+    grid-column: 1 / -1;
   }
 }
 
