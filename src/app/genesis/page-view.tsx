@@ -36,53 +36,51 @@ export function GenesisPageView({
 
   return (
     <PublicPageShell content={content} pageClassName="ft-genesis-page">
-      <div className="ft-grid ft-grid--2-even ft-public-page__section-grid ft-genesis-page__section-grid">
-        <article className="ft-card ft-card--strong ft-public-page__panel ft-genesis-page__panel">
-          <div className="ft-stack ft-stack--md ft-public-page__panel-stack">
-            <div className="ft-stack ft-stack--xs">
-              <p className="ft-overline">Investment Thesis</p>
-              <h2 className="ft-subtitle">Why this can compound from here</h2>
-            </div>
-
-            <div className="ft-grid ft-grid--2-even ft-genesis-page__card-grid">
-              {content.thesis.map((item) => (
-                <article key={item.title} className="ft-card ft-card--plain ft-genesis-page__thesis-card">
-                  <div className="ft-stack ft-stack--xs">
-                    <p className="ft-card-title-top">{item.eyebrow}</p>
-                    <h3 className="ft-card-title">{item.title}</h3>
-                    <p className="ft-text">{item.body}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+      <article className="ft-card ft-card--strong ft-public-page__panel ft-genesis-page__panel ft-genesis-page__thesis-panel">
+        <div className="ft-stack ft-stack--md ft-public-page__panel-stack">
+          <div className="ft-stack ft-stack--xs">
+            <p className="ft-overline">Investment Thesis</p>
+            <h2 className="ft-subtitle">Why this can compound from here</h2>
           </div>
-        </article>
 
-        <article className="ft-card ft-public-page__panel ft-genesis-page__panel">
-          <div className="ft-stack ft-stack--md ft-public-page__panel-stack">
-            <div className="ft-stack ft-stack--xs">
-              <p className="ft-overline">Execution Proof</p>
-              <h2 className="ft-subtitle">What already exists on-chain and in product</h2>
-            </div>
-
-            <div className="ft-grid ft-grid--2-even ft-genesis-page__card-grid">
-              {content.proofTracks.map((track) => (
-                <article key={track.title} className="ft-card ft-card--plain ft-genesis-page__proof-card">
-                  <div className="ft-stack ft-stack--xs">
-                    <p className="ft-card-title-top">{track.eyebrow}</p>
-                    <h3 className="ft-card-title">{track.title}</h3>
-                    <ul className="ft-list ft-public-page__list">
-                      {track.bullets.map((bullet) => (
-                        <li key={bullet}>{bullet}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              ))}
-            </div>
+          <div className="ft-genesis-page__card-grid ft-genesis-page__thesis-grid">
+            {content.thesis.map((item) => (
+              <article key={item.title} className="ft-card ft-card--plain ft-genesis-page__thesis-card">
+                <div className="ft-stack ft-stack--xs">
+                  <p className="ft-card-title-top">{item.eyebrow}</p>
+                  <h3 className="ft-card-title">{item.title}</h3>
+                  <p className="ft-text">{item.body}</p>
+                </div>
+              </article>
+            ))}
           </div>
-        </article>
-      </div>
+        </div>
+      </article>
+
+      <article className="ft-card ft-public-page__panel ft-genesis-page__panel ft-genesis-page__proof-panel">
+        <div className="ft-stack ft-stack--md ft-public-page__panel-stack">
+          <div className="ft-stack ft-stack--xs">
+            <p className="ft-overline">Execution Proof</p>
+            <h2 className="ft-subtitle">What already exists on-chain and in product</h2>
+          </div>
+
+          <div className="ft-genesis-page__card-grid ft-genesis-page__proof-grid">
+            {content.proofTracks.map((track) => (
+              <article key={track.title} className="ft-card ft-card--plain ft-genesis-page__proof-card">
+                <div className="ft-stack ft-stack--xs">
+                  <p className="ft-card-title-top">{track.eyebrow}</p>
+                  <h3 className="ft-card-title">{track.title}</h3>
+                  <ul className="ft-list ft-public-page__list">
+                    {track.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </article>
 
       <article className="ft-card ft-card--strong ft-public-page__contact-panel ft-genesis-page__capital-panel">
         <div className="ft-stack ft-stack--md">
@@ -91,7 +89,7 @@ export function GenesisPageView({
             <h2 className="ft-subtitle">Where fresh capital would actually move the system faster</h2>
           </div>
 
-          <div className="ft-grid ft-grid--2-even ft-genesis-page__card-grid">
+          <div className="ft-genesis-page__card-grid ft-genesis-page__capital-grid">
             {content.capitalPlan.map((item) => (
               <article key={item.title} className="ft-card ft-card--plain ft-card--positive">
                 <div className="ft-stack ft-stack--xs">
@@ -106,7 +104,7 @@ export function GenesisPageView({
       </article>
 
       <article className="ft-card ft-public-page__contact-panel ft-genesis-page__contact-panel">
-        <div className="ft-grid ft-grid--2-even ft-public-page__contact-grid">
+        <div className="ft-public-page__contact-grid ft-genesis-page__contact-grid">
           <div className="ft-stack ft-stack--md">
             <div className="ft-stack ft-stack--xs">
               <p className="ft-overline">{content.contact.eyebrow}</p>
