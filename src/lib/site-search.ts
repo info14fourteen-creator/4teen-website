@@ -1,4 +1,5 @@
 import { getSearchContent } from "@/content/search-content";
+import { getGenesisDeckContent } from "@/content/genesis-content";
 import { getPublicPagesContent } from "@/content/public-pages-content";
 import { getAllSiteNav } from "@/lib/site-config";
 import {
@@ -25,6 +26,7 @@ export function getSiteSearchEntries(
 ): SiteSearchEntry[] {
   const copy = getSearchContent(locale);
   const publicPages = getPublicPagesContent(locale);
+  const genesisPage = getGenesisDeckContent(locale);
 
   return [
     {
@@ -124,6 +126,22 @@ export function getSiteSearchEntries(
       meta: copy.meta.supportRoute,
       kind: "internal",
       keywords: ["support", "contact", "telegram", "discord", "help", "official channels"],
+    },
+    {
+      title: genesisPage.metadata.title,
+      href: localizeSiteHref("/deck", locale),
+      meta: copy.meta.proofSurface,
+      kind: "internal",
+      keywords: [
+        "genesis",
+        "deck",
+        "investor",
+        "investor deck",
+        "funding",
+        "capital",
+        "investment",
+        "pitch",
+      ],
     },
     {
       title: "FourteenToken",

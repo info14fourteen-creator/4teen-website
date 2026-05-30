@@ -82,10 +82,17 @@ export function SiteFooter() {
         <div className="ft-container--wide ft-site-footer__grid">
           <div className="ft-site-footer__brand">
             <p className="ft-site-footer__text">{chrome.footer.brandText}</p>
-
-            <LoaderLink className="ft-site-footer__brand-link" href="/app">
-              {chrome.footer.getApp}
-            </LoaderLink>
+            <div className="ft-site-footer__brand-actions">
+              <LoaderLink className="ft-site-footer__brand-link" href="/app">
+                {chrome.footer.getApp}
+              </LoaderLink>
+              <LoaderLink
+                className="ft-site-footer__brand-link ft-site-footer__brand-link--secondary"
+                href="/deck"
+              >
+                {chrome.footer.investorDeck}
+              </LoaderLink>
+            </div>
           </div>
 
           <div className="ft-site-footer__nav">

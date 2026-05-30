@@ -77,6 +77,7 @@ export type ChromeContent = {
     privacy: string;
     terms: string;
     support: string;
+    investorDeck: string;
     officialChannels: string;
     brandText: string;
     getApp: string;
@@ -174,6 +175,7 @@ const chromeContentEn: ChromeContent = {
     privacy: "Privacy",
     terms: "Terms",
     support: "Support",
+    investorDeck: "Investor Deck",
     officialChannels: "Official Channels",
     brandText:
       "The wallet app now carries the live system surface: direct buy, unlock state, controller truth, ambassador cabinet, and Telegram-first growth flow.",

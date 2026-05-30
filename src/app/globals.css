@@ -2788,6 +2788,12 @@ a.is-active-anchor {
   gap: 14px;
 }
 
+.ft-site-footer__brand-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .ft-site-footer__text {
   margin: 0;
   max-width: 38ch;
@@ -2817,6 +2823,16 @@ a.is-active-anchor {
   border-color: rgba(255, 105, 0, 0.24);
   background: rgba(255, 255, 255, 0.03);
   color: var(--ft-white);
+}
+
+.ft-site-footer__brand-link--secondary {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.ft-site-footer__brand-link--secondary:hover {
+  border-color: rgba(255, 105, 0, 0.18);
+  color: var(--ft-accent);
 }
 
 .ft-site-footer__nav {
@@ -5971,6 +5987,48 @@ body:has(.ft-not-found-page) .ft-site-footer {
 .ft-public-page__channel-grid > *,
 .ft-public-page__scope-grid > * {
   min-width: 0;
+}
+
+.ft-genesis-page .ft-placeholder-hero {
+  border-color: rgba(255, 105, 0, 0.2);
+  background:
+    radial-gradient(circle at top right, rgba(255, 105, 0, 0.18), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(25, 224, 58, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.96), rgba(8, 8, 8, 0.94));
+}
+
+.ft-genesis-page__panel,
+.ft-genesis-page__capital-panel,
+.ft-genesis-page__contact-panel {
+  border-color: rgba(255, 105, 0, 0.16);
+}
+
+.ft-genesis-page__section-grid,
+.ft-genesis-page__card-grid {
+  gap: clamp(16px, 2vw, 22px);
+}
+
+.ft-genesis-page__thesis-card,
+.ft-genesis-page__proof-card,
+.ft-genesis-page__contact-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+}
+
+.ft-genesis-page__proof-card {
+  border-color: rgba(255, 105, 0, 0.14);
+}
+
+.ft-genesis-page__capital-panel {
+  background:
+    radial-gradient(circle at top right, rgba(255, 105, 0, 0.12), transparent 26%),
+    linear-gradient(180deg, rgba(20, 20, 20, 0.96), rgba(10, 10, 10, 0.94));
+}
+
+.ft-genesis-page__contact-panel {
+  background:
+    radial-gradient(circle at top right, rgba(25, 224, 58, 0.1), transparent 22%),
+    linear-gradient(180deg, rgba(18, 18, 18, 0.94), rgba(8, 8, 8, 0.96));
 }
 
 /* =========================================
@@ -9891,10 +9949,12 @@ button:not(:disabled),
   html[data-ft-browser-safari="true"] .ft-site-footer {
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    font-synthesis-weight: none;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__bar {
-    grid-template-columns: 15.5% minmax(0, 63.5%) 21%;
+    grid-template-columns: 15% minmax(0, 64%) 21%;
     align-items: end;
     gap: 8px;
     padding-right: 10px;
@@ -9931,14 +9991,14 @@ button:not(:disabled),
 
   html[data-ft-browser-safari="true"] .ft-site-nav-group__label {
     font-size: 8.5px;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-nav-link {
     min-height: 34px;
     padding-inline: 6px;
-    font-size: 8px;
-    letter-spacing: 0.06em;
+    font-size: 7.6px;
+    letter-spacing: 0.055em;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__utility {
@@ -9947,52 +10007,49 @@ button:not(:disabled),
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__utilityactions {
-    gap: 8px;
+    gap: 7px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-header__utilityhome,
   html[data-ft-browser-safari="true"] .ft-locale-switcher__button,
   html[data-ft-browser-safari="true"] .ft-header-app-link {
     min-height: 34px;
-    padding-inline: 10px;
-    font-size: 8px;
-    letter-spacing: 0.06em;
+    padding-inline: 8px;
+    font-size: 7.6px;
+    letter-spacing: 0.055em;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-search {
-    min-height: 34px;
+    min-height: 36px;
     gap: 8px;
-    padding-inline: 8px;
+    padding-inline: 9px;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-search__input {
     font-size: 8.4px;
   }
 
-  html[data-ft-browser-safari="true"] .ft-site-nav-link__text,
-  html[data-ft-browser-safari="true"] .ft-site-header__utilitytext,
-  html[data-ft-browser-safari="true"] .ft-header-app-link__text,
-  html[data-ft-browser-safari="true"] .ft-locale-switcher__button-code {
-    transform: scale(0.9);
-    transform-origin: center center;
-    letter-spacing: 0.05em;
+  html[data-ft-browser-safari="true"] .ft-site-header .ft-brand {
+    gap: 13px;
   }
 
-  html[data-ft-browser-safari="true"] .ft-site-nav-link__text {
-    width: calc(100% / 0.9);
-    text-align: center;
+  html[data-ft-browser-safari="true"] .ft-site-header .ft-brand-icon {
+    width: calc(var(--ft-icon-brand) * 0.84);
+    height: calc(var(--ft-icon-brand) * 0.84);
   }
 
-  html[data-ft-browser-safari="true"] .ft-site-header__utilitytext,
-  html[data-ft-browser-safari="true"] .ft-header-app-link__text,
-  html[data-ft-browser-safari="true"] .ft-locale-switcher__button-code {
-    white-space: nowrap;
+  html[data-ft-browser-safari="true"] .ft-site-header .ft-brand-copy {
+    height: calc(var(--ft-icon-brand) * 0.84);
+    min-height: calc(var(--ft-icon-brand) * 0.84);
   }
 
-  html[data-ft-browser-safari="true"] .ft-site-search__input {
-    transform: scale(0.9);
-    transform-origin: left center;
-    width: calc(100% / 0.9);
+  html[data-ft-browser-safari="true"] .ft-site-header .ft-brand-copy__eyebrow,
+  html[data-ft-browser-safari="true"] .ft-site-header .ft-brand-copy .ft-header-market__value,
+  html[data-ft-browser-safari="true"] .ft-site-header .ft-brand-copy .ft-header-market__eq,
+  html[data-ft-browser-safari="true"] .ft-site-header .ft-brand-copy .ft-header-market__status,
+  html[data-ft-browser-safari="true"] .ft-tagline-rotator__line {
+    font-size: 8.2px;
+    line-height: 1;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-footer__nav {
@@ -10003,8 +10060,8 @@ button:not(:disabled),
   html[data-ft-browser-safari="true"] .ft-site-footer__link,
   html[data-ft-browser-safari="true"] .ft-site-footer__brand-link,
   html[data-ft-browser-safari="true"] .ft-site-footer__meta-link {
-    font-size: 7.7px;
-    letter-spacing: 0.055em;
+    font-size: 8.4px;
+    letter-spacing: 0.06em;
   }
 
   html[data-ft-browser-safari="true"] .ft-site-footer__brand-link,

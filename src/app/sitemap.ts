@@ -16,6 +16,7 @@ const routes = [
   "/privacy",
   "/terms",
   "/support",
+  "/deck",
   "/buy",
   "/unlock",
   "/liquidity",
