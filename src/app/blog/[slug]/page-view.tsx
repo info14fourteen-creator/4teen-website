@@ -59,9 +59,9 @@ export async function BlogPostPageView({
     notFound();
   }
 
-  const relatedPosts = (await getPublishedBlogPosts({ locale, limit: 4 }))
+  const relatedPosts = (await getPublishedBlogPosts({ locale, limit: 6 }))
     .filter((candidate) => candidate.slug !== post.slug)
-    .slice(0, 3);
+    .slice(0, 4);
 
   return <BlogPostPage locale={locale} post={post} relatedPosts={relatedPosts} />;
 }

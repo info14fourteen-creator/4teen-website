@@ -6543,7 +6543,7 @@ body:has(.ft-not-found-page) .ft-site-footer {
 
 .ft-blog-post-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 300px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 368px);
   gap: clamp(18px, 2.4vw, 28px);
   align-items: start;
 }
@@ -6629,6 +6629,83 @@ body:has(.ft-not-found-page) .ft-site-footer {
 
 .ft-blog-post-rail__card {
   overflow: hidden;
+}
+
+.ft-blog-post-rail__card--stories {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.014)),
+    linear-gradient(135deg, rgba(255, 105, 0, 0.055), transparent 44%);
+}
+
+.ft-blog-post-rail__stories {
+  display: grid;
+  gap: 12px;
+}
+
+.ft-blog-post-story {
+  position: relative;
+  overflow: hidden;
+  min-height: 154px;
+  border-color: rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.018));
+}
+
+.ft-blog-post-story:hover {
+  transform: translateY(-1px);
+}
+
+.ft-blog-post-story__backdrop {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  filter: saturate(0.86) brightness(0.22);
+  transform: scale(1.03);
+}
+
+.ft-blog-post-story__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 8, 8, 0.48), rgba(8, 8, 8, 0.9)),
+    linear-gradient(135deg, rgba(255, 105, 0, 0.06), transparent 46%);
+}
+
+.ft-blog-post-story__inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+.ft-blog-post-story__top {
+  display: grid;
+  gap: 5px;
+}
+
+.ft-blog-post-story__body {
+  min-height: 0;
+  height: 100%;
+}
+
+.ft-blog-post-story__title {
+  margin: 0;
+  color: var(--ft-white);
+  font-size: clamp(18px, 1.35vw, 21px);
+  line-height: 1.16;
+  font-weight: 900;
+  text-wrap: pretty;
+}
+
+.ft-blog-post-story__excerpt {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 14px;
+  line-height: 1.68;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
 }
 
 .ft-blog-post-gallery__stack {
@@ -8260,6 +8337,7 @@ body:has(.ft-not-found-page) .ft-site-footer {
 
   .ft-blog-post-rail {
     order: 2;
+    gap: 16px;
   }
 
   .ft-blog-post-article {
@@ -8327,6 +8405,14 @@ body:has(.ft-not-found-page) .ft-site-footer {
 
   .ft-blog-post-gallery__image {
     aspect-ratio: 1 / 1;
+  }
+
+  .ft-blog-post-story {
+    min-height: 0;
+  }
+
+  .ft-blog-post-story__excerpt {
+    -webkit-line-clamp: 3;
   }
 }
 
