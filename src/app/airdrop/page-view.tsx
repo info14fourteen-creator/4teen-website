@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
 import { LoaderLink } from "@/components/site/loader-link";
+import { ProgressiveAnimatedMedia } from "@/components/site/progressive-animated-media";
+import { SignalPoints } from "@/components/site/signal-points";
 import { SiteSnapshotRefresh } from "@/components/site/site-snapshot-refresh";
 import { FourteenTopbar } from "@/components/site/topbar";
 import { getAirdropPageContent } from "@/content/airdrop-content";
@@ -15,17 +17,46 @@ import type { LiveAirdropSnapshot } from "@/lib/site-snapshot-types";
 import { formatUtcDate } from "@/lib/site-intl";
 import { formatCompactMetric, shortenAddress } from "@/lib/site-format";
 
+const AIRDROP_VAULT_SCAN_URL =
+  "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ";
+const AIRDROP_HERO_POSTER_SRC = "/media/airdrop-demo.png";
+const AIRDROP_HERO_MEDIA_SRC = "/media/airdrop-demo.gif";
+const AIRDROP_HERO_MEDIA_ALT = "4TEEN airdrop wallet route preview";
+
 export function getAirdropPageMetadata(
   locale: SupportedSiteLocale = defaultSiteLocale,
 ): Metadata {
   const metadata = getAirdropPageContent(locale).metadata;
-  return buildPageMetadata({ ...metadata, locale, pathname: "/airdrop" });
+  return buildPageMetadata({
+    ...metadata,
+    locale,
+    pathname: "/airdrop",
+    socialImages: [
+      {
+        url: AIRDROP_HERO_POSTER_SRC,
+        alt: AIRDROP_HERO_MEDIA_ALT,
+      },
+    ],
+  });
 }
 
 export const metadata: Metadata = getAirdropPageMetadata();
 
-const AIRDROP_VAULT_SCAN_URL =
-  "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ";
+function accentizeTitle(text: string) {
+  if (!text.includes("4TEEN")) {
+    return text;
+  }
+
+  const [before, after] = text.split("4TEEN");
+
+  return (
+    <>
+      {before}
+      <span className="ft-accent">4TEEN</span>
+      {after}
+    </>
+  );
+}
 
 export async function AirdropPageView({
   locale = defaultSiteLocale,
@@ -34,6 +65,55 @@ export async function AirdropPageView({
 }) {
   const content = getAirdropPageContent(locale);
   const snapshot = await getServerSiteSnapshot<LiveAirdropSnapshot>("airdrop");
+  const heroSignals = content.hero.rotatingLines ?? [];
+  const snapshotUnavailable = (
+    <div className="ft-note">
+      <strong>{content.hero.stats.readFailed}</strong>{" "}
+      {content.hero.stats.readRetry}
+    </div>
+  );
+  const heroStats = snapshot ? (
+    <>
+      <article className="ft-price-card ft-price-card--warning">
+        <p className="ft-price-label">{content.hero.stats.currentWave}</p>
+        <p className="ft-price-main">
+          {content.sections.waveSchedule.waveLabel(snapshot.currentWave + 1)} of 6
+        </p>
+        <p className="ft-price-sub">
+          {snapshot.currentWave + 1 < 6
+            ? `${content.sections.waveSchedule.waveLabel(snapshot.currentWave + 1)} ${content.sections.waveSchedule.unlocked.toLowerCase()}.`
+            : content.hero.stats.completed}
+        </p>
+      </article>
+      <article className="ft-price-card ft-price-card--positive">
+        <p className="ft-price-label">{content.hero.stats.vaultBalance}</p>
+        <p className="ft-price-main">
+          {formatCompactMetric(snapshot.vaultBalanceDisplay)}
+        </p>
+        <p className="ft-price-sub">{content.hero.stats.vaultBalanceMeta}</p>
+      </article>
+      <article className="ft-price-card ft-price-card--warning">
+        <p className="ft-price-label">{content.hero.stats.availableNow}</p>
+        <p className="ft-price-main">
+          {formatCompactMetric(snapshot.availableNowDisplay)}
+        </p>
+        <p className="ft-price-sub">{content.hero.stats.availableNowMeta}</p>
+      </article>
+      <article className="ft-price-card">
+        <p className="ft-price-label">{content.hero.stats.nextWave}</p>
+        <p className="ft-price-main">
+          {snapshot.nextWaveAt > 0
+            ? content.hero.stats.nextWaveValue(snapshot.currentWave)
+            : content.hero.stats.completed}
+        </p>
+        <p className="ft-price-sub">
+          {snapshot.nextWaveAt > 0
+            ? formatUtcDate(snapshot.nextWaveAt * 1000, locale)
+            : content.hero.stats.completed}
+        </p>
+      </article>
+    </>
+  ) : null;
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-airdrop-page">
@@ -44,54 +124,86 @@ export async function AirdropPageView({
         <div className="ft-container--wide ft-stack ft-stack--xl">
           <article className="ft-card ft-card--strong ft-placeholder-hero">
             <div className="ft-stack ft-stack--lg">
-              <div className="ft-cluster ft-cluster--sm">
-                <span className="ft-eyebrow">{content.hero.eyebrow}</span>
-                <span className="ft-status-pill live">{content.hero.status}</span>
-                <SiteSnapshotRefresh snapshotKeys={["airdrop"]} />
+              <div className="ft-buy-page__hero-layout">
+                <div className="ft-stack ft-stack--md ft-buy-page__hero-copy">
+                  <div className="ft-cluster ft-cluster--sm">
+                    <span className="ft-eyebrow">{content.hero.eyebrow}</span>
+                    <span className="ft-status-pill live">{content.hero.status}</span>
+                    <SiteSnapshotRefresh snapshotKeys={["airdrop"]} />
+                  </div>
+
+                  <h1 className="ft-title-lg">{accentizeTitle(content.hero.title)}</h1>
+                  <p className="ft-lead">{content.hero.lead}</p>
+
+                  <div className="ft-stack ft-stack--sm">
+                    {content.hero.body.map((paragraph) => (
+                      <p key={paragraph} className="ft-text">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+
+                  {heroSignals.length ? (
+                    <SignalPoints
+                      className="ft-buy-page__signal-lines ft-buy-page__signal-lines--lead"
+                      items={heroSignals}
+                    />
+                  ) : null}
+
+                  {snapshot ? (
+                    <div className="ft-grid ft-buy-page__hero-stats ft-airdrop-page__hero-stats--desktop">
+                      {heroStats}
+                    </div>
+                  ) : (
+                    snapshotUnavailable
+                  )}
+                </div>
+
+                <div className="ft-buy-page__hero-side">
+                  <div className="ft-stack ft-stack--md ft-buy-page__hero-side-inner">
+                    <div className="ft-buy-page__hero-media">
+                      <ProgressiveAnimatedMedia
+                        alt={AIRDROP_HERO_MEDIA_ALT}
+                        animatedSrc={AIRDROP_HERO_MEDIA_SRC}
+                        className="ft-buy-page__hero-media-frame"
+                        height={2220}
+                        imageClassName="ft-buy-page__hero-media-image"
+                        posterSrc={AIRDROP_HERO_POSTER_SRC}
+                        priority
+                        width={1080}
+                      />
+                    </div>
+
+                    <div className="ft-actions ft-actions--stack-mobile ft-buy-page__hero-side-actions">
+                      <LoaderLink className="ft-btn ft-btn--primary" href="/app">
+                        {content.hero.primaryCta}
+                      </LoaderLink>
+                      <a
+                        className="ft-btn ft-btn--secondary"
+                        href={AIRDROP_VAULT_SCAN_URL}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {content.hero.secondaryCta}
+                      </a>
+                    </div>
+
+                    <p className="ft-note ft-buy-page__hero-note ft-buy-page__hero-note--desktop">
+                      {content.hero.ctaNote}
+                    </p>
+                  </div>
+                </div>
               </div>
 
-              <div className="ft-stack ft-stack--md">
-                <h1 className="ft-title-lg">{content.hero.title}</h1>
-                <p className="ft-lead">{content.hero.lead}</p>
-              </div>
+              <p className="ft-note ft-buy-page__hero-note ft-buy-page__hero-note--mobile">
+                {content.hero.ctaNote}
+              </p>
 
               {snapshot ? (
-                <div className="ft-grid ft-grid--4 ft-airdrop-page__hero-stats">
-                  <article className="ft-price-card ft-price-card--warning">
-                    <p className="ft-price-label">{content.hero.stats.currentWave}</p>
-                    <p className="ft-price-main">{content.sections.waveSchedule.waveLabel(snapshot.currentWave + 1)} of 6</p>
-                    <p className="ft-price-sub">
-                      {snapshot.currentWave + 1 < 6
-                        ? `${content.sections.waveSchedule.waveLabel(snapshot.currentWave + 1)} ${content.sections.waveSchedule.unlocked.toLowerCase()}.`
-                        : content.hero.stats.completed}
-                    </p>
-                  </article>
-                  <article className="ft-price-card ft-price-card--positive">
-                    <p className="ft-price-label">{content.hero.stats.vaultBalance}</p>
-                    <p className="ft-price-main">{formatCompactMetric(snapshot.vaultBalanceDisplay)}</p>
-                    <p className="ft-price-sub">{content.hero.stats.vaultBalanceMeta}</p>
-                  </article>
-                  <article className="ft-price-card ft-price-card--warning">
-                    <p className="ft-price-label">{content.hero.stats.availableNow}</p>
-                    <p className="ft-price-main">{formatCompactMetric(snapshot.availableNowDisplay)}</p>
-                    <p className="ft-price-sub">{content.hero.stats.availableNowMeta}</p>
-                  </article>
-                  <article className="ft-price-card">
-                    <p className="ft-price-label">{content.hero.stats.nextWave}</p>
-                    <p className="ft-price-main">
-                      {snapshot.nextWaveAt > 0
-                        ? content.hero.stats.nextWaveValue(snapshot.currentWave)
-                        : content.hero.stats.completed}
-                    </p>
-                    <p className="ft-price-sub">{formatUtcDate(snapshot.nextWaveAt * 1000, locale)}</p>
-                  </article>
+                <div className="ft-grid ft-buy-page__hero-stats ft-airdrop-page__hero-stats--mobile">
+                  {heroStats}
                 </div>
-              ) : (
-                <div className="ft-note">
-                  <strong>{content.hero.stats.readFailed}</strong>{" "}
-                  {content.hero.stats.readRetry}
-                </div>
-              )}
+              ) : null}
             </div>
           </article>
 

@@ -6905,6 +6905,26 @@ body:has(.ft-not-found-page) .ft-site-footer {
   gap: 12px;
 }
 
+.ft-airdrop-page .ft-title-lg {
+  font-size: clamp(20px, 2.3vw, 32px);
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.ft-airdrop-page .ft-lead {
+  max-width: 76ch;
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.65;
+}
+
+.ft-airdrop-page__hero-stats--desktop {
+  display: none;
+}
+
+.ft-airdrop-page__hero-stats--mobile {
+  gap: 18px;
+}
+
 .ft-buy-page .ft-title-lg,
 .ft-unlock-page .ft-title-lg {
   font-size: clamp(20px, 2.3vw, 32px);
@@ -10415,6 +10435,101 @@ html[data-ft-browser-safari="true"] .ft-site-footer__meta-links {
   }
 
   .ft-ambassador-page__hero-stats--mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 821px) {
+  .ft-airdrop-page .ft-buy-page__hero-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 33.4%);
+    gap: 34px;
+    align-items: stretch;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-copy,
+  .ft-airdrop-page .ft-buy-page__hero-side {
+    min-height: 100%;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-side {
+    align-content: stretch;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-side-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-media {
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1 1 auto;
+    width: 100%;
+    min-height: 0;
+    overflow: visible;
+    padding: 0 0 18px;
+    margin: 0;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-media-frame {
+    width: min(100%, 388px);
+    max-width: 388px;
+    border-radius: 0;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-media-image {
+    width: 100%;
+    max-width: 388px;
+    max-height: 660px;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-side-actions {
+    width: min(100%, 388px);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-side-actions .ft-btn {
+    width: 100%;
+    min-height: 50px;
+    font-size: 14px;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-note--desktop {
+    display: block;
+    width: min(100%, 388px);
+    margin: 0;
+    color: var(--ft-text-dim);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .ft-airdrop-page .ft-buy-page__hero-note--mobile {
+    display: none !important;
+  }
+
+  .ft-airdrop-page__hero-stats--desktop {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ft-airdrop-page__hero-stats--mobile {
     display: none !important;
   }
 }
