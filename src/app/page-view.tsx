@@ -11,9 +11,9 @@ export function getHomePageMetadata(
   locale: SupportedSiteLocale = defaultSiteLocale,
 ): Metadata {
   return buildPageMetadata({
-    title: "4TEEN",
+    title: "4TEEN | TRON Wallet Entry and Protocol Map",
     description:
-      "4TEEN app hub on TRON for direct buy, unlock timeline, liquidity controller, ambassador cabinet, airdrop state, and protocol verification.",
+      "Start with 4TEEN on TRON: direct buy, 14-day unlock, liquidity routing, ambassador rewards, airdrop state, wallet execution, whitepaper, verification, and investor deck.",
     locale,
     pathname: "/",
   });

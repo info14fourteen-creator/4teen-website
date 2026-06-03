@@ -1,7 +1,6 @@
 "use client";
 
 import { Fragment } from "react";
-import { usePathname } from "next/navigation";
 import { LoaderLink } from "@/components/site/loader-link";
 import { SocialLottieLink } from "@/components/site/social-lottie-link";
 import socialDiscordHover from "@/assets/lottie/social-discord-hover.json";
@@ -16,7 +15,6 @@ import socialXHover from "@/assets/lottie/social-x-hover.json";
 import socialYoutubeHover from "@/assets/lottie/social-youtube-hover.json";
 import { getChromeContent } from "@/content/chrome-content";
 import { getNavContent } from "@/content/nav-content";
-import { stripSiteLocaleSegment } from "@/lib/site-locale";
 import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 const socialLinks = [
@@ -66,15 +64,9 @@ const footerNavRows = Array.from(
 );
 
 export function SiteFooter() {
-  const pathname = usePathname();
   const locale = useCurrentSiteLocale();
   const chrome = getChromeContent(locale);
   const nav = getNavContent(locale);
-  const routePath = stripSiteLocaleSegment(pathname ?? "/");
-
-  if (routePath.startsWith("/whitepaper")) {
-    return null;
-  }
 
   return (
     <footer className="ft-site-footer">
