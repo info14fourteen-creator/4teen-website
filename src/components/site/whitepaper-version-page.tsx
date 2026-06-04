@@ -14,6 +14,7 @@ import {
 } from "@/lib/site-locale";
 import type { ReactNode } from "react";
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
+import { SiteFooter } from "@/components/site/site-footer";
 import { FourteenTopbar } from "@/components/site/topbar";
 
 type MarkdownBlock =
@@ -654,6 +655,7 @@ export function WhitepaperCurrentPage({
           </article>
         </div>
       </section>
+      <SiteFooter includeOnWhitepaper />
     </main>
   );
 }
@@ -773,6 +775,7 @@ export function WhitepaperVersionPage({
           </article>
         </div>
       </section>
+      <SiteFooter includeOnWhitepaper />
     </main>
   );
 }

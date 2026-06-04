@@ -23,42 +23,42 @@ const primaryRoutes: RouteCard[] = [
   {
     eyebrow: "Entry",
     title: "Buy",
-    text: "Contract-native TRX entry: mint a fresh 4TEEN batch, create its own 14-day lock, and route value by rule.",
+    text: "The protocol-native entry route: send TRX from a signing wallet, mint a fresh 4TEEN batch, and start its own 14-day timer.",
     href: "/buy",
     tone: "live",
   },
   {
     eyebrow: "Timer",
     title: "Unlock",
-    text: "Public lock topology and wallet timeline context: each direct-buy batch has its own release point.",
+    text: "Every direct-buy batch has a separate release point. The page explains the public topology; the wallet shows the personal timeline.",
     href: "/unlock",
     tone: "live",
   },
   {
     eyebrow: "90%",
     title: "Liquidity",
-    text: "Controller-side liquidity route: threshold, daily release rule, bootstrapper, executors, and reserve custody.",
+    text: "The largest TRX route. It explains controller balance, release windows, bootstrapper logic, and how liquidity can be executed.",
     href: "/liquidity",
     tone: "live",
   },
   {
     eyebrow: "Market",
     title: "Swap",
-    text: "Secondary-market route after tokens are movable. Different machine, different risk, different timing.",
+    text: "The secondary-market route after tokens are movable. It is not the same machine as direct buy, and users should know the difference.",
     href: "/swap",
     tone: "live",
   },
   {
     eyebrow: "3%",
     title: "Airdrop",
-    text: "Wave-based growth vault with Telegram live today and a wallet-aware claim route inside the app.",
+    text: "The public distribution side of the system: wave logic, growth surface, and wallet-aware claim context.",
     href: "/airdrop",
     tone: "live",
   },
   {
     eyebrow: "7%",
     title: "Ambassadors",
-    text: "Registration, buyer attribution, purchase verification, reward ladder, and claimable cabinet state.",
+    text: "The referral and proof cabinet: registration, buyer attribution, purchase verification, reward ladder, and claims.",
     href: "/ambassadors",
     tone: "live",
   },
@@ -68,27 +68,27 @@ const proofRoutes: RouteCard[] = [
   {
     eyebrow: "App",
     title: "Mobile Wallet",
-    text: "The site explains the map. The app executes: signing wallet, resources, confirmation, unlock follow-up.",
+    text: "Execution lives here: signing wallet, resource checks, direct buy, unlock state, ambassador cabinet, and app routes.",
     href: "/app",
     tone: "live",
   },
   {
     eyebrow: "Proof",
     title: "Verification",
-    text: "Contracts, vaults, repos, controller truth, asset wallets, and public source links in one route.",
+    text: "The audit surface for contracts, vaults, repos, controller truth, wallet links, and public source references.",
     href: "/verification",
     tone: "live",
   },
   {
     eyebrow: "Docs",
     title: "Whitepaper",
-    text: "The current May 4, 2026 paper plus preserved archive versions for technical diligence.",
+    text: "The current May 4, 2026 document and preserved historical versions, separated cleanly for diligence.",
     href: "/whitepaper",
   },
   {
     eyebrow: "Capital",
     title: "Investor Deck",
-    text: "A direct deck page for investors and partners who need the thesis, product surface, and contact route.",
+    text: "A shareable investor route with the thesis, product surface, proof stack, and genesis@4teen.me contact path.",
     href: "/deck",
     tone: "live",
   },
@@ -98,19 +98,19 @@ const splitCards = [
   {
     share: "90%",
     title: "Liquidity side",
-    text: "The largest part of incoming TRX feeds the liquidity system and later market route.",
+    text: "The largest share feeds the liquidity side that supports the later market route after unlock.",
     href: "/liquidity",
   },
   {
     share: "7%",
     title: "Controller side",
-    text: "Controller/accounting side connected to administration, verified purchases, and ambassador rewards.",
+    text: "Controller and accounting layer connected to verified purchases, ambassador attribution, and reward settlement.",
     href: "/ambassadors",
   },
   {
     share: "3%",
     title: "Airdrop side",
-    text: "Growth distribution route that keeps public claim campaigns connected to the live system.",
+    text: "Growth distribution route that keeps public claim campaigns tied to the same live buy flow.",
     href: "/airdrop",
   },
 ];
@@ -194,27 +194,27 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
 
                 <div className="ft-stack ft-stack--md">
                   <h1 className="ft-home-hero__title">
-                    <AccentTitle>4TEEN is the wallet-first route into a structured TRON system.</AccentTitle>
+                    <AccentTitle>4TEEN is the TRON wallet route for buy, lock, liquidity, and proof.</AccentTitle>
                   </h1>
                   <p className="ft-lead ft-home-hero__lead">
-                    Buy through the contract, wait through the lock, watch the
-                    liquidity route, and use the wallet when it is time to act.
+                    Start with the contract-native buy route, track the 14-day
+                    lock, understand where TRX flows, and execute from the
+                    wallet when the numbers are clear.
                   </p>
                 </div>
 
                 <div className="ft-stack ft-stack--sm ft-home-hero__body">
                   <p>
-                    This homepage is the map. The inner pages carry the proof:
-                    direct buy explains entry, unlock explains timing,
-                    liquidity explains the 90% route, ambassadors and airdrop
-                    explain growth, and verification ties claims back to
-                    contracts and code.
+                    The homepage should do one job fast: route a new user to
+                    the right machine. Buy explains entry, Unlock explains
+                    timing, Liquidity explains the 90% side, Swap explains the
+                    market route, and Verification ties the claims back to code.
                   </p>
                   <p>
-                    The clean user path is simple: install the wallet, enter
-                    through the contract-native buy route, track the 14-day
-                    batch timer, then decide whether to hold or move through
-                    market liquidity after unlock.
+                    The product path is simple enough to remember: install the
+                    wallet, enter through direct buy, wait for the batch unlock,
+                    then decide whether to hold or move through market
+                    liquidity. No fake dashboard fog, just the route.
                   </p>
                 </div>
 
@@ -231,10 +231,10 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
                 </div>
 
                 <div className="ft-home-hero__points" aria-label="4TEEN route summary">
-                  <div className="ft-home-hero__point">Direct buy mints a fresh locked batch.</div>
-                  <div className="ft-home-hero__point">Every direct-buy batch has its own 14-day timer.</div>
-                  <div className="ft-home-hero__point">Incoming TRX routes by contract rule: 90% / 7% / 3%.</div>
-                  <div className="ft-home-hero__point">The wallet executes; the site explains and verifies.</div>
+                  <div className="ft-home-hero__point">Direct buy mints a fresh batch and locks it.</div>
+                  <div className="ft-home-hero__point">Each batch carries its own 14-day timer.</div>
+                  <div className="ft-home-hero__point">Incoming TRX is routed by contract rule: 90% / 7% / 3%.</div>
+                  <div className="ft-home-hero__point">The site explains. The wallet signs and executes.</div>
                 </div>
               </div>
             </article>
@@ -305,11 +305,11 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
             eyebrow="Route Map"
             title={
               <>
-                Start from the page that matches the decision in front of you.
+                Start from the route that matches the decision in front of you.
               </>
             }
           >
-            The homepage should not swallow the product. It should point users
+            A serious homepage is not a brochure maze. It should push people
             into the right live surface fast: entry, timer, liquidity, market,
             growth, cabinet, app, proof, docs, or capital route.
           </SectionIntro>
@@ -333,8 +333,8 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
             }
           >
             The strongest homepage story is the actual machine: users buy
-            directly, wait through the lock, and while they wait later buys keep
-            feeding liquidity, controller accounting, and public distribution.
+            directly, wait through the lock, and later buys keep feeding
+            liquidity, controller accounting, and public distribution.
           </SectionIntro>
 
           <div className="ft-home-system-grid">
@@ -370,8 +370,8 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
             }
           >
             A new visitor should understand the claim, then immediately have a
-            route to verify it. That is why the homepage now links directly to
-            the whitepaper, verification route, repositories, blog context, and
+            route to verify it. That is why the homepage links directly to the
+            whitepaper, verification route, repositories, blog context, and
             investor deck.
           </SectionIntro>
 
