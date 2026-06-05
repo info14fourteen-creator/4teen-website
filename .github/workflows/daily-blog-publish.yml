@@ -297,6 +297,8 @@ jobs:
 
           args=(--skip-notify)
           skip_deploy_value="false"
+          attempts=3
+          delay_seconds=20
 
           run_date="${DAILY_DIGEST_EVENT_RUN_DATE:-}"
           if [ -n "${run_date}" ]; then
@@ -314,7 +316,20 @@ jobs:
             skip_deploy_value="true"
           fi
 
-          node scripts/blog-automation/daily-digest-runner.mjs "${args[@]}"
+          for attempt in $(seq 1 "${attempts}"); do
+            if node scripts/blog-automation/daily-digest-runner.mjs "${args[@]}"; then
+              break
+            fi
+
+            if [ "${attempt}" -ge "${attempts}" ]; then
+              echo "Daily digest publish failed after ${attempts} attempts"
+              exit 1
+            fi
+
+            echo "Daily digest publish attempt ${attempt}/${attempts} failed; retrying in ${delay_seconds}s..."
+            sleep "${delay_seconds}"
+          done
+
           echo "skip_deploy=${skip_deploy_value}" >> "$GITHUB_OUTPUT"
 
       - name: Print publish result
