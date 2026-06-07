@@ -73,6 +73,13 @@ const proofRoutes: RouteCard[] = [
     tone: "live",
   },
   {
+    eyebrow: "Utility",
+    title: "TRON Energy Desk",
+    text: "QuickShooters calculates and rents TRON Energy plus Bandwidth before USDT TRC20 transfers, so users do not burn TRX blindly.",
+    href: "https://quickshooters.com/?utm_source=4teen&utm_medium=homepage&utm_campaign=energy_desk",
+    tone: "live",
+  },
+  {
     eyebrow: "Proof",
     title: "Verification",
     text: "The audit surface for contracts, vaults, repos, controller truth, wallet links, and public source references.",
@@ -142,8 +149,16 @@ function AccentTitle({ children }: { children: string }) {
 }
 
 function HomeRouteCard({ card }: { card: RouteCard }) {
+  const isExternal = card.href.startsWith("http");
+
   return (
-    <LoaderLink className="ft-home-surface-card" href={card.href}>
+    <LoaderLink
+      className="ft-home-surface-card"
+      href={card.href}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      showLinkIcon={isExternal}
+      target={isExternal ? "_blank" : undefined}
+    >
       <span className={`ft-status-pill ${card.tone ?? "wait"}`}>
         {card.eyebrow}
       </span>
