@@ -114,6 +114,18 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
                   <span className="ft-hero-tool__meta">{tool.meta}</span>
                 </LoaderLink>
               ))}
+              <LoaderLink
+                className="ft-hero-tool"
+                href="https://quickshooters.com/?utm_source=4teen&utm_medium=homepage&utm_campaign=energy_desk"
+                rel="noreferrer"
+                showLinkIcon
+                target="_blank"
+              >
+                <span className="ft-hero-tool__title">TRON Energy Desk</span>
+                <span className="ft-hero-tool__meta">
+                  Rent Energy and Bandwidth before USDT TRC20 transfers
+                </span>
+              </LoaderLink>
             </div>
           </div>
         </div>
