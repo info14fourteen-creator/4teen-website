@@ -124,6 +124,11 @@ export async function SwapPageView({
   const content = getSwapPageContent(locale);
   const snapshot = await getServerSiteSnapshot<SwapSnapshot>("swap");
   const heroSignals = content.hero.rotatingLines ?? [];
+  const routeSamples = Array.isArray(snapshot?.routes) ? snapshot.routes : [];
+  const transferSamples = Array.isArray(snapshot?.transfers)
+    ? snapshot.transfers
+    : [];
+  const snapshotUpdatedAt = snapshot?.updatedAt ?? Date.now();
 
   const routerStateLabel = snapshot
     ? content.hero.stats.states[snapshot.routerState]
@@ -318,9 +323,9 @@ export async function SwapPageView({
                   <p className="ft-text">{content.sections.liveRoutes.body}</p>
                 </div>
 
-                {snapshot && snapshot.routes.length > 0 ? (
+                {routeSamples.length > 0 ? (
                   <div className="ft-grid ft-grid--2 ft-swap-page__route-grid">
-                    {snapshot.routes.map((route) => (
+                    {routeSamples.map((route) => (
                       <article
                         key={route.targetKey}
                         className="ft-card ft-card--plain ft-swap-page__route-card"
@@ -370,7 +375,7 @@ export async function SwapPageView({
                               {content.sections.liveRoutes.labels.updated}
                             </p>
                             <p className="ft-text">
-                              {formatUtcDate(snapshot.updatedAt, locale)}
+                              {formatUtcDate(snapshotUpdatedAt, locale)}
                             </p>
                           </div>
                         </div>
@@ -391,7 +396,7 @@ export async function SwapPageView({
                     </h3>
                   </div>
 
-                  {snapshot && snapshot.transfers.length > 0 ? (
+                  {transferSamples.length > 0 ? (
                     <div className="ft-swap-page__latest-list">
                       <div className="ft-swap-page__latest-head">
                         <span>{content.sections.liveRoutes.transfers.labels.direction}</span>
@@ -401,7 +406,7 @@ export async function SwapPageView({
                         <span>{content.sections.liveRoutes.transfers.labels.tx}</span>
                       </div>
 
-                      {snapshot.transfers.map((transfer) => (
+                      {transferSamples.map((transfer) => (
                         <div
                           key={`${transfer.txId}-${transfer.fromAddress}-${transfer.toAddress}-${transfer.amountRaw}`}
                           className="ft-swap-page__latest-row"
