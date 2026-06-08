@@ -8,6 +8,8 @@ type LocalePageParams = {
   locale: string;
 };
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {
