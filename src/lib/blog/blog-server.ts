@@ -1,6 +1,7 @@
 import { cache } from "react";
 
 import blogImportBundle from "../../../scripts/blog-migration/out/content-table/blog-import.bundle.json";
+import tronixRentSeoPosts from "./tronix-rent-seo-posts.json";
 import { getBlogPool } from "@/lib/blog/blog-db";
 import {
   defaultSiteLocale,
@@ -147,6 +148,8 @@ That is the clean user flow QuickShooters is trying to make normal: calculate, r
   },
 ];
 
+const TRONIX_RENT_PROMO_POSTS = tronixRentSeoPosts as BlogSnapshotPost[];
+
 type BlogContentSource = "snapshot" | "database" | "off";
 
 function mapSummary(row: BlogPostRow): BlogPostSummary {
@@ -192,7 +195,7 @@ function getSnapshotBundle() {
 
   return {
     ...bundle,
-    posts: [...QUICKSHOOTERS_PROMO_POSTS, ...bundle.posts],
+    posts: [...TRONIX_RENT_PROMO_POSTS, ...QUICKSHOOTERS_PROMO_POSTS, ...bundle.posts],
   };
 }
 
