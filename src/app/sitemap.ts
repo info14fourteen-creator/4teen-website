@@ -17,6 +17,7 @@ const routes = [
   "/terms",
   "/support",
   "/deck",
+  "/one-pager",
   "/buy",
   "/unlock",
   "/liquidity",

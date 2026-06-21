@@ -24,13 +24,13 @@ import type { LiveAmbassadorSnapshot } from "@/lib/site-snapshot-types";
 const AMBASSADOR_CONTROLLER_SCAN_FALLBACK =
   "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ";
 const AMBASSADOR_HERO_POSTER_SRC = "/media/ambassador-cabinet-demo.png";
-const AMBASSADOR_HERO_MEDIA_SRC = "/media/ambassador-cabinet-demo.gif";
+const AMBASSADOR_HERO_MEDIA_SRC = "/media/ambassador-cabinet-demo.mp4";
 const AMBASSADOR_HERO_MEDIA_ALT =
   "4TEEN ambassador cabinet mobile wallet preview";
 const AMBASSADOR_REGISTRATION_POSTER_SRC =
   "/media/ambassador-registration-demo.png";
 const AMBASSADOR_REGISTRATION_MEDIA_SRC =
-  "/media/ambassador-registration-demo.gif";
+  "/media/ambassador-registration-demo.mp4";
 const AMBASSADOR_REGISTRATION_MEDIA_ALT =
   "4TEEN ambassador registration mobile wallet preview";
 
@@ -237,7 +237,7 @@ export async function AmbassadorsPageView({
                         imageClassName="ft-buy-page__hero-media-image"
                         posterSrc={AMBASSADOR_HERO_POSTER_SRC}
                         priority
-                        width={1080}
+                        width={1078}
                       />
                     </div>
 
@@ -334,7 +334,7 @@ export async function AmbassadorsPageView({
                     imageClassName="ft-buy-page__hero-media-image"
                     posterSrc={AMBASSADOR_REGISTRATION_POSTER_SRC}
                     priority
-                    width={1080}
+                    width={1078}
                   />
                 </div>
               </div>

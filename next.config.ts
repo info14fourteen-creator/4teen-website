@@ -18,6 +18,19 @@ const nextConfig: NextConfig = {
       new URL("https://static.tronscan.org/**"),
     ],
   },
+  async headers() {
+    return [
+      {
+        source: "/media/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=86400, s-maxage=2592000, stale-while-revalidate=86400",
+          },
+        ],
+      },
+    ];
+  },
   turbopack: {
     root: path.resolve(__dirname),
   },

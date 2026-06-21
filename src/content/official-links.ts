@@ -2,6 +2,7 @@ export const officialSupportEmail = "support@4teen.me";
 export const officialGenesisEmail = "genesis@4teen.me";
 
 export const officialWebsiteUrl = "https://4teen.me";
+export const officialTronixRentUrl = "https://tronix.rent";
 export const officialWalletRepoUrl =
   "https://github.com/info14fourteen-creator/4teen-wallet-app";
 export const officialContractsRepoUrl =

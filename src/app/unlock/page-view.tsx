@@ -25,7 +25,7 @@ import {
 } from "@/lib/site-snapshot-types";
 
 const UNLOCK_HERO_POSTER_SRC = "/media/unlock-demo.png";
-const UNLOCK_HERO_MEDIA_SRC = "/media/unlock-demo.gif";
+const UNLOCK_HERO_MEDIA_SRC = "/media/unlock-demo.mp4";
 const UNLOCK_HERO_MEDIA_ALT = "4TEEN unlock timeline mobile wallet preview";
 
 export function getUnlockPageMetadata(
@@ -276,11 +276,11 @@ export async function UnlockPageView({
                         alt={UNLOCK_HERO_MEDIA_ALT}
                         animatedSrc={UNLOCK_HERO_MEDIA_SRC}
                         className="ft-buy-page__hero-media-frame"
-                        height={2205}
+                        height={2220}
                         imageClassName="ft-buy-page__hero-media-image"
                         posterSrc={UNLOCK_HERO_POSTER_SRC}
                         priority
-                        width={1020}
+                        width={1080}
                       />
                     </div>
 

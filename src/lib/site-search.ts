@@ -1,5 +1,6 @@
 import { getSearchContent } from "@/content/search-content";
 import { getGenesisDeckContent } from "@/content/genesis-content";
+import { getOnePagerContent } from "@/content/one-pager-content";
 import { getPublicPagesContent } from "@/content/public-pages-content";
 import { getAllSiteNav } from "@/lib/site-config";
 import {
@@ -27,6 +28,7 @@ export function getSiteSearchEntries(
   const copy = getSearchContent(locale);
   const publicPages = getPublicPagesContent(locale);
   const genesisPage = getGenesisDeckContent(locale);
+  const onePagerPage = getOnePagerContent(locale);
 
   return [
     {
@@ -140,6 +142,22 @@ export function getSiteSearchEntries(
         "funding",
         "capital",
         "investment",
+        "pitch",
+      ],
+    },
+    {
+      title: onePagerPage.metadata.title,
+      href: localizeSiteHref("/one-pager", locale),
+      meta: copy.meta.proofSurface,
+      kind: "internal",
+      keywords: [
+        "one-pager",
+        "one pager",
+        "brief",
+        "investor brief",
+        "summary",
+        "overview",
+        "funding",
         "pitch",
       ],
     },

@@ -20,7 +20,7 @@ import { formatCompactMetric, shortenAddress } from "@/lib/site-format";
 const AIRDROP_VAULT_SCAN_URL =
   "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ";
 const AIRDROP_HERO_POSTER_SRC = "/media/airdrop-demo.png";
-const AIRDROP_HERO_MEDIA_SRC = "/media/airdrop-demo.gif";
+const AIRDROP_HERO_MEDIA_SRC = "/media/airdrop-demo.mp4";
 const AIRDROP_HERO_MEDIA_ALT = "4TEEN airdrop wallet route preview";
 
 export function getAirdropPageMetadata(

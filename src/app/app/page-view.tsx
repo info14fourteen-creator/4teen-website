@@ -13,7 +13,7 @@ import {
 import { buildPageMetadata } from "@/lib/site-metadata";
 
 const APP_HERO_POSTER_SRC = "/media/app-demo.png";
-const APP_HERO_MEDIA_SRC = "/media/app-demo.gif";
+const APP_HERO_MEDIA_SRC = "/media/app-demo.mp4";
 const APP_HERO_MEDIA_ALT = "4TEEN mobile app home wallet preview";
 
 export function getAppPageMetadata(
@@ -90,7 +90,7 @@ export function AppPageView({
                         imageClassName="ft-buy-page__hero-media-image"
                         posterSrc={APP_HERO_POSTER_SRC}
                         priority
-                        width={1080}
+                        width={1078}
                       />
                     </div>
 

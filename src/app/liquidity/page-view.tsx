@@ -25,7 +25,7 @@ import {
 } from "@/lib/site-snapshot-types";
 
 const LIQUIDITY_HERO_POSTER_SRC = "/media/liquidity-demo.png";
-const LIQUIDITY_HERO_MEDIA_SRC = "/media/liquidity-demo.gif";
+const LIQUIDITY_HERO_MEDIA_SRC = "/media/liquidity-demo.mp4";
 const LIQUIDITY_HERO_MEDIA_ALT =
   "4TEEN public liquidity controller mobile wallet preview";
 

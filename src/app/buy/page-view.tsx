@@ -171,13 +171,13 @@ export async function BuyPageView({
                     <div className="ft-buy-page__hero-media">
                       <ProgressiveAnimatedMedia
                         alt={BUY_HERO_MEDIA_ALT}
-                        animatedSrc="/media/buy-demo.gif"
+                        animatedSrc="/media/buy-demo.mp4"
                         className="ft-buy-page__hero-media-frame"
                         height={2220}
                         imageClassName="ft-buy-page__hero-media-image"
                         posterSrc={BUY_HERO_POSTER_SRC}
                         priority
-                        width={1080}
+                        width={1078}
                       />
                     </div>
 

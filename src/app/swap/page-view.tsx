@@ -22,7 +22,7 @@ import {
 } from "@/lib/site-snapshot-types";
 
 const SWAP_HERO_POSTER_SRC = "/media/swap-demo.png";
-const SWAP_HERO_MEDIA_SRC = "/media/swap-demo.gif";
+const SWAP_HERO_MEDIA_SRC = "/media/swap-demo.mp4";
 const SWAP_HERO_MEDIA_ALT = "4TEEN swap mobile wallet preview";
 
 export function getSwapPageMetadata(

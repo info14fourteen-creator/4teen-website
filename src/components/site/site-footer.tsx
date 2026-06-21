@@ -16,6 +16,7 @@ import socialXHover from "@/assets/lottie/social-x-hover.json";
 import socialYoutubeHover from "@/assets/lottie/social-youtube-hover.json";
 import { getChromeContent } from "@/content/chrome-content";
 import { getNavContent } from "@/content/nav-content";
+import { officialTronixRentUrl } from "@/content/official-links";
 import { stripSiteLocaleSegment } from "@/lib/site-locale";
 import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
@@ -55,9 +56,15 @@ const footerColumns = [
 ] as const;
 
 const footerMetaLinks = [
+  { href: "/deck", key: "investorDeck" },
+  { href: "/one-pager", key: "onePager" },
   { href: "/privacy", key: "privacy" },
   { href: "/terms", key: "terms" },
   { href: "/support", key: "support" },
+] as const;
+
+const footerProjectLinks = [
+  { href: officialTronixRentUrl, label: "TronixRent" },
 ] as const;
 
 const footerNavRows = Array.from(
@@ -149,6 +156,11 @@ export function SiteFooter({
             {footerMetaLinks.map((link) => (
               <LoaderLink key={link.href} className="ft-site-footer__meta-link" href={link.href}>
                 {chrome.footer[link.key]}
+              </LoaderLink>
+            ))}
+            {footerProjectLinks.map((link) => (
+              <LoaderLink key={link.href} className="ft-site-footer__meta-link" href={link.href}>
+                {link.label}
               </LoaderLink>
             ))}
           </div>
