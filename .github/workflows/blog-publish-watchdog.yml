@@ -1,0 +1,102 @@
+name: Blog Publish Watchdog
+
+on:
+  schedule:
+    - cron: '20 7 * * *'
+    - cron: '50 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: blog-publish-watchdog
+  cancel-in-progress: true
+
+jobs:
+  verify-and-recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TZ: Asia/Tashkent
+    steps:
+      - name: Check live blog freshness
+        id: freshness
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          expected_human_date="$(date '+%b %-d, %Y')"
+          expected_run_date="$(date '+%Y-%m-%d')"
+          body_file="$(mktemp)"
+
+          status_code="$(curl --silent --show-error --location --output "${body_file}" --write-out '%{http_code}' https://4teen.me/blog)"
+
+          stale="false"
+          reason="healthy"
+
+          if [ "${status_code}" != "200" ]; then
+            stale="true"
+            reason="http-${status_code}"
+          elif rg --fixed-strings --quiet 'NEXT_HTTP_ERROR_FALLBACK;404' "${body_file}" || \
+            rg --fixed-strings --quiet 'id=\"__next_error__\"' "${body_file}" || \
+            rg --fixed-strings --quiet '<meta name=\"robots\" content=\"noindex\"' "${body_file}"; then
+            stale="true"
+            reason="error-shell"
+          elif ! rg --fixed-strings --quiet "${expected_human_date}" "${body_file}"; then
+            stale="true"
+            reason="missing-date-${expected_run_date}"
+          fi
+
+          {
+            echo "expected_human_date=${expected_human_date}"
+            echo "expected_run_date=${expected_run_date}"
+            echo "status_code=${status_code}"
+            echo "stale=${stale}"
+            echo "reason=${reason}"
+          } >> "${GITHUB_OUTPUT}"
+
+          {
+            echo "## Blog watchdog"
+            echo "- Expected date: ${expected_human_date}"
+            echo "- HTTP status: ${status_code}"
+            echo "- Fresh: $([ "${stale}" = "false" ] && echo yes || echo no)"
+            echo "- Reason: ${reason}"
+          } >> "${GITHUB_STEP_SUMMARY}"
+
+          rm -f "${body_file}"
+
+      - name: Re-trigger daily publish
+        if: steps.freshness.outputs.stale == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_RUN_DATE: ${{ steps.freshness.outputs.expected_run_date }}
+          STALE_REASON: ${{ steps.freshness.outputs.reason }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          gh api "repos/${GITHUB_REPOSITORY}/dispatches" \
+            -X POST \
+            --input - <<JSON
+          {
+            "event_type": "daily-blog-publish",
+            "client_payload": {
+              "runDate": "${EXPECTED_RUN_DATE}",
+              "force": true,
+              "watchdog": true,
+              "reason": "${STALE_REASON}"
+            }
+          }
+          JSON
+
+          {
+            echo "## Recovery"
+            echo "- Triggered `daily-blog-publish` for ${EXPECTED_RUN_DATE}"
+            echo "- Reason: ${STALE_REASON}"
+          } >> "${GITHUB_STEP_SUMMARY}"
+
+      - name: Healthy blog summary
+        if: steps.freshness.outputs.stale != 'true'
+        run: echo "Blog already has today's article live."
