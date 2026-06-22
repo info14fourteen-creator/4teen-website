@@ -129,6 +129,11 @@ const onePagerContentEn: OnePagerContent = {
     },
   ],
   links: [
+    {
+      label: "Download One-Pager PDF",
+      href: "/docs/4teen-one-pager.pdf",
+      download: "4teen-one-pager.pdf",
+    },
     { label: "Open Investor Deck", href: "/deck" },
     { label: "Read Whitepaper", href: "/whitepaper" },
     { label: "Verify Contracts", href: "/verification" },

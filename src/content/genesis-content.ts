@@ -175,6 +175,11 @@ const genesisContentEn: GenesisDeckContent = {
     },
   ],
   links: [
+    {
+      label: "Download Investor Deck PDF",
+      href: "/docs/4teen-investor-deck.pdf",
+      download: "4teen-investor-deck.pdf",
+    },
     { label: "Open direct buy route", href: "/buy" },
     { label: "Open unlock timeline", href: "/unlock" },
     { label: "Open liquidity route", href: "/liquidity" },
