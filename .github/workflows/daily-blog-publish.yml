@@ -347,7 +347,7 @@ jobs:
         run: echo "Push event validation complete; daily article publish skipped by design."
 
       - name: Confirm deployed article is live
-        if: steps.publish.outputs.skip_deploy != 'true'
+        if: github.event_name != 'push' && steps.publish.outputs.skip_deploy != 'true'
         shell: bash
         run: |
           set -euo pipefail
