@@ -363,13 +363,23 @@ jobs:
           delay=10
 
           for attempt in $(seq 1 "${attempts}"); do
-            if curl --fail --silent --show-error --location "${digest_url}" > /dev/null; then
+            body_file="$(mktemp)"
+            status_code="$(curl --silent --show-error --location --output "${body_file}" --write-out '%{http_code}' "${digest_url}")"
+
+            if [ "${status_code}" = "200" ] &&
+              ! rg --fixed-strings --quiet 'NEXT_HTTP_ERROR_FALLBACK;404' "${body_file}" &&
+              ! rg --fixed-strings --quiet 'id="__next_error__"' "${body_file}" &&
+              ! rg --fixed-strings --quiet '<meta name="robots" content="noindex"' "${body_file}" &&
+              rg --fixed-strings --quiet "<title>" "${body_file}"; then
+              rm -f "${body_file}"
               echo "Digest is live: ${digest_url}"
               exit 0
             fi
 
+            rm -f "${body_file}"
+
             if [ "${attempt}" -lt "${attempts}" ]; then
-              echo "Digest not live yet, retry ${attempt}/${attempts}..."
+              echo "Digest not live yet (status ${status_code}), retry ${attempt}/${attempts}..."
               sleep "${delay}"
             fi
           done
