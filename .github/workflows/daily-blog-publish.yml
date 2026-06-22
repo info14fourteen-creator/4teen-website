@@ -367,10 +367,10 @@ jobs:
             status_code="$(curl --silent --show-error --location --output "${body_file}" --write-out '%{http_code}' "${digest_url}")"
 
             if [ "${status_code}" = "200" ] &&
-              ! rg --fixed-strings --quiet 'NEXT_HTTP_ERROR_FALLBACK;404' "${body_file}" &&
-              ! rg --fixed-strings --quiet 'id="__next_error__"' "${body_file}" &&
-              ! rg --fixed-strings --quiet '<meta name="robots" content="noindex"' "${body_file}" &&
-              rg --fixed-strings --quiet "<title>" "${body_file}"; then
+              ! grep -Fq 'NEXT_HTTP_ERROR_FALLBACK;404' "${body_file}" &&
+              ! grep -Fq 'id="__next_error__"' "${body_file}" &&
+              ! grep -Fq '<meta name="robots" content="noindex"' "${body_file}" &&
+              grep -Fq "<title>" "${body_file}"; then
               rm -f "${body_file}"
               echo "Digest is live: ${digest_url}"
               exit 0
