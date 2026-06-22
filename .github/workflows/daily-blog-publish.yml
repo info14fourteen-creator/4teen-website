@@ -388,7 +388,7 @@ jobs:
           exit 1
 
       - name: Persist digest snapshot and assets
-        if: success()
+        if: github.event_name != 'push' && success()
         shell: bash
         run: |
           set -euo pipefail
