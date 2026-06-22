@@ -25,6 +25,7 @@ import whitepaperDocumentLoop from "@/assets/lottie/mobile-whitepaper-document-l
 import navHomeLoop from "@/assets/lottie/nav-home-loop.json";
 import { getChromeContent } from "@/content/chrome-content";
 import { getNavContent } from "@/content/nav-content";
+import { officialTronixRentUrl } from "@/content/official-links";
 import {
   getCoreNav,
   getDocsNav,
@@ -62,6 +63,14 @@ export function FourteenMobileShell({
       { href: "/support", label: chrome.footer.support },
     ],
     [chrome.footer.privacy, chrome.footer.support, chrome.footer.terms],
+  );
+  const footerResourceNav = useMemo(
+    () => [
+      { href: "/deck", label: chrome.footer.investorDeck },
+      { href: "/one-pager", label: chrome.footer.onePager },
+      { href: officialTronixRentUrl, label: "TronixRent" },
+    ],
+    [chrome.footer.investorDeck, chrome.footer.onePager],
   );
   const currentLocaleOption = useMemo(
     () => siteLocales.find((locale) => locale.code === currentLocale) ?? siteLocales[0],
@@ -241,6 +250,34 @@ export function FourteenMobileShell({
                             : link.href === "/support"
                               ? supportServiceLoop
                               : navHomeLoop
+                      }
+                      className="ft-mobile-menu-link__icon"
+                      loop={isActivePath(localeAwarePathname, link.href)}
+                    />
+                  </LoaderLink>
+                ))}
+              </div>
+
+              <div className="ft-mobile-menu-group">
+                <p className="ft-mobile-menu-group__label">{chrome.mobileMenu.docsAndRoutes}</p>
+                {footerResourceNav.map((link) => (
+                  <LoaderLink
+                    key={link.href}
+                    className={`ft-mobile-menu-link ${isActivePath(localeAwarePathname, link.href) ? "is-active" : ""}`}
+                    href={link.href}
+                    onClick={link.href.startsWith("/") ? handleMenuLinkClick(link.href) : undefined}
+                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    showLinkIcon={link.href.startsWith("http")}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                  >
+                    <span className="ft-mobile-menu-link__label">{link.label}</span>
+                    <AnimatedLottieIcon
+                      animationData={
+                        link.href === "/deck"
+                          ? whitepaperDocumentLoop
+                          : link.href === "/one-pager"
+                            ? verificationBlockchainLoop
+                            : liquidityGrowthLoop
                       }
                       className="ft-mobile-menu-link__icon"
                       loop={isActivePath(localeAwarePathname, link.href)}

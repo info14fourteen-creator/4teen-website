@@ -1,7 +1,7 @@
 "use client";
 
-import { Fragment } from "react";
 import { usePathname } from "next/navigation";
+import { Fragment } from "react";
 import { LoaderLink } from "@/components/site/loader-link";
 import { SocialLottieLink } from "@/components/site/social-lottie-link";
 import socialDiscordHover from "@/assets/lottie/social-discord-hover.json";
@@ -16,6 +16,7 @@ import socialXHover from "@/assets/lottie/social-x-hover.json";
 import socialYoutubeHover from "@/assets/lottie/social-youtube-hover.json";
 import { getChromeContent } from "@/content/chrome-content";
 import { getNavContent } from "@/content/nav-content";
+import { officialTronixRentUrl } from "@/content/official-links";
 import { stripSiteLocaleSegment } from "@/lib/site-locale";
 import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
@@ -55,9 +56,20 @@ const footerColumns = [
 ] as const;
 
 const footerMetaLinks = [
+  { href: "/deck", key: "investorDeck" },
+  { href: "/one-pager", key: "onePager" },
   { href: "/privacy", key: "privacy" },
   { href: "/terms", key: "terms" },
   { href: "/support", key: "support" },
+] as const;
+
+const footerActionLinks = [
+  { href: "/deck", labelKey: "investorDeck" },
+  { href: "/one-pager", labelKey: "onePager" },
+] as const;
+
+const footerProjectLinks = [
+  { href: officialTronixRentUrl, label: "TronixRent", prominent: true },
 ] as const;
 
 const footerNavRows = Array.from(
@@ -65,14 +77,17 @@ const footerNavRows = Array.from(
   (_, rowIndex) => footerColumns.map((column) => column.links[rowIndex] ?? null),
 );
 
-export function SiteFooter() {
-  const pathname = usePathname();
+export function SiteFooter({
+  includeOnWhitepaper = false,
+}: {
+  includeOnWhitepaper?: boolean;
+}) {
   const locale = useCurrentSiteLocale();
   const chrome = getChromeContent(locale);
   const nav = getNavContent(locale);
-  const routePath = stripSiteLocaleSegment(pathname ?? "/");
+  const routePath = stripSiteLocaleSegment(usePathname() ?? "/");
 
-  if (routePath.startsWith("/whitepaper")) {
+  if (!includeOnWhitepaper && routePath.startsWith("/whitepaper")) {
     return null;
   }
 
@@ -82,10 +97,34 @@ export function SiteFooter() {
         <div className="ft-container--wide ft-site-footer__grid">
           <div className="ft-site-footer__brand">
             <p className="ft-site-footer__text">{chrome.footer.brandText}</p>
-
-            <LoaderLink className="ft-site-footer__brand-link" href="/app">
-              {chrome.footer.getApp}
-            </LoaderLink>
+            <div className="ft-site-footer__brand-actions">
+              <LoaderLink className="ft-site-footer__brand-link" href="/app">
+                {chrome.footer.getApp}
+              </LoaderLink>
+              {footerActionLinks.map((link) => (
+                <LoaderLink
+                  key={link.href}
+                  className="ft-site-footer__brand-link ft-site-footer__brand-link--secondary"
+                  href={link.href}
+                >
+                  {chrome.footer[link.labelKey]}
+                </LoaderLink>
+              ))}
+              {footerProjectLinks
+                .filter((link) => link.prominent)
+                .map((link) => (
+                  <LoaderLink
+                    key={link.href}
+                    className="ft-site-footer__brand-link ft-site-footer__brand-link--secondary"
+                    href={link.href}
+                    rel="noopener noreferrer"
+                    showLinkIcon
+                    target="_blank"
+                  >
+                    {link.label}
+                  </LoaderLink>
+                ))}
+            </div>
           </div>
 
           <div className="ft-site-footer__nav">
@@ -139,6 +178,11 @@ export function SiteFooter() {
             {footerMetaLinks.map((link) => (
               <LoaderLink key={link.href} className="ft-site-footer__meta-link" href={link.href}>
                 {chrome.footer[link.key]}
+              </LoaderLink>
+            ))}
+            {footerProjectLinks.map((link) => (
+              <LoaderLink key={link.href} className="ft-site-footer__meta-link" href={link.href}>
+                {link.label}
               </LoaderLink>
             ))}
           </div>
