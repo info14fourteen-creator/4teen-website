@@ -39,12 +39,12 @@ jobs:
           if [ "${status_code}" != "200" ]; then
             stale="true"
             reason="http-${status_code}"
-          elif rg --fixed-strings --quiet 'NEXT_HTTP_ERROR_FALLBACK;404' "${body_file}" || \
-            rg --fixed-strings --quiet 'id=\"__next_error__\"' "${body_file}" || \
-            rg --fixed-strings --quiet '<meta name=\"robots\" content=\"noindex\"' "${body_file}"; then
+          elif grep -Fq 'NEXT_HTTP_ERROR_FALLBACK;404' "${body_file}" || \
+            grep -Fq 'id=\"__next_error__\"' "${body_file}" || \
+            grep -Fq '<meta name=\"robots\" content=\"noindex\"' "${body_file}"; then
             stale="true"
             reason="error-shell"
-          elif ! rg --fixed-strings --quiet "${expected_human_date}" "${body_file}"; then
+          elif ! grep -Fq "${expected_human_date}" "${body_file}"; then
             stale="true"
             reason="missing-date-${expected_run_date}"
           fi
@@ -93,7 +93,7 @@ jobs:
 
           {
             echo "## Recovery"
-            echo "- Triggered `daily-blog-publish` for ${EXPECTED_RUN_DATE}"
+            echo "- Triggered daily-blog-publish for ${EXPECTED_RUN_DATE}"
             echo "- Reason: ${STALE_REASON}"
           } >> "${GITHUB_STEP_SUMMARY}"
 
