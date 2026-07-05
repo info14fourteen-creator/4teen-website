@@ -680,6 +680,319 @@ function selectArticlesForDeepAnalysis(articles, triageCards, maxCount) {
   return selected;
 }
 
+function truncateAtWord(value, maxLength) {
+  const safe = normalizeWhitespace(value);
+  if (!safe || safe.length <= maxLength) {
+    return safe;
+  }
+
+  const truncated = safe.slice(0, Math.max(0, maxLength - 1));
+  const lastSpace = truncated.lastIndexOf(" ");
+  const base = lastSpace > 48 ? truncated.slice(0, lastSpace) : truncated;
+  return `${base.trim()}…`;
+}
+
+function splitIntoSentences(value) {
+  return normalizeWhitespace(value)
+    .split(/(?<=[.!?])\s+/)
+    .map((sentence) => normalizeWhitespace(sentence))
+    .filter((sentence) => sentence.length > 24);
+}
+
+function selectSummarySentences(article, maxCount = 2) {
+  const text = article.raw_text || article.rss_summary || "";
+  const sentences = splitIntoSentences(text);
+
+  if (sentences.length > 0) {
+    return sentences.slice(0, maxCount);
+  }
+
+  const fallback = normalizeWhitespace(article.rss_summary || article.title || "");
+  return fallback ? [truncateAtWord(fallback, 220)] : [];
+}
+
+function inferArticleTypeFromArticle(article) {
+  const text = `${article.title} ${article.url} ${article.rss_summary}`.toLowerCase();
+
+  if (/\bhack\b|\bexploit\b|\bbreach\b|\bstolen\b|\bdrain(ed)?\b/.test(text)) {
+    return "security incident";
+  }
+
+  if (/\bsec\b|\bcourt\b|\blaw\b|\bregulat|\bpolicy\b|\bcongress\b|\bsenate\b/.test(text)) {
+    return "regulatory news";
+  }
+
+  if (/\bfund(ing|raise)?\b|\bseries [abc]\b|\bventure\b|\binvest(or|ment)\b/.test(text)) {
+    return "funding news";
+  }
+
+  if (/\bpartnership\b|\bpartner(s|ed|ing)?\b|\bcollaboration\b/.test(text)) {
+    return "partnership announcement";
+  }
+
+  if (/\blaunch\b|\bdebut\b|\bgoes live\b|\brollout\b/.test(text)) {
+    return "project announcement";
+  }
+
+  if (/\btoken\b|\bairdrop\b|\bunlock\b|\bvesting\b/.test(text)) {
+    return "token launch";
+  }
+
+  if (/\bupdate\b|\bupgrade\b|\bfork\b|\bproposal\b|\bgovernance\b/.test(text)) {
+    return "protocol update";
+  }
+
+  if (/\banalysis\b|\boutlook\b|\bmarket\b|\bprice\b/.test(text)) {
+    return "market analysis";
+  }
+
+  return "news";
+}
+
+function inferSectorTagsFromArticle(article) {
+  const text = `${article.title} ${article.raw_text} ${article.rss_summary}`.toLowerCase();
+  const tagMatchers = [
+    ["stablecoins", /\bstablecoin|\bstablecoins|\busdt\b|\busdc\b|\beuro\b/],
+    ["payments", /\bpayment|\bmerchant|\bremittance|\bcheckout\b/],
+    ["regulation", /\bsec\b|\bregulat|\bpolicy\b|\blaw\b|\bcourt\b/],
+    ["security", /\bhack\b|\bexploit\b|\bbreach\b|\bphish|\bstolen\b/],
+    ["liquidity", /\bliquidity\b|\bmarket maker\b|\bdepth\b|\border book\b/],
+    ["tokenomics", /\bunlock\b|\bvesting\b|\btokenomics\b|\bsupply\b|\bemission\b|\bfdv\b/],
+    ["governance", /\bgovernance\b|\bvote\b|\bproposal\b|\bdao\b/],
+    ["DeFi", /\bdefi\b|\bdex\b|\bamm\b|\blending\b|\byield\b/],
+    ["DEX", /\bdex\b|\bswap\b|\bamm\b/],
+    ["CEX", /\bexchange\b|\bcex\b|\bbinance\b|\bcoinbase\b|\bkraken\b/],
+    ["L1", /\bbitcoin\b|\bethereum\b|\bsolana\b|\btron\b|\bbase\b|\bavalanche\b/],
+    ["wallet", /\bwallet\b|\bself-custody\b|\bcustody\b/],
+    ["derivatives", /\bderivative\b|\bfutures\b|\boptions\b|\bperps?\b/],
+    ["RWA", /\brwa\b|\btokenized\b|\btokenisation\b|\btreasury\b/],
+    ["AI crypto", /\bai\b|\bagent\b|\bautonomous\b/],
+  ];
+
+  const tags = tagMatchers
+    .filter(([, pattern]) => pattern.test(text))
+    .map(([tag]) => tag);
+
+  return Array.from(new Set(tags)).slice(0, 6);
+}
+
+function inferEntitiesFromArticle(article) {
+  const candidates = normalizeWhitespace(article.title || "")
+    .match(/\b([A-Z][a-zA-Z0-9.+-]{1,}(?:\s+[A-Z][a-zA-Z0-9.+-]{1,}){0,2}|[A-Z]{2,6})\b/g);
+
+  return Array.from(new Set((candidates || []).map((value) => value.trim()))).slice(0, 6);
+}
+
+function buildFallbackScore(article, index) {
+  const text = `${article.title} ${article.raw_text} ${article.rss_summary}`.toLowerCase();
+  let importance = Math.max(4, 8 - index);
+  let credibility = article.raw_text ? 6 : 4;
+  let verifiability = article.raw_text ? 5 : 3;
+  let mechanismDepth = /\bliquidity\b|\btoken\b|\bmarket\b|\bpayment\b|\bunlock\b/.test(text) ? 5 : 3;
+  let dailyDigestPriority = 55 + Math.max(0, 12 - index * 2);
+
+  if (/\bsec\b|\bregulat|\bhack\b|\bexploit\b|\bstablecoin\b|\betf\b/.test(text)) {
+    importance += 1;
+    dailyDigestPriority += 6;
+  }
+
+  if (/\btokenomics\b|\bunlock\b|\bliquidity\b|\bmarket maker\b/.test(text)) {
+    mechanismDepth += 1;
+    dailyDigestPriority += 4;
+  }
+
+  return {
+    importance: Math.min(10, importance),
+    credibility: Math.min(10, credibility),
+    verifiability: Math.min(10, verifiability),
+    mechanism_depth: Math.min(10, mechanismDepth),
+    daily_digest_priority: Math.min(100, dailyDigestPriority),
+  };
+}
+
+function buildFallbackAnalyses(articles) {
+  return articles.map((article, index) => {
+    const summarySentences = selectSummarySentences(article, 2);
+    const summary = truncateAtWord(summarySentences.join(" "), 280);
+    const sectorTags = inferSectorTagsFromArticle(article);
+    const scores = buildFallbackScore(article, index);
+
+    return {
+      article_id: article.article_id,
+      title: article.title,
+      source: article.source,
+      date: article.date,
+      url: article.url,
+      article_type: inferArticleTypeFromArticle(article),
+      main_entities: inferEntitiesFromArticle(article),
+      sector_tags: sectorTags,
+      main_thesis: summary || article.title,
+      short_summary: summary || article.title,
+      facts: summarySentences,
+      unsupported_or_weak_claims: [],
+      verifiable_data_present: article.raw_text ? ["article body text", "source url"] : ["source url"],
+      missing_data: ["tokenomics", "liquidity depth", "on-chain confirmation"],
+      economic_mechanism:
+        "Fallback digest mode: economic mechanism should be verified from the underlying source before making strong claims.",
+      tokenomics_analysis:
+        "Fallback digest mode: token distribution, unlocks, emissions, and dilution data were not verified automatically.",
+      liquidity_analysis:
+        "Fallback digest mode: liquidity depth, holder concentration, and market maker dependence still need direct checking.",
+      incentives_and_growth_analysis:
+        "Fallback digest mode: user growth and incentives should be treated as unverified until on-chain or product data confirms them.",
+      risks: {
+        technical: [],
+        economic: ["Mechanism may be under-explained in the source article."],
+        market: ["Headline significance can outrun actual liquidity impact."],
+        regulatory: [],
+        governance: [],
+        execution: ["Needs human review if the story becomes business-critical."],
+      },
+      what_the_article_leaves_out: [
+        "Contract-level references",
+        "Capital flows and liquidity ownership",
+        "Clear holder or user concentration data",
+      ],
+      onchain_or_external_checks_needed: [
+        "Verify quoted claims against the original source",
+        "Check whether the story has measurable on-chain or market impact",
+      ],
+      scores: {
+        importance: scores.importance,
+        credibility: scores.credibility,
+        verifiability: scores.verifiability,
+        mechanism_depth: scores.mechanism_depth,
+        daily_digest_priority: scores.daily_digest_priority,
+      },
+      risk_level: "medium",
+      confidence: "medium",
+      stan_style_verdict:
+        "Useful enough to keep in the daily flow, but still needs direct verification before treating the headline as durable signal.",
+      digest_ready_takeaway: summary || article.title,
+    };
+  });
+}
+
+function buildFallbackDigestTitle(articles, runDate) {
+  const dateLabel = new Date(`${runDate}T12:00:00Z`).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+
+  const topTags = Array.from(
+    new Set(articles.flatMap((article) => inferSectorTagsFromArticle(article)).filter(Boolean)),
+  ).slice(0, 2);
+
+  if (topTags.length === 2) {
+    return `${topTags[0]} and ${topTags[1]} Set the Tone for ${dateLabel}`;
+  }
+
+  if (topTags.length === 1) {
+    return `${topTags[0]} Signals Worth Watching — ${dateLabel}`;
+  }
+
+  return `Daily Crypto Market Note — ${dateLabel}`;
+}
+
+function buildFallbackDigestMarkdown({ articles, runDate }) {
+  const selected = articles.slice(0, 5);
+  const title = buildFallbackDigestTitle(selected, runDate);
+  const leadSummaries = selected
+    .slice(0, 3)
+    .map((article) => truncateAtWord(selectSummarySentences(article, 1).join(" "), 180))
+    .filter(Boolean);
+
+  const thesisOpening = leadSummaries[0]
+    ? `Today's tape is best read through a few concrete stories rather than broad crypto slogans. ${leadSummaries[0]}`
+    : "Today's tape is best read through concrete stories rather than broad crypto slogans.";
+
+  const thesisFollowUp = leadSummaries[1]
+    ? `${leadSummaries[1]} The common thread is that narrative still moves faster than verifiable mechanics, so liquidity, enforcement, and real demand remain the filters that matter.`
+    : "The common thread is that narrative still moves faster than verifiable mechanics, so liquidity, enforcement, and real demand remain the filters that matter.";
+
+  const bullets = selected
+    .map((article) => {
+      const summary = truncateAtWord(selectSummarySentences(article, 2).join(" "), 220);
+      return `- **${article.title}** — ${summary} Source: [${article.source}](${article.url})`;
+    })
+    .join("\n");
+
+  const watchList = selected
+    .slice(0, 3)
+    .map((article) => `- Verify the real market impact behind **${article.title}** before treating the headline as durable signal.`)
+    .join("\n");
+
+  return [
+    `# ${title}`,
+    "",
+    "## Main thesis of the day",
+    "",
+    thesisOpening,
+    "",
+    thesisFollowUp,
+    "",
+    "## Key developments",
+    "",
+    bullets,
+    "",
+    "## What matters next",
+    "",
+    "The operating question is still the same: where is the actual demand, who controls liquidity, and what evidence survives after the headline fades. Stories that move market structure, enforcement, or settlement rails deserve attention. Everything else needs stricter filtering.",
+    "",
+    "## What should be checked next",
+    "",
+    watchList,
+  ].join("\n");
+}
+
+function buildFallbackMetadata({ digestMarkdown, analyses, runDate }) {
+  const title = extractDigestTitle(digestMarkdown) || buildFallbackDigestTitle([], runDate);
+  const excerptSource =
+    analyses[0]?.digest_ready_takeaway ||
+    analyses[0]?.short_summary ||
+    `Daily crypto market note for ${runDate}.`;
+  const excerpt = truncateAtWord(excerptSource, 180);
+  const keywords = Array.from(
+    new Set(
+      analyses
+        .flatMap((analysis) => analysis.sector_tags || [])
+        .filter(Boolean),
+    ),
+  ).slice(0, 8);
+
+  return {
+    title,
+    slug: slugify(title),
+    excerpt,
+    seo_title: truncateAtWord(`${title} | 4TEEN`, 60),
+    seo_description: truncateAtWord(excerpt, 155),
+    keywords,
+  };
+}
+
+function buildFallbackDigestPackage({ articles, runDate, maxArticles, signature }) {
+  const selectedArticles = articles.slice(0, Math.max(3, Math.min(maxArticles, 6)));
+  const analyses = buildFallbackAnalyses(selectedArticles);
+  const digestMarkdown = buildFallbackDigestMarkdown({
+    articles: selectedArticles,
+    runDate,
+  });
+  const metadata = buildFallbackMetadata({
+    digestMarkdown,
+    analyses,
+    runDate,
+  });
+
+  return {
+    selectedArticles,
+    rankedAnalyses: collectDigestSignals(analyses),
+    digestMarkdown,
+    metadata,
+  };
+}
+
 function buildDigestLegacyId(runDate) {
   return `daily-digest:${runDate}`;
 }
@@ -1355,8 +1668,10 @@ async function publishDigest({
   analyses,
   args,
   digestMarkdown,
+  fallbackReason = "",
   images,
   metadata,
+  pipelineMode = "ai",
   runDate,
   selectedArticles,
 }) {
@@ -1388,6 +1703,8 @@ async function publishDigest({
     sourceColumns,
     sourceFeedUrl: DEFAULTS.feedUrl,
     digestMode: "daily_digest",
+    pipelineMode,
+    fallbackReason,
     digestDate: runDate,
     articleIds: analyses.map((item) => item.article_id),
     articleUrls: selectedArticles.map((item) => item.url),
@@ -1503,7 +1820,13 @@ async function publishDigest({
 
   if (!args.skipNotify) {
     try {
-      await notifyAdminBot(`Daily digest published successfully:\n${digestUrl}`);
+      const modeSuffix =
+        pipelineMode === "fallback" && fallbackReason
+          ? `\nMode: fallback\nReason: ${fallbackReason}`
+          : pipelineMode === "fallback"
+            ? "\nMode: fallback"
+            : "";
+      await notifyAdminBot(`Daily digest published successfully:\n${digestUrl}${modeSuffix}`);
     } catch (error) {
       console.warn(`Admin bot success notification failed: ${error.message}`);
     }
@@ -1515,6 +1838,7 @@ async function publishDigest({
     legacySourceId,
     publishedAt,
     databaseSync,
+    pipelineMode,
   };
 }
 
@@ -1534,6 +1858,8 @@ async function run() {
   const writerModel = getEnv("DAILY_DIGEST_WRITER_MODEL", DEFAULTS.writerModel);
   const metadataModel = getEnv("DAILY_DIGEST_METADATA_MODEL", DEFAULTS.metadataModel);
   const writerEffort = getEnv("DAILY_DIGEST_WRITER_EFFORT", "high");
+  const allowFallback =
+    getEnv("DAILY_DIGEST_ALLOW_FALLBACK", "1").toLowerCase() !== "0";
   const signature = getEnv("DAILY_DIGEST_SIGNATURE", config.contentStrategy?.signature || DEFAULTS.signature);
 
   logStage("Digest run started", `date=${runDate} dryRun=${args.dryRun ? "yes" : "no"}`);
@@ -1578,85 +1904,121 @@ async function run() {
     articles.push(await fetchArticlePayload(item));
   }
   logStage("Article payloads ready", `${articles.length} articles`);
+  let pipelineMode = "ai";
+  let fallbackReason = "";
+  let rankedAnalyses = [];
+  let digestMarkdown = "";
+  let metadata = null;
+  let imageSourceArticles = [];
+  let publishSourceArticles = [];
 
-  const triagePrompt = await loadPrompt("article-triage-bot.md");
-  const triageCards = [];
-  for (const [index, article] of articles.entries()) {
-    logStage("Triaging article", `${index + 1}/${articles.length} ${article.title}`);
-    triageCards.push(
-      await callOpenAiJson({
-        model: triageModel,
-        prompt: triagePrompt,
-        input: article,
-        effort: "low",
-      }),
+  try {
+    const triagePrompt = await loadPrompt("article-triage-bot.md");
+    const triageCards = [];
+    for (const [index, article] of articles.entries()) {
+      logStage("Triaging article", `${index + 1}/${articles.length} ${article.title}`);
+      triageCards.push(
+        await callOpenAiJson({
+          model: triageModel,
+          prompt: triagePrompt,
+          input: article,
+          effort: "low",
+        }),
+      );
+    }
+    logStage("Article triage complete", `${triageCards.length} cards`);
+
+    const deepAnalysisCandidates = selectArticlesForDeepAnalysis(
+      articles,
+      triageCards,
+      Math.min(maxArticles, deepAnalysisArticles),
     );
-  }
-  logStage("Article triage complete", `${triageCards.length} cards`);
+    logStage("Deep analysis selected", `${deepAnalysisCandidates.length} articles`);
 
-  const deepAnalysisCandidates = selectArticlesForDeepAnalysis(
-    articles,
-    triageCards,
-    Math.min(maxArticles, deepAnalysisArticles),
-  );
-  logStage("Deep analysis selected", `${deepAnalysisCandidates.length} articles`);
+    const analysisPrompt = await loadPrompt("article-analysis-bot.md");
+    const analyses = [];
+    for (const [index, article] of deepAnalysisCandidates.entries()) {
+      logStage("Analyzing article", `${index + 1}/${deepAnalysisCandidates.length} ${article.title}`);
+      analyses.push(
+        await callOpenAiJson({
+          model: analysisModel,
+          prompt: analysisPrompt,
+          input: article,
+          effort: "low",
+        }),
+      );
+    }
+    logStage("Article analysis complete", `${analyses.length} cards`);
 
-  const analysisPrompt = await loadPrompt("article-analysis-bot.md");
-  const analyses = [];
-  for (const [index, article] of deepAnalysisCandidates.entries()) {
-    logStage("Analyzing article", `${index + 1}/${deepAnalysisCandidates.length} ${article.title}`);
-    analyses.push(
-      await callOpenAiJson({
-        model: analysisModel,
-        prompt: analysisPrompt,
-        input: article,
-        effort: "low",
-      }),
+    rankedAnalyses = collectDigestSignals(analyses);
+    const digestWriterPrompt = await loadPrompt("daily-digest-writer.md");
+    logStage("Generating digest markdown");
+    const digestMarkdownRaw = await callOpenAiText({
+      model: writerModel,
+      prompt: digestWriterPrompt,
+      input: rankedAnalyses,
+      effort: writerEffort,
+    });
+
+    digestMarkdown = ensureSignature(
+      `${digestMarkdownRaw.trim()}${buildSourceReferencesSection(deepAnalysisCandidates)}`,
+      signature,
     );
+
+    const metadataPrompt = await loadPrompt("digest-metadata-bot.md");
+    logStage("Generating digest metadata");
+    metadata = await callOpenAiJson({
+      model: metadataModel,
+      prompt: metadataPrompt,
+      input: {
+        digest_markdown: digestMarkdown,
+        ranked_article_cards: rankedAnalyses,
+        fallback_title: extractDigestTitle(digestMarkdown),
+      },
+      effort: "low",
+    });
+
+    if (!metadata.title) {
+      metadata.title = extractDigestTitle(digestMarkdown) || `Daily Crypto Digest — ${runDate}`;
+    }
+
+    if (!metadata.slug) {
+      metadata.slug = slugify(metadata.title);
+    }
+
+    const articleMap = new Map(articles.map((article) => [article.article_id, article]));
+    imageSourceArticles = rankedAnalyses
+      .map((analysis) => articleMap.get(analysis.article_id))
+      .filter(Boolean)
+      .slice(0, 3);
+    publishSourceArticles = deepAnalysisCandidates;
+  } catch (error) {
+    if (!allowFallback) {
+      throw error;
+    }
+
+    pipelineMode = "fallback";
+    fallbackReason = truncateAtWord(error.message || "AI pipeline failed", 180);
+    logStage("Falling back to deterministic digest", fallbackReason);
+
+    const fallbackPackage = buildFallbackDigestPackage({
+      articles,
+      runDate,
+      maxArticles,
+      signature,
+    });
+
+    rankedAnalyses = fallbackPackage.rankedAnalyses;
+    digestMarkdown = ensureSignature(
+      `${fallbackPackage.digestMarkdown}${buildSourceReferencesSection(
+        fallbackPackage.selectedArticles,
+      )}`,
+      signature,
+    );
+    metadata = fallbackPackage.metadata;
+    imageSourceArticles = fallbackPackage.selectedArticles.slice(0, 3);
+    publishSourceArticles = fallbackPackage.selectedArticles;
   }
-  logStage("Article analysis complete", `${analyses.length} cards`);
-
-  const rankedAnalyses = collectDigestSignals(analyses);
-  const digestWriterPrompt = await loadPrompt("daily-digest-writer.md");
-  logStage("Generating digest markdown");
-  const digestMarkdownRaw = await callOpenAiText({
-    model: writerModel,
-    prompt: digestWriterPrompt,
-    input: rankedAnalyses,
-    effort: writerEffort,
-  });
-
-  const digestMarkdown = ensureSignature(
-    `${digestMarkdownRaw.trim()}${buildSourceReferencesSection(deepAnalysisCandidates)}`,
-    signature,
-  );
-
-  const metadataPrompt = await loadPrompt("digest-metadata-bot.md");
-  logStage("Generating digest metadata");
-  const metadata = await callOpenAiJson({
-    model: metadataModel,
-    prompt: metadataPrompt,
-    input: {
-      digest_markdown: digestMarkdown,
-      ranked_article_cards: rankedAnalyses,
-      fallback_title: extractDigestTitle(digestMarkdown),
-    },
-    effort: "low",
-  });
-
-  if (!metadata.title) {
-    metadata.title = extractDigestTitle(digestMarkdown) || `Daily Crypto Digest — ${runDate}`;
-  }
-
-  if (!metadata.slug) {
-    metadata.slug = slugify(metadata.title);
-  }
-
-  const articleMap = new Map(articles.map((article) => [article.article_id, article]));
-  const imageSourceArticles = rankedAnalyses
-    .map((analysis) => articleMap.get(analysis.article_id))
-    .filter(Boolean)
-    .slice(0, 3);
 
   logStage("Selected image sources", `${imageSourceArticles.length} articles`);
   const images = await createDigestImages({
@@ -1671,10 +2033,12 @@ async function run() {
     analyses: rankedAnalyses,
     args,
     digestMarkdown,
+    fallbackReason,
     images,
     metadata,
+    pipelineMode,
     runDate,
-    selectedArticles: imageSourceArticles,
+    selectedArticles: publishSourceArticles.length > 0 ? publishSourceArticles : imageSourceArticles,
   });
 
   console.log(
@@ -1683,8 +2047,9 @@ async function run() {
         ok: true,
         digestUrl: publishResult.digestUrl,
         slug: publishResult.slug,
-        sourceArticles: deepAnalysisCandidates.length,
+        sourceArticles: publishSourceArticles.length,
         publishedAt: publishResult.publishedAt,
+        pipelineMode: publishResult.pipelineMode,
       },
       null,
       2,
@@ -1695,9 +2060,11 @@ async function run() {
     ok: true,
     digestUrl: publishResult.digestUrl,
     slug: publishResult.slug,
-    sourceArticles: deepAnalysisCandidates.length,
+    sourceArticles: publishSourceArticles.length,
     publishedAt: publishResult.publishedAt,
     databaseSync: publishResult.databaseSync,
+    pipelineMode: publishResult.pipelineMode,
+    fallbackReason,
     runDate,
     skippedDeploy: args.skipDeploy,
     dryRun: args.dryRun,
