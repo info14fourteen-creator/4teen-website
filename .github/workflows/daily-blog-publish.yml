@@ -78,8 +78,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          attempts=3
+          delay_seconds=15
 
-          node - <<'NODE'
+          for attempt in $(seq 1 "${attempts}"); do
+            if node - <<'NODE'
           const fs = require('node:fs');
 
           async function readJson(response) {
@@ -183,6 +186,18 @@ jobs:
             process.exit(1);
           });
           NODE
+            then
+              exit 0
+            fi
+
+            if [ "${attempt}" -ge "${attempts}" ]; then
+              echo "::error::Failed to fetch daily blog automation config after ${attempts} attempts"
+              exit 1
+            fi
+
+            echo "Ops config fetch attempt ${attempt}/${attempts} failed; retrying in ${delay_seconds}s..."
+            sleep "${delay_seconds}"
+          done
 
       - name: Install dependencies
         shell: bash
@@ -415,4 +430,28 @@ jobs:
           fi
 
           git commit -m "Persist daily digest artifacts for ${run_date} [skip ci]"
-          git push origin HEAD:main
+
+          push_attempts=3
+          push_delay_seconds=10
+
+          for attempt in $(seq 1 "${push_attempts}"); do
+            git fetch origin main
+
+            if ! git pull --rebase origin main; then
+              git rebase --abort || true
+              echo "::error::Failed to rebase generated digest artifacts onto origin/main"
+              exit 1
+            fi
+
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+
+            if [ "${attempt}" -ge "${push_attempts}" ]; then
+              echo "::error::Failed to push generated digest artifacts after ${push_attempts} attempts"
+              exit 1
+            fi
+
+            echo "Digest artifact push attempt ${attempt}/${push_attempts} failed; retrying in ${push_delay_seconds}s..."
+            sleep "${push_delay_seconds}"
+          done
