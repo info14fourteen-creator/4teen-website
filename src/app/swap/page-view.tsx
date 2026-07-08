@@ -128,7 +128,7 @@ export async function SwapPageView({
   const transferSamples = Array.isArray(snapshot?.transfers)
     ? snapshot.transfers
     : [];
-  const snapshotUpdatedAt = snapshot?.updatedAt ?? Date.now();
+  const snapshotUpdatedAt = snapshot?.updatedAt ?? 0;
 
   const routerStateLabel = snapshot
     ? content.hero.stats.states[snapshot.routerState]

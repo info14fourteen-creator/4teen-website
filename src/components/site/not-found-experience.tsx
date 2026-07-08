@@ -149,9 +149,15 @@ function TypewriterLines({ locale }: { locale: keyof typeof localizedCopy }) {
   const activeLine = orderedLines[lineIndex];
 
   useEffect(() => {
-    setLineIndex(0);
-    setVisibleLength(0);
-    setIsDeleting(false);
+    const resetTimer = window.setTimeout(() => {
+      setLineIndex(0);
+      setVisibleLength(0);
+      setIsDeleting(false);
+    }, 0);
+
+    return () => {
+      window.clearTimeout(resetTimer);
+    };
   }, [orderedLines]);
 
   useEffect(() => {

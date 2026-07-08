@@ -23,7 +23,8 @@ export function MobileLocalePanel({
   currentLocale?: string;
 }) {
   const pathname = usePathname() ?? "/";
-  const resolvedCurrentLocale = currentLocale ?? useCurrentSiteLocale();
+  const routeLocale = useCurrentSiteLocale();
+  const resolvedCurrentLocale = currentLocale ?? routeLocale;
 
   if (!copy) {
     return null;

@@ -24,7 +24,8 @@ export function useLocaleAwarePathname() {
 }
 
 export function useLocalizedHref(href: string, locale?: string) {
-  return localizePathnameForLocale(href, locale ?? useCurrentSiteLocale());
+  const routeLocale = useCurrentSiteLocale();
+  return localizePathnameForLocale(href, locale ?? routeLocale);
 }
 
 export function useDefaultLocaleHref(href: string) {

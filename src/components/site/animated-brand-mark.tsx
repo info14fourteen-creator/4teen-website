@@ -236,9 +236,15 @@ export function AnimatedBrandMark({
       return;
     }
 
-    phaseRef.current = { kind: "main", startAt: nowMs() };
-    setIsActive(true);
-    ensureRaf();
+    const startFrame = requestAnimationFrame(() => {
+      phaseRef.current = { kind: "main", startAt: nowMs() };
+      setIsActive(true);
+      ensureRaf();
+    });
+
+    return () => {
+      cancelAnimationFrame(startFrame);
+    };
   }, [autoplay]);
 
   function ensureRaf() {
@@ -253,13 +259,13 @@ export function AnimatedBrandMark({
       const phase = phaseRef.current;
       const current = stateRef.current;
 
-      let targetY: BarTargets = {
+      const targetY: BarTargets = {
         bar1: START.bar1,
         bar2: START.bar2,
         bar3: START.bar3,
       };
 
-      let targetOpacity: BarTargets = {
+      const targetOpacity: BarTargets = {
         bar1: 1,
         bar2: 1,
         bar3: 1,

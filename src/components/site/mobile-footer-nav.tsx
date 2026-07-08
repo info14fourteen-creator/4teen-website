@@ -84,12 +84,24 @@ function FooterNavButton({
 
   useEffect(() => {
     if (active) {
-      setIsTransitioning(false);
+      const activeReset = window.setTimeout(() => {
+        setIsTransitioning(false);
+      }, 0);
+
+      return () => {
+        window.clearTimeout(activeReset);
+      };
     }
   }, [active]);
 
   useEffect(() => {
-    setIsTransitioning(false);
+    const pathnameReset = window.setTimeout(() => {
+      setIsTransitioning(false);
+    }, 0);
+
+    return () => {
+      window.clearTimeout(pathnameReset);
+    };
   }, [pathname]);
 
   return (

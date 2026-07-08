@@ -93,8 +93,13 @@ export function SiteNoteAccents() {
 
   useEffect(() => {
     if (isWhitepaperRoute) {
-      setTargets([]);
-      return () => {};
+      const resetTimer = window.setTimeout(() => {
+        setTargets([]);
+      }, 0);
+
+      return () => {
+        window.clearTimeout(resetTimer);
+      };
     }
 
     function syncTargets() {

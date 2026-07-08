@@ -1,8 +1,10 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
 import {
   officialContractsRepoUrl,
+  officialLegalEntity,
   officialSocialUrls,
   officialSupportEmail,
+  officialSupportPhone,
   officialWalletRepoUrl,
   officialWebsiteUrl,
 } from "@/content/official-links";
@@ -92,6 +94,11 @@ const privacyContentEn: PublicPageContent = {
   },
   summaryCards: [
     {
+      eyebrow: "Operator",
+      title: officialLegalEntity.abbreviatedName,
+      body: `The 4TEEN public website and official support routes are operated for the project by ${officialLegalEntity.fullLegalName}, registered in Uzbekistan. D-U-N-S Number: ${officialLegalEntity.dunsNumber}.`,
+    },
+    {
       eyebrow: "Website",
       title: "No wallet secrets here",
       body:
@@ -112,7 +119,19 @@ const privacyContentEn: PublicPageContent = {
   ],
   sections: [
     {
-      eyebrow: "1. Public Website",
+      eyebrow: "1. Legal Operator",
+      title: "Who operates the official 4TEEN surfaces",
+      body: `${officialLegalEntity.fullLegalName} operates the official 4TEEN website at ${officialWebsiteUrl}, related public project routes, and the published support mailbox for privacy and product questions.`,
+      bullets: [
+        `Taxpayer Identification Number: ${officialLegalEntity.taxpayerIdentificationNumber}`,
+        `State registration number: ${officialLegalEntity.registrationNumber}, registered ${officialLegalEntity.stateRegistrationDate}`,
+        `D-U-N-S Number: ${officialLegalEntity.dunsNumber}`,
+        `Legal address: ${officialLegalEntity.legalAddress}`,
+      ],
+      note: `Privacy and support questions can be directed to ${officialSupportEmail} or ${officialSupportPhone}.`,
+    },
+    {
+      eyebrow: "2. Public Website",
       title: "What this website is designed to do",
       body:
         "The 4TEEN website is used to present protocol information, release pages, public contract links, airdrop state, ambassador state, price reads, and download routes for the mobile app. It is not intended to custody funds or collect secret wallet credentials.",
@@ -123,7 +142,7 @@ const privacyContentEn: PublicPageContent = {
       ],
     },
     {
-      eyebrow: "2. Mobile Wallet",
+      eyebrow: "3. Mobile Wallet",
       title: "What the app may keep locally on device",
       body:
         "The mobile wallet already supports local wallet labels, language preference, display currency, security settings, watch-only flows, and cache management. Based on the code paths currently visible, these kinds of settings can be stored locally on the device to make the app usable, while private signing material is meant to stay under user control rather than being stored on a 4TEEN website server.",
@@ -131,7 +150,7 @@ const privacyContentEn: PublicPageContent = {
         "If you import, create, or unlock a wallet, treat the mobile device and your backup practices as the real security boundary.",
     },
     {
-      eyebrow: "3. Public Blockchain Reads",
+      eyebrow: "4. Public Blockchain Reads",
       title: "What may be queried to show balances or protocol state",
       body:
         "To render balances, resources, airdrop status, ambassador state, price information, or other public protocol views, 4TEEN services may query blockchain infrastructure, explorer endpoints, proxy endpoints, or 4TEEN-operated snapshot routes. Those reads can involve a public wallet address or public contract state, but they do not require a private key.",
@@ -142,16 +161,16 @@ const privacyContentEn: PublicPageContent = {
       ],
     },
     {
-      eyebrow: "4. External Services",
+      eyebrow: "5. External Services",
       title: "What happens when you leave 4TEEN surfaces",
       body:
         "The website and wallet can open TronScan, DEX routes, repositories, social channels, and app-store pages. Those external services run under their own privacy and data-handling rules. Opening an external link means your request is handled by that third party, not only by 4TEEN.",
     },
     {
-      eyebrow: "5. No false privacy promises",
+      eyebrow: "6. No false privacy promises",
       title: "What we are not claiming",
       body:
-        "This policy does not claim KYC processing, custody services, compliance certifications, or invisible privacy guarantees that are not clearly enforced by the current code and product behavior. If a behavior depends on public blockchain state or third-party infrastructure, we say so directly.",
+        "This policy does not claim KYC processing, custody services, financial licensing, or invisible privacy guarantees that are not clearly enforced by the current code and product behavior. A D-U-N-S Number identifies the organization in Dun & Bradstreet records; it is not a promise that blockchain, market, or third-party infrastructure risk disappears.",
     },
   ],
   links: [
@@ -161,7 +180,7 @@ const privacyContentEn: PublicPageContent = {
   ],
   linksEyebrow: "Public Exits",
   footerNote: officialSupportEmail
-    ? `Privacy questions can be directed to ${officialSupportEmail}.`
+    ? `Privacy questions can be directed to ${officialSupportEmail}. Official phone and WhatsApp support: ${officialSupportPhone}.`
     : "A dedicated public privacy mailbox is not published yet. Until it is, use the official support channels on the Support page and avoid sharing private keys or seed phrases there.",
 };
 
@@ -180,6 +199,11 @@ const termsContentEn: PublicPageContent = {
       "These terms should be read in a practical way: code, wallet approval, network state, and smart-contract rules define what actually happens. The site and app can help you reach those surfaces, but they do not remove on-chain risk or market risk.",
   },
   summaryCards: [
+    {
+      eyebrow: "Operator",
+      title: officialLegalEntity.abbreviatedName,
+      body: `${officialLegalEntity.fullLegalName} is the legal operator for the official 4TEEN website and published support routes. D-U-N-S Number: ${officialLegalEntity.dunsNumber}.`,
+    },
     {
       eyebrow: "Nature",
       title: "Interface, not custody",
@@ -201,13 +225,25 @@ const termsContentEn: PublicPageContent = {
   ],
   sections: [
     {
-      eyebrow: "1. Product Nature",
+      eyebrow: "1. Legal Operator",
+      title: "The official 4TEEN website is operated by AG PLUS LLC",
+      body: `${officialLegalEntity.fullLegalName}, a ${officialLegalEntity.legalForm} registered in the Republic of Uzbekistan, operates ${officialWebsiteUrl} and the official public project surfaces for 4TEEN.`,
+      bullets: [
+        `Taxpayer Identification Number: ${officialLegalEntity.taxpayerIdentificationNumber}`,
+        `State registration number: ${officialLegalEntity.registrationNumber}, registered ${officialLegalEntity.stateRegistrationDate}`,
+        `D-U-N-S Number: ${officialLegalEntity.dunsNumber}`,
+        `Legal address: ${officialLegalEntity.legalAddress}`,
+      ],
+      note: `Official legal and support contact: ${officialSupportEmail}; phone and WhatsApp: ${officialSupportPhone}.`,
+    },
+    {
+      eyebrow: "2. Product Nature",
       title: "The site and app are access layers",
       body:
         "4TEEN surfaces include informational pages, public protocol dashboards, mobile wallet routes, direct-buy flows, liquidity controls, airdrop views, and ambassador routes. These surfaces help you reach blockchain actions, but they are still interfaces layered on top of public networks and deployed contracts.",
     },
     {
-      eyebrow: "2. Non-custodial and on-chain reality",
+      eyebrow: "3. Non-custodial and on-chain reality",
       title: "The protocol is defined by contracts and user signatures",
       body:
         "If a behavior is enforced by contract code, wallet approval, or visible resource checks, it is real. If something is only implied by copy and not backed by execution logic, do not treat it as a guarantee.",
@@ -218,25 +254,25 @@ const termsContentEn: PublicPageContent = {
       ],
     },
     {
-      eyebrow: "3. No investment promise",
+      eyebrow: "4. No investment promise",
       title: "Nothing here is financial advice",
       body:
         "4TEEN does not promise profit, token appreciation, guaranteed airdrop value, guaranteed ambassador income, or guaranteed liquidity results. Market behavior is external, and all participation remains at the user's own risk.",
     },
     {
-      eyebrow: "4. Reward and campaign logic",
+      eyebrow: "5. Reward and campaign logic",
       title: "Eligibility is not a marketing slogan",
       body:
         "Airdrop, ambassador, and reward flows can depend on contract rules, campaign conditions, anti-abuse checks, verification logic, resource availability, or backend processing queues. Participation alone does not guarantee payout.",
     },
     {
-      eyebrow: "5. External links and third parties",
+      eyebrow: "6. External links and third parties",
       title: "Not every linked surface is controlled by 4TEEN",
       body:
         "Explorers, repositories, DEX routes, social channels, and store pages may be linked from the site or app. Those services operate under their own terms and uptime conditions. 4TEEN does not guarantee their availability or behavior.",
     },
     {
-      eyebrow: "6. User responsibility",
+      eyebrow: "7. User responsibility",
       title: "You still need to verify what you are doing",
       bullets: [
         "Check contract addresses and asset symbols before signing",
@@ -248,7 +284,7 @@ const termsContentEn: PublicPageContent = {
         "Loss caused by wrong addresses, compromised devices, leaked recovery phrases, or misunderstood contract behavior remains a user-side risk.",
     },
     {
-      eyebrow: "7. Updates",
+      eyebrow: "8. Updates",
       title: "The product can change over time",
       body:
         "Pages, wallet routes, protocol integrations, campaign logic, and public copy can change as the product evolves. Continued use of the website or app after changes means you are using the current version of the product, not an older expectation.",
@@ -261,7 +297,7 @@ const termsContentEn: PublicPageContent = {
   ],
   linksEyebrow: "Public Exits",
   footerNote:
-    "Read these terms together with contract addresses, explorer state, and the wallet confirmation screen. Those surfaces define reality more strongly than any marketing sentence.",
+    `Read these terms together with contract addresses, explorer state, and the wallet confirmation screen. Organization identity: ${officialLegalEntity.abbreviatedName}, D-U-N-S ${officialLegalEntity.dunsNumber}.`,
 };
 
 const blogContentEn: PublicPageContent = {
@@ -371,19 +407,29 @@ const supportContentEn: SupportPageContent = {
   ],
   sections: [
     {
-      eyebrow: "1. Support scope",
+      eyebrow: "1. Official operator",
+      title: "Support is published by the legal 4TEEN operator",
+      body: `${officialLegalEntity.fullLegalName} operates the official 4TEEN website and support routes. Use ${officialSupportEmail} or ${officialSupportPhone} for direct support, and verify support links from ${officialWebsiteUrl}.`,
+      bullets: [
+        `D-U-N-S Number: ${officialLegalEntity.dunsNumber}`,
+        `Registration number: ${officialLegalEntity.registrationNumber}`,
+        `Legal address: ${officialLegalEntity.legalAddress}`,
+      ],
+    },
+    {
+      eyebrow: "2. Support scope",
       title: "What support is meant to cover",
       body:
         "Support is for route guidance, factual troubleshooting, official link verification, public protocol information, wallet-surface clarification, release-page help, and identifying which contract or product layer is relevant to your issue.",
     },
     {
-      eyebrow: "2. Limits of support",
+      eyebrow: "3. Limits of support",
       title: "What support cannot promise",
       body:
         "Support cannot reverse confirmed blockchain transactions, recover a lost seed phrase, guarantee token price outcome, guarantee future rewards, or manually override public contract rules just because a result was not what you wanted.",
     },
     {
-      eyebrow: "3. Response quality",
+      eyebrow: "4. Response quality",
       title: "How to get a faster answer",
       bullets: [
         "Include the exact route or page where the issue appeared",
@@ -452,7 +498,7 @@ const supportContentEn: SupportPageContent = {
     eyebrow: "Contact",
     title: "Use only official 4TEEN exits",
     body:
-      "If a support route is not linked from the official site, wallet, or official social list, verify it before trusting it. Fake support is a common attack pattern in crypto products.",
+      `If a support route is not linked from the official site, wallet, or official social list, verify it before trusting it. The official legal operator is ${officialLegalEntity.abbreviatedName} and the published D-U-N-S Number is ${officialLegalEntity.dunsNumber}.`,
     emailTitle: "Support email",
     emailMissing:
       "A dedicated public support mailbox is not published in the current repositories. Until one is published, use the official channels below and never share secret recovery material there.",
@@ -467,7 +513,7 @@ const supportContentEn: SupportPageContent = {
   ],
   linksEyebrow: "Public Exits",
   footerNote:
-    "For release links, contract references, or public state pages, start from the official website or the official wallet repository so you do not drift into unofficial mirrors.",
+    `For release links, contract references, or public state pages, start from ${officialWebsiteUrl}. Official phone and WhatsApp support: ${officialSupportPhone}.`,
 };
 
 const publicPagesContentByLocale: Partial<

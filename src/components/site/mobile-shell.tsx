@@ -96,7 +96,15 @@ export function FourteenMobileShell({
   }
 
   useEffect(() => {
-    closeAllPanels();
+    const closeTimer = window.setTimeout(() => {
+      setMenuOpen(false);
+      setSearchOpen(false);
+      setLocaleOpen(false);
+    }, 0);
+
+    return () => {
+      window.clearTimeout(closeTimer);
+    };
   }, [pathname]);
 
   useEffect(() => {

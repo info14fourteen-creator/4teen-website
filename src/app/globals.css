@@ -3239,6 +3239,16 @@ body:has(.ft-not-found-page) .ft-site-footer {
   gap: 10px 16px;
 }
 
+.ft-site-footer__duns {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.ft-site-footer__duns-seal {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+}
+
 .ft-site-footer__meta-link {
   display: inline-flex;
   min-height: 32px;

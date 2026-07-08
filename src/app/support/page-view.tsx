@@ -3,7 +3,11 @@ import type { Metadata } from "next";
 import { PublicPageShell } from "@/components/site/public-page-shell";
 import { LoaderLink } from "@/components/site/loader-link";
 import { getPublicPagesContent } from "@/content/public-pages-content";
-import { officialSupportEmail } from "@/content/official-links";
+import {
+  officialSocialUrls,
+  officialSupportEmail,
+  officialSupportPhone,
+} from "@/content/official-links";
 import {
   defaultSiteLocale,
   type SupportedSiteLocale,
@@ -104,6 +108,19 @@ export function SupportPageView({
               ) : (
                 <p className="ft-text">{content.contactPanel.emailMissing}</p>
               )}
+            </article>
+
+            <article className="ft-card ft-card--plain ft-public-page__contact-card">
+              <p className="ft-card-title-top">Phone / WhatsApp</p>
+              <LoaderLink
+                className="ft-link"
+                href={officialSocialUrls.whatsapp}
+                rel="noopener noreferrer"
+                showLinkIcon
+                target="_blank"
+              >
+                {officialSupportPhone}
+              </LoaderLink>
             </article>
 
             <article className="ft-card ft-card--plain ft-public-page__contact-card">

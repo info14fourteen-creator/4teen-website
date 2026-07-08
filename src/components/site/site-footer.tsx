@@ -1,5 +1,6 @@
 "use client";
 
+import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { Fragment } from "react";
 import { LoaderLink } from "@/components/site/loader-link";
@@ -16,7 +17,12 @@ import socialXHover from "@/assets/lottie/social-x-hover.json";
 import socialYoutubeHover from "@/assets/lottie/social-youtube-hover.json";
 import { getChromeContent } from "@/content/chrome-content";
 import { getNavContent } from "@/content/nav-content";
-import { officialTronixRentUrl } from "@/content/official-links";
+import {
+  dunsRegisteredSealScriptUrl,
+  officialLegalEntity,
+  officialSocialUrls,
+  officialTronixRentUrl,
+} from "@/content/official-links";
 import { stripSiteLocaleSegment } from "@/lib/site-locale";
 import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
@@ -29,7 +35,7 @@ const socialLinks = [
   { label: "Threads", href: "https://www.threads.com/@fourteentoken", animationData: socialThreadsHover },
   { label: "TikTok", href: "https://www.tiktok.com/@4teentoken", animationData: socialTiktokHover },
   { label: "YouTube", href: "https://www.youtube.com/@4teentoken", animationData: socialYoutubeHover },
-  { label: "WhatsApp", href: "https://wa.me/16462178070", animationData: socialWhatsappHover },
+  { label: "WhatsApp", href: officialSocialUrls.whatsapp, animationData: socialWhatsappHover },
   { label: "GitHub", href: "https://github.com/info14fourteen-creator", animationData: socialGithubHover },
 ];
 
@@ -174,6 +180,9 @@ export function SiteFooter({
 
         <div className="ft-container--wide ft-site-footer__bottom">
           <span>{chrome.footer.copyright}</span>
+          <span className="ft-site-footer__duns">
+            {officialLegalEntity.abbreviatedName} · D-U-N-S {officialLegalEntity.dunsNumber}
+          </span>
           <div className="ft-site-footer__meta-links">
             {footerMetaLinks.map((link) => (
               <LoaderLink key={link.href} className="ft-site-footer__meta-link" href={link.href}>
@@ -187,6 +196,14 @@ export function SiteFooter({
             ))}
           </div>
           <span>{chrome.footer.officialWebsite}</span>
+          <span className="ft-site-footer__duns-seal" aria-label="D-U-N-S Registered mini seal">
+            <Script
+              id="duns-registered-mini-seal"
+              src={dunsRegisteredSealScriptUrl}
+              strategy="afterInteractive"
+              type="text/javascript"
+            />
+          </span>
         </div>
       </div>
     </footer>

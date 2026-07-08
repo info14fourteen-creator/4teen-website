@@ -30,7 +30,8 @@ export function LocaleSwitcher({
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname() ?? "/";
-  const resolvedCurrentLocale = currentLocale ?? useCurrentSiteLocale();
+  const routeLocale = useCurrentSiteLocale();
+  const resolvedCurrentLocale = currentLocale ?? routeLocale;
 
   const current = useMemo(
     () =>
