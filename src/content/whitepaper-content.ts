@@ -1639,8 +1639,10 @@ The combination of real TRX backing, dynamic supply, and structured liquidity di
 };
 
 export function getWhitepaperPageContent(
-  _locale: SupportedSiteLocale,
+  locale: SupportedSiteLocale,
 ): WhitepaperPageContent {
+  void locale;
+
   return whitepaperContentEn;
 }
 

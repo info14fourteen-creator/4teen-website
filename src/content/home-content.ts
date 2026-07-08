@@ -5,11 +5,6 @@ type ActionLink = {
   href: string;
 };
 
-type SmartLink = ActionLink & {
-  external?: boolean;
-  value?: string;
-};
-
 type HeroTool = {
   href: string;
   title: string;

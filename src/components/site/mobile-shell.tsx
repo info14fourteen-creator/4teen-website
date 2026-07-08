@@ -40,10 +40,12 @@ function isActivePath(pathname: string, href: string) {
 }
 
 export function FourteenMobileShell({
-  appMode: _appMode = false,
+  appMode = false,
 }: {
   appMode?: boolean;
 }) {
+  void appMode;
+
   const pathname = usePathname() ?? "/";
   const localeAwarePathname = useLocaleAwarePathname();
   const [menuOpen, setMenuOpen] = useState(false);

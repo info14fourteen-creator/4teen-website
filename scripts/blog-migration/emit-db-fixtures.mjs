@@ -117,7 +117,7 @@ async function main() {
     };
   });
 
-  const postMediaLinks = bundle.media.map((item, index) => ({
+  const postMediaLinks = bundle.media.map((item) => ({
     postSlug: item.linkedPostSlug,
     postLocale: item.linkedPostLocale,
     mediaStorageKey: item.suggestedStorageKey,

@@ -69,7 +69,7 @@ async function readFileIfPresent(relativePath, limit = 24_000) {
       path: relativePath,
       content: content.length > limit ? `${content.slice(0, limit)}\n/* truncated */` : content
     };
-  } catch (_) {
+  } catch {
     return null;
   }
 }
@@ -162,7 +162,7 @@ function extractJson(text) {
 
   try {
     return JSON.parse(safe);
-  } catch (_) {
+  } catch {
     const start = safe.indexOf('{');
     const end = safe.lastIndexOf('}');
     if (start >= 0 && end > start) {

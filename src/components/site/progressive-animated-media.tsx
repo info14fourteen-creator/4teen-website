@@ -64,6 +64,7 @@ export function ProgressiveAnimatedMedia({
         .filter(Boolean)
         .join(" ")}
     >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         alt={alt}
         className={[
@@ -79,19 +80,22 @@ export function ProgressiveAnimatedMedia({
         decoding="async"
       />
       {shouldRenderAnimated ? (
-        <img
-          alt=""
-          aria-hidden="true"
-          className={[
-            "ft-progressive-animated-media__animated",
-            imageClassName ?? "",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-          height={height}
-          src={animatedSrc}
-          width={width}
-        />
+        <>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            alt=""
+            aria-hidden="true"
+            className={[
+              "ft-progressive-animated-media__animated",
+              imageClassName ?? "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+            height={height}
+            src={animatedSrc}
+            width={width}
+          />
+        </>
       ) : null}
     </div>
   );

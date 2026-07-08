@@ -21,6 +21,8 @@ function isActivePath(pathname: string, href: string) {
 }
 
 export function FourteenTopbar({ appMode = false }: { appMode?: boolean }) {
+  void appMode;
+
   const pathname = usePathname() ?? "/";
   const locale = useCurrentSiteLocale();
   const localeAwarePathname = useLocaleAwarePathname();

@@ -972,7 +972,7 @@ function buildFallbackMetadata({ digestMarkdown, analyses, runDate }) {
   };
 }
 
-function buildFallbackDigestPackage({ articles, runDate, maxArticles, signature }) {
+function buildFallbackDigestPackage({ articles, runDate, maxArticles }) {
   const selectedArticles = articles.slice(0, Math.max(3, Math.min(maxArticles, 6)));
   const analyses = buildFallbackAnalyses(selectedArticles);
   const digestMarkdown = buildFallbackDigestMarkdown({

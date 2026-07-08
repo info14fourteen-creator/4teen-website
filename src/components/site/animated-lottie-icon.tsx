@@ -1,7 +1,7 @@
 "use client";
 
 import Lottie from "lottie-react";
-import { useEffect, useMemo, useRef, type MutableRefObject } from "react";
+import { useCallback, useEffect, useMemo, useRef, type MutableRefObject } from "react";
 
 type AnimationData = {
   fr?: number;
@@ -50,14 +50,14 @@ export function AnimatedLottieIcon({
     [animationData.fr, animationData.op, startFrame],
   );
 
-  function playOnce() {
+  const playOnce = useCallback(() => {
     lottieRef.current?.setDirection?.(1);
     lottieRef.current?.playSegments?.([startFrame, endFrame], true);
-  }
+  }, [endFrame, startFrame]);
 
-  function reset() {
+  const reset = useCallback(() => {
     lottieRef.current?.goToAndStop?.(startFrame, true);
-  }
+  }, [startFrame]);
 
   useEffect(() => {
     if (!apiRef) return;
@@ -67,7 +67,7 @@ export function AnimatedLottieIcon({
     return () => {
       apiRef.current = null;
     };
-  }, [apiRef, endFrame, startFrame]);
+  }, [apiRef, playOnce, reset]);
 
   useEffect(() => {
     if (loop) {
@@ -76,7 +76,7 @@ export function AnimatedLottieIcon({
     }
 
     reset();
-  }, [loop, startFrame]);
+  }, [loop, reset]);
 
   return (
     <div

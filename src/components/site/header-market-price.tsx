@@ -71,7 +71,7 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
         setHasError(false);
       } catch {
         if (!active) return;
-        setHasError((current) => !payload ? true : current);
+        setHasError(true);
       }
     }
 
@@ -125,6 +125,7 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
     >
       <span className="ft-header-market__group">
         <span className="ft-header-market__value">{formatHeaderPrice(base.value)}</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           alt=""
           className="ft-header-market__icon"
@@ -140,6 +141,7 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
 
       <span className="ft-header-market__group ft-header-market__group--quote">
         <span className="ft-header-market__value">{formatHeaderPrice(quote.value)}</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           alt=""
           className="ft-header-market__icon"

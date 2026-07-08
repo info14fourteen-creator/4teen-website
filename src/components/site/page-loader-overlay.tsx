@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { FourteenLoader } from "@/components/site/fourteen-loader";
 import {
   FOURTEEN_LOADER_DONE_EVENT,
@@ -17,10 +17,22 @@ export function PageLoaderOverlay() {
   const [active, setActive] = useState(false);
   const mountedRef = useRef(false);
   const firstPathRef = useRef(true);
+  const visibleRef = useRef(false);
+  const activeRef = useRef(false);
   const activeTimerRef = useRef<number | null>(null);
   const hideTimerRef = useRef<number | null>(null);
 
-  function clearTimers() {
+  const setVisibleState = useCallback((nextVisible: boolean) => {
+    visibleRef.current = nextVisible;
+    setVisible(nextVisible);
+  }, []);
+
+  const setActiveState = useCallback((nextActive: boolean) => {
+    activeRef.current = nextActive;
+    setActive(nextActive);
+  }, []);
+
+  const clearTimers = useCallback(() => {
     if (activeTimerRef.current) {
       window.clearTimeout(activeTimerRef.current);
       activeTimerRef.current = null;
@@ -30,37 +42,37 @@ export function PageLoaderOverlay() {
       window.clearTimeout(hideTimerRef.current);
       hideTimerRef.current = null;
     }
-  }
+  }, []);
 
-  function showLoader() {
-    clearTimers();
-    setVisible(true);
-    setActive(true);
-
-    activeTimerRef.current = window.setTimeout(() => {
-      finishLoader();
-    }, MAX_WAIT_DURATION_MS);
-  }
-
-  function finishLoader() {
-    if (!visible && !active) return;
+  const finishLoader = useCallback(() => {
+    if (!visibleRef.current && !activeRef.current) return;
 
     if (activeTimerRef.current) {
       window.clearTimeout(activeTimerRef.current);
       activeTimerRef.current = null;
     }
 
-    setActive(false);
+    setActiveState(false);
 
     if (hideTimerRef.current) {
       window.clearTimeout(hideTimerRef.current);
     }
 
     hideTimerRef.current = window.setTimeout(() => {
-      setVisible(false);
+      setVisibleState(false);
       hideTimerRef.current = null;
     }, LEAVE_DURATION_MS);
-  }
+  }, [setActiveState, setVisibleState]);
+
+  const showLoader = useCallback(() => {
+    clearTimers();
+    setVisibleState(true);
+    setActiveState(true);
+
+    activeTimerRef.current = window.setTimeout(() => {
+      finishLoader();
+    }, MAX_WAIT_DURATION_MS);
+  }, [clearTimers, finishLoader, setActiveState, setVisibleState]);
 
   useEffect(() => {
     mountedRef.current = true;
@@ -68,7 +80,7 @@ export function PageLoaderOverlay() {
     return () => {
       clearTimers();
     };
-  }, []);
+  }, [clearTimers]);
 
   useEffect(() => {
     if (!mountedRef.current) return;
@@ -78,7 +90,7 @@ export function PageLoaderOverlay() {
     }
 
     finishLoader();
-  }, [pathname]);
+  }, [finishLoader, pathname]);
 
   useEffect(() => {
     const handleStart = () => {
@@ -95,7 +107,7 @@ export function PageLoaderOverlay() {
       window.removeEventListener(FOURTEEN_LOADER_EVENT, handleStart);
       window.removeEventListener(FOURTEEN_LOADER_DONE_EVENT, handleDone);
     };
-  }, []);
+  }, [finishLoader, showLoader]);
 
   if (!visible) return null;
 
