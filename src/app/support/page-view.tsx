@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 
+import { LegalTrustPanel } from "@/components/site/legal-trust-panel";
 import { PublicPageShell } from "@/components/site/public-page-shell";
 import { LoaderLink } from "@/components/site/loader-link";
 import { getPublicPagesContent } from "@/content/public-pages-content";
-import { officialSupportEmail } from "@/content/official-links";
+import {
+  officialSupportEmail,
+  officialSupportPhoneDisplay,
+  officialSupportPhoneLink,
+  officialSupportWhatsappUrl,
+} from "@/content/official-links";
 import {
   defaultSiteLocale,
   type SupportedSiteLocale,
@@ -107,12 +113,41 @@ export function SupportPageView({
             </article>
 
             <article className="ft-card ft-card--plain ft-public-page__contact-card">
+              <p className="ft-card-title-top">{content.contactPanel.phoneTitle}</p>
+              <div className="ft-actions ft-actions--stack-mobile ft-public-page__trust-actions">
+                <LoaderLink className="ft-btn ft-btn--secondary" href={officialSupportPhoneLink}>
+                  {officialSupportPhoneDisplay}
+                </LoaderLink>
+                <LoaderLink
+                  className="ft-btn ft-btn--ghost"
+                  href={officialSupportWhatsappUrl}
+                  rel="noopener noreferrer"
+                  showLinkIcon
+                  target="_blank"
+                >
+                  WhatsApp
+                </LoaderLink>
+              </div>
+            </article>
+
+            <article className="ft-card ft-card--plain ft-public-page__contact-card">
+              <p className="ft-card-title-top">{content.contactPanel.legalTitle}</p>
+              <p className="ft-text">{content.contactPanel.legalBody}</p>
+            </article>
+
+            <article className="ft-card ft-card--plain ft-public-page__contact-card">
               <p className="ft-card-title-top">{content.contactPanel.securityTitle}</p>
               <p className="ft-text">{content.contactPanel.securityBody}</p>
             </article>
           </div>
         </div>
       </article>
+
+      <LegalTrustPanel
+        eyebrow="Legal operator and D&B trust"
+        lead="Support routes should connect back to one visible operator, one business identity, and one public trust record."
+        title="Support channels backed by AG PLUS LLC"
+      />
     </PublicPageShell>
   );
 }

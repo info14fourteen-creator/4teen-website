@@ -3247,6 +3247,18 @@ body:has(.ft-not-found-page) .ft-site-footer {
   text-transform: uppercase;
 }
 
+.ft-site-footer__legal-stack,
+.ft-site-footer__trust-stack {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+
+.ft-site-footer__legal-stack {
+  max-width: min(100%, 42rem);
+}
+
 .ft-site-footer__meta-links {
   display: inline-flex;
   flex-wrap: wrap;
@@ -3280,6 +3292,12 @@ body:has(.ft-not-found-page) .ft-site-footer {
   border-color: rgba(255, 105, 0, 0.26);
   background: rgba(255, 255, 255, 0.05);
   color: rgba(255, 255, 255, 0.92);
+}
+
+.ft-site-footer__duns-seal {
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
 }
 
 /* =========================================
@@ -5988,9 +6006,57 @@ body:has(.ft-not-found-page) .ft-site-footer {
   margin: 0;
 }
 
+.ft-public-page__trust-panel {
+  border-color: rgba(255, 120, 24, 0.18);
+  background:
+    radial-gradient(circle at top right, rgba(255, 120, 24, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(16, 16, 16, 0.98), rgba(8, 8, 8, 0.95));
+}
+
+.ft-public-page__trust-grid {
+  grid-template-columns: minmax(0, 1.06fr) minmax(320px, 0.94fr);
+}
+
+.ft-public-page__trust-actions {
+  align-items: stretch;
+}
+
+.ft-public-page__trust-actions .ft-btn {
+  justify-content: center;
+}
+
+.ft-public-page__seal-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid rgba(255, 120, 24, 0.12);
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 120, 24, 0.06), rgba(255, 120, 24, 0.02));
+}
+
+.ft-duns-seal {
+  display: block;
+  flex: 0 0 auto;
+  border: 0;
+  background: transparent;
+}
+
+.ft-duns-seal.is-standard {
+  width: 114px;
+  height: 97px;
+}
+
+.ft-duns-seal.is-mini {
+  width: 49px;
+  height: 43px;
+}
+
 .ft-public-page__contact-grid > *,
 .ft-public-page__channel-grid > *,
-.ft-public-page__scope-grid > * {
+.ft-public-page__scope-grid > *,
+.ft-public-page__trust-grid > * {
   min-width: 0;
 }
 
@@ -8320,6 +8386,7 @@ body:has(.ft-not-found-page) .ft-site-footer {
   .ft-app-page__surface-grid,
   .ft-ambassador-page__hero-stats,
   .ft-public-page__hero-stats,
+  .ft-public-page__trust-grid,
   .ft-ambassador-page__levels-grid,
   .ft-buy-page__hero-stats,
   .ft-liquidity-page__hero-stats,
@@ -8344,6 +8411,11 @@ body:has(.ft-not-found-page) .ft-site-footer {
   .ft-swap-page__route-meta {
     grid-template-columns: 1fr;
   }
+
+  .ft-public-page__seal-row {
+    gap: 14px;
+    padding: 14px 16px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -8352,6 +8424,7 @@ body:has(.ft-not-found-page) .ft-site-footer {
     gap: 4px;
   }
 
+  .ft-public-page__trust-panel,
   .ft-public-page__channel-card,
   .ft-public-page__scope-card,
   .ft-public-page__contact-card,
@@ -8376,6 +8449,12 @@ body:has(.ft-not-found-page) .ft-site-footer {
   .ft-verification-page__asset-card,
   .ft-verification-page__cta-panel {
     padding: 16px;
+  }
+
+  .ft-public-page__seal-row {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    border-radius: 18px;
   }
 
   .ft-buy-page__latest-list {
