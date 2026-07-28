@@ -34,7 +34,6 @@ function stripFenceMarkers(value: string) {
 function stripFormattingMarkers(value: string) {
   return value
     .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, "$1")
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, "$1 ($2)")
     .replace(/`([^`]+)`/g, "$1")
     .replace(/\*\*([^*]+)\*\*/g, "$1")
     .replace(/__([^_]+)__/g, "$1")

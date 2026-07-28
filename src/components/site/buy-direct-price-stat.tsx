@@ -1,18 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { readMarketPrice } from "@/lib/client-market-price";
 import type { SupportedSiteLocale } from "@/lib/site-locale";
 import { formatUtcDate } from "@/lib/site-intl";
-
-type MarketPricePayload = {
-  ok?: boolean;
-  snapshot?: {
-    direct?: {
-      trx?: string;
-    };
-    updatedAt?: string;
-  } | null;
-};
 
 export function BuyDirectPriceStat({
   locale,
@@ -37,13 +28,7 @@ export function BuyDirectPriceStat({
   useEffect(() => {
     let cancelled = false;
 
-    fetch("/api/site/market-price", { cache: "force-cache" })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-        return response.json() as Promise<MarketPricePayload>;
-      })
+    readMarketPrice()
       .then((payload) => {
         if (cancelled) return;
         const directTrx = payload?.snapshot?.direct?.trx?.trim();

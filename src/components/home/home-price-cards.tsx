@@ -1,21 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { readMarketPrice, type MarketPricePayload } from "@/lib/client-market-price";
 import { formatCompactMetric } from "@/lib/site-format";
 import type { HomePageContent } from "@/content/home-content";
-
-type MarketPayload = {
-  ok: boolean;
-  snapshot?: {
-    direct?: {
-      trx: string;
-    };
-    dex?: {
-      trx: string;
-      usdt: string;
-    };
-  } | null;
-};
 
 function HomePriceCard({
   label,
@@ -42,22 +30,14 @@ export function HomePriceCards({
   includeDailyRule?: boolean;
   copy: HomePageContent["ui"]["marketStrip"];
 }) {
-  const [payload, setPayload] = useState<MarketPayload | null>(null);
+  const [payload, setPayload] = useState<MarketPricePayload | null>(null);
 
   useEffect(() => {
     let active = true;
 
     async function readPrices() {
       try {
-        const response = await fetch("/api/site/market-price", {
-          cache: "force-cache",
-        });
-
-        if (!response.ok) {
-          throw new Error(`Price fetch failed: ${response.status}`);
-        }
-
-        const json = (await response.json()) as MarketPayload;
+        const json = await readMarketPrice();
         if (!active) return;
         setPayload(json);
       } catch {
@@ -71,7 +51,7 @@ export function HomePriceCards({
     void readPrices();
     const refreshId = window.setInterval(() => {
       void readPrices();
-    }, 60000);
+    }, 300000);
 
     return () => {
       active = false;

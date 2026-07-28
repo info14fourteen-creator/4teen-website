@@ -7,12 +7,22 @@ type StoreLink = {
 };
 
 export type AppPageContent = {
+  metadata: {
+    title: string;
+    description: string;
+    openGraphTitle?: string;
+    openGraphDescription?: string;
+  };
   hero: {
     eyebrow: string;
     status: string;
     title: string;
     lead: string;
     stayOnWeb: string;
+    primaryCta?: string;
+    secondaryCta?: string;
+    ctaNote?: string;
+    rotatingLines?: string[];
     stats: Array<{
       label: string;
       value: string;
@@ -79,23 +89,42 @@ export type AppPageContent = {
 };
 
 const appContentEn: AppPageContent = {
+  metadata: {
+    title: "4TEEN App | TRON Wallet Release Route",
+    description:
+      "Follow the 4TEEN app rollout across App Store and Google Play, then step into a real TRON wallet with the full 4TEEN operating layer already inside.",
+    openGraphTitle: "4TEEN App Release",
+    openGraphDescription:
+      "Track the 4TEEN mobile app release, then explore the multilingual TRON wallet and the live 4TEEN operating layer already built into it.",
+  },
   hero: {
     eyebrow: "4TEEN Mobile App",
-    status: "Universal wallet + live protocol layer",
+    status: "App Store + Google Play rollout",
     title:
-      "A multilingual TRON wallet that already manages real crypto activity, not just one ecosystem token.",
+      "A real TRON wallet, with the 4TEEN operating layer and the release route in one place.",
     lead:
-      "The mobile app is not limited to 4TEEN. It already behaves like a broader TRON wallet with wallets, assets, transfers, QR flow, contacts, language, and settings. Manage Crypto is part of the real product, not decoration: users can browse assets, filter them, add custom tokens, and move across a much wider token surface. Inside that wallet core, the full 4TEEN system is already built in: direct buy, swap, unlock tracking, liquidity control, airdrop state, ambassador cabinet, contract map, and runtime readiness.",
+      "This is where the store rollout meets the real product. The app is not a token-shell pretending to be a wallet: it already behaves like a broader TRON product with wallets, assets, transfers, QR flow, contacts, language, settings, resource checks, and the full 4TEEN route map inside the same execution layer.",
     stayOnWeb: "Stay on Web",
+    primaryCta: "See Download Route",
+    secondaryCta: "See Protocol Surfaces",
+    ctaNote:
+      "The web side explains the system and the release. The mobile side signs, routes, checks resources, and runs the actual transaction flow.",
+    rotatingLines: [
+      "App Store + Google Play. Same Release Window.",
+      "Universal Wallet. Native 4TEEN Layer.",
+      "Broad Token Surface. Not Just One Asset.",
+      "Resources First. Signature After.",
+      "Wallet Core. Protocol Routes. Same Product.",
+    ],
     stats: [
       {
         label: "Wallet core",
-        value: "Universal",
+        value: "TRON-first",
         meta: "Wallets, send, asset management, scan, contacts, settings.",
       },
       {
         label: "Asset scope",
-        value: "Wide",
+        value: "Broad",
         meta: "TRX, 4TEEN, stable assets, and user-managed custom token entries.",
       },
       {
@@ -105,7 +134,7 @@ const appContentEn: AppPageContent = {
       },
       {
         label: "4TEEN layer",
-        value: "Built in",
+        value: "7 Routes",
         meta: "Buy, swap, unlock, liquidity, airdrop, ambassadors, and info.",
       },
     ],
@@ -142,7 +171,7 @@ const appContentEn: AppPageContent = {
   walletFoundation: [
     {
       eyebrow: "Wallets",
-      title: "Multiple identities, not one fixed wallet",
+      title: "Multiple identities, not one fixed shell",
       text: "Users can create, import, rename, switch, and remove wallets, while the product keeps clear separation between signing wallets and watch-only wallets.",
     },
     {
@@ -153,18 +182,18 @@ const appContentEn: AppPageContent = {
     {
       eyebrow: "Manage Crypto",
       title: "Broader than one ecosystem asset",
-      text: "Manage Crypto already treats assets as a real product layer: TRX, 4TEEN, stable assets, custom token entries, filters, sort modes, and target-asset selection for send and swap live in the same wallet surface.",
+      text: "Manage Crypto is a real wallet layer: TRX, 4TEEN, stable assets, custom token entries, filters, sort modes, and target-asset selection for send and swap live in the same surface.",
     },
     {
       eyebrow: "Language",
       title: "16 interface languages",
-      text: "The language layer is already built into the product, with a dedicated route and app-level locale control for English, Russian, Uzbek, Turkish, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Arabic, Hindi, Japanese, Chinese, and Korean.",
+      text: "The language layer is already built into the product with a dedicated route and app-level locale control across major regional entry points.",
     },
   ],
   resourceLayer: [
     {
       eyebrow: "Need now",
-      title: "Energy and bandwidth are measured before signature",
+      title: "Resources are measured before signature",
       text: "Direct buy, send, swap, liquidity execution, and other contract routes estimate Energy and Bandwidth before the app asks for passcode or biometrics.",
     },
     {
@@ -180,7 +209,7 @@ const appContentEn: AppPageContent = {
     {
       eyebrow: "Replay",
       title: "Pending rows stay operationally honest",
-      text: "If the operator side drops below its safe resource floor, ambassador allocation rows stay queued while the backend tops up resources and the hourly replay cycle checks again until the reward lands on-chain.",
+      text: "If the operator side drops below its safe resource floor, queued rows stay visible while the backend tops up resources and the replay cycle checks again until the reward lands on-chain.",
     },
   ],
   protocolSurfaces: [
@@ -230,7 +259,7 @@ const appContentEn: AppPageContent = {
   operatingRules: [
     {
       title: "Universal wallet first",
-      text: "The strongest reading of this app is not “an ecosystem shell”. It already behaves like a broader TRON wallet with a wider token universe, and 4TEEN is built into that foundation as a live product layer.",
+      text: "The strongest reading of this app is not “an ecosystem shell”. It behaves like a broader TRON wallet with a wider token universe, and 4TEEN is built into that foundation as a live product layer.",
     },
     {
       title: "Watch-only and signing are different states",
@@ -238,7 +267,7 @@ const appContentEn: AppPageContent = {
     },
     {
       title: "Operational readiness is part of the interface",
-      text: "Controller gating, resource coverage, queued reward rows, and replay status are all expressed as product states. The user sees what is ready now, what needs top-up, and what is waiting.",
+      text: "Controller gating, resource coverage, queued reward rows, and replay status are expressed as product states. The user sees what is ready now, what needs top-up, and what is waiting.",
     },
     {
       title: "Multilingual is product infrastructure",
@@ -248,7 +277,7 @@ const appContentEn: AppPageContent = {
   downloadReasons: [
     "Use it as a broader TRON wallet, not only as a 4TEEN access point.",
     "Keep portfolio, custom token handling, transfers, scanning, contacts, and language control in the same product.",
-    "Open the full 4TEEN layer inside the wallet: buy, unlock, liquidity, airdrop, ambassadors, and info.",
+    "Open the full 4TEEN layer inside the wallet: buy, swap, unlock, liquidity, airdrop, ambassadors, and info.",
     "See network load, resource shortfall, route protection, and operational readiness before signing or waiting blindly.",
   ],
   sections: {
@@ -258,11 +287,11 @@ const appContentEn: AppPageContent = {
     },
     walletFoundation: {
       eyebrow: "Wallet Foundation",
-      title: "Why the app is broader than one protocol",
+      title: "Why this is a real wallet first",
     },
     resourceLayer: {
       eyebrow: "Resource Intelligence",
-      title: "Energy and Bandwidth are part of the product logic",
+      title: "Why execution is safer than blind signing",
       notePrefix: "Inside the app, network-load cards already surface",
       noteNeedNow: "Need now",
       noteMiddle: "Available now",
@@ -272,14 +301,14 @@ const appContentEn: AppPageContent = {
     },
     protocolSurfaces: {
       eyebrow: "4TEEN Surfaces",
-      title: "What the protocol layer already does inside the app",
+      title: "What the protocol layer already does inside the wallet",
     },
     operatingRuleLabel: "Operating Rule",
     download: {
       eyebrow: "Download Route",
-      title: "Download the wallet if you want the full product, not only the web shortcut.",
+      title: "Install the wallet if you want the full product, not only the web map.",
       body:
-        "The mobile app is where the strongest version of the story comes together: universal wallet behavior, multilingual interface, resource-aware execution, and the full 4TEEN operating layer in one place.",
+        "The strongest version of the product lives in the app: real wallet behavior, multilingual interface, resource-aware execution, and the full 4TEEN operating layer in one place once the store rollout opens.",
       repoLabel: "Wallet App Repo",
     },
   },

@@ -22,7 +22,7 @@ import {
 } from "@/lib/site-snapshot-types";
 
 const SWAP_HERO_POSTER_SRC = "/media/swap-demo.png";
-const SWAP_HERO_MEDIA_SRC = "/media/swap-demo.gif";
+const SWAP_HERO_MEDIA_SRC = "/media/swap-demo.mp4";
 const SWAP_HERO_MEDIA_ALT = "4TEEN swap mobile wallet preview";
 
 export function getSwapPageMetadata(
@@ -128,7 +128,6 @@ export async function SwapPageView({
   const transferSamples = Array.isArray(snapshot?.transfers)
     ? snapshot.transfers
     : [];
-  const snapshotUpdatedAt = snapshot?.updatedAt ?? 0;
 
   const routerStateLabel = snapshot
     ? content.hero.stats.states[snapshot.routerState]
@@ -323,7 +322,7 @@ export async function SwapPageView({
                   <p className="ft-text">{content.sections.liveRoutes.body}</p>
                 </div>
 
-                {routeSamples.length > 0 ? (
+                {snapshot && routeSamples.length > 0 ? (
                   <div className="ft-grid ft-grid--2 ft-swap-page__route-grid">
                     {routeSamples.map((route) => (
                       <article
@@ -375,7 +374,7 @@ export async function SwapPageView({
                               {content.sections.liveRoutes.labels.updated}
                             </p>
                             <p className="ft-text">
-                              {formatUtcDate(snapshotUpdatedAt, locale)}
+                              {formatUtcDate(snapshot.updatedAt, locale)}
                             </p>
                           </div>
                         </div>

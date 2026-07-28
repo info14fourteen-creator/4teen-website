@@ -92,7 +92,16 @@ export function PublicPageShell({
                 ) : null}
                 <div className="ft-actions ft-actions--stack-mobile ft-public-page__links-actions">
                   {content.links.map((link) =>
-                    link.href.startsWith("/") ? (
+                    link.download ? (
+                      <a
+                        key={link.label}
+                        className="ft-btn ft-btn--primary"
+                        download={link.download}
+                        href={link.href}
+                      >
+                        {link.label}
+                      </a>
+                    ) : link.href.startsWith("/") ? (
                       <LoaderLink key={link.label} className="ft-btn ft-btn--secondary" href={link.href}>
                         {link.label}
                       </LoaderLink>

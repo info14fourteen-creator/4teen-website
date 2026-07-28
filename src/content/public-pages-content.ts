@@ -26,6 +26,7 @@ export type PublicPageSection = {
 export type PublicPageLink = {
   label: string;
   href: string;
+  download?: string;
 };
 
 export type PublicPageContent = {

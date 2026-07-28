@@ -1,6 +1,35 @@
 export const officialSupportEmail = "support@4teen.me";
-export const officialSupportPhone = "+998 95 792 02 87";
-export const officialSupportWhatsappUrl = "https://wa.me/998957920287";
+export const officialGenesisEmail = "genesis@4teen.me";
+export const officialSupportPhoneRaw = "998957920287";
+export const officialSupportPhoneDisplay = "+998 95 792 02 87";
+export const officialSupportPhone = officialSupportPhoneDisplay;
+export const officialSupportPhoneLink = `tel:+${officialSupportPhoneRaw}`;
+export const officialSupportWhatsappUrl = `https://wa.me/${officialSupportPhoneRaw}`;
+
+export const officialLegalEntityName = "\"AG PLUS\" Limited Liability Company";
+export const officialLegalEntityShortName = "\"AG PLUS\" LLC";
+export const officialLegalEntityNameRu =
+  "Общество с ограниченной ответственностью \"AG PLUS\"";
+export const officialTaxId = "312 696 228";
+export const officialRegistrationNumber = "3080788";
+export const officialRegistrationDate = "06 January 2026";
+export const officialDunsNumber = "933906683";
+export const officialLegalForm = "Limited Liability Company";
+export const officialDirectorName = "Stanislav Maratovich Atayev";
+export const officialLegalAddress =
+  "Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B";
+
+export const officialLegalEntity = {
+  brandName: "4TEEN",
+  fullLegalName: officialLegalEntityName,
+  abbreviatedName: officialLegalEntityShortName,
+  legalForm: officialLegalForm,
+  taxpayerIdentificationNumber: officialTaxId,
+  registrationNumber: officialRegistrationNumber,
+  stateRegistrationDate: officialRegistrationDate,
+  dunsNumber: officialDunsNumber,
+  legalAddress: officialLegalAddress,
+} as const;
 
 export const officialWebsiteUrl = "https://4teen.me";
 export const officialTronixRentUrl = "https://tronix.rent";
@@ -8,20 +37,8 @@ export const officialWalletRepoUrl =
   "https://github.com/info14fourteen-creator/4teen-wallet-app";
 export const officialContractsRepoUrl =
   "https://github.com/info14fourteen-creator/4teen-smart-contracts";
-export const dunsRegisteredSealScriptUrl = "https://dunsregistered.dnb.com/mini.js";
-
-export const officialLegalEntity = {
-  brandName: "4TEEN",
-  fullLegalName: '"AG PLUS" Limited Liability Company',
-  abbreviatedName: '"AG PLUS" LLC',
-  legalForm: "Limited Liability Company",
-  taxpayerIdentificationNumber: "312 696 228",
-  registrationNumber: "3080788",
-  stateRegistrationDate: "06 January 2026",
-  dunsNumber: "933906683",
-  legalAddress:
-    "Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B",
-} as const;
+export const dunsRegisteredSealScriptUrl =
+  "https://dunsregistered.dnb.com/mini.js";
 
 export const officialSocialUrls = {
   telegram: "https://t.me/fourteentoken",

@@ -1,4 +1,6 @@
 import { getSearchContent } from "@/content/search-content";
+import { getGenesisDeckContent } from "@/content/genesis-content";
+import { getOnePagerContent } from "@/content/one-pager-content";
 import { getPublicPagesContent } from "@/content/public-pages-content";
 import { getAllSiteNav } from "@/lib/site-config";
 import {
@@ -25,6 +27,8 @@ export function getSiteSearchEntries(
 ): SiteSearchEntry[] {
   const copy = getSearchContent(locale);
   const publicPages = getPublicPagesContent(locale);
+  const genesisPage = getGenesisDeckContent(locale);
+  const onePagerPage = getOnePagerContent(locale);
 
   return [
     {
@@ -124,6 +128,38 @@ export function getSiteSearchEntries(
       meta: copy.meta.supportRoute,
       kind: "internal",
       keywords: ["support", "contact", "telegram", "discord", "help", "official channels"],
+    },
+    {
+      title: genesisPage.metadata.title,
+      href: localizeSiteHref("/deck", locale),
+      meta: copy.meta.proofSurface,
+      kind: "internal",
+      keywords: [
+        "genesis",
+        "deck",
+        "investor",
+        "investor deck",
+        "funding",
+        "capital",
+        "investment",
+        "pitch",
+      ],
+    },
+    {
+      title: onePagerPage.metadata.title,
+      href: localizeSiteHref("/one-pager", locale),
+      meta: copy.meta.proofSurface,
+      kind: "internal",
+      keywords: [
+        "one-pager",
+        "one pager",
+        "brief",
+        "investor brief",
+        "summary",
+        "overview",
+        "funding",
+        "pitch",
+      ],
     },
     {
       title: "FourteenToken",

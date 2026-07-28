@@ -1,6 +1,7 @@
 import { cache } from "react";
 
 import blogImportBundle from "../../../scripts/blog-migration/out/content-table/blog-import.bundle.json";
+import tronixRentSeoPosts from "./tronix-rent-seo-posts.json";
 import { getBlogPool } from "@/lib/blog/blog-db";
 import {
   defaultSiteLocale,
@@ -140,9 +141,14 @@ That is the clean user flow QuickShooters is trying to make normal: calculate, r
     sourceColumns: {
       keywords:
         "TRON Energy, USDT TRC20 fees, rent TRON Energy, Bandwidth, OUT_OF_ENERGY, no TRX, QuickShooters, TronLink, Trust Wallet",
+      "16x9_image": "",
+      "9x16_image": "",
+      "1x1_image": "",
     },
   },
 ];
+
+const TRONIX_RENT_PROMO_POSTS = tronixRentSeoPosts as BlogSnapshotPost[];
 
 type BlogContentSource = "snapshot" | "database" | "off";
 
@@ -189,7 +195,7 @@ function getSnapshotBundle() {
 
   return {
     ...bundle,
-    posts: [...QUICKSHOOTERS_PROMO_POSTS, ...bundle.posts],
+    posts: [...TRONIX_RENT_PROMO_POSTS, ...QUICKSHOOTERS_PROMO_POSTS, ...bundle.posts],
   };
 }
 

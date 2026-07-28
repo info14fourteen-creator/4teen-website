@@ -177,6 +177,47 @@ function BlogRelatedCard({
   );
 }
 
+function BlogRailStoryCard({
+  locale,
+  post,
+}: {
+  locale: SupportedSiteLocale;
+  post: BlogPostSummary;
+}) {
+  const href = localizeSiteHref(`/blog/${post.slug}`, locale);
+  const backdrop = post.coverImageUrl
+    ? {
+        backgroundImage: `url("${post.coverImageUrl}")`,
+      }
+    : undefined;
+
+  return (
+    <LoaderLink className="ft-card ft-card--plain ft-blog-post-story" href={href}>
+      {backdrop ? (
+        <>
+          <span aria-hidden="true" className="ft-blog-post-story__backdrop" style={backdrop} />
+          <span aria-hidden="true" className="ft-blog-post-story__shade" />
+        </>
+      ) : null}
+
+      <div className="ft-stack ft-stack--sm ft-blog-post-story__inner">
+        <div className="ft-blog-post-story__top">
+          <span className="ft-blog-card__meta-line">{formatBlogDate(post.publishedAt, locale)}</span>
+          <span className="ft-blog-card__reading">{estimateReadingMinutes(post.excerpt ?? post.seoDescription ?? post.title)} min read</span>
+        </div>
+
+        <BlogCardFill
+          excerpt={post.excerpt ?? post.seoDescription ?? "Imported article."}
+          excerptClassName="ft-blog-post-story__excerpt"
+          rootClassName="ft-stack ft-stack--xs ft-blog-post-story__body"
+          title={post.title}
+          titleClassName="ft-blog-post-story__title"
+        />
+      </div>
+    </LoaderLink>
+  );
+}
+
 export function BlogPostPage({
   locale,
   post,
@@ -306,20 +347,50 @@ export function BlogPostPage({
               </div>
             </article>
 
-            {galleryMedia.length ? (
+            {relatedPosts.length || galleryMedia.length ? (
               <aside className="ft-blog-post-rail">
-                <div className="ft-card ft-card--plain ft-blog-post-rail__card">
-                  <div className="ft-blog-post-gallery__stack">
-                    {galleryMedia.map((media) => (
-                      <img
-                        key={media.publicUrl}
-                        alt={media.altText}
-                        className="ft-blog-post-gallery__image"
-                        src={media.publicUrl}
-                      />
-                    ))}
+                {relatedPosts.length ? (
+                  <div className="ft-card ft-card--plain ft-blog-post-rail__card ft-blog-post-rail__card--stories">
+                    <div className="ft-stack ft-stack--md">
+                      <div className="ft-stack ft-stack--xs">
+                        <p className="ft-overline">Continue</p>
+                        <h2 className="ft-subtitle">More stories on the right route</h2>
+                      </div>
+
+                      <div className="ft-blog-post-rail__stories">
+                        {relatedPosts.map((relatedPost) => (
+                          <BlogRailStoryCard
+                            key={`${relatedPost.locale}:${relatedPost.slug}`}
+                            locale={locale}
+                            post={relatedPost}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ) : null}
+
+                {galleryMedia.length ? (
+                  <div className="ft-card ft-card--plain ft-blog-post-rail__card">
+                    <div className="ft-stack ft-stack--sm">
+                      <div className="ft-stack ft-stack--xs">
+                        <p className="ft-overline">Visuals</p>
+                        <h2 className="ft-subtitle">Frames from the brief</h2>
+                      </div>
+
+                      <div className="ft-blog-post-gallery__stack">
+                        {galleryMedia.map((media) => (
+                          <img
+                            key={media.publicUrl}
+                            alt={media.altText}
+                            className="ft-blog-post-gallery__image"
+                            src={media.publicUrl}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
               </aside>
             ) : null}
           </div>
@@ -343,12 +414,12 @@ export function BlogPostPage({
             <article className="ft-card ft-card--plain ft-public-page__links-panel ft-blog-related">
               <div className="ft-stack ft-stack--md">
                 <div className="ft-stack ft-stack--xs">
-                  <p className="ft-overline">More</p>
-                  <h2 className="ft-subtitle">More to read</h2>
+                  <p className="ft-overline">Archive</p>
+                  <h2 className="ft-subtitle">Wider reading map</h2>
                 </div>
 
                 <div className="ft-blog-related__grid">
-                  {relatedPosts.map((relatedPost) => (
+                  {relatedPosts.slice(0, 3).map((relatedPost) => (
                     <BlogRelatedCard
                       key={`${relatedPost.locale}:${relatedPost.slug}`}
                       locale={locale}

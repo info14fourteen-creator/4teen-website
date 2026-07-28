@@ -17,6 +17,11 @@ export type AirdropPageContent = {
     status: string;
     title: string;
     lead: string;
+    body: string[];
+    rotatingLines: string[];
+    primaryCta: string;
+    secondaryCta: string;
+    ctaNote: string;
     stats: {
       currentWave: string;
       vaultBalance: string;
@@ -127,10 +132,25 @@ const airdropContentEn: AirdropPageContent = {
   },
   hero: {
     eyebrow: "AirdropVault",
-    status: "Live on-chain distribution surface",
-    title: "The airdrop is not a promo button. It is a wave-based vault with live route logic.",
+    status: "Wallet claim route",
+    title: "Claim 4TEEN Through the Wallet Route",
     lead:
-      "The mobile wallet already treats airdrop as a real product surface: Telegram session state, wallet-aware claim state, and on-chain vault state are read together. This page mirrors the vault side of that system and shows the actual wave, balance, unlocked quota, and route model in real time, but the live claim flow itself belongs to the wallet app.",
+      "The public site shows the live AirdropVault state. The mobile wallet handles the claim route.",
+    body: [
+      "Airdrop is not a fake promo button on a landing page. It is a wave-based vault, a wallet-aware claim state, and a Telegram-first route that the app reads before execution.",
+      "This page mirrors the public side: current wave, vault balance, unlocked quota, planned remainder, route model, and on-chain verification. The live claim flow belongs inside the wallet.",
+    ],
+    rotatingLines: [
+      "Vault State. Wallet Claim.",
+      "Telegram Live. Social Rails Staged.",
+      "Public Proof. App Execution.",
+      "Wave Unlocks. Route Checks.",
+      "No Fake Claims. Just State.",
+    ],
+    primaryCta: "Open Mobile App Route",
+    secondaryCta: "Open AirdropVault",
+    ctaNote:
+      "The website shows the vault and route map. The wallet reads the selected account, Telegram session, claim state, and signing mode before the real claim path opens.",
     stats: {
       currentWave: "Current Wave",
       vaultBalance: "Vault Balance",

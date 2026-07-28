@@ -15,6 +15,7 @@ const NOTE_SELECTOR = ".ft-note";
 function shouldAccentNote(element: Element) {
   if (!(element instanceof HTMLElement)) return false;
   if (!element.isConnected) return false;
+  if (element.tagName === "P") return false;
   if (element.closest(".ft-note__accent-mount")) return false;
   if (element.dataset.noteAccentDisabled === "true") return false;
 
@@ -93,13 +94,9 @@ export function SiteNoteAccents() {
 
   useEffect(() => {
     if (isWhitepaperRoute) {
-      const resetTimer = window.setTimeout(() => {
-        setTargets([]);
-      }, 0);
+      const clearTargetsId = window.setTimeout(() => setTargets([]), 0);
 
-      return () => {
-        window.clearTimeout(resetTimer);
-      };
+      return () => window.clearTimeout(clearTargetsId);
     }
 
     function syncTargets() {

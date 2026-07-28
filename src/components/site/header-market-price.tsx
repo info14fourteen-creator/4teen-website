@@ -2,27 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { getChromeContent } from "@/content/chrome-content";
+import { readMarketPrice, type MarketPricePayload } from "@/lib/client-market-price";
 import { parseNumberish } from "@/lib/site-format";
 import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
-
-type Quote = {
-  symbol: string;
-  value: string;
-  icon: string;
-};
-
-type MarketPricePayload = {
-  ok?: boolean;
-  snapshot?: {
-    base: {
-      symbol: string;
-      value: string;
-      icon: string;
-    };
-    quotes: Quote[];
-    updatedAt: string;
-  } | null;
-};
 
 function formatHeaderPrice(value: string | number | null | undefined) {
   const numeric = parseNumberish(value);
@@ -54,14 +36,11 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
 
     async function readViaSnapshotProxy() {
       try {
-        const response = await fetch("/api/site/market-price", {
-          cache: "force-cache",
-        });
-        const json = (await response.json()) as MarketPricePayload;
+        const json = await readMarketPrice();
         const snapshot = json.snapshot;
 
-        if (!response.ok || !active || !json.ok || !snapshot || !snapshot.quotes.length) {
-          throw new Error(`Price fetch failed: ${response.status}`);
+        if (!active || !json.ok || !snapshot?.base || !snapshot.quotes?.length) {
+          throw new Error("Price fetch returned an empty snapshot");
         }
 
         setPayload({
@@ -78,7 +57,7 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
     void readViaSnapshotProxy();
     const refreshId = window.setInterval(() => {
       void readViaSnapshotProxy();
-    }, 60000);
+    }, 300000);
 
     return () => {
       active = false;
@@ -111,7 +90,7 @@ export function HeaderMarketPrice({ compact = false }: { compact?: boolean }) {
     return <MarketPriceLoading compact={compact} />;
   }
 
-  const quote = payload.snapshot?.quotes[quoteIndex] ?? payload.snapshot?.quotes[0];
+  const quote = payload.snapshot?.quotes?.[quoteIndex] ?? payload.snapshot?.quotes?.[0];
   const base = payload.snapshot?.base;
 
   if (!quote || !base) {

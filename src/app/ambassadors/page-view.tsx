@@ -24,13 +24,13 @@ import type { LiveAmbassadorSnapshot } from "@/lib/site-snapshot-types";
 const AMBASSADOR_CONTROLLER_SCAN_FALLBACK =
   "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ";
 const AMBASSADOR_HERO_POSTER_SRC = "/media/ambassador-cabinet-demo.png";
-const AMBASSADOR_HERO_MEDIA_SRC = "/media/ambassador-cabinet-demo.gif";
+const AMBASSADOR_HERO_MEDIA_SRC = "/media/ambassador-cabinet-demo.mp4";
 const AMBASSADOR_HERO_MEDIA_ALT =
   "4TEEN ambassador cabinet mobile wallet preview";
 const AMBASSADOR_REGISTRATION_POSTER_SRC =
   "/media/ambassador-registration-demo.png";
 const AMBASSADOR_REGISTRATION_MEDIA_SRC =
-  "/media/ambassador-registration-demo.gif";
+  "/media/ambassador-registration-demo.mp4";
 const AMBASSADOR_REGISTRATION_MEDIA_ALT =
   "4TEEN ambassador registration mobile wallet preview";
 
@@ -237,7 +237,7 @@ export async function AmbassadorsPageView({
                         imageClassName="ft-buy-page__hero-media-image"
                         posterSrc={AMBASSADOR_HERO_POSTER_SRC}
                         priority
-                        width={1080}
+                        width={1078}
                       />
                     </div>
 
@@ -334,7 +334,7 @@ export async function AmbassadorsPageView({
                     imageClassName="ft-buy-page__hero-media-image"
                     posterSrc={AMBASSADOR_REGISTRATION_POSTER_SRC}
                     priority
-                    width={1080}
+                    width={1078}
                   />
                 </div>
               </div>
@@ -652,7 +652,7 @@ export async function AmbassadorsPageView({
               </div>
             </article>
 
-            <article className="ft-card ft-ambassador-page__panel">
+            <article className="ft-card ft-ambassador-page__panel ft-ambassador-page__route-panel">
               <div className="ft-stack ft-stack--md ft-ambassador-page__panel-stack">
                 <div className="ft-stack ft-stack--xs">
                   <p className="ft-overline">{content.sections.route.eyebrow}</p>
@@ -661,7 +661,7 @@ export async function AmbassadorsPageView({
 
                 <div className="ft-grid ft-grid--3 ft-ambassador-page__route-grid">
                   <LoaderLink
-                    className="ft-card ft-card--plain ft-ambassador-page__detail-card"
+                    className="ft-card ft-card--plain ft-ambassador-page__detail-card ft-ambassador-page__route-card"
                     href={getControllerHref(snapshot)}
                     rel="noopener noreferrer"
                     showLinkIcon
@@ -677,7 +677,7 @@ export async function AmbassadorsPageView({
                   </LoaderLink>
 
                   <LoaderLink
-                    className="ft-card ft-card--plain ft-ambassador-page__detail-card"
+                    className="ft-card ft-card--plain ft-ambassador-page__detail-card ft-ambassador-page__route-card"
                     href={officialWalletRepoUrl}
                     rel="noopener noreferrer"
                     showLinkIcon
@@ -695,8 +695,9 @@ export async function AmbassadorsPageView({
                   </LoaderLink>
 
                   <LoaderLink
-                    className="ft-card ft-card--plain ft-ambassador-page__detail-card"
+                    className="ft-card ft-card--plain ft-ambassador-page__detail-card ft-ambassador-page__route-card"
                     href="/app"
+                    showLinkIcon
                   >
                     <p className="ft-card-title-top">
                       {content.sections.route.cards.app.eyebrow}
@@ -712,7 +713,7 @@ export async function AmbassadorsPageView({
                   {content.sections.route.updatedPrefix}{" "}
                   {snapshot ? formatUtcDate(snapshot.loadedAt, locale) : "—"}.
                 </p>
-                <p className="ft-note">
+                <div className="ft-note">
                   <LoaderLink
                     className="ft-ambassador-page__repo-link"
                     href={officialContractsRepoUrl}
@@ -722,7 +723,7 @@ export async function AmbassadorsPageView({
                   >
                     Open contracts repo
                   </LoaderLink>
-                </p>
+                </div>
               </div>
             </article>
           </div>

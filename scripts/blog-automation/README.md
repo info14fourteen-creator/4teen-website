@@ -26,6 +26,20 @@ The pipeline is intentionally different from the old Make scenario:
 
 - `prompts/article-analysis-bot.md`
 - `prompts/daily-digest-writer.md`
+- `prompts/tronix-rent-seo-writer.md`
+
+## Partner SEO article generation
+
+For editorial partner articles that should live inside the 4TEEN blog snapshot layer, use:
+
+- `node scripts/blog-automation/generate-tronix-rent-seo-posts.mjs`
+
+This generator:
+
+- uses the existing OpenAI runtime credentials
+- writes full English editorial articles rather than landing-page fragments
+- targets problem-first search intent around TRON Energy, USDT TRC20 fees, and resource errors
+- returns snapshot-ready blog post objects that can be merged into the site blog layer
 
 ## Structured outputs
 
