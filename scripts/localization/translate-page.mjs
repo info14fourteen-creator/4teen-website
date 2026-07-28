@@ -103,7 +103,8 @@ async function requestTranslation({ locale, page, source }) {
     throw new Error("OpenAI response did not contain output_text");
   }
 
-  return JSON.parse(outputText);
+  const parsed = JSON.parse(outputText);
+  return parsed?.content ?? parsed;
 }
 
 async function main() {
