@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedGlobalContent } from "../lib/generated-localization.ts";
 
 export type NavContent = {
   groups: {
@@ -85,5 +86,9 @@ const navContentByLocale: Partial<Record<SupportedSiteLocale, NavContent>> = {
 };
 
 export function getNavContent(locale: SupportedSiteLocale) {
-  return navContentByLocale[locale] ?? navContentEn;
+  return getGeneratedGlobalContent(
+    locale,
+    "nav",
+    navContentByLocale[locale] ?? navContentEn,
+  );
 }

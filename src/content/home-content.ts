@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 type ActionLink = {
   label: string;
@@ -968,5 +969,9 @@ const homeContentByLocale: Record<SupportedSiteLocale, HomePageContent> = {
 };
 
 export function getHomePageContent(locale: SupportedSiteLocale): HomePageContent {
-  return homeContentByLocale[locale] ?? homeContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "home",
+    homeContentByLocale[locale] ?? homeContentEn,
+  );
 }

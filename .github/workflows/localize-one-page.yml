@@ -1,0 +1,181 @@
+name: Localize One Page
+
+on:
+  workflow_dispatch:
+    inputs:
+      locale:
+        description: Target locale
+        required: true
+        type: choice
+        options:
+          - ru
+          - uz
+          - tr
+          - de
+          - fr
+          - es
+          - it
+          - pt
+          - nl
+          - pl
+          - ar
+          - hi
+          - ja
+          - zh-CN
+          - ko
+      page:
+        description: One page/content surface
+        required: true
+        type: choice
+        options:
+          - global
+          - app
+          - buy
+          - unlock
+          - liquidity
+          - swap
+          - airdrop
+          - ambassadors
+          - verification
+      publish:
+        description: Commit the validated unit
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  actions: read
+  contents: write
+  id-token: write
+
+concurrency:
+  group: localization-${{ inputs.locale }}-${{ inputs.page }}
+  cancel-in-progress: false
+
+jobs:
+  translate-validate-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CI: "1"
+      NEXT_TELEMETRY_DISABLED: "1"
+      OPS_EXPORT_BASE_URL: ${{ vars.OPS_EXPORT_BASE_URL || 'https://fourteen-wallet-api-7af291023d36.herokuapp.com' }}
+      OPS_GITHUB_OIDC_AUDIENCE: ${{ vars.OPS_GITHUB_OIDC_AUDIENCE || '4teen-ops-runner' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup pnpm
+        run: corepack enable
+
+      - name: Fetch OpenAI key through the operations control plane
+        shell: bash
+        run: |
+          set -euo pipefail
+          node - <<'NODE'
+          const fs = require('node:fs');
+
+          async function main() {
+            const requestUrl = process.env.ACTIONS_ID_TOKEN_REQUEST_URL;
+            const requestToken = process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN;
+            const audience = encodeURIComponent(process.env.OPS_GITHUB_OIDC_AUDIENCE);
+            const separator = requestUrl.includes('?') ? '&' : '?';
+            const oidcResponse = await fetch(`${requestUrl}${separator}audience=${audience}`, {
+              headers: { Authorization: `Bearer ${requestToken}` }
+            });
+            const oidcPayload = await oidcResponse.json();
+            if (!oidcResponse.ok || !oidcPayload.value) {
+              throw new Error('Unable to obtain GitHub OIDC token');
+            }
+
+            const baseUrl = process.env.OPS_EXPORT_BASE_URL.replace(/\/+$/, '');
+            const response = await fetch(`${baseUrl}/ops/blog-daily-publish-config`, {
+              headers: {
+                Authorization: `Bearer ${oidcPayload.value}`,
+                Accept: 'application/json'
+              }
+            });
+            const payload = await response.json();
+            const key = payload?.result?.openAiApiKey;
+            if (!response.ok || !key) {
+              throw new Error(payload?.error || 'Operations control plane did not return OpenAI key');
+            }
+
+            process.stdout.write(`::add-mask::${key}\n`);
+            fs.appendFileSync(process.env.GITHUB_ENV, `OPENAI_API_KEY=${key}\n`);
+          }
+
+          main().catch((error) => {
+            console.error(error.message);
+            process.exit(1);
+          });
+          NODE
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Translate one language and one page
+        run: pnpm localization:translate --locale "${{ inputs.locale }}" --page "${{ inputs.page }}"
+
+      - name: Validate localization matrix
+        run: pnpm localization:status
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Production build
+        run: pnpm build
+
+      - name: Smoke-test active localized route
+        if: inputs.locale == 'ru' || inputs.locale == 'uz'
+        shell: bash
+        env:
+          TARGET_LOCALE: ${{ inputs.locale }}
+          TARGET_PAGE: ${{ inputs.page }}
+        run: |
+          set -euo pipefail
+          case "${TARGET_PAGE}" in
+            global|home) route="/${TARGET_LOCALE}" ;;
+            one-pager) route="/${TARGET_LOCALE}/one-pager" ;;
+            *) route="/${TARGET_LOCALE}/${TARGET_PAGE}" ;;
+          esac
+
+          pnpm start > /tmp/localization-next.log 2>&1 &
+          server_pid=$!
+          trap 'kill "${server_pid}" 2>/dev/null || true' EXIT
+
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent --show-error "http://127.0.0.1:3000${route}" > /tmp/localized-route.html; then
+              break
+            fi
+            sleep 1
+          done
+
+          test -s /tmp/localized-route.html
+          ! grep -Fq 'NEXT_HTTP_ERROR_FALLBACK;404' /tmp/localized-route.html
+          ! grep -Fq 'id="__next_error__"' /tmp/localized-route.html
+
+      - name: Upload localization status
+        uses: actions/upload-artifact@v4
+        with:
+          name: localization-${{ inputs.locale }}-${{ inputs.page }}
+          path: artifacts/localization/status.json
+
+      - name: Publish validated unit
+        if: inputs.publish
+        shell: bash
+        run: |
+          set -euo pipefail
+          target="src/content/localization-generated.json"
+          git config user.name "4TEEN Localization Bot"
+          git config user.email "localization-bot@4teen.me"
+          git add "${target}"
+          git commit -m "Localize ${{ inputs.page }} for ${{ inputs.locale }}"
+          git push origin HEAD:main

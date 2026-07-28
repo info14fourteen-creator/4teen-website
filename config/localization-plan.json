@@ -1,0 +1,46 @@
+{
+  "sourceLocale": "en",
+  "locales": [
+    "ru",
+    "uz",
+    "tr",
+    "de",
+    "fr",
+    "es",
+    "it",
+    "pt",
+    "nl",
+    "pl",
+    "ar",
+    "hi",
+    "ja",
+    "zh-CN",
+    "ko"
+  ],
+  "pages": [
+    "global",
+    "home",
+    "buy",
+    "unlock",
+    "liquidity",
+    "swap",
+    "airdrop",
+    "ambassadors",
+    "app",
+    "verification",
+    "whitepaper",
+    "one-pager",
+    "deck",
+    "privacy",
+    "terms",
+    "support",
+    "blog"
+  ],
+  "releasePolicy": {
+    "unit": "one-locale-one-page",
+    "publishOnlyAfterValidation": true,
+    "activateLocaleOnlyWhenComplete": true,
+    "requireBuild": true,
+    "requireRouteSmokeTest": true
+  }
+}

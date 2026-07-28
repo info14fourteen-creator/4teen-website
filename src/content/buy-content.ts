@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 export type BuyPageContent = {
   metadata: {
@@ -779,5 +780,9 @@ const buyContentByLocale: Partial<Record<SupportedSiteLocale, BuyPageContent>> =
 };
 
 export function getBuyPageContent(locale: SupportedSiteLocale) {
-  return buyContentByLocale[locale] ?? buyContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "buy",
+    buyContentByLocale[locale] ?? buyContentEn,
+  );
 }

@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 export type VerificationPageContent = {
   metadata: {
@@ -301,5 +302,9 @@ const verificationContentByLocale: Partial<
 };
 
 export function getVerificationPageContent(locale: SupportedSiteLocale) {
-  return verificationContentByLocale[locale] ?? verificationContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "verification",
+    verificationContentByLocale[locale] ?? verificationContentEn,
+  );
 }

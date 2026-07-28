@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 type RouteCopy = {
   title: string;
@@ -319,5 +320,9 @@ const airdropContentByLocale: Partial<Record<SupportedSiteLocale, AirdropPageCon
 };
 
 export function getAirdropPageContent(locale: SupportedSiteLocale) {
-  return airdropContentByLocale[locale] ?? airdropContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "airdrop",
+    airdropContentByLocale[locale] ?? airdropContentEn,
+  );
 }

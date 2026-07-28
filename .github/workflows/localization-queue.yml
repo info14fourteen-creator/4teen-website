@@ -1,0 +1,54 @@
+name: Localization Queue
+
+on:
+  schedule:
+    - cron: "15 */4 * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: localization-queue
+  cancel-in-progress: false
+
+jobs:
+  dispatch-next-unit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Select next untranslated unit
+        id: next
+        shell: bash
+        run: |
+          set -euo pipefail
+          task="$(node --experimental-strip-types scripts/localization/next-task.mjs)"
+          locale="$(node -e 'const task=JSON.parse(process.argv[1]); process.stdout.write(task.locale)' "${task}")"
+          page="$(node -e 'const task=JSON.parse(process.argv[1]); process.stdout.write(task.page)' "${task}")"
+          echo "locale=${locale}" >> "${GITHUB_OUTPUT}"
+          echo "page=${page}" >> "${GITHUB_OUTPUT}"
+
+      - name: Dispatch one language and one page
+        if: steps.next.outputs.locale != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_LOCALE: ${{ steps.next.outputs.locale }}
+          TARGET_PAGE: ${{ steps.next.outputs.page }}
+        run: |
+          gh workflow run localize-one-page.yml \
+            --ref main \
+            -f locale="${TARGET_LOCALE}" \
+            -f page="${TARGET_PAGE}" \
+            -f publish=true
+
+      - name: Queue complete
+        if: steps.next.outputs.locale == ''
+        run: echo "All currently extractable localization units are complete."

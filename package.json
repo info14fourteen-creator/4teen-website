@@ -18,7 +18,10 @@
     "blog:fixtures": "node scripts/blog-migration/emit-db-fixtures.mjs",
     "blog:upload-media": "node scripts/blog-migration/upload-media-to-r2.mjs",
     "blog:import-db": "node scripts/blog-migration/import-db.mjs",
-    "blog:daily-digest": "node scripts/blog-automation/daily-digest-runner.mjs"
+    "blog:daily-digest": "node scripts/blog-automation/daily-digest-runner.mjs",
+    "localization:translate": "node --experimental-strip-types scripts/localization/translate-page.mjs",
+    "localization:status": "node --experimental-strip-types scripts/localization/validate-plan.mjs",
+    "localization:next": "node --experimental-strip-types scripts/localization/next-task.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1041.0",

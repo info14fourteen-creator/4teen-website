@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 type HeroStatContent = {
   label: string;
@@ -354,5 +355,9 @@ const liquidityContentByLocale: Partial<
 };
 
 export function getLiquidityPageContent(locale: SupportedSiteLocale) {
-  return liquidityContentByLocale[locale] ?? liquidityContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "liquidity",
+    liquidityContentByLocale[locale] ?? liquidityContentEn,
+  );
 }

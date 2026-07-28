@@ -5,6 +5,7 @@ import {
   officialWalletRepoUrl,
 } from "@/content/official-links";
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 export type GenesisDeckContent = PublicPageContent & {
   thesis: Array<{
@@ -210,5 +211,9 @@ const genesisContentByLocale: Partial<Record<SupportedSiteLocale, GenesisDeckCon
 };
 
 export function getGenesisDeckContent(locale: SupportedSiteLocale): GenesisDeckContent {
-  return genesisContentByLocale[locale] ?? genesisContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "deck",
+    genesisContentByLocale[locale] ?? genesisContentEn,
+  );
 }

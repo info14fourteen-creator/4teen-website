@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedGlobalContent } from "../lib/generated-localization.ts";
 
 export type SearchContent = {
   meta: {
@@ -37,5 +38,9 @@ const searchContentByLocale: Partial<Record<SupportedSiteLocale, SearchContent>>
 };
 
 export function getSearchContent(locale: SupportedSiteLocale) {
-  return searchContentByLocale[locale] ?? searchContentEn;
+  return getGeneratedGlobalContent(
+    locale,
+    "search",
+    searchContentByLocale[locale] ?? searchContentEn,
+  );
 }

@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 type HeroStatContent = {
   label: string;
@@ -362,5 +363,9 @@ const ambassadorsContentByLocale: Record<
 export function getAmbassadorsPageContent(
   locale: SupportedSiteLocale,
 ): AmbassadorsPageContent {
-  return ambassadorsContentByLocale[locale] ?? ambassadorsContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "ambassadors",
+    ambassadorsContentByLocale[locale] ?? ambassadorsContentEn,
+  );
 }

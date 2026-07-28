@@ -5,6 +5,7 @@ import {
   officialWalletRepoUrl,
 } from "@/content/official-links";
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 export type OnePagerContent = PublicPageContent & {
   snapshot: Array<{
@@ -163,5 +164,9 @@ const onePagerContentByLocale: Partial<Record<SupportedSiteLocale, OnePagerConte
 };
 
 export function getOnePagerContent(locale: SupportedSiteLocale): OnePagerContent {
-  return onePagerContentByLocale[locale] ?? onePagerContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "one-pager",
+    onePagerContentByLocale[locale] ?? onePagerContentEn,
+  );
 }

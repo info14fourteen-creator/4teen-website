@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 type StoreLink = {
   href: string;
@@ -319,5 +320,9 @@ const appContentByLocale: Partial<Record<SupportedSiteLocale, AppPageContent>> =
 };
 
 export function getAppPageContent(locale: SupportedSiteLocale) {
-  return appContentByLocale[locale] ?? appContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "app",
+    appContentByLocale[locale] ?? appContentEn,
+  );
 }

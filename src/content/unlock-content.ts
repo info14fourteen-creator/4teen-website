@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 export type UnlockPageContent = {
   metadata: {
@@ -280,5 +281,9 @@ const unlockContentByLocale: Partial<Record<SupportedSiteLocale, UnlockPageConte
 };
 
 export function getUnlockPageContent(locale: SupportedSiteLocale) {
-  return unlockContentByLocale[locale] ?? unlockContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "unlock",
+    unlockContentByLocale[locale] ?? unlockContentEn,
+  );
 }

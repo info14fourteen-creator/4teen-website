@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedGlobalContent } from "../lib/generated-localization.ts";
 
 export type ChromeContent = {
   common: {
@@ -192,5 +193,9 @@ const chromeContentByLocale: Partial<Record<SupportedSiteLocale, ChromeContent>>
 };
 
 export function getChromeContent(locale: SupportedSiteLocale) {
-  return chromeContentByLocale[locale] ?? chromeContentEn;
+  return getGeneratedGlobalContent(
+    locale,
+    "chrome",
+    chromeContentByLocale[locale] ?? chromeContentEn,
+  );
 }

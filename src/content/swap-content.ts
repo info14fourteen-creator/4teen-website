@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization.ts";
 
 type HeroStatContent = {
   label: string;
@@ -304,5 +305,9 @@ const swapContentByLocale: Partial<Record<SupportedSiteLocale, SwapPageContent>>
   };
 
 export function getSwapPageContent(locale: SupportedSiteLocale) {
-  return swapContentByLocale[locale] ?? swapContentEn;
+  return getGeneratedPageContent(
+    locale,
+    "swap",
+    swapContentByLocale[locale] ?? swapContentEn,
+  );
 }
