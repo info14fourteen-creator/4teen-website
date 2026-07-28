@@ -104,12 +104,17 @@ jobs:
             });
             const payload = await response.json();
             const key = payload?.result?.openAiApiKey;
-            if (!response.ok || !key) {
-              throw new Error(payload?.error || 'Operations control plane did not return OpenAI key');
+            const cloudflareToken = payload?.result?.cloudflareApiToken;
+            if (!response.ok || !key || !cloudflareToken) {
+              throw new Error(payload?.error || 'Operations control plane did not return required localization credentials');
             }
 
             process.stdout.write(`::add-mask::${key}\n`);
-            fs.appendFileSync(process.env.GITHUB_ENV, `OPENAI_API_KEY=${key}\n`);
+            process.stdout.write(`::add-mask::${cloudflareToken}\n`);
+            fs.appendFileSync(
+              process.env.GITHUB_ENV,
+              `OPENAI_API_KEY=${key}\nCLOUDFLARE_API_TOKEN=${cloudflareToken}\n`
+            );
           }
 
           main().catch((error) => {
@@ -179,3 +184,32 @@ jobs:
           git add "${target}"
           git commit -m "Localize ${{ inputs.page }} for ${{ inputs.locale }}"
           git push origin HEAD:main
+
+      - name: Deploy validated unit to Cloudflare
+        if: inputs.publish
+        run: pnpm cf:deploy
+
+      - name: Verify live localized route
+        if: inputs.publish && (inputs.locale == 'ru' || inputs.locale == 'uz')
+        shell: bash
+        env:
+          TARGET_LOCALE: ${{ inputs.locale }}
+          TARGET_PAGE: ${{ inputs.page }}
+        run: |
+          set -euo pipefail
+          case "${TARGET_PAGE}" in
+            global|home) route="/${TARGET_LOCALE}" ;;
+            one-pager) route="/${TARGET_LOCALE}/one-pager" ;;
+            *) route="/${TARGET_LOCALE}/${TARGET_PAGE}" ;;
+          esac
+
+          for attempt in $(seq 1 20); do
+            status="$(curl --silent --show-error --location --output /tmp/live-localized-route.html --write-out '%{http_code}' "https://4teen.me${route}")"
+            if [ "${status}" = "200" ] && ! grep -Fq 'NEXT_HTTP_ERROR_FALLBACK;404' /tmp/live-localized-route.html; then
+              exit 0
+            fi
+            sleep 15
+          done
+
+          echo "::error::Localized route did not become healthy at https://4teen.me${route}"
+          exit 1
