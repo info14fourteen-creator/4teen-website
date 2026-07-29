@@ -75,9 +75,9 @@ const proofRoutes: RouteCard[] = [
   },
   {
     eyebrow: "Utility",
-    title: "TRON Energy Desk",
-    text: "QuickShooters calculates and rents TRON Energy plus Bandwidth before USDT TRC20 transfers, so users do not burn TRX blindly.",
-    href: "https://quickshooters.com/?utm_source=4teen&utm_medium=homepage&utm_campaign=energy_desk",
+    title: "Tronix Rent",
+    text: "A related utility route for TRON Energy and Bandwidth rental, so users can prepare transfers and contract actions without burning TRX blindly.",
+    href: "https://tronix.rent",
     tone: "live",
   },
   {
