@@ -3294,12 +3294,6 @@ body:has(.ft-not-found-page) .ft-site-footer {
   color: rgba(255, 255, 255, 0.92);
 }
 
-.ft-site-footer__duns-seal {
-  flex: 0 0 auto;
-  border: 0;
-  background: transparent;
-}
-
 /* =========================================
    HOME REBUILD
 ========================================= */

@@ -39,6 +39,7 @@ export const officialContractsRepoUrl =
   "https://github.com/info14fourteen-creator/4teen-smart-contracts";
 export const dunsRegisteredSealScriptUrl =
   "https://dunsregistered.dnb.com/mini.js";
+export const officialDunsRegisteredUrl = "https://dunsregistered.dnb.com";
 
 export const officialSocialUrls = {
   telegram: "https://t.me/fourteentoken",

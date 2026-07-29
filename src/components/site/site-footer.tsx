@@ -18,6 +18,7 @@ import { getChromeContent } from "@/content/chrome-content";
 import { getNavContent } from "@/content/nav-content";
 import {
   officialDunsNumber,
+  officialDunsRegisteredUrl,
   officialLegalEntityShortName,
   officialSocialUrls,
   officialSupportEmail,
@@ -161,7 +162,6 @@ export function SiteFooter({
         <div className="ft-container--wide ft-site-footer__bottom">
           <div className="ft-site-footer__legal-stack">
             <span>{chrome.footer.copyright}</span>
-            <span>{officialLegalEntityShortName} · D-U-N-S® {officialDunsNumber}</span>
           </div>
           <div className="ft-site-footer__meta-links">
             {footerMetaLinks.map((link) => (
@@ -189,16 +189,14 @@ export function SiteFooter({
             <LoaderLink className="ft-site-footer__meta-link" href={officialSupportPhoneLink}>
               {officialSupportPhoneDisplay}
             </LoaderLink>
-            <iframe
-              aria-label="Dun & Bradstreet registered mini seal"
-              className="ft-site-footer__duns-seal"
-              height="43"
-              loading="lazy"
-              scrolling="no"
-              src="https://dunsregistered.dnb.com/SealAuthentication.aspx?Cid=1"
-              title="Dun & Bradstreet registered mini seal"
-              width="49"
-            />
+            <LoaderLink
+              className="ft-site-footer__meta-link"
+              href={officialDunsRegisteredUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {officialLegalEntityShortName} · D-U-N-S® {officialDunsNumber}
+            </LoaderLink>
           </div>
         </div>
       </div>
