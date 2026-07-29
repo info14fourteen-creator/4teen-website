@@ -90,26 +90,27 @@ export type AppPageContent = {
 
 const appContentEn: AppPageContent = {
   metadata: {
-    title: "4TEEN App | Real TRON Wallet + 4TEEN Layer",
+    title: "4TEEN App | TRON Wallet With The 4TEEN Operating Layer",
     description:
-      "A real TRON wallet with broad asset handling, resource-aware execution, and the full 4TEEN operating layer built inside.",
-    openGraphTitle: "4TEEN Mobile App",
+      "Open the 4TEEN mobile wallet, move through buy, unlock, liquidity, ambassadors, and proof routes, and download the product from the store links.",
+    openGraphTitle: "4TEEN App Release",
     openGraphDescription:
-      "A multilingual TRON wallet with broad asset coverage, resource checks before signature, and the full 4TEEN operating layer already built in.",
+      "Explore the 4TEEN mobile wallet and the live operating routes already built into the product.",
   },
   hero: {
     eyebrow: "4TEEN Mobile App",
-    status: "Universal wallet + live protocol layer",
+    status: "App Store + Google Play",
     title:
-      "A real TRON wallet with the full 4TEEN operating layer already inside.",
+      "A real TRON wallet with the 4TEEN operating layer already inside.",
     lead:
-      "This is not a token-shell pretending to be a wallet. It already works like a broader TRON product: wallets, assets, transfers, QR flow, contacts, language, settings, resource checks, and a full 4TEEN route map inside the same execution layer.",
+      "This page should feel like a product page, not a release memo. The app already behaves like a broader TRON wallet with wallets, assets, transfers, QR flow, contacts, language, settings, resource checks, and the full 4TEEN route map inside one execution surface.",
     stayOnWeb: "Stay on Web",
-    primaryCta: "Open Route Map",
+    primaryCta: "Download Options",
     secondaryCta: "See Protocol Surfaces",
     ctaNote:
-      "The web side explains the system. The mobile side signs, routes, checks resources, and runs the actual transaction flow.",
+      "The web side explains the system. The mobile side signs, routes, checks resources, and runs the real transaction flow.",
     rotatingLines: [
+      "App Store + Google Play. One product surface.",
       "Universal Wallet. Native 4TEEN Layer.",
       "Broad Token Surface. Not Just One Asset.",
       "Resources First. Signature After.",
@@ -307,7 +308,7 @@ const appContentEn: AppPageContent = {
       eyebrow: "Download Route",
       title: "Install the wallet if you want the full product, not only the web map.",
       body:
-        "The strongest version of the product lives in the app: real wallet behavior, multilingual interface, resource-aware execution, and the full 4TEEN operating layer in one place.",
+        "The strongest version of the product lives in the app: real wallet behavior, multilingual interface, resource-aware execution, and the full 4TEEN operating layer in one place once the store rollout opens.",
       repoLabel: "Wallet App Repo",
     },
   },

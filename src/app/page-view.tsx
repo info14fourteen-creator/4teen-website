@@ -11,9 +11,9 @@ export function getHomePageMetadata(
   locale: SupportedSiteLocale = defaultSiteLocale,
 ): Metadata {
   return buildPageMetadata({
-    title: "4TEEN | TRON Wallet Entry and Protocol Map",
+    title: "4TEEN | TRON Wallet, Route Map, And Proof Stack",
     description:
-      "Start with 4TEEN on TRON: direct buy, 14-day unlock, liquidity routing, ambassador rewards, airdrop state, wallet execution, whitepaper, verification, and investor deck.",
+      "Navigate the 4TEEN TRON route map, open the mobile wallet surface, and move between buy, unlock, liquidity, ambassadors, verification, and proof.",
     locale,
     pathname: "/",
   });

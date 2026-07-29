@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 import { HomePriceCards } from "@/components/home/home-price-cards";
 import { FourteenMobileShell } from "@/components/site/mobile-shell";
@@ -190,6 +191,23 @@ function SectionIntro({
 
 export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
   const content = getHomePageContent(locale);
+  const homepageSignals = [
+    {
+      label: "Execution surface",
+      value: "iOS + Android wallet",
+      meta: "Signing, resources, QR, contacts, route switching, and app-local state.",
+    },
+    {
+      label: "Protocol route",
+      value: "Buy → Lock → Unlock",
+      meta: "A clean entry path instead of one vague dashboard button.",
+    },
+    {
+      label: "Public proof",
+      value: "Contracts + repos + docs",
+      meta: "Verification, whitepaper, deck, and public wallet surfaces stay one click away.",
+    },
+  ];
 
   return (
     <main className="ft-theme ft-page-main ft-page-main--chrome ft-home-page">
@@ -203,39 +221,38 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
               <div className="ft-stack ft-stack--lg">
                 <div className="ft-home-hero__proofstrip">
                   <span className="ft-home-hero__proofitem">4TEEN on TRON</span>
-                  <span className="ft-home-hero__proofitem">Contract-native entry</span>
                   <span className="ft-home-hero__proofitem">Wallet execution</span>
+                  <span className="ft-home-hero__proofitem">Public proof stack</span>
                 </div>
 
                 <div className="ft-stack ft-stack--md">
                   <h1 className="ft-home-hero__title">
-                    <AccentTitle>4TEEN is the TRON wallet route for buy, lock, liquidity, and proof.</AccentTitle>
+                    <AccentTitle>4TEEN turns the homepage into a clean route map and the app into the real TRON execution layer.</AccentTitle>
                   </h1>
                   <p className="ft-lead ft-home-hero__lead">
-                    Start with the contract-native buy route, track the 14-day
-                    lock, understand where TRX flows, and execute from the
-                    wallet when the numbers are clear.
+                    The website should explain the machine fast. The app should
+                    carry the signature, resources, wallet state, and the
+                    product routes without dropping users into a generic crypto shell.
                   </p>
                 </div>
 
                 <div className="ft-stack ft-stack--sm ft-home-hero__body">
                   <p>
-                    The homepage should do one job fast: route a new user to
-                    the right machine. Buy explains entry, Unlock explains
-                    timing, Liquidity explains the 90% side, Swap explains the
-                    market route, and Verification ties the claims back to code.
+                    The strongest landing page here is not a slogan wall. It is
+                    a fast operating map: buy explains entry, unlock explains
+                    release timing, liquidity explains the 90% side, swap covers
+                    the post-unlock market route, and verification ties claims back to code.
                   </p>
                   <p>
-                    The product path is simple enough to remember: install the
-                    wallet, enter through direct buy, wait for the batch unlock,
-                    then decide whether to hold or move through market
-                    liquidity. No fake dashboard fog, just the route.
+                    The product path stays memorable: install the wallet, enter
+                    through direct buy, watch the locked batch, wait for unlock,
+                    then move with real liquidity instead of decorative token-page theater.
                   </p>
                 </div>
 
                 <div className="ft-home-hero__actions">
                   <LoaderLink className="ft-btn ft-btn--primary" href="/app">
-                    Install / Open Wallet
+                    Open App Page
                   </LoaderLink>
                   <LoaderLink className="ft-btn ft-btn--secondary" href="/buy">
                     Start With Buy
@@ -246,20 +263,62 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
                 </div>
 
                 <div className="ft-home-hero__points" aria-label="4TEEN route summary">
-                  <div className="ft-home-hero__point">Direct buy mints a fresh batch and locks it.</div>
-                  <div className="ft-home-hero__point">Each batch carries its own 14-day timer.</div>
+                  <div className="ft-home-hero__point">Direct buy mints a fresh batch and locks it on its own timer.</div>
+                  <div className="ft-home-hero__point">Each batch carries its own 14-day unlock logic instead of pooled ambiguity.</div>
                   <div className="ft-home-hero__point">Incoming TRX is routed by contract rule: 90% / 7% / 3%.</div>
-                  <div className="ft-home-hero__point">The site explains. The wallet signs and executes.</div>
+                  <div className="ft-home-hero__point">The site explains the machine. The wallet signs and executes the route.</div>
+                </div>
+
+                <div className="ft-home-hero__signal-grid ft-home-hero__signal-grid--copy">
+                  {homepageSignals.map((signal) => (
+                    <article key={signal.label} className="ft-home-hero__signal-card ft-home-hero__signal-card--wide">
+                      <span className="ft-home-hero__signal-label">{signal.label}</span>
+                      <span className="ft-home-hero__signal-value">{signal.value}</span>
+                      <span className="ft-home-hero__signal-meta">{signal.meta}</span>
+                    </article>
+                  ))}
                 </div>
               </div>
             </article>
 
             <aside className="ft-home-hero__rail ft-card">
               <div className="ft-stack ft-stack--lg">
+                <div className="ft-home-app-card">
+                  <div className="ft-home-app-card__head">
+                    <div className="ft-home-app-card__brand">
+                      <Image
+                        alt="4TEEN mobile app icon"
+                        className="ft-home-app-card__icon"
+                        height={84}
+                        priority
+                        src="/brand/app-icon.png"
+                        width={84}
+                      />
+                      <div className="ft-stack ft-stack--xs">
+                        <span className="ft-home-app-card__eyebrow">4TEEN App</span>
+                        <h2 className="ft-home-app-card__title">Wallet-first. Route-aware. Ready to run the real flow.</h2>
+                      </div>
+                    </div>
+                    <p className="ft-text ft-home-app-card__text">
+                      One product surface for wallet actions, resource checks, direct buy,
+                      unlock visibility, liquidity entry points, ambassadors, and protocol proof.
+                    </p>
+                  </div>
+
+                  <div className="ft-home-app-card__cta">
+                    <LoaderLink className="ft-btn ft-btn--primary" href="/app#app-download">
+                      Download App
+                    </LoaderLink>
+                    <LoaderLink className="ft-btn ft-btn--ghost" href="/app">
+                      Explore App
+                    </LoaderLink>
+                  </div>
+                </div>
+
                 <div className="ft-home-hero__signal">
                   <div className="ft-home-hero__signal-head">
-                    <span className="ft-home-hero__signal-kicker">Entry Cycle</span>
-                    <span className="ft-home-hero__signal-note">Protocol map</span>
+                    <span className="ft-home-hero__signal-kicker">Protocol Split</span>
+                    <span className="ft-home-hero__signal-note">Route logic</span>
                   </div>
                   <div className="ft-home-hero__signal-grid">
                     {splitCards.map((card) => (
@@ -273,20 +332,20 @@ export function HomePage({ locale }: { locale: SupportedSiteLocale }) {
 
                 <div className="ft-home-hero__stats">
                   <div className="ft-home-hero__stat">
-                    <span className="ft-home-hero__stat-label">Entry</span>
-                    <span className="ft-home-hero__stat-value">Buy → Mint → Lock</span>
+                    <span className="ft-home-hero__stat-label">Direct entry</span>
+                    <span className="ft-home-hero__stat-value">TRX → mint → lock</span>
                   </div>
                   <div className="ft-home-hero__stat">
                     <span className="ft-home-hero__stat-label">Lock rule</span>
                     <span className="ft-home-hero__stat-value">14 days per batch</span>
                   </div>
                   <div className="ft-home-hero__stat">
-                    <span className="ft-home-hero__stat-label">Execution</span>
-                    <span className="ft-home-hero__stat-value">Signing wallet + resources</span>
+                    <span className="ft-home-hero__stat-label">Wallet side</span>
+                    <span className="ft-home-hero__stat-value">Signing + resources</span>
                   </div>
                   <div className="ft-home-hero__stat">
-                    <span className="ft-home-hero__stat-label">Proof</span>
-                    <span className="ft-home-hero__stat-value">Contracts + repos + whitepaper</span>
+                    <span className="ft-home-hero__stat-label">Public proof</span>
+                    <span className="ft-home-hero__stat-value">Contracts + repos + docs</span>
                   </div>
                 </div>
 
