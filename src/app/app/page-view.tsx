@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { ProgressiveAnimatedMedia } from "@/components/site/progressive-animated-media";
 import { getAppPageContent } from "@/content/app-content";
@@ -16,6 +17,7 @@ import { buildPageMetadata } from "@/lib/site-metadata";
 const APP_HERO_POSTER_SRC = "/media/app-demo.png";
 const APP_HERO_MEDIA_SRC = "/media/app-demo.mp4";
 const APP_HERO_MEDIA_ALT = "4TEEN mobile app home wallet preview";
+const APP_ICON_SRC = "/brand/app-icon.png";
 
 export function getAppPageMetadata(
   locale: SupportedSiteLocale = defaultSiteLocale,
@@ -27,8 +29,8 @@ export function getAppPageMetadata(
     pathname: "/app",
     socialImages: [
       {
-        url: APP_HERO_POSTER_SRC,
-        alt: APP_HERO_MEDIA_ALT,
+        url: APP_ICON_SRC,
+        alt: "4TEEN mobile app icon",
       },
     ],
   });
@@ -54,9 +56,24 @@ export function AppPageView({
             <div className="ft-stack ft-stack--lg">
               <div className="ft-buy-page__hero-layout">
                 <div className="ft-stack ft-stack--md ft-buy-page__hero-copy">
-                  <div className="ft-cluster ft-cluster--sm">
-                    <span className="ft-eyebrow">{content.hero.eyebrow}</span>
-                    <span className="ft-status-pill live">{content.hero.status}</span>
+                  <div className="ft-app-page__hero-brand">
+                    <Image
+                      alt="4TEEN app icon"
+                      className="ft-app-page__hero-brand-icon"
+                      height={92}
+                      priority
+                      src={APP_ICON_SRC}
+                      width={92}
+                    />
+                    <div className="ft-stack ft-stack--xs">
+                      <div className="ft-cluster ft-cluster--sm">
+                        <span className="ft-eyebrow">{content.hero.eyebrow}</span>
+                        <span className="ft-status-pill live">{content.hero.status}</span>
+                      </div>
+                      <p className="ft-app-page__hero-brand-note">
+                        Native wallet surface with the 4TEEN operating layer already inside.
+                      </p>
+                    </div>
                   </div>
 
                   <h1 className="ft-title-lg">{content.hero.title}</h1>
@@ -129,6 +146,21 @@ export function AppPageView({
                         {content.hero.ctaNote}
                       </p>
                     ) : null}
+
+                    <div className="ft-app-page__store-strip" aria-label="app store availability">
+                      {content.storeLinks.map((store) => (
+                        <a
+                          key={store.label}
+                          className="ft-app-page__store-chip"
+                          href={store.href}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          <span className="ft-app-page__store-chip-label">{store.label}</span>
+                          <span className="ft-app-page__store-chip-meta">{store.meta}</span>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

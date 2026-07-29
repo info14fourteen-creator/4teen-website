@@ -91,27 +91,27 @@ export type AppPageContent = {
 
 const appContentEn: AppPageContent = {
   metadata: {
-    title: "4TEEN App | TRON Wallet Release Route",
+    title: "4TEEN App | TRON Wallet With The 4TEEN Operating Layer",
     description:
-      "Follow the 4TEEN app rollout across App Store and Google Play, then step into a real TRON wallet with the full 4TEEN operating layer already inside.",
+      "Open the 4TEEN mobile wallet, move through buy, unlock, liquidity, ambassadors, and proof routes, and download the product from the store links.",
     openGraphTitle: "4TEEN App Release",
     openGraphDescription:
-      "Track the 4TEEN mobile app release, then explore the multilingual TRON wallet and the live 4TEEN operating layer already built into it.",
+      "Explore the 4TEEN mobile wallet and the live operating routes already built into the product.",
   },
   hero: {
     eyebrow: "4TEEN Mobile App",
-    status: "App Store + Google Play rollout",
+    status: "App Store + Google Play",
     title:
-      "A real TRON wallet, with the 4TEEN operating layer and the release route in one place.",
+      "A real TRON wallet with the 4TEEN operating layer already inside.",
     lead:
-      "This is where the store rollout meets the real product. The app is not a token-shell pretending to be a wallet: it already behaves like a broader TRON product with wallets, assets, transfers, QR flow, contacts, language, settings, resource checks, and the full 4TEEN route map inside the same execution layer.",
+      "This page should feel like a product page, not a release memo. The app already behaves like a broader TRON wallet with wallets, assets, transfers, QR flow, contacts, language, settings, resource checks, and the full 4TEEN route map inside one execution surface.",
     stayOnWeb: "Stay on Web",
-    primaryCta: "See Download Route",
+    primaryCta: "Download Options",
     secondaryCta: "See Protocol Surfaces",
     ctaNote:
-      "The web side explains the system and the release. The mobile side signs, routes, checks resources, and runs the actual transaction flow.",
+      "The web side explains the system. The mobile side signs, routes, checks resources, and runs the real transaction flow.",
     rotatingLines: [
-      "App Store + Google Play. Same Release Window.",
+      "App Store + Google Play. One product surface.",
       "Universal Wallet. Native 4TEEN Layer.",
       "Broad Token Surface. Not Just One Asset.",
       "Resources First. Signature After.",

@@ -11,9 +11,9 @@ export function getHomePageMetadata(
   locale: SupportedSiteLocale = defaultSiteLocale,
 ): Metadata {
   return buildPageMetadata({
-    title: "4TEEN | TRON Wallet Map And App Release Route",
+    title: "4TEEN | TRON Wallet, Route Map, And Proof Stack",
     description:
-      "Navigate the 4TEEN TRON route map, follow the mobile app release path, and move between buy, unlock, liquidity, ambassadors, verification, and the wallet product surface.",
+      "Navigate the 4TEEN TRON route map, open the mobile wallet surface, and move between buy, unlock, liquidity, ambassadors, verification, and proof.",
     locale,
     pathname: "/",
   });
