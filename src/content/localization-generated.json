@@ -4910,6 +4910,167 @@
           "openBuy": "Xarid yo‘lini ochish"
         }
       }
+    },
+    "swap": {
+      "metadata": {
+        "title": "Almashuv",
+        "description": "Keng wallet token qamrovi, saralangan yo‘nalishlar, minimal qabul qilinadigan miqdor himoyasi, approve ko‘rib chiqishi va jonli ommaviy yo‘nalish namunalari bilan 4TEEN swap yo‘nalishi."
+      },
+      "hero": {
+        "eyebrow": "Almashuv yo‘nalishi",
+        "badge": "Wallet-first swap yo‘nalishi",
+        "title": "4TEEN’ni kengroq TRON token olamiga almashtiring",
+        "subtitle": "Sayt faqat tayanch namunalarni ko‘rsatadi. Wallet esa allaqachon ancha kengroq token olamini qidiradi, yo‘nalishlarni saralaydi va foydalanuvchini approve, ko‘rib chiqish hamda swap bosqichlaridan olib o‘tadi.",
+        "body": [
+          "Bu sahifa 4TEEN faqat bir yoki ikki ichki tokenlarga almashtiriladigandek o‘qilmasligi kerak. Wallet ichida maqsadli to‘plam yuborilishi mumkin bo‘lgan aktivlar, maxsus token katalogi va Tronscan token ro‘yxatidan olinadi, so‘ng routing haqiqatan mavjudligiga qarab filtrlanadi.",
+          "Bu yo‘nalish ommaviy veb-sayt ko‘rinishidan kengroq ekanini anglatadi. Agar likvidlik mavjud bo‘lsa va router kotirovka bera olsa, wallet uni ko‘rsatishi, saralashi va foydalanuvchini haqiqiy tasdiqlash bosqichiga olib kirishi mumkin."
+        ],
+        "rotatingLines": [
+          "KENG TOKEN OLAMI. SARALANGAN YO‘NALISHLAR.",
+          "SAYTDA PREVIEW. WALLETDA BAJARISH.",
+          "MIN OUT. APPROVE. SWAP."
+        ],
+        "primaryCta": "Wallet yo‘nalishini ochish",
+        "secondaryCta": "Jonli yo‘nalish namunalariga o‘tish",
+        "ctaNote": "Sayt — isbot qatlami. Tokenlarni almashtirish, yo‘nalishlarni saralash, minimal qabul qilinadigan miqdor himoyasi, allowance tekshiruvlari va yakuniy imzolash aslida wallet ichida amalga oshadi.",
+        "stats": {
+          "sampleAmount": {
+            "label": "Namuna kotirovka hajmi",
+            "meta": "Ommaviy yo‘nalish namunalari bir xil 4TEEN miqdori bo‘yicha yangilanadi."
+          },
+          "supportedTargets": {
+            "label": "Ommaviy namuna yo‘nalishlari",
+            "meta": "Veb-sayt faqat juda kichik tayanch to‘plamni ommaga ochiq qoldiradi. Yo‘nalishlar mavjud bo‘lganda wallet ancha ko‘proq maqsadlarni ko‘rib chiqishi mumkin."
+          },
+          "protectedRemainder": {
+            "label": "Himoyalangan qoldiq",
+            "meta": "Wallet balansni nolga tushirish o‘rniga minimal 4TEEN qoldig‘ini saqlab qoladi."
+          },
+          "routerState": {
+            "label": "Router holati",
+            "meta": "Ommaviy yo‘nalish namunalarini olish hozir to‘liq javob berayotgan-bermayotganini ko‘rsatadigan tezkor signal."
+          },
+          "readFailed": "Jonli swap routing o‘qilishi muvaffaqiyatsiz bo‘ldi.",
+          "readRetry": "Bir ozdan so‘ng yangilab ko‘ring.",
+          "states": {
+            "live": "Jonli",
+            "partial": "Qisman",
+            "offline": "Offline"
+          }
+        }
+      },
+      "sections": {
+        "tokenUniverse": {
+          "eyebrow": "Token olami",
+          "title": "Wallet ikki reklama maqsadi bilan cheklanib qolmagan.",
+          "intro": "Ommaviy sayt ataylab hikoyani kichik saqlaydi. Wallet esa buning aksini qiladi: u yuborilishi mumkin bo‘lgan wallet aktivlari, maxsus token katalogi yozuvlari va Tronscan token ro‘yxatini birlashtiradi, so‘ng aslida nima swap qilinishi mumkinligini routing aniqlashiga imkon beradi.",
+          "mainCard": {
+            "eyebrow": "Keng maqsadli kirish",
+            "title": "Agar router kotirovka bera olsa, wallet odatda uni ko‘rsata oladi.",
+            "text": "Muhim farq aynan shunda. Veb-sayt preview ataylab tor. Maqsadni almashtirish wallet ichida haqiqiy bo‘ladi, chunki u kengroq token olamini olib, uni routing qatlami bilan bevosita sinab ko‘ra oladi.",
+            "bullets": [
+              "Yuborilishi mumkin bo‘lgan wallet balanslari manba aktivlarga aylanishi mumkin.",
+              "Maxsus katalog yozuvlari va Tronscan token ro‘yxati maqsadli to‘plamni TRX va USDT’dan ancha kengaytiradi.",
+              "Yo‘nalishlar baribir haqiqiy kotirovka mavjudligiga qarab filtrlanadi, shuning uchun interfeys har bir token likviddek ko‘rsatish o‘rniga halol qoladi."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Maqsadni almashtirish",
+              "title": "Foydalanuvchi wallet ichida ham manba aktivni, ham qabul qilinadigan aktivni o‘zgartira oladi",
+              "text": "Mobil oqim bitta juftlik atrofida qotib qolmagan. U kotirovkalar so‘ralishidan oldin aktivlarni almashtirishni qo‘llab-quvvatlaydi, shu sababli swap yo‘nalishi kengroq bozor utilitasi sifatida taqdim etilishi kerak."
+            },
+            {
+              "eyebrow": "Yo‘nalishlarni saralash",
+              "title": "Yo‘nalishlar hard-coded afzallik bo‘yicha emas, chiqish miqdori bo‘yicha tartiblanadi",
+              "text": "Mavjud yo‘nalishlar yaxshiroq chiqishdan yomonroq chiqishgacha saralanadi, bajarilishi mumkin bo‘lgan yo‘nalishlar birinchi o‘ringa qo‘yiladi. Foydalanuvchi bitta noaniq yo‘l o‘rniga aslida qaysi yo‘nalish ustunligini ko‘radi."
+            }
+          ],
+          "note": "Shuning uchun to‘g‘ri mahsulot xabari “TRX yoki USDT’ga almashtiring” emas. To‘g‘ri xabar: “routing mavjud bo‘lganda wallet ancha kengroq maqsadli olam bo‘ylab qidira oladi.”"
+        },
+        "liveRoutes": {
+          "eyebrow": "Jonli yo‘nalish namunalari",
+          "title": "Routing engine ichiga kichik ommaviy oyna",
+          "body": "Bu kartalar ataylab tor saqlanadi. Ular faqat bir nechta tayanch namunalarni ko‘rsatadi, shunda sayt butun swap mahsuloti bo‘lib ko‘rinishga urinmasdan, engine ishlayotganini isbotlay oladi.",
+          "labels": {
+            "route": "Yo‘nalish",
+            "execution": "Bajarish",
+            "impact": "Ta’sir",
+            "targets": "Maqsadlar",
+            "updated": "Yangilangan",
+            "state": "Holat"
+          },
+          "transfers": {
+            "eyebrow": "So‘nggi router transferlari",
+            "title": "Ommaviy routerga tegishli yaqinda tasdiqlangan 4TEEN harakati",
+            "empty": "Hozir yaqindagi 4TEEN router transferlari keshda mavjud emas.",
+            "note": "Bu ro‘yxat backend snapshot qatlami orqali yuklanadi, ma’lumotlar bazamizda kesh qilinadi va yuqori oqimdagi explorer shovqinli bo‘lganda stale-safe tarzda taqdim etiladi.",
+            "labels": {
+              "direction": "Yo‘nalish",
+              "counterparty": "Qarama-qarshi tomon",
+              "amount": "Miqdor",
+              "updated": "Yangilangan",
+              "tx": "Tx"
+            },
+            "states": {
+              "routerIn": "Router qabul qildi",
+              "routerOut": "Router yubordi",
+              "related": "Routerga bog‘liq"
+            }
+          },
+          "states": {
+            "executable": "Bajarilishi mumkin bo‘lgan yo‘nalish",
+            "reviewOnly": "Faqat ko‘rib chiqish yo‘nalishi"
+          },
+          "empty": "Hozir ommaviy yo‘nalish namunasi mavjud emas.",
+          "note": "Wallet ichida maqsadni almashtirish va yo‘nalishlarni saralash ancha kengroq token olamiga nisbatan amalga oshadi. Veb-sayt faqat ixcham ommaviy namunani ko‘rinadigan qilib qoldiradi."
+        },
+        "reviewLayer": {
+          "eyebrow": "Ko‘rib chiqish qatlami",
+          "title": "Wallet to‘g‘ridan-to‘g‘ri swapga o‘tmaydi. Avval nazoratli ko‘rib chiqishni shakllantiradi.",
+          "intro": "Yo‘nalishning eng muhim qismi marketing skrinshoti emas. U kotirovka preview va yakuniy bajarish o‘rtasidagi nazoratli uzatishdir: himoyalangan minimum, approve holati, tarmoq resurslari manzarasi va yakuniy imzo bosqichi.",
+          "mainCard": {
+            "eyebrow": "Approve va swap",
+            "title": "Minimal chiqish, approve va resurslarni ko‘rib chiqish — bularning barchasi biror narsa yuborilishidan oldin yo‘nalishning bir qismidir.",
+            "text": "Yo‘nalish ko‘rinib turishi, lekin hali bajarib bo‘lmaydigan bo‘lishi mumkin. Bu sog‘lom xatti-harakat. Wallet yakuniy amalni taklif qilishdan oldin approve holati, yo‘nalish haqiqiyligi va resurs tayyorgarligi bir-biriga mos kelishini kutadi.",
+            "bullets": [
+              "Slippage swap walletdan chiqishidan oldin qabul qilinadigan minimal miqdorni himoya qiladi.",
+              "Allowance yetishmasa, avval approve tekshiriladi.",
+              "Energy va bandwidth xarajatlari yakuniy tasdiqlash bosqichidan oldin ko‘rsatiladi."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Resurs ijarasi",
+              "title": "Arzonroq bo‘lganda yo‘nalish foydalanuvchini avval ijara qilish orqali bajarishga yo‘naltirishi mumkin",
+              "text": "Wallet allaqachon resurslarni tejash mantiqini oqimning bir qismi sifatida shakllantiradi. Bu foydalanuvchilar burn xarajatlarini faqat imzo qo‘ygandan keyin bilib qolishiga yo‘l qo‘ymasdan, bajarishni amaliy qiladi."
+            },
+            {
+              "eyebrow": "Himoyalangan dust",
+              "title": "Juda kichik 4TEEN qoldig‘i ataylab saqlanadi",
+              "text": "Himoyalangan qoldiq nozik nol-balans chekka holatlarining oldini oladi va keyingi yo‘nalish bilan ishlashni xotirjamroq qiladi. Bu kichik qoida, lekin wallet uchun yaxshi qoida."
+            }
+          ],
+          "note": "Mahsulotni jiddiy his qildiradigan narsa ham shu: old tomonda keng token topish, orqa tomonda esa nazoratli bajarish intizomi."
+        },
+        "verification": {
+          "eyebrow": "Verifikatsiya",
+          "title": "Bu yo‘nalish hikoyasi qayerdan keladi",
+          "body": "Bu sahifa haqiqiy wallet implementatsiyasiga amal qiladi: maqsadni almashtirish, kengroq token katalogini yuklash, kotirovkalarni saralash, minimal qabul qilinadigan miqdor himoyasi, approve tekshiruvlari va app ortidagi router qatlami orqali yakuniy bajarish.",
+          "labels": {
+            "router": "Smart router",
+            "token": "4TEEN token",
+            "walletRepo": "Wallet repository"
+          }
+        },
+        "cta": {
+          "eyebrow": "Haqiqiy yo‘nalishni oching",
+          "title": "To‘liq yo‘nalish xaritasini xohlaganingizda walletni oching",
+          "body": "Veb-sayt swap imkoniyatini tushunarli qilishi kerak. Kengroq token olami, saralangan yo‘nalishlar, approve ko‘rib chiqishi, himoyalangan minimum va yakuniy imzo mobil wallet ichida birlashadi.",
+          "openApp": "Mobil appni ochish",
+          "openBuy": "Xarid yo‘nalishini ochish"
+        }
+      }
     }
   }
 }
