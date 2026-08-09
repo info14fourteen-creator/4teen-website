@@ -74,6 +74,9 @@ export type SupportPageContent = PublicPageContent & {
     body: string;
     emailTitle: string;
     emailMissing: string;
+    phoneTitle: string;
+    legalTitle: string;
+    legalBody: string;
     securityTitle: string;
     securityBody: string;
   };
@@ -503,6 +506,9 @@ const supportContentEn: SupportPageContent = {
     emailTitle: "Support email",
     emailMissing:
       "A dedicated public support mailbox is not published in the current repositories. Until one is published, use the official channels below and never share secret recovery material there.",
+    phoneTitle: "Phone and WhatsApp",
+    legalTitle: "Legal operator",
+    legalBody: `${officialLegalEntity.fullLegalName} · D-U-N-S® ${officialLegalEntity.dunsNumber}`,
     securityTitle: "Security reminder",
     securityBody:
       "No support channel should ask for your seed phrase, raw private key, or full device unlock secrets. If that happens, treat it as unsafe.",

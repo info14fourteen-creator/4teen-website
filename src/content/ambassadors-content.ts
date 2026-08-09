@@ -1,5 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
-import { getGeneratedPageContent } from "../lib/generated-localization.ts";
+import { getGeneratedPageContent } from "../lib/generated-localization";
 
 type HeroStatContent = {
   label: string;
@@ -351,10 +351,10 @@ const ambassadorsContentEn: AmbassadorsPageContent = {
   },
 };
 
-const ambassadorsContentByLocale: Record<
+const ambassadorsContentByLocale: Partial<Record<
   SupportedSiteLocale,
   AmbassadorsPageContent
-> = {
+>> = {
   en: ambassadorsContentEn,
   ru: ambassadorsContentEn,
   uz: ambassadorsContentEn,

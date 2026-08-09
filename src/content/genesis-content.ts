@@ -5,7 +5,7 @@ import {
   officialWalletRepoUrl,
 } from "@/content/official-links";
 import type { SupportedSiteLocale } from "@/lib/site-locale";
-import { getGeneratedPageContent } from "../lib/generated-localization.ts";
+import { getGeneratedPageContent } from "../lib/generated-localization";
 
 export type GenesisDeckContent = PublicPageContent & {
   thesis: Array<{

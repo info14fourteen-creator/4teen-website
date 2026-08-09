@@ -36,7 +36,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "Русский",
     flag: "🇷🇺",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "uz",
@@ -44,7 +44,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "O'zbekcha",
     flag: "🇺🇿",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "tr",

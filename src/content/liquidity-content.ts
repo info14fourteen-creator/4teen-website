@@ -1,5 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
-import { getGeneratedPageContent } from "../lib/generated-localization.ts";
+import { getGeneratedPageContent } from "../lib/generated-localization";
 
 type HeroStatContent = {
   label: string;
@@ -348,10 +348,148 @@ const liquidityContentEn: LiquidityPageContent = {
   },
 };
 
+const liquidityContentRu: LiquidityPageContent = {
+  ...liquidityContentEn,
+  metadata: {
+    title: "Публичный контроллер ликвидности",
+    description:
+      "Публичный контроллер ликвидности 4TEEN: баланс контроллера, запуск bootstrapper из кошелька, видимость резерва и подтвержденные исполнения.",
+  },
+  hero: {
+    ...liquidityContentEn.hero,
+    eyebrow: "Контроллер ликвидности",
+    badge: "Публичный контроллер ликвидности",
+    title: "Публичный контроллер ликвидности 4TEEN",
+    subtitle:
+      "Автоматизация может разбудить маршрут, но любой кошелек все еще может вызвать bootstrapper, когда контрактное условие открыто.",
+    body: [
+      "Это не закрытая операционная панель. TRX в контроллере виден, резервный инвентарь виден, а правила выпуска остаются в контракте.",
+      "Если UTC-окно открыто, контроллер выше порога, а у кошелька есть сетевые ресурсы, ликвидность может быть исполнена вручную даже при пропущенном запуске автоматизации.",
+    ],
+    rotatingLines: [
+      "ПУБЛИЧНЫЙ ТРИГГЕР. КОНТРАКТНЫЙ ГЕЙТ.",
+      "АВТОМАТИЗАЦИЯ ПОМОГАЕТ. РЕШАЮТ КОНТРАКТЫ.",
+      "СНАЧАЛА BOOTSTRAP. ЗАТЕМ ON-CHAIN ИСПОЛНЕНИЕ.",
+    ],
+    primaryCta: "Открыть маршрут в кошельке",
+    secondaryCta: "К последним исполнениям",
+    ctaNote:
+      "Сайт служит слоем проверки. Кошелек исполняет ручной триггер, проверку ресурсов и подпись.",
+    stats: {
+      controllerBalance: { label: "Баланс контроллера", meta: "TRX, который сейчас ожидает внутри FourteenLiquidityController." },
+      nextRelease: { label: "Следующий выпуск", meta: "Расчетный выпуск TRX, когда контрактное окно действительно." },
+      triggerFloor: { label: "Порог триггера", meta: "Минимальный баланс контроллера для валидного исполнения." },
+      cadence: { label: "Периодичность", meta: "Раз в UTC-день. Гейт задает контракт, а не автоматизация." },
+      readFailed: "Не удалось получить живое состояние ликвидности.",
+      readRetry: "Попробуйте обновить чуть позже.",
+    },
+  },
+  sections: {
+    ...liquidityContentEn.sections,
+    publicRoute: {
+      eyebrow: "Публичный маршрут",
+      title: "Автоматизация настроена. Публичное исполнение все равно принадлежит кошельку.",
+      intro:
+        "В приложении есть путь автоматизации, но главное шире: маршрут остается публичным. Кошелек с подписью может разбудить bootstrapper, когда контрактные условия уже выполнены.",
+      mainCard: {
+        eyebrow: "Публичный контроллер ликвидности",
+        title: "Любой кошелек может разбудить маршрут. Контроллер все равно решает, двинется ли ликвидность.",
+        text:
+          "Это правильное разделение полномочий. Автоматизация помогает со временем, но контроллер и bootstrapper остаются слоем власти. Маршрут не исчезает, если бот остановился.",
+        bullets: [
+          "90% TRX от прямых покупок 4TEEN попадает в баланс контроллера.",
+          "LiquidityBootstrapper готовит токенную сторону из FourteenVault до исполнения контроллера.",
+          "Ограничение раз в UTC-день, минимум баланса, процент выпуска и сплит остаются on-chain.",
+        ],
+      },
+      cards: [
+        { eyebrow: "Автоматизация", title: "В репозитории кошелька уже есть путь запуска", text: "Мобильный сценарий показывает триггер ликвидности и помощник автоматизации. Это не превращает планировщик в скрытого оператора." },
+        { eyebrow: "Ручной запуск", title: "Если автоматизация пропустила окно, пользователь все еще может подписать маршрут", text: "Кошелек вызывает bootstrapAndExecute() из обычной пользовательской сессии. Если гейт открыт и есть ресурсы, ликвидность пройдет." },
+      ],
+      note: "Поэтому эта страница говорит о публичном контроллере, а не о приватном бэкофисе. Маршрут переживает слой автоматизации.",
+    },
+    liveState: {
+      eyebrow: "Живое состояние контроллера",
+      title: "Что контроллер говорит прямо сейчас",
+      rows: {
+        controllerBalance: "Баланс контроллера", latestFunding: "Последнее пополнение", latestFundingAt: "Время пополнения", lastExecute: "Последнее исполнение", minBalance: "Мин. баланс", dailyRelease: "Дневной выпуск", split: "Целевой сплит", windowState: "Состояние окна", nextWindow: "Следующее окно", snapshotUpdated: "Snapshot обновлен",
+      },
+      valueLabels: { openNow: "Открыто сейчас", waitForThreshold: "Ожидание пополнения" },
+      stateLabels: { ready: "Готово сейчас", waiting: "Сегодня уже исполнено", threshold: "Ниже порога" },
+      note: "Snapshot раздельно показывает TRX контроллера, период пополнений, объем выпуска, порог и временной гейт.",
+    },
+    triggerModel: {
+      eyebrow: "Модель запуска",
+      title: "Что происходит, когда кто-то нажимает Trigger Liquidity",
+      intro:
+        "Маршрут простой: bootstrapper проверяет дневной гейт и готовит инвентарь исполнителей, контроллер выпускает TRX, а два рыночных пути получают свой сплит.",
+      mainCard: {
+        eyebrow: "bootstrapAndExecute()",
+        title: "Путь запуска публичный, учитывает ресурсы и все еще подчиняется контрактам.",
+        text:
+          "Это не декоративная админ-кнопка. Кошелек должен удовлетворить обычным сетевым условиям, а маршрут продолжается, только если правила контроллера снова проходят в момент исполнения.",
+        bullets: [
+          "Шаг 1: bootstrapper проверяет окно контроллера и рассчитывает разрешенный выпуск.",
+          "Шаг 2: bootstrapper пополняет 4TEEN исполнителей из FourteenVault.",
+          "Шаг 3: контроллер исполняет выпуск и делит поток 50 / 50 между JustMoney и Sun.io V3.",
+        ],
+      },
+      cards: liquidityContentEn.sections.triggerModel.cards,
+      note: "Это правильный рыночный сигнал: публичный триггер, видимая подготовка резерва, детерминированное правило выпуска.",
+    },
+    latestExecutions: {
+      ...liquidityContentEn.sections.latestExecutions,
+      eyebrow: "Последние исполнения", title: "Подтвержденные исполнения ликвидности из живой ленты", body: "Список намеренно компактный: он показывает последние подтвержденные строки, чтобы проверить жизнь контроллера без шумной копии блок-эксплорера.",
+      headers: { total: "Всего выпущено", split: "Сплит", happened: "Время", day: "UTC-день", source: "Источник" },
+      empty: "Подтвержденные LiquidityExecuted пока не видны.", openTx: "Открыть tx", note: "Каждая строка приходит из подтвержденных событий LiquidityExecuted(day, totalAmount, amountA, amountB).",
+    },
+    cta: { eyebrow: "Следующий шаг", title: "Откройте кошелек, когда захотите разбудить маршрут сами", body: "Сайт нужен для проверки состояния. В мобильном кошельке можно проверить ресурсы, вызвать bootstrapper и подписать маршрут, если контрактный гейт открыт.", openApp: "Открыть ликвидность в приложении", openBuy: "Открыть покупку" },
+  },
+};
+
+const liquidityContentUz: LiquidityPageContent = {
+  ...liquidityContentEn,
+  metadata: { title: "Ommaviy likvidlik kontrolleri", description: "4TEEN ommaviy likvidlik kontrolleri: kontroller balansi, hamyon orqali bootstrapper ishga tushirishi, rezerv ko'rinishi va tasdiqlangan ijrolar." },
+  hero: {
+    ...liquidityContentEn.hero,
+    eyebrow: "Likvidlik kontrolleri", badge: "Ommaviy likvidlik kontrolleri", title: "4TEEN ommaviy likvidlik kontrolleri",
+    subtitle: "Avtomatlashtirish yo'nalishni uyg'otishi mumkin, ammo kontrakt geyi ochiq bo'lsa istalgan hamyon bootstrapper-ni chaqira oladi.",
+    body: ["Bu yopiq operatsion panel emas. Kontrollerdagi TRX ham, rezerv inventari ham ko'rinadi, chiqarish qoidalari esa kontraktda qoladi.", "UTC oynasi ochiq bo'lsa, kontroller chegaradan yuqori va hamyonda tarmoq resurslari yetarli bo'lsa, likvidlik qo'lda ham bajariladi."],
+    rotatingLines: ["OMMAVIY TRIGGER. KONTRAKT GEYTI.", "AVTOMATLASHTIRISH YORDAM BERADI. KONTRAKTLAR HAL QILADI."],
+    primaryCta: "Hamyon yo'nalishini ochish", secondaryCta: "So'nggi ijrolarga o'tish", ctaNote: "Sayt tekshiruv qatlami. Hamyon qo'lda trigger, resurs tekshiruvi va imzo uchun ishlatiladi.",
+    stats: {
+      controllerBalance: { label: "Kontroller balansi", meta: "FourteenLiquidityController ichida kutayotgan TRX." },
+      nextRelease: { label: "Keyingi chiqarish", meta: "Kontrakt oynasi yaroqli bo'lganda hisoblangan TRX chiqarishi." },
+      triggerFloor: { label: "Trigger chegarasi", meta: "Ijro yaroqli bo'lishi uchun minimal kontroller balansi." },
+      cadence: { label: "Davriylik", meta: "Har UTC kunida bir marta. Geytni avtomatlashtirish emas, kontrakt belgilaydi." },
+      readFailed: "Jonli likvidlik ma'lumotlarini olib bo'lmadi.", readRetry: "Birozdan keyin yangilang.",
+    },
+  },
+  sections: {
+    ...liquidityContentEn.sections,
+    publicRoute: {
+      eyebrow: "Ommaviy yo'nalish", title: "Avtomatlashtirish sozlangan. Ommaviy ijro hamyonga tegishli.", intro: "Ilovada avtomatlashtirish yo'li bor, ammo asosiy qoida kengroq: yo'nalish ommaviyligicha qoladi. Imzolovchi hamyon kontrakt shartlari bajarilganda bootstrapper-ni uyg'ota oladi.",
+      mainCard: { eyebrow: "Ommaviy likvidlik kontrolleri", title: "Istalgan hamyon yo'nalishni uyg'ota oladi. Likvidlik harakatlanishini kontroller hal qiladi.", text: "Avtomatlashtirish vaqtga yordam beradi, ammo kontroller va bootstrapper vakolat qatlami bo'lib qoladi. Bot to'xtasa ham yo'nalish yo'qolmaydi.", bullets: ["To'g'ridan-to'g'ri 4TEEN xaridlaridagi TRXning 90 foizi kontroller balansiga o'tadi.", "LiquidityBootstrapper ijrodan oldin FourteenVault-dan token tomonini tayyorlaydi.", "UTC kunlik qoida, minimal balans, chiqarish foizi va split on-chain qoladi."] },
+      cards: [{ eyebrow: "Avtomatlashtirish", title: "Hamyon repozitoriyasida uyg'otish yo'li bor", text: "Mobil oqim likvidlik triggeri va avtomatlashtirish yordamchisini ko'rsatadi." }, { eyebrow: "Qo'lda trigger", title: "Avtomatlashtirish o'tkazib yuborsa ham foydalanuvchi yo'nalishni imzolashi mumkin", text: "Hamyon oddiy sessiyada bootstrapAndExecute() chaqiradi. Geyt ochiq va resurslar bo'lsa likvidlik o'tadi." }],
+      note: "Bu ommaviy kontroller, xususiy bэkofis emas. Yo'nalish avtomatlashtirish qatlamidan mustaqil yashaydi.",
+    },
+    liveState: {
+      eyebrow: "Kontrollerning jonli holati", title: "Kontroller hozir nima deydi", rows: { controllerBalance: "Kontroller balansi", latestFunding: "Oxirgi to'ldirish", latestFundingAt: "To'ldirish vaqti", lastExecute: "Oxirgi ijro", minBalance: "Min. balans", dailyRelease: "Kunlik chiqarish", split: "Maqsadli split", windowState: "Oyna holati", nextWindow: "Keyingi oyna", snapshotUpdated: "Snapshot yangilandi" }, valueLabels: { openNow: "Hozir ochiq", waitForThreshold: "To'ldirishni kutish" }, stateLabels: { ready: "Hozir tayyor", waiting: "Bugun allaqachon bajarilgan", threshold: "Chegaradan past" }, note: "Snapshot kontroller TRX, to'ldirish davri, chiqarish hajmi, chegara va vaqt geytini alohida ko'rsatadi.",
+    },
+    triggerModel: {
+      eyebrow: "Trigger modeli", title: "Kimdir Trigger Liquidity-ni bosganda nima bo'ladi", intro: "Bootstrapper kunlik geytni tekshiradi va ijro inventarini tayyorlaydi, kontroller TRX chiqaradi, so'ng ikki bozor yo'liga split beriladi.", mainCard: { eyebrow: "bootstrapAndExecute()", title: "Trigger yo'li ommaviy, resurslarni hisobga oladi va kontraktlarga bo'ysunadi.", text: "Bu soxta admin tugmasi emas. Hamyon normal tarmoq shartlarini qondirishi kerak va ijro paytida qoidalar yana o'tishi lozim.", bullets: ["1-qadam: ruxsat etilgan chiqarish hajmi hisoblanadi.", "2-qadam: FourteenVault-dan 4TEEN ijrochilariga tayyorlanadi.", "3-qadam: oqim JustMoney va Sun.io V3 o'rtasida 50 / 50 bo'linadi."] }, cards: liquidityContentEn.sections.triggerModel.cards, note: "Ommaviy trigger, ko'rinadigan rezerv tayyorlovi, qat'iy chiqarish qoidasi.",
+    },
+    latestExecutions: { ...liquidityContentEn.sections.latestExecutions, eyebrow: "So'nggi ijrolar", title: "Jonli lentadagi tasdiqlangan likvidlik ijrolari", body: "Kompakt ro'yxat kontrollerning ishlayotganini ko'rsatadi.", headers: { total: "Jami chiqarilgan", split: "Split", happened: "Vaqt", day: "UTC kuni", source: "Manba" }, empty: "Tasdiqlangan LiquidityExecuted qatorlari hali ko'rinmayapti.", openTx: "Tx ochish", note: "Har qator tasdiqlangan LiquidityExecuted voqeasidan keladi." },
+    cta: { eyebrow: "Keyingi qadam", title: "Yo'nalishni o'zingiz uyg'otmoqchi bo'lsangiz hamyonni oching", body: "Sayt holatni tekshiradi. Mobil hamyon resurslarni tekshiradi, bootstrapper-ni chaqiradi va geyi ochiq bo'lsa imzo qo'yadi.", openApp: "Ilovada likvidlikni ochish", openBuy: "Xaridni ochish" },
+  },
+};
+
 const liquidityContentByLocale: Partial<
   Record<SupportedSiteLocale, LiquidityPageContent>
 > = {
   en: liquidityContentEn,
+  ru: liquidityContentRu,
+  uz: liquidityContentUz,
 };
 
 export function getLiquidityPageContent(locale: SupportedSiteLocale) {

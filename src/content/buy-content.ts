@@ -1,5 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
-import { getGeneratedPageContent } from "../lib/generated-localization.ts";
+import { getGeneratedPageContent } from "../lib/generated-localization";
 
 export type BuyPageContent = {
   metadata: {

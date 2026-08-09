@@ -8,7 +8,7 @@ import {
   type AnimatedLottieIconApi,
 } from "@/components/site/animated-lottie-icon";
 import { LoaderLink } from "@/components/site/loader-link";
-import { localizeSiteHref } from "@/lib/site-locale";
+import { localizeSiteHref, type SupportedSiteLocale } from "@/lib/site-locale";
 import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 import { useEffect, useMemo, useRef, useState } from "react";
 
@@ -130,7 +130,7 @@ function NotFoundKeys() {
   );
 }
 
-function TypewriterLines({ locale }: { locale: keyof typeof localizedCopy }) {
+function TypewriterLines({ locale }: { locale: SupportedSiteLocale }) {
   const orderedLines = useMemo(() => {
     const currentIndex = typewriterLines.findIndex((line) => line.locale === locale);
 
@@ -208,7 +208,7 @@ function TypewriterLines({ locale }: { locale: keyof typeof localizedCopy }) {
 
 export function NotFoundExperience() {
   const locale = useCurrentSiteLocale();
-  const copy = localizedCopy[locale];
+  const copy = localizedCopy[locale as keyof typeof localizedCopy] ?? localizedCopy.en;
   const homeHref = localizeSiteHref("/", locale);
 
   return (

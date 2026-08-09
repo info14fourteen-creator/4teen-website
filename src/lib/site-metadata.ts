@@ -11,7 +11,19 @@ const openGraphLocaleMap: Record<string, string> = {
   en: "en_US",
   ru: "ru_RU",
   uz: "uz_UZ",
+  tr: "tr_TR",
+  de: "de_DE",
+  fr: "fr_FR",
+  es: "es_ES",
+  it: "it_IT",
+  pt: "pt_PT",
+  nl: "nl_NL",
+  pl: "pl_PL",
   ar: "ar_SA",
+  hi: "hi_IN",
+  ja: "ja_JP",
+  "zh-CN": "zh_CN",
+  ko: "ko_KR",
 };
 
 type PageMetadataImage = {

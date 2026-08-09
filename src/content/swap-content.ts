@@ -1,5 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
-import { getGeneratedPageContent } from "../lib/generated-localization.ts";
+import { getGeneratedPageContent } from "../lib/generated-localization";
 
 type HeroStatContent = {
   label: string;
@@ -299,10 +299,76 @@ const swapContentEn: SwapPageContent = {
   },
 };
 
-const swapContentByLocale: Partial<Record<SupportedSiteLocale, SwapPageContent>> =
-  {
-    en: swapContentEn,
-  };
+const swapContentRu: SwapPageContent = {
+  ...swapContentEn,
+  metadata: { title: "Обмен", description: "Маршрут обмена 4TEEN с широким выбором токенов в кошельке, ранжированием маршрутов, защитой минимального результата, проверкой approve и живыми примерами." },
+  hero: {
+    ...swapContentEn.hero,
+    eyebrow: "Маршрут обмена", badge: "Обмен из кошелька", title: "Обменивайте 4TEEN в более широкий мир токенов TRON",
+    subtitle: "Сайт показывает только опорные примеры. Кошелек ищет значительно больше токенов, ранжирует маршруты и проводит пользователя через approve, review и swap.",
+    body: ["Это не обмен только в одну-две внутренние монеты. В кошельке цели собираются из доступных активов, собственного каталога и списка токенов Tronscan, а затем фильтруются по реально существующей маршрутизации.", "Если есть ликвидность и роутер может дать котировку, кошелек показывает маршрут, ранжирует его и переводит пользователя к реальному подтверждению."],
+    rotatingLines: ["ШИРОКИЙ НАБОР ТОКЕНОВ. РАНЖИРОВАННЫЕ МАРШРУТЫ.", "ПРЕВЬЮ НА САЙТЕ. ИСПОЛНЕНИЕ В КОШЕЛЬКЕ.", "MIN OUT. APPROVE. SWAP."],
+    primaryCta: "Открыть маршрут в кошельке", secondaryCta: "К живым примерам маршрутов", ctaNote: "Сайт - слой проверки. Переключение токенов, ранжирование, защита min-receive, allowance и подпись происходят в кошельке.",
+    stats: {
+      sampleAmount: { label: "Размер примера", meta: "Публичные примеры маршрутов обновляются для одинакового объема 4TEEN." },
+      supportedTargets: { label: "Публичные примеры", meta: "Сайт показывает лишь небольшой якорный набор. В кошельке доступно значительно больше целей, когда существуют маршруты." },
+      protectedRemainder: { label: "Защищенный остаток", meta: "Кошелек сохраняет минимальный остаток 4TEEN, а не обнуляет баланс полностью." },
+      routerState: { label: "Состояние роутера", meta: "Быстрый сигнал, полностью ли отвечает публичная выборка маршрутов сейчас." },
+      readFailed: "Не удалось получить живую маршрутизацию обмена.", readRetry: "Попробуйте обновить чуть позже.",
+      states: { live: "Онлайн", partial: "Частично", offline: "Недоступно" },
+    },
+  },
+  sections: {
+    ...swapContentEn.sections,
+    tokenUniverse: {
+      eyebrow: "Набор токенов", title: "Кошелек не ограничен двумя рекламными целями.", intro: "Публичный сайт намеренно держит историю компактной. Кошелек делает наоборот: объединяет доступные активы, записи собственного каталога и список токенов Tronscan, а затем позволяет маршрутизации определить, что реально можно обменять.",
+      mainCard: { eyebrow: "Широкий доступ", title: "Если роутер может дать котировку, кошелек обычно может показать этот актив.", text: "В этом важное отличие. Превью на сайте узкое намеренно. Кошелек делает переключение цели реальным: он подгружает широкий набор токенов и тестирует его напрямую через слой маршрутизации.", bullets: ["Доступные к отправке балансы могут стать исходными активами.", "Собственный каталог и список Tronscan расширяют цели далеко за пределы TRX и USDT.", "Маршруты фильтруются по реальному наличию котировки, поэтому интерфейс не притворяется, что ликвиден каждый токен."] },
+      cards: [{ eyebrow: "Переключение целей", title: "В кошельке можно менять и исходный, и получаемый актив", text: "Мобильный сценарий не привязан к одной паре: активы меняются до запроса котировки, поэтому swap - это рыночная утилита, а не один фиксированный экран." }, { eyebrow: "Ранжирование", title: "Маршруты сортируются по результату, а не по жестко заданному предпочтению", text: "Доступные маршруты ранжируются от лучшего output к худшему, а исполнимые ставятся первыми. Пользователь видит победителя, а не один непрозрачный путь." }],
+      note: "Правильное сообщение не «обмен в TRX или USDT», а «кошелек ищет более широкий набор целей, когда доступна маршрутизация».",
+    },
+    liveRoutes: {
+      ...swapContentEn.sections.liveRoutes,
+      eyebrow: "Живые примеры маршрутов", title: "Небольшое публичное окно в движок маршрутизации", body: "Карточки намеренно компактны: они доказывают, что движок жив, но не выдают сайт за весь swap-продукт.",
+      labels: { route: "Маршрут", execution: "Исполнение", impact: "Влияние", targets: "Цели", updated: "Обновлено", state: "Состояние" },
+      transfers: { eyebrow: "Последние переводы роутера", title: "Недавнее подтвержденное движение 4TEEN через публичный роутер", empty: "Недавние переводы 4TEEN через роутер сейчас не сохранены.", note: "Список загружается через backend snapshot-слой, кэшируется в нашей базе и безопасно отдает последние данные, если explorer шумит.", labels: { direction: "Направление", counterparty: "Контрагент", amount: "Сумма", updated: "Обновлено", tx: "Tx" }, states: { routerIn: "Роутер получил", routerOut: "Роутер отправил", related: "Связано с роутером" } },
+      states: { executable: "Исполнимый маршрут", reviewOnly: "Только review" }, empty: "Публичный пример маршрута сейчас недоступен.", note: "В кошельке выбор цели и ранжирование работают на более широком наборе токенов. Сайт держит видимым только компактный пример.",
+    },
+    reviewLayer: {
+      eyebrow: "Слой проверки", title: "Кошелек не прыгает сразу в swap. Сначала он собирает контролируемый review.", intro: "Главное не маркетинговый скрин. Главное - управляемая передача от предпросмотра котировки к исполнению: защищенный минимум, approve, картина сетевых ресурсов и финальная подпись.",
+      mainCard: { eyebrow: "Approve и swap", title: "Минимальный результат, approve и проверка ресурсов - часть маршрута до отправки.", text: "Маршрут может быть виден, но еще не исполним. Это здоровое поведение. Кошелек ждет совпадения allowance, валидности маршрута и готовности ресурсов, прежде чем дает финальное действие.", bullets: ["Slippage защищает минимально получаемую сумму до отправки swap.", "При нехватке allowance сначала проверяется approve.", "Затраты Energy и Bandwidth видны до финального подтверждения."] },
+      cards: [{ eyebrow: "Аренда ресурсов", title: "При выгоде маршрут может сначала предложить аренду", text: "Логика экономии ресурсов встроена в поток: пользователь не узнает о сжигании TRX уже после подписи." }, { eyebrow: "Защищенная пыль", title: "Небольшой остаток 4TEEN остается специально", text: "Этот остаток исключает хрупкие edge cases нулевого баланса и делает дальнейшие сценарии спокойнее." }],
+      note: "Именно так продукт выглядит серьезно: широкий поиск токенов на входе, дисциплина исполнения на выходе.",
+    },
+    verification: { eyebrow: "Проверка", title: "Откуда взята эта логика", body: "Страница следует реальной реализации кошелька: переключение целей, загрузка каталога токенов, ранжирование котировок, защита минимального получения, проверка approve и финальное исполнение через роутер.", labels: { router: "Смарт-роутер", token: "Токен 4TEEN", walletRepo: "Репозиторий кошелька" } },
+    cta: { eyebrow: "Открыть реальный маршрут", title: "Откройте кошелек, когда нужна полная карта маршрутов", body: "Сайт объясняет возможность обмена. В мобильном кошельке соединяются широкий набор токенов, ранжированные маршруты, проверка approve, защищенный минимум и финальная подпись.", openApp: "Открыть мобильное приложение", openBuy: "Открыть покупку" },
+  },
+};
+
+const swapContentUz: SwapPageContent = {
+  ...swapContentEn,
+  metadata: { title: "Almashuv", description: "4TEEN almashuv yo'nalishi: hamyondagi keng token qamrovi, yo'nalishlarni reytinglash, minimal natija himoyasi, approve tekshiruvi va jonli namunalar." },
+  hero: {
+    ...swapContentEn.hero,
+    eyebrow: "Almashuv yo'nalishi", badge: "Hamyon orqali almashuv", title: "4TEEN-ni kengroq TRON tokenlari olamiga almashtiring", subtitle: "Sayt faqat tayanch namunalarni ko'rsatadi. Hamyon esa ko'proq tokenlarni qidiradi, yo'nalishlarni reytinglaydi va approve, review hamda swap jarayonidan olib o'tadi.",
+    body: ["Bu faqat bir-ikki ichki tokenga almashuv emas. Hamyon maqsadlarni mavjud aktivlar, o'z katalogi va Tronscan tokenlar ro'yxatidan oladi, so'ng haqiqiy yo'nalish mavjudligiga qarab filtrlaydi.", "Likvidlik mavjud va router kotirovka bera olsa, hamyon yo'nalishni ko'rsatadi, reytinglaydi va haqiqiy tasdiqlashga o'tkazadi."],
+    rotatingLines: ["KENG TOKEN OLAMI. REYTINGLANGAN YO'NALISHLAR.", "SAYTDA PREVIEW. HAMYONDA IJRO.", "MIN OUT. APPROVE. SWAP."], primaryCta: "Hamyon yo'nalishini ochish", secondaryCta: "Jonli namunalar", ctaNote: "Sayt tekshiruv qatlami. Token almashtirish, reyting, min-receive himoyasi, allowance va imzo hamyonda bo'ladi.",
+    stats: { sampleAmount: { label: "Namuna miqdori", meta: "Ommaviy yo'nalish namunalari bir xil 4TEEN miqdorida yangilanadi." }, supportedTargets: { label: "Ommaviy namunalar", meta: "Sayt kichik tayanch to'plamni ko'rsatadi; yo'nalish bo'lsa hamyon ko'proq maqsadlarni ko'radi." }, protectedRemainder: { label: "Himoyalangan qoldiq", meta: "Hamyon 4TEEN balansini nolga tushirmay, minimal qoldiq qoldiradi." }, routerState: { label: "Router holati", meta: "Ommaviy namunalar hozir to'liq javob berayotganini tez ko'rsatadi." }, readFailed: "Jonli almashuv yo'nalishini o'qib bo'lmadi.", readRetry: "Birozdan keyin yangilang.", states: { live: "Jonli", partial: "Qisman", offline: "Mavjud emas" } },
+  },
+  sections: {
+    ...swapContentEn.sections,
+    tokenUniverse: { eyebrow: "Tokenlar olami", title: "Hamyon ikki reklama maqsadi bilan cheklanmaydi.", intro: "Ommaviy sayt hikoyani kichik tutadi. Hamyon esa jo'natish mumkin bo'lgan aktivlar, katalog va Tronscan ro'yxatini birlashtiradi; so'ng routing nimani almashish mumkinligini belgilaydi.", mainCard: { eyebrow: "Keng maqsadlar", title: "Router kotirovka bera olsa, hamyon odatda tokenni ko'rsatadi.", text: "Sayt previewi ataylab tor. Hamyon keng token olamini yuklaydi va routing qatlami orqali sinaydi.", bullets: ["Jo'natiladigan balanslar manba aktivlarga aylanishi mumkin.", "Katalog va Tronscan ro'yxati TRX hamda USDTdan ancha keng maqsadlarni beradi.", "Yo'nalishlar real kotirovka borligiga qarab filtrlanadi."] }, cards: [{ eyebrow: "Maqsadni almashtirish", title: "Hamyonda manba va qabul qilinadigan aktivni o'zgartirish mumkin", text: "Mobil oqim bitta juftlikka qotib qolmagan." }, { eyebrow: "Reyting", title: "Yo'nalishlar qat'iy tanlov emas, natijaga ko'ra saralanadi", text: "Eng yaxshi output birinchi turadi va foydalanuvchi shaffof natijani ko'radi." }], note: "To'g'ri xabar: routing mavjud bo'lsa, hamyon kengroq maqsadlar olamini qidiradi." },
+    liveRoutes: { ...swapContentEn.sections.liveRoutes, eyebrow: "Jonli yo'nalish namunalari", title: "Routing mexanizmiga kichik ommaviy oyna", body: "Kartalar ixcham: ular mexanizm ishlashini isbotlaydi, ammo saytni butun swap mahsuloti qilib ko'rsatmaydi.", labels: { route: "Yo'nalish", execution: "Ijro", impact: "Ta'sir", targets: "Maqsadlar", updated: "Yangilandi", state: "Holat" }, transfers: { eyebrow: "Routerning so'nggi o'tkazmalari", title: "Ommaviy router bilan bog'liq tasdiqlangan 4TEEN harakati", empty: "Hozir router o'tkazmalari keshda yo'q.", note: "Ro'yxat backend snapshot qatlami orqali yuklanadi va ma'lumotlar bazasida keshlanadi.", labels: { direction: "Yo'nalish", counterparty: "Qarshi tomon", amount: "Miqdor", updated: "Yangilandi", tx: "Tx" }, states: { routerIn: "Router qabul qildi", routerOut: "Router yubordi", related: "Router bilan bog'liq" } }, states: { executable: "Ijro qilinadigan yo'nalish", reviewOnly: "Faqat review" }, empty: "Hozir ommaviy yo'nalish namunasi yo'q.", note: "Hamyon maqsadni almashtirish va reytingni kengroq token olamida bajaradi." },
+    reviewLayer: { eyebrow: "Review qatlami", title: "Hamyon darhol swap qilmaydi. Avval nazoratli review tuziladi.", intro: "Muhim qism marketing rasmi emas. Kotirovkadan ijroga boshqariladigan o'tish: himoyalangan minimum, approval holati, tarmoq resurslari va yakuniy imzo.", mainCard: { eyebrow: "Approve va swap", title: "Minimal natija, approval va resurslar tekshiruvi yuborishdan oldin bajariladi.", text: "Yo'nalish ko'rinishi mumkin, ammo hali ijro qilinmasligi mumkin. Hamyon allowance, yo'nalish va resurslar tayyor bo'lguncha kutadi.", bullets: ["Slippage eng kam qabul qilinadigan miqdorni himoya qiladi.", "Allowance yetarli bo'lmasa avval approve tekshiriladi.", "Energy va Bandwidth xarajatlari tasdiqlashdan oldin ko'rsatiladi."] }, cards: [{ eyebrow: "Resurs ijarasi", title: "Arzonroq bo'lsa yo'nalish avval ijarani taklif qiladi", text: "Foydalanuvchi TRX burn xarajatini imzodan keyin bilib qolmaydi." }, { eyebrow: "Himoyalangan qoldiq", title: "Kichik 4TEEN qoldig'i ataylab qoladi", text: "Bu nol balans edge case-larini kamaytiradi." }], note: "Keng token izlash va qat'iy ijro intizomi mahsulotni jiddiy qiladi." },
+    verification: { eyebrow: "Tekshiruv", title: "Bu yo'nalish qayerdan olinadi", body: "Sahifa hamyonning haqiqiy ishlashiga asoslanadi: maqsadlarni almashtirish, token katalogi, kotirovkalarni reytinglash, minimal qabul qilish himoyasi, approve va router orqali ijro.", labels: { router: "Smart router", token: "4TEEN tokeni", walletRepo: "Hamyon repozitoriyasi" } },
+    cta: { eyebrow: "Haqiqiy yo'nalishni ochish", title: "To'liq yo'nalish xaritasi kerak bo'lsa hamyonni oching", body: "Sayt almashuv imkoniyatini tushuntiradi. Keng token olami, reyting, approve, himoyalangan minimum va imzo mobil hamyonda birlashadi.", openApp: "Mobil ilovani ochish", openBuy: "Xaridni ochish" },
+  },
+};
+
+const swapContentByLocale: Partial<Record<SupportedSiteLocale, SwapPageContent>> = {
+  en: swapContentEn,
+  ru: swapContentRu,
+  uz: swapContentUz,
+};
 
 export function getSwapPageContent(locale: SupportedSiteLocale) {
   return getGeneratedPageContent(
