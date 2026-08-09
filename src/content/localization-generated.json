@@ -6191,6 +6191,106 @@
           "Eng kuchli suhbat faqat nima yubora olishingizdan emas, nimani tezlashtira olishingizdan boshlanadi."
         ]
       }
+    },
+    "privacy": {
+      "metadata": {
+        "title": "Maxfiylik",
+        "description": "4TEEN veb-sayti va hamyoni ommaviy blockchain ma’lumotlari, mahalliy hamyon holati, tashqi havolalar va maxfiylik savollariga qanday munosabatda bo‘lishi haqida."
+      },
+      "hero": {
+        "eyebrow": "Maxfiylik",
+        "status": "Ommaviy siyosat",
+        "title": "4TEEN ommaviy blockchain holati va kastodial bo‘lmagan hamyon xatti-harakatlari asosida qurilgan, shu sababli maxfiylik bayoni sodda va haqqoniy bo‘lib qolishi kerak.",
+        "lead": "Ommaviy veb-sayt asosan axborot berish uchun mo‘ljallangan. Mobil hamyon kastodial emas. Balanslar, resurslar, protokol holati va kampaniya holati ko‘rsatilishi uchun ommaviy tarmoq ma’lumotlari so‘ralishi mumkin, biroq tiklash iboralari va maxfiy kalitlar ushbu sayt orqali yuborilishi mo‘ljallanmagan."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Operator",
+          "title": "\"AG PLUS\" LLC",
+          "body": "4TEEN ommaviy veb-sayti va rasmiy qo‘llab-quvvatlash yo‘nalishlari loyiha uchun O‘zbekistonda ro‘yxatdan o‘tgan \"AG PLUS\" mas’uliyati cheklangan jamiyati tomonidan boshqariladi. D-U-N-S raqami: 933906683."
+        },
+        {
+          "eyebrow": "Veb-sayt",
+          "title": "Bu yerda hamyon sirlari yo‘q",
+          "body": "Joriy ommaviy sayt sizdan tiklash iborasi yoki xom maxfiy kalit kiritishni so‘ramaydi. Agar buni ommaviy veb-saytda ko‘rsangiz, to‘xtang va avval manbani tekshiring."
+        },
+        {
+          "eyebrow": "Blockchain",
+          "title": "Manzillar loyihaning o‘z mohiyatiga ko‘ra ommaviy",
+          "body": "TRON tarmog‘idagi hamyon manzillari, tranzaksiyalar, balanslar va shartnoma o‘zaro aloqalari ommaviy yozuvlardir. Sayt va ilova protokol holatini ko‘rsatish uchun ularni o‘qishi mumkin, ammo ular on-chain bo‘lganidan keyin xususiy ma’lumot hisoblanmaydi."
+        },
+        {
+          "eyebrow": "Infratuzilma",
+          "title": "Asosiy so‘rov jurnallari baribir mavjud bo‘lishi mumkin",
+          "body": "Joriy veb-yig‘ilmada alohida uchinchi tomon analytics kuzatuvchisi bo‘lmasa ham, odatiy hosting, CDN, API va explorer infratuzilmasi IP manzil, brauzer, vaqt va so‘ralgan route kabi kundalik so‘rov ma’lumotlarini baribir qayta ishlashi mumkin."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Huquqiy operator",
+          "title": "Rasmiy 4TEEN yuzalarini kim boshqaradi",
+          "body": "\"AG PLUS\" mas’uliyati cheklangan jamiyati https://4teen.me manzilidagi rasmiy 4TEEN veb-saytini, unga bog‘liq ommaviy loyiha route’larini hamda maxfiylik va mahsulot savollari uchun e’lon qilingan qo‘llab-quvvatlash pochta qutisini boshqaradi.",
+          "bullets": [
+            "Soliq to‘lovchining identifikatsiya raqami: 312 696 228",
+            "Davlat ro‘yxatidan o‘tkazish raqami: 3080788, 06 yanvar 2026 sanasida ro‘yxatdan o‘tgan",
+            "D-U-N-S raqami: 933906683",
+            "Yuridik manzil: O‘zbekiston Respublikasi, Toshkent shahri, Yunusobod tumani, Katta Xasanboy MFY, Xasanboy ko‘chasi, 8-tor ko‘cha, 3-B uy"
+          ],
+          "note": "Maxfiylik va qo‘llab-quvvatlash savollarini support@4teen.me yoki +998 95 792 02 87 orqali yuborish mumkin."
+        },
+        {
+          "eyebrow": "2. Ommaviy veb-sayt",
+          "title": "Ushbu veb-sayt nima qilish uchun ishlab chiqilgan",
+          "body": "4TEEN veb-sayti protokol ma’lumotlari, reliz sahifalari, ommaviy shartnoma havolalari, airdrop holati, ambassador holati, narx o‘qishlari va mobil ilova uchun yuklab olish yo‘nalishlarini taqdim etish uchun ishlatiladi. U mablag‘larni saqlash yoki maxfiy hamyon hisob ma’lumotlarini yig‘ish uchun mo‘ljallanmagan.",
+          "bullets": [
+            "Ommaviy protokol va shartnoma ma’lumotlarini ko‘rsatish",
+            "Ommaviy market, vault, controller va route snapshot’larini o‘qish",
+            "Explorer’lar, repository’lar, store’lar va rasmiy ijtimoiy kanallarga havola berish"
+          ]
+        },
+        {
+          "eyebrow": "3. Mobil hamyon",
+          "title": "Ilova qurilmada mahalliy tarzda nimalarni saqlashi mumkin",
+          "body": "Mobil hamyon allaqachon mahalliy hamyon yorliqlari, til afzalligi, ko‘rsatish valyutasi, xavfsizlik sozlamalari, watch-only oqimlari va kesh boshqaruvini qo‘llab-quvvatlaydi. Hozir ko‘rinib turgan kod yo‘llariga ko‘ra, bunday sozlamalar ilovadan foydalanishni qulay qilish uchun qurilmada mahalliy tarzda saqlanishi mumkin, maxfiy imzolash materiali esa 4TEEN veb-sayti serverida saqlanish o‘rniga foydalanuvchi nazorati ostida qolishi kerak.",
+          "note": "Agar hamyonni import qilsangiz, yaratsangiz yoki qulfdan chiqarsangiz, mobil qurilma va zaxira nusxa amaliyotlaringizni haqiqiy xavfsizlik chegarasi sifatida qabul qiling."
+        },
+        {
+          "eyebrow": "4. Ommaviy blockchain o‘qishlari",
+          "title": "Balanslar yoki protokol holatini ko‘rsatish uchun nimalar so‘ralishi mumkin",
+          "body": "Balanslar, resurslar, airdrop holati, ambassador holati, narx ma’lumotlari yoki boshqa ommaviy protokol ko‘rinishlarini chiqarish uchun 4TEEN xizmatlari blockchain infratuzilmasi, explorer endpoint’lari, proxy endpoint’lari yoki 4TEEN tomonidan boshqariladigan snapshot route’lariga so‘rov yuborishi mumkin. Bunday o‘qishlar ommaviy hamyon manzili yoki ommaviy shartnoma holatini o‘z ichiga olishi mumkin, lekin ular maxfiy kalitni talab qilmaydi.",
+          "bullets": [
+            "Siz ataylab ko‘radigan yoki joylashtiradigan ommaviy hamyon manzillari",
+            "Shartnoma manzillari va shartnoma saqlash qiymatlari",
+            "Tranzaksiya hash’lari va ommaviy event tarixi"
+          ]
+        },
+        {
+          "eyebrow": "5. Tashqi xizmatlar",
+          "title": "4TEEN yuzalaridan chiqib ketganingizda nima bo‘ladi",
+          "body": "Veb-sayt va hamyon TronScan, DEX route’lari, repository’lar, ijtimoiy kanallar va app-store sahifalarini ochishi mumkin. Ushbu tashqi xizmatlar o‘zlarining maxfiylik va ma’lumotlarga ishlov berish qoidalari asosida ishlaydi. Tashqi havolani ochish sizning so‘rovingiz faqat 4TEEN tomonidan emas, balki o‘sha uchinchi tomon tomonidan ham qayta ishlanishini anglatadi."
+        },
+        {
+          "eyebrow": "6. Yolg‘on maxfiylik va’dalari yo‘q",
+          "title": "Biz nimalarni da’vo qilmayapmiz",
+          "body": "Ushbu siyosat KYC qayta ishlovi, custody xizmatlari, moliyaviy litsenziyalash yoki joriy kod va mahsulot xatti-harakati bilan aniq ta’minlanmagan ko‘rinmas maxfiylik kafolatlarini da’vo qilmaydi. D-U-N-S raqami tashkilotni Dun & Bradstreet yozuvlarida identifikatsiya qiladi; u blockchain, market yoki uchinchi tomon infratuzilmasi xatari yo‘qolishini va’da qilmaydi."
+        }
+      ],
+      "links": [
+        {
+          "label": "Rasmiy veb-sayt",
+          "href": "https://4teen.me"
+        },
+        {
+          "label": "Hamyon ilovasi repository’si",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Smart contracts repository’si",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Ommaviy chiqishlar",
+      "footerNote": "Maxfiylik savollarini support@4teen.me manziliga yuborish mumkin. Rasmiy telefon va WhatsApp qo‘llab-quvvatlashi: +998 95 792 02 87."
     }
   }
 }
