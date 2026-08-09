@@ -8742,6 +8742,224 @@
           "updatedPrefix": "Snapshot güncellendi"
         }
       }
+    },
+    "app": {
+      "metadata": {
+        "title": "4TEEN App | 4TEEN Operasyon Katmanına Sahip TRON Cüzdanı",
+        "description": "4TEEN mobil cüzdanını açın; satın alma, kilit açma, likidite, elçiler ve kanıt rotalarında ilerleyin ve ürünü mağaza bağlantılarından indirin.",
+        "openGraphTitle": "4TEEN App Yayını",
+        "openGraphDescription": "4TEEN mobil cüzdanını ve ürüne hâlihazırda entegre edilmiş canlı operasyon rotalarını keşfedin."
+      },
+      "hero": {
+        "eyebrow": "4TEEN Mobil Uygulaması",
+        "status": "App Store + Google Play",
+        "title": "4TEEN operasyon katmanı zaten içinde olan gerçek bir TRON cüzdanı.",
+        "lead": "Bu sayfa bir yayın notu gibi değil, bir ürün sayfası gibi hissettirmelidir. Uygulama; cüzdanlar, varlıklar, transferler, QR akışı, kişiler, dil, ayarlar, kaynak kontrolleri ve tam 4TEEN rota haritasını tek bir yürütme yüzeyinde birleştiren daha geniş kapsamlı bir TRON cüzdanı gibi zaten çalışır.",
+        "stayOnWeb": "Web’de Kal",
+        "primaryCta": "İndirme Seçenekleri",
+        "secondaryCta": "Protokol Yüzeylerini Gör",
+        "ctaNote": "Web tarafı sistemi açıklar. Mobil taraf imzalar, yönlendirir, kaynakları kontrol eder ve gerçek işlem akışını çalıştırır.",
+        "rotatingLines": [
+          "App Store + Google Play. Tek ürün yüzeyi.",
+          "Universal Wallet. Yerel 4TEEN Katmanı.",
+          "Geniş Token Yüzeyi. Yalnızca Tek Varlık Değil.",
+          "Önce Kaynaklar. Sonra İmza.",
+          "Cüzdan Çekirdeği. Protokol Rotaları. Aynı Ürün."
+        ],
+        "stats": [
+          {
+            "label": "Cüzdan çekirdeği",
+            "value": "TRON öncelikli",
+            "meta": "Cüzdanlar, gönderim, varlık yönetimi, tarama, kişiler, ayarlar."
+          },
+          {
+            "label": "Varlık kapsamı",
+            "value": "Geniş",
+            "meta": "TRX, 4TEEN, stabil varlıklar ve kullanıcı tarafından yönetilen özel token girişleri."
+          },
+          {
+            "label": "Diller",
+            "value": "16",
+            "meta": "Uygulama genelinde yerel ayar kontrolüne sahip özel dil rotası."
+          },
+          {
+            "label": "4TEEN katmanı",
+            "value": "7 Rota",
+            "meta": "Satın alma, swap, kilit açma, likidite, airdrop, elçiler ve bilgi."
+          }
+        ]
+      },
+      "storeLinks": [
+        {
+          "href": "https://apps.apple.com/",
+          "label": "App Store",
+          "meta": "iPhone ve iPad için indirin"
+        },
+        {
+          "href": "https://play.google.com/store/apps",
+          "label": "Google Play",
+          "meta": "Android için indirin"
+        }
+      ],
+      "entryFlow": [
+        {
+          "eyebrow": "Başlatma",
+          "title": "Akıllı giriş yönlendirmesi",
+          "body": "Mobil uygulama her kullanıcıyı tek bir genel başlangıç ekranına bırakmaz. Kullanıcı ana ürün katmanına ulaşmadan önce ilk erişim, cüzdan kilidini açma ve aktif cüzdan yolu arasında karar verir."
+        },
+        {
+          "eyebrow": "Ana ekran",
+          "title": "Kompakt merkez",
+          "body": "Gerçek ana ekran zaten çalışan bir merkez gibi davranır: doğrudan satın alma, kilit açma görünürlüğü, likidite kontrolü ve bilgi rotaları, daha derin özel ekranlarını gizlemeden yakın tutulur."
+        },
+        {
+          "eyebrow": "Derin rotalar",
+          "title": "Gerektiğinde tam ekranlar",
+          "body": "Her ciddi işlem yine kendi yüzeyinde açılır. Uygulama üst katmanda kompakt kalır, ancak önemli akışı asla tek bir sığ panele sıkıştırmaz."
+        }
+      ],
+      "walletFoundation": [
+        {
+          "eyebrow": "Cüzdanlar",
+          "title": "Tek sabit kabuk değil, birden fazla kimlik",
+          "text": "Kullanıcılar cüzdan oluşturabilir, içe aktarabilir, yeniden adlandırabilir, değiştirebilir ve kaldırabilir; ürün ise imza yetkili cüzdanlar ile yalnızca izleme cüzdanları arasında net ayrımı korur."
+        },
+        {
+          "eyebrow": "Gönder",
+          "title": "Gerçek transfer hazırlığı",
+          "text": "Gönderim ham bir adres kutusu değildir. QR tarama, kişiler, son alıcılar, varlık seçimi, harcanabilir bakiye kuralları ve temiz bir onay adımını zaten destekler."
+        },
+        {
+          "eyebrow": "Kriptoyu Yönet",
+          "title": "Tek bir ekosistem varlığından daha geniş",
+          "text": "Kriptoyu Yönet gerçek bir cüzdan katmanıdır: TRX, 4TEEN, stabil varlıklar, özel token girişleri, filtreler, sıralama modları ve gönderim ile swap için hedef varlık seçimi aynı yüzeyde yer alır."
+        },
+        {
+          "eyebrow": "Dil",
+          "title": "16 arayüz dili",
+          "text": "Dil katmanı, başlıca bölgesel giriş noktaları genelinde özel bir rota ve uygulama düzeyinde yerel ayar kontrolüyle ürüne zaten entegre edilmiştir."
+        }
+      ],
+      "resourceLayer": [
+        {
+          "eyebrow": "Şimdi gerekli",
+          "title": "Kaynaklar imzadan önce ölçülür",
+          "text": "Doğrudan satın alma, gönderim, swap, likidite yürütümü ve diğer kontrat rotaları, uygulama şifre veya biyometri istemeden önce Energy ve Bandwidth tahmini yapar."
+        },
+        {
+          "eyebrow": "Eksik tutar",
+          "title": "TRX yakımı gizlenmek yerine görünür yapılır",
+          "text": "Uygulama gerekli kaynakları mevcut cüzdan kaynaklarıyla karşılaştırır, eksik tutarı gösterir ve kullanıcının bunu başarısızlıkla öğrenmesine izin vermek yerine beklenen yakım yolunu ortaya koyar."
+        },
+        {
+          "eyebrow": "Kiralama",
+          "title": "Kaynak tamamlama akışa entegredir",
+          "text": "Kod; gönderim transferi, swap, doğrudan satın alma, likidite yürütümü, elçi kaydı ve elçi çekimleri için kiralama teklifi, ödeme, bekleme ve hazır durumlarını zaten destekler."
+        },
+        {
+          "eyebrow": "Yeniden oynatma",
+          "title": "Bekleyen satırlar operasyonel olarak dürüst kalır",
+          "text": "Operatör tarafı güvenli kaynak tabanının altına düşerse, backend kaynakları tamamlarken kuyruktaki satırlar görünür kalır ve yeniden oynatma döngüsü ödül zincir üstüne düşene kadar tekrar kontrol eder."
+        }
+      ],
+      "protocolSurfaces": [
+        {
+          "eyebrow": "Doğrudan Satın Alma",
+          "title": "Hazırla → onayla",
+          "text": "Satın alma rotası önce işlemi hazırlar: fiyat teklifi, satın alımda mint bağlamı, 14 günlük kilit, TRX bölüşüm önizlemesi ve ancak bundan sonra gerçek onay ile imzalama adımı gelir.",
+          "href": "/buy"
+        },
+        {
+          "eyebrow": "Token Swap",
+          "title": "Kör takas değil, rota karşılaştırması",
+          "text": "Swap rotası yolları karşılaştırabilir, hedef varlıkları değiştirebilir, korumalı minimum alım miktarını gösterebilir ve izin ya da ağ kaynakları hazır değilse akışı erken durdurabilir.",
+          "href": "/swap"
+        },
+        {
+          "eyebrow": "Kilit Açma Zaman Çizelgesi",
+          "title": "Satın alım bazında kilit görünürlüğü",
+          "text": "Her kilitli parti; cüzdan, tutar, UTC kilit açma zamanı, geri sayım ve kaynak işlem ile gösterilir. Bu, yalnızca genel geçmiş değil, amaca özel oluşturulmuş bir kilit yüzeyidir.",
+          "href": "/unlock"
+        },
+        {
+          "eyebrow": "Likidite Kontrolörü",
+          "title": "Kontrolör tarafı gerçeği",
+          "text": "Likidite rotası; 100 TRX eşiğini, günlük 6.43% serbest bırakma temposunu, yürütücü bölüşümünü ve yürütüm geçitlerini uygulamanın içinde gösterir.",
+          "href": "/liquidity"
+        },
+        {
+          "eyebrow": "Airdrop",
+          "title": "Telegram öncelikli canlı durum",
+          "text": "Airdrop rotası mevcut bot oturumu durumunu, yerel cüzdan durumunu ve zincir üstü talep durumunu birleştirir. Telegram şu anda canlıdır; diğer sosyal ağlar sahte aktif düğmeler değil, aşamalı raylardır.",
+          "href": "/airdrop"
+        },
+        {
+          "eyebrow": "Elçi",
+          "title": "Kayıt ve panel tek rotada",
+          "text": "Elçi rotası kayıt olarak başlar ve aynı cüzdan için panele dönüşür: kimlik slug’ı, alıcı bağlantısı, satın alma satırları, bekleyen yeniden oynatma, çekimler ve talep edilebilir durum.",
+          "href": "/ambassadors"
+        },
+        {
+          "eyebrow": "Bilgi",
+          "title": "Kompakt mimari ve çalışma zamanı haritası",
+          "text": "Bilgi rotası kontratları, kasaları, likidite yürütümünü, varlık-cüzdan bakiyelerini ve operatör hazırlığını birbirine bağlar; böylece mimari ve çalışma zamanı durumu ürün içinde görünür olur.",
+          "href": "/verification"
+        }
+      ],
+      "operatingRules": [
+        {
+          "title": "Önce evrensel cüzdan",
+          "text": "Bu uygulamanın en güçlü yorumu “bir ekosistem kabuğu” değildir. Daha geniş bir token evrenine sahip, kapsamlı bir TRON cüzdanı gibi davranır ve 4TEEN bu temelin içine canlı bir ürün katmanı olarak inşa edilmiştir."
+        },
+        {
+          "title": "Yalnızca izleme ve imzalama farklı durumlardır",
+          "text": "Uygulama inceleme ile aksiyonu farklı ele alır. Yalnızca izleme cüzdanları portföy ve protokol durumunu okuyabilir; doğrudan satın alma, kayıt, likidite yürütümü ve çekim ise tam erişimli imza yetkisine sahip cüzdanlar gerektirir."
+        },
+        {
+          "title": "Operasyonel hazırlık arayüzün bir parçasıdır",
+          "text": "Kontrolör geçitleri, kaynak kapsamı, kuyruktaki ödül satırları ve yeniden oynatma durumu ürün durumları olarak ifade edilir. Kullanıcı neyin şu anda hazır olduğunu, neyin tamamlama gerektirdiğini ve neyin beklediğini görür."
+        },
+        {
+          "title": "Çok dillilik ürün altyapısıdır",
+          "text": "Dil desteği uygulamaya zaten kodlanmıştır; gelecekteki bir temenni olarak bırakılmamıştır. Bu önemlidir, çünkü ürün tek bir pazarın ve tek bir topluluk giriş rotasının ötesinde çalışmak üzere tasarlanmıştır."
+        }
+      ],
+      "downloadReasons": [
+        "Bunu yalnızca bir 4TEEN erişim noktası olarak değil, daha geniş kapsamlı bir TRON cüzdanı olarak kullanın.",
+        "Portföyü, özel token yönetimini, transferleri, taramayı, kişileri ve dil kontrolünü aynı üründe tutun.",
+        "Cüzdanın içinde tam 4TEEN katmanını açın: satın alma, swap, kilit açma, likidite, airdrop, elçiler ve bilgi.",
+        "İmzalamadan veya körü körüne beklemeden önce ağ yükünü, kaynak eksikliğini, rota korumasını ve operasyonel hazırlığı görün."
+      ],
+      "sections": {
+        "entryFlow": {
+          "eyebrow": "Giriş Akışı",
+          "title": "Gerçek uygulama kullanıcıyı nasıl yönlendirir"
+        },
+        "walletFoundation": {
+          "eyebrow": "Cüzdan Temeli",
+          "title": "Neden önce gerçek bir cüzdan olduğu"
+        },
+        "resourceLayer": {
+          "eyebrow": "Kaynak Zekâsı",
+          "title": "Yürütüm neden kör imzalamadan daha güvenli",
+          "notePrefix": "Uygulamanın içinde ağ yükü kartları zaten şunları gösterir:",
+          "noteNeedNow": "Şimdi gerekli",
+          "noteMiddle": "Şu anda mevcut",
+          "noteMissing": "Eksik",
+          "noteSuffix": "ve hem Energy hem de Bandwidth için kapsama yüzdesi. Bu, yürütüm modeline güvenmeyi kolaylaştırır çünkü cüzdan işlem imzalanmadan önce maliyeti açıklar."
+        },
+        "protocolSurfaces": {
+          "eyebrow": "4TEEN Yüzeyleri",
+          "title": "Protokol katmanı cüzdanın içinde zaten ne yapıyor"
+        },
+        "operatingRuleLabel": "Operasyon Kuralı",
+        "download": {
+          "eyebrow": "İndirme Rotası",
+          "title": "Yalnızca web haritasını değil, tam ürünü istiyorsanız cüzdanı kurun.",
+          "body": "Ürünün en güçlü sürümü uygulamada yaşar: gerçek cüzdan davranışı, çok dilli arayüz, kaynak farkındalıklı yürütüm ve mağaza yayılımı açıldığında tek yerde tam 4TEEN operasyon katmanı.",
+          "repoLabel": "Cüzdan Uygulaması Repo’su"
+        }
+      }
     }
   }
 }
