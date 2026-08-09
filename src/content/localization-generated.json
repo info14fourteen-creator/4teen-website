@@ -5071,6 +5071,182 @@
           "openBuy": "Xarid yo‘nalishini ochish"
         }
       }
+    },
+    "airdrop": {
+      "metadata": {
+        "title": "Airdrop",
+        "description": "Joriy to‘lqin, ochilgan balans, vault balansi, Telegram yo‘nalishi holati, faqat hamyon orqali claim kirishi va on-chain tekshiruv havolalari bilan 4TEEN airdrop holati jonli ko‘rsatiladi."
+      },
+      "hero": {
+        "eyebrow": "AirdropVault",
+        "status": "Hamyon orqali claim yo‘nalishi",
+        "title": "4TEEN’ni hamyon yo‘nalishi orqali claim qiling",
+        "lead": "Ommaviy sayt AirdropVault holatini jonli ko‘rsatadi. Claim yo‘nalishini mobil hamyon bajaradi.",
+        "body": [
+          "Airdrop — lending sahifasidagi soxta promo tugmasi emas. Bu to‘lqinlarga asoslangan vault, hamyonni hisobga oladigan claim holati va ilova bajarishdan oldin o‘qiydigan Telegram-birinchi yo‘nalishdir.",
+          "Bu sahifa ommaviy tomonni aks ettiradi: joriy to‘lqin, vault balansi, ochilgan kvota, rejalashtirilgan qoldiq, yo‘nalish modeli va on-chain tekshiruv. Jonli claim jarayoni hamyon ichida bo‘ladi."
+        ],
+        "rotatingLines": [
+          "Vault holati. Hamyon orqali claim.",
+          "Telegram jonli. Ijtimoiy relslar bosqichma-bosqich tayyorlanmoqda.",
+          "Ommaviy isbot. Ilovada bajarish.",
+          "To‘lqinli ochilishlar. Yo‘nalish tekshiruvlari.",
+          "Soxta claimlar yo‘q. Faqat holat."
+        ],
+        "primaryCta": "Mobil ilova yo‘nalishini ochish",
+        "secondaryCta": "AirdropVault’ni ochish",
+        "ctaNote": "Veb-sayt vault va yo‘nalish xaritasini ko‘rsatadi. Haqiqiy claim yo‘li ochilishidan oldin hamyon tanlangan hisob, Telegram sessiyasi, claim holati va imzolash rejimini o‘qiydi.",
+        "stats": {
+          "currentWave": "Joriy to‘lqin",
+          "vaultBalance": "Vault balansi",
+          "vaultBalanceMeta": "Ayni paytda AirdropVault ichida saqlanayotgan 4TEEN.",
+          "availableNow": "Hozir mavjud",
+          "availableNowMeta": "Kontrakt qoidalariga ko‘ra hozir tarqatilishi mumkin bo‘lgan miqdor.",
+          "nextWave": "Keyingi to‘lqin",
+          "completed": "Yakunlangan",
+          "readFailed": "Jonli vault o‘qish muvaffaqiyatsiz bo‘ldi.",
+          "readRetry": "Birozdan keyin yangilab ko‘ring."
+        }
+      },
+      "sections": {
+        "vaultState": {
+          "eyebrow": "Vault holati",
+          "title": "Kontrakt ayni paytda nima deyapti",
+          "rows": {
+            "totalAllocation": "Umumiy ajratma",
+            "unlockedTotal": "Jami ochilgan",
+            "totalDistributed": "Jami tarqatilgan",
+            "remainingUnlocked": "Ochilgan qoldiq",
+            "remainingPlanned": "Rejalashtirilgan qoldiq",
+            "vaultBalance": "Vault balansi"
+          },
+          "noteTitle": "Nega ikkita “qoldiq” raqami bor:",
+          "noteBody": "`Ochilgan qoldiq` — kontrakt to‘lqin vaqti bo‘yicha allaqachon ochgan kvota. `Rejalashtirilgan qoldiq` — to‘liq 1,500,000 4TEEN ajratmasining hali tarqatilmagan qismi. `Hozir mavjud` — ochilgan kvota va haqiqiy vault balansidan kichikrog‘i."
+        },
+        "distribution": {
+          "eyebrow": "Tarqatish qamrovi",
+          "title": "Vault’dan allaqachon qancha chiqib ketgan",
+          "cards": {
+            "distributed": {
+              "title": "Allaqachon tarqatilgan",
+              "text": "To‘liq ajratmadan allaqachon yuborilgan 4TEEN."
+            },
+            "planned": {
+              "title": "Hali rejalashtirilgan",
+              "text": "Uzoq muddatli tarqatish rejasi ichida hali qolgan 4TEEN."
+            },
+            "lastDrop": {
+              "title": "Oxirgi tasdiqlangan drop",
+              "text": "Eng so‘nggi tasdiqlangan vault tarqatish hodisasidagi 4TEEN."
+            },
+            "unlockedUndistributed": {
+              "title": "Ochilgan, lekin tarqatilmagan",
+              "text": "To‘lqinlar orqali allaqachon ochilgan, ammo hali yuborilmagan kvota."
+            }
+          },
+          "note": "Bu blok faqat ma’lumot uchun. U ommaviy sayt uchun xavfsiz bo‘lgan yengil jonli o‘qishlardan foydalanadi: kontrakt o‘qishlaridan vault holati va hodisalar tasmasidan eng so‘nggi tasdiqlangan airdrop hodisasi."
+        },
+        "dateLayer": {
+          "eyebrow": "Sana qatlami",
+          "title": "Kontrakt qat’iy vaqt belgilarida ishlaydi",
+          "rows": {
+            "issueDate": "Chiqarilish sanasi",
+            "currentWave": "Joriy to‘lqin",
+            "nextWave": "Keyingi to‘lqin",
+            "lastDrop": "Oxirgi tasdiqlangan drop",
+            "snapshotUpdated": "Snapshot yangilangan"
+          },
+          "note": "To‘lqin ochilishlari kontraktda qat’iy belgilangan. Veb-sayt bu sanalarni matndan o‘ylab topmaydi; u jonli kontrakt soatini o‘qib, formatlaydi."
+        },
+        "routeModel": {
+          "eyebrow": "Jonli yo‘nalish modeli",
+          "title": "Telegram jonli. Boshqa ijtimoiy qismlar bosqichma-bosqich tayyorlanmoqda.",
+          "note": "Hamyon ilovasi Telegram uchun uchta tekshiruvni birlashtiradi: lokal hamyon holati, joriy bot sessiyasi holati va on-chain claim holati. Veb-sayt bu claim jarayonini soxtalashtirmaydi yoki vebda claim qilayotgandek ko‘rsatmaydi; u jonli vault va uning atrofidagi haqiqiy yo‘nalish modelini ko‘rsatadi.",
+          "routes": {
+            "telegram": {
+              "title": "Telegram",
+              "statusLive": "Hozir jonli",
+              "statusSoon": "Hozir jonli",
+              "note": "Hamyon sessiyasi, bot holati va on-chain claim holati mobil ilovada allaqachon ulangan."
+            },
+            "instagram": {
+              "title": "Instagram",
+              "statusLive": "Rollout placeholder",
+              "statusSoon": "Rollout placeholder",
+              "note": "Yo‘nalish kontrakt maska modelida mavjud, ammo jonli claim jarayoni hali ochilmagan."
+            },
+            "x": {
+              "title": "X",
+              "statusLive": "Rollout placeholder",
+              "statusSoon": "Rollout placeholder",
+              "note": "Yo‘nalish kontrakt maska modelida mavjud, ammo jonli claim jarayoni hali ochilmagan."
+            },
+            "facebook": {
+              "title": "Facebook",
+              "statusLive": "Rollout placeholder",
+              "statusSoon": "Rollout placeholder",
+              "note": "Yo‘nalish kontrakt maska modelida mavjud, ammo jonli claim jarayoni hali ochilmagan."
+            },
+            "youtube": {
+              "title": "YouTube",
+              "statusLive": "Rollout placeholder",
+              "statusSoon": "Rollout placeholder",
+              "note": "Yo‘nalish kontrakt maska modelida mavjud, ammo jonli claim jarayoni hali ochilmagan."
+            }
+          }
+        },
+        "walletAccess": {
+          "eyebrow": "Jonli claim kirishi",
+          "title": "Jonli airdrop yo‘nalishi ommaviy veb-saytdan emas, mobil hamyondan ishlaydi",
+          "body": "Haqiqiy mahsulotda Telegram claim holati hamyonni hisobga oladi. Ilova yo‘nalish mavjud, navbatda, allaqachon olingan yoki hali bloklanganligini hal qilishdan oldin tanlangan hamyon, joriy bot sessiyasi va on-chain claim holatini birlashtiradi. Bu veb-sayt ataylab faqat ma’lumot beruvchi holatda qoladi.",
+          "bullets": [
+            "Claim mavjudligi faqat ommaviy sahifaga tashrifga emas, hamyon holatiga bog‘liq.",
+            "Bugun Telegram yagona jonli claim yo‘nalishi; boshqa ijtimoiy tarmoqlar bosqichma-bosqich tayyorlanayotgan relslar bo‘lib qolmoqda.",
+            "Hamyon faqat kuzatish, imzolash, olingan, navbatda va eski-usulda ishlatilgan holatlarni ajrata oladi.",
+            "Haqiqiy claim yuzasi uchun ilova yo‘nalishidan foydalaning, so‘ng ommaviy vault tekshiruvi uchun bu yerga qayting."
+          ],
+          "openApp": "Mobil ilova yo‘nalishini ochish",
+          "openVault": "AirdropVault’ni ochish"
+        },
+        "waveSchedule": {
+          "eyebrow": "To‘lqin jadvali",
+          "title": "Olti qat’iy to‘lqin, bitta kontrakt soati",
+          "headers": {
+            "wave": "To‘lqin",
+            "cap": "Limit",
+            "unlockTime": "Ochilish vaqti",
+            "status": "Holat"
+          },
+          "current": "Joriy",
+          "unlocked": "Ochilgan",
+          "upcoming": "Kutilmoqda"
+        },
+        "verification": {
+          "eyebrow": "Tekshiruv",
+          "title": "Kontrakt va operator",
+          "body": "Sayt hamyon foydalanadigan ayni vault logikasini o‘qiydi: joriy to‘lqin, keyingi to‘lqin vaqt belgisi, ochilgan balans, mavjud tarqatish miqdori va vault balansi.",
+          "vaultLabel": "AirdropVault",
+          "operatorLabel": "Operator"
+        },
+        "productContext": {
+          "eyebrow": "Mahsulot konteksti",
+          "title": "Hamyon bu yuzani qanday o‘qiydi",
+          "bullets": [
+            "Telegram bugungi yagona jonli ijtimoiy claim yo‘nalishi.",
+            "Boshqa ijtimoiy qismlar kontrakt maska modelida allaqachon mavjud.",
+            "Claim tarixi va claim holati hamyonga xos bo‘lib, bu yerda soxtalashtirilmaydi, mobil ilovada o‘qiladi.",
+            "Vault moliyalashtirilishi va ochilgan kvota alohida realliklar, shu sababli ilova ikkalasini ham ko‘rsatadi.",
+            "Bu veb-sayt jonli claimni o‘zi bajarmaydi; u buni bajaradigan hamyon yo‘nalishiga yo‘naltiradi."
+          ]
+        },
+        "fallback": {
+          "eyebrow": "Zaxira holat",
+          "title": "Yo‘nalish tayyor, ammo jonli o‘qishlar muvaffaqiyatsiz bo‘ldi.",
+          "body": "Sahifa haqiqiy AirdropVault kontrakti atrofida allaqachon ulangan. Jonli o‘qish yana muvaffaqiyatli bo‘lgach, u to‘lqin holati, balans, ochilgan kvota, rejalashtirilgan qoldiq va keyingi to‘lqin vaqtini avtomatik to‘ldiradi.",
+          "openVault": "AirdropVault’ni ochish",
+          "openApp": "Mobil ilova yo‘nalishini ochish"
+        }
+      }
     }
   }
 }
