@@ -124,6 +124,13 @@ async function main() {
     );
   }
 
+  const targetPath = path.resolve("src/content/localization-generated.json");
+  const existing = JSON.parse(await fs.readFile(targetPath, "utf8"));
+  if (existing[locale]?.[page]) {
+    process.stdout.write(`${locale}/${page}: already localized; skipping generation\n`);
+    return;
+  }
+
   const source = await loadEnglishPageContent(page);
   const translated = await requestTranslation({ locale, page, source });
   const validation = validateTranslatedStructure(source, translated);
@@ -134,8 +141,6 @@ async function main() {
     );
   }
 
-  const targetPath = path.resolve("src/content/localization-generated.json");
-  const existing = JSON.parse(await fs.readFile(targetPath, "utf8"));
   existing[locale] ??= {};
   existing[locale][page] = translated;
   await fs.writeFile(

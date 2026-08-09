@@ -57,7 +57,9 @@ permissions:
   id-token: write
 
 concurrency:
-  group: localization-${{ inputs.locale }}-${{ inputs.page }}
+  # Each unit writes the same generated JSON file and publishes to main.
+  # Serialize the whole pipeline so scheduled and fallback dispatches cannot race.
+  group: localization-pipeline
   cancel-in-progress: false
 
 jobs:
@@ -190,6 +192,10 @@ jobs:
           git config user.name "4TEEN Localization Bot"
           git config user.email "localization-bot@4teen.me"
           git add "${target}"
+          if git diff --cached --quiet; then
+            echo "No new localization content to publish."
+            exit 0
+          fi
           git commit -m "Localize ${{ inputs.page }} for ${{ inputs.locale }}"
           git push origin HEAD:main
 
