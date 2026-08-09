@@ -7,6 +7,9 @@ type LocalePageParams = {
   locale: string;
 };
 
+// Blog content is read from the static archive through the Cloudflare ASSETS binding.
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({
   params,
 }: {

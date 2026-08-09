@@ -10,6 +10,8 @@ import {
   supportedSiteLocales,
 } from "@/lib/site-locale";
 
+export const dynamic = "force-dynamic";
+
 const routes = [
   "",
   "/app",

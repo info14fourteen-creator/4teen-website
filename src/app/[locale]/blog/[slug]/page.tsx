@@ -6,29 +6,15 @@ import {
   getBlogPostPageMetadata,
 } from "@/app/blog/[slug]/page-view";
 import {
-  defaultSiteLocale,
   isSupportedSiteLocale,
-  supportedSiteLocales,
 } from "@/lib/site-locale";
-import { getPublishedBlogPostSlugs } from "@/lib/blog/blog-server";
 
 type LocalizedBlogPostPageParams = {
   locale: string;
   slug: string;
 };
 
-export async function generateStaticParams(): Promise<LocalizedBlogPostPageParams[]> {
-  const slugs = await getPublishedBlogPostSlugs({
-    locale: defaultSiteLocale,
-  });
-
-  return supportedSiteLocales.flatMap((locale) =>
-    slugs.map((slug) => ({
-      locale,
-      slug,
-    })),
-  );
-}
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

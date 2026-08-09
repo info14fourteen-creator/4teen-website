@@ -5,8 +5,9 @@
   "scripts": {
     "clean:build-artifacts": "rm -rf .next .open-next && mkdir -p ../4teen-trash && sh -c 'for d in .next_stale_* .open-next_stale_* _hold-open-next-stale-*; do if [ -e \"$d\" ]; then mv \"$d\" ../4teen-trash/$(basename \"$d\").$(date +%s); fi; done'",
     "dev": "next dev --webpack",
-    "build": "next build --webpack",
-    "cf:build": "pnpm run clean:build-artifacts && opennextjs-cloudflare build",
+    "prepare:blog-snapshot": "node scripts/blog-migration/stage-snapshot-asset.mjs",
+    "build": "pnpm prepare:blog-snapshot && next build --webpack",
+    "cf:build": "pnpm run clean:build-artifacts && pnpm prepare:blog-snapshot && opennextjs-cloudflare build",
     "preview": "pnpm run cf:preview",
     "cf:preview": "pnpm run cf:build && opennextjs-cloudflare preview",
     "deploy": "pnpm run cf:deploy",

@@ -4,20 +4,14 @@ import {
   BlogPostPageView,
   getBlogPostPageMetadata,
 } from "@/app/blog/[slug]/page-view";
-import { getPublishedBlogPostSlugs } from "@/lib/blog/blog-server";
-import { defaultSiteLocale } from "@/lib/site-locale";
 
 type BlogPostPageParams = {
   slug: string;
 };
 
-export async function generateStaticParams(): Promise<BlogPostPageParams[]> {
-  const slugs = await getPublishedBlogPostSlugs({
-    locale: defaultSiteLocale,
-  });
-
-  return slugs.map((slug) => ({ slug }));
-}
+// The full archive is served from a static asset rather than bundled into the Worker.
+// Keep article pages dynamic so build-time rendering never needs the archive in code.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,

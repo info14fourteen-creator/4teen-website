@@ -24,6 +24,7 @@
 
 # production
 /build
+/public/blog-data/
 
 # misc
 .DS_Store

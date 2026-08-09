@@ -1,8 +1,7 @@
 import { cache } from "react";
 
-import blogImportBundle from "../../../scripts/blog-migration/out/content-table/blog-import.bundle.json";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import tronixRentSeoPosts from "./tronix-rent-seo-posts.json";
-import { getBlogPool } from "@/lib/blog/blog-db";
 import {
   defaultSiteLocale,
   resolveSiteLocale,
@@ -190,14 +189,37 @@ function normalizeKeyword(value: string | null | undefined) {
   return value?.trim().toLowerCase() ?? "";
 }
 
-function getSnapshotBundle() {
-  const bundle = blogImportBundle as BlogSnapshotBundle;
+const BLOG_SNAPSHOT_ASSET_PATH = "/blog-data/blog-import.bundle.json";
 
+const getSnapshotBundle = cache(async (): Promise<BlogSnapshotBundle> => {
+  let response: Response | undefined;
+
+  try {
+    const { env } = await getCloudflareContext({ async: true });
+    response = await env.ASSETS?.fetch(
+      new Request(`https://4teen-assets.local${BLOG_SNAPSHOT_ASSET_PATH}`),
+    );
+  } catch {
+    // `next dev` does not provide a Cloudflare asset binding. Use the local server instead.
+  }
+
+  if (!response?.ok) {
+    const origin = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+    response = await fetch(`${origin}${BLOG_SNAPSHOT_ASSET_PATH}`, {
+      next: { revalidate: 3600 },
+    });
+  }
+
+  if (!response.ok) {
+    throw new Error(`Blog snapshot asset could not be loaded (${response.status})`);
+  }
+
+  const bundle = (await response.json()) as BlogSnapshotBundle;
   return {
     ...bundle,
     posts: [...TRONIX_RENT_PROMO_POSTS, ...QUICKSHOOTERS_PROMO_POSTS, ...bundle.posts],
   };
-}
+});
 
 function getPreviewImageUrls(row: BlogPostRow) {
   const sourceColumns = row.source_payload?.sourceColumns ?? {};
@@ -281,13 +303,15 @@ function mapSnapshotMedia(post: BlogSnapshotPost): BlogPostMedia[] {
     );
 }
 
-const BLOG_SNAPSHOT_POSTS = getSnapshotBundle()
-  .posts.map(mapSnapshotSummary)
-  .sort((left, right) => {
-    const leftTime = left.publishedAt ? new Date(left.publishedAt).getTime() : 0;
-    const rightTime = right.publishedAt ? new Date(right.publishedAt).getTime() : 0;
-    return rightTime - leftTime;
-  });
+const getSnapshotPosts = cache(async () =>
+  (await getSnapshotBundle())
+    .posts.map(mapSnapshotSummary)
+    .sort((left, right) => {
+      const leftTime = left.publishedAt ? new Date(left.publishedAt).getTime() : 0;
+      const rightTime = right.publishedAt ? new Date(right.publishedAt).getTime() : 0;
+      return rightTime - leftTime;
+    }),
+);
 
 function resolveBlogContentSource(): BlogContentSource {
   const configuredSource = process.env.BLOG_CONTENT_SOURCE?.trim().toLowerCase();
@@ -303,10 +327,6 @@ function resolveBlogContentSource(): BlogContentSource {
   return "snapshot";
 }
 
-function hasBlogSnapshot() {
-  return BLOG_SNAPSHOT_POSTS.length > 0;
-}
-
 function canUseDatabase() {
   return Boolean(process.env.DATABASE_URL);
 }
@@ -315,23 +335,24 @@ function shouldTryDatabase() {
   return resolveBlogContentSource() === "database" && canUseDatabase();
 }
 
-function getSnapshotLocalizedBlogPosts(locale: SupportedSiteLocale) {
-  const localizedPosts = BLOG_SNAPSHOT_POSTS.filter((post) => post.locale === locale);
+async function getSnapshotLocalizedBlogPosts(locale: SupportedSiteLocale) {
+  const posts = await getSnapshotPosts();
+  const localizedPosts = posts.filter((post) => post.locale === locale);
 
   if (localizedPosts.length === 0 && locale !== defaultSiteLocale) {
-    return BLOG_SNAPSHOT_POSTS.filter((post) => post.locale === defaultSiteLocale);
+    return posts.filter((post) => post.locale === defaultSiteLocale);
   }
 
   return localizedPosts;
 }
 
-function getSnapshotBlogPosts(options: {
+async function getSnapshotBlogPosts(options: {
   locale: SupportedSiteLocale;
   limit: number;
   tag?: string;
 }) {
   const normalizedTag = normalizeKeyword(options.tag);
-  const localizedPosts = getSnapshotLocalizedBlogPosts(options.locale);
+  const localizedPosts = await getSnapshotLocalizedBlogPosts(options.locale);
   const filteredPosts = normalizedTag
     ? localizedPosts.filter((post) =>
         post.keywords.some((keyword) => normalizeKeyword(keyword) === normalizedTag),
@@ -341,18 +362,19 @@ function getSnapshotBlogPosts(options: {
   return filteredPosts.slice(0, options.limit);
 }
 
-function getSnapshotBlogPostBySlug(options: {
+async function getSnapshotBlogPostBySlug(options: {
   locale: SupportedSiteLocale;
   slug: string;
-}): BlogPostDetail | null {
-  const localizedPost = getSnapshotBundle().posts.find(
+}): Promise<BlogPostDetail | null> {
+  const bundle = await getSnapshotBundle();
+  const localizedPost = bundle.posts.find(
     (post) => resolveSiteLocale(post.locale) === options.locale && post.slug === options.slug,
   );
 
   const post =
     localizedPost ??
     (options.locale !== defaultSiteLocale
-      ? getSnapshotBundle().posts.find(
+      ? bundle.posts.find(
           (candidate) =>
             resolveSiteLocale(candidate.locale) === defaultSiteLocale &&
             candidate.slug === options.slug,
@@ -384,7 +406,8 @@ export function isBlogDatabaseEnabled() {
     return false;
   }
 
-  return canUseDatabase() || hasBlogSnapshot();
+  // The static archive is available in production via the ASSETS binding.
+  return canUseDatabase() || resolveBlogContentSource() === "snapshot";
 }
 
 export function isBlogContentEnabled() {
@@ -398,7 +421,7 @@ export async function getPublishedBlogPostSlugs(options?: {
 
   if (shouldTryDatabase()) {
     try {
-      const pool = getBlogPool();
+      const pool = await getLiveBlogPool();
       const { rows } = await pool.query<{ slug: string }>(
         `
           select p.slug
@@ -419,12 +442,17 @@ export async function getPublishedBlogPostSlugs(options?: {
     }
   }
 
-  return getSnapshotLocalizedBlogPosts(locale).map((post) => post.slug);
+  return (await getSnapshotLocalizedBlogPosts(locale)).map((post) => post.slug);
+}
+
+async function getLiveBlogPool() {
+  const { getBlogPool } = await import("./blog-db");
+  return getBlogPool();
 }
 
 const getPublishedBlogPostsCached = cache(
   async (locale: SupportedSiteLocale, limit: number): Promise<BlogPostSummary[]> => {
-    const pool = getBlogPool();
+    const pool = await getLiveBlogPool();
     const { rows } = await pool.query<BlogPostRow>(
       `
         select
@@ -462,7 +490,7 @@ const getPublishedBlogPostBySlugCached = cache(
     locale: SupportedSiteLocale,
     slug: string,
   ): Promise<BlogPostDetail | null> => {
-    const pool = getBlogPool();
+    const pool = await getLiveBlogPool();
     const { rows } = await pool.query<BlogPostRow>(
       `
         select
