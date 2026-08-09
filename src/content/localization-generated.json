@@ -4571,6 +4571,154 @@
           "openUnlock": "Qulfdan chiqarish vaqt jadvalini ochish"
         }
       }
+    },
+    "unlock": {
+      "metadata": {
+        "title": "4TEEN qulfdan chiqarish | Qulf xaritasi va chiqarilish vaqti",
+        "description": "Joriy qulflangan ta’minot, vault saqlovi, erkin aylanmadagi taxmin, yaqinlashayotgan unlock partiyalari va hamyon tomondagi unlock vaqt jadvali konteksti bilan ommaviy 4TEEN unlock xaritasi.",
+        "openGraphTitle": "4TEEN qulfdan chiqarish",
+        "openGraphDescription": "Ommaviy 4TEEN qulf xaritasini ko‘ring: joriy qulflangan ta’minot, erkin aylanmadagi taxmin, yaqinlashayotgan unlock partiyalari va shaxsiy chiqarilishni kuzatish uchun hamyon yo‘nalishi."
+      },
+      "hero": {
+        "eyebrow": "Unlock vaqt jadvali",
+        "badge": "Ommaviy qulf topologiyasi",
+        "title": "Qulflangan partiya likvid bo‘lishidan oldin 4TEEN unlocklarini kuzating",
+        "subtitle": "Har bir to‘g‘ridan-to‘g‘ri xarid darhol mint qilinadi, darhol qulflanadi va faqat o‘zining 14 kunlik taymeri tugagandan keyin o‘tkazilishi mumkin bo‘ladi.",
+        "body": [
+          "Mobil hamyon tanlangan imzolovchi hamyon uchun shaxsiy unlock vaqt jadvalini ko‘rsatadi. Ommaviy sayt esa tizim xaritasini ko‘rsatishi kerak: nimalar hanuz qulflangan, nimalar allaqachon likvid va qaysi to‘g‘ridan-to‘g‘ri xarid partiyalari keyin unlock bo‘ladi.",
+          "Bu veb-saytda soxta shaxsiy portfel bo‘lmaydi degani. Faqat chiqarilish vaqti, zaxira saqlovi hamda qulflangan mintdan harakatlana oladigan balansgacha bo‘lgan partiya-partiya yo‘lining ommaviy topologiyasi."
+        ],
+        "primaryCta": "Ilovada unlockni ochish",
+        "secondaryCta": "Buy yo‘nalishini ochish",
+        "ctaNote": "Shaxsiy unlock qatorlari, ortga sanashlar va manzilga xos mavjudlik hanuz mobil hamyonda bo‘ladi. Sayt chiqarilish mexanikasi va ommaviy qulf xaritasini tushuntiradi.",
+        "rotatingLines": [
+          "Har bir Buy o‘z taymeriga ega.",
+          "Avval qulflanadi. Keyin likvid bo‘ladi.",
+          "Ommaviy xarita. Hamyon vaqt jadvali.",
+          "Chiqarilish partiyaga bog‘liq.",
+          "O‘tkazish imkoniyati unlockdan keyin boshlanadi."
+        ],
+        "stats": {
+          "directPrice": "To‘g‘ridan-to‘g‘ri xarid narxi",
+          "directPriceMeta": "Partiya o‘zining 14 kunlik qulf oynasiga kirishidan oldingi har bir 4TEEN uchun joriy kontrakt tomondagi kirish narxi.",
+          "lockWindow": "Qulf oynasi",
+          "lockWindowMeta": "Har bir to‘g‘ridan-to‘g‘ri xarid partiyasi o‘z chiqarilish timestampi kelguncha muzlatilgan holda qoladi.",
+          "lockedNow": "Hozir qulflangan",
+          "lockedNowMeta": "Tizim bo‘yicha 14 kunlik qulf oynasi ichida turgan to‘g‘ridan-to‘g‘ri xarid partiyalari.",
+          "circulatingNow": "Erkin aylanmada",
+          "circulatingNowMeta": "Umumiy ta’minotdan faol qulflar va vault saqlovi olib tashlangandan keyingi ommaviy taxmin.",
+          "priceFallback": "1.147500",
+          "priceUnavailable": "Jonli narx hozircha mavjud emas. Fallback eng so‘nggi ma’lum to‘g‘ridan-to‘g‘ri yo‘nalishni aks ettiradi.",
+          "readFailed": "Jonli unlock o‘qilishi muvaffaqiyatsiz bo‘ldi.",
+          "readRetry": "Birozdan keyin yangilab ko‘ring."
+        }
+      },
+      "sections": {
+        "unlockContext": {
+          "eyebrow": "Hamyon konteksti",
+          "title": "Shaxsiy unlock vaqt jadvali mobil hamyon ichida bo‘ladi",
+          "body": "Veb-sayt qulf modelini tushuntirishi va ommaviy chiqarilish topologiyasini ko‘rsatishi mumkin, biroq shaxsiy unlock vaqt jadvali ilovaga tegishli, chunki u tanlangan hamyon manzili, shu hamyon uchun to‘g‘ridan-to‘g‘ri xarid tarixi va lockedBalanceOf(account) bo‘yicha jonli on-chain o‘qishlarga bog‘liq.",
+          "bullets": [
+            "Har bir to‘g‘ridan-to‘g‘ri xarid o‘z chiqarilish timestampiga ega alohida qulf partiyasini yaratadi.",
+            "Hamyon unlock vaqt jadvali umumiy swap tarixini emas, faqat tanlangan hamyonga bog‘langan to‘g‘ridan-to‘g‘ri xarid tarixini kuzatadi.",
+            "Partiya unlock bo‘lgach, tokenlar o‘tkazilishi mumkin bo‘ladi va swap kabi bozor yo‘nalishlari dolzarb bo‘ladi."
+          ],
+          "openApp": "Mobil ilova yo‘nalishini ochish",
+          "openBuy": "Buy yo‘nalishini ochish"
+        },
+        "liveLockMap": {
+          "eyebrow": "Jonli qulf xaritasi",
+          "title": "Qancha 4TEEN qulflangan va qanchasi haqiqatan likvid",
+          "rows": {
+            "totalSupply": "Umumiy ta’minot",
+            "activeLockBatches": "Faol qulf partiyalari",
+            "currentlyLocked": "Hozir qulflangan",
+            "vaultCustody": "Vault saqlovi",
+            "freelyCirculating": "Erkin aylanmada",
+            "nextUnlock": "Keyingi unlock",
+            "snapshotUpdated": "Snapshot yangilangan"
+          },
+          "note": "Bu yerdagi erkin aylanma ommaviy tizim taxminidir: umumiy ta’minotdan faol to‘g‘ridan-to‘g‘ri xarid qulflari va zaxira vault kontraktlarida saqlanayotgan tokenlar ayiriladi. U ataylab sodda totalSupply ko‘rinishidan qat’iyroq qilingan."
+        },
+        "upcomingUnlocks": {
+          "eyebrow": "Yaqinlashayotgan unlocklar",
+          "title": "Qulf muddatida hali vaqt qolgan so‘nggi to‘g‘ridan-to‘g‘ri xarid partiyalari",
+          "headers": {
+            "buyer": "Xaridor",
+            "amount": "Qulflangan partiya",
+            "unlockAt": "Unlock vaqti",
+            "source": "Manba"
+          },
+          "openTx": "Txni ochish",
+          "empty": "Hozircha faol to‘g‘ridan-to‘g‘ri xarid qulf partiyalari ko‘rinmayapti.",
+          "note": "Bu chiqarilish xaritasi 14 kunlik qulf oynasi ichida turgan tasdiqlangan BuyTokens hodisalaridan tuzilgan. U shaxsiy hamyon portfelini emas, ommaviy partiya vaqtini ko‘rsatadi."
+        },
+        "vaultLayer": {
+          "eyebrow": "Vault qatlami",
+          "title": "Zaxira saqlovi erkin aylanma bilan bir xil emas",
+          "body": "4TEEN arxitekturasi zaxira ajratmalarini maxsus kontraktlarda saqlaydi. FourteenVault likvidlik zaxirasi tokenlarini ushlab turadi, AirdropVault bosqichma-bosqich hamjamiyat taqsimoti zaxiralarini saqlaydi, TeamLockVault esa jamoa ajratmasini alohida qiladi. Bu balanslar on-chain mavjud, biroq ular erkin aylanmadagi ta’minot sifatida taqdim etilmasligi kerak.",
+          "note": "AirdropVault to‘g‘ridan-to‘g‘ri xaridda yo‘naltirilgan TRXni ham qabul qiladi, ammo bu yerda ko‘rsatilgan token balansi faqat vault saqlovida real joylashtirilgan 4TEEN zaxirasidir."
+        },
+        "lockMechanics": {
+          "eyebrow": "Qulf mexanikasi",
+          "title": "Asosiy token kontrakti aslida nimani majburiy qiladi",
+          "cards": [
+            {
+              "eyebrow": "Mint",
+              "title": "To‘g‘ridan-to‘g‘ri xarid avval mint qiladi",
+              "text": "buyTokens() TRX qabul qilinadigan o‘sha tranzaksiyaning o‘zida 4TEEN mint qiladi. Xarid qilingan miqdor uchun off-chain bajarish navbati yo‘q."
+            },
+            {
+              "eyebrow": "Partiya",
+              "title": "Har bir xarid alohida qulf yozuvini yaratadi",
+              "text": "Token kontrakti har bir to‘g‘ridan-to‘g‘ri xarid uchun yangi LockInfo yozuvini qo‘shadi. Qulflar bitta umumiy taymerga birlashtirilmaydi."
+            },
+            {
+              "eyebrow": "Qoida",
+              "title": "O‘tkazmalar lockedBalanceOf() orqali bloklanadi",
+              "text": "transfer() va transferFrom() ikkalasi ham lockedBalanceOf(account) ayirilgandan keyingi mavjud balansni talab qiladi. Qulflangan tokenlarni muddatidan oldin ko‘chirib bo‘lmaydi."
+            }
+          ]
+        },
+        "walletRoute": {
+          "eyebrow": "Hamyon yo‘nalishi",
+          "title": "Ilova bu kontrakt holatini qanday qilib foydalanishga qulay vaqt jadvaliga aylantiradi",
+          "cards": [
+            {
+              "eyebrow": "Balans",
+              "title": "Umumiy, qulflangan va mavjud balansni o‘qiydi",
+              "text": "Hamyon balanceOf(account) bilan lockedBalanceOf(account)ni birlashtirib, nimalar hali muzlatilganini va nimalar allaqachon harakatlana olishini ko‘rsatadi."
+            },
+            {
+              "eyebrow": "Tarix",
+              "title": "Tasdiqlangan BuyTokens hodisalaridan qatorlar tuzadi",
+              "text": "Har bir to‘g‘ridan-to‘g‘ri xarid hodisasi aniq miqdor, unlock vaqti, ortga sanash va Tronscan tranzaksiya yo‘li bilan ko‘rinadigan unlock qatoriga aylanadi."
+            },
+            {
+              "eyebrow": "Harakat",
+              "title": "Foydalanuvchini keyingi to‘g‘ri yo‘nalishga olib boradi",
+              "text": "Xariddan keyin unlock vaqt jadvali to‘g‘ri yo‘nalishdir. Swap faqat qulflangan partiya chiqarilib, haqiqatan o‘tkazilishi mumkin bo‘lgandan keyin dolzarb bo‘ladi."
+            }
+          ],
+          "note": "Shu sababli ommaviy sayt unlockni aniq tushuntirishi, keyin esa ijro yuzasi bo‘lib ko‘rinishga urinmasdan, foydalanuvchini shaxsiy tarix uchun hamyonga yuborishi kerak."
+        },
+        "verification": {
+          "eyebrow": "Tekshirish",
+          "title": "Raqamlar va qulf mantiqi qayerdan keladi",
+          "body": "Bu sahifa joylashtirilgan FourteenToken kontrakti, hamyondagi unlock-timeline implementatsiyasi va ma’lum zaxira vault manzillaridan foydalanadi. U hammasini umumiy token ta’minoti grafigiga tekislab yuborish o‘rniga, jonli mexanika va saqlov tuzilmasini tushuntiradi.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Kontraktlar repositorysi",
+          "walletRepoLabel": "Hamyon repositorysi"
+        },
+        "cta": {
+          "eyebrow": "Keyingi qadam",
+          "title": "Shaxsiy unlock vaqt jadvalingiz kerak bo‘lganda ilovadan foydalaning",
+          "body": "Ommaviy sayt protokol bo‘yicha qulf xaritasini ko‘rsatishi mumkin. Manzilga xos unlock qatorlari, ortga sanashlar va xariddan keyingi kuzatuv uchun hamyon hanuz to‘g‘ri yuzadir.",
+          "openApp": "Ilovada unlockni ochish",
+          "openBuy": "Buy yo‘nalishini ochish"
+        }
+      }
     }
   }
 }
