@@ -5435,6 +5435,224 @@
           "updatedPrefix": "Snapshot yangilandi"
         }
       }
+    },
+    "app": {
+      "metadata": {
+        "title": "4TEEN App | 4TEEN operatsion qatlami bilan TRON hamyoni",
+        "description": "4TEEN mobil hamyonini oching, xarid, unlock, likvidlik, ambassadors va isbot yo‘nalishlari bo‘ylab harakat qiling hamda mahsulotni do‘kon havolalaridan yuklab oling.",
+        "openGraphTitle": "4TEEN App relizi",
+        "openGraphDescription": "4TEEN mobil hamyonini va mahsulot ichiga allaqachon kiritilgan jonli operatsion yo‘nalishlarni ko‘rib chiqing."
+      },
+      "hero": {
+        "eyebrow": "4TEEN Mobile App",
+        "status": "App Store + Google Play",
+        "title": "Ichida 4TEEN operatsion qatlami allaqachon mavjud bo‘lgan haqiqiy TRON hamyoni.",
+        "lead": "Bu sahifa reliz eslatmasi emas, mahsulot sahifasidek tuyulishi kerak. Ilova allaqachon kengroq TRON hamyoni kabi ishlaydi: hamyonlar, aktivlar, o‘tkazmalar, QR oqimi, kontaktlar, til, sozlamalar, resurs tekshiruvlari va to‘liq 4TEEN yo‘nalish xaritasi bitta ijro yuzasida jamlangan.",
+        "stayOnWeb": "Webda qolish",
+        "primaryCta": "Yuklab olish variantlari",
+        "secondaryCta": "Protokol yuzalarini ko‘rish",
+        "ctaNote": "Web tomoni tizimni tushuntiradi. Mobil tomon imzolaydi, yo‘naltiradi, resurslarni tekshiradi va haqiqiy tranzaksiya oqimini bajaradi.",
+        "rotatingLines": [
+          "App Store + Google Play. Bitta mahsulot yuzasi.",
+          "Universal Wallet. Mahalliy 4TEEN qatlami.",
+          "Keng token yuzasi. Faqat bitta aktiv emas.",
+          "Avval resurslar. Keyin imzo.",
+          "Hamyon yadrosi. Protokol yo‘nalishlari. Bitta mahsulot."
+        ],
+        "stats": [
+          {
+            "label": "Hamyon yadrosi",
+            "value": "TRON-first",
+            "meta": "Hamyonlar, yuborish, aktivlarni boshqarish, skanerlash, kontaktlar, sozlamalar."
+          },
+          {
+            "label": "Aktivlar qamrovi",
+            "value": "Keng",
+            "meta": "TRX, 4TEEN, barqaror aktivlar va foydalanuvchi boshqaradigan maxsus token yozuvlari."
+          },
+          {
+            "label": "Tillar",
+            "value": "16",
+            "meta": "Ilova bo‘ylab lokal boshqaruvi bilan alohida til yo‘nalishi."
+          },
+          {
+            "label": "4TEEN qatlami",
+            "value": "7 yo‘nalish",
+            "meta": "Xarid, swap, unlock, likvidlik, airdrop, ambassadors va ma’lumot."
+          }
+        ]
+      },
+      "storeLinks": [
+        {
+          "href": "https://apps.apple.com/",
+          "label": "App Store",
+          "meta": "iPhone va iPad uchun yuklab olish"
+        },
+        {
+          "href": "https://play.google.com/store/apps",
+          "label": "Google Play",
+          "meta": "Android uchun yuklab olish"
+        }
+      ],
+      "entryFlow": [
+        {
+          "eyebrow": "Ishga tushirish",
+          "title": "Aqlli kirish yo‘naltiruvi",
+          "body": "Mobil ilova har bir foydalanuvchini bitta umumiy boshlang‘ich ekranga tashlab qo‘ymaydi. Foydalanuvchi asosiy mahsulot qatlamiga yetib bormasidan oldin ham u ilk kirish, hamyonni unlock qilish va faol hamyon yo‘lini ajratib beradi."
+        },
+        {
+          "eyebrow": "Bosh sahifa",
+          "title": "Ixcham markaz",
+          "body": "Haqiqiy bosh ekran allaqachon ishlaydigan markaz vazifasini bajaradi: to‘g‘ridan-to‘g‘ri xarid, unlock ko‘rinuvchanligi, likvidlik nazorati va ma’lumot yo‘nalishlari chuqurroq alohida ekranlarini yashirmagan holda yaqin turadi."
+        },
+        {
+          "eyebrow": "Chuqur yo‘nalishlar",
+          "title": "Zarur bo‘lganda to‘liq ekranlar",
+          "body": "Har bir jiddiy amal baribir o‘z yuzasida ochiladi. Ilova yuqori qatlamda ixcham qoladi, ammo muhim oqimni hech qachon bitta sayoz boshqaruv paneliga siqib qo‘ymaydi."
+        }
+      ],
+      "walletFoundation": [
+        {
+          "eyebrow": "Hamyonlar",
+          "title": "Bitta qat’iy qobiq emas, bir nechta identifikatsiyalar",
+          "text": "Foydalanuvchilar hamyon yaratishi, import qilishi, nomini o‘zgartirishi, almashtirishi va olib tashlashi mumkin, mahsulot esa imzolovchi hamyonlar bilan faqat kuzatuv uchun hamyonlar o‘rtasida aniq ajratishni saqlaydi."
+        },
+        {
+          "eyebrow": "Yuborish",
+          "title": "Haqiqiy o‘tkazmaga tayyorgarlik",
+          "text": "Yuborish xom manzil maydoni emas. U allaqachon QR skanerlash, kontaktlar, so‘nggi qabul qiluvchilar, aktiv tanlash, sarflanishi mumkin bo‘lgan balans qoidalari va toza tasdiqlash bosqichini qo‘llab-quvvatlaydi."
+        },
+        {
+          "eyebrow": "Kriptoni boshqarish",
+          "title": "Bitta ekotizim aktividan kengroq",
+          "text": "Kriptoni boshqarish — haqiqiy hamyon qatlami: TRX, 4TEEN, barqaror aktivlar, maxsus token yozuvlari, filtrlar, saralash rejimlari hamda yuborish va swap uchun maqsad aktivni tanlash bir xil yuzada ishlaydi."
+        },
+        {
+          "eyebrow": "Til",
+          "title": "16 interfeys tili",
+          "text": "Til qatlami mahsulotga allaqachon kiritilgan: alohida yo‘nalish va asosiy mintaqaviy kirish nuqtalari bo‘ylab ilova darajasidagi lokal boshqaruvi mavjud."
+        }
+      ],
+      "resourceLayer": [
+        {
+          "eyebrow": "Hozir kerak",
+          "title": "Resurslar imzodan oldin o‘lchanadi",
+          "text": "To‘g‘ridan-to‘g‘ri xarid, yuborish, swap, likvidlik ijrosi va boshqa kontrakt yo‘nalishlari ilova parol yoki biometrikani so‘rashidan oldin Energy va Bandwidthni hisoblaydi."
+        },
+        {
+          "eyebrow": "Yetishmovchilik",
+          "title": "TRX kuydirish yashirilmay, ko‘rinadigan qilinadi",
+          "text": "Ilova talab qilinadigan resurslarni joriy hamyon resurslari bilan solishtiradi, yetishmovchilikni ko‘rsatadi va foydalanuvchi buni xatolik orqali bilib qolishining o‘rniga kutilayotgan kuydirish yo‘lini ochib beradi."
+        },
+        {
+          "eyebrow": "Ijara",
+          "title": "Resurs to‘ldirish oqimga integratsiya qilingan",
+          "text": "Kod yuborish o‘tkazmasi, swap, to‘g‘ridan-to‘g‘ri xarid, likvidlik ijrosi, ambassador ro‘yxatdan o‘tishi va ambassador yechib olishlari uchun ijara kotirovkasi, to‘lov, kutish va tayyor holatlarni allaqachon qo‘llab-quvvatlaydi."
+        },
+        {
+          "eyebrow": "Qayta ijro",
+          "title": "Kutilayotgan qatorlar operatsion jihatdan halol qoladi",
+          "text": "Agar operator tomoni xavfsiz resurs chegarasidan pastga tushsa, navbatdagi qatorlar ko‘rinib turadi, backend esa resurslarni to‘ldiradi va qayta ijro sikli mukofot on-chain tushmaguncha yana tekshiradi."
+        }
+      ],
+      "protocolSurfaces": [
+        {
+          "eyebrow": "To‘g‘ridan-to‘g‘ri xarid",
+          "title": "Tayyorlash → tasdiqlash",
+          "text": "Xarid yo‘nalishi avval tranzaksiyani tayyorlaydi: kotirovka, xarid paytida mint qilish konteksti, 14 kunlik lock, TRX bo‘linishi oldindan ko‘rinishi, va shundan keyingina haqiqiy tasdiqlash hamda imzolash bosqichi.",
+          "href": "/buy"
+        },
+        {
+          "eyebrow": "Token swap",
+          "title": "Ko‘r-ko‘rona almashuv emas, yo‘nalishlarni solishtirish",
+          "text": "Swap yo‘nalishi yo‘llarni solishtira oladi, maqsad aktivlarni almashtira oladi, himoyalangan minimal olinadigan miqdorni ko‘rsata oladi va allowance yoki tarmoq resurslari tayyor bo‘lmasa, oqimni erta to‘xtata oladi.",
+          "href": "/swap"
+        },
+        {
+          "eyebrow": "Unlock vaqt jadvali",
+          "title": "Har bir xarid bo‘yicha lock ko‘rinuvchanligi",
+          "text": "Har bir lock qilingan partiya hamyon, miqdor, UTC unlock vaqti, teskari sanoq va manba tranzaksiya bo‘yicha ko‘rsatiladi. Bu shunchaki umumiy tarix emas, maxsus qurilgan lock yuzasidir.",
+          "href": "/unlock"
+        },
+        {
+          "eyebrow": "Likvidlik kontrolleri",
+          "title": "Kontroller tomonidagi haqiqat",
+          "text": "Likvidlik yo‘nalishi 100 TRX chegarasi, 6.43% kunlik chiqarish sur’ati, ijrochi ulushi va ijro gatingini ilovaning o‘zida ochib beradi.",
+          "href": "/liquidity"
+        },
+        {
+          "eyebrow": "Airdrop",
+          "title": "Telegram-first jonli holat",
+          "text": "Airdrop yo‘nalishi joriy bot sessiyasi holati, lokal hamyon holati va on-chain claim holatini birlashtiradi. Telegram hozir jonli; boshqa ijtimoiy tarmoqlar soxta faol tugmalar emas, bosqichma-bosqich tayyorlanayotgan relslardir.",
+          "href": "/airdrop"
+        },
+        {
+          "eyebrow": "Ambassador",
+          "title": "Ro‘yxatdan o‘tish va kabinet bitta yo‘nalishda",
+          "text": "Ambassador yo‘nalishi ro‘yxatdan o‘tish sifatida boshlanadi va o‘sha hamyon uchun kabinetga aylanadi: identifikatsiya slug, xaridor bog‘lanishi, xarid qatorlari, kutilayotgan qayta ijro, yechib olishlar va claim qilinadigan holat.",
+          "href": "/ambassadors"
+        },
+        {
+          "eyebrow": "Ma’lumot",
+          "title": "Ixcham arxitektura va ish vaqti xaritasi",
+          "text": "Ma’lumot yo‘nalishi kontraktlar, vaultlar, likvidlik ijrosi, aktiv-hamyon balanslari va operator tayyorligini bog‘laydi, shunda arxitektura va ish vaqti holati mahsulot ichida ko‘rinadi.",
+          "href": "/verification"
+        }
+      ],
+      "operatingRules": [
+        {
+          "title": "Avval universal hamyon",
+          "text": "Bu ilovaning eng kuchli talqini “ekotizim qobig‘i” emas. U kengroq token olamiga ega bo‘lgan kattaroq TRON hamyoni kabi ishlaydi, 4TEEN esa shu poydevor ichiga jonli mahsulot qatlami sifatida kiritilgan."
+        },
+        {
+          "title": "Faqat kuzatuv va imzolash turli holatlardir",
+          "text": "Ilova tekshirish va amal qilishni turlicha ko‘radi. Faqat kuzatuv uchun hamyonlar portfel va protokol holatini o‘qiy oladi, to‘g‘ridan-to‘g‘ri xarid, ro‘yxatdan o‘tish, likvidlik ijrosi va yechib olish esa to‘liq kirishli imzolovchi hamyonlarni talab qiladi."
+        },
+        {
+          "title": "Operatsion tayyorlik interfeysning bir qismidir",
+          "text": "Kontroller gatingi, resurs qoplanishi, navbatdagi mukofot qatorlari va qayta ijro holati mahsulot holatlari sifatida ifodalanadi. Foydalanuvchi hozir nima tayyorligini, nimaga to‘ldirish kerakligini va nima kutayotganini ko‘radi."
+        },
+        {
+          "title": "Ko‘p tillilik mahsulot infratuzilmasidir",
+          "text": "Til qo‘llab-quvvatlashi kelajakdagi istak sifatida qoldirilmagan, u ilovaga allaqachon kodlangan. Bu muhim, chunki mahsulot bitta bozordan va bitta hamjamiyat kirish yo‘lidan tashqarida ham ishlashi kerak."
+        }
+      ],
+      "downloadReasons": [
+        "Undan faqat 4TEEN kirish nuqtasi sifatida emas, kengroq TRON hamyoni sifatida foydalaning.",
+        "Portfel, maxsus token bilan ishlash, o‘tkazmalar, skanerlash, kontaktlar va til boshqaruvini bir xil mahsulotda saqlang.",
+        "Hamyon ichida to‘liq 4TEEN qatlamini oching: xarid, swap, unlock, likvidlik, airdrop, ambassadors va ma’lumot.",
+        "Imzolashdan yoki ko‘r-ko‘rona kutishdan oldin tarmoq yuklamasi, resurs yetishmovchiligi, yo‘nalish himoyasi va operatsion tayyorlikni ko‘ring."
+      ],
+      "sections": {
+        "entryFlow": {
+          "eyebrow": "Kirish oqimi",
+          "title": "Haqiqiy ilova foydalanuvchini qanday harakatlantiradi"
+        },
+        "walletFoundation": {
+          "eyebrow": "Hamyon poydevori",
+          "title": "Nega bu avvalo haqiqiy hamyon"
+        },
+        "resourceLayer": {
+          "eyebrow": "Resurs intellekti",
+          "title": "Nega ijro ko‘r-ko‘rona imzolashdan xavfsizroq",
+          "notePrefix": "Ilova ichida tarmoq yuklamasi kartalari allaqachon quyidagilarni ko‘rsatadi:",
+          "noteNeedNow": "Hozir kerak",
+          "noteMiddle": "Hozir mavjud",
+          "noteMissing": "Yetishmayapti",
+          "noteSuffix": "hamda Energy va Bandwidth uchun qoplanish foizi. Bu ijro modeliga ishonishni osonlashtiradi, chunki hamyon tranzaksiya imzolanishidan oldin xarajatni tushuntiradi."
+        },
+        "protocolSurfaces": {
+          "eyebrow": "4TEEN yuzalari",
+          "title": "Protokol qatlami hamyon ichida allaqachon nimalar qiladi"
+        },
+        "operatingRuleLabel": "Operatsion qoida",
+        "download": {
+          "eyebrow": "Yuklab olish yo‘nalishi",
+          "title": "Agar faqat web xaritani emas, to‘liq mahsulotni xohlasangiz, hamyonni o‘rnating.",
+          "body": "Mahsulotning eng kuchli versiyasi ilovada yashaydi: haqiqiy hamyon xatti-harakati, ko‘p tilli interfeys, resurslardan xabardor ijro va do‘kon tarqatilishi ochilgach, bitta joyda to‘liq 4TEEN operatsion qatlami.",
+          "repoLabel": "Wallet App Repo"
+        }
+      }
     }
   }
 }
