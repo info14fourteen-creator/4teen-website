@@ -6401,6 +6401,148 @@
       ],
       "linksEyebrow": "Ommaviy chiqish havolalari",
       "footerNote": "Ushbu shartlarni shartnoma manzillari, explorer holati va hamyon tasdiqlash ekrani bilan birga o‘qing. Tashkilot identifikatsiyasi: \"AG PLUS\" LLC, D-U-N-S 933906683."
+    },
+    "support": {
+      "metadata": {
+        "title": "Yordam",
+        "description": "Rasmiy 4TEEN yordam doirasi, aloqa yo‘nalishlari, javob berish bo‘yicha kutilmalar hamda jamoa nimalarda yordam bera olishi va bera olmasligi."
+      },
+      "hero": {
+        "eyebrow": "Yordam",
+        "status": "Rasmiy kanallar",
+        "title": "Yordam sizni to‘g‘ri yo‘nalishga olib borishi, ommaviy tizimni tushuntirishi va nima sodir bo‘lganini tekshirishga ko‘maklashishi kerak — go‘yoki kimdir blockchain haqiqatini siz uchun ortga qaytara oladigandek taassurot uyg‘otmasdan.",
+        "lead": "Veb-sayt, wallet, reliz yoki ommaviy protokolga oid savollar uchun rasmiy 4TEEN kanallaridan foydalaning. Tranzaksiyaga oid har qanday masalada wallet manzili, tranzaksiya hashi, skrinshotlar, yo‘nalish nomi, qurilma turi va zarur bo‘lsa app build kabi aniq faktlarni tayyorlang."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Eng mos",
+          "title": "Yo‘naltirish va tekshirish yordami",
+          "body": "Yordam sizga to‘g‘ri rasmiy sahifani, wallet interfeysini, contract havolasini yoki ommaviy status yo‘nalishini topishda hamda bu interfeyslar nimani ko‘rsatayotganini tushunishda ko‘maklashishi mumkin."
+        },
+        {
+          "eyebrow": "Tayyorlang",
+          "title": "Foydali dalillar",
+          "body": "Eng tez yo‘l faktlarga tayanadi: wallet manzili, tx hash, sahifa URL manzili, skrinshot, vaqt belgisi va siz kutgan natija bilan amalda nima sodir bo‘lganining qisqa tavsifi."
+        },
+        {
+          "eyebrow": "Hech qachon yubormang",
+          "title": "Tiklash sirlari kerak emas",
+          "body": "Seed phrase, raw private key yoki qurilma parollarini hech qanday yordam kanaliga yubormang. Rasmiy yordamga ular hech qachon kerak bo‘lmasligi kerak."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Rasmiy operator",
+          "title": "Yordam legal 4TEEN operatori tomonidan e’lon qilinadi",
+          "body": "\"AG PLUS\" Mas’uliyati cheklangan jamiyati rasmiy 4TEEN veb-sayti va yordam yo‘nalishlarini yuritadi. Bevosita yordam uchun support@4teen.me yoki +998 95 792 02 87 dan foydalaning, yordam havolalarini esa https://4teen.me orqali tekshiring.",
+          "bullets": [
+            "D-U-N-S Number: 933906683",
+            "Ro‘yxatdan o‘tish raqami: 3080788",
+            "Yuridik manzil: O‘zbekiston Respublikasi, Toshkent shahri, Yunusobod tumani, Katta Xasanboy MFY, Xasanboy ko‘chasi, 8-tor ko‘cha, 3-B uy"
+          ]
+        },
+        {
+          "eyebrow": "2. Yordam doirasi",
+          "title": "Yordam nimalarni qamrab olishi kerak",
+          "body": "Yordam yo‘nalish bo‘yicha ko‘rsatma berish, faktlarga asoslangan nosozliklarni aniqlash, rasmiy havolalarni tekshirish, ommaviy protokol ma’lumotlari, wallet interfeysini tushuntirish, reliz sahifasi bo‘yicha yordam hamda muammoingizga qaysi contract yoki mahsulot qatlami tegishli ekanini aniqlash uchun mo‘ljallangan."
+        },
+        {
+          "eyebrow": "3. Yordam cheklovlari",
+          "title": "Yordam nimani va’da qila olmaydi",
+          "body": "Yordam tasdiqlangan blockchain tranzaksiyalarini bekor qila olmaydi, yo‘qolgan seed phrase ni tiklay olmaydi, token narxi natijasini kafolatlay olmaydi, kelajakdagi mukofotlarni kafolatlay olmaydi yoki natija siz xohlagandek bo‘lmagani uchungina ommaviy contract qoidalarini qo‘lda chetlab o‘ta olmaydi."
+        },
+        {
+          "eyebrow": "4. Javob sifati",
+          "title": "Qanday qilib tezroq javob olish mumkin",
+          "bullets": [
+            "Muammo paydo bo‘lgan aniq yo‘nalish yoki sahifani kiriting",
+            "Agar bu on-chain bo‘lsa, wallet manzili va tx hash ni kiriting",
+            "Agar bu ilova bilan bog‘liq bo‘lsa, qurilma, OS va app build tafsilotlarini kiriting",
+            "Agar bu vizual muammo bo‘lsa, skrinshot yoki qisqa ekran yozuvini qo‘shing"
+          ],
+          "note": "Hisobot faqat hissiy emas, balki faktlarga asoslangan va qayta tekshiriladigan bo‘lsa, yordam sifati oshadi. Bu jamoaga aslida nima sodir bo‘lganini tekshirishga yordam beradi."
+        }
+      ],
+      "channels": [
+        {
+          "label": "Telegram",
+          "href": "https://t.me/fourteentoken",
+          "note": "E’lonlar va asosiy ko‘rsatmalar uchun eng tezkor ommaviy hamjamiyat yo‘nalishi."
+        },
+        {
+          "label": "Discord",
+          "href": "https://discord.gg/jWZF6KzPCB",
+          "note": "Tuzilmali muhokama, muammoni aniqlash konteksti va keyingi xabarlar uchun foydali."
+        },
+        {
+          "label": "X",
+          "href": "https://x.com/4teen_me",
+          "note": "Ommaviy relizlar ko‘rinishi uchun eng mos, lekin nozik muammo tafsilotlari uchun ideal emas."
+        },
+        {
+          "label": "WhatsApp",
+          "href": "https://wa.me/998957920287",
+          "note": "Bevosita yordamga o‘tkazish kerak bo‘lsa va rasmiy raqam mintaqangiz uchun mos bo‘lsa, foydali."
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+          "note": "Muammo aniq texnik bo‘lsa, kod, reliz va repository darajasidagi masalalar uchun foydali."
+        }
+      ],
+      "channelPanel": {
+        "eyebrow": "Rasmiy kanallar",
+        "title": "Yordamga ishonishdan oldin rasmiy chiqish yo‘llaridan foydalaning.",
+        "routeLabel": "Rasmiy yo‘nalish"
+      },
+      "scopePanel": {
+        "eyebrow": "Yordam doirasi",
+        "title": "Yordam aniqlashtirishi, tekshirishi va yo‘naltirishi kerak. U o‘zida yo‘q vakolatlarni o‘ylab topmasligi kerak.",
+        "canHelp": "Yordam bera oladi",
+        "cannotHelp": "Yordam bera olmaydi"
+      },
+      "supportScope": {
+        "canHelp": [
+          "Rasmiy yo‘nalishni tekshirish va ommaviy sahifalar bo‘yicha ko‘rsatma berish",
+          "Ilovani yuklab olish, reliz sahifasi va veb-sayt muammolarini aniqlash",
+          "Contract, explorer yoki ommaviy status sahifalari bo‘yicha yo‘naltirish",
+          "Airdrop, ambassador yoki wallet yo‘nalishlari muammolari bo‘yicha asosiy faktlarga tayangan saralash"
+        ],
+        "cannotHelp": [
+          "Yo‘qolgan seed phrase, private key yoki qurilma parollarini tiklash",
+          "Tasdiqlangan on-chain tranzaksiyalarni bekor qilish",
+          "Narx natijasi, token samaradorligi yoki mukofotga loyiqlikni kafolatlash",
+          "Custodian sifatida harakat qilish yoki foydalanuvchi mablag‘lari ustidan nazoratni qo‘lga olish"
+        ]
+      },
+      "contactPanel": {
+        "eyebrow": "Aloqa",
+        "title": "Faqat rasmiy 4TEEN chiqish yo‘llaridan foydalaning",
+        "body": "Agar yordam yo‘nalishi rasmiy sayt, wallet yoki rasmiy ijtimoiy tarmoqlar ro‘yxatidan havola qilinmagan bo‘lsa, unga ishonishdan oldin tekshiring. Rasmiy legal operator \"AG PLUS\" LLC, e’lon qilingan D-U-N-S Number esa 933906683.",
+        "emailTitle": "Yordam email manzili",
+        "emailMissing": "Joriy repositorylarda maxsus ommaviy yordam pochta qutisi e’lon qilinmagan. U e’lon qilinmaguncha quyidagi rasmiy kanallardan foydalaning va u yerda hech qachon maxfiy tiklash materiallarini ulashmang.",
+        "phoneTitle": "Telefon va WhatsApp",
+        "legalTitle": "Legal operator",
+        "legalBody": "\"AG PLUS\" Mas’uliyati cheklangan jamiyati · D-U-N-S® 933906683",
+        "securityTitle": "Xavfsizlik eslatmasi",
+        "securityBody": "Hech bir yordam kanali sizdan seed phrase, raw private key yoki qurilmani to‘liq qulfdan chiqarish sirlarini so‘ramasligi kerak. Agar shunday bo‘lsa, buni xavfli deb hisoblang."
+      },
+      "links": [
+        {
+          "label": "Mobil ilova sahifasini ochish",
+          "href": "/app"
+        },
+        {
+          "label": "Maxfiylikni ochish",
+          "href": "/privacy"
+        },
+        {
+          "label": "Shartlarni ochish",
+          "href": "/terms"
+        }
+      ],
+      "linksEyebrow": "Ommaviy chiqish yo‘llari",
+      "footerNote": "Reliz havolalari, contract ma’lumotlari yoki ommaviy holat sahifalari uchun https://4teen.me dan boshlang. Rasmiy telefon va WhatsApp yordami: +998 95 792 02 87."
     }
   }
 }
