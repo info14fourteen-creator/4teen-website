@@ -6767,6 +6767,808 @@
           "githubSource": "GitHub kaynağı"
         }
       }
+    },
+    "home": {
+      "ui": {
+        "aria": {
+          "heroPoints": "Protokol öne çıkanları",
+          "livePriceSummary": "Canlı fiyat özeti",
+          "quickLinks": "Hızlı bağlantılar",
+          "verificationLinks": "Doğrulama bağlantıları"
+        },
+        "marketStrip": {
+          "unavailable": "Kullanılamıyor",
+          "routerQuoteReadFailed": "Router kotasyonu okunamadı",
+          "directPriceLabel": "Doğrudan Fiyat",
+          "directPriceSub": "Protokol üzerinden 1 4TEEN başına",
+          "dexReferenceLabel": "DEX Referansı",
+          "dexPriceLabel": "DEX Fiyatı",
+          "dexSubSuffix": "4TEEN başına",
+          "unlockCycleLabel": "Kilit Açma Döngüsü",
+          "unlockCycleValue": "14 Gün",
+          "unlockCycleSub": "Doğrudan satın alma kilit süresi",
+          "unlockCycleDailyRuleSub": "Doğrudan satın almalar için sabit kilit",
+          "dailyLiquidityRuleLabel": "Günlük Likidite Kuralı",
+          "dailyLiquidityRuleValue": "6.43%",
+          "dailyLiquidityRuleSub": "Controller mantığıyla her UTC gününde bir kez serbest bırakılır"
+        }
+      },
+      "hero": {
+        "eyebrow": "4TEEN Mobil Uygulaması",
+        "meta": "TRON • Doğrudan Satın Al • Kilit Açma • Likidite • Büyüme",
+        "title": "Satın alma, kilit görünürlüğü ve likidite akışı için tek yer.",
+        "lead": "Cüzdan uygulaması zaten sistemin operasyon katmanı. Doğrudan satın alma, kilit açma zaman çizelgesi, likidite controller’ı, Telegram claim durumu, ambassador cabinet ve kompakt bilgi rotası; metindeki vaatler yerine gerçek durumla çalışan gerçek ekranlar olarak zaten mevcut.",
+        "points": [
+          "İmzalamadan önce tahmin, dağılım bağlamı ve onay ile gerçek doğrudan satın alma akışını hazırlayın.",
+          "Her kilitli satın alma olayını geri sayım, kilit açma durumu ve kaynak işlem üzerinden takip edin.",
+          "Sözleşmeler, varlık cüzdanları, executors ve çalışma zamanı hazır olma durumu için tek bir bilgi rotası kullanın."
+        ],
+        "actions": [
+          {
+            "label": "Uygulamayı Al",
+            "href": "/app"
+          },
+          {
+            "label": "Doğrudan Satın Almayı Aç",
+            "href": "/buy"
+          }
+        ],
+        "sideEyebrow": "Cüzdan yüzeyleri",
+        "sideTitle": "Uygulama artık canlı ürün çalışmalarını taşıyor.",
+        "sideStats": [
+          {
+            "label": "Birincil satış",
+            "value": "Hazırla → Onayla"
+          },
+          {
+            "label": "Görünürlük",
+            "value": "Kilit açma olayları"
+          },
+          {
+            "label": "Yürütme",
+            "value": "Controller durumu"
+          },
+          {
+            "label": "Doğrulama",
+            "value": "Bilgi rotası"
+          }
+        ],
+        "sideHighlightTitle": "Net ürün merkezi.",
+        "sideHighlightText": "Satın alma, kilit görünürlüğü, controller doğrusu, büyüme hatları ve doğrulama artık tek bir cüzdan tarzı akış üzerinden bağlanıyor.",
+        "tools": [
+          {
+            "href": "/buy",
+            "title": "Doğrudan Satın Al",
+            "meta": "Onaydan önce gerçek satın alımda mint akışını hazırlayın"
+          },
+          {
+            "href": "/unlock",
+            "title": "Kilit Açma Zaman Çizelgesi",
+            "meta": "Cüzdana göre doğrudan satın alma olaylarını, geri sayımı ve kilit açma durumunu okuyun"
+          },
+          {
+            "href": "/liquidity",
+            "title": "Likidite Controller’ı",
+            "meta": "Eşiği, serbest bırakma temposunu, executors’ı ve controller geçmişini görün"
+          },
+          {
+            "href": "/verification",
+            "title": "Bilgi Rotası",
+            "meta": "Sözleşmeleri, vault’ları, varlık cüzdanlarını ve çalışma zamanı hazır olma durumunu açın"
+          }
+        ]
+      },
+      "wallets": {
+        "eyebrow": "Cüzdan Desteği",
+        "title": "Cüzdan desteği önemlidir çünkü uygulama artık canlı yüzeyler genelinde cüzdan durumunu yansıtır.",
+        "description": "Doğrudan satın alma, kilit açma satırları, cabinet işlemleri ve Telegram claim durumu; seçili cüzdanın imzalayıp imzalayamamasına, yalnızca izleme modunda olup olmamasına ve bakiye ile kaynak durumunun akışta temiz şekilde çözümlenip çözümlenmemesine göre değişir.",
+        "bestStatus": "En iyi mobil deneyim",
+        "bestItems": [
+          {
+            "name": "Binance Wallet",
+            "note": "Çalışır • Bakiye görünür"
+          },
+          {
+            "name": "Bitget Wallet",
+            "note": "Çalışır • Bakiye görünür"
+          },
+          {
+            "name": "OKX Wallet",
+            "note": "Çalışır • Bakiye görünür"
+          },
+          {
+            "name": "TokenPocket",
+            "note": "Çalışır • Bakiye görünür"
+          }
+        ],
+        "compatibleStatus": "Mobil tarayıcıda çalışır",
+        "compatibleItems": [
+          {
+            "name": "FoxWallet",
+            "note": "Çalışır • Bakiye görüntülenmez"
+          },
+          {
+            "name": "imToken",
+            "note": "Çalışır • Bakiye görüntülenmez"
+          },
+          {
+            "name": "MetaMask",
+            "note": "Çalışır • Bakiye görüntülenmez"
+          },
+          {
+            "name": "TronLink",
+            "note": "Çalışır • Bakiye görüntülenmez"
+          },
+          {
+            "name": "WalletConnect",
+            "note": "Çalışır • Bakiye görüntülenmez"
+          },
+          {
+            "name": "Trust Wallet",
+            "note": "Masaüstü Chrome uzantısını kullanın"
+          }
+        ],
+        "highlightTitle": "Uygulama + satın alma akışı için önerilenler:",
+        "highlightText": "Binance Wallet, Bitget Wallet, OKX Wallet ve TokenPocket, bakiyeleri doğru görüntüledikleri ve cüzdan farkındalıklı yüzeylere güvenmeyi kolaylaştırdıkları için en akıcı deneyimi sağlar."
+      },
+      "trust": {
+        "eyebrow": "Protokolü Doğrula",
+        "title": "Cüzdan uygulaması, website yüzeyleri, repo’lar ve zincir aynı gerçeğe işaret etmelidir.",
+        "links": [
+          {
+            "label": "Uygulama",
+            "value": "Mobil İndirme",
+            "href": "/app"
+          },
+          {
+            "label": "Website",
+            "value": "Canlı Yüzeyler",
+            "href": "/buy"
+          },
+          {
+            "label": "Ağ",
+            "value": "TRON Mainnet",
+            "href": "https://tronscan.org",
+            "external": true
+          },
+          {
+            "label": "Repo",
+            "value": "Cüzdan Uygulaması",
+            "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+            "external": true
+          },
+          {
+            "label": "Dokümanlar",
+            "value": "Whitepaper",
+            "href": "/whitepaper"
+          },
+          {
+            "label": "Bilgi",
+            "value": "Doğrulama",
+            "href": "/verification"
+          }
+        ]
+      },
+      "howItWorks": {
+        "eyebrow": "Nasıl Çalışır",
+        "title": "Operasyon yüzeylerinin artık kapsadığı alanlar.",
+        "description": "Uygulama artık bağlantıların etrafındaki bir kabuktan ibaret değil. Açıklama, cüzdan farkındalıklı geçitleme, onay akışı, yüzeye özel geçmiş, controller durumu, ödül yönlendirmesi ve sosyal claim durumunu zaten yönetiyor.",
+        "steps": [
+          {
+            "step": "1",
+            "title": "Doğrudan satın almayı uygulama içinde hazırlayın",
+            "text": "Satın alma ekranı önce bir hazırlık adımıdır. Seçili imzalayan cüzdan TRX girer, tahmini 4TEEN miktarını görür ve ancak sonra uygulamanın gerçek işlemi oluşturduğu ve kaynakları kontrol ettiği onay katmanına geçer."
+          },
+          {
+            "step": "2",
+            "title": "Her kilitli partiyi satın almaya göre takip edin",
+            "text": "Kilit Açma Zaman Çizelgesi genel bir geçmiş değildir. Seçili cüzdan için doğrudan satın alma olaylarını okur, UTC kilit açma zamanını, canlı geri sayımı, kilit durumunu ve her satın alma satırının arkasındaki Tronscan işlemini gösterir."
+          },
+          {
+            "step": "3",
+            "title": "Likidite gerçeğine ihtiyacınız olduğunda controller’ı açın",
+            "text": "Likidite yürütmesi uygulamada gerçek bir yüzeydir. 100 TRX eşiğini, 6.43% günlük serbest bırakma kuralını, executor dağılımını, sözleşme bağlantılarını ve son controller tarafı geçmişi; bu mantığı metinde gizlemek yerine gösterir."
+          }
+        ],
+        "airdropStep": {
+          "step": "4",
+          "title": "Sosyal airdrop durumunu gerçek bir ekran olarak okuyun",
+          "text": "Airdrop sayfası, her sosyal rotanın canlıymış gibi gösterilmesi yerine aynı anda üç kontrolü birleştirir.",
+          "items": [
+            {
+              "value": "Cüzdan",
+              "label": "İmzalama veya yalnızca izleme durumu, claim akışının devam edip edemeyeceğini değiştirir"
+            },
+            {
+              "value": "Oturum",
+              "label": "Telegram bot oturumu kartın kullanılabilir, şimdi doğrula veya oturum-canlı olup olmadığını belirler"
+            },
+            {
+              "value": "Zincir",
+              "label": "Zincir üstü claim durumu halihazırda alındı, kuyruğa alındı veya legacy-kullanıldı gösterebilir"
+            }
+          ]
+        },
+        "cabinetStep": {
+          "step": "5",
+          "title": "Kayıt, alıcılar, satın almalar, bekleyen satırlar ve ödüller için tek bir cabinet kullanın",
+          "text": "Ambassador akışı artık çıkmaz bir kayıt sayfası değil. Aynı rota, tek seferlik slug kaydıyla başlar ve ardından referral kimliği, izlenen satın almalar, claim edilebilir ödüller, claim edilmiş toplamlar ve bekleyen tahsis yeniden oynatmasının birlikte görülebildiği çalışan bir cabinet’e dönüşür."
+        }
+      },
+      "architecture": {
+        "eyebrow": "Mimari Diyagramı",
+        "title": "Bilgi rotasının sistemi zincir üstünde nasıl açıkladığı.",
+        "description": "Uygulamadaki kompakt bilgi rotası artık sözleşmeleri, yönlendirmeyi, vault’ları, executors’ı, varlık cüzdanlarını ve çalışma zamanı kontrollerini birbirine bağlar. Website hâlâ haritayı gösterebilir, ancak bu mimarinin arkasında zaten çalışan bir ürün ekranı olduğunu yansıtmalıdır.",
+        "entry": {
+          "label": "Giriş",
+          "title": "Kullanıcı TRX",
+          "text": "Doğrudan protokol satın alımı sisteme girer"
+        },
+        "core": {
+          "label": "Çekirdek Sözleşme",
+          "title": "FourteenToken",
+          "text": "Satın alımda mint + 14 günlük kilit + otomatik TRX dağılımı",
+          "pills": [
+            "Satın alımda mint",
+            "14 günlük kilit",
+            "TRX dağılımı: 90% / 7% / 3%"
+          ]
+        },
+        "liquidity": {
+          "eyebrow": "90% TRX Yolu",
+          "title": "Likidite Yürütme Katmanı",
+          "text": "En büyük pay özel bir likidite sistemine taşınır. Serbest bırakma zamanlaması, rezerv saklama, bootstrap hazırlığı ve DEX yürütmesi ayrı rollere izole edilir.",
+          "controller": {
+            "label": "Controller",
+            "title": "FourteenLiquidityController",
+            "text": "Her UTC gününde bir kez 6.43% serbest bırakır ve likiditenin ne zaman hareket edebileceğini kontrol eder"
+          },
+          "vault": {
+            "label": "Rezerv Vault",
+            "title": "FourteenVault",
+            "text": "Özellikle likidite sağlama için kullanılan 4TEEN rezervini saklar"
+          },
+          "bootstrapper": {
+            "label": "Hazırlık Katmanı",
+            "title": "LiquidityBootstrapper",
+            "text": "Gerekli token miktarlarını hesaplar, FourteenVault’tan çeker, executors’a sağlar ve yürütme akışını tetikler"
+          },
+          "executors": [
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorJustMoney",
+              "text": "JustMoney için DEX’e özel yürütme yolu"
+            },
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorSunV3",
+              "text": "Sun.io V3 için DEX’e özel yürütme yolu"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "7% TRX Yolu",
+          "title": "Kontrol + Ambassador Ödül Katmanı",
+          "text": "Bu yol token ihracının ve likidite yürütmesinin dışında kalır. Protokol kontrolünü referral ilişkilendirmesi, doğrulanmış satın alma tahsisi, seviye ilerlemesi ve claim edilebilir ambassador ödülleriyle birleştirir.",
+          "controller": {
+            "label": "Controller",
+            "title": "FourteenController",
+            "text": "FourteenToken’a sahiptir; owner işlevlerini, operator mantığını, ödül muhasebesini, satın alma tahsisini ve kontrollü çekimleri yönetir."
+          },
+          "flow": {
+            "label": "Ambassador Akışı",
+            "title": "Kayıt → Bağlama → Doğrulanmış Satın Alma → Ödül",
+            "text": "Cüzdan kaydı, herkese açık slug kimliği, alıcı bağlama, doğrulanmış satın alma kaydı, claim edilebilir ödül birikimi ve ödül çekimi."
+          },
+          "ladderTitle": "Ambassador Ödül Merdiveni",
+          "ladder": [
+            {
+              "level": "Bronze",
+              "buyers": "0–9 alıcı",
+              "percent": "10%"
+            },
+            {
+              "level": "Silver",
+              "buyers": "10–99 alıcı",
+              "percent": "25%"
+            },
+            {
+              "level": "Gold",
+              "buyers": "100–999 alıcı",
+              "percent": "50%"
+            },
+            {
+              "level": "Platinum",
+              "buyers": "1000+ alıcı",
+              "percent": "75%"
+            }
+          ],
+          "noteTitle": "Tahsis mantığı",
+          "noteText": "ambassador ödülü, doğrulanmış satın alma tahsisi sırasında satın alma owner payından hesaplanır. Seviye override desteklenir ve ödüller çekimden önce claim edilebilir bakiyeye taşınır."
+        },
+        "airdrop": {
+          "eyebrow": "3% TRX Yolu",
+          "title": "Topluluk Dağıtım Katmanı",
+          "text": "Bu yol canlı airdrop yapısını besler. Dağıtım dalgalar halinde aşamalandırılır ve tek seferlik bir hediye gibi ele alınmak yerine birden fazla sosyal rota boyunca genişletilir.",
+          "vault": {
+            "label": "Vault",
+            "title": "AirdropVault",
+            "text": "Aşamalı ekosistem dağıtımı, cüzdan bağlantılı ödül akışları ve canlı kampanya rotaları için kullanılan topluluk ve büyüme rezervi"
+          },
+          "model": {
+            "label": "Dağıtım Modeli",
+            "title": "1,500,000 4TEEN • 6 Sabit Dalga",
+            "text": "Bugün bir canlı rota ve zamanla eklenecek daha fazla kampanya rotası içeren dalga tabanlı serbest bırakma yapısı"
+          },
+          "pills": [
+            {
+              "label": "Telegram Canlı",
+              "tone": "live"
+            },
+            {
+              "label": "X Yakında",
+              "tone": "wait"
+            },
+            {
+              "label": "Instagram Yakında",
+              "tone": "wait"
+            },
+            {
+              "label": "Daha Fazla Sosyal Önümüzde",
+              "tone": "wait"
+            }
+          ],
+          "liveRoute": {
+            "label": "Mevcut Canlı Rota",
+            "title": "Telegram Kampanyası",
+            "text": "Canlı airdrop altyapısı içindeki mevcut halka açık rota",
+            "action": {
+              "label": "Mevcut canlı rotayı aç",
+              "href": "/airdrop"
+            }
+          },
+          "snapshotTitle": "Canlı Airdrop Anlık Görünümü",
+          "snapshotRows": [
+            {
+              "label": "Durum",
+              "value": "Şu Anda Canlı"
+            },
+            {
+              "label": "Ödül Aralığı",
+              "value": "1–5 4TEEN"
+            },
+            {
+              "label": "Doğrulama",
+              "value": "Gerekli"
+            },
+            {
+              "label": "Gerekli Cüzdan",
+              "value": "TRON Cüzdanı"
+            },
+            {
+              "label": "Ödül Teslimi",
+              "value": "Zincir Üstü"
+            },
+            {
+              "label": "Claim Türü",
+              "value": "platformBit = 4"
+            }
+          ]
+        },
+        "facts": [
+          {
+            "label": "Likidite",
+            "text": "Serbest bırakma zamanlaması, rezerv saklama, bootstrap hazırlığı ve DEX yürütmesi özel sözleşmelere izole edilmiştir."
+          },
+          {
+            "label": "Ambassadors",
+            "text": "Seviye ilerlemesi ve ödül yüzdesi gerçek alıcı sayısına ve doğrulanmış satın alma tahsisine bağlıdır."
+          },
+          {
+            "label": "Airdrop",
+            "text": "Topluluk rotası dalga tabanlı, çok platformlu ve Telegram üzerinden zaten canlıdır."
+          },
+          {
+            "label": "Neden önemli",
+            "text": "4TEEN, aşırı yüklenmiş tek bir sözleşme bloğu gibi değil, ayrılmış rollerden oluşan bir sistem gibi davranır."
+          }
+        ]
+      },
+      "why": {
+        "eyebrow": "Bu Yapı Neden Önemli",
+        "title": "Ürün katmanı sonunda protokol katmanını yakalıyor.",
+        "description": "Sözleşmelerin rolleri her zaman ayrılmıştı. Değişen şey, uygulamanın artık bu rolleri kullanıcıları yalnızca ham zincir üstü fikirler ve dağınık bağlantılarla bırakmak yerine okunabilir, cüzdan farkındalıklı ekranlar olarak göstermesi.",
+        "cards": [
+          {
+            "number": "01",
+            "title": "Cüzdan uygulamasında tek bir merkez zaten var",
+            "text": "Uygulama ana sayfası zaten kompakt ürün merkezi: satın al, kilit açma, likidite, airdrop, ambassadors ve bilgi; uzun bir açıklamaya gömülmek yerine yüzeyler olarak gruplanır.",
+            "note": "Website, daha eski hayali bir yol haritasını anlatmak yerine insanları aynı yüzeylere yönlendirmelidir."
+          },
+          {
+            "number": "02",
+            "title": "Cüzdan farkındalıklı durum artık gerçek davranış",
+            "text": "Yalnızca izleme ile imzalayan cüzdan, claim edilebilir ile bekleyen ödüller, Telegram oturum durumu ve kaynak hazır olma durumu; kullanıcının uygulamada gerçekten ne yapabileceğini değiştirir.",
+            "note": "Bu, ana sayfa metninin yalnızca sözleşme teorisini değil, durumları ve eylemleri anlatması gerektiği anlamına gelir."
+          },
+          {
+            "number": "03",
+            "title": "Doğrulama zaten çalışan bir rota",
+            "text": "Mimari, sözleşme rolleri, vault’lar, executors, varlık cüzdanı bakiyeleri ve tahsis yeniden oynatma hazır olma durumu artık yalnızca whitepaper konuları değil. Uygulama bunları zaten tek bir kompakt bilgi ekranı olarak sunuyor.",
+            "note": "Site, bu bilgi katmanını gelecekteki dokümantasyon değil canlı ürün olarak anlattığında en güçlü hâline gelir."
+          }
+        ],
+        "notePrefix": "Neden önemli"
+      },
+      "liveMetrics": {
+        "eyebrow": "Canlı Protokol Metrikleri",
+        "title": "Giriş, likidite, ödüller ve operasyonel durumun canlı okuması.",
+        "description": "Bu kartlar kullanıcının uygulamada gerçekten açabildiği şeyleri yansıtmalıdır: doğrudan satın alma bağlamı, kilit açma ve controller tarafı durum, cabinet ödül akışı ve mevcut Telegram öncelikli sosyal dağıtım rotası.",
+        "liquidity": {
+          "eyebrow": "Likidite Motoru",
+          "title": "Kural Tabanlı Likidite Akışı",
+          "note": "Uygulamada bu, tek bir opak “likidite” cümlesi yerine eşik kontrolleri, sonraki serbest bırakma bağlamı, executor dağılımı, sözleşme bağlantıları ve controller tarafı geçmiş olarak görünür.",
+          "rows": [
+            {
+              "label": "Controller",
+              "value": "FourteenLiquidityController"
+            },
+            {
+              "label": "Rezerv Vault",
+              "value": "FourteenVault"
+            },
+            {
+              "label": "Hazırlık Katmanı",
+              "value": "LiquidityBootstrapper"
+            },
+            {
+              "label": "Yürütme Dağılımı",
+              "value": "50% / 50%"
+            },
+            {
+              "label": "DEX Yolları",
+              "value": "JustMoney + Sun.io V3"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "Ambassador Katmanı",
+          "title": "Cabinet ödül akışı",
+          "note": "Uygulamada bu rota, zincir üstü cabinet durumunu backend ilişkilendirme satırlarıyla birleştirir; böylece şu an claim edilebilir, claim edilmiş toplam ve bekleyen yeniden oynatma tek yerde birlikte yer alır.",
+          "ladder": [
+            {
+              "level": "Bronze",
+              "meta": "0–9 alıcı",
+              "value": "10%"
+            },
+            {
+              "level": "Silver",
+              "meta": "10–99 alıcı",
+              "value": "25%"
+            },
+            {
+              "level": "Gold",
+              "meta": "100–999 alıcı",
+              "value": "50%"
+            },
+            {
+              "level": "Platinum",
+              "meta": "1000+ alıcı",
+              "value": "75%"
+            }
+          ]
+        },
+        "airdrop": {
+          "eyebrow": "Airdrop Katmanı",
+          "title": "Canlı sosyal dağıtım anlık görünümü",
+          "rows": [
+            {
+              "label": "Toplam Tahsis",
+              "value": "1,500,000 4TEEN",
+              "tone": "strong"
+            },
+            {
+              "label": "Dalga Yapısı",
+              "value": "6 Sabit Dalga"
+            },
+            {
+              "label": "Mevcut Canlı Rota",
+              "value": "Telegram",
+              "tone": "live"
+            },
+            {
+              "label": "Diğer Sosyaller",
+              "value": "Salt okunur yer tutucular",
+              "tone": "wait"
+            },
+            {
+              "label": "Ödül Teslimi",
+              "value": "Zincir Üstü"
+            }
+          ],
+          "action": {
+            "label": "Canlı Telegram Rotasını Aç",
+            "href": "/airdrop"
+          }
+        }
+      },
+      "tools": {
+        "eyebrow": "Araçlar",
+        "title": "Uygulamanın zaten sunduğu aynı yüzeyleri açın.",
+        "description": "Bunlar artık yer tutucu menü öğeleri değil. Cüzdan tarzı ürün akışında zaten var olan ve canlı cüzdan durumunu zaten taşıyan rotalara ve davranışlara doğrudan karşılık gelirler.",
+        "cards": [
+          {
+            "status": "Aç",
+            "tone": "live",
+            "title": "Mobil Uygulama",
+            "text": "Mağaza indirme seçenekleri ve web yüzeylerine temiz bir geri dönüş ile özel mobil uygulama rotasını açın.",
+            "href": "/app"
+          },
+          {
+            "status": "Canlı",
+            "tone": "live",
+            "title": "4TEEN Satın Al",
+            "text": "Tutar girişi, tahmin, dağılım bağlamı ve onay yolu içeren doğrudan satın alma hazırlık ekranını açın.",
+            "href": "/buy"
+          },
+          {
+            "status": "Takip Et",
+            "tone": "live",
+            "title": "Kilit Açma Zaman Çizelgesi",
+            "text": "Cüzdana göre doğrudan satın alma olay satırlarını, kilit açma zaman damgasını, canlı geri sayımı ve işlem kaynağını okuyun.",
+            "href": "/unlock"
+          },
+          {
+            "status": "Takip Et",
+            "tone": "live",
+            "title": "Likidite Controller’ı",
+            "text": "Eşiği, 6.43% günlük serbest bırakmayı, executors’ı, son controller olaylarını ve yürütme hazır olma durumunu izleyin.",
+            "href": "/liquidity"
+          },
+          {
+            "status": "Canlı",
+            "tone": "live",
+            "title": "Airdrop Durumu",
+            "text": "Telegram canlı-claim durumunu, yalnızca izleme kısıtlarını, bot oturum durumunu ve zincir üstü ödül durumunu görün.",
+            "href": "/airdrop"
+          },
+          {
+            "status": "Yönet",
+            "tone": "live",
+            "title": "Ambassador Cabinet",
+            "text": "Tek seferlik kayıttan slug, alıcılar, satın almalar, bekleyen satırlar ve ödüllerle cabinet moduna geçin.",
+            "href": "/ambassadors"
+          },
+          {
+            "status": "Doğrula",
+            "tone": "wait",
+            "title": "Bilgi Rotası",
+            "text": "Sözleşmeler, varlık cüzdanları, çalışma zamanı sağlığı ve herkese açık kanıt bağlantıları için kompakt mimari ekranını açın.",
+            "href": "/verification"
+          }
+        ]
+      },
+      "verification": {
+        "eyebrow": "Doğrulama / Sözleşmeler",
+        "title": "Protokolü sözleşmeler, repo’lar, dokümanlar ve uygulama merkezi genelinde doğrulayın.",
+        "description": "Halka açık hikâye artık daha güçlü çünkü cüzdan uygulaması bu sözleşmelerin, repo’ların, dokümanların, varlık cüzdanı kontrollerinin ve canlı yüzeylerin üzerinde zaten bir operasyon katmanı gibi çalışıyor.",
+        "contracts": {
+          "eyebrow": "Zincir Üstü Sözleşmeler",
+          "title": "Mainnet dağıtım katmanı",
+          "links": [
+            {
+              "label": "Çekirdek",
+              "value": "FourteenToken",
+              "href": "https://tronscan.org/#/token20/TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A"
+            },
+            {
+              "label": "Çekirdek",
+              "value": "FourteenController",
+              "href": "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ"
+            },
+            {
+              "label": "Çekirdek",
+              "value": "FourteenLiquidityController",
+              "href": "https://tronscan.org/#/contract/TVKBLwg222skKnZ3F3boTiH35KC7nvYEuZ"
+            },
+            {
+              "label": "Vault",
+              "value": "FourteenVault",
+              "href": "https://tronscan.org/#/contract/TNwkuHA727RZGtpbowH7q5B1yZWk2JEZTq"
+            },
+            {
+              "label": "Vault",
+              "value": "TeamLockVault",
+              "href": "https://tronscan.org/#/contract/TYBfbgvMW6awPdZfSSwWoEX3nJjrKWZS3h"
+            },
+            {
+              "label": "Vault",
+              "value": "AirdropVault",
+              "href": "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ"
+            },
+            {
+              "label": "Yürütme",
+              "value": "LiquidityBootstrapper",
+              "href": "https://tronscan.org/#/contract/TWfUee6qFV91t7KbFdYLEfpi8nprUaJ7dc"
+            },
+            {
+              "label": "Yürütme",
+              "value": "LiquidityExecutorSunV3",
+              "href": "https://tronscan.org/#/contract/TU8EwEWg4K594zwThvhTZxqzEuEYuR46xh"
+            },
+            {
+              "label": "Yürütme",
+              "value": "LiquidityExecutorJustMoney",
+              "href": "https://tronscan.org/#/contract/TWrz68MRTf1m9vv8xpcdMD4z9kjBxiHw7F"
+            }
+          ]
+        },
+        "repositories": {
+          "eyebrow": "Repo’lar",
+          "title": "Halka açık altyapı ve operasyon kodu",
+          "links": [
+            {
+              "label": "Repo",
+              "value": "4teen-smart-contracts",
+              "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-wallet-app",
+              "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-ambassador-system",
+              "href": "https://github.com/info14fourteen-creator/4teen-ambassador-system"
+            },
+            {
+              "label": "Repo",
+              "value": "liquidity-bootstrapper-cron",
+              "href": "https://github.com/info14fourteen-creator/liquidity-bootstrapper-cron"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-telegram-airdrop-bot",
+              "href": "https://github.com/info14fourteen-creator/4teen-telegram-airdrop-bot"
+            }
+          ]
+        },
+        "docs": {
+          "eyebrow": "Dokümanlar",
+          "title": "Halka açık okuma katmanı",
+          "links": [
+            {
+              "label": "Dokümanlar",
+              "value": "Whitepaper",
+              "href": "/whitepaper"
+            },
+            {
+              "label": "Dokümanlar",
+              "value": "Doğrulama",
+              "href": "/verification"
+            },
+            {
+              "label": "Dokümanlar",
+              "value": "Blog",
+              "href": "/blog"
+            }
+          ]
+        },
+        "hubs": {
+          "eyebrow": "Merkezler",
+          "title": "Halka açık ekosistem giriş noktaları",
+          "links": [
+            {
+              "label": "Merkez",
+              "value": "Airdrop Merkezi",
+              "href": "/airdrop"
+            },
+            {
+              "label": "Merkez",
+              "value": "Ambassador Programı",
+              "href": "/ambassadors"
+            }
+          ]
+        }
+      },
+      "faq": {
+        "eyebrow": "SSS",
+        "title": "Canlı yüzeyleri açmadan önce net yanıtlar.",
+        "description": "Doğru sorular değişiyor. Kullanıcıların artık her rotanın gerçekte ne yaptığını, hangi işlemlerin cüzdan türüne bağlı olduğunu ve hangi büyüme veya doğrulama akışlarının uygulamada zaten canlı olduğunu netleştirmesi gerekiyor.",
+        "items": [
+          {
+            "question": "4TEEN neden yalnızca swap yerine doğrudan satın alma ekranına ihtiyaç duyar?",
+            "answer": "Çünkü uygulama doğrudan satın almayı ayrı bir sözleşme tarafı yüzey olarak ele alır. Satın alımda mint akışını hazırlar, tahmini gösterir, 14 günlük kilidi açıklar ve ardından gerçek onay adımına geçer."
+          },
+          {
+            "question": "Kilit Açma Zaman Çizelgesi tam olarak neyi takip eder?",
+            "answer": "Yalnızca seçili cüzdana bağlı doğrudan satın alma olaylarını. Her satır tutarı, UTC kilit açma zamanını, canlı geri sayımı, mevcut kilit durumunu ve o satın alma olayının arkasındaki Tronscan işlemini gösterir."
+          },
+          {
+            "question": "Neden bazı rotalar cüzdanın yalnızca izleme modunda olup olmadığını önemser?",
+            "answer": "Çünkü uygulama artık davranışı cüzdan türüne göre uygular. Yalnızca izleme cüzdanları durumu okuyabilir, ancak ambassador olarak kayıt olamaz, ödül çekemez veya doğrudan satın alma ya da likidite işlemleri gibi imzalama akışlarını yürütemez."
+          },
+          {
+            "question": "Airdrop sayfası artık sadece bir promosyon sayfası mı?",
+            "answer": "Hayır. Zaten durum içeren bir ekrandır. Telegram canlı rotadır ve kart, sıradaki hangi işlemin kullanılabilir olduğuna karar vermeden önce yerel cüzdan durumunu, mevcut bot oturum durumunu ve zincir üstü claim durumunu birleştirir."
+          },
+          {
+            "question": "Bilgi rotası website’in tek başına doğrulayamayacağı neyi doğrular?",
+            "answer": "Sözleşmeleri, vault’ları, likidite executors’ını, varlık cüzdanı bakiyelerini ve operator tarafı hazır olma durumunu tek bir kompakt operasyon ekranına taşır. Bu, doğrulamayı yalnızca bir dokümanlar sayfası değil ürün akışının parçası hâline getirir."
+          }
+        ]
+      },
+      "risk": {
+        "eyebrow": "Risk / Açıklama",
+        "title": "Yapılandırılmış mekanikler piyasa riskini ortadan kaldırmaz.",
+        "description": "4TEEN, görünür kurallara, ayrılmış sözleşme rollerine ve halka açık doğrulama yollarına sahip zincir üstü bir token protokolüdür. Bu, sistemi incelemeyi kolaylaştırır; ancak token katılımını garantili getirili bir ürüne dönüştürmez.",
+        "understandTitle": "Kullanıcıların anlaması gerekenler",
+        "understandItems": [
+          "Doğrudan protokol fiyatı, açık piyasa DEX fiyatıyla aynı değildir.",
+          "14 günlük kilit zamanlamayı değiştirir, ancak avantajlı bir çıkışı garanti etmez.",
+          "Likidite kuralları gelecekteki piyasa sonuçlarını değil, serbest bırakma davranışını tanımlar.",
+          "Ambassador ödülleri ve airdrop rotaları yapılandırılmış katmanlardır, garanti gelir değildir."
+        ],
+        "actionTitle": "Kullanıcıların yapması gerekenler",
+        "actionItems": [
+          "Harekete geçmeden önce sözleşmeleri, repo’ları ve halka açık dokümantasyonu doğrulayın.",
+          "Satın almadan önce kilit, ödül ve dağıtım mekaniklerini anlayın.",
+          "Desteklenen cüzdanları kullanın ve canlı rotaları dikkatle kontrol edin.",
+          "Protokol yapısını kâr vaadi gibi görmek yerine bağımsız kararlar alın."
+        ],
+        "noteTitle": "Önemli",
+        "noteText": "4TEEN, garantili sonuçlar değil gözlemlenebilir zincir üstü davranış üzerine kuruludur. Kullanıcılar sistemi kendileri doğrulamalı ve yalnızca anladıkları riskle hareket etmelidir."
+      },
+      "cta": {
+        "eyebrow": "Final CTA",
+        "title": "İhtiyacınız Olan Yüzeyi Seçin",
+        "lead": "Mobil uygulamayı alın, doğrudan satın almayı hazırlayın, kompakt mimari rotasını doğrulayın veya doğrudan canlı büyüme ve takip yüzeylerine gidin.",
+        "cards": [
+          {
+            "status": "Aç",
+            "tone": "live",
+            "title": "Uygulamayı Al",
+            "text": "Mağaza indirme seçenekleri ve cüzdan ürününe temiz bir geçiş ile mobil uygulama rotasından başlayın.",
+            "href": "/app"
+          },
+          {
+            "status": "Satın Al",
+            "tone": "live",
+            "title": "Doğrudan Satın Almayı Aç",
+            "text": "Tutar önizlemesi, onay ve cüzdan farkındalıklı geçitleme ile doğrudan sözleşme tarafı giriş akışına gidin.",
+            "href": "/buy"
+          },
+          {
+            "status": "Takip Et",
+            "tone": "live",
+            "title": "Doğrulamayı Aç",
+            "text": "Sözleşmeler, repo’lar, likidite mantığı ve uygulama yüzeylerinin arkasındaki mimari haritası için halka açık kanıt katmanını kullanın.",
+            "href": "/verification"
+          },
+          {
+            "status": "Yönet",
+            "tone": "live",
+            "title": "Ambassador Cabinet’i Aç",
+            "text": "Kayıt olun, referral kimliğini inceleyin, satın almaları takip edin ve canlı ödül durumuyla tek bir rotada çalışın.",
+            "href": "/ambassadors"
+          }
+        ],
+        "actions": [
+          {
+            "label": "Uygulamayı Al",
+            "href": "/app"
+          },
+          {
+            "label": "Doğrudan Satın Almayı Aç",
+            "href": "/buy"
+          },
+          {
+            "label": "Canlı Telegram Rotasını Aç",
+            "href": "/airdrop"
+          }
+        ]
+      }
     }
   }
 }
