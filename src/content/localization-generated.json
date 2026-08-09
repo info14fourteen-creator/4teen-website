@@ -5247,6 +5247,194 @@
           "openApp": "Mobil ilova yo‘nalishini ochish"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "Ommaviy Ambassador kontrolleri",
+        "description": "Jonli FourteenController jami ko‘rsatkichlari, kabinetga tayangan ro‘yxatdan o‘tish oqimi, xaridor bog‘lanishi isboti, mukofot kuzatuvi va ishga tayyorlik holatiga ega 4TEEN ommaviy ambassador kontrolleri."
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "Ommaviy ambassador kontrolleri",
+        "title": "Orqasida haqiqiy kabinet turgan ommaviy 4TEEN Ambassador kontrolleri",
+        "subtitle": "Veb-sayt — isbot qatlami. Ro‘yxatdan o‘tish, slug egaligi, xaridorni bog‘lash, mukofot hisoblanishi va yechib olishlar hamon hamyon kabinetida ishlaydi va FourteenController bilan hisob-kitob qiladi.",
+        "body": [
+          "Bu route ommaviy sahifani ishlaydigan kabinetdek ko‘rsatmasligi kerak. Haqiqiy oqim hamyonda boshlanadi: foydalanuvchi ambassador identifikatorini ro‘yxatdan o‘tkazadi, slugni oladi, on-chain profilni sinxronlaydi, so‘ng xaridorga bog‘langan hajm va mukofotlarni yig‘ib boradi.",
+          "Ommaviy saytning vazifasi boshqa. U kontroller jonli ekanini, kabinet profillari mavjudligini, xaridor bog‘lanishlari kuzatilayotganini, xaridlar qayta ishlanayotganini va mukofot holati back-office ichida yo‘qolib ketmasdan ko‘rinib turishini isbotlashi kerak."
+        ],
+        "rotatingLines": [
+          "RO‘YXATDAN O‘TKAZING. BOG‘LANG. TEKSHIRING. YECHIB OLING.",
+          "OMMAVIY ISBOT. HAQIQIY KABINET.",
+          "AVVAL SLUG. KEYIN MUKOFOT OQIMI."
+        ],
+        "primaryCta": "Hamyon routeini ochish",
+        "secondaryCta": "Ro‘yxatdan o‘tish oqimini ko‘rish",
+        "ctaNote": "Kabinet identifikatori, referral havola, xaridor qatorlari, kutilayotgan replay va yechib olishlar hamyon-native bo‘lib qoladi. Veb-sayt ommaviy, o‘qiladigan va halol bo‘lib qoladi.",
+        "stats": {
+          "profilesOnChain": {
+            "label": "On-chain profillar",
+            "meta": "Kontrollerga tayangan kabinet qatlami orqali allaqachon ko‘rinadigan ambassador profillari."
+          },
+          "boundBuyers": {
+            "label": "Bog‘langan xaridorlar",
+            "meta": "Ambassador profillariga allaqachon biriktirilgan xaridor identifikatorlari."
+          },
+          "rewardsClaimed": {
+            "label": "Yechib olingan mukofotlar",
+            "meta": "Ambassadorlar kabinet oqimi orqali allaqachon yechib olgan TRX."
+          },
+          "pendingReplay": {
+            "label": "Kutilayotgan replay",
+            "meta": "Tugallangandek ko‘rsatilish o‘rniga resurslar xavfsiz bo‘lganda qayta ishlanishini kutayotgan qatorlar."
+          },
+          "readFailed": "Jonli ambassador ma’lumotlarini o‘qib bo‘lmadi.",
+          "readRetry": "Bir ozdan keyin yangilab ko‘ring."
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "Kabinet routei",
+          "title": "Ommaviy sahifa kabinet emas. U kabinet mavjudligini isbotlaydi.",
+          "intro": "Mahsulotning toza ajratilishi shunday. Hamyon identifikator, bog‘lash, replay va yechib olish amallariga egalik qiladi. Sayt esa mexanikani tushuntiradi va tizim haqiqatan ham harakatlanayotganini ko‘rsatadi.",
+          "mainCard": {
+            "eyebrow": "Kontroller + Kabinet",
+            "title": "Ro‘yxatdan o‘tish va mukofotlar hamyon-native bo‘lib qoladi. Ommaviy isbot ochiq qoladi.",
+            "text": "Kabinet endpointi on-chain dashboard holatini xaridorlar, xaridlar va kutilayotgan replay bo‘yicha database qatorlari bilan allaqachon birlashtiradi. Bu ommaviy saytga kabinetning o‘zini almashtira oladigandek ko‘rsatmasdan, oqim haqida rost gapirish imkonini beradi.",
+            "bullets": [
+              "Kabinet referral havolani ambassador slugidan aniqlaydi.",
+              "Xaridorga bog‘langan xaridlar saqlanadi va resurslar imkon berganda kontrollerga qarshi replay qilinadi.",
+              "Yechib olinadigan mukofot holati va yechib olish tarixi on-chain profil bilan birga kuzatiladi."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Slug egaligi",
+              "title": "Hamyon faqat marketing matni bilan ambassador bo‘lib qolmaydi",
+              "text": "Ro‘yxatdan o‘tish oqimi slug mavjudligini tekshiradi, bir hamyonning takroriy ro‘yxatdan o‘tishini oldini oladi va route yakunlangan deb hisoblanishidan oldin haqiqiy on-chain ambassador profilini kutadi."
+            },
+            {
+              "eyebrow": "Xaridorni bog‘lash",
+              "title": "Daromad routei xaridlar haqiqatda atributsiya qilinganda boshlanadi",
+              "text": "Bog‘langan xaridorlar, atributsiya qilingan xaridlar, qayta ishlangan kontroller qatorlari va kutilayotgan replay — bularning barchasi alohida holatlar. Kabinet ularni bitta bezak raqamga tekislamaydi."
+            }
+          ],
+          "note": "Shuning uchun sahifa ishlaydigan holati yo‘q soxta referral landing page emas, balki orqasida haqiqiy kabinet turgan ommaviy ambassador kontrollerini tasvirlashi kerak."
+        },
+        "registration": {
+          "eyebrow": "Ro‘yxatdan o‘tish oqimi",
+          "title": "Ro‘yxatdan o‘tish hamyonda boshlanadi, keyin on-chain profilga aylanadi.",
+          "intro": "Ro‘yxatdan o‘tish ekrani erkin signup forma emas. Bu slug tanlash, hamyon identifikatori, energiya routing va kontroller sinxroni ahamiyatli bo‘la boshlaydigan nuqta.",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "Hamyon resurslarni hisoblab berishi, slugni validatsiya qilishi va shundan keyingina ro‘yxatdan o‘tishni yakunlashi mumkin.",
+            "text": "API slug band yoki band emasligini, hamyon allaqachon ro‘yxatdan o‘tgan-o‘tmaganini va ambassador_registration maqsadi uchun energiya routei tayyorligini tekshiradi. Tranzaksiyadan keyin kabinet sinxroni on-chain profil haqiqatan ham mavjudligini tasdiqlaydi.",
+            "bullets": [
+              "Route tasdiqlanishidan oldin slug mavjudligi tekshiriladi.",
+              "Kerak bo‘lganda energiya ijarasi aynan ambassador ro‘yxatdan o‘tishi uchun so‘ralishi mumkin.",
+              "Kabinet sinxroni saqlangan slug hashni tekshiradi va yakuniy referral havolani ko‘rsatadi."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Hamyon identifikatori",
+              "title": "Ro‘yxatdan o‘tish bir martalik forma to‘ldirish emas, profilga aylanadi",
+              "text": "Sinxronlangandan keyin ambassadorda hamyonga bog‘langan profil bo‘ladi: joriy daraja, mukofot foizi, xaridorlar soni, hajm, hisoblangan mukofotlar, yechib olingan mukofotlar va yechib olinadigan balans."
+            },
+            {
+              "eyebrow": "Replay xavfsizligi",
+              "title": "Agar operator tomoni resurs yetishmovchiligiga uchrasa, qatorlar yolg‘on gapirish o‘rniga kutadi",
+              "text": "Kutilayotgan replay haqiqat qatlamining bir qismidir. Kabinet operator resurslari tasdiqlangan xaridlarni toza qayta ishlash uchun yetarlicha xavfsiz bo‘lmaguncha uni ko‘rinadigan holda saqlaydi."
+            }
+          ],
+          "note": "Demak, ro‘yxatdan o‘tish ketma-ketligi kosmetik emas. Bu keyinchalik referral holati, xarid qatorlari va yechib olishlarni saqlaydigan o‘sha kabinetga kirish eshigidir."
+        },
+        "ledger": {
+          "eyebrow": "Ommaviy ledger",
+          "title": "Kabinet amallari shaxsiy qolganida ham kontroller jami ko‘rsatkichlari ommaviy bo‘lib qoladi.",
+          "note": "FourteenController tizim darajasidagi hisoblar va balanslarni ochib beradi. Sayt ommaviy qatlam kabinet tranzaksiyalarini imzolay oladigandek ko‘rsatmasdan, buni ko‘rinadigan qilishi kerak.",
+          "rows": {
+            "totalAmbassadors": "Jami ambassadorlar",
+            "activeAmbassadors": "Faol ambassadorlar",
+            "boundBuyers": "Bog‘langan xaridorlar",
+            "trackedVolume": "Kuzatilgan hajm",
+            "rewardsAccrued": "Hisoblangan mukofotlar",
+            "rewardsClaimed": "Yechib olingan mukofotlar",
+            "reservedRewards": "Zaxiralangan mukofotlar",
+            "ownerAvailable": "Egaga mavjud",
+            "unallocatedFunds": "Taqsimlanmagan xarid mablag‘lari"
+          }
+        },
+        "runtime": {
+          "eyebrow": "Kabinet runtime",
+          "title": "Agar resurslar kam bo‘lsa, qatorlar tozalangandek ko‘rsatish o‘rniga kutadi.",
+          "note": "Ommaviy runtime ko‘rinishi muhim, chunki u replay nega qonuniy ravishda navbatga turishi mumkinligini tushuntiradi. Kam energiya yoki bandwidth endi jim xatolik emas; u ko‘rinadigan tizim holatidir.",
+          "readyYes": "Hozir tayyor",
+          "readyNo": "To‘ldirish kerak",
+          "rows": {
+            "operatorWallet": "Operator hamyoni",
+            "readyNow": "Hozir tayyor",
+            "profilesOnChain": "On-chain profillar",
+            "profilesActive": "Faol profillar",
+            "pendingReplay": "Kutilayotgan replay",
+            "lastPurchaseSeen": "Ko‘rilgan oxirgi xarid",
+            "lastWithdrawalSeen": "Ko‘rilgan oxirgi yechib olish",
+            "energyAvailable": "Mavjud energiya",
+            "bandwidthAvailable": "Mavjud bandwidth",
+            "needPerAllocation": "Har bir ajratma uchun ehtiyoj",
+            "safeFloorAfterRun": "Ishdan keyingi xavfsiz minimum"
+          }
+        },
+        "levels": {
+          "eyebrow": "Daraja pog‘onalari",
+          "title": "Xaridorlar o‘sishi mukofot ulushini o‘zgartiradi.",
+          "suffix": "% malakali oqim bo‘yicha mukofot ulushi."
+        },
+        "proof": {
+          "eyebrow": "Isbot qatlami",
+          "title": "Ommaviy tomon kabinet allaqachon qayta ishlagan narsalarni baribir ko‘rsatishi kerak.",
+          "cards": {
+            "recordedPurchases": {
+              "title": "Qayd etilgan xaridlar",
+              "text": "Qayta ishlangan va kutilayotgan qatorlar bo‘ylab kabinet iziga allaqachon yozilgan xaridlar."
+            },
+            "ambassadorsWithPurchases": {
+              "title": "Xaridlarga ega ambassadorlar",
+              "text": "Daromad routei orqali xarid atributsiyasi harakatlanayotgan profillar."
+            },
+            "withdrawals": {
+              "title": "Yechib olish hodisalari",
+              "text": "Backend va kabinet sinxroni tomonidan allaqachon qayd etilgan mukofot yechib olish qatorlari."
+            },
+            "latestWithdrawal": {
+              "title": "Ko‘rilgan oxirgi yechib olish",
+              "text": "Eng so‘nggi qayd etilgan ambassador mukofoti yechib olingan vaqt belgisi."
+            }
+          },
+          "note": "Bu veb-saytni haqiqiy kabinet dalillariga bog‘lab turadi: xaridlar, replay navbati va yechib olishlarning barchasi ko‘rinadigan ommaviy iz qoldiradi."
+        },
+        "route": {
+          "eyebrow": "Isbot routelari",
+          "title": "Kontroller, hamyon implementatsiyasi va jonli appni tekshirish uchun ommaviy qatlamdan foydalaning.",
+          "cards": {
+            "contract": {
+              "eyebrow": "Kontrakt",
+              "title": "FourteenControllerni ochish",
+              "text": "Ambassador tizimi statistikasi va balanslarini saqlaydigan jonli kontrollerni tekshiring."
+            },
+            "walletRepo": {
+              "eyebrow": "Hamyon fayllari",
+              "title": "Hamyon reposini ochish",
+              "text": "Haqiqiy mahsulotni ishlatadigan kabinet, resurs routing, ro‘yxatdan o‘tish logikasi va replay oqimini ko‘ring."
+            },
+            "app": {
+              "eyebrow": "Hamyon routei",
+              "title": "App routeini ochish",
+              "text": "Ro‘yxatdan o‘tish, kabinet holati, referral havola va yechib olishlar hamyon tajribasiga tegishli."
+            }
+          },
+          "updatedPrefix": "Snapshot yangilandi"
+        }
+      }
     }
   }
 }
