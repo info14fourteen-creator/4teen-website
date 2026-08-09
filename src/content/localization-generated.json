@@ -4719,6 +4719,197 @@
           "openBuy": "Buy yo‘nalishini ochish"
         }
       }
+    },
+    "liquidity": {
+      "metadata": {
+        "title": "Ommaviy likvidlik nazoratchisi",
+        "description": "Jonli nazoratchi balansi, ommaviy bootstrapper ishga tushirish yo‘li, zaxira ko‘rinuvchanligi va tasdiqlangan ijro lentasiga ega 4TEEN ommaviy likvidlik nazoratchisi."
+      },
+      "hero": {
+        "eyebrow": "Likvidlik nazoratchisi",
+        "badge": "Ommaviy likvidlik nazoratchisi",
+        "title": "Ommaviy 4TEEN likvidlik nazoratchisi",
+        "subtitle": "Avtomatlashtirish yo‘lni uyg‘otishi mumkin, lekin kontrakt darvozasi ochiq bo‘lsa, har qanday hamyon bootstrapperni baribir ishga tushira oladi.",
+        "body": [
+          "Bu sahifa yopiq operatsion paneldek ko‘rinmasligi kerak. U bitta narsani aniq ko‘rsatishi kerak: nazoratchi tomonidagi TRX ko‘rinadi, zaxira tomonidagi inventar ko‘rinadi va chiqarish qoidalari hamon on-chain saqlanadi.",
+          "Agar UTC oynasi ochiq bo‘lsa, nazoratchi threshold’dan yuqori bo‘lsa va imzolovchi hamyonda yetarli tarmoq resurslari bo‘lsa, avtomatlashtirish qatlami bir kunni o‘tkazib yuborgan taqdirda ham likvidlik hamyondan ijro etilishi mumkin."
+        ],
+        "rotatingLines": [
+          "OMMAVIY TRIGGER. KONTRAKT DARVOZASI.",
+          "AVTOMATLASHTIRISH YORDAM BERADI. KONTRAKTLAR QAROR QILADI.",
+          "AVVAL BOOTSTRAP. IJRO ON-CHAIN."
+        ],
+        "primaryCta": "Hamyon yo‘lini ochish",
+        "secondaryCta": "Jonli ijrolarga o‘tish",
+        "ctaNote": "Veb-sayt — isbot qatlami. Hamyon esa qo‘lda trigger, resurs tekshiruvlari va yakuniy imzolash uchun ijro yuzasidir.",
+        "stats": {
+          "controllerBalance": {
+            "label": "Nazoratchi balansi",
+            "meta": "FourteenLiquidityController ichida hozir kutayotgan TRX."
+          },
+          "nextRelease": {
+            "label": "Keyingi chiqarish",
+            "meta": "Kontrakt oynasi yaroqli bo‘lganda chiqarilishi prognoz qilingan TRX."
+          },
+          "triggerFloor": {
+            "label": "Trigger minimumi",
+            "meta": "Ijro yaroqli bo‘lishidan oldin talab qilinadigan minimal nazoratchi balansi."
+          },
+          "cadence": {
+            "label": "Ritm",
+            "meta": "Har UTC kuni bir marta. Darvoza avtomatlashtirish bilan emas, kontrakt orqali majburiy qo‘llanadi."
+          },
+          "readFailed": "Jonli likvidlikni o‘qish muvaffaqiyatsiz tugadi.",
+          "readRetry": "Bir ozdan keyin yangilab ko‘ring."
+        }
+      },
+      "sections": {
+        "publicRoute": {
+          "eyebrow": "Ommaviy yo‘l",
+          "title": "Avtomatlashtirish sozlangan. Ommaviy ijro esa baribir hamyonga tegishli.",
+          "intro": "Hamyon ilovasi allaqachon avtomatlashtirish yo‘lini o‘z ichiga oladi, lekin bundan ham muhim xabar kengroq: bu yo‘l hamon ommaviy. Kontrakt shartlari allaqachon bajarilgan bo‘lsa, imzolovchi hamyon bootstrapperni uyg‘ota oladi.",
+          "mainCard": {
+            "eyebrow": "Ommaviy likvidlik nazoratchisi",
+            "title": "Har qanday hamyon yo‘lni uyg‘ota oladi. Likvidlik haqiqatan ko‘chadimi-yo‘qmi, buni baribir nazoratchi hal qiladi.",
+            "text": "Bu vakolatlarning to‘g‘ri ajratilishidir. Avtomatlashtirish timing bo‘yicha yordam berishi mumkin, lekin nazoratchi va bootstrapper vakolat qatlami bo‘lib qoladi. Bot to‘xtab qolsa ham ijro yo‘li yo‘qolib ketmaydi.",
+            "bullets": [
+              "To‘g‘ridan-to‘g‘ri 4TEEN xaridlari xarid TRXining 90% qismini nazoratchi balansiga yuboradi.",
+              "Nazoratchi ijro etishidan oldin LiquidityBootstrapper token tomonini FourteenVault’dan tayyorlaydi.",
+              "Har UTC kuniga bir marta qoidasi, minimal balans, chiqarish foizi va taqsimot on-chain qoladi."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Avtomatlashtirish",
+              "title": "Hamyon repo’si uyg‘otish yo‘lini allaqachon ulab qo‘ygan",
+              "text": "Mobil oqim likvidlik triggeri va avtomatlashtirish yordamchisini birga ko‘rsatadi. Bu scheduler’ni ko‘rinadigan qiladi, lekin scheduler’ni yashirin operatorga aylantirmaydi."
+            },
+            {
+              "eyebrow": "Qo‘lda trigger",
+              "title": "Agar avtomatlashtirish o‘tkazib yuborsa, foydalanuvchi yo‘lni baribir qo‘lda imzolay oladi",
+              "text": "Hamyon odatiy foydalanuvchi sessiyasidan bootstrapAndExecute() chaqira oladi. Agar darvoza ochiq bo‘lsa va resurslar mavjud bo‘lsa, likvidlik baribir amalga oshadi."
+            }
+          ],
+          "note": "Shu sababli sahifa xususiy back office haqida emas, ommaviy nazoratchi haqida gapirishi kerak. Yo‘l avtomatlashtirish qatlamidan keyin ham saqlanib qoladi."
+        },
+        "liveState": {
+          "eyebrow": "Jonli nazoratchi holati",
+          "title": "Nazoratchi hozir nimani ko‘rsatmoqda",
+          "rows": {
+            "controllerBalance": "Nazoratchi balansi",
+            "latestFunding": "So‘nggi moliyalashtirish",
+            "latestFundingAt": "So‘nggi moliyalashtirish vaqti",
+            "lastExecute": "So‘nggi ijro",
+            "minBalance": "Minimal balans",
+            "dailyRelease": "Kunlik chiqarish",
+            "split": "Maqsadli taqsimot",
+            "windowState": "Oyna holati",
+            "nextWindow": "Keyingi oyna",
+            "snapshotUpdated": "Snapshot yangilangan"
+          },
+          "valueLabels": {
+            "openNow": "Hozir ochiq",
+            "waitForThreshold": "Moliyalashtirishni kutish"
+          },
+          "stateLabels": {
+            "ready": "Hozir tayyor",
+            "waiting": "Bugun allaqachon ijro etilgan",
+            "threshold": "Threshold’dan past"
+          },
+          "note": "Snapshot foydali, chunki u harakatlanuvchi qismlarni aniq ajratadi: nazoratchi TRX, moliyalashtirish ritmi, chiqarish hajmi, threshold va vaqt darvozasi bir vaqtda ko‘rinib turadi."
+        },
+        "triggerModel": {
+          "eyebrow": "Trigger modeli",
+          "title": "Kimdir Trigger Liquidity tugmasini bosganda aslida nima sodir bo‘ladi",
+          "intro": "Rostini aytganda yo‘l oddiy: avval bootstrapper kun darvozasini tekshiradi va executor inventarini to‘ldiradi, keyin nazoratchi TRX chiqaradi, so‘ng ikki bozor yo‘li o‘z ulushini oladi.",
+          "mainCard": {
+            "eyebrow": "bootstrapAndExecute()",
+            "title": "Trigger yo‘li ommaviy, resurslardan xabardor va hamon kontraktlar tomonidan boshqariladi.",
+            "text": "Bu soxta admin tugmasi emas. Hamyon odatiy tarmoq shartlarini bajarishi kerak, yo‘l esa faqat ayni nazoratchi qoidalari ijro vaqtida ham o‘tsa davom etadi.",
+            "bullets": [
+              "1-qadam: bootstrapper nazoratchi oynasini tekshiradi va ruxsat etilgan chiqarish hajmini hisoblaydi.",
+              "2-qadam: bozor tomoni leg’i ishlashidan oldin bootstrapper FourteenVault’dan executor tomonidagi 4TEEN’ni to‘ldiradi.",
+              "3-qadam: nazoratchi chiqarishni ijro etadi va oqimni JustMoney hamda Sun.io V3 bo‘ylab 50 / 50 qilib taqsimlaydi."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Resurslar",
+              "title": "Oddiy hamyon yo‘lni ijara yoki oldindan yuklangan energy bilan qoplay oladi",
+              "text": "Ilova buni allaqachon resurslardan xabardor harakat sifatida ko‘rsatadi. Gap yashirin server kalitida emas. Gap ommaviy hamyon yo‘lni barqaror yakunlay olishida."
+            },
+            {
+              "eyebrow": "Qoidalar to‘plami",
+              "title": "Scheduler qulayligi kontrakt qoidalari to‘plamini hech qachon chetlab o‘tmaydi",
+              "text": "Bot oynasini o‘tkazib yuborish ritmni qayta yozmaydi. Tugmani erta bosish darvozani aylanib o‘tmaydi. Kontraktlar yo‘lni baribir qabul qiladi yoki rad etadi."
+            }
+          ],
+          "note": "Bu to‘g‘ri bozor signali: ommaviy trigger, ko‘rinadigan zaxira tayyorgarligi, deterministik chiqarish qoidasi."
+        },
+        "latestExecutions": {
+          "eyebrow": "So‘nggi ijrolar",
+          "title": "Jonli lentadan tasdiqlangan likvidlik ijrolari",
+          "body": "Bu ro‘yxat ataylab ixcham saqlanadi. U eng so‘nggi tasdiqlangan ijro qatorlarini ko‘rsatadi, shunda foydalanuvchi sahifani shovqinli block explorer kloniga aylantirmasdan nazoratchi tirik ekanini tekshira oladi.",
+          "headers": {
+            "total": "Jami chiqarilgan",
+            "split": "Taqsimot",
+            "happened": "Sodir bo‘lgan vaqt",
+            "day": "UTC kuni",
+            "source": "Manba"
+          },
+          "empty": "Hozircha tasdiqlangan LiquidityExecuted qatorlari ko‘rinmayapti.",
+          "openTx": "Txni ochish",
+          "note": "Har bir qator tasdiqlangan LiquidityExecuted(day, totalAmount, amountA, amountB) event’laridan keladi."
+        },
+        "reservePath": {
+          "eyebrow": "Zaxira yo‘li",
+          "title": "Zaxira tokenlari erkin aylanma emas, inventardir",
+          "intro": "Nazoratchi tomonidagi TRX yo‘lning faqat yarmi. Token tomoni ham izolyatsiyalangan inventarga muhtoj, shuning uchun ikki ijro yo‘li o‘z balanslarini olishidan oldin FourteenVault mavjud.",
+          "primaryCard": {
+            "eyebrow": "Zaxira qatlami",
+            "title": "FourteenVault bozor ijrosi boshlanishidan oldin ommaviy likvidlik yo‘lini ta’minlaydi.",
+            "text": "Bu 4TEEN balanslari zaxira tomonidagi ishchi inventar sifatida o‘qilishi kerak. Ular oddiy hamyon balanslari emas va erkin muomaladagi supply kabi talqin qilinmasligi kerak.",
+            "bullets": [
+              "Nazoratchi ijro etishidan oldin vault inventari bootstrapper yo‘liga to‘ldiriladi.",
+              "JustMoney va Sun.io V3 tayyorlangan balanslarni faqat yo‘l yaroqli bo‘lganda oladi.",
+              "Zaxira custody, nazoratchi TRX va executor manzillari bir dvigatelning alohida qatlamlaridir."
+            ]
+          },
+          "secondaryCards": [
+            {
+              "key": "justmoney",
+              "title": "JustMoney yo‘li",
+              "body": "Executor A ruxsat etilgan chiqarishning yarmini oladi va token inventari tayyorlangach, AMM tomonidagi likvidlik yo‘lini ishga tushiradi."
+            },
+            {
+              "key": "sun",
+              "title": "Sun.io V3 yo‘li",
+              "body": "Executor B qolgan yarmini oladi va uni o‘zining tayyorlangan token tomoni bilan concentrated-liquidity yo‘li orqali yo‘naltiradi."
+            }
+          ],
+          "note": "Shuning uchun sahifa shunchaki bitta vanity total’ni chiqarish emas, balki yo‘lni tushuntirishi kerak. Zaxira inventari, nazoratchi balansi va ijro manzillari turli vazifalarni bajaradi."
+        },
+        "verification": {
+          "eyebrow": "Tekshiruv",
+          "title": "Isbot qatlamini ochish",
+          "body": "Hikoyadan to‘g‘ridan-to‘g‘ri uning ostidagi relslarga o‘ting: nazoratchi kontrakti, bootstrapper yo‘li, executor kontraktlari va avtomatlashtirish hamda qo‘lda trigger’ni ko‘rsatadigan hamyon implementatsiyasi.",
+          "labels": {
+            "controller": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "justMoney": "JustMoney executor",
+            "sunV3": "Sun.io V3 executor",
+            "contractsRepo": "Kontraktlar repository’si",
+            "walletRepo": "Hamyon repository’si"
+          }
+        },
+        "cta": {
+          "eyebrow": "Keyingi qadam",
+          "title": "Yo‘lni o‘zingiz uyg‘otmoqchi bo‘lsangiz, hamyonni oching",
+          "body": "Sayt — holatni tekshiradigan joyingiz. Mobil hamyon esa haqiqiy foydalanuvchi resurslarni ko‘rishi, bootstrapperni chaqirishi va nazoratchi darvozasi allaqachon ochiq bo‘lsa, yo‘lni imzolashi mumkin bo‘lgan joy.",
+          "openApp": "Ilovada Liquidity’ni ochish",
+          "openBuy": "Xarid yo‘lini ochish"
+        }
+      }
     }
   }
 }
