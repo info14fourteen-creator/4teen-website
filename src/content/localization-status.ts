@@ -101,7 +101,7 @@ export const localizationPageStatuses: LocalizationPageStatus[] = [
   {
     page: "verification",
     source: "src/content/verification-content.ts",
-    states: { en: "complete" },
+    states: { en: "complete", ru: "partial", uz: "partial" },
   },
   {
     page: "deck",
