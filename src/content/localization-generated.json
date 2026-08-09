@@ -6291,6 +6291,116 @@
       ],
       "linksEyebrow": "Ommaviy chiqishlar",
       "footerNote": "Maxfiylik savollarini support@4teen.me manziliga yuborish mumkin. Rasmiy telefon va WhatsApp qo‘llab-quvvatlashi: +998 95 792 02 87."
+    },
+    "terms": {
+      "metadata": {
+        "title": "Shartlar",
+        "description": "4TEEN veb-sayti, hamyon yo‘nalishlari, ommaviy protokol sahifalari va on-chain ekotizim yuzalaridan foydalanish uchun asosiy shartlar."
+      },
+      "hero": {
+        "eyebrow": "Shartlar",
+        "status": "Ommaviy shartlar",
+        "title": "4TEEN — bu ommaviy blockchain tizimlari, hamyon orqali bajarish va on-chain shartnomalar atrofidagi interfeys qatlami; u natija va’dasi emas.",
+        "lead": "Ushbu shartlarni amaliy tarzda o‘qish kerak: aslida nima sodir bo‘lishini kod, hamyon tasdig‘i, tarmoq holati va smart-contract qoidalari belgilaydi. Sayt va ilova sizga ushbu yuzalarga yetib borishda yordam berishi mumkin, ammo ular on-chain risk yoki bozor riskini yo‘q qilmaydi."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Operator",
+          "title": "\"AG PLUS\" LLC",
+          "body": "\"AG PLUS\" Limited Liability Company rasmiy 4TEEN veb-sayti va e’lon qilingan qo‘llab-quvvatlash yo‘nalishlari uchun yuridik operatordir. D-U-N-S Number: 933906683."
+        },
+        {
+          "eyebrow": "Mohiyat",
+          "title": "Interfeys, saqlash xizmati emas",
+          "body": "Veb-sayt va hamyon blockchain harakatlarini ko‘rish, tayyorlash va imzolashga yordam beradi. Ular biror yo‘nalishni ko‘rsatgani uchungina aktivlaringiz egasiga aylanmaydi."
+        },
+        {
+          "eyebrow": "Risk",
+          "title": "Bozor kafolati yo‘q",
+          "body": "Token narxi, likvidlik, chiqarilish vaqti, mukofot natijalari va kampaniya natijalari o‘zgarishi mumkin. Saytdagi hech narsa kafolatlangan daromad yoki kafolatlangan ajratma sifatida talqin qilinmasligi kerak."
+        },
+        {
+          "eyebrow": "Mas’uliyat",
+          "title": "Harakatni siz tasdiqlaysiz",
+          "body": "Agar tranzaksiyani imzolasangiz, manzilni joylasangiz yoki shartnoma bilan o‘zaro aloqaga kirsangiz, yo‘nalish, aktiv, miqdor va manzilni tekshirish uchun mas’uliyat sizda qoladi."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Yuridik operator",
+          "title": "Rasmiy 4TEEN veb-sayti AG PLUS LLC tomonidan yuritiladi",
+          "body": "\"AG PLUS\" Limited Liability Company, O‘zbekiston Respublikasida ro‘yxatdan o‘tgan Limited Liability Company, https://4teen.me va 4TEEN uchun rasmiy ommaviy loyiha yuzalarini yuritadi.",
+          "bullets": [
+            "Soliq to‘lovchining identifikatsiya raqami: 312 696 228",
+            "Davlat ro‘yxatidan o‘tkazish raqami: 3080788, 06 January 2026 ro‘yxatdan o‘tgan",
+            "D-U-N-S Number: 933906683",
+            "Yuridik manzil: Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B"
+          ],
+          "note": "Rasmiy yuridik va qo‘llab-quvvatlash kontakti: support@4teen.me; telefon va WhatsApp: +998 95 792 02 87."
+        },
+        {
+          "eyebrow": "2. Mahsulot mohiyati",
+          "title": "Sayt va ilova kirish qatlamlaridir",
+          "body": "4TEEN yuzalari axborot sahifalari, ommaviy protokol panellari, mobil hamyon yo‘nalishlari, to‘g‘ridan-to‘g‘ri xarid oqimlari, likvidlik boshqaruvlari, airdrop ko‘rinishlari va ambassador yo‘nalishlarini o‘z ichiga oladi. Ushbu yuzalar sizga blockchain harakatlariga yetib borishda yordam beradi, ammo ular baribir ommaviy tarmoqlar va joylashtirilgan shartnomalar ustiga qurilgan interfeyslardir."
+        },
+        {
+          "eyebrow": "3. Non-custodial va on-chain haqiqat",
+          "title": "Protokol shartnomalar va foydalanuvchi imzolari bilan belgilanadi",
+          "body": "Agar biror xatti-harakat shartnoma kodi, hamyon tasdig‘i yoki ko‘rinadigan resurs tekshiruvlari orqali majburan bajarilsa, u real hisoblanadi. Agar nimadir faqat matnda nazarda tutilgan bo‘lsa va bajarish logikasi bilan qo‘llab-quvvatlanmasa, uni kafolat deb qabul qilmang.",
+          "bullets": [
+            "Tranzaksiyalar on-chain tasdiqlangach, qaytarib bo‘lmaydi",
+            "Tarmoq tirbandligi, komissiyalar, energiya va bandwidth bajarilishga ta’sir qilishi mumkin",
+            "Shartnoma xatti-harakati joylashtirilgan kod va joriy holatga bog‘liq"
+          ]
+        },
+        {
+          "eyebrow": "4. Investitsiya va’dasi yo‘q",
+          "title": "Bu yerda hech narsa moliyaviy maslahat emas",
+          "body": "4TEEN foyda, token qiymatining oshishi, kafolatlangan airdrop qiymati, kafolatlangan ambassador daromadi yoki kafolatlangan likvidlik natijalarini va’da qilmaydi. Bozor xatti-harakati tashqi omildir va barcha ishtirok foydalanuvchining o‘z riskida qoladi."
+        },
+        {
+          "eyebrow": "5. Mukofot va kampaniya logikasi",
+          "title": "Muvofiqlik marketing shiori emas",
+          "body": "Airdrop, ambassador va mukofot oqimlari shartnoma qoidalari, kampaniya shartlari, suiiste’molga qarshi tekshiruvlar, verifikatsiya logikasi, resurs mavjudligi yoki backend qayta ishlash navbatlariga bog‘liq bo‘lishi mumkin. Ishtirokning o‘zi to‘lovni kafolatlamaydi."
+        },
+        {
+          "eyebrow": "6. Tashqi havolalar va uchinchi tomonlar",
+          "title": "Har bir havola qilingan yuza 4TEEN tomonidan nazorat qilinmaydi",
+          "body": "Explorerlar, repositorylar, DEX yo‘nalishlari, ijtimoiy kanallar va store sahifalari sayt yoki ilovadan havola qilinishi mumkin. Ushbu xizmatlar o‘z shartlari va ishlash vaqti sharoitlari asosida faoliyat yuritadi. 4TEEN ularning mavjudligi yoki xatti-harakatini kafolatlamaydi."
+        },
+        {
+          "eyebrow": "7. Foydalanuvchi mas’uliyati",
+          "title": "Siz nima qilayotganingizni baribir tekshirishingiz kerak",
+          "bullets": [
+            "Imzolashdan oldin shartnoma manzillari va aktiv belgilarini tekshiring",
+            "Seed phrase, private key va qurilmaga kirishni himoya qiling",
+            "Qabul qiluvchi manzillar va tranzaksiya miqdorlarini tekshiring",
+            "Relizlar yoki qo‘llab-quvvatlashni tekshirganda faqat rasmiy kanallardan foydalaning"
+          ],
+          "note": "Noto‘g‘ri manzillar, buzilgan qurilmalar, oshkor bo‘lgan tiklash iboralari yoki shartnoma xatti-harakatini noto‘g‘ri tushunish sababli yuzaga kelgan yo‘qotish foydalanuvchi tomonidagi risk bo‘lib qoladi."
+        },
+        {
+          "eyebrow": "8. Yangilanishlar",
+          "title": "Mahsulot vaqt o‘tishi bilan o‘zgarishi mumkin",
+          "body": "Sahifalar, hamyon yo‘nalishlari, protokol integratsiyalari, kampaniya logikasi va ommaviy matn mahsulot rivojlangani sari o‘zgarishi mumkin. O‘zgarishlardan keyin veb-sayt yoki ilovadan foydalanishni davom ettirish mahsulotning eski kutilmalar emas, balki joriy versiyasidan foydalanayotganingizni anglatadi."
+        }
+      ],
+      "links": [
+        {
+          "label": "Mobil ilova sahifasini ochish",
+          "href": "/app"
+        },
+        {
+          "label": "Verifikatsiyani ochish",
+          "href": "/verification"
+        },
+        {
+          "label": "Smart contracts repositoryni ochish",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Ommaviy chiqish havolalari",
+      "footerNote": "Ushbu shartlarni shartnoma manzillari, explorer holati va hamyon tasdiqlash ekrani bilan birga o‘qing. Tashkilot identifikatsiyasi: \"AG PLUS\" LLC, D-U-N-S 933906683."
     }
   }
 }
