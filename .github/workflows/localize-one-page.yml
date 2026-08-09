@@ -149,7 +149,6 @@ jobs:
         run: pnpm build
 
       - name: Smoke-test active localized route
-        if: inputs.locale == 'ru' || inputs.locale == 'uz'
         shell: bash
         env:
           TARGET_LOCALE: ${{ inputs.locale }}
@@ -204,7 +203,7 @@ jobs:
         run: pnpm cf:deploy
 
       - name: Verify live localized route
-        if: inputs.publish && (inputs.locale == 'ru' || inputs.locale == 'uz')
+        if: inputs.publish
         shell: bash
         env:
           TARGET_LOCALE: ${{ inputs.locale }}
