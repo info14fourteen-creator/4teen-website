@@ -1,25 +1,40 @@
+import createJiti from "jiti";
+import path from "node:path";
+
+// The translation scripts run outside Next.js. Jiti applies this repository's
+// TypeScript and path-alias configuration while reading the English source.
+const jiti = createJiti(import.meta.url, {
+  alias: { "@": path.resolve("src") },
+  interopDefault: true,
+});
+const load = (modulePath) => jiti(modulePath);
+
 const moduleLoaders = {
   airdrop: async () => {
-    const contentModule = await import("../../src/content/airdrop-content.ts");
+    const contentModule = load("../../src/content/airdrop-content.ts");
     return contentModule.getAirdropPageContent("en");
   },
   ambassadors: async () => {
-    const contentModule = await import("../../src/content/ambassadors-content.ts");
+    const contentModule = load("../../src/content/ambassadors-content.ts");
     return contentModule.getAmbassadorsPageContent("en");
   },
   app: async () => {
-    const contentModule = await import("../../src/content/app-content.ts");
+    const contentModule = load("../../src/content/app-content.ts");
     return contentModule.getAppPageContent("en");
   },
+  blog: async () => {
+    const contentModule = load("../../src/content/public-pages-content.ts");
+    return contentModule.getPublicPagesContent("en").blog;
+  },
   buy: async () => {
-    const contentModule = await import("../../src/content/buy-content.ts");
+    const contentModule = load("../../src/content/buy-content.ts");
     return contentModule.getBuyPageContent("en");
   },
   global: async () => {
     const [chrome, nav, search] = await Promise.all([
-      import("../../src/content/chrome-content.ts"),
-      import("../../src/content/nav-content.ts"),
-      import("../../src/content/search-content.ts"),
+      load("../../src/content/chrome-content.ts"),
+      load("../../src/content/nav-content.ts"),
+      load("../../src/content/search-content.ts"),
     ]);
 
     return {
@@ -28,21 +43,49 @@ const moduleLoaders = {
       search: search.getSearchContent("en"),
     };
   },
+  home: async () => {
+    const contentModule = load("../../src/content/home-content.ts");
+    return contentModule.getHomePageContent("en");
+  },
   liquidity: async () => {
-    const contentModule = await import("../../src/content/liquidity-content.ts");
+    const contentModule = load("../../src/content/liquidity-content.ts");
     return contentModule.getLiquidityPageContent("en");
   },
+  deck: async () => {
+    const contentModule = load("../../src/content/genesis-content.ts");
+    return contentModule.getGenesisDeckContent("en");
+  },
+  "one-pager": async () => {
+    const contentModule = load("../../src/content/one-pager-content.ts");
+    return contentModule.getOnePagerContent("en");
+  },
+  privacy: async () => {
+    const contentModule = load("../../src/content/public-pages-content.ts");
+    return contentModule.getPublicPagesContent("en").privacy;
+  },
+  support: async () => {
+    const contentModule = load("../../src/content/public-pages-content.ts");
+    return contentModule.getPublicPagesContent("en").support;
+  },
   swap: async () => {
-    const contentModule = await import("../../src/content/swap-content.ts");
+    const contentModule = load("../../src/content/swap-content.ts");
     return contentModule.getSwapPageContent("en");
   },
+  terms: async () => {
+    const contentModule = load("../../src/content/public-pages-content.ts");
+    return contentModule.getPublicPagesContent("en").terms;
+  },
   unlock: async () => {
-    const contentModule = await import("../../src/content/unlock-content.ts");
+    const contentModule = load("../../src/content/unlock-content.ts");
     return contentModule.getUnlockPageContent("en");
   },
   verification: async () => {
-    const contentModule = await import("../../src/content/verification-content.ts");
+    const contentModule = load("../../src/content/verification-content.ts");
     return contentModule.getVerificationPageContent("en");
+  },
+  whitepaper: async () => {
+    const contentModule = load("../../src/content/whitepaper-content.ts");
+    return contentModule.getWhitepaperPageContent("en");
   },
 };
 

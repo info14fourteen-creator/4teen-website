@@ -29,6 +29,7 @@ on:
         type: choice
         options:
           - global
+          - home
           - app
           - buy
           - unlock
@@ -37,6 +38,13 @@ on:
           - airdrop
           - ambassadors
           - verification
+          - whitepaper
+          - one-pager
+          - deck
+          - privacy
+          - terms
+          - support
+          - blog
       publish:
         description: Commit the validated unit
         required: false

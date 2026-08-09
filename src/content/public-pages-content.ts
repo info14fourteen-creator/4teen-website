@@ -1,4 +1,5 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import { getGeneratedPageContent } from "../lib/generated-localization";
 import {
   officialContractsRepoUrl,
   officialLegalEntity,
@@ -543,5 +544,12 @@ const publicPagesContentByLocale: Partial<
 };
 
 export function getPublicPagesContent(locale: SupportedSiteLocale) {
-  return publicPagesContentByLocale[locale] ?? publicPagesContentByLocale.en!;
+  const fallback = publicPagesContentByLocale[locale] ?? publicPagesContentByLocale.en!;
+
+  return {
+    privacy: getGeneratedPageContent(locale, "privacy", fallback.privacy),
+    terms: getGeneratedPageContent(locale, "terms", fallback.terms),
+    blog: getGeneratedPageContent(locale, "blog", fallback.blog),
+    support: getGeneratedPageContent(locale, "support", fallback.support),
+  };
 }

@@ -1,5 +1,6 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
 import { whitepaperCurrentDocumentEn } from "@/content/whitepaper-v1-4";
+import { getGeneratedPageContent } from "../lib/generated-localization";
 
 export type WhitepaperVersionSlug = "v1-3" | "v1-2" | "v1-1" | "v1-0";
 
@@ -1641,9 +1642,7 @@ The combination of real TRX backing, dynamic supply, and structured liquidity di
 export function getWhitepaperPageContent(
   locale: SupportedSiteLocale,
 ): WhitepaperPageContent {
-  void locale;
-
-  return whitepaperContentEn;
+  return getGeneratedPageContent(locale, "whitepaper", whitepaperContentEn);
 }
 
 export function getCurrentWhitepaperDocument(
