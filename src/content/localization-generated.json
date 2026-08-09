@@ -5884,6 +5884,142 @@
           "document": "**Versiya:** 1.0\n\n**Sana:** Nov 30, 2025\n\n---\n\n## Xulosa\n\n4TEEN — short-cycle price expansion, transparent liquidity flow va fair on-chain mechanics uchun qurilgan TRON-based token. Uning iqtisodiyoti fixed entry price, dynamic supply, time-locked tokens va automated liquidity distribution model atrofida tuzilgan. 4TEEN maqsadi on-chain liquidity va incentive flows’ni tushunadigan DeFi participants uchun mos predictable, transparent va self-reinforcing growth mechanism yaratishdir.\n\n---\n\n## 1. Kirish\n\n4TEEN — **fixed total supply yo‘q** bo‘lgan demand-driven token, unda tokens faqat real TRX system’ga kirganda mint qilinadi. Project speed, transparency va sustainable liquidity growth uchun qurilgan. Qisqa **14-day lock period** market stability’ni ta’minlaydi, continuous liquidity forwarding esa vaqt o‘tishi bilan token market depth’ini kuchaytiradi.\n\n4TEEN **clean tokenomics**, **real liquidity** va **manual manipulate qilib bo‘lmaydigan mechanics**ni qadrlaydigan DeFi users uchun mo‘ljallangan.\n\n---\n\n## 2. 4TEEN qanday ishlaydi\n\n### 01. Fixed Entry Price\n\n4TEEN quyidagi constant entry rate’dan foydalanadi:\n\n**1 TRX = 1 4TEEN**\n\nBu slippage, arbitrary pricing va early-stage volatility’ni bartaraf etadi.\n\nHar bir buyer aynan bir xil price’da kiradi.\n\n---\n\n### 02. Mint-On-Purchase\n\n4TEEN’da preset supply yo‘q.\n\nYangi tokens *faqat* buyer contract’ga TRX yuborgan paytda mint qilinadi.\n\nPre-minting yo‘q. Hidden allocations yo‘q. Private rounds yo‘q.\n\nBu 4TEEN’ni to‘liq **demand-driven** qiladi: supply faqat real TRX kirganda o‘sadi.\n\n---\n\n### 03. 14-Day Lock Period\n\nHar bir purchase minted tokens uchun **14-day lock**ni boshlaydi.\n\nLock period davomida tokens transferred yoki sold qilinmaydi.\n\nMaqsad:\n\n- Instant dumping’ning oldini olish\n\n- Qisqa, predictable holding cycles yaratish\n\n- Natural liquidity va price formation’ni qo‘llab-quvvatlash\n\n14 days’dan keyin tokens automatically unlock qilinadi va transfers yoki trading uchun available bo‘ladi.\n\n---\n\n## 3. Liquidity & TRX Flow\n\nUsers 4TEEN buy qilganda, incoming TRX automatically distributed qilinadi:\n\n| Destination | Percentage | Purpose |\n|---|---:|---|\n| Liquidity Pool | 90% | Price backing va market depth’ni kuchaytiradi |\n| Owner Wallet | 7% | Operations va development |\n| Airdrop Address | 3% | Community incentives va growth |\n\nBu structure TRX’ning **ko‘p qismi** bevosita liquidity’ga borishini ta’minlaydi va long-term stability’ni oshiradi.\n\n---\n\n## Liquidity Model\n\n4TEEN liquidity structure uch prinsipga qurilgan:\n\n### 1. REAL TRX-ONLY LIQUIDITY\n\nLiquidity doimo real buyers’dan kelgan real TRX bilan backed.\n\n### 2. AUTOMATIC DISTRIBUTION\n\nHar safar kimdir 4TEEN buy qilganda liquidity allocation smart contract ichida sodir bo‘ladi.\n\n### 3. INCREASING MARKET DEPTH\n\nKo‘proq buyers → ko‘proq TRX → chuqurroq liquidity → kuchliroq price support.\n\n---\n\n## 4. Dynamic Supply Model\n\n**4TEEN**’da max supply **yo‘q**.\n\nSupply **to‘liq dynamic** va faqat purchases sodir bo‘lganda kengayadi.\n\n**Dynamic supply = demand bo‘lmasa inflation yo‘q.**\n\nBu natural balance yaratadi:\n\n- Activity high bo‘lsa → supply expands\n\n- Activity low bo‘lsa → supply expanding to‘xtaydi\n\n- Purchases bo‘lib turguncha liquidity kuchayishda davom etadi\n\nBu oversupply’ning oldini oladi va token economy’ni user demand bilan bevosita moslaydi.\n\n---\n\n## 5. Automated Price Growth\n\n**4TEEN** quarterly price-growth mechanism’ni o‘z ichiga oladi:\n\nHar **90 days**, token’ning minting price preset growth rate asosida upward adjust qilinadi, default: **14.75% annualized**.\n\nMa’nosi:\n\n- Early buyers pastroq price’da mint qiladi\n\n- Later buyers yuqoriroq price’da mint qiladi\n\n- Price time va demand bilan automatically grows\n\nBu early adoption uchun built-in incentive yaratadi.\n\n---\n\n## 6. Smart Contract Architecture\n\n4TEEN contract quyidagilarni o‘z ichiga oladi:\n\n### • TRC-20 Standard Compatibility\n\nTRON token standard’iga to‘liq compliant.\n\n### • Mint-on-buy Mechanism\n\nIncoming TRX asosida direct minting.\n\n### • 14-Day Vesting Logic\n\nLocks har bir user bo‘yicha individually tracked.\n\n### • Reentrancy Protection\n\nTRX forwarding paytida malicious recursive calls’ni oldini oladi.\n\n### • Owner Governance\n\nFaqat owner quyidagilarni update qila oladi:\n\n- annual growth rate\n\n- liquidityPool address\n\n- airdrop address\n\n### • Transparent Events\n\nHar bir buy, price update, transfer va approval uchun events.\n\n---\n\n## 7. Smart Contract Architecture\n\n| Component | Value |\n|---|---|\n| Token Name | 4teen |\n| Symbol | 4TEEN |\n| Decimals | 6 |\n| Entry Price | 1 TRX = 1 4TEEN |\n| Supply Type | Dynamic |\n| Lock Duration | 14 days |\n| Liquidity Allocation | TRX’ning 90% qismi |\n| Airdrop Allocation | 3% |\n| Operational Allocation | 7% |\n| Price Growth Interval | Har 90 days |\n| Price Model | Time-based compounding |\n\n---\n\n## 8. Risk Statement\n\n4TEEN — TRON blockchain’da deployed decentralized smart-contract system.\n\nParticipation risklarni o‘z ichiga oladi, jumladan, lekin ular bilan cheklanmagan holda:\n\n- Market volatility\n\n- Liquidity fluctuations\n\n- Smart contract vulnerabilities\n\n- Private keys yo‘qotilishi\n\n- Regulatory uncertainty\n\nUshbu hujjatdagi hech narsa financial advice hisoblanmaydi.\n\nUsers 4TEEN token yoki related products bilan interact qilishdan oldin o‘z risk tolerance’ini baholashi kerak.\n\n---\n\n## 9. Xulosa\n\n4TEEN transparent growth, fair participation va predictable price behavior uchun mo‘ljallangan short-cycle, liquidity-driven token model’ni taqdim etadi.\n\nFixed entry price, dynamic minting, enforced lock periods va automatic liquidity forwarding bilan 4TEEN barcha market participants bo‘yicha incentives’ni moslaydi.\n\nReal TRX backing, dynamic supply va structured liquidity distribution kombinatsiyasi 4TEEN’ni yangi avlod on-chain liquidity engines uchun qurilgan zamonaviy DeFi-native asset sifatida joylashtiradi."
         }
       }
+    },
+    "one-pager": {
+      "metadata": {
+        "title": "4TEEN bir sahifalik sharhi",
+        "description": "Investorlar va strategik hamkorlar uchun ixcham 4TEEN bir sahifalik sharhi: mahsulot holati, protokol mexanikasi, traction isboti, kapitaldan foydalanish va due diligence havolalari."
+      },
+      "hero": {
+        "eyebrow": "4TEEN bir sahifalik sharhi",
+        "status": "Investorlar uchun qisqa ma’lumot",
+        "title": "4TEEN — direct buy, 14 kunlik unlocklar, likvidlik routing va o‘sish relslari atrofida qurilgan jonli TRON wallet va token tizimi.",
+        "lead": "Bu bir sahifalik sharh investor deckning qisqa versiyasi: nimalar mavjud, nima uchun bu muhim, loop qanday ishlaydi va kapital yoki strategik yordam tizimni qayerda tezlashtira oladi."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Mahsulot",
+          "title": "Wallet-first token oqimi",
+          "body": "Foydalanuvchilar faqat contract sahifasi orqali emas, app yuzasi orqali kiradi: buy, unlock, swap, liquidity, ambassador va proof yo‘nalishlari allaqachon bitta mahsulot loopi sifatida shakllantirilgan."
+        },
+        {
+          "eyebrow": "Mexanika",
+          "title": "90 / 7 / 3 buy routing",
+          "body": "Har bir direct buy bir xil tranzaksiya ichida TRXni liquidity, controller va airdrop tomonlari bo‘ylab yo‘naltiradi, bu esa asosiy iqtisodiyotni tushuntirish va tekshirishni osonlashtiradi."
+        },
+        {
+          "eyebrow": "Retention",
+          "title": "14 kunlik batch unlock",
+          "body": "Direct-buy tokenlar darhol mint qilinadi, lekin har bir xarid batchi bo‘yicha 14 kundan keyin unlock bo‘ladi, shu tariqa kirish vaqti walletda ko‘rinadigan holatga aylanadi."
+        },
+        {
+          "eyebrow": "Scale yo‘li",
+          "title": "O‘sish relslari allaqachon mavjud",
+          "body": "Ambassador accounting, airdrop moliyalashtirish, verification yo‘nalishlari va public proof sahifalari bo‘sh kampaniya qobig‘i o‘rniga distribution uchun poydevor yaratadi."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "4TEEN nima",
+          "title": "Wallet tajribasi sifatida qadoqlangan TRONdagi strukturali kirish tizimi",
+          "body": "4TEEN token mexanikasi, controller-side accounting, liquidity execution, ambassador tracking va app UXni bitta yuzada birlashtiradi. Ommaviy sayt tizimni tushuntiradi; wallet esa foydalanuvchi workflowini olib boradi.",
+          "bullets": [
+            "Direct buy va unlock mantiqi contract bilan qo‘llab-quvvatlangan.",
+            "Liquidity va controller rollari aniqroq verification uchun ajratilgan.",
+            "App va sayt allaqachon foydalanuvchi, investor va proof yuzalarini ko‘rsatadi."
+          ]
+        },
+        {
+          "eyebrow": "Nima uchun investitsiya qilishga arziydi",
+          "title": "Imkoniyat konsepsiyani moliyalashtirish emas, jonli loopni scale qilishdir",
+          "body": "Loyihada jiddiy suhbatlarni boshlash uchun zarur mexanika, yo‘nalishlar, app hikoyasi va due diligence materiallari allaqachon bor. Keyingi qadam — distribution, polish, liquidity confidence va hamkorlar qamrovini kuchaytirish.",
+          "bullets": [
+            "Asosiy oqimlar allaqachon mavjud bo‘lgani uchun mahsulot riski pastroq.",
+            "Narrative o‘rgatish uchun yetarlicha sodda: buy, lock, unlock, so‘ng keyingi yo‘nalishni tanlash.",
+            "Kapitalni birinchi kashfiyotga emas, tezlashtirishga yo‘naltirish mumkin."
+          ]
+        }
+      ],
+      "snapshot": [
+        {
+          "label": "Tarmoq",
+          "value": "TRON",
+          "detail": "Direct purchase, unlock visibility va wallet-led foydalanuvchi harakatlari uchun past to‘lovli muhit."
+        },
+        {
+          "label": "Asosiy yuzalar",
+          "value": "Ilova + sayt",
+          "detail": "Ilova oqimni olib boradi; veb-sayt esa ta’lim, proof va investor kontekstini ta’minlaydi."
+        },
+        {
+          "label": "Kirish qoidasi",
+          "value": "90 / 7 / 3",
+          "detail": "Buy-side routing tranzaksiya ichida liquidity, controller va airdrop moliyalashtirishni bo‘ladi."
+        },
+        {
+          "label": "Unlock qoidasi",
+          "value": "14 kun",
+          "detail": "Har bir xarid bitta noaniq wallet-wide lock o‘rniga o‘z unlock batchiga ega."
+        }
+      ],
+      "proofPoints": [
+        {
+          "title": "On-chain arxitektura ajratilgan",
+          "body": "Token, controller, liquidity controller, bootstrapper va vault contractlar alohida mas’uliyatlarni bajaradi, bu due diligenceni bitta noaniq contract hikoyasiga qaraganda osonlashtiradi."
+        },
+        {
+          "title": "Wallet UX allaqachon tizimni xaritalaydi",
+          "body": "App direct buy, unlock timeline, swap, liquidity, ambassador cabinet va information yo‘nalishlarini bo‘sh hujjatlar emas, balki operatsion mahsulot sifatida ko‘rsatadi."
+        },
+        {
+          "title": "Public proof ulashishga tayyor",
+          "body": "Whitepaper, verification, blog konteksti, investor deck va ushbu bir sahifalik sharh hamkorlarga avval xususiy walkthrough talab qilmasdan turli chuqurlikdagi ko‘rib chiqish imkonini beradi."
+        }
+      ],
+      "links": [
+        {
+          "label": "One-Pager PDF-ni yuklab olish",
+          "href": "/docs/4teen-one-pager.pdf",
+          "download": "4teen-one-pager.pdf"
+        },
+        {
+          "label": "Investor Deckni ochish",
+          "href": "/deck"
+        },
+        {
+          "label": "Whitepaperni o‘qish",
+          "href": "/whitepaper"
+        },
+        {
+          "label": "Contractlarni tekshirish",
+          "href": "/verification"
+        },
+        {
+          "label": "Direct Buyni ochish",
+          "href": "/buy"
+        },
+        {
+          "label": "Wallet app repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Smart contracts repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Due Diligence havolalari",
+      "footerNote": "Ushbu bir sahifalik sharh loyihaning ixcham ma’lumotnomasidir. U daromad, exchange listing, liquidity natijasi yoki bozor ko‘rsatkichlari bo‘yicha va’da emas.",
+      "ask": {
+        "eyebrow": "Strategik so‘rov",
+        "title": "Eng yaxshi keyingi suhbatlar kapitalni distribution yoki execution leverage bilan birlashtiradi.",
+        "body": "4TEEN user acquisition, liquidity confidence, regional reach, market access yoki ecosystem credibilityni tezlashtira oladigan hamkorlarni izlamoqda.",
+        "email": "genesis@4teen.me",
+        "bullets": [
+          "Growth distribution va ambassador kengayishi.",
+          "Liquidity, market-making, exchange yoki ecosystem aloqalari.",
+          "Product polish, localization, analytics va conversion yaxshilash."
+        ]
+      }
     }
   }
 }
