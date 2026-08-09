@@ -7569,6 +7569,315 @@
           }
         ]
       }
+    },
+    "buy": {
+      "metadata": {
+        "title": "4TEEN Satın Al | Sözleşme-Doğal TRON Girişi",
+        "description": "4TEEN’i doğrudan akıllı sözleşmeden satın alın: kilitli bir parti mint edin, onaylanmış satın alımları takip edin, 90/7/3 TRX yönlendirmesini anlayın, ardından cüzdanı kurup gerçek satın alma akışını çalıştırın.",
+        "openGraphTitle": "4TEEN Satın Al",
+        "openGraphDescription": "4TEEN’e sözleşme-doğal satın alma rotası üzerinden girin. Kilitli bir parti mint edin, onaylanmış BuyTokens event’lerini izleyin, TRX yönlendirmesini inceleyin ve imzalama yapabilen bir cüzdandan işlemi gerçekleştirin."
+      },
+      "hero": {
+        "eyebrow": "FourteenToken",
+        "badge": "Sözleşme-doğal satın alma rotası",
+        "title": "4TEEN’i Doğrudan Sözleşmeden Satın Al",
+        "subtitle": "Yeni bir 4TEEN partisi mint edin, 14 gün kilitleyin, onaylanmış satın alımların akışa düştüğünü izleyin, ardından kilit açma sayacı bittiğinde ne yapacağınıza karar verin.",
+        "body": [
+          "Bu, DeFi gibi davranan sıradan bir swap formu değildir. Bu, protokol-doğal giriş rotasıdır.",
+          "TRX girersiniz, sözleşme ne kadar 4TEEN mint edileceğini hesaplar, işlem o parti için ayrı bir 14 günlük kilit oluşturur ve gelen TRX sözleşme kuralına göre yönlendirilir: %90 likiditeye, %7 controller’a ve %3 airdrop tarafına.",
+          "Web sitesi haritayı gösterir. İşlemi cüzdan yürütür."
+        ],
+        "primaryCta": "Cüzdanı Kur / Aç",
+        "secondaryCta": "Son Satın Alımları Gör",
+        "ctaNote": "İmzalama yapabilen bir cüzdan gereklidir. Sadece izleme modu sistemi okuyabilir, ancak satın alma işlemini gönderemez. İnsanlık imzaları keşfetti ve artık hepimiz onlara saygı duymak zorundayız.",
+        "rotatingLines": [
+          "Sözleşme Girişi. Gerçek Kilit.",
+          "Önce Mint. Sonra Kilit Açma.",
+          "On-Chain Satın Al. Her Şeyi Takip Et.",
+          "Senin Partin. Senin Sayacın.",
+          "Sahte Hacim Yok. Sadece Event’ler."
+        ],
+        "stats": {
+          "directPrice": "Doğrudan Fiyat",
+          "directPriceMeta": "Herkese açık snapshot katmanından alınan, 4TEEN başına mevcut sözleşme tarafı giriş fiyatı. Cüzdan, yürütmeden önce canlı değeri yeniler.",
+          "lockRule": "Kilit Kuralı",
+          "lockRuleValue": "14 Gün",
+          "lockRuleMeta": "Her doğrudan satın alma kendi kilitli partisini oluşturur. Sayaç tüm cüzdanınıza değil, o satın alma işlemine aittir.",
+          "trxSplit": "TRX Yönlendirmesi",
+          "trxSplitValue": "90 / 7 / 3",
+          "trxSplitMeta": "Gelen TRX, satın alma işleminin içinde yönlendirilir: likidite tarafı, controller tarafı ve airdrop tarafı.",
+          "execution": "Yürütme",
+          "executionValue": "Cüzdan + Kaynaklar",
+          "executionMeta": "Gerçek satın alma akışı imzalama yapabilen bir cüzdandan çalışır. Nihai imzadan önce TRX bakiyesi, Energy, Bandwidth ve işlem hazırlığı kontrol edilir.",
+          "priceFallback": "1.147500 TRX",
+          "priceUnavailable": "Canlı fiyat şu anda kullanılamıyor. Yedek değer, bilinen en son doğrudan rotayı yansıtır."
+        }
+      },
+      "sections": {
+        "executionRoute": {
+          "eyebrow": "Döngü Nasıl Çalışır",
+          "title": "Satın Alma Sayfası Tüm Rotayı Açıklamalı",
+          "intro": "Doğrudan satın alma yalnızca “TRX gönder, token al” değildir. Modül kullanıcıyı gerçek on-chain döngü boyunca yönlendirir: sözleşme girişi, mint, kilit, likidite yönlendirmesi ve kilit açıldıktan sonraki karar noktası.",
+          "cards": [
+            {
+              "eyebrow": "Adım 1",
+              "title": "Sözleşme Üzerinden Gir",
+              "subtitle": "Bu, ikincil piyasa değil, birincil protokol rotasıdır.",
+              "text": "Doğrudan satın alma, imzalama yapabilen bir cüzdandan `buyTokens()` komutunu gönderir. Sözleşme TRX’i alır, 4TEEN miktarını hesaplar ve tam olarak o işlem için mint akışını başlatır.\n\nHavuz avı yok. Rota ruleti yok. Swap ile mint aynı şeymiş gibi davranmak yok; çünkü görünüşe göre kelimeler hâlâ önemli."
+            },
+            {
+              "eyebrow": "Adım 2",
+              "title": "Yeni Bir Parti Mint Et",
+              "subtitle": "Sözleşme alıcı için yeni 4TEEN oluşturur.",
+              "text": "4TEEN miktarı satın alma işlemi sırasında mint edilir. Mint edilen bu parti alıcı cüzdana bağlanır ve hemen kilit mantığına girer.\n\nDoğrudan satın almanın swap’tan farklı olmasının nedeni budur. Swap mevcut likiditeyi takas eder. Doğrudan satın alma, token sözleşmesi üzerinden yeni bir kilitli parti oluşturur."
+            },
+            {
+              "eyebrow": "Adım 3",
+              "title": "14 Gün Kilitle",
+              "subtitle": "Her satın alımın kendi kilit açma sayacı vardır.",
+              "text": "Satın alınan parti 14 gün kilitlenir. Aynı cüzdan daha sonra tekrar satın alırsa, bu ikinci satın alma kendi sayacına sahip ayrı bir kilitli parti oluşturur.\n\nCüzdan, kullanıcının her partinin tam olarak ne zaman taşınabilir hale geleceğini görebilmesi için kilit açma zaman çizelgesini gösterir."
+            },
+            {
+              "eyebrow": "Adım 4",
+              "title": "Likidite Tarafını Besle",
+              "subtitle": "Yeni satın alımlar sisteme taze TRX itmeye devam eder.",
+              "text": "Her doğrudan satın alma, gelen TRX’in %90’ını likidite tarafına yönlendirir. Bu değer yalnızca bir pazarlama ekran görüntüsünde beklemez. Protokol likidite akışına girer ve günlük likidite yürütme mantığı üzerinden işlenir.\n\nKullanıcıların anlaması gereken bölüm budur: daha sonraki satın alımlar sistemi beslemeye devam ederken, önceki alıcılar kilit sürelerini bekler."
+            },
+            {
+              "eyebrow": "Adım 5",
+              "title": "Kilit Açma Noktasına Ulaş",
+              "subtitle": "Kilit açıldıktan sonra kullanıcı sonraki rotayı seçer.",
+              "text": "Kilit süresi dolduğunda parti kullanılabilir hale gelir. Holder pozisyonu tutmaya devam edebilir veya piyasa rotasına geçip mevcut likidite üzerinden swap yapabilir.\n\nZorunlu çıkış yok. Sihirli düğme yok. Sadece bir kilit açma noktası ve piyasa kararı var; çünkü DeFi, daha fazla saçmalık icat etmeden de yeterince dramatik."
+            }
+          ]
+        },
+        "priceLogic": {
+          "eyebrow": "Birincil Fiyat Mantığı",
+          "title": "Doğrudan satın alma şimdi sözleşme fiyatıyla girer ve piyasa fiyatıyla sonra karşılaşır",
+          "cards": [
+            {
+              "eyebrow": "Taban",
+              "title": "Dağıtımda 1 TRX = 1 4TEEN",
+              "text": "Başlangıç doğrudan satın alma fiyatı, sonraki bileşik dönemler onu ileri taşımadan önce FourteenToken içinde token başına 1.000000 TRX olarak kodlanmıştır."
+            },
+            {
+              "eyebrow": "Büyüme",
+              "title": "Fiyat dönemi başına %14,75 büyüme",
+              "text": "Sözleşme annualGrowthRate = 1475 baz puan olarak saklar ve yeterli süre geçtiğinde tokenPrice değerini bileşik olarak ileri taşır."
+            },
+            {
+              "eyebrow": "Aralık",
+              "title": "Her 90 günde bir",
+              "text": "Fiyat güncellemeleri keyfi admin düzenlemeleri değildir. getCurrentPrice(), lastPriceUpdate’ten itibaren geçen 90 günlük dönemlere göre saklanan token fiyatını ilerletir."
+            },
+            {
+              "eyebrow": "Kapsam",
+              "title": "Yalnızca doğrudan ihraç için",
+              "text": "Bu fiyat, `buyTokens()` üzerinden doğrudan ihracı yönetir. Parti kilidi açıldıktan ve kullanıcı piyasa rotasına geçtikten sonra DEX fiyatı veya sonraki çıkış koşulları hakkında hiçbir şey vaat etmez."
+            }
+          ],
+          "note": "Site, doğrudan fiyatı herkese açık bilgilendirme katmanı olarak okur. Gerçek cüzdan rotası yine de önemlidir; çünkü bu sözleşme fiyatını seçilen imzalama cüzdanı, gerçek TRX bakiyesi ve onay anındaki kaynak kontrolleriyle birleştirir."
+        },
+        "lockLayer": {
+          "eyebrow": "14 Günlük Kilit Katmanı",
+          "title": "Her doğrudan satın alma hemen mint eder ve hemen kilitler",
+          "bullets": [
+            "Her buyTokens() çağrısı, 4TEEN’i hemen alıcı adresine mint eder.",
+            "Aynı işlem, releaseTime = blok zaman damgası + 14 gün olacak şekilde yeni bir kilit kaydı ekler.",
+            "Kilitler satın alma partisi başınadır; tüm cüzdan için tek bir harmanlanmış sayaç değildir.",
+            "İstenen miktar hâlâ kilitli bakiyeden harcama yapacaksa transfers ve transferFrom engellenir.",
+            "Cüzdandaki kilit açma zaman çizelgesi, satın alma sonrası doğal eşlik eden rotadır."
+          ],
+          "note": "Doğrudan satın alma ile swap’ın aynı şey olmamasının nedeni budur. Doğrudan satın alma kullanıcıya önce protokol-doğal ihraç, ardından sabit bir bekleme süresi verir; piyasa rotası ancak kilit açıldıktan sonra anlam kazanır."
+        },
+        "trxRouting": {
+          "eyebrow": "Yönlendirme",
+          "title": "TRX Nereye Gider",
+          "rows": [
+            {
+              "share": "90%",
+              "title": "Likiditeye",
+              "text": "En büyük pay sistemin likidite tarafına taşınır. Bu, kullanıcılar kilit açmaya ulaştıktan sonra piyasa rotasını destekleyen temel akıştır.",
+              "linkLabel": "Likidite Sayfasını Aç",
+              "linkHref": "/liquidity"
+            },
+            {
+              "share": "7%",
+              "title": "Controller’a",
+              "text": "Daha küçük bir pay FourteenController’a gider. Bu, token yönetimi, satın alma takibi, ambassador mantığı ve ödül mutabakatıyla bağlantılı kontrol ve muhasebe katmanıdır.",
+              "linkLabel": "Ambassadors Sayfasını Aç",
+              "linkHref": "/ambassadors"
+            },
+            {
+              "share": "3%",
+              "title": "Airdrop Tarafına",
+              "text": "Son pay airdrop tarafına gider; böylece aynı doğrudan satın alma akışı herkese açık dağıtımı ve ekosistem büyümesini de beslemeye devam eder.",
+              "linkLabel": "Airdrop Sayfasını Aç",
+              "linkHref": "/airdrop"
+            }
+          ],
+          "note": "Bölüşüm, satın alma işleminin bizzat içinde gerçekleşir. Bu sonradan yapılan bir tablo çalışması değildir, “bize güven kardeşim” tahsisi değildir ve sabaha karşı 3’te Telegram sohbetine yazılmış manuel bir vaat değildir."
+        },
+        "walletFlow": {
+          "eyebrow": "Cüzdan Akışı",
+          "title": "Gerçek ürün miktar girişinden imzaya nasıl ilerler",
+          "steps": [
+            {
+              "eyebrow": "1. Hazırla",
+              "title": "Gerçekten satın alacak cüzdanı seç",
+              "text": "Uygulama seçilen imzalama cüzdanıyla başlar; TRX bakiyesini, sözleşme fiyatını, kilitli bakiyeyi ve sözleşme adreslerini yükler, ardından miktar alanını o cüzdanın gerçekten karşılayabileceği değerle sınırlar."
+            },
+            {
+              "eyebrow": "2. İncele",
+              "title": "Taahhüt etmeden önce mint edilecek miktarı ve bölüşümü gör",
+              "text": "Kullanıcı herhangi bir şeyi onaylamadan önce cüzdan tahmini 4TEEN çıktısını, 90 / 7 / 3 bölüşümünü, sonraki sözleşme fiyat adımını ve o parti için gelecekteki kilit açma zamanını gösterir."
+            },
+            {
+              "eyebrow": "3. Onayla",
+              "title": "Cüzdan onay istemeden önce kaynakları kontrol et",
+              "text": "Onay katmanı Energy, Bandwidth ve varsa eksikleri ölçer; böylece kullanıcı parola veya biyometrik onaydan önce gerçek yürütme durumunu görür."
+            },
+            {
+              "eyebrow": "4. Devam et",
+              "title": "Kaynaklar yetersizse cüzdan önce açığı kapatabilir",
+              "text": "Seçilen cüzdanın yürütme kaynakları eksik olduğunda uygulama enerji kiralama için fiyat verebilir ve doğrudan satın alma gönderilmeden önce bu açığı kapatabilir; böylece kullanıcı körlemesine başarısız bir işleme yürümemiş olur."
+            },
+            {
+              "eyebrow": "5. İşlem indikten sonra",
+              "title": "Sistem hem kilit açmayı hem de controller tarafı atfı takip eder",
+              "text": "Satın alma gerçekleştiğinde cüzdan o parti için kilit geri sayımını gösterebilir; FourteenController ise alıcıyı bağlayabilir, satın alma ID’si başına bir kez doğrulanmış satın alma kaydı tutabilir ve tahsis başarılı olduğunda ambassador ödül bakiyesini kesinleştirebilir."
+            }
+          ],
+          "note": "Web sitesi bu yolu açıkça açıklamalı, ardından kullanıcıyı cüzdana teslim etmelidir. Kendisinin yürütme katmanıymış gibi davranmamalıdır."
+        },
+        "resourceLayer": {
+          "eyebrow": "Kaynak Hazırlığı",
+          "title": "Cüzdan ağ maliyetini ürünün bir parçası olarak ele alır, sonda kurulan bir tuzak olarak değil",
+          "cards": [
+            {
+              "eyebrow": "Tahmin",
+              "title": "Energy ve bandwidth imzadan önce fiyatlanır",
+              "text": "Cüzdan, `buyTokens()` için sözleşme çağrısı maliyetini imzadan önce tahmin eder; böylece kullanıcı nihai onay adımından önce rotanın neye ihtiyaç duyduğunu görür."
+            },
+            {
+              "eyebrow": "Karşılama",
+              "title": "Mevcut cüzdan kaynakları rota ile karşılaştırılır",
+              "text": "İnceleme adımı yalnızca TRX miktarını değil, seçilen cüzdanın rotayı şu anda sorunsuz karşılayıp karşılayamayacağını da gösterir."
+            },
+            {
+              "eyebrow": "Eksik",
+              "title": "Kaynaklar eksikse uygulama açığı kapatmaya yardımcı olabilir",
+              "text": "İmzalama cüzdanı yetersiz kalırsa ürün açığı doğrudan gösterir ve satın alma gönderilmeden önce enerji kiralama adımına geçebilir."
+            }
+          ],
+          "note": "Bu önemlidir çünkü doğrudan satın alma sadece bir sayı alanı değildir. Canlı bir sözleşme rotasıdır ve cüzdan arkasındaki kaynak durumunu zaten görünür kılar."
+        },
+        "latestPurchases": {
+          "eyebrow": "Canlı Satın Alma Akışı",
+          "title": "Onaylanmış Satın Alımlar Zaten Sözleşmeye Düştü",
+          "intro": "Bu satırlar FourteenToken üzerindeki onaylanmış `BuyTokens` event’lerinden gelir. Gerçek cüzdanlar, gerçek işlemler, gerçek on-chain kanıt. Sahte hacim değil, süs tablosu değil, karanlık tema giymiş başka bir dashboard halüsinasyonu değil.",
+          "headers": {
+            "wallet": "Cüzdan",
+            "trxIn": "Giren TRX",
+            "minted": "Mint Edilen",
+            "lockEnds": "Kilit Bitişi",
+            "transaction": "İşlem",
+            "status": "Onaylandı"
+          },
+          "statusConfirmed": "Onaylandı",
+          "openTx": "Tx aç",
+          "note": "Akışın burada olmasının tek nedeni var: kanıt. Kullanıcılar satın alma modülünün teorik olmadığını görmelidir. Satın alımlar gerçekleşti, sözleşme event’ler yaydı ve cüzdan bir sonraki alıcıyı aynı rotadan geçirebilir.",
+          "empty": "Onaylanmış BuyTokens event’leri bekleniyor.",
+          "unknownTime": "Zaman kullanılamıyor",
+          "fallbackBody": "Son doğrudan satın alımlar, rota stabilize edilirken herkese açık sitede geçici olarak gizlenmiştir. Mobil uygulama, satın almanın yürütüldüğü birincil yer olmaya devam eder ve herkese açık doğrulama bağlantıları kullanılabilir kalır.",
+          "fallbackPrimaryCta": "Mobil Uygulama Rotasını Aç",
+          "fallbackSecondaryCta": "Token Sözleşmesini Aç"
+        },
+        "comparison": {
+          "eyebrow": "Satın Alma Swap ile Aynı Değildir",
+          "title": "Doğrudan Satın Alma Giriş Rotasıdır. Swap Piyasa Rotasıdır.",
+          "intro": "İki rota da önemlidir, ancak farklı işler yapar. Kullanıcılar düğmelere basmaya başlamadan önce hangi makineye dokunduklarını bilmelidir; sanki medeniyet bir hataymış gibi davranmadan.",
+          "cards": [
+            {
+              "eyebrow": "Satın Al",
+              "title": "Satın Al",
+              "subtitle": "Doğrudan sözleşme girişi",
+              "text": "Doğrudan satın alma, sözleşmenin satın alma komutunu gönderir, sözleşme kuralına göre yeni bir 4TEEN partisi mint eder, o parti için yeni bir 14 günlük kilit oluşturur ve gelen TRX’i likidite, controller ve airdrop akışlarına yönlendirir.",
+              "footerLabel": "En Uygun",
+              "footerText": "Protokol-doğal mint rotası üzerinden girmek ve satın alma işleminin tam olarak nasıl çalıştığını anlamak isteyen kullanıcılar."
+            },
+            {
+              "eyebrow": "Swap",
+              "title": "Swap",
+              "subtitle": "İkincil piyasa rotası",
+              "text": "Swap, piyasadaki mevcut likiditeye karşı işlem yapar. Yeni bir parti mint etmez, doğrudan satın alma kilidi oluşturmaz ve o andaki rota kalitesine, fiyat etkisine, slippage’e ve DEX koşullarına bağlıdır.",
+              "footerLabel": "En Uygun",
+              "footerText": "Zaten kilidi açılmış 4TEEN tutan veya mevcut piyasa likiditesi üzerinden işlem yapmak isteyen kullanıcılar."
+            },
+            {
+              "eyebrow": "Anlam",
+              "title": "Anlam",
+              "subtitle": "Buradan gir, sonra karar ver",
+              "text": "Doğrudan satın alma giriş akışıdır. Kilit açma bekleme dönemidir. Swap, kullanıcının taşınabilir token’ları olduktan sonraki piyasa rotasıdır.\n\nTemiz yol basittir: sözleşme üzerinden satın al, kilidi takip et, akışı izle, ardından kilit açıldıktan sonra sonraki hamleyi seç."
+            }
+          ]
+        },
+        "afterPurchase": {
+          "eyebrow": "Satın Alma Sonrası",
+          "title": "Satın alma gerçekleştiğinde sonra ne olur",
+          "steps": [
+            {
+              "eyebrow": "Mint Edildi",
+              "title": "4TEEN hemen görünür",
+              "text": "Token miktarı, TRX’i alan aynı işlemde mint edilir. Bu gecikmeli bir backend tahsisi değildir."
+            },
+            {
+              "eyebrow": "Kilitlendi",
+              "title": "Satın alınan parti kendi 14 günlük kilidine girer",
+              "text": "Tam olarak o satın alma partisi için yeni bir kilit kaydı oluşturulur. Cüzdan bunu daha sonra kilit açma zaman çizelgesinde ayrı bir satır olarak gösterebilir."
+            },
+            {
+              "eyebrow": "Takip Edildi",
+              "title": "Kilit açma zaman çizelgesi hemen faydalı hale gelir",
+              "text": "Sonraki faydalı ekran kilit açma rotasıdır: hâlâ neyin kilitli olduğunu, sırada neyin açılacağını ve o partinin gerçekten ne zaman transfer edilebilir hale geleceğini gösterir."
+            },
+            {
+              "eyebrow": "İleri beslendi",
+              "title": "Satın alma likiditeyi ve controller tarafı durumu beslemeye devam eder",
+              "text": "%90 likidite payı protokol likidite yoluna çoktan girmiştir; FourteenController ise alıcıyı bağlayabilir, satın alma ID’si başına bir kez doğrulanmış satın alma kaydı tutabilir ve ambassador tarafı ödül muhasebesini kapatabilir."
+            }
+          ]
+        },
+        "signingWallet": {
+          "eyebrow": "Yürütme Katmanı",
+          "title": "Web Sitesi Rotayı Açıklar. Satın Almayı Cüzdan Yürütür.",
+          "body": "Herkese açık site sözleşme rotasını açıklayabilir, ancak gerçek satın alma uygulamanın içindeki imzalama yapabilen bir cüzdandan gerçekleşir. Sadece izleme modu bakiyeleri okumak, rotaları kontrol etmek ve sistemi incelemek için kullanışlıdır. Doğrudan satın alma işlemini imzalayamaz.\n\nSatın almak için kullanıcının TRON üzerinde imza atabilen bir cüzdana ihtiyacı vardır.",
+          "bullets": [
+            "Sadece izleme cüzdanları bakiyeleri, rotaları, kilit açma durumlarını ve herkese açık sözleşme verilerini inceleyebilir.",
+            "Yalnızca imzalama yapabilen bir cüzdan canlı doğrudan satın alma rotasına girebilir.",
+            "TRX bakiyesi, Energy, Bandwidth ve işlem hazırlığı imzadan önce kontrol edilir.",
+            "Cüzdan, kullanıcı imzalamadan önce beklenen 4TEEN miktarını ve kilit davranışını gösterir."
+          ],
+          "ctaTitle": "Cüzdanı Kur ve Gerçek Satın Alma Akışını Çalıştır",
+          "ctaText": "Site size haritayı verir. Cüzdan size yürütmeyi verir: doğrudan satın alma, kaynak kontrolü, Energy fallback, canlı sözleşme fiyatı, satın alma onayı ve işlemden sonra kilit açma takibi."
+        },
+        "verification": {
+          "eyebrow": "Kaynak Kontrolü",
+          "title": "Yukarıdaki İddialar Sözleşmelere ve Koda Bağlıdır",
+          "body": "Bu sayfa, dağıtılmış FourteenToken sözleşmesine, controller mimarisine, cüzdan doğrudan satın alma modülüne ve satın alma sonrası gelen kilit açma rotasına dayanır.\n\nAmaç basit: yeni bir kullanıcının imzalamadan önce ne olduğunu anlayabileceği kadar gerçek mekanikleri açıkça anlatmak. Görünüşe göre devrim niteliğinde bir kavram.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Contracts repository",
+          "walletRepoLabel": "Wallet repository"
+        },
+        "cta": {
+          "eyebrow": "Sonraki Adım",
+          "title": "Gerçek Satın Alma Akışına Hazır Olduğunuzda Cüzdanı Açın",
+          "body": "Herkese açık site rotayı açıklayabilir. Gerçek satın alma, kaynak kontrolü, Energy fallback, canlı fiyat okuma, işlem imzası ve kilit açma takibi mobil cüzdanın içindedir.\n\nCüzdanı kurun, imzalama yapabilen bir hesap bağlayın, TRX girin, mint edilecek 4TEEN miktarını inceleyin, 14 günlük kilidi onaylayın ve yalnızca işlem detayları net olduğunda imzalayın.",
+          "openApp": "Cüzdan Uygulamasını Kur / Aç",
+          "openUnlock": "Kilit Açma Zaman Çizelgesini Aç"
+        }
+      }
     }
   }
 }
