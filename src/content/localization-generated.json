@@ -8378,6 +8378,182 @@
           "openBuy": "Buy Rotasını Aç"
         }
       }
+    },
+    "airdrop": {
+      "metadata": {
+        "title": "Airdrop",
+        "description": "Mevcut dalga, kilidi açılmış bakiye, kasa bakiyesi, Telegram rota durumu, yalnızca cüzdanla talep erişimi ve zincir üstü doğrulama bağlantılarıyla canlı 4TEEN airdrop durumu."
+      },
+      "hero": {
+        "eyebrow": "AirdropVault",
+        "status": "Cüzdan talep rotası",
+        "title": "4TEEN’i Cüzdan Rotası Üzerinden Talep Edin",
+        "lead": "Herkese açık site, canlı AirdropVault durumunu gösterir. Talep rotasını mobil cüzdan yönetir.",
+        "body": [
+          "Airdrop, bir açılış sayfasındaki sahte promosyon düğmesi değildir. Uygulamanın çalıştırmadan önce okuduğu dalga tabanlı bir kasa, cüzdan farkındalığına sahip bir talep durumu ve Telegram öncelikli bir rotadır.",
+          "Bu sayfa herkese açık tarafı yansıtır: mevcut dalga, kasa bakiyesi, kilidi açılmış kota, planlanan kalan miktar, rota modeli ve zincir üstü doğrulama. Canlı talep akışı cüzdanın içinde yer alır."
+        ],
+        "rotatingLines": [
+          "Kasa Durumu. Cüzdan Talebi.",
+          "Telegram Canlı. Sosyal Hatlar Hazırlanıyor.",
+          "Herkese Açık Kanıt. Uygulama Üzerinden Yürütme.",
+          "Dalga Kilit Açılışları. Rota Kontrolleri.",
+          "Sahte Talepler Yok. Sadece Durum."
+        ],
+        "primaryCta": "Mobil Uygulama Rotasını Aç",
+        "secondaryCta": "AirdropVault’u Aç",
+        "ctaNote": "Web sitesi kasayı ve rota haritasını gösterir. Gerçek talep yolu açılmadan önce cüzdan seçili hesabı, Telegram oturumunu, talep durumunu ve imzalama modunu okur.",
+        "stats": {
+          "currentWave": "Mevcut Dalga",
+          "vaultBalance": "Kasa Bakiyesi",
+          "vaultBalanceMeta": "AirdropVault içinde şu anda tutulan 4TEEN.",
+          "availableNow": "Şu Anda Kullanılabilir",
+          "availableNowMeta": "Sözleşme kurallarına göre şu anda dağıtılabilecek miktar.",
+          "nextWave": "Sonraki Dalga",
+          "completed": "Tamamlandı",
+          "readFailed": "Canlı kasa okuması başarısız oldu.",
+          "readRetry": "Birazdan yenilemeyi deneyin."
+        }
+      },
+      "sections": {
+        "vaultState": {
+          "eyebrow": "Kasa Durumu",
+          "title": "Sözleşmenin şu anda söylediği şey",
+          "rows": {
+            "totalAllocation": "Toplam Tahsis",
+            "unlockedTotal": "Kilidi Açılmış Toplam",
+            "totalDistributed": "Toplam Dağıtılan",
+            "remainingUnlocked": "Kilidi Açılmış Kalan",
+            "remainingPlanned": "Planlanan Kalan",
+            "vaultBalance": "Kasa Bakiyesi"
+          },
+          "noteTitle": "Neden iki “kalan” sayısı var:",
+          "noteBody": "`Kilidi açılmış kalan`, sözleşmenin dalga zamanına göre zaten kilidini açtığı kotadır. `Planlanan kalan`, toplam 1,500,000 4TEEN tahsisinin dağıtılmamış kısmıdır. `Şu anda kullanılabilir`, kilidi açılmış kota ile gerçek kasa bakiyesinden küçük olanıdır."
+        },
+        "distribution": {
+          "eyebrow": "Dağıtım İz Alanı",
+          "title": "Kasadan şimdiye kadar ne kadar çıktı",
+          "cards": {
+            "distributed": {
+              "title": "Zaten Dağıtıldı",
+              "text": "Tam tahsisten dışarı gönderilmiş olan 4TEEN."
+            },
+            "planned": {
+              "title": "Hâlâ Planlanıyor",
+              "text": "Uzun vadeli dağıtım planında hâlâ kalan 4TEEN."
+            },
+            "lastDrop": {
+              "title": "Son Onaylı Dağıtım",
+              "text": "En son onaylanmış kasa dağıtım etkinliğindeki 4TEEN."
+            },
+            "unlockedUndistributed": {
+              "title": "Kilidi Açılmış ama Dağıtılmamış",
+              "text": "Dalgalarla kilidi zaten açılmış ancak henüz dışarı gönderilmemiş kota."
+            }
+          },
+          "note": "Bu blok yalnızca bilgilendirme amaçlıdır. Herkese açık site için güvenli olan hafif canlı okumaları kullanır: sözleşme okumalarından kasa durumu ve etkinlik akışından en son onaylanmış airdrop etkinliği."
+        },
+        "dateLayer": {
+          "eyebrow": "Tarih Katmanı",
+          "title": "Sözleşme sabit zaman damgalarıyla çalışır",
+          "rows": {
+            "issueDate": "Çıkış Tarihi",
+            "currentWave": "Mevcut Dalga",
+            "nextWave": "Sonraki Dalga",
+            "lastDrop": "Son Onaylı Dağıtım",
+            "snapshotUpdated": "Anlık Görüntü Güncellendi"
+          },
+          "note": "Dalga kilit açılışları sözleşmede sabittir. Web sitesi bu tarihleri metinden uydurmaz; canlı sözleşme saatini okur ve biçimlendirir."
+        },
+        "routeModel": {
+          "eyebrow": "Canlı Rota Modeli",
+          "title": "Telegram canlı. Diğer sosyal parçalar hazırlık aşamasında.",
+          "note": "Cüzdan uygulaması Telegram için üç kontrolü birleştirir: yerel cüzdan durumu, mevcut bot oturumu durumu ve zincir üstü talep durumu. Web sitesi bu talep akışını taklit etmez veya web üzerinden talep yapıyormuş gibi davranmaz; canlı kasayı ve etrafındaki gerçek rota modelini gösterir.",
+          "routes": {
+            "telegram": {
+              "title": "Telegram",
+              "statusLive": "Şu anda canlı",
+              "statusSoon": "Şu anda canlı",
+              "note": "Cüzdan oturumu, bot durumu ve zincir üstü talep durumu mobil uygulamada zaten bağlanmış durumda."
+            },
+            "instagram": {
+              "title": "Instagram",
+              "statusLive": "Kademeli yayına alma yer tutucusu",
+              "statusSoon": "Kademeli yayına alma yer tutucusu",
+              "note": "Rota sözleşme maske modelinde mevcut, ancak canlı talep akışı henüz açık değil."
+            },
+            "x": {
+              "title": "X",
+              "statusLive": "Kademeli yayına alma yer tutucusu",
+              "statusSoon": "Kademeli yayına alma yer tutucusu",
+              "note": "Rota sözleşme maske modelinde mevcut, ancak canlı talep akışı henüz açık değil."
+            },
+            "facebook": {
+              "title": "Facebook",
+              "statusLive": "Kademeli yayına alma yer tutucusu",
+              "statusSoon": "Kademeli yayına alma yer tutucusu",
+              "note": "Rota sözleşme maske modelinde mevcut, ancak canlı talep akışı henüz açık değil."
+            },
+            "youtube": {
+              "title": "YouTube",
+              "statusLive": "Kademeli yayına alma yer tutucusu",
+              "statusSoon": "Kademeli yayına alma yer tutucusu",
+              "note": "Rota sözleşme maske modelinde mevcut, ancak canlı talep akışı henüz açık değil."
+            }
+          }
+        },
+        "walletAccess": {
+          "eyebrow": "Canlı Talep Erişimi",
+          "title": "Canlı airdrop rotası herkese açık web sitesinden değil, mobil cüzdandan çalışır",
+          "body": "Telegram talep durumu gerçek üründe cüzdan farkındalığına sahiptir. Uygulama, rotanın kullanılabilir, sıraya alınmış, zaten alınmış veya hâlâ engelli olup olmadığına karar vermeden önce seçili cüzdanı, mevcut bot oturumunu ve zincir üstü talep durumunu birleştirir. Bu web sitesi bilerek bilgilendirme amaçlı kalır.",
+          "bullets": [
+            "Talep uygunluğu yalnızca herkese açık sayfa ziyaretine değil, cüzdan durumuna bağlıdır.",
+            "Telegram bugün tek canlı talep rotasıdır; diğer sosyal ağlar hazırlanan hatlar olarak kalır.",
+            "Cüzdan; izleme amaçlı, imzalama, alınmış, sıraya alınmış ve eski kullanılmış durumlarını ayırt edebilir.",
+            "Gerçek talep yüzeyi için uygulama rotasını kullanın, ardından herkese açık kasa doğrulaması için buraya geri dönün."
+          ],
+          "openApp": "Mobil Uygulama Rotasını Aç",
+          "openVault": "AirdropVault’u Aç"
+        },
+        "waveSchedule": {
+          "eyebrow": "Dalga Takvimi",
+          "title": "Altı sabit dalga, tek sözleşme saati",
+          "headers": {
+            "wave": "Dalga",
+            "cap": "Limit",
+            "unlockTime": "Kilit Açılma Zamanı",
+            "status": "Durum"
+          },
+          "current": "Mevcut",
+          "unlocked": "Kilidi Açıldı",
+          "upcoming": "Yaklaşan"
+        },
+        "verification": {
+          "eyebrow": "Doğrulama",
+          "title": "Sözleşme ve operatör",
+          "body": "Site, cüzdanın kullandığı aynı kasa mantığını okur: mevcut dalga, sonraki dalga zaman damgası, kilidi açılmış bakiye, kullanılabilir dağıtım miktarı ve kasa bakiyesi.",
+          "vaultLabel": "AirdropVault",
+          "operatorLabel": "Operatör"
+        },
+        "productContext": {
+          "eyebrow": "Ürün Bağlamı",
+          "title": "Cüzdan bu yüzeyi nasıl okur",
+          "bullets": [
+            "Telegram bugün tek canlı sosyal talep rotasıdır.",
+            "Diğer sosyal parçalar sözleşme maske modelinde zaten mevcut.",
+            "Talep geçmişi ve talep durumu cüzdana özeldir ve burada taklit edilmez; mobil uygulamada okunur.",
+            "Kasa fonlaması ve kilidi açılmış kota ayrı gerçekliklerdir, bu yüzden uygulama ikisini de gösterir.",
+            "Bu web sitesi canlı talebi kendisi gerçekleştirmez; bunu yapan cüzdan rotasına yönlendirir."
+          ]
+        },
+        "fallback": {
+          "eyebrow": "Yedek Durum",
+          "title": "Rota hazır, ancak canlı okumalar başarısız oldu.",
+          "body": "Sayfa zaten gerçek AirdropVault sözleşmesi etrafında yapılandırılmıştır. Canlı okuma tekrar başarılı olduğunda dalga durumunu, bakiyeyi, kilidi açılmış kotayı, planlanan kalan miktarı ve sonraki dalga zamanlamasını otomatik olarak dolduracaktır.",
+          "openVault": "AirdropVault’u Aç",
+          "openApp": "Mobil Uygulama Rotasını Aç"
+        }
+      }
     }
   }
 }
