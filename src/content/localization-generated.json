@@ -3305,5 +3305,161 @@
       "linksEyebrow": "Следующие маршруты",
       "footerNote": "Текущий маршрут — это чистая оболочка для будущих публикаций, а не фальшивая лента. Когда статьи появятся, они должны оставаться согласованными со слоями доказательств и продукта."
     }
+  },
+  "uz": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "Nusxalash",
+          "copied": "Nusxalandi",
+          "failed": "Muvaffaqiyatsiz",
+          "close": "Yopish",
+          "qrCode": "QR kod"
+        },
+        "taglines": [
+          "Erta kirish. Yuqoriroq chiqish.",
+          "G‘oliblar kutib turmaydi.",
+          "14 kunni foydaga aylantiring.",
+          "Erta harakat qiling. Erta yuting."
+        ],
+        "header": {
+          "home": "Bosh sahifa",
+          "getApp": "Ilovani olish",
+          "primaryNavAria": "Asosiy sayt navigatsiyasi"
+        },
+        "market": {
+          "loading": "Narx yuklanmoqda",
+          "unavailable": "Narx mavjud emas",
+          "liveAria": "Jonli bozor narxi"
+        },
+        "refresh": {
+          "idle": "Ma’lumotlarni yangilash",
+          "busy": "Yangilanmoqda",
+          "aria": "Jonli ma’lumotlar suratini yangilash"
+        },
+        "mobileSearch": {
+          "ariaLabel": "Yo‘nalishlar, shartnomalar va hujjatlarni qidirish",
+          "placeholder": "Yo‘nalishlar, shartnomalar, hujjatlarni qidiring...",
+          "eyebrow": "Tezkor qidiruv",
+          "title": "Sahifalar, shartnomalar va isbot qatlamlari",
+          "dialogAria": "Qidiruv natijalari",
+          "route": "Yo‘nalish",
+          "external": "Tashqi",
+          "empty": "Hozircha tezkor mosliklar yo‘q. Yo‘nalish, shartnoma yoki isbot so‘zlarini sinab ko‘ring."
+        },
+        "desktopSearch": {
+          "prompts": [
+            "Shartnomalar, yo‘nalishlar, hujjatlarni qidiring...",
+            "FourteenToken",
+            "Unlock jadvali",
+            "Likvidlik controller",
+            "Ambassador mukofotlari",
+            "Whitepaper"
+          ],
+          "ariaLabel": "4TEEN yo‘nalishlari va shartnomalarini qidirish",
+          "actionAria": "Qidiruv natijalarini ochish",
+          "eyebrow": "Tezkor qidiruv natijalari",
+          "title": "Tezkor sahifalar, shartnomalar va isbot qatlamlari.",
+          "dialogAria": "Qidiruv natijalari",
+          "closeAria": "Qidiruvni yopish",
+          "resultsSuffix": "natija",
+          "noResultsYet": "Hozircha natijalar yo‘q",
+          "pressEnter": "Eng yuqori moslikni ochish uchun Enter bosing.",
+          "topMatch": "Eng yuqori moslik",
+          "route": "Yo‘nalish",
+          "external": "Tashqi",
+          "empty": "Natijalar yo‘q. `buy`, `unlock`, `airdrop`, `controller` yoki `whitepaper`ni sinab ko‘ring."
+        },
+        "locale": {
+          "eyebrow": "Til",
+          "title": "Interfeys tilini tanlang",
+          "active": "Faol",
+          "soon": "Tez orada"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "Asosiy qatlamlar",
+          "docsAndRoutes": "Hujjatlar va yo‘nalishlar",
+          "closeOpenPanelAria": "Ochiq panelni yopish"
+        },
+        "mobileDock": {
+          "menu": "Menyu",
+          "close": "Yopish",
+          "openMenuAria": "Mobil menyuni ochish",
+          "closeMenuAria": "Mobil menyuni yopish",
+          "openHomeAria": "Bosh sahifani ochish",
+          "openSearchAria": "Mobil qidiruvni ochish",
+          "openLanguageAria": "Til panelini ochish"
+        },
+        "footer": {
+          "protocol": "Protokol",
+          "ecosystem": "Ekotizim",
+          "legal": "Huquqiy",
+          "privacy": "Maxfiylik",
+          "terms": "Shartlar",
+          "support": "Qo‘llab-quvvatlash",
+          "investorDeck": "Investor taqdimoti",
+          "onePager": "Bir sahifalik ma’lumotnoma",
+          "officialChannels": "Rasmiy kanallar",
+          "brandText": "Hamyon ilovasi endi jonli tizim qatlamini o‘zida jamlaydi: bevosita xarid, unlock holati, controller bo‘yicha haqiqat, ambassador kabineti va Telegram-birinchi o‘sish oqimi.",
+          "getApp": "Ilovani olish",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. TRON’da strukturali on-chain kirish.",
+          "officialWebsite": "Rasmiy veb-sayt: 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "Protokol",
+          "growth": "O‘sish",
+          "proof": "Isbot",
+          "ecosystem": "Ekotizim"
+        },
+        "links": {
+          "home": "Bosh sahifa",
+          "buy": "Xarid",
+          "unlock": "Unlock",
+          "liquidity": "Likvidlik",
+          "airdrop": "Airdrop",
+          "ambassadors": "Ambassadors",
+          "whitepaper": "Whitepaper",
+          "verification": "Tekshiruv",
+          "blog": "Blog",
+          "swap": "Swap",
+          "mobileApp": "Mobil ilova"
+        },
+        "shortLinks": {
+          "buy": "Xarid",
+          "unlock": "Unlock",
+          "liquidity": "Likvidlik",
+          "airdrop": "Airdrop",
+          "earn": "Daromad",
+          "swap": "Swap",
+          "app": "Ilova",
+          "home": "Bosh sahifa"
+        },
+        "menuLinks": {
+          "buy": "Bevosita xarid",
+          "unlock": "Unlock jadvali",
+          "liquidity": "Likvidlik controller",
+          "swap": "Token swap",
+          "privacy": "Maxfiylik siyosati",
+          "terms": "Foydalanish shartlari"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "Asosiy yo‘nalish",
+          "protocolSurface": "Protokol qatlami",
+          "growthSurface": "O‘sish qatlami",
+          "proofSurface": "Isbot qatlami",
+          "downloadRoute": "Yuklab olish yo‘nalishi",
+          "publicPolicy": "Ommaviy siyosat",
+          "supportRoute": "Qo‘llab-quvvatlash yo‘nalishi",
+          "coreContract": "Asosiy shartnoma",
+          "liquidityContract": "Likvidlik shartnomasi",
+          "growthContract": "O‘sish shartnomasi",
+          "githubSource": "GitHub manbasi"
+        }
+      }
+    }
   }
 }
