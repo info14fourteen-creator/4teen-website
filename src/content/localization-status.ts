@@ -96,7 +96,7 @@ export const localizationPageStatuses: LocalizationPageStatus[] = [
   {
     page: "ambassadors",
     source: "src/content/ambassadors-content.ts",
-    states: { en: "complete", ru: "fallback-en", uz: "fallback-en" },
+    states: { en: "complete", ru: "partial", uz: "partial" },
   },
   {
     page: "verification",
