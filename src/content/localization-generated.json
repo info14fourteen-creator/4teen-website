@@ -6543,6 +6543,74 @@
       ],
       "linksEyebrow": "Ommaviy chiqish yo‘llari",
       "footerNote": "Reliz havolalari, contract ma’lumotlari yoki ommaviy holat sahifalari uchun https://4teen.me dan boshlang. Rasmiy telefon va WhatsApp yordami: +998 95 792 02 87."
+    },
+    "blog": {
+      "metadata": {
+        "title": "Blog",
+        "description": "4TEEN’ning ishga tushirishlar, protokol bo‘yicha o‘qish, ekotizim yangiliklari va investorlarga yo‘naltirilgan mahsulot narrativlari uchun nashr qilish qatlami."
+      },
+      "hero": {
+        "eyebrow": "Blog",
+        "status": "Nashr qilish qatlami",
+        "title": "Blog — 4TEEN mahsulotni bannerlar va shiorlargacha soddalashtirib yubormasdan, bozor ohangida gapira oladigan joy.",
+        "lead": "Whitepaper — uzun formatdagi strukturaviy hujjat. Verification — isbot qatlami. Blog esa ishga tushirishlar, yo‘nalish yangilanishlari, ekotizim konteksti va investorlarga yo‘naltirilgan narrativlar yengilroq formatda joylashishi kerak bo‘lgan maydon bo‘lib, keyinchalik bir nechta tillarga kengayishi mumkin."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Rol",
+          "title": "Narrativ qatlam",
+          "body": "Blogdan mahsulot yo‘nalishlari ichiga kiritilishi shart bo‘lmagan ishga tushirishlar, yangilanishlar, tushuntiruvchi materiallar va o‘sish sur’atini kuchaytiradigan yozuvlar uchun foydalaning."
+        },
+        {
+          "eyebrow": "Auditoriya",
+          "title": "Yangi foydalanuvchilar va investorlar",
+          "body": "Bu yo‘nalish app, buy yo‘nalishi yoki whitepaper’ni ochishdan oldin tezroq o‘qib chiqishni xohlaydigan odamlar uchun ishqalanishni kamaytirishi kerak."
+        },
+        {
+          "eyebrow": "Format",
+          "title": "Tarjimaga tayyor",
+          "body": "Postlar butun qobiqni qayta yozmasdan yoki yo‘nalish modelini o‘zgartirmasdan ko‘p tilli nashr qilishga kengaya olishi kerak."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Bu yerga nima mos keladi",
+          "title": "Qiziqish uyg‘otadigan, lekin yolg‘on gapirmaydigan nashrlar",
+          "body": "Blog — ishga tushirish eslatmalari, mahsulot bosqichlari, yo‘nalish tushuntirishlari, ekotizim hamkorliklari, bozorga qaratilgan hikoyalar hamda app yoki on-chain stekda nimalar o‘zgarganini o‘qishga qulay tarzda tushuntirish uchun to‘g‘ri sath."
+        },
+        {
+          "eyebrow": "2. Bu yerga nima mos kelmaydi",
+          "title": "Isbot o‘rnini bosmaydi",
+          "body": "Blog kontrakt havolalari, verification sahifalari yoki whitepaper bo‘limlari o‘rnini bosmasligi kerak. Agar da’vo isbot talab qilsa, post narrativning o‘zi yetarli deb ko‘rsatish o‘rniga isbot qatlamiga yo‘naltirishi kerak.",
+          "bullets": [
+            "Whitepaper uzun formatdagi strukturaviy o‘qish yo‘nalishi bo‘lib qoladi",
+            "Verification isbot yo‘nalishi bo‘lib qoladi",
+            "Blog nashr qilish va momentum yo‘nalishi bo‘lib qoladi"
+          ]
+        },
+        {
+          "eyebrow": "3. Nega bu yo‘nalish muhim",
+          "title": "Saytga moslashuvchan o‘sish sathi kerak",
+          "body": "Home har bir hikoyani sig‘dira olmaydi, whitepaper esa kampaniya matnlarini ko‘tarib yurmasligi kerak. Blog veb-saytga asosiy yo‘nalishlarni shishirmasdan odamlarni jalb qilish, o‘qitish va yangilab borishning tozaroq usulini beradi.",
+          "note": "Bu, shuningdek, kelajakdagi ko‘p tilli nashr oqimini har safar bittadan maqola orqali rivojlantirish uchun eng oson joy."
+        }
+      ],
+      "links": [
+        {
+          "label": "App’ni ochish",
+          "href": "/app"
+        },
+        {
+          "label": "Buy’ni ochish",
+          "href": "/buy"
+        },
+        {
+          "label": "Whitepaper’ni o‘qish",
+          "href": "/whitepaper"
+        }
+      ],
+      "linksEyebrow": "Keyingi yo‘nalishlar",
+      "footerNote": "Joriy yo‘nalish soxta lenta emas, balki kelajakdagi nashrlar uchun toza qobiqdir. Maqolalar paydo bo‘lganda, ular isbot va mahsulot qatlamlari bilan uyg‘un qolishi kerak."
     }
   }
 }
