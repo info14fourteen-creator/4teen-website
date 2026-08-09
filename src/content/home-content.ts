@@ -966,10 +966,267 @@ const homeContentEn: HomePageContent = {
   },
 };
 
-const homeContentByLocale: Record<SupportedSiteLocale, HomePageContent> = {
+const homeContentRu: HomePageContent = {
+  ...homeContentEn,
+  ui: {
+    ...homeContentEn.ui,
+    aria: {
+      heroPoints: "Ключевые свойства протокола",
+      livePriceSummary: "Сводка по живой цене",
+      quickLinks: "Быстрые ссылки",
+      verificationLinks: "Ссылки на верификацию",
+    },
+    marketStrip: {
+      unavailable: "Недоступно",
+      routerQuoteReadFailed: "Не удалось прочитать router quote",
+      directPriceLabel: "Прямая цена",
+      directPriceSub: "За 1 4TEEN через протокол",
+      dexReferenceLabel: "DEX ориентир",
+      dexPriceLabel: "Цена DEX",
+      dexSubSuffix: "за 4TEEN",
+      unlockCycleLabel: "Цикл unlock",
+      unlockCycleValue: "14 дней",
+      unlockCycleSub: "Срок блокировки прямой покупки",
+      unlockCycleDailyRuleSub: "Фиксированный lock для direct buy",
+      dailyLiquidityRuleLabel: "Правило ежедневной ликвидности",
+      dailyLiquidityRuleValue: "6.43%",
+      dailyLiquidityRuleSub: "Выдается один раз в UTC-день логикой контроллера",
+    },
+  },
+  hero: {
+    ...homeContentEn.hero,
+    eyebrow: "Мобильное приложение 4TEEN",
+    meta: "TRON • Direct Buy • Unlock • Liquidity • Growth",
+    title: "Одна точка для покупки, видимости lock и потока ликвидности.",
+    lead:
+      "Кошелек уже стал операционным слоем системы. Direct buy, unlock timeline, liquidity controller, состояние Telegram claim, кабинет амбассадора и компактный info route уже существуют как реальные экраны с реальным состоянием, а не как обещания в копирайте.",
+    points: [
+      "Подготовь реальный direct-buy flow с estimate, контекстом split и подтверждением до подписи.",
+      "Отслеживай каждую заблокированную покупку по таймеру, unlock state и исходной транзакции.",
+      "Используй единый info route для контрактов, asset wallet, исполнителей и runtime readiness.",
+    ],
+    actions: [
+      { label: "Скачать приложение", href: "/app" },
+      { label: "Открыть direct buy", href: "/buy" },
+    ],
+    sideEyebrow: "Поверхности кошелька",
+    sideTitle: "Приложение уже несет живую продуктовую работу.",
+    sideStats: [
+      { label: "Primary sale", value: "Prepare → Confirm" },
+      { label: "Visibility", value: "Unlock events" },
+      { label: "Execution", value: "Controller state" },
+      { label: "Verification", value: "Info route" },
+    ],
+    sideHighlightTitle: "Чистый продуктовый хаб.",
+    sideHighlightText:
+      "Покупка, видимость lock, truth контроллера, growth-рейлы и верификация теперь связаны единым wallet-style потоком.",
+    tools: [
+      {
+        href: "/buy",
+        title: "Direct Buy",
+        meta: "Подготовь реальный mint-on-purchase flow до подтверждения",
+      },
+      {
+        href: "/unlock",
+        title: "Unlock Timeline",
+        meta: "Читай события direct buy по кошельку, таймеру и unlock state",
+      },
+      {
+        href: "/liquidity",
+        title: "Liquidity Controller",
+        meta: "Смотри threshold, cadence выпуска, executors и историю контроллера",
+      },
+      {
+        href: "/verification",
+        title: "Info Route",
+        meta: "Открывай контракты, vaults, asset wallet и runtime readiness",
+      },
+    ],
+  },
+  wallets: {
+    ...homeContentEn.wallets,
+    eyebrow: "Поддержка кошельков",
+    title:
+      "Поддержка кошельков важна, потому что приложение теперь отражает состояние кошелька на живых поверхностях.",
+    description:
+      "Direct buy, unlock rows, cabinet actions и Telegram claim state меняются в зависимости от того, может ли выбранный кошелек подписывать, является ли он watch-only, и корректно ли в потоке читаются баланс и ресурсы.",
+    bestStatus: "Лучший мобильный опыт",
+    compatibleStatus: "Работает в мобильном браузере",
+    highlightTitle: "Рекомендуем для app + buy flow:",
+    highlightText:
+      "Binance Wallet, Bitget Wallet, OKX Wallet и TokenPocket дают самый гладкий опыт, потому что корректно показывают балансы и делают wallet-aware поверхности более надежными.",
+  },
+  trust: {
+    ...homeContentEn.trust,
+    eyebrow: "Проверь протокол",
+    title:
+      "Приложение, страницы сайта, репозитории и сеть должны указывать на одну и ту же правду.",
+    links: [
+      { label: "Приложение", value: "Мобильная загрузка", href: "/app" },
+      { label: "Сайт", value: "Живые поверхности", href: "/buy" },
+      {
+        label: "Сеть",
+        value: "TRON Mainnet",
+        href: "https://tronscan.org",
+        external: true,
+      },
+      {
+        label: "Репо",
+        value: "Wallet App",
+        href: "https://github.com/info14fourteen-creator/4teen-wallet-app",
+        external: true,
+      },
+      { label: "Документы", value: "Whitepaper", href: "/whitepaper" },
+      { label: "Info", value: "Verification", href: "/verification" },
+    ],
+  },
+  cta: {
+    ...homeContentEn.cta,
+    eyebrow: "Финальный CTA",
+    title: "Выбери нужную поверхность",
+    lead:
+      "Скачай мобильное приложение, подготовь direct buy, проверь компактный архитектурный route или сразу открой живые growth и tracking surfaces.",
+    cards: [
+      {
+        status: "Открыть",
+        tone: "live",
+        title: "Скачать приложение",
+        text: "Начни с mobile-app route с вариантами загрузки и аккуратным переходом в wallet product.",
+        href: "/app",
+      },
+      {
+        status: "Купить",
+        tone: "live",
+        title: "Открыть direct buy",
+        text: "Сразу переходи в contract-side entry flow с preview суммы, подтверждением и wallet-aware gating.",
+        href: "/buy",
+      },
+      {
+        status: "Проверить",
+        tone: "live",
+        title: "Открыть verification",
+        text: "Используй публичный proof-слой для контрактов, репозиториев, логики ликвидности и карты архитектуры за app surfaces.",
+        href: "/verification",
+      },
+      {
+        status: "Управлять",
+        tone: "live",
+        title: "Открыть кабинет амбассадора",
+        text: "Регистрируйся, смотри referral identity, отслеживай покупки и работай с live reward state в одном route.",
+        href: "/ambassadors",
+      },
+    ],
+    actions: [
+      { label: "Скачать приложение", href: "/app" },
+      { label: "Открыть direct buy", href: "/buy" },
+      { label: "Открыть живой Telegram route", href: "/airdrop" },
+    ],
+  },
+};
+
+const homeContentUz: HomePageContent = {
+  ...homeContentEn,
+  ui: {
+    ...homeContentEn.ui,
+    aria: {
+      heroPoints: "Protokolning asosiy jihatlari",
+      livePriceSummary: "Jonli narx xulosasi",
+      quickLinks: "Tezkor havolalar",
+      verificationLinks: "Verifikatsiya havolalari",
+    },
+    marketStrip: {
+      unavailable: "Mavjud emas",
+      routerQuoteReadFailed: "Router quote o'qilmadi",
+      directPriceLabel: "To'g'ridan-to'g'ri narx",
+      directPriceSub: "1 4TEEN uchun protokol orqali",
+      dexReferenceLabel: "DEX orientiri",
+      dexPriceLabel: "DEX narxi",
+      dexSubSuffix: "har 4TEEN uchun",
+      unlockCycleLabel: "Unlock sikli",
+      unlockCycleValue: "14 kun",
+      unlockCycleSub: "Direct purchase lock muddati",
+      unlockCycleDailyRuleSub: "Direct buy uchun qat'iy lock",
+      dailyLiquidityRuleLabel: "Kunlik likvidlik qoidasi",
+      dailyLiquidityRuleValue: "6.43%",
+      dailyLiquidityRuleSub: "Controller logikasi bo'yicha har UTC kunda bir marta chiqariladi",
+    },
+  },
+  hero: {
+    ...homeContentEn.hero,
+    eyebrow: "4TEEN mobil ilovasi",
+    title: "Sotib olish, lock ko'rinishi va likvidlik oqimi uchun bitta nuqta.",
+    lead:
+      "Wallet ilovasi allaqachon tizimning operatsion qatlami bo'lib ulgurgan. Direct buy, unlock timeline, liquidity controller, Telegram claim holati, ambassador cabinet va compact info route endi copy ichidagi va'dalar emas, balki real state bilan ishlaydigan ekranlardir.",
+    points: [
+      "Imzo qo'yishdan oldin real direct-buy flow'ni estimate, split context va confirmation bilan tayyorla.",
+      "Har bir locked purchase hodisasini countdown, unlock state va source transaction orqali kuzat.",
+      "Kontraktlar, asset wallet'lar, executor'lar va runtime readiness uchun bitta info route'dan foydalan.",
+    ],
+    actions: [
+      { label: "Ilovani olish", href: "/app" },
+      { label: "Direct buy ochish", href: "/buy" },
+    ],
+    sideEyebrow: "Wallet yuzalari",
+    sideTitle: "Ilova allaqachon jonli product ishini olib bormoqda.",
+    sideHighlightTitle: "Toza product hub.",
+    sideHighlightText:
+      "Buy, lock ko'rinishi, controller truth, growth rail'lar va verifikatsiya endi bitta wallet-style flow ichida bog'langan.",
+  },
+  wallets: {
+    ...homeContentEn.wallets,
+    eyebrow: "Wallet qo'llovi",
+    title:
+      "Wallet qo'llovi muhim, chunki ilova endi jonli yuzalarda wallet holatini aks ettiradi.",
+    description:
+      "Direct buy, unlock qatorlari, cabinet action'lar va Telegram claim holati tanlangan wallet imzo qo'ya oladimi, watch-only'mi va balance hamda resource state toza o'qiladimi, shunga qarab o'zgaradi.",
+    bestStatus: "Eng yaxshi mobil tajriba",
+    compatibleStatus: "Mobil brauzerda ishlaydi",
+    highlightTitle: "App + buy flow uchun tavsiya:",
+    highlightText:
+      "Binance Wallet, Bitget Wallet, OKX Wallet va TokenPocket eng silliq tajriba beradi, chunki ular balance'ni to'g'ri ko'rsatadi va wallet-aware yuzalarni ishonchliroq qiladi.",
+  },
+  trust: {
+    ...homeContentEn.trust,
+    eyebrow: "Protokolni tekshiring",
+    title:
+      "Ilova, sayt yuzalari, repository'lar va tarmoq bir xil haqiqatni ko'rsatishi kerak.",
+    links: [
+      { label: "Ilova", value: "Mobil yuklab olish", href: "/app" },
+      { label: "Sayt", value: "Jonli yuzalar", href: "/buy" },
+      {
+        label: "Tarmoq",
+        value: "TRON Mainnet",
+        href: "https://tronscan.org",
+        external: true,
+      },
+      {
+        label: "Repo",
+        value: "Wallet App",
+        href: "https://github.com/info14fourteen-creator/4teen-wallet-app",
+        external: true,
+      },
+      { label: "Hujjatlar", value: "Whitepaper", href: "/whitepaper" },
+      { label: "Info", value: "Verification", href: "/verification" },
+    ],
+  },
+  cta: {
+    ...homeContentEn.cta,
+    eyebrow: "Yakuniy CTA",
+    title: "Kerakli yuzani tanlang",
+    lead:
+      "Mobil ilovani yuklab oling, direct buy'ni tayyorlang, compact architecture route'ni tekshiring yoki darhol jonli growth va tracking surfaces'ga o'ting.",
+    actions: [
+      { label: "Ilovani olish", href: "/app" },
+      { label: "Direct buy ochish", href: "/buy" },
+      { label: "Jonli Telegram route'ni ochish", href: "/airdrop" },
+    ],
+  },
+};
+
+const homeContentByLocale: Partial<Record<SupportedSiteLocale, HomePageContent>> = {
   en: homeContentEn,
-  ru: homeContentEn,
-  uz: homeContentEn,
+  ru: homeContentRu,
+  uz: homeContentUz,
 };
 
 export function getHomePageContent(locale: SupportedSiteLocale): HomePageContent {

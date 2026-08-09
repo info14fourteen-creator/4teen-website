@@ -350,10 +350,10 @@ const ambassadorsContentEn: AmbassadorsPageContent = {
   },
 };
 
-const ambassadorsContentByLocale: Record<
+const ambassadorsContentByLocale: Partial<Record<
   SupportedSiteLocale,
   AmbassadorsPageContent
-> = {
+>> = {
   en: ambassadorsContentEn,
   ru: ambassadorsContentEn,
   uz: ambassadorsContentEn,

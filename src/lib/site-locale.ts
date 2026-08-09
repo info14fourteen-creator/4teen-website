@@ -1,6 +1,23 @@
-export const supportedSiteLocales = ["en", "ru", "uz"] as const;
-export const rtlSiteLocaleCodes = ["ar", "fa", "he", "ur"] as const;
-export const knownSiteLocaleCodes = ["en", "ru", "uz", "ar"] as const;
+export const supportedSiteLocales = [
+  "en",
+  "ru",
+  "uz",
+  "tr",
+  "de",
+  "fr",
+  "es",
+  "it",
+  "pt",
+  "nl",
+  "pl",
+  "ar",
+  "hi",
+  "ja",
+  "zh-CN",
+  "ko",
+] as const;
+export const rtlSiteLocaleCodes = ["ar"] as const;
+export const knownSiteLocaleCodes = supportedSiteLocales;
 
 export type SupportedSiteLocale = (typeof supportedSiteLocales)[number];
 export type SiteTextDirection = "ltr" | "rtl";

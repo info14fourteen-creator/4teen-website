@@ -275,8 +275,184 @@ const unlockContentEn: UnlockPageContent = {
   },
 };
 
+const unlockContentRu: UnlockPageContent = {
+  ...unlockContentEn,
+  metadata: {
+    title: "Разблокировка 4TEEN",
+    description:
+      "Публичная карта блокировок 4TEEN: отдельные 14-дневные партии, ближайшие разблокировки и проверяемые данные контракта.",
+  },
+  hero: {
+    ...unlockContentEn.hero,
+    eyebrow: "Таймлайн разблокировки",
+    badge: "Публичная карта блокировок",
+    title: "Следите за разблокировкой 4TEEN до того, как заблокированная партия станет ликвидной",
+    subtitle:
+      "Каждая прямая покупка сразу блокируется и становится переводимой только после своего 14-дневного таймера.",
+    body: [
+      "Здесь показано состояние системы: что все еще заблокировано, что уже стало ликвидным и какие партии разблокируются следующими.",
+      "Для личной истории, таймеров и конкретного адреса используйте мобильный кошелек.",
+    ],
+    primaryCta: "Открыть разблокировки в приложении",
+    secondaryCta: "Открыть маршрут покупки",
+    ctaNote: "Публичная карта не требует подключения кошелька.",
+    rotatingLines: ["Каждая покупка получает свой таймер.", "Сначала лок. Потом ликвидность."],
+    stats: {
+      ...unlockContentEn.hero.stats,
+      directPrice: "Прямая цена",
+      directPriceMeta: "Текущая цена выпуска из публичного snapshot-слоя.",
+      lockWindow: "Окно блокировки",
+      lockWindowMeta: "У каждой прямой покупки отдельный 14-дневный лок.",
+      lockedNow: "Заблокировано сейчас",
+      lockedNowMeta: "Сумма партий, которые пока нельзя переводить.",
+      circulatingNow: "Свободно в обращении",
+      circulatingNowMeta: "Баланс, уже доступный для перевода.",
+      priceFallback: "1.147500 TRX",
+      priceUnavailable: "Текущая цена временно недоступна. Показано последнее известное значение.",
+      readFailed: "Не удалось обновить данные контракта.",
+      readRetry: "Повторить",
+    },
+  },
+  sections: {
+    ...unlockContentEn.sections,
+    unlockContext: {
+      eyebrow: "Как это работает",
+      title: "Покупка и разблокировка - это одна последовательность, а не один экран",
+      body:
+        "Прямая покупка выпускает новую партию 4TEEN и сразу записывает ее в блокировку. Партии не объединяются в один абстрактный баланс: у каждой есть собственный момент release.",
+      bullets: [
+        "Токены начисляются в той же транзакции, в которой поступает TRX.",
+        "Каждая покупка получает собственный 14-дневный таймер.",
+        "До разблокировки transfer и transferFrom не позволяют потратить эту партию.",
+        "После разблокировки партия становится переводимой и может попасть в рыночный маршрут.",
+      ],
+      openApp: "Открыть в приложении",
+      openBuy: "Открыть покупку",
+    },
+    liveLockMap: {
+      eyebrow: "Живая карта блокировок",
+      title: "Публичное состояние выпуска, лока и свободного обращения",
+      rows: {
+        totalSupply: "Общий выпуск",
+        activeLockBatches: "Активные партии",
+        currentlyLocked: "Заблокировано сейчас",
+        vaultCustody: "В резервном хранилище",
+        freelyCirculating: "Свободно в обращении",
+        nextUnlock: "Следующая разблокировка",
+        snapshotUpdated: "Snapshot обновлен",
+      },
+      note: "Это протокольная карта. Персональную разбивку по кошельку и обратный отсчет показывает приложение.",
+    },
+    upcomingUnlocks: {
+      eyebrow: "Ближайшие разблокировки",
+      title: "Партии, которые станут переводимыми следующими",
+      headers: { buyer: "Кошелек", amount: "Сумма", unlockAt: "Разблокировка", source: "Источник" },
+      openTx: "Открыть tx",
+      empty: "Ближайшие события разблокировки пока недоступны.",
+      note: "Строки строятся по подтвержденным событиям покупки и времени их отдельной блокировки.",
+    },
+    cta: {
+      eyebrow: "Следующий шаг",
+      title: "Откройте приложение, когда нужен личный таймлайн разблокировки",
+      body:
+        "Сайт показывает общую карту. Мобильный кошелек показывает строки вашего адреса, обратный отсчет и продолжение после покупки.",
+      openApp: "Открыть разблокировки в приложении",
+      openBuy: "Открыть маршрут покупки",
+    },
+  },
+};
+
+const unlockContentUz: UnlockPageContent = {
+  ...unlockContentEn,
+  metadata: {
+    title: "4TEEN ochilish jadvali",
+    description:
+      "4TEEN bloklanishlarining ommaviy xaritasi: alohida 14 kunlik partiyalar, yaqin ochilishlar va tekshiriladigan kontrakt ma'lumotlari.",
+  },
+  hero: {
+    ...unlockContentEn.hero,
+    eyebrow: "Ochilish jadvali",
+    badge: "Ommaviy blok xaritasi",
+    title: "Bloklangan 4TEEN partiyasi likvid bo'lishidan oldin ochilishni kuzating",
+    subtitle:
+      "Har bir to'g'ridan-to'g'ri xarid darhol bloklanadi va faqat o'zining 14 kunlik taymeri tugagandan keyin o'tkazilishi mumkin.",
+    body: [
+      "Bu yer tizim holatini ko'rsatadi: nima hali blokda, nima likvid va qaysi partiyalar keyin ochiladi.",
+      "Shaxsiy tarix va aniq hamyon taymerlari uchun mobil ilovadan foydalaning.",
+    ],
+    primaryCta: "Ilovada ochilishni ko'rish",
+    secondaryCta: "Xarid yo'nalishini ochish",
+    ctaNote: "Ommaviy xarita hamyon ulashni talab qilmaydi.",
+    rotatingLines: ["Har bir xaridning o'z taymeri bor.", "Avval blok. Keyin likvidlik."],
+    stats: {
+      ...unlockContentEn.hero.stats,
+      directPrice: "To'g'ridan-to'g'ri narx",
+      directPriceMeta: "Ommaviy snapshot qatlamidan joriy chiqarish narxi.",
+      lockWindow: "Bloklash oynasi",
+      lockWindowMeta: "Har bir xaridda alohida 14 kunlik blok bor.",
+      lockedNow: "Hozir bloklangan",
+      lockedNowMeta: "Hali o'tkazib bo'lmaydigan partiyalar miqdori.",
+      circulatingNow: "Erkin muomalada",
+      circulatingNowMeta: "O'tkazish uchun allaqachon mavjud balans.",
+      priceFallback: "1.147500 TRX",
+      priceUnavailable: "Jonli narx vaqtincha mavjud emas. Oxirgi ma'lum qiymat ko'rsatilgan.",
+      readFailed: "Kontrakt ma'lumotlarini yangilab bo'lmadi.",
+      readRetry: "Qayta urinish",
+    },
+  },
+  sections: {
+    ...unlockContentEn.sections,
+    unlockContext: {
+      eyebrow: "Qanday ishlaydi",
+      title: "Xarid va ochilish - bitta ketma-ketlik",
+      body:
+        "To'g'ridan-to'g'ri xarid yangi 4TEEN partiyasini chiqaradi va uni darhol bloklash yozuviga kiritadi. Har bir partiyaning o'z release vaqti bor.",
+      bullets: [
+        "Tokenlar TRX qabul qilingan tranzaksiyaning o'zida hisoblanadi.",
+        "Har bir xarid o'zining 14 kunlik taymerini oladi.",
+        "Ochilishdan oldin bu partiyani sarflab bo'lmaydi.",
+        "Ochilishdan keyin partiya o'tkazilishi mumkin va bozor yo'nalishiga o'tadi.",
+      ],
+      openApp: "Ilovada ochish",
+      openBuy: "Xaridni ochish",
+    },
+    liveLockMap: {
+      eyebrow: "Jonli blok xaritasi",
+      title: "Chiqarish, blok va erkin muomalaning ommaviy holati",
+      rows: {
+        totalSupply: "Jami chiqarish",
+        activeLockBatches: "Faol partiyalar",
+        currentlyLocked: "Hozir bloklangan",
+        vaultCustody: "Rezerv saqlovida",
+        freelyCirculating: "Erkin muomalada",
+        nextUnlock: "Keyingi ochilish",
+        snapshotUpdated: "Snapshot yangilandi",
+      },
+      note: "Bu protokol xaritasi. Hamyon manzil bo'yicha shaxsiy qatorlar va taymerni ko'rsatadi.",
+    },
+    upcomingUnlocks: {
+      eyebrow: "Yaqin ochilishlar",
+      title: "Keyin o'tkazilishi mumkin bo'ladigan partiyalar",
+      headers: { buyer: "Hamyon", amount: "Miqdor", unlockAt: "Ochilish", source: "Manba" },
+      openTx: "Tx ochish",
+      empty: "Yaqin ochilish voqealari hozircha mavjud emas.",
+      note: "Qatorlar tasdiqlangan xarid voqealari va ularning alohida bloklash vaqtiga asoslanadi.",
+    },
+    cta: {
+      eyebrow: "Keyingi qadam",
+      title: "Shaxsiy ochilish jadvali kerak bo'lsa ilovani oching",
+      body:
+        "Sayt umumiy xaritani ko'rsatadi. Mobil hamyon sizning manzilingiz qatorlari va hisoblagichini ko'rsatadi.",
+      openApp: "Ilovada ochilishni ko'rish",
+      openBuy: "Xarid yo'nalishini ochish",
+    },
+  },
+};
+
 const unlockContentByLocale: Partial<Record<SupportedSiteLocale, UnlockPageContent>> = {
   en: unlockContentEn,
+  ru: unlockContentRu,
+  uz: unlockContentUz,
 };
 
 export function getUnlockPageContent(locale: SupportedSiteLocale) {
