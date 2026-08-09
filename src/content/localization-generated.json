@@ -8960,6 +8960,157 @@
           "repoLabel": "Cüzdan Uygulaması Repo’su"
         }
       }
+    },
+    "verification": {
+      "metadata": {
+        "title": "Doğrulama",
+        "description": "Canlı adresler, rezerv bakiyeleri, protokol sahiplik haritası ve daha derin araştırma için doğrudan kanıt bağlantıları içeren 4TEEN doğrulama rotası."
+      },
+      "hero": {
+        "eyebrow": "Doğrulama Yüzeyi",
+        "status": "Herkese açık mimari haritası",
+        "title": "Bu, güven katmanıdır: kimin neye sahip olduğu, rezervlerin nerede durduğu, değerin nasıl hareket ettiği ve şu anda projeyi hangi herkese açık adreslerin desteklediği.",
+        "lead": "Ciddi kullanıcılar ve yatırımcılar açılış sayfasında durmaz. Bu rota, ilk tıklamada onları ham explorer sekmelerinden oluşan bir duvara bırakmadan sahipliği, saklamayı, bakiyeleri ve sözleşme yollarını hızlıca incelemeleri için bir yol sunar.",
+        "stats": {
+          "totalSupply": "Toplam Arz",
+          "totalSupplyMeta": "Zincir üzerindeki mevcut FourteenToken totalSupply değeri.",
+          "currentPrice": "Doğrudan Fiyat",
+          "currentPriceMeta": "TRX cinsinden ifade edilen buyTokens() için mevcut önizleme fiyatı.",
+          "vaultCustody": "Vault Saklama",
+          "vaultCustodyMeta": "Şu anda FourteenVault, TeamLockVault ve AirdropVault içinde tutulan 4TEEN.",
+          "controllerBalance": "Controller Bakiyesi",
+          "controllerBalanceMeta": "Şu anda FourteenController içinde duran TRX.",
+          "readFailed": "Canlı doğrulama okuması başarısız oldu.",
+          "readRetry": "Statik mimari haritası hâlâ geçerli. Güncel sayılar için birazdan yenileyin."
+        }
+      },
+      "sections": {
+        "orientation": {
+          "eyebrow": "Yönlendirme",
+          "title": "Bu sayfayı iki soruya hızlıca yanıt vermek için kullanın",
+          "body": "Birincisi: belirli bir protokol görevine hangi sözleşmenin veya vault’un sahip olduğu. İkincisi: herkese açık durumun, projenin diğer her yerde anlattığı hikâyeyle hâlâ eşleşip eşleşmediği. Sayfa bilerek salt okunur kalır. Görevi yürütme değil, güvendir.",
+          "bullets": [
+            "FourteenToken; satın alma, mint, kilitleme ve bölünmüş giriş sözleşmesidir.",
+            "FourteenController, token’ın kendisi değil; yönetici ve ilişkilendirme katmanıdır.",
+            "LiquidityController ve LiquidityBootstrapper, serbest bırakma ve yürütme hattına sahiptir.",
+            "Vault bakiyeleri zincir üzerinde bulunur, ancak rezerv saklama serbest dolaşım değildir."
+          ],
+          "openWhitepaper": "Whitepaper’ı Aç",
+          "openApp": "Mobile App’i Aç"
+        },
+        "tokenMap": {
+          "eyebrow": "Token Haritası",
+          "title": "Ana token şu anda nasıl bağlanmış durumda",
+          "rows": {
+            "tokenOwner": "Token Sahibi",
+            "liquidityRoute": "Likidite Rotası",
+            "airdropRoute": "Airdrop Rotası",
+            "directPrice": "Doğrudan Fiyat",
+            "growthRule": "Büyüme Kuralı",
+            "lastPriceUpdate": "Son Fiyat Güncellemesi",
+            "snapshotUpdated": "Snapshot Güncellendi"
+          },
+          "note": "Kritik detay sahiplik zinciridir. FourteenToken, sıradan bir sahip-cüzdan anlatısının altında durmaz. Sahiplik yolu FourteenController’a çözümlenir; bu yüzden iki yüzey de burada birlikte yer alır."
+        },
+        "controllerState": {
+          "eyebrow": "Controller Durumu",
+          "title": "Controller’ın ilişkilendirme ve hazine akışı hakkında söyledikleri",
+          "rows": {
+            "controllerOwner": "Controller Sahibi",
+            "contractBalance": "Sözleşme Bakiyesi",
+            "ownerAvailable": "Sahibin Kullanımına Açık",
+            "reservedRewards": "Ayrılmış Ödüller",
+            "unallocatedPurchaseFunds": "Tahsis Edilmemiş Satın Alma Fonları",
+            "ambassadors": "Toplam Ambassador",
+            "activeAmbassadors": "Aktif Ambassador",
+            "boundBuyers": "Bağlı Alıcılar",
+            "trackedVolume": "Takip Edilen Hacim",
+            "rewardsClaimed": "Talep Edilen Ödüller"
+          },
+          "note": "Controller anlatısının önemli olmasının nedeni budur. Her şeyi tek bir gösteriş metriğine indirgemek yerine, sahibin kullanımına açık fonlar, ayrılmış ödüller, takip edilen hacim ve alıcı ilişkilendirme sayıları için ayrı herkese açık kovalar tutar."
+        },
+        "liquidityState": {
+          "eyebrow": "Likidite Hattı",
+          "title": "Yürütme tarafı ayrı bir herkese açık sistemdir",
+          "rows": {
+            "controllerBalance": "Liquidity Controller Bakiyesi",
+            "controllerOwner": "Liquidity Controller Sahibi",
+            "minBalance": "Minimum Tetikleme Bakiyesi",
+            "dailyRelease": "Günlük Serbest Bırakma Kuralı",
+            "justMoneyExecutor": "JustMoney Executor",
+            "sunExecutor": "Sun.io V3 Executor"
+          },
+          "note": "Otomasyon rotayı uyandırabilir, ancak serbest bırakma eşiği ve yüzdesi hâlâ sözleşmelerde yaşar. Kolaylık kuralların dışında durur, onların üstünde değil."
+        },
+        "architecture": {
+          "eyebrow": "Mimari",
+          "title": "Protokol, tek bir dev sözleşme yerine açık görevlere ayrılmıştır",
+          "cards": [
+            {
+              "eyebrow": "Çekirdek",
+              "title": "FourteenToken",
+              "text": "Doğrudan satın alma TRX’ini alır, 4TEEN mint eder, her satın alma için 14 günlük kilitler oluşturur ve satın alma değerini atomik olarak 90 / 7 / 3 şeklinde böler."
+            },
+            {
+              "eyebrow": "Yönetim",
+              "title": "FourteenController",
+              "text": "Token katmanına sahip olur, ilişkilendirme ve ödül muhasebesi durumunu tutar, herkese açık sistem özetlerini sunar ve sahip tarafındaki bakiye yönetimini kapılar."
+            },
+            {
+              "eyebrow": "Yürütme",
+              "title": "Liquidity Stack",
+              "text": "FourteenLiquidityController satın alma tarafındaki TRX hattını tutarken, LiquidityBootstrapper token envanterini hazırlar ve executor tarafındaki likidite yollarını tetikler."
+            },
+            {
+              "eyebrow": "Saklama",
+              "title": "Vault Ayrımı",
+              "text": "FourteenVault, TeamLockVault ve AirdropVault rezerv bakiyelerini amaca göre izole eder; böylece hazine, ekip ve büyüme arzı tek bir genel havuza indirgenmez."
+            }
+          ],
+          "note": "Bu ayrım, herkese açık olarak doğrulanması en kolay güçlü yönlerden biridir. Explorer bağlantıları, repository kodu ve canlı bakiyeler aynı modüler mimariye geri işaret eder."
+        },
+        "reserveLayer": {
+          "eyebrow": "Rezerv Katmanı",
+          "title": "Vault ve yürütme adresleri genelinde canlı 4TEEN bakiyeleri",
+          "body": "Bu bakiyeler token envanterinin gerçekte nerede durduğunu gösterir. Vault saklama serbest dolaşım değildir ve executor envanteri bir kullanıcı cüzdan bakiyesi değildir. Bunları birlikte tutmak sistemi tek bakışta okunabilir kılar.",
+          "note": "Bootstrap ve likidite akışı envanteri hareket ettirdikçe executor bakiyeleri değişebilir. Vault bakiyeleri, rezerv saklama için daha istikrarlı kanıt katmanıdır.",
+          "labels": {
+            "balance": "Bakiye",
+            "verify": "TronScan üzerinde doğrula"
+          }
+        },
+        "verification": {
+          "eyebrow": "Kanıt Bağlantıları",
+          "title": "Kanıt katmanını doğrudan açın",
+          "body": "Aşağıdaki her grup kullanıcıyı hikâyeden doğrudan kanıt katmanına götürür: sözleşmeler, vault’lar, yürütme hatları ve ürünün arkasındaki repository’ler.",
+          "groups": {
+            "core": "Çekirdek sözleşmeler",
+            "vaults": "Vault sözleşmeleri",
+            "execution": "Yürütme sözleşmeleri",
+            "source": "Kaynak repository’ler"
+          },
+          "labels": {
+            "token": "FourteenToken",
+            "controller": "FourteenController",
+            "liquidityController": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "fourteenVault": "FourteenVault",
+            "teamLockVault": "TeamLockVault",
+            "airdropVault": "AirdropVault",
+            "justMoneyExecutor": "LiquidityExecutorJustMoney",
+            "sunV3Executor": "LiquidityExecutorSunV3",
+            "contractsRepo": "Contracts repository",
+            "walletRepo": "Wallet repository"
+          }
+        },
+        "cta": {
+          "eyebrow": "Sonraki Adım",
+          "title": "Güveninizi burada oluşturun, ardından app içinde ilerleyin",
+          "body": "Sistemi incelemek için herkese açık rotayı kullanın. İmzalama, satın alma, kilit açma, swap, airdrop talebi veya arkasında gerçek hesap durumu olan manuel likidite işlemi yapmak istediğinizde wallet’ı kullanın.",
+          "openApp": "Mobile App’i Aç",
+          "openBuy": "Satın Alma Rotasını Aç"
+        }
+      }
     }
   }
 }
