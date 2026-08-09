@@ -6612,5 +6612,161 @@
       "linksEyebrow": "Keyingi yo‘nalishlar",
       "footerNote": "Joriy yo‘nalish soxta lenta emas, balki kelajakdagi nashrlar uchun toza qobiqdir. Maqolalar paydo bo‘lganda, ular isbot va mahsulot qatlamlari bilan uyg‘un qolishi kerak."
     }
+  },
+  "tr": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "Kopyala",
+          "copied": "Kopyalandı",
+          "failed": "Başarısız",
+          "close": "Kapat",
+          "qrCode": "QR kodu"
+        },
+        "taglines": [
+          "Erken Giriş. Daha Yüksek Çıkış.",
+          "Kazananlar Beklemez.",
+          "14 Günü Kâra Dönüştür.",
+          "Erken Harekete Geç. Erken Kazan."
+        ],
+        "header": {
+          "home": "Ana Sayfa",
+          "getApp": "Uygulamayı Al",
+          "primaryNavAria": "Birincil site navigasyonu"
+        },
+        "market": {
+          "loading": "Fiyat yükleniyor",
+          "unavailable": "Fiyat kullanılamıyor",
+          "liveAria": "Canlı piyasa fiyatı"
+        },
+        "refresh": {
+          "idle": "Verileri yenile",
+          "busy": "Yenileniyor",
+          "aria": "Canlı veri anlık görüntüsünü yenile"
+        },
+        "mobileSearch": {
+          "ariaLabel": "Rotaları, kontratları ve dokümanları ara",
+          "placeholder": "Rotaları, kontratları, dokümanları ara...",
+          "eyebrow": "Hızlı Arama",
+          "title": "Sayfalar, kontratlar ve kanıt yüzeyleri",
+          "dialogAria": "Arama sonuçları",
+          "route": "Rota",
+          "external": "Harici",
+          "empty": "Henüz hızlı eşleşme yok. Rota, kontrat veya kanıt kelimelerini deneyin."
+        },
+        "desktopSearch": {
+          "prompts": [
+            "Kontratları, rotaları, dokümanları ara...",
+            "FourteenToken",
+            "Kilit açma zaman çizelgesi",
+            "Likidite kontrolcüsü",
+            "Ambassador ödülleri",
+            "Whitepaper"
+          ],
+          "ariaLabel": "4TEEN rotalarını ve kontratlarını ara",
+          "actionAria": "Arama sonuçlarını aç",
+          "eyebrow": "Hızlı arama sonuçları",
+          "title": "Hızlı sayfalar, kontratlar ve kanıt yüzeyleri.",
+          "dialogAria": "Arama sonuçları",
+          "closeAria": "Aramayı kapat",
+          "resultsSuffix": "sonuç",
+          "noResultsYet": "Henüz sonuç yok",
+          "pressEnter": "En iyi eşleşmeyi açmak için Enter’a basın.",
+          "topMatch": "En iyi eşleşme",
+          "route": "Rota",
+          "external": "Harici",
+          "empty": "Sonuç yok. `buy`, `unlock`, `airdrop`, `controller` veya `whitepaper` deneyin."
+        },
+        "locale": {
+          "eyebrow": "Dil",
+          "title": "Arayüz dilini seçin",
+          "active": "Aktif",
+          "soon": "Yakında"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "Temel yüzeyler",
+          "docsAndRoutes": "Dokümanlar ve rotalar",
+          "closeOpenPanelAria": "Açık paneli kapat"
+        },
+        "mobileDock": {
+          "menu": "Menü",
+          "close": "Kapat",
+          "openMenuAria": "Mobil menüyü aç",
+          "closeMenuAria": "Mobil menüyü kapat",
+          "openHomeAria": "Ana sayfayı aç",
+          "openSearchAria": "Mobil aramayı aç",
+          "openLanguageAria": "Dil panelini aç"
+        },
+        "footer": {
+          "protocol": "Protokol",
+          "ecosystem": "Ekosistem",
+          "legal": "Yasal",
+          "privacy": "Gizlilik",
+          "terms": "Şartlar",
+          "support": "Destek",
+          "investorDeck": "Yatırımcı Sunumu",
+          "onePager": "Tek Sayfalık Özet",
+          "officialChannels": "Resmi Kanallar",
+          "brandText": "Cüzdan uygulaması artık canlı sistem yüzeyini taşıyor: doğrudan alım, kilit açma durumu, kontrolcü doğruluğu, ambassador paneli ve Telegram öncelikli büyüme akışı.",
+          "getApp": "Uygulamayı Al",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. TRON üzerinde yapılandırılmış on-chain giriş.",
+          "officialWebsite": "Resmi website: 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "Protokol",
+          "growth": "Büyüme",
+          "proof": "Kanıt",
+          "ecosystem": "Ekosistem"
+        },
+        "links": {
+          "home": "Ana Sayfa",
+          "buy": "Satın Al",
+          "unlock": "Kilit Açma",
+          "liquidity": "Likidite",
+          "airdrop": "Airdrop",
+          "ambassadors": "Ambassadorlar",
+          "whitepaper": "Whitepaper",
+          "verification": "Doğrulama",
+          "blog": "Blog",
+          "swap": "Swap",
+          "mobileApp": "Mobil Uygulama"
+        },
+        "shortLinks": {
+          "buy": "Satın Al",
+          "unlock": "Kilit Açma",
+          "liquidity": "Likidite",
+          "airdrop": "Airdrop",
+          "earn": "Kazan",
+          "swap": "Swap",
+          "app": "Uygulama",
+          "home": "Ana Sayfa"
+        },
+        "menuLinks": {
+          "buy": "Doğrudan Satın Al",
+          "unlock": "Kilit Açma Zaman Çizelgesi",
+          "liquidity": "Likidite Kontrolcüsü",
+          "swap": "Token Swap",
+          "privacy": "Gizlilik Politikası",
+          "terms": "Kullanım Şartları"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "Ana rota",
+          "protocolSurface": "Protokol yüzeyi",
+          "growthSurface": "Büyüme yüzeyi",
+          "proofSurface": "Kanıt yüzeyi",
+          "downloadRoute": "İndirme rotası",
+          "publicPolicy": "Kamuya açık politika",
+          "supportRoute": "Destek rotası",
+          "coreContract": "Temel kontrat",
+          "liquidityContract": "Likidite kontratı",
+          "growthContract": "Büyüme kontratı",
+          "githubSource": "GitHub kaynağı"
+        }
+      }
+    }
   }
 }
