@@ -6020,6 +6020,177 @@
           "Product polish, localization, analytics va conversion yaxshilash."
         ]
       }
+    },
+    "deck": {
+      "metadata": {
+        "title": "4TEEN investor decki",
+        "description": "4TEEN allaqachon ishlayotgan hamyon, to‘g‘ridan-to‘g‘ri xarid va unlock mahsulot oqimi, modulli TRON kontraktlari, rejalashtirilgan likvidlik ijrosi, vault saqlovi va ambassador hisob-kitobini birlashtirgan. Bu sahifa investorlar uchun kirish nuqtasidir."
+      },
+      "hero": {
+        "eyebrow": "4TEEN decki",
+        "status": "Investor taqdimoti",
+        "title": "4TEEN’da hamyon sikli, smart-kontrakt yadrosi va o‘sish relslari allaqachon bor. Investitsion dalil — kuchliroq distribyutsiya undan oldin yetib kelishidan avval ishlayotgan tizimni kengaytirish.",
+        "lead": "4TEEN mahsulot qidirayotgan token landing sahifasi emas. Hamyon allaqachon to‘g‘ridan-to‘g‘ri xarid, unlock jadvali, swap, likvidlik, ambassador va axborot yuzalarini ko‘rsatadi. Kontraktlar allaqachon minting, 14 kunlik lock, 90 / 7 / 3 yo‘naltirish, controller hisob-kitobi va rejalashtirilgan likvidlik ijrosini majburiy qiladi."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Ishlayotgan mahsulot",
+          "title": "Hamyon + kontraktlar allaqachon ulangan",
+          "body": "Hamyon token landing sahifasi yoki whitepaper va’dasida to‘xtab qolmay, allaqachon xarid, unlock, swap, likvidlik, ambassador va axborot yuzalarini ko‘rsatadi."
+        },
+        {
+          "eyebrow": "Kirish mexanikasi",
+          "title": "90 / 7 / 3 yo‘naltirish",
+          "body": "Har bir to‘g‘ridan-to‘g‘ri xarid TRX’ni shu tranzaksiyaning o‘zida yo‘naltiradi: 90% likvidlik tomoni, 7% controller tomoni, 3% airdrop tomoni."
+        },
+        {
+          "eyebrow": "Lock dizayni",
+          "title": "Har xarid uchun 14 kun",
+          "body": "To‘g‘ridan-to‘g‘ri xarid qilingan tokenlar darhol mint qilinadi va har bir batch bo‘yicha lock qilinadi. Har bir yangi xarid butun hamyon holatini o‘zgartirish o‘rniga o‘zining unlock taymerini yaratadi."
+        },
+        {
+          "eyebrow": "Likvidlik kadensi",
+          "title": "6.43% chiqarish oynasi",
+          "body": "Likvidlik controller’i qat’iy 100 TRX chegarasidan yuqorida kuniga bir marta qiymatni chiqarishi, so‘ng ijroni DEX’ga xos relslar bo‘yicha taqsimlashi mumkin."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "Nega aynan hozir",
+          "title": "Noldan birgacha bo‘lgan ish allaqachon ko‘rinib turibdi",
+          "body": "4TEEN birinchi prototipni kutayotgan emas. Asosiy sikl kontraktlar va hamyon UX’i bo‘ylab allaqachon mavjud: to‘g‘ridan-to‘g‘ri xarid orqali kirish, har bir batch’ni lock qilish, controller tomonidagi likvidlik to‘planishini kuzatish, keyin unlock qilish va ushlab turish yoki bozor yo‘nalishidan foydalanishni tanlash.",
+          "bullets": [
+            "Token kontrakti allaqachon xaridda mint qiladi va 14 kunlik lock’ni majburiy qiladi.",
+            "Controller muhim boshqaruvni oddiy hamyonda qoldirish o‘rniga allaqachon ma’muriy vakolatni ushlab turadi.",
+            "Hamyon allaqachon xarid, unlock, swap, likvidlik va ambassador yuzalarini bitta mahsulot hikoyasi sifatida ko‘rsatadi."
+          ]
+        },
+        {
+          "eyebrow": "Nega kapital muhim",
+          "title": "Imkoniyat mahsulotni tasavvur qilishda emas. U kuchliroq distribyutsiya undan oldin yetib kelishidan avval mavjud siklni kengaytirishda.",
+          "body": "Bu yerdagi eng kuchli investor dalili shior emas. Mahsulot, on-chain arxitektura va o‘sish relslari allaqachon bir-biriga ulangan. Shuning uchun yangi kapital distribyutsiya, foydalanuvchi jalb qilish, likvidlik chuqurligi va ishonchlilikni bo‘sh sahifadan boshlanadigan token loyihasidagidan tezroq kuchaytirishi mumkin."
+        }
+      ],
+      "thesis": [
+        {
+          "eyebrow": "1. Mahsulot riski pastroq",
+          "title": "Bu allaqachon konsept bosqichidan o‘tgan",
+          "body": "Hamyon ilovasi allaqachon to‘g‘ridan-to‘g‘ri xarid, unlock jadvali, swap, hamyon bosh sahifasi, axborot yo‘naltirish va ambassadorlarga mo‘ljallangan operatsion yuzalarni o‘z ichiga oladi. Bu investor suhbatini konsept riskidan kengaytirish riskiga o‘zgartiradi."
+        },
+        {
+          "eyebrow": "2. Arxitektura tushuntirishga qulay",
+          "title": "Boshqaruv, likvidlik va rezervlar ajratilgan",
+          "body": "FourteenToken, FourteenController, FourteenLiquidityController, LiquidityBootstrapper va vault kontraktlarining har biri alohida mas’uliyatni bajaradi. Bu ajratish tizimni tekshirish, tushuntirish va rivojlantirishni osonlashtiradi."
+        },
+        {
+          "eyebrow": "3. O‘sish relslari real",
+          "title": "Airdrop va ambassador logikasi allaqachon ulangan",
+          "body": "Controller ambassador holati, xaridor bog‘lanishi, mukofot hisob-kitobi va qayta ishlangan xarid ID’larini saqlaydi. Airdrop tomoni marketing istagi sifatida qoldirilmay, to‘g‘ridan-to‘g‘ri xarid yo‘nalishi ichida moliyalashtiriladi."
+        },
+        {
+          "eyebrow": "4. Sikl uzatishga yaroqli",
+          "title": "Xarid qiling, lock qiling, unlock qiling, so‘ng keyingi yo‘nalishni tanlang",
+          "body": "Bu ketma-ketlik foydalanuvchilar uchun yetarlicha aniq, kontent uchun yetarlicha kuchli va investor tekshiruvi uchun yetarlicha tuzilgan. U hamyon amalda bajara oladigan va sayt isbotlay oladigan hikoyani yaratadi."
+        }
+      ],
+      "proofTracks": [
+        {
+          "eyebrow": "On-chain isbot",
+          "title": "Kontraktlar allaqachon nimani majburiy qiladi",
+          "bullets": [
+            "FourteenToken xaridda mint qiladi, har bir batch’ni 14 kunga lock qiladi va kelayotgan TRX’ni qat’iy 90 / 7 / 3 ulushlar bo‘yicha yo‘naltiradi.",
+            "FourteenController token egasi hisoblanadi va ambassador holati, xaridor bog‘lanishlari, qayta ishlangan xarid ID’lari hamda mukofot hisob-kitobini saqlaydi.",
+            "FourteenLiquidityController 100 TRX minimumini va har UTC kuni bir marta 6.43% chiqarish qoidasini majburiy qiladi.",
+            "LiquidityBootstrapper controller tomoni ijrosidan oldin executor balanslarini tayyorlaydi, off-chain likvidlik kiritmalarini taxmin qilmaydi."
+          ]
+        },
+        {
+          "eyebrow": "Mahsulot isboti",
+          "title": "Hamyon allaqachon nimani ko‘rsatadi",
+          "bullets": [
+            "To‘g‘ridan-to‘g‘ri xarid ekrani allaqachon ishlayotgan kontrakt yo‘nalishini tushuntiradi va haqiqiy xarid widget’ini ishga tushiradi.",
+            "Unlock jadvali unlock’larni mavhum deb ko‘rsatish o‘rniga allaqachon batch asosidagi chiqarish logikasini render qiladi.",
+            "Manage Crypto va Swap 4TEEN’ni bir ekranli token o‘yinchog‘i sifatida emas, kengroq hamyon mahsuloti ichida joylashtiradi.",
+            "Axborot yuzalari kontrakt rollari, aktiv-hamyon balanslari va operator tayyorgarligini o‘qilishi oson tizim dashboard’iga xaritalaydi."
+          ]
+        },
+        {
+          "eyebrow": "Narrativ isbot",
+          "title": "Sayt bozorga allaqachon nimani tushuntira oladi",
+          "bullets": [
+            "Ommaviy sayt token, controller, likvidlik, unlock va isbot yuzalarini allaqachon bitta o‘qilishi oson foydalanuvchi hikoyasiga aylantiradi.",
+            "Whitepaper, ishlayotgan protokol yo‘nalishlari va kontrakt havolalari yangi kapital va strategik hamkorlar uchun tekshiruv ishqalanishini kamaytiradi.",
+            "Eng kuchli xabar oddiy: mahsulot sikli mavjud, chain logikasi mavjud va o‘sish qatlami allaqachon ko‘rsatilishi mumkin, tasavvur qilinishi shart emas."
+          ]
+        }
+      ],
+      "capitalPlan": [
+        {
+          "eyebrow": "Kapitaldan foydalanish",
+          "title": "Distribyutsiya va o‘sish sikllari",
+          "body": "Ambassador jalb qilish, kampaniya operatsiyalari, mintaqaviy distribyutsiya va protokolni foydalanuvchilar amalda kuzata oladigan hikoyaga aylantiradigan ommaviy kontent mashinasini kengaytirish."
+        },
+        {
+          "eyebrow": "Kapitaldan foydalanish",
+          "title": "Mahsulotni sayqallash va retention",
+          "body": "Hamyon UX’i, konversiya yuzalari, lokalizatsiya, instrumentatsiya va onboarding sifatini kuchaytirish, shunda mahsulot tugallanmagandek ko‘rinmasdan kattaroq kirimlarni qo‘llab-quvvatlay oladi."
+        },
+        {
+          "eyebrow": "Kapitaldan foydalanish",
+          "title": "Likvidlik ishonchi",
+          "body": "To‘g‘ridan-to‘g‘ri xarid narrativi, controller tomonidagi likvidlik ko‘rinuvchanligi va ijro ishonchliligi atrofida bozor ishonchini yaxshilash, shunda tizim eksperimental emas, bardoshli sifatida qabul qilinadi."
+        },
+        {
+          "eyebrow": "Kapitaldan foydalanish",
+          "title": "Ishonchlilik qatlami",
+          "body": "Hujjatlar, investor materiallari, institutsional tushuntirishlar va verifikatsiya yuzalarini yanada aniqlashtirish, shunda jiddiy kontragentlar loyiha mohiyatini avval xususiy walkthrough talab qilmasdan tushuna oladi."
+        }
+      ],
+      "links": [
+        {
+          "label": "Investor deck PDF’ini yuklab olish",
+          "href": "/docs/4teen-investor-deck.pdf",
+          "download": "4teen-investor-deck.pdf"
+        },
+        {
+          "label": "To‘g‘ridan-to‘g‘ri xarid yo‘nalishini ochish",
+          "href": "/buy"
+        },
+        {
+          "label": "Unlock jadvalini ochish",
+          "href": "/unlock"
+        },
+        {
+          "label": "Likvidlik yo‘nalishini ochish",
+          "href": "/liquidity"
+        },
+        {
+          "label": "Joriy whitepaper’ni ko‘rib chiqish",
+          "href": "/whitepaper"
+        },
+        {
+          "label": "Hamyon ilovasi repository’si",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Smart-kontraktlar repository’si",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Investor tekshiruvi shu yerdan boshlanadi",
+      "footerNote": "Bu sahifa daromad va’da qilish yoki mahsulot haqiqatini noaniq token tili ortiga yashirish uchun emas, balki ishlayotgan tizim atrofida investor suhbatlarini boshlash uchun mo‘ljallangan.",
+      "contact": {
+        "eyebrow": "Genesis bilan aloqa",
+        "title": "Agar bu moliyalashtirishga arziydigan narsadek ko‘rinsa, keyingi qadam bevosita aloqa bo‘lishi kerak.",
+        "body": "Ajratma hajmi, strategik qiymat, vaqt jadvali va tizimni eng tez qayerda tezlashtira olishingiz haqida yozing. Bu yerda to‘g‘ri investor passiv kapital emas. Bu kapital hamda distribyutsiya, bozor intellekti, likvidlik ishonchliligi yoki ekotizim qamrovini birga olib keladigan investor.",
+        "emailLabel": "Investor aloqasi",
+        "email": "genesis@4teen.me",
+        "bullets": [
+          "Seed, strategik yoki ekotizim miqyosidagi kapital suhbatlari mamnuniyat bilan qabul qilinadi.",
+          "Bridge intro’lar, market-making aloqalari, exchange yo‘llari va o‘sish distribyutsiyasi chekning o‘zi kabi muhim.",
+          "Eng kuchli suhbat faqat nima yubora olishingizdan emas, nimani tezlashtira olishingizdan boshlanadi."
+        ]
+      }
     }
   }
 }
