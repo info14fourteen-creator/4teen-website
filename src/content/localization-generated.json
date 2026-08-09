@@ -5653,6 +5653,157 @@
           "repoLabel": "Wallet App Repo"
         }
       }
+    },
+    "verification": {
+      "metadata": {
+        "title": "Verifikatsiya",
+        "description": "4TEEN verifikatsiya yo‘nalishi: jonli manzillar, zaxira balanslari, protokol egaligi xaritasi va chuqurroq tadqiqot uchun bevosita isbot havolalari."
+      },
+      "hero": {
+        "eyebrow": "Verifikatsiya sathi",
+        "status": "Ochiq arxitektura xaritasi",
+        "title": "Bu ishonch qatlami: kim nimaga egalik qiladi, zaxiralar qayerda turibdi, qiymat qanday harakatlanadi va hozir loyihani qaysi ommaviy manzillar qo‘llab-quvvatlaydi.",
+        "lead": "Jiddiy foydalanuvchilar va investorlar landing sahifada to‘xtab qolmaydi. Bu yo‘nalish ularga birinchi bosishda xom explorer oynalari devoriga tashlab qo‘ymasdan, egalik, saqlov, balanslar va kontrakt yo‘llarini tez tekshirish imkonini beradi.",
+        "stats": {
+          "totalSupply": "Jami ta’minot",
+          "totalSupplyMeta": "FourteenToken’ning on-chain joriy totalSupply ko‘rsatkichi.",
+          "currentPrice": "Bevosita narx",
+          "currentPriceMeta": "buyTokens() uchun TRX’da ifodalangan joriy dastlabki narx.",
+          "vaultCustody": "Vault saqlovi",
+          "vaultCustodyMeta": "Hozir FourteenVault, TeamLockVault va AirdropVault’da saqlanayotgan 4TEEN.",
+          "controllerBalance": "Controller balansi",
+          "controllerBalanceMeta": "Hozir FourteenController ichida turgan TRX.",
+          "readFailed": "Jonli verifikatsiya o‘qishi amalga oshmadi.",
+          "readRetry": "Statik arxitektura xaritasi hali ham amal qiladi. Joriy raqamlar uchun birozdan keyin yangilang."
+        }
+      },
+      "sections": {
+        "orientation": {
+          "eyebrow": "Yo‘nalish",
+          "title": "Bu sahifadan ikki savolga tez javob olish uchun foydalaning",
+          "body": "Birinchisi: muayyan protokol vazifasiga qaysi kontrakt yoki vault egalik qiladi. Ikkinchisi: ommaviy holat hali ham loyiha boshqa joylarda aytayotgan hikoyaga mos keladimi. Sahifa ataylab faqat o‘qish rejimida qoladi. Uning vazifasi ijro emas, ishonchdir.",
+          "bullets": [
+            "FourteenToken — xarid, mint, lock va split-entry kontrakti.",
+            "FourteenController — tokenning o‘zi emas, admin va atributsiya qatlami.",
+            "LiquidityController va LiquidityBootstrapper release-and-execution yo‘lagiga egalik qiladi.",
+            "Vault balanslari on-chain mavjud, ammo zaxira saqlovi erkin muomalani anglatmaydi."
+          ],
+          "openWhitepaper": "Whitepaper’ni ochish",
+          "openApp": "Mobile App’ni ochish"
+        },
+        "tokenMap": {
+          "eyebrow": "Token xaritasi",
+          "title": "Asosiy token hozir qanday ulangan",
+          "rows": {
+            "tokenOwner": "Token egasi",
+            "liquidityRoute": "Likvidlik yo‘nalishi",
+            "airdropRoute": "Airdrop yo‘nalishi",
+            "directPrice": "Bevosita narx",
+            "growthRule": "O‘sish qoidasi",
+            "lastPriceUpdate": "Oxirgi narx yangilanishi",
+            "snapshotUpdated": "Snapshot yangilangan"
+          },
+          "note": "Asosiy tafsilot — egalik zanjiri. FourteenToken oddiy egasi bor hamyon hikoyasi ostida turmaydi. Egasi yo‘li FourteenController’ga borib taqaladi, shuning uchun bu yerda ikkala sath ham birga ko‘rsatiladi."
+        },
+        "controllerState": {
+          "eyebrow": "Controller holati",
+          "title": "Controller atributsiya va treasury oqimi haqida nima deydi",
+          "rows": {
+            "controllerOwner": "Controller egasi",
+            "contractBalance": "Kontrakt balansi",
+            "ownerAvailable": "Ega uchun mavjud",
+            "reservedRewards": "Zaxiralangan mukofotlar",
+            "unallocatedPurchaseFunds": "Taqsimlanmagan xarid mablag‘lari",
+            "ambassadors": "Jami ambassadorlar",
+            "activeAmbassadors": "Faol ambassadorlar",
+            "boundBuyers": "Bog‘langan xaridorlar",
+            "trackedVolume": "Kuzatilgan hajm",
+            "rewardsClaimed": "Olingan mukofotlar"
+          },
+          "note": "Shu sababli controller hikoyasi muhim. U hamma narsani bitta chiroyli metrikaga tekislab yuborish o‘rniga, ega uchun mavjud mablag‘lar, zaxiralangan mukofotlar, kuzatilgan hajm va xaridor atributsiyasi sonlari uchun alohida ommaviy bucket’larni saqlaydi."
+        },
+        "liquidityState": {
+          "eyebrow": "Likvidlik yo‘lagi",
+          "title": "Ijro tomoni alohida ommaviy tizimdir",
+          "rows": {
+            "controllerBalance": "Liquidity Controller balansi",
+            "controllerOwner": "Liquidity Controller egasi",
+            "minBalance": "Minimal ishga tushirish balansi",
+            "dailyRelease": "Kunlik release qoidasi",
+            "justMoneyExecutor": "JustMoney ijrochisi",
+            "sunExecutor": "Sun.io V3 ijrochisi"
+          },
+          "note": "Avtomatlashtirish yo‘nalishni uyg‘otishi mumkin, ammo release chegarasi va foizi baribir kontraktlarda turadi. Qulaylik qoidalardan tashqarida joylashadi, ularning ustida emas."
+        },
+        "architecture": {
+          "eyebrow": "Arxitektura",
+          "title": "Protokol bitta ulkan kontrakt o‘rniga aniq vazifalarga ajratilgan",
+          "cards": [
+            {
+              "eyebrow": "Yadro",
+              "title": "FourteenToken",
+              "text": "Bevosita xarid TRX’ini qabul qiladi, 4TEEN mint qiladi, har bir xarid uchun 14 kunlik lock yaratadi va xarid qiymatini atomar tarzda 90 / 7 / 3 nisbatda bo‘ladi."
+            },
+            {
+              "eyebrow": "Admin",
+              "title": "FourteenController",
+              "text": "Token qatlamiga egalik qiladi, atributsiya va mukofot hisob-kitobi holatini saqlaydi, ommaviy tizim xulosalarini ochadi va egaga tegishli balans boshqaruvini nazorat qiladi."
+            },
+            {
+              "eyebrow": "Ijro",
+              "title": "Likvidlik stack’i",
+              "text": "FourteenLiquidityController xarid tomonidagi TRX yo‘lagini ushlab turadi, LiquidityBootstrapper esa token inventarini tayyorlaydi va ijrochi tomondagi likvidlik yo‘llarini ishga tushiradi."
+            },
+            {
+              "eyebrow": "Saqlov",
+              "title": "Vault ajratilishi",
+              "text": "FourteenVault, TeamLockVault va AirdropVault zaxira balanslarini maqsad bo‘yicha ajratadi, shuning uchun treasury, jamoa va o‘sish ta’minoti bitta umumiy pool’ga tekislab yuborilmaydi."
+            }
+          ],
+          "note": "Bu ajratilish ommaviy tekshirish eng oson bo‘lgan kuchli jihatlardan biridir. Explorer havolalari, repository kodi va jonli balanslarning barchasi bir xil modulli arxitekturaga qaytadi."
+        },
+        "reserveLayer": {
+          "eyebrow": "Zaxira qatlami",
+          "title": "Vault va ijro manzillari bo‘yicha jonli 4TEEN balanslari",
+          "body": "Bu balanslar token inventari amalda qayerda turganini ko‘rsatadi. Vault saqlovi erkin muomala emas, ijrochi inventari esa foydalanuvchi hamyoni balansi emas. Ularni bir joyda saqlash tizimni bir qarashda o‘qiladigan qiladi.",
+          "note": "Bootstrap va likvidlik oqimi inventarni ko‘chirganda ijrochi balanslari o‘zgarishi mumkin. Vault balanslari zaxira saqlovi uchun barqarorroq isbot qatlamidir.",
+          "labels": {
+            "balance": "Balans",
+            "verify": "Tronscan’da tekshirish"
+          }
+        },
+        "verification": {
+          "eyebrow": "Isbot havolalari",
+          "title": "Isbot qatlamini bevosita oching",
+          "body": "Quyidagi har bir guruh foydalanuvchini hikoyadan to‘g‘ridan-to‘g‘ri isbot qatlamiga olib boradi: kontraktlar, vault’lar, ijro yo‘laklari va mahsulot ortidagi repo’lar.",
+          "groups": {
+            "core": "Asosiy kontraktlar",
+            "vaults": "Vault kontraktlari",
+            "execution": "Ijro kontraktlari",
+            "source": "Manba repository’lari"
+          },
+          "labels": {
+            "token": "FourteenToken",
+            "controller": "FourteenController",
+            "liquidityController": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "fourteenVault": "FourteenVault",
+            "teamLockVault": "TeamLockVault",
+            "airdropVault": "AirdropVault",
+            "justMoneyExecutor": "LiquidityExecutorJustMoney",
+            "sunV3Executor": "LiquidityExecutorSunV3",
+            "contractsRepo": "Kontraktlar repository’si",
+            "walletRepo": "Hamyon repository’si"
+          }
+        },
+        "cta": {
+          "eyebrow": "Keyingi qadam",
+          "title": "Ishonchni shu yerda shakllantiring, keyin app’da harakat qiling",
+          "body": "Tizimni tekshirish uchun ommaviy yo‘nalishdan foydalaning. Imzolash, xarid qilish, unlock, swap, airdrop claim yoki real account holati ortida turgan qo‘lda likvidlik amali kerak bo‘lganda hamyondan foydalaning.",
+          "openApp": "Mobile App’ni ochish",
+          "openBuy": "Xarid yo‘nalishini ochish"
+        }
+      }
     }
   }
 }
