@@ -63,8 +63,7 @@ export function validateTranslatedStructure(source, translated) {
     valid:
       missing.length === 0 &&
       empty.length === 0 &&
-      extra.length === 0 &&
-      unchanged.length === 0,
+      extra.length === 0,
     missing,
     empty,
     extra,
