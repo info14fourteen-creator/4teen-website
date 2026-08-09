@@ -8026,6 +8026,197 @@
           "openBuy": "Buy Rotasını Aç"
         }
       }
+    },
+    "liquidity": {
+      "metadata": {
+        "title": "Genel Likidite Denetleyicisi",
+        "description": "Canlı denetleyici bakiyesi, herkese açık bootstrapper tetikleme yolu, rezerv görünürlüğü ve doğrulanmış yürütme akışıyla 4TEEN genel likidite denetleyicisi."
+      },
+      "hero": {
+        "eyebrow": "Likidite Denetleyicisi",
+        "badge": "Genel likidite denetleyicisi",
+        "title": "Genel 4TEEN Likidite Denetleyicisi",
+        "subtitle": "Otomasyon rotayı uyandırabilir, ancak sözleşme kapısı açık olduğunda herhangi bir cüzdan bootstrapper’ı yine de çalıştırabilir.",
+        "body": [
+          "Bu sayfa kapalı bir operasyon paneli gibi okunmamalı. Tek bir şeyi net göstermeli: denetleyici tarafındaki TRX görünür, rezerv tarafındaki envanter görünür ve serbest bırakma kuralları hâlâ zincir üzerinde yaşar.",
+          "UTC penceresi açıksa, denetleyici eşik değerinin üzerindeyse ve imzalayan cüzdanın yeterli ağ kaynağı varsa, otomasyon katmanı bir günü kaçırsa bile likidite cüzdandan yürütülebilir."
+        ],
+        "rotatingLines": [
+          "GENEL TETİKLEME. SÖZLEŞME KAPISI.",
+          "OTOMASYON YARDIM EDER. SÖZLEŞMELER KARAR VERİR.",
+          "ÖNCE BOOTSTRAP. ZİNCİR ÜZERİNDE YÜRÜT."
+        ],
+        "primaryCta": "Cüzdan Rotasını Aç",
+        "secondaryCta": "Canlı Yürütmelere Git",
+        "ctaNote": "Web sitesi kanıt katmanıdır. Cüzdan; manuel tetikleme, kaynak kontrolleri ve son imzalama için yürütme yüzeyidir.",
+        "stats": {
+          "controllerBalance": {
+            "label": "Denetleyici Bakiyesi",
+            "meta": "Şu anda FourteenLiquidityController içinde bekleyen TRX."
+          },
+          "nextRelease": {
+            "label": "Sonraki Serbest Bırakma",
+            "meta": "Sözleşme penceresi geçerli olduğunda öngörülen TRX serbest bırakımı."
+          },
+          "triggerFloor": {
+            "label": "Tetikleme Tabanı",
+            "meta": "Yürütmenin geçerli olmasından önce gereken minimum denetleyici bakiyesi."
+          },
+          "cadence": {
+            "label": "Periyot",
+            "meta": "UTC günü başına bir kez. Kapı otomasyonla değil, sözleşme tarafından uygulanır."
+          },
+          "readFailed": "Canlı likidite okuması başarısız oldu.",
+          "readRetry": "Birazdan yenilemeyi deneyin."
+        }
+      },
+      "sections": {
+        "publicRoute": {
+          "eyebrow": "Genel Rota",
+          "title": "Otomasyon yapılandırıldı. Genel yürütme hâlâ cüzdana aittir.",
+          "intro": "Cüzdan uygulaması otomasyon yolunu zaten taşır, ancak daha önemli mesaj bundan daha geniştir: bu rota hâlâ geneldir. İmzalayan bir cüzdan, sözleşme koşulları zaten sağlandığında bootstrapper’ı uyandırabilir.",
+          "mainCard": {
+            "eyebrow": "Genel Likidite Denetleyicisi",
+            "title": "Herhangi bir cüzdan rotayı uyandırabilir. Likiditenin gerçekten hareket edip etmeyeceğine yine denetleyici karar verir.",
+            "text": "Yetki ayrımı doğru olan budur. Otomasyonun zamanlamaya yardımcı olmasına izin verilir, ancak denetleyici ve bootstrapper yetki katmanı olarak kalır. Bir bot duraklarsa yürütme yolu ortadan kaybolmaz.",
+            "bullets": [
+              "Doğrudan 4TEEN alımları, satın alma TRX’inin 90%’ını denetleyici bakiyesine gönderir.",
+              "LiquidityBootstrapper, denetleyici yürütmeden önce token tarafını FourteenVault’tan hazırlar.",
+              "UTC günü başına bir kez kuralı, minimum bakiye, serbest bırakma yüzdesi ve dağılım zincir üzerinde kalır."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Otomasyon",
+              "title": "Cüzdan repo’su uyandırma yolunu zaten bağlar",
+              "text": "Mobil akış, likidite tetikleyicisini ve otomasyon yardımcısını birlikte gösterir. Bu, zamanlayıcıyı görünür kılar; ancak zamanlayıcıyı gizli bir operatöre dönüştürmez."
+            },
+            {
+              "eyebrow": "Manuel tetikleme",
+              "title": "Otomasyon kaçırırsa, kullanıcı rotayı yine manuel olarak imzalayabilir",
+              "text": "Cüzdan, normal bir kullanıcı oturumundan bootstrapAndExecute() çağırabilir. Kapı açıksa ve kaynaklar mevcutsa likidite yine gerçekleşir."
+            }
+          ],
+          "note": "Bu yüzden sayfa, özel bir arka ofisten değil, genel bir denetleyiciden bahsetmelidir. Rota, otomasyon katmanının ötesinde de yaşamaya devam eder."
+        },
+        "liveState": {
+          "eyebrow": "Canlı Denetleyici Durumu",
+          "title": "Denetleyici şu anda ne söylüyor",
+          "rows": {
+            "controllerBalance": "Denetleyici Bakiyesi",
+            "latestFunding": "Son Fonlama",
+            "latestFundingAt": "Son Fonlama Zamanı",
+            "lastExecute": "Son Yürütme",
+            "minBalance": "Minimum Bakiye",
+            "dailyRelease": "Günlük Serbest Bırakma",
+            "split": "Hedef Dağılım",
+            "windowState": "Pencere Durumu",
+            "nextWindow": "Sonraki Pencere",
+            "snapshotUpdated": "Anlık Görüntü Güncellendi"
+          },
+          "valueLabels": {
+            "openNow": "Şimdi açık",
+            "waitForThreshold": "Fonlama bekleniyor"
+          },
+          "stateLabels": {
+            "ready": "Şu anda hazır",
+            "waiting": "Bugün zaten yürütüldü",
+            "threshold": "Eşik altında"
+          },
+          "note": "Anlık görüntü kullanışlıdır çünkü hareketli parçaları net biçimde ayırır: denetleyici TRX’i, fonlama periyodu, serbest bırakma boyutu, eşik ve zaman kapısı aynı anda görünür kalır."
+        },
+        "triggerModel": {
+          "eyebrow": "Tetikleme Modeli",
+          "title": "Birisi Likiditeyi Tetikle’ye dokunduğunda gerçekte ne olur",
+          "intro": "Dürüstçe ifade edildiğinde rota basittir: önce bootstrapper gün kapısını kontrol eder ve yürütücü envanterini tamamlar, sonra denetleyici TRX’i serbest bırakır, ardından iki piyasa yolu kendi paylarını alır.",
+          "mainCard": {
+            "eyebrow": "bootstrapAndExecute()",
+            "title": "Tetikleme yolu geneldir, kaynak farkındalığına sahiptir ve hâlâ sözleşmeler tarafından yönetilir.",
+            "text": "Bu sahte bir yönetici düğmesi değildir. Cüzdanın normal ağ koşullarını karşılaması gerekir ve rota yalnızca aynı denetleyici kuralları yürütme anında hâlâ geçerse devam eder.",
+            "bullets": [
+              "Adım 1: bootstrapper denetleyici penceresini kontrol eder ve izin verilen serbest bırakma boyutunu hesaplar.",
+              "Adım 2: bootstrapper, piyasa tarafı bacağı çalışmadan önce yürütücü tarafındaki 4TEEN’i FourteenVault’tan tamamlar.",
+              "Adım 3: denetleyici serbest bırakmayı yürütür ve akışı JustMoney ile Sun.io V3 arasında 50 / 50 böler."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Kaynaklar",
+              "title": "Normal bir cüzdan rotayı kiralama veya önceden yüklenmiş enerjiyle karşılayabilir",
+              "text": "Uygulama bunu zaten kaynak farkındalığı olan bir işlem olarak çerçeveler. Mesele gizli bir sunucu anahtarı değildir. Mesele, genel bir cüzdanın rotayı hâlâ temiz biçimde tamamlayabilmesidir."
+            },
+            {
+              "eyebrow": "Kural seti",
+              "title": "Zamanlayıcı kolaylığı sözleşme kural setini asla geçersiz kılmaz",
+              "text": "Bot penceresini kaçırmak periyodu yeniden yazmaz. Düğmeye erken basmak kapıyı atlatmaz. Sözleşmeler rotayı hâlâ kabul eder veya reddeder."
+            }
+          ],
+          "note": "Doğru piyasa sinyali budur: genel tetikleme, görünür rezerv hazırlığı, deterministik serbest bırakma kuralı."
+        },
+        "latestExecutions": {
+          "eyebrow": "Son Yürütmeler",
+          "title": "Canlı akıştan doğrulanmış likidite yürütmeleri",
+          "body": "Bu liste bilinçli olarak dar tutulur. Bir kullanıcının sayfayı gürültülü bir block explorer kopyasına çevirmeden denetleyicinin canlı olduğunu doğrulayabilmesi için en son doğrulanmış yürütme satırlarını gösterir.",
+          "headers": {
+            "total": "Toplam Serbest Bırakılan",
+            "split": "Dağılım",
+            "happened": "Gerçekleşti",
+            "day": "UTC Günü",
+            "source": "Kaynak"
+          },
+          "empty": "Henüz görünür doğrulanmış LiquidityExecuted satırı yok.",
+          "openTx": "Tx’i aç",
+          "note": "Her satır, doğrulanmış LiquidityExecuted(day, totalAmount, amountA, amountB) olaylarından gelir."
+        },
+        "reservePath": {
+          "eyebrow": "Rezerv Yolu",
+          "title": "Rezerv token’lar envanterdir, serbest dolaşım değildir",
+          "intro": "Denetleyici tarafındaki TRX rotanın yalnızca yarısıdır. Token tarafının da izole envantere ihtiyacı vardır ve bu nedenle iki yürütme yolu bakiyelerini almadan önce FourteenVault vardır.",
+          "primaryCard": {
+            "eyebrow": "Rezerv katmanı",
+            "title": "FourteenVault, piyasa yürütmesi başlamadan önce genel likidite rotasını destekler.",
+            "text": "Bu 4TEEN bakiyeleri, rezerv tarafı çalışma envanteri olarak okunmalıdır. Bunlar sıradan cüzdan bakiyeleri değildir ve serbestçe dolaşımdaki arz gibi çerçevelenmemelidir.",
+            "bullets": [
+              "Vault envanteri, denetleyici yürütmeden önce bootstrapper yoluna tamamlanır.",
+              "JustMoney ve Sun.io V3, hazırlanmış bakiyeleri yalnızca rota geçerli olduğunda alır.",
+              "Rezerv saklama, denetleyici TRX’i ve yürütücü hedefleri aynı motorun ayrı katmanlarıdır."
+            ]
+          },
+          "secondaryCards": [
+            {
+              "key": "justmoney",
+              "title": "JustMoney yolu",
+              "body": "Yürütücü A, izin verilen serbest bırakmanın yarısını alır ve token envanteri hazırlandıktan sonra AMM tarafı likidite yolunu çalıştırır."
+            },
+            {
+              "key": "sun",
+              "title": "Sun.io V3 yolu",
+              "body": "Yürütücü B diğer yarıyı alır ve bunu kendi hazırlanmış token tarafıyla yoğunlaştırılmış likidite yolu üzerinden yönlendirir."
+            }
+          ],
+          "note": "Bu yüzden sayfa yalnızca gösterişli tek bir toplam yazdırmak yerine bir rotayı açıklamalıdır. Rezerv envanteri, denetleyici bakiyesi ve yürütme hedefleri farklı işler yapar."
+        },
+        "verification": {
+          "eyebrow": "Doğrulama",
+          "title": "Kanıt katmanını aç",
+          "body": "Hikâyeden doğrudan altındaki raylara geçin: denetleyici sözleşmesi, bootstrapper rotası, yürütücü sözleşmeleri ve hem otomasyonu hem de manuel tetiklemeyi gösteren cüzdan uygulaması.",
+          "labels": {
+            "controller": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "justMoney": "JustMoney yürütücüsü",
+            "sunV3": "Sun.io V3 yürütücüsü",
+            "contractsRepo": "Sözleşmeler repository’si",
+            "walletRepo": "Cüzdan repository’si"
+          }
+        },
+        "cta": {
+          "eyebrow": "Sonraki Adım",
+          "title": "Rotayı kendiniz uyandırmak istediğinizde cüzdanı açın",
+          "body": "Site, durumu doğruladığınız yerdir. Mobil cüzdan ise gerçek bir kullanıcının kaynakları inceleyebileceği, bootstrapper’ı çağırabileceği ve denetleyici kapısı zaten açıksa rotayı imzalayabileceği yerdir.",
+          "openApp": "Uygulamada Likiditeyi Aç",
+          "openBuy": "Alım Rotasını Aç"
+        }
+      }
     }
   }
 }
