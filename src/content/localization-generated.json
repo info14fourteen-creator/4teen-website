@@ -8554,6 +8554,194 @@
           "openApp": "Mobil Uygulama Rotasını Aç"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "Herkese Açık Ambassador Controller",
+        "description": "Canlı FourteenController toplamları, kabine destekli kayıt akışı, alıcı bağlama kanıtı, ödül takibi ve çalışma zamanı hazırlığı ile 4TEEN herkese açık ambassador controller."
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "Herkese açık ambassador controller",
+        "title": "Arkasında Gerçek Bir Kabin Bulunan Herkese Açık 4TEEN Ambassador Controller",
+        "subtitle": "Web sitesi kanıt katmanıdır. Kayıt, slug sahipliği, alıcı bağlama, ödül birikimi ve çekimler hâlâ cüzdan kabininde yaşar ve FourteenController ile mutabakat sağlar.",
+        "body": [
+          "Bu rota, herkese açık sayfanın çalışan kabin olduğunu iddia etmemelidir. Gerçek akış cüzdanda başlar: kullanıcı bir ambassador kimliği kaydeder, bir slug talep eder, zincir üstü profili senkronize eder ve ardından alıcıya atfedilen hacim ve ödüller biriktirir.",
+          "Herkese açık sitenin görevi farklıdır. Controller'ın canlı olduğunu, kabin profillerinin bulunduğunu, alıcı bağlamalarının takip edildiğini, satın alımların işlendiğini ve ödül durumunun bir arka ofiste kaybolmak yerine görünür kaldığını kanıtlamalıdır."
+        ],
+        "rotatingLines": [
+          "KAYDET. BAĞLA. DOĞRULA. ÇEK.",
+          "HERKESE AÇIK KANIT. GERÇEK KABİN.",
+          "ÖNCE SLUG. SONRA ÖDÜL AKIŞI."
+        ],
+        "primaryCta": "Cüzdan Rotasını Aç",
+        "secondaryCta": "Kayıt Akışını Gör",
+        "ctaNote": "Kabin kimliği, referans bağlantısı, alıcı satırları, bekleyen yeniden işleme ve çekimler cüzdana özgü kalır. Web sitesi herkese açık, okunabilir ve dürüst kalır.",
+        "stats": {
+          "profilesOnChain": {
+            "label": "Zincir Üstündeki Profiller",
+            "meta": "Controller destekli kabin katmanı üzerinden zaten görünen ambassador profilleri."
+          },
+          "boundBuyers": {
+            "label": "Bağlı Alıcılar",
+            "meta": "Ambassador profillerine zaten eklenmiş alıcı kimlikleri."
+          },
+          "rewardsClaimed": {
+            "label": "Talep Edilen Ödüller",
+            "meta": "Ambassador’lar tarafından kabin akışı üzerinden zaten çekilmiş TRX."
+          },
+          "pendingReplay": {
+            "label": "Bekleyen Yeniden İşleme",
+            "meta": "Tamamlanmış gibi gösterilmek yerine hâlâ kaynak açısından güvenli işlemeyi bekleyen satırlar."
+          },
+          "readFailed": "Canlı ambassador okuması başarısız oldu.",
+          "readRetry": "Birazdan yenilemeyi deneyin."
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "Kabin Rotası",
+          "title": "Herkese açık sayfa kabin değildir. Kabinin var olduğunu kanıtlar.",
+          "intro": "Temiz ürün ayrımı budur. Cüzdan; kimlik, bağlama, yeniden işleme ve çekim aksiyonlarının sahibidir. Site, mekanikleri açıklar ve sistemin gerçekten hareket edip etmediğini gösterir.",
+          "mainCard": {
+            "eyebrow": "Controller + Kabin",
+            "title": "Kayıt ve ödüller cüzdana özgü kalır. Herkese açık kanıt açık kalır.",
+            "text": "Kabin endpoint’i, zincir üstü pano durumunu alıcılar, satın alımlar ve bekleyen yeniden işleme için veritabanı satırlarıyla zaten birleştirir. Bu, herkese açık sitenin kabinin kendisinin yerini alabileceğini iddia etmeden akış hakkında doğru konuşabileceği anlamına gelir.",
+            "bullets": [
+              "Kabin, ambassador slug’ından bir referans bağlantısı çözer.",
+              "Alıcıya atfedilen satın alımlar kalıcılaştırılır ve kaynaklar izin verdiğinde controller üzerinde yeniden işlenir.",
+              "Talep edilebilir ödül durumu ve çekim geçmişi, zincir üstü profille birlikte takip edilir."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Slug sahipliği",
+              "title": "Bir cüzdan yalnızca pazarlama metniyle ambassador olmaz",
+              "text": "Kayıt akışı slug uygunluğunu kontrol eder, aynı cüzdanla yinelenen kaydı önler ve rota tamamlanmış sayılmadan önce gerçek bir zincir üstü ambassador profili bekler."
+            },
+            {
+              "eyebrow": "Alıcı bağlama",
+              "title": "Kazanç rotası, satın alımlar gerçekten atfedildiğinde başlar",
+              "text": "Bağlı alıcılar, atfedilen satın alımlar, işlenmiş controller satırları ve bekleyen yeniden işleme tamamen ayrı durumlardır. Kabin bunları tek bir dekoratif sayıya indirgemez."
+            }
+          ],
+          "note": "Bu nedenle sayfa, çalışan durumu olmayan sahte bir referans açılış sayfasını değil, arkasında gerçek bir kabin bulunan herkese açık bir ambassador controller’ı tanımlamalıdır."
+        },
+        "registration": {
+          "eyebrow": "Kayıt Akışı",
+          "title": "Kayıt cüzdanda başlar, ardından zincir üstü bir profile dönüşür.",
+          "intro": "Kayıt ekranı gevşek bir üyelik formu değildir. Slug seçiminin, cüzdan kimliğinin, enerji yönlendirmesinin ve controller senkronizasyonunun önem kazanmaya başladığı noktadır.",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "Cüzdan kaynakları fiyatlayabilir, slug’ı doğrulayabilir ve ancak bundan sonra kaydı tamamlayabilir.",
+            "text": "API, slug’ın alınmış olup olmadığını, cüzdanın zaten kayıtlı olup olmadığını ve enerji rotasının ambassador_registration amacı için hazır olup olmadığını kontrol eder. İşlemden sonra kabin senkronizasyonu, zincir üstü profilin gerçekten var olduğunu doğrular.",
+            "bullets": [
+              "Rota onaylanmadan önce slug uygunluğu kontrol edilir.",
+              "Gerektiğinde özellikle ambassador kaydı için enerji kiralama talep edilebilir.",
+              "Kabin senkronizasyonu saklanan slug hash’ini doğrular ve nihai referans bağlantısını gösterir."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Cüzdan kimliği",
+              "title": "Kayıt, tek seferlik form doldurma değil bir profile dönüşür",
+              "text": "Senkronize edildikten sonra ambassador; mevcut seviye, ödül yüzdesi, alıcı sayısı, hacim, biriken ödüller, talep edilen ödüller ve talep edilebilir bakiye içeren cüzdana bağlı bir profile sahip olur."
+            },
+            {
+              "eyebrow": "Yeniden işleme güvenliği",
+              "title": "Operatör tarafında kaynaklar yetersizse satırlar yalan söylemek yerine bekler",
+              "text": "Bekleyen yeniden işleme, doğruluk katmanının bir parçasıdır. Kabin, operatör kaynakları doğrulanmış satın alımları temiz biçimde işlemek için yeterince güvenli olana kadar bunu görünür tutar."
+            }
+          ],
+          "note": "Bu yüzden kayıt dizisi kozmetik değildir. Daha sonra referans durumunu, satın alma satırlarını ve çekimleri tutacak aynı kabine açılan kapıdır."
+        },
+        "ledger": {
+          "eyebrow": "Herkese Açık Defter",
+          "title": "Kabin aksiyonları özel kalsa bile controller toplamları herkese açık kalır.",
+          "note": "FourteenController sistem düzeyindeki sayıları ve bakiyeleri gösterir. Site, herkese açık katmanın kabin işlemlerini imzalayabildiğini iddia etmeden bunu görünür kılmalıdır.",
+          "rows": {
+            "totalAmbassadors": "Toplam Ambassador",
+            "activeAmbassadors": "Aktif Ambassador",
+            "boundBuyers": "Bağlı Alıcılar",
+            "trackedVolume": "Takip Edilen Hacim",
+            "rewardsAccrued": "Biriken Ödüller",
+            "rewardsClaimed": "Talep Edilen Ödüller",
+            "reservedRewards": "Ayrılmış Ödüller",
+            "ownerAvailable": "Sahip İçin Kullanılabilir",
+            "unallocatedFunds": "Tahsis Edilmemiş Satın Alma Fonları"
+          }
+        },
+        "runtime": {
+          "eyebrow": "Kabin Çalışma Zamanı",
+          "title": "Kaynaklar düşükse satırlar temizlenmiş gibi yapmak yerine bekler.",
+          "note": "Herkese açık çalışma zamanı görünümü önemlidir çünkü yeniden işlemenin neden meşru olarak kuyruğa girebileceğini açıklar. Düşük enerji veya bant genişliği artık sessiz bir hata değildir; görünür sistem durumudur.",
+          "readyYes": "Şimdi hazır",
+          "readyNo": "Yükleme gerekiyor",
+          "rows": {
+            "operatorWallet": "Operatör Cüzdanı",
+            "readyNow": "Şimdi Hazır",
+            "profilesOnChain": "Zincir Üstündeki Profiller",
+            "profilesActive": "Aktif Profiller",
+            "pendingReplay": "Bekleyen Yeniden İşleme",
+            "lastPurchaseSeen": "Görülen Son Satın Alma",
+            "lastWithdrawalSeen": "Görülen Son Çekim",
+            "energyAvailable": "Kullanılabilir Enerji",
+            "bandwidthAvailable": "Kullanılabilir Bant Genişliği",
+            "needPerAllocation": "Tahsis Başına Gereksinim",
+            "safeFloorAfterRun": "Çalıştırma Sonrası Güvenli Taban"
+          }
+        },
+        "levels": {
+          "eyebrow": "Seviye Merdiveni",
+          "title": "Alıcı büyümesi ödül payını değiştirir.",
+          "suffix": "nitelikli akışta % ödül payı."
+        },
+        "proof": {
+          "eyebrow": "Kanıt Katmanı",
+          "title": "Herkese açık taraf, kabinin zaten işlediği şeyleri yine de göstermelidir.",
+          "cards": {
+            "recordedPurchases": {
+              "title": "Kaydedilen Satın Alımlar",
+              "text": "İşlenmiş ve bekleyen satırlar genelinde kabin izine zaten yazılmış satın alımlar."
+            },
+            "ambassadorsWithPurchases": {
+              "title": "Satın Alımı Olan Ambassador’lar",
+              "text": "Kazanç rotası üzerinden ilerleyen satın alma atfına zaten sahip profiller."
+            },
+            "withdrawals": {
+              "title": "Çekim Olayları",
+              "text": "Backend ve kabin senkronizasyonu tarafından zaten yakalanmış ödül çekim satırları."
+            },
+            "latestWithdrawal": {
+              "title": "Görülen En Son Çekim",
+              "text": "Kaydedilen en son ambassador ödül çekimi zaman damgası."
+            }
+          },
+          "note": "Bu, web sitesini gerçek kabin kanıtlarına dayalı tutar: satın alımlar, yeniden işleme kuyruğu ve çekimlerin tümü herkese açık görünür bir iz bırakır."
+        },
+        "route": {
+          "eyebrow": "Kanıt Rotaları",
+          "title": "Controller’ı, cüzdan uygulamasını ve canlı uygulamayı incelemek için herkese açık katmanı kullanın.",
+          "cards": {
+            "contract": {
+              "eyebrow": "Kontrat",
+              "title": "FourteenController’ı Aç",
+              "text": "Ambassador sistem istatistiklerini ve bakiyelerini tutan canlı controller’ı inceleyin."
+            },
+            "walletRepo": {
+              "eyebrow": "Cüzdan Dosyaları",
+              "title": "Cüzdan repo’sunu aç",
+              "text": "Gerçek ürünü çalıştıran kabini, kaynak yönlendirmesini, kayıt mantığını ve yeniden işleme akışını görün."
+            },
+            "app": {
+              "eyebrow": "Cüzdan Rotası",
+              "title": "Uygulama rotasını aç",
+              "text": "Kayıt, kabin durumu, referans bağlantısı ve çekimler cüzdan deneyimine aittir."
+            }
+          },
+          "updatedPrefix": "Snapshot güncellendi"
+        }
+      }
     }
   }
 }
