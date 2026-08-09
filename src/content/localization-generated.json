@@ -3460,6 +3460,808 @@
           "githubSource": "GitHub manbasi"
         }
       }
+    },
+    "home": {
+      "ui": {
+        "aria": {
+          "heroPoints": "Protokolning asosiy jihatlari",
+          "livePriceSummary": "Jonli narx xulosasi",
+          "quickLinks": "Tezkor havolalar",
+          "verificationLinks": "Tekshiruv havolalari"
+        },
+        "marketStrip": {
+          "unavailable": "Mavjud emas",
+          "routerQuoteReadFailed": "Router kotirovkasini o‘qib bo‘lmadi",
+          "directPriceLabel": "To‘g‘ridan-to‘g‘ri narx",
+          "directPriceSub": "Protokol orqali 1 4TEEN uchun",
+          "dexReferenceLabel": "DEX ma’lumot narxi",
+          "dexPriceLabel": "DEX narxi",
+          "dexSubSuffix": "har bir 4TEEN uchun",
+          "unlockCycleLabel": "Ochish sikli",
+          "unlockCycleValue": "14 kun",
+          "unlockCycleSub": "To‘g‘ridan-to‘g‘ri xarid uchun bloklash muddati",
+          "unlockCycleDailyRuleSub": "To‘g‘ridan-to‘g‘ri xaridlar uchun qat’iy bloklash",
+          "dailyLiquidityRuleLabel": "Kunlik likvidlik qoidasi",
+          "dailyLiquidityRuleValue": "6.43%",
+          "dailyLiquidityRuleSub": "Kontroller mantiqi orqali har UTC kuni bir marta chiqariladi"
+        }
+      },
+      "hero": {
+        "eyebrow": "4TEEN mobil ilovasi",
+        "meta": "TRON • To‘g‘ridan-to‘g‘ri xarid • Ochish • Likvidlik • O‘sish",
+        "title": "Xarid, bloklash ko‘rinishi va likvidlik oqimi uchun yagona joy.",
+        "lead": "Hamyon ilovasi allaqachon tizimning operatsion qatlami hisoblanadi. To‘g‘ridan-to‘g‘ri xarid, ochish jadvali, likvidlik kontrolleri, Telegram claim holati, ambassador kabineti va ixcham info route endi matndagi va’dalar emas, balki real holatga ega haqiqiy ekranlar sifatida mavjud.",
+        "points": [
+          "Imzolashdan oldin baholash, bo‘linish konteksti va tasdiqlash bilan real to‘g‘ridan-to‘g‘ri xarid oqimini tayyorlang.",
+          "Har bir bloklangan xarid hodisasini teskari sanoq, ochish holati va manba tranzaksiya bo‘yicha kuzating.",
+          "Shartnomalar, aktiv hamyonlari, ijrochilar va runtime tayyorgarligi uchun bitta info route’dan foydalaning."
+        ],
+        "actions": [
+          {
+            "label": "Ilovani olish",
+            "href": "/app"
+          },
+          {
+            "label": "To‘g‘ridan-to‘g‘ri xaridni ochish",
+            "href": "/buy"
+          }
+        ],
+        "sideEyebrow": "Hamyon yuzalari",
+        "sideTitle": "Ilova endi jonli mahsulot ishini o‘zida olib yuradi.",
+        "sideStats": [
+          {
+            "label": "Birlamchi sotuv",
+            "value": "Tayyorlash → Tasdiqlash"
+          },
+          {
+            "label": "Ko‘rinish",
+            "value": "Ochish hodisalari"
+          },
+          {
+            "label": "Ijro",
+            "value": "Kontroller holati"
+          },
+          {
+            "label": "Tekshiruv",
+            "value": "Info route"
+          }
+        ],
+        "sideHighlightTitle": "Toza mahsulot markazi.",
+        "sideHighlightText": "Xarid, bloklash ko‘rinishi, kontroller haqiqati, o‘sish yo‘nalishlari va tekshiruv endi bitta hamyon uslubidagi oqim orqali ulanadi.",
+        "tools": [
+          {
+            "href": "/buy",
+            "title": "To‘g‘ridan-to‘g‘ri xarid",
+            "meta": "Tasdiqlashdan oldin real xarid-paytida-mint oqimini tayyorlang"
+          },
+          {
+            "href": "/unlock",
+            "title": "Ochish jadvali",
+            "meta": "To‘g‘ridan-to‘g‘ri xarid hodisalarini hamyon, teskari sanoq va ochish holati bo‘yicha o‘qing"
+          },
+          {
+            "href": "/liquidity",
+            "title": "Likvidlik kontrolleri",
+            "meta": "Chegara, chiqarish ritmi, ijrochilar va kontroller tarixini ko‘ring"
+          },
+          {
+            "href": "/verification",
+            "title": "Info route",
+            "meta": "Shartnomalar, vaultlar, aktiv hamyonlari va runtime tayyorgarligini oching"
+          }
+        ]
+      },
+      "wallets": {
+        "eyebrow": "Hamyon qo‘llab-quvvatlashi",
+        "title": "Hamyon qo‘llab-quvvatlashi muhim, chunki ilova endi jonli yuzalar bo‘ylab hamyon holatini aks ettiradi.",
+        "description": "To‘g‘ridan-to‘g‘ri xarid, ochish qatorlari, kabinet amallari va Telegram claim holati tanlangan hamyon imzolay olishi, u faqat kuzatish rejimida ekanligi hamda balans va resurs holati oqimda aniq yechilishiga qarab o‘zgaradi.",
+        "bestStatus": "Eng yaxshi mobil tajriba",
+        "bestItems": [
+          {
+            "name": "Binance Wallet",
+            "note": "Ishlaydi • Balans ko‘rinadi"
+          },
+          {
+            "name": "Bitget Wallet",
+            "note": "Ishlaydi • Balans ko‘rinadi"
+          },
+          {
+            "name": "OKX Wallet",
+            "note": "Ishlaydi • Balans ko‘rinadi"
+          },
+          {
+            "name": "TokenPocket",
+            "note": "Ishlaydi • Balans ko‘rinadi"
+          }
+        ],
+        "compatibleStatus": "Mobil brauzerda ishlaydi",
+        "compatibleItems": [
+          {
+            "name": "FoxWallet",
+            "note": "Ishlaydi • Balans ko‘rsatilmaydi"
+          },
+          {
+            "name": "imToken",
+            "note": "Ishlaydi • Balans ko‘rsatilmaydi"
+          },
+          {
+            "name": "MetaMask",
+            "note": "Ishlaydi • Balans ko‘rsatilmaydi"
+          },
+          {
+            "name": "TronLink",
+            "note": "Ishlaydi • Balans ko‘rsatilmaydi"
+          },
+          {
+            "name": "WalletConnect",
+            "note": "Ishlaydi • Balans ko‘rsatilmaydi"
+          },
+          {
+            "name": "Trust Wallet",
+            "note": "Desktop Chrome extension’dan foydalaning"
+          }
+        ],
+        "highlightTitle": "Ilova + xarid oqimi uchun tavsiya etiladi:",
+        "highlightText": "Binance Wallet, Bitget Wallet, OKX Wallet va TokenPocket eng ravon tajribani beradi, chunki ular balanslarni to‘g‘ri ko‘rsatadi va hamyonga bog‘liq yuzalarga ishonishni osonlashtiradi."
+      },
+      "trust": {
+        "eyebrow": "Protokolni tekshiring",
+        "title": "Hamyon ilovasi, veb-sayt yuzalari, repozitoriylar va chain bir xil haqiqatga ishora qilishi kerak.",
+        "links": [
+          {
+            "label": "Ilova",
+            "value": "Mobil yuklab olish",
+            "href": "/app"
+          },
+          {
+            "label": "Veb-sayt",
+            "value": "Jonli yuzalar",
+            "href": "/buy"
+          },
+          {
+            "label": "Tarmoq",
+            "value": "TRON Mainnet",
+            "href": "https://tronscan.org",
+            "external": true
+          },
+          {
+            "label": "Repo",
+            "value": "Hamyon ilovasi",
+            "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+            "external": true
+          },
+          {
+            "label": "Hujjatlar",
+            "value": "Whitepaper",
+            "href": "/whitepaper"
+          },
+          {
+            "label": "Info",
+            "value": "Tekshiruv",
+            "href": "/verification"
+          }
+        ]
+      },
+      "howItWorks": {
+        "eyebrow": "Qanday ishlaydi",
+        "title": "Operatsion yuzalar endi nimalarni qamrab oladi.",
+        "description": "Ilova endi shunchaki havolalar atrofidagi qobiq emas. U allaqachon tushuntirish, hamyonga bog‘liq gating, tasdiqlash oqimi, yuzaga xos tarix, kontroller holati, mukofot yo‘naltirish va ijtimoiy claim holatini boshqaradi.",
+        "steps": [
+          {
+            "step": "1",
+            "title": "Ilova ichida to‘g‘ridan-to‘g‘ri xaridni tayyorlang",
+            "text": "Xarid ekrani avvalo tayyorlash bosqichidir. Tanlangan imzolovchi hamyon TRX kiritadi, taxminiy 4TEEN miqdorini ko‘radi va shundan keyingina ilova real tranzaksiyani tuzadigan hamda resurslarni tekshiradigan tasdiqlash qatlamiga o‘tadi."
+          },
+          {
+            "step": "2",
+            "title": "Har bir bloklangan partiyani xarid bo‘yicha kuzating",
+            "text": "Ochish jadvali umumiy tarix emas. U tanlangan hamyon uchun to‘g‘ridan-to‘g‘ri xarid hodisalarini o‘qiydi, UTC bo‘yicha ochish vaqtini, jonli teskari sanoqni, blok holatini va har bir xarid qatori ortidagi TronScan tranzaksiyasini ko‘rsatadi."
+          },
+          {
+            "step": "3",
+            "title": "Likvidlik haqiqati kerak bo‘lganda kontrollerni oching",
+            "text": "Likvidlik ijrosi ilovadagi real yuzadir. U bu mantiqni matnda yashirish o‘rniga 100 TRX chegarasi, 6.43% kunlik chiqarish qoidasi, ijrochilar bo‘linishi, shartnoma havolalari va kontroller tomonidagi so‘nggi tarixni ko‘rsatadi."
+          }
+        ],
+        "airdropStep": {
+          "step": "4",
+          "title": "Ijtimoiy airdrop holatini real ekran sifatida o‘qing",
+          "text": "Airdrop sahifasi har bir ijtimoiy yo‘nalishni jonli deb ko‘rsatib qo‘ymay, bir vaqtning o‘zida uchta tekshiruvni birlashtiradi.",
+          "items": [
+            {
+              "value": "Hamyon",
+              "label": "Imzolash yoki faqat kuzatish holati claim oqimi davom eta olishini o‘zgartiradi"
+            },
+            {
+              "value": "Sessiya",
+              "label": "Telegram bot sessiyasi karta mavjud, hozir-tekshirish yoki sessiya-jonli bo‘lishini belgilaydi"
+            },
+            {
+              "value": "Chain",
+              "label": "On-chain claim holati allaqachon olingan, navbatga qo‘yilgan yoki legacy-ishlatilgan holatlarni ko‘rsata oladi"
+            }
+          ]
+        },
+        "cabinetStep": {
+          "step": "5",
+          "title": "Ro‘yxatdan o‘tish, xaridorlar, xaridlar, kutilayotgan qatorlar va mukofotlar uchun bitta kabinetdan foydalaning",
+          "text": "Ambassador oqimi endi boshi berk ro‘yxatdan o‘tish sahifasi emas. Xuddi shu route bir martalik slug ro‘yxatidan boshlanadi va keyin referral identifikatori, kuzatilgan xaridlar, claim qilinadigan mukofotlar, claim qilingan jami miqdorlar va kutilayotgan taqsimot replay birga ko‘rinadigan ishlaydigan kabinetga aylanadi."
+        }
+      },
+      "architecture": {
+        "eyebrow": "Arxitektura diagrammasi",
+        "title": "Info route tizimni on-chain qanday tushuntiradi.",
+        "description": "Ilovadagi ixcham info route endi shartnomalar, routing, vaultlar, ijrochilar, aktiv hamyonlari va runtime tekshiruvlarini birlashtiradi. Veb-sayt xaritani hamon ko‘rsatishi mumkin, lekin u bu arxitektura ortida allaqachon ishlaydigan mahsulot ekrani borligini aks ettirishi kerak.",
+        "entry": {
+          "label": "Kirish",
+          "title": "Foydalanuvchi TRX",
+          "text": "To‘g‘ridan-to‘g‘ri protokol xaridi tizimga kiradi"
+        },
+        "core": {
+          "label": "Asosiy shartnoma",
+          "title": "FourteenToken",
+          "text": "Xarid paytida mint + 14 kunlik bloklash + avtomatik TRX bo‘linishi",
+          "pills": [
+            "Xarid paytida mint",
+            "14 kunlik bloklash",
+            "TRX bo‘linishi: 90% / 7% / 3%"
+          ]
+        },
+        "liquidity": {
+          "eyebrow": "90% TRX yo‘li",
+          "title": "Likvidlik ijro qatlami",
+          "text": "Eng katta ulush maxsus likvidlik tizimiga o‘tadi. Chiqarish vaqti, zaxira saqlovi, bootstrap tayyorgarligi va DEX ijrosi alohida rollarga ajratilgan.",
+          "controller": {
+            "label": "Kontroller",
+            "title": "FourteenLiquidityController",
+            "text": "Har UTC kuni bir marta 6.43% chiqaradi va likvidlik qachon harakatlana olishini boshqaradi"
+          },
+          "vault": {
+            "label": "Zaxira vault",
+            "title": "FourteenVault",
+            "text": "Likvidlik ta’minoti uchun maxsus ishlatiladigan 4TEEN zaxirasini saqlaydi"
+          },
+          "bootstrapper": {
+            "label": "Tayyorgarlik qatlami",
+            "title": "LiquidityBootstrapper",
+            "text": "Kerakli token miqdorlarini hisoblaydi, FourteenVault’dan tortib oladi, ijrochilarni ta’minlaydi va ijro oqimini ishga tushiradi"
+          },
+          "executors": [
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorJustMoney",
+              "text": "JustMoney uchun DEX-ga xos ijro yo‘li"
+            },
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorSunV3",
+              "text": "Sun.io V3 uchun DEX-ga xos ijro yo‘li"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "7% TRX yo‘li",
+          "title": "Nazorat + ambassador mukofot qatlami",
+          "text": "Bu yo‘l token chiqarilishi va likvidlik ijrosidan tashqarida qoladi. U protokol nazoratini referral atributsiyasi, tasdiqlangan xarid taqsimoti, daraja o‘sishi va claim qilinadigan ambassador mukofotlari bilan birlashtiradi.",
+          "controller": {
+            "label": "Kontroller",
+            "title": "FourteenController",
+            "text": "FourteenToken’ga egalik qiladi, owner funksiyalari, operator mantiqi, mukofot hisobi, xarid taqsimoti va boshqariladigan yechib olishlarni boshqaradi."
+          },
+          "flow": {
+            "label": "Ambassador oqimi",
+            "title": "Ro‘yxatdan o‘tish → Bog‘lash → Tasdiqlangan xarid → Mukofot",
+            "text": "Hamyon ro‘yxati, ommaviy slug identifikatori, xaridorni bog‘lash, tasdiqlangan xaridni qayd etish, claim qilinadigan mukofot yig‘ilishi va mukofotni yechib olish."
+          },
+          "ladderTitle": "Ambassador mukofot pog‘onalari",
+          "ladder": [
+            {
+              "level": "Bronze",
+              "buyers": "0–9 xaridor",
+              "percent": "10%"
+            },
+            {
+              "level": "Silver",
+              "buyers": "10–99 xaridor",
+              "percent": "25%"
+            },
+            {
+              "level": "Gold",
+              "buyers": "100–999 xaridor",
+              "percent": "50%"
+            },
+            {
+              "level": "Platinum",
+              "buyers": "1000+ xaridor",
+              "percent": "75%"
+            }
+          ],
+          "noteTitle": "Taqsimot mantiqi",
+          "noteText": "ambassador mukofoti tasdiqlangan xarid taqsimoti vaqtida xarid egasi ulushidan hisoblanadi. Daraja override qo‘llab-quvvatlanadi va mukofotlar yechib olishdan oldin claim qilinadigan balansga o‘tadi."
+        },
+        "airdrop": {
+          "eyebrow": "3% TRX yo‘li",
+          "title": "Hamjamiyat tarqatish qatlami",
+          "text": "Bu yo‘l jonli airdrop tuzilmasini ta’minlaydi. Tarqatish bosqichma-bosqich wave’lar orqali amalga oshiriladi va bir martalik giveaway sifatida qaralmasdan, bir nechta ijtimoiy yo‘nalishlarga kengaytiriladi.",
+          "vault": {
+            "label": "Vault",
+            "title": "AirdropVault",
+            "text": "Bosqichli ekotizim tarqatishi, hamyonga bog‘langan mukofot oqimlari va jonli kampaniya yo‘nalishlari uchun ishlatiladigan hamjamiyat va o‘sish zaxirasi"
+          },
+          "model": {
+            "label": "Tarqatish modeli",
+            "title": "1,500,000 4TEEN • 6 qat’iy wave",
+            "text": "Bugun bitta jonli yo‘nalishga ega va vaqt o‘tishi bilan ko‘proq kampaniya yo‘nalishlari qo‘shiladigan wave-asosidagi chiqarish tuzilmasi"
+          },
+          "pills": [
+            {
+              "label": "Telegram jonli",
+              "tone": "live"
+            },
+            {
+              "label": "X tez orada",
+              "tone": "wait"
+            },
+            {
+              "label": "Instagram tez orada",
+              "tone": "wait"
+            },
+            {
+              "label": "Oldinda ko‘proq ijtimoiy tarmoqlar",
+              "tone": "wait"
+            }
+          ],
+          "liveRoute": {
+            "label": "Joriy jonli yo‘nalish",
+            "title": "Telegram kampaniyasi",
+            "text": "Jonli airdrop infratuzilmasi ichidagi joriy ommaviy yo‘nalish",
+            "action": {
+              "label": "Joriy jonli yo‘nalishni ochish",
+              "href": "/airdrop"
+            }
+          },
+          "snapshotTitle": "Jonli airdrop snapshot",
+          "snapshotRows": [
+            {
+              "label": "Holat",
+              "value": "Hozir jonli"
+            },
+            {
+              "label": "Mukofot oralig‘i",
+              "value": "1–5 4TEEN"
+            },
+            {
+              "label": "Tekshiruv",
+              "value": "Talab qilinadi"
+            },
+            {
+              "label": "Kerakli hamyon",
+              "value": "TRON hamyoni"
+            },
+            {
+              "label": "Mukofot yetkazilishi",
+              "value": "On-Chain"
+            },
+            {
+              "label": "Claim turi",
+              "value": "platformBit = 4"
+            }
+          ]
+        },
+        "facts": [
+          {
+            "label": "Likvidlik",
+            "text": "Chiqarish vaqti, zaxira saqlovi, bootstrap tayyorgarligi va DEX ijrosi maxsus shartnomalarga ajratilgan."
+          },
+          {
+            "label": "Ambassadorlar",
+            "text": "Daraja o‘sishi va mukofot foizi real xaridorlar soni hamda tasdiqlangan xarid taqsimotiga bog‘langan."
+          },
+          {
+            "label": "Airdrop",
+            "text": "Hamjamiyat yo‘nalishi wave-asosida, ko‘p platformali va Telegram orqali allaqachon jonli."
+          },
+          {
+            "label": "Nega bu muhim",
+            "text": "4TEEN bitta ortiqcha yuklangan shartnoma to‘plami emas, ajratilgan rollar tizimi kabi ishlaydi."
+          }
+        ]
+      },
+      "why": {
+        "eyebrow": "Nega bu tuzilma muhim",
+        "title": "Mahsulot qatlami nihoyat protokol qatlamiga yetib bormoqda.",
+        "description": "Shartnomalarda rollar doimo ajratilgan edi. O‘zgargani shuki, ilova endi foydalanuvchilarni faqat xom on-chain g‘oyalar va tarqoq havolalar bilan qoldirmasdan, bu rollarni o‘qilishi mumkin bo‘lgan, hamyonga bog‘liq ekranlar sifatida ochib beradi.",
+        "cards": [
+          {
+            "number": "01",
+            "title": "Hamyon ilovasida yagona markaz allaqachon mavjud",
+            "text": "Ilova bosh sahifasi allaqachon ixcham mahsulot markazi: xarid, ochish, likvidlik, airdrop, ambassadorlar va info bitta uzun tushuntirish ichiga ko‘milmay, yuzalar sifatida guruhlangan.",
+            "note": "Veb-sayt eski xayoliy roadmap’ni tasvirlash o‘rniga odamlarni aynan shu yuzalarga yo‘naltirishi kerak."
+          },
+          {
+            "number": "02",
+            "title": "Hamyonga bog‘liq holat endi real xatti-harakatdir",
+            "text": "Faqat kuzatishdagi hamyon va imzolovchi hamyon farqi, claim qilinadigan va kutilayotgan mukofotlar, Telegram sessiya holati hamda resurs tayyorgarligi foydalanuvchi ilovada aslida nima qila olishini o‘zgartiradi.",
+            "note": "Bu bosh sahifa matni faqat shartnoma nazariyasini emas, balki holatlar va amallarni tasvirlashi kerakligini anglatadi."
+          },
+          {
+            "number": "03",
+            "title": "Tekshiruv allaqachon ishlaydigan route",
+            "text": "Arxitektura, shartnoma rollari, vaultlar, ijrochilar, aktiv-hamyon balanslari va taqsimot replay tayyorgarligi endi faqat whitepaper mavzulari emas. Ilova ularni allaqachon bitta ixcham info ekrani sifatida ochib beradi.",
+            "note": "Sayt bu info qatlamini kelajakdagi hujjat emas, balki jonli mahsulot sifatida tasvirlaganda eng kuchli bo‘ladi."
+          }
+        ],
+        "notePrefix": "Nega bu muhim"
+      },
+      "liveMetrics": {
+        "eyebrow": "Jonli protokol metrikalari",
+        "title": "Kirish, likvidlik, mukofotlar va operatsion holatning jonli o‘qilishi.",
+        "description": "Bu kartalar foydalanuvchi ilovada aslida ochishi mumkin bo‘lgan narsalarni aks ettirishi kerak: to‘g‘ridan-to‘g‘ri xarid konteksti, ochish va kontroller tomoni holati, kabinet mukofot oqimi hamda joriy Telegram-birinchi ijtimoiy tarqatish yo‘nalishi.",
+        "liquidity": {
+          "eyebrow": "Likvidlik dvigateli",
+          "title": "Qoidaga asoslangan likvidlik oqimi",
+          "note": "Ilovada bu bitta noaniq “likvidlik” jumlasi o‘rniga chegara tekshiruvlari, keyingi chiqarish konteksti, ijrochilar bo‘linishi, shartnoma havolalari va kontroller tomoni tarixi sifatida ko‘rinadi.",
+          "rows": [
+            {
+              "label": "Kontroller",
+              "value": "FourteenLiquidityController"
+            },
+            {
+              "label": "Zaxira vault",
+              "value": "FourteenVault"
+            },
+            {
+              "label": "Tayyorgarlik qatlami",
+              "value": "LiquidityBootstrapper"
+            },
+            {
+              "label": "Ijro bo‘linishi",
+              "value": "50% / 50%"
+            },
+            {
+              "label": "DEX yo‘llari",
+              "value": "JustMoney + Sun.io V3"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "Ambassador qatlami",
+          "title": "Kabinet mukofot oqimi",
+          "note": "Ilovada bu route on-chain kabinet holatini backend atributsiya qatorlari bilan birlashtiradi, shuning uchun hozir claim qilinadigan miqdor, claim qilingan jami miqdor va kutilayotgan replay bitta joyda turadi.",
+          "ladder": [
+            {
+              "level": "Bronze",
+              "meta": "0–9 xaridor",
+              "value": "10%"
+            },
+            {
+              "level": "Silver",
+              "meta": "10–99 xaridor",
+              "value": "25%"
+            },
+            {
+              "level": "Gold",
+              "meta": "100–999 xaridor",
+              "value": "50%"
+            },
+            {
+              "level": "Platinum",
+              "meta": "1000+ xaridor",
+              "value": "75%"
+            }
+          ]
+        },
+        "airdrop": {
+          "eyebrow": "Airdrop qatlami",
+          "title": "Jonli ijtimoiy tarqatish snapshot",
+          "rows": [
+            {
+              "label": "Jami ajratma",
+              "value": "1,500,000 4TEEN",
+              "tone": "strong"
+            },
+            {
+              "label": "Wave tuzilmasi",
+              "value": "6 qat’iy wave"
+            },
+            {
+              "label": "Joriy jonli yo‘nalish",
+              "value": "Telegram",
+              "tone": "live"
+            },
+            {
+              "label": "Boshqa ijtimoiy tarmoqlar",
+              "value": "Faqat o‘qish uchun placeholderlar",
+              "tone": "wait"
+            },
+            {
+              "label": "Mukofot yetkazilishi",
+              "value": "On-Chain"
+            }
+          ],
+          "action": {
+            "label": "Jonli Telegram yo‘nalishini ochish",
+            "href": "/airdrop"
+          }
+        }
+      },
+      "tools": {
+        "eyebrow": "Vositalar",
+        "title": "Ilova allaqachon ochib bergan xuddi shu yuzalarni oching.",
+        "description": "Bular endi placeholder menyu bandlari emas. Ular hamyon uslubidagi mahsulot oqimida allaqachon mavjud bo‘lgan route va xatti-harakatlarga bevosita mos keladi hamda allaqachon jonli hamyon holatini olib yuradi.",
+        "cards": [
+          {
+            "status": "Ochish",
+            "tone": "live",
+            "title": "Mobil ilova",
+            "text": "Do‘konlardan yuklab olish variantlari va veb yuzalarga toza qaytish imkoniyati bilan maxsus mobil-ilova route’ni oching.",
+            "href": "/app"
+          },
+          {
+            "status": "Jonli",
+            "tone": "live",
+            "title": "4TEEN xarid qilish",
+            "text": "Miqdor kiritish, baholash, bo‘linish konteksti va tasdiqlash yo‘liga ega to‘g‘ridan-to‘g‘ri xarid tayyorlash ekranini oching.",
+            "href": "/buy"
+          },
+          {
+            "status": "Kuzatish",
+            "tone": "live",
+            "title": "Ochish jadvali",
+            "text": "To‘g‘ridan-to‘g‘ri xarid hodisasi qatorlarini hamyon, ochish timestamp’i, jonli teskari sanoq va tranzaksiya manbasi bo‘yicha o‘qing.",
+            "href": "/unlock"
+          },
+          {
+            "status": "Kuzatish",
+            "tone": "live",
+            "title": "Likvidlik kontrolleri",
+            "text": "Chegara, 6.43% kunlik chiqarish, ijrochilar, so‘nggi kontroller hodisalari va ijro tayyorgarligini kuzating.",
+            "href": "/liquidity"
+          },
+          {
+            "status": "Jonli",
+            "tone": "live",
+            "title": "Airdrop holati",
+            "text": "Telegram jonli-claim holati, faqat kuzatish cheklovlari, bot sessiyasi holati va on-chain mukofot holatini ko‘ring.",
+            "href": "/airdrop"
+          },
+          {
+            "status": "Boshqarish",
+            "tone": "live",
+            "title": "Ambassador kabineti",
+            "text": "Bir martalik ro‘yxatdan o‘tishdan slug, xaridorlar, xaridlar, kutilayotgan qatorlar va mukofotlarga ega kabinet rejimiga o‘ting.",
+            "href": "/ambassadors"
+          },
+          {
+            "status": "Tekshirish",
+            "tone": "wait",
+            "title": "Info route",
+            "text": "Shartnomalar, aktiv hamyonlari, runtime sog‘ligi va ommaviy isbot havolalari uchun ixcham arxitektura ekranini oching.",
+            "href": "/verification"
+          }
+        ]
+      },
+      "verification": {
+        "eyebrow": "Tekshiruv / Shartnomalar",
+        "title": "Protokolni shartnomalar, repozitoriylar, hujjatlar va ilova markazi bo‘ylab tekshiring.",
+        "description": "Ommaviy hikoya endi kuchliroq, chunki hamyon ilovasi allaqachon o‘sha shartnomalar, repozitoriylar, hujjatlar, aktiv-hamyon tekshiruvlari va jonli yuzalar ustida operatsion qatlam sifatida ishlaydi.",
+        "contracts": {
+          "eyebrow": "On-Chain shartnomalar",
+          "title": "Mainnet deployment qatlami",
+          "links": [
+            {
+              "label": "Asosiy",
+              "value": "FourteenToken",
+              "href": "https://tronscan.org/#/token20/TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A"
+            },
+            {
+              "label": "Asosiy",
+              "value": "FourteenController",
+              "href": "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ"
+            },
+            {
+              "label": "Asosiy",
+              "value": "FourteenLiquidityController",
+              "href": "https://tronscan.org/#/contract/TVKBLwg222skKnZ3F3boTiH35KC7nvYEuZ"
+            },
+            {
+              "label": "Vault",
+              "value": "FourteenVault",
+              "href": "https://tronscan.org/#/contract/TNwkuHA727RZGtpbowH7q5B1yZWk2JEZTq"
+            },
+            {
+              "label": "Vault",
+              "value": "TeamLockVault",
+              "href": "https://tronscan.org/#/contract/TYBfbgvMW6awPdZfSSwWoEX3nJjrKWZS3h"
+            },
+            {
+              "label": "Vault",
+              "value": "AirdropVault",
+              "href": "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ"
+            },
+            {
+              "label": "Ijro",
+              "value": "LiquidityBootstrapper",
+              "href": "https://tronscan.org/#/contract/TWfUee6qFV91t7KbFdYLEfpi8nprUaJ7dc"
+            },
+            {
+              "label": "Ijro",
+              "value": "LiquidityExecutorSunV3",
+              "href": "https://tronscan.org/#/contract/TU8EwEWg4K594zwThvhTZxqzEuEYuR46xh"
+            },
+            {
+              "label": "Ijro",
+              "value": "LiquidityExecutorJustMoney",
+              "href": "https://tronscan.org/#/contract/TWrz68MRTf1m9vv8xpcdMD4z9kjBxiHw7F"
+            }
+          ]
+        },
+        "repositories": {
+          "eyebrow": "Repozitoriylar",
+          "title": "Ommaviy infra va operatsion kod",
+          "links": [
+            {
+              "label": "Repo",
+              "value": "4teen-smart-contracts",
+              "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-wallet-app",
+              "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-ambassador-system",
+              "href": "https://github.com/info14fourteen-creator/4teen-ambassador-system"
+            },
+            {
+              "label": "Repo",
+              "value": "liquidity-bootstrapper-cron",
+              "href": "https://github.com/info14fourteen-creator/liquidity-bootstrapper-cron"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-telegram-airdrop-bot",
+              "href": "https://github.com/info14fourteen-creator/4teen-telegram-airdrop-bot"
+            }
+          ]
+        },
+        "docs": {
+          "eyebrow": "Hujjatlar",
+          "title": "Ommaviy o‘qish qatlami",
+          "links": [
+            {
+              "label": "Hujjatlar",
+              "value": "Whitepaper",
+              "href": "/whitepaper"
+            },
+            {
+              "label": "Hujjatlar",
+              "value": "Tekshiruv",
+              "href": "/verification"
+            },
+            {
+              "label": "Hujjatlar",
+              "value": "Blog",
+              "href": "/blog"
+            }
+          ]
+        },
+        "hubs": {
+          "eyebrow": "Markazlar",
+          "title": "Ommaviy ekotizim kirish nuqtalari",
+          "links": [
+            {
+              "label": "Markaz",
+              "value": "Airdrop markazi",
+              "href": "/airdrop"
+            },
+            {
+              "label": "Markaz",
+              "value": "Ambassador dasturi",
+              "href": "/ambassadors"
+            }
+          ]
+        }
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Jonli yuzalarni ochishdan oldin aniq javoblar.",
+        "description": "To‘g‘ri savollar o‘zgarmoqda. Foydalanuvchilar endi har bir route aslida nima qilishini, qaysi amallar hamyon turiga bog‘liqligini va qaysi o‘sish yoki tekshiruv oqimlari ilovada allaqachon jonli ekanini aniq bilishi kerak.",
+        "items": [
+          {
+            "question": "Nega 4TEEN faqat swap o‘rniga to‘g‘ridan-to‘g‘ri xarid ekraniga muhtoj?",
+            "answer": "Chunki ilova to‘g‘ridan-to‘g‘ri xaridni shartnoma tomonidagi alohida yuza sifatida ko‘radi. U xarid-paytida-mint oqimini tayyorlaydi, baholashni ko‘rsatadi, 14 kunlik bloklashni tushuntiradi va keyin real tasdiqlash bosqichiga o‘tadi."
+          },
+          {
+            "question": "Ochish jadvali aynan nimani kuzatadi?",
+            "answer": "Faqat tanlangan hamyonga bog‘langan to‘g‘ridan-to‘g‘ri xarid hodisalarini. Har bir qator miqdor, UTC bo‘yicha ochish vaqti, jonli teskari sanoq, joriy blok holati va o‘sha xarid hodisasi ortidagi TronScan tranzaksiyasini ko‘rsatadi."
+          },
+          {
+            "question": "Nega ayrim route’lar hamyon faqat kuzatish rejimida ekaniga e’tibor beradi?",
+            "answer": "Chunki ilova endi xatti-harakatni hamyon turiga qarab majburlaydi. Faqat kuzatishdagi hamyonlar holatni o‘qiy oladi, lekin ambassador sifatida ro‘yxatdan o‘ta olmaydi, mukofotlarni yechib ololmaydi yoki to‘g‘ridan-to‘g‘ri xarid va likvidlik amallari kabi imzolash oqimlarini bajara olmaydi."
+          },
+          {
+            "question": "Airdrop sahifasi endi shunchaki promo sahifami?",
+            "answer": "Yo‘q. U allaqachon holatga ega ekran. Telegram jonli yo‘nalish bo‘lib, karta keyingi mavjud amalni belgilashdan oldin lokal hamyon holati, joriy bot sessiyasi holati va on-chain claim holatini birlashtiradi."
+          },
+          {
+            "question": "Info route veb-saytning o‘zi tekshira olmaydigan nimani tekshiradi?",
+            "answer": "U shartnomalar, vaultlar, likvidlik ijrochilari, aktiv-hamyon balanslari va operator tomoni tayyorgarligini bitta ixcham operatsion ekranga olib keladi. Bu tekshiruvni faqat hujjatlar sahifasi emas, mahsulot oqimining bir qismiga aylantiradi."
+          }
+        ]
+      },
+      "risk": {
+        "eyebrow": "Risk / Oshkor qilish",
+        "title": "Tuzilmali mexanika bozor riskini olib tashlamaydi.",
+        "description": "4TEEN ko‘rinadigan qoidalar, ajratilgan shartnoma rollari va ommaviy tekshiruv yo‘llariga ega on-chain token protokolidir. Bu tizimni tekshirishni osonlashtiradi, lekin token ishtirokini kafolatlangan daromad mahsulotiga aylantirmaydi.",
+        "understandTitle": "Foydalanuvchilar nimani tushunishi kerak",
+        "understandItems": [
+          "To‘g‘ridan-to‘g‘ri protokol narxi ochiq bozordagi DEX narxi bilan bir xil emas.",
+          "14 kunlik ochish vaqtni o‘zgartiradi, lekin qulay chiqishni kafolatlamaydi.",
+          "Likvidlik qoidalari kelajakdagi bozor natijalarini emas, chiqarish xatti-harakatini tasvirlaydi.",
+          "Ambassador mukofotlari va airdrop yo‘nalishlari tuzilmali qatlamlar, kafolatlangan daromad emas."
+        ],
+        "actionTitle": "Foydalanuvchilar nima qilishi kerak",
+        "actionItems": [
+          "Harakat qilishdan oldin shartnomalar, repozitoriylar va ommaviy hujjatlarni tekshiring.",
+          "Xarid qilishdan oldin bloklash, mukofot va tarqatish mexanikasini tushuning.",
+          "Qo‘llab-quvvatlanadigan hamyonlardan foydalaning va jonli route’larni diqqat bilan tekshiring.",
+          "Protokol tuzilmasini foyda va’dasi deb qabul qilmasdan, mustaqil qarorlar qabul qiling."
+        ],
+        "noteTitle": "Muhim",
+        "noteText": "4TEEN kafolatlangan natijalarga emas, kuzatiladigan on-chain xatti-harakatga asoslanadi. Foydalanuvchilar tizimni o‘zlari tekshirishi va faqat tushunadigan risk bilan harakat qilishi kerak."
+      },
+      "cta": {
+        "eyebrow": "Yakuniy CTA",
+        "title": "Kerakli yuzani tanlang",
+        "lead": "Mobil ilovani oling, to‘g‘ridan-to‘g‘ri xaridni tayyorlang, ixcham arxitektura route’ni tekshiring yoki to‘g‘ridan-to‘g‘ri jonli o‘sish va kuzatuv yuzalariga o‘ting.",
+        "cards": [
+          {
+            "status": "Ochish",
+            "tone": "live",
+            "title": "Ilovani olish",
+            "text": "Do‘konlardan yuklab olish variantlari va hamyon mahsulotiga toza uzatish bilan mobil-ilova route’dan boshlang.",
+            "href": "/app"
+          },
+          {
+            "status": "Xarid",
+            "tone": "live",
+            "title": "To‘g‘ridan-to‘g‘ri xaridni ochish",
+            "text": "Miqdor preview’i, tasdiqlash va hamyonga bog‘liq gating bilan shartnoma tomonidagi kirish oqimiga bevosita o‘ting.",
+            "href": "/buy"
+          },
+          {
+            "status": "Kuzatish",
+            "tone": "live",
+            "title": "Tekshiruvni ochish",
+            "text": "Shartnomalar, repozitoriylar, likvidlik mantiqi va ilova yuzalari ortidagi arxitektura xaritasi uchun ommaviy isbot qatlamidan foydalaning.",
+            "href": "/verification"
+          },
+          {
+            "status": "Boshqarish",
+            "tone": "live",
+            "title": "Ambassador kabinetini ochish",
+            "text": "Ro‘yxatdan o‘ting, referral identifikatorini ko‘rib chiqing, xaridlarni kuzating va bitta route’da jonli mukofot holati bilan ishlang.",
+            "href": "/ambassadors"
+          }
+        ],
+        "actions": [
+          {
+            "label": "Ilovani olish",
+            "href": "/app"
+          },
+          {
+            "label": "To‘g‘ridan-to‘g‘ri xaridni ochish",
+            "href": "/buy"
+          },
+          {
+            "label": "Jonli Telegram yo‘nalishini ochish",
+            "href": "/airdrop"
+          }
+        ]
+      }
     }
   }
 }
