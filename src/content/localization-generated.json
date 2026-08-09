@@ -8217,6 +8217,167 @@
           "openBuy": "Alım Rotasını Aç"
         }
       }
+    },
+    "swap": {
+      "metadata": {
+        "title": "Swap",
+        "description": "Geniş cüzdan token kapsaması, sıralanmış rotalar, minimum alım koruması, onay incelemesi ve canlı herkese açık rota örnekleriyle 4TEEN swap rotası."
+      },
+      "hero": {
+        "eyebrow": "Swap Rotası",
+        "badge": "Cüzdan öncelikli swap rotası",
+        "title": "4TEEN’i Daha Geniş Bir TRON Token Evrenine Swap Edin",
+        "subtitle": "Site yalnızca temel örnekleri gösterir. Cüzdan ise çok daha geniş bir token evreninde arama yapar, rotaları sıralar ve kullanıcıyı approve, inceleme ve swap adımlarından geçirir.",
+        "body": [
+          "Bu sayfa, 4TEEN yalnızca bir ya da iki kurum içi tokene swap ediliyormuş gibi okunmamalıdır. Cüzdanda hedef küme, gönderilebilir varlıklardan, özel token kataloğundan ve Tronscan token listesinden çekilir; ardından gerçekten yönlendirme olup olmadığına göre filtrelenir.",
+          "Bu, rotanın herkese açık web sitesi önizlemesinden daha geniş olduğu anlamına gelir. Likidite varsa ve router fiyat verebiliyorsa, cüzdan bunu gösterebilir, sıralayabilir ve kullanıcıyı gerçek bir onay adımına taşıyabilir."
+        ],
+        "rotatingLines": [
+          "GENİŞ TOKEN EVRENİ. SIRALANMIŞ ROTALAR.",
+          "SİTEDE ÖNİZLEME. CÜZDANDA UYGULAMA.",
+          "MİNİMUM ÇIKIŞ. APPROVE. SWAP."
+        ],
+        "primaryCta": "Cüzdan Rotasını Aç",
+        "secondaryCta": "Canlı Rota Örneklerine Git",
+        "ctaNote": "Site kanıt katmanıdır. Token değiştirme, rota sıralama, minimum alım koruması, allowance kontrolleri ve nihai imzalama işlemlerinin gerçekten gerçekleştiği yer cüzdandır.",
+        "stats": {
+          "sampleAmount": {
+            "label": "Örnek Kotasyon Boyutu",
+            "meta": "Herkese açık rota örnekleri aynı 4TEEN tutarına göre yenilenir."
+          },
+          "supportedTargets": {
+            "label": "Herkese Açık Örnek Rotalar",
+            "meta": "Web sitesi, yalnızca çok küçük bir temel seti herkese açık tutar. Cüzdan, rotalar mevcut olduğunda çok daha fazla hedefi tarayabilir."
+          },
+          "protectedRemainder": {
+            "label": "Korunan Kalan Bakiye",
+            "meta": "Cüzdan, bakiyeyi sıfıra indirmek yerine minimum bir 4TEEN kalanını korur."
+          },
+          "routerState": {
+            "label": "Router Durumu",
+            "meta": "Herkese açık rota örneklemesinin şu anda tam olarak yanıt verip vermediğine dair hızlı sinyal."
+          },
+          "readFailed": "Canlı swap yönlendirme okuması başarısız oldu.",
+          "readRetry": "Birazdan yenilemeyi deneyin.",
+          "states": {
+            "live": "Canlı",
+            "partial": "Kısmi",
+            "offline": "Çevrim dışı"
+          }
+        }
+      },
+      "sections": {
+        "tokenUniverse": {
+          "eyebrow": "Token Evreni",
+          "title": "Cüzdan iki promosyon hedefine sıkıştırılmış değildir.",
+          "intro": "Herkese açık site hikâyeyi bilinçli olarak küçük tutar. Cüzdan ise bunun tersini yapar: gönderilebilir cüzdan varlıklarını, özel token kataloğu girişlerini ve Tronscan token listesini birleştirir; ardından neyin gerçekten swap edilebilir olduğunu yönlendirmenin belirlemesine izin verir.",
+          "mainCard": {
+            "eyebrow": "Geniş hedef erişimi",
+            "title": "Router fiyat verebiliyorsa, cüzdan genellikle bunu gösterebilir.",
+            "text": "Önemli ayrım budur. Web sitesi önizlemesi özellikle dar tutulmuştur. Hedef değiştirmenin gerçek hale geldiği yer cüzdandır; çünkü daha geniş bir token evrenini çekebilir ve bunu doğrudan yönlendirme katmanına karşı test edebilir.",
+            "bullets": [
+              "Gönderilebilir cüzdan bakiyeleri kaynak varlıklara dönüşebilir.",
+              "Özel katalog girişleri ve Tronscan token listesi, hedef kümeyi TRX ve USDT’nin çok ötesine genişletir.",
+              "Rotalar yine de gerçek kotasyon olup olmadığına göre filtrelenir; böylece arayüz, her token likitmiş gibi davranmak yerine dürüst kalır."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Hedef değiştirme",
+              "title": "Kullanıcı cüzdanda hem kaynak hem de alınacak varlığı değiştirebilir",
+              "text": "Mobil akış tek bir parite etrafında donmuş değildir. Kotasyonlar istenmeden önce varlık değiştirmeyi destekler; bu yüzden swap rotası daha geniş bir piyasa aracı olarak konumlandırılmalıdır."
+            },
+            {
+              "eyebrow": "Rota sıralama",
+              "title": "Rotalar sabit kodlanmış bir tercihe göre değil, çıktıya göre sıralanır",
+              "text": "Mevcut rotalar, daha iyi çıktıdan daha kötü çıktıya doğru sıralanır ve yürütülebilir rotalara öncelik verilir. Kullanıcı tek bir opak yol yerine gerçekten kazanan seçeneği görür."
+            }
+          ],
+          "note": "Dolayısıyla doğru ürün mesajı “TRX veya USDT’ye swap edin” değildir. Doğru mesaj, “cüzdan, yönlendirme mevcut olduğunda çok daha geniş bir hedef evrende arama yapabilir” olmalıdır."
+        },
+        "liveRoutes": {
+          "eyebrow": "Canlı Rota Örnekleri",
+          "title": "Yönlendirme motoruna açılan küçük bir herkese açık pencere",
+          "body": "Bu kartlar bilinçli olarak dar tutulur. Sitenin tüm swap ürünüymüş gibi davranmadan motorun canlı olduğunu kanıtlayabilmesi için yalnızca birkaç temel örnek gösterirler.",
+          "labels": {
+            "route": "Rota",
+            "execution": "Yürütme",
+            "impact": "Etki",
+            "targets": "Hedefler",
+            "updated": "Güncellendi",
+            "state": "Durum"
+          },
+          "transfers": {
+            "eyebrow": "En Son Router Transferleri",
+            "title": "Herkese açık router’a temas eden son onaylanmış 4TEEN hareketi",
+            "empty": "Şu anda önbelleğe alınmış yakın tarihli 4TEEN router transferi yok.",
+            "note": "Bu liste backend anlık görüntü katmanı üzerinden yüklenir, veritabanımızda önbelleğe alınır ve üst kaynak explorer gürültülü olduğunda stale-safe şekilde sunulur.",
+            "labels": {
+              "direction": "Yön",
+              "counterparty": "Karşı taraf",
+              "amount": "Tutar",
+              "updated": "Güncellendi",
+              "tx": "Tx"
+            },
+            "states": {
+              "routerIn": "Router aldı",
+              "routerOut": "Router gönderdi",
+              "related": "Router ile ilgili"
+            }
+          },
+          "states": {
+            "executable": "Yürütülebilir rota",
+            "reviewOnly": "Yalnızca inceleme rotası"
+          },
+          "empty": "Şu anda herkese açık rota örneği mevcut değil.",
+          "note": "Cüzdan içinde hedef değiştirme ve rota sıralama çok daha geniş bir token evrenine karşı gerçekleşir. Web sitesi yalnızca kompakt bir herkese açık örneği görünür tutar."
+        },
+        "reviewLayer": {
+          "eyebrow": "İnceleme Katmanı",
+          "title": "Cüzdan doğrudan swap işlemine atlamaz. Önce kontrollü bir inceleme oluşturur.",
+          "intro": "Rotanın en önemli kısmı pazarlama ekran görüntüsü değildir. Kotasyon önizlemesi ile nihai yürütme arasındaki kontrollü devir teslimdir: korumalı minimum, onay durumu, ağ kaynak görünümü ve nihai imza adımı.",
+          "mainCard": {
+            "eyebrow": "Approve ve swap",
+            "title": "Minimum çıktı, onay ve kaynak incelemesi, herhangi bir şey gönderilmeden önce rotanın parçasıdır.",
+            "text": "Bir rota görünür olabilir ama henüz yürütülebilir olmayabilir. Bu sağlıklı bir davranıştır. Cüzdan, nihai eylemi sunmadan önce onay durumu, rota geçerliliği ve kaynak hazır olma durumunun aynı hizaya gelmesini bekler.",
+            "bullets": [
+              "Slippage, swap cüzdandan çıkmadan önce alınacak minimum tutarı korur.",
+              "Allowance eksik olduğunda önce approval kontrol edilir.",
+              "Enerji ve bant genişliği maliyetleri nihai onay adımından önce gösterilir."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Kaynak kiralama",
+              "title": "Rota, daha ucuz olduğunda kullanıcıyı önce kiralama ile yürütmeye yönlendirebilir",
+              "text": "Cüzdan, kaynak tasarrufu mantığını zaten akışın bir parçası olarak konumlandırır. Bu, kullanıcıların yakım maliyetlerini yalnızca imzaladıktan sonra keşfetmesine izin vermek yerine yürütmeyi pratik tutar."
+            },
+            {
+              "eyebrow": "Korunan toz bakiye",
+              "title": "Çok küçük bir 4TEEN kalanı bilinçli olarak geride bırakılır",
+              "text": "Korunan kalan bakiye, kırılgan sıfır bakiye uç durumlarını önler ve sonraki rota işlemlerini daha sakin hale getirir. Küçük bir kuraldır, ancak iyi bir cüzdan kuralıdır."
+            }
+          ],
+          "note": "Ürünü ciddi hissettiren şey budur: önde geniş token keşfi, arkada kontrollü yürütme disiplini."
+        },
+        "verification": {
+          "eyebrow": "Doğrulama",
+          "title": "Bu rota hikâyesinin kaynağı",
+          "body": "Bu sayfa gerçek cüzdan uygulamasını takip eder: hedef değiştirme, daha geniş token kataloğu yükleme, kotasyon sıralama, minimum alım koruması, approval kontrolleri ve uygulamanın arkasındaki router katmanı üzerinden nihai yürütme.",
+          "labels": {
+            "router": "Akıllı router",
+            "token": "4TEEN token",
+            "walletRepo": "Cüzdan repository’si"
+          }
+        },
+        "cta": {
+          "eyebrow": "Gerçek Rotayı Aç",
+          "title": "Tam rota haritasını istediğinizde cüzdanı açın",
+          "body": "Web sitesi swap fırsatını anlaşılır hale getirmelidir. Daha geniş token evreni, sıralanmış rotalar, approval incelemesi, korumalı minimum ve nihai imzanın bir araya geldiği yer mobil cüzdandır.",
+          "openApp": "Mobil Uygulamayı Aç",
+          "openBuy": "Buy Rotasını Aç"
+        }
+      }
     }
   }
 }
