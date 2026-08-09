@@ -4262,6 +4262,315 @@
           }
         ]
       }
+    },
+    "buy": {
+      "metadata": {
+        "title": "4TEEN sotib olish | Kontraktga xos TRON kirishi",
+        "description": "4TEEN ni bevosita smart-kontraktdan sotib oling: qulflangan paketni mint qiling, tasdiqlangan xaridlarni kuzating, 90/7/3 TRX yo‘naltirishini tushuning, so‘ng hamyonni o‘rnating va haqiqiy sotib olish oqimini bajaring.",
+        "openGraphTitle": "4TEEN sotib olish",
+        "openGraphDescription": "4TEEN ga kontraktga xos sotib olish yo‘li orqali kiring. Qulflangan paketni mint qiling, tasdiqlangan BuyTokens hodisalarini kuzating, TRX yo‘naltirishini ko‘rib chiqing va imzolovchi hamyondan bajaring."
+      },
+      "hero": {
+        "eyebrow": "FourteenToken",
+        "badge": "Kontraktga xos sotib olish yo‘li",
+        "title": "4TEEN ni to‘g‘ridan-to‘g‘ri kontraktdan sotib oling",
+        "subtitle": "Yangi 4TEEN paketini mint qiling, uni 14 kunga qulflang, tasdiqlangan xaridlar lentaga tushishini kuzating, so‘ng qulfdan chiqarish taymeri tugaganda nima qilishni hal qiling.",
+        "body": [
+          "Bu o‘zini DeFi deb ko‘rsatayotgan oddiy swap formasi emas. Bu protokolga xos kirish yo‘lidir.",
+          "Siz TRX kiritasiz, kontrakt qancha 4TEEN mint qilinishini hisoblaydi, tranzaksiya aynan shu paket uchun alohida 14 kunlik qulf yaratadi, kiruvchi TRX esa kontrakt qoidasi bo‘yicha yo‘naltiriladi: 90% likvidlikka, 7% controller ga va 3% airdrop tomoniga.",
+          "Veb-sayt xaritani ko‘rsatadi. Hamyon tranzaksiyani bajaradi."
+        ],
+        "primaryCta": "Hamyonni o‘rnatish / ochish",
+        "secondaryCta": "So‘nggi xaridlarni ko‘rish",
+        "ctaNote": "Imzolovchi hamyon talab qilinadi. Faqat kuzatish rejimi tizimni o‘qiy oladi, ammo sotib olish tranzaksiyasini yubora olmaydi. Insoniyat imzolarni kashf etdi, endi esa barchamiz ularni hurmat qilishimiz kerak.",
+        "rotatingLines": [
+          "Kontrakt kirishi. Haqiqiy qulf.",
+          "Avval mint. Keyin qulfdan chiqarish.",
+          "On-chain sotib oling. Hammasini kuzating.",
+          "Sizning paketingiz. Sizning taymeringiz.",
+          "Soxta hajm yo‘q. Faqat hodisalar."
+        ],
+        "stats": {
+          "directPrice": "Bevosita narx",
+          "directPriceMeta": "Ommaviy snapshot qatlamidan olingan, 4TEEN uchun joriy kontrakt tomoni kirish narxi. Hamyon bajarishdan oldin jonli qiymatni yangilaydi.",
+          "lockRule": "Qulflash qoidasi",
+          "lockRuleValue": "14 kun",
+          "lockRuleMeta": "Har bir bevosita xarid o‘zining qulflangan paketini yaratadi. Taymer butun hamyoningizga emas, aynan o‘sha xaridga tegishli.",
+          "trxSplit": "TRX yo‘naltirish",
+          "trxSplitValue": "90 / 7 / 3",
+          "trxSplitMeta": "Kiruvchi TRX sotib olish tranzaksiyasi ichida yo‘naltiriladi: likvidlik tomoni, controller tomoni va airdrop tomoni.",
+          "execution": "Bajarish",
+          "executionValue": "Hamyon + resurslar",
+          "executionMeta": "Haqiqiy sotib olish oqimi imzolovchi hamyondan ishlaydi. Yakuniy imzodan oldin TRX balansi, Energy, Bandwidth va tranzaksiyaga tayyorlik tekshiriladi.",
+          "priceFallback": "1.147500 TRX",
+          "priceUnavailable": "Jonli narx hozircha mavjud emas. Zaxira qiymat so‘nggi ma’lum bevosita yo‘lni aks ettiradi."
+        }
+      },
+      "sections": {
+        "executionRoute": {
+          "eyebrow": "Sikl qanday ishlaydi",
+          "title": "Sotib olish sahifasi butun yo‘lni tushuntirishi kerak",
+          "intro": "Bevosita xarid shunchaki “TRX yubor, token ol” degani emas. Modul foydalanuvchini haqiqiy on-chain sikl bo‘ylab olib o‘tadi: kontrakt kirishi, mint, qulf, likvidlik yo‘naltirishi va qulfdan chiqarilgandan keyingi qaror nuqtasi.",
+          "cards": [
+            {
+              "eyebrow": "1-qadam",
+              "title": "Kontrakt orqali kiring",
+              "subtitle": "Bu ikkilamchi bozor emas, asosiy protokol yo‘lidir.",
+              "text": "Bevosita xarid imzolovchi hamyondan `buyTokens()` buyrug‘ini yuboradi. Kontrakt TRX ni qabul qiladi, 4TEEN miqdorini hisoblaydi va aynan shu tranzaksiya uchun mint oqimini boshlaydi.\n\nPool qidirish yo‘q. Yo‘nalish ruletkasi yo‘q. Swap va mint bir xil narsa deb ko‘rsatish yo‘q, chunki, aftidan, so‘zlarning hali ham ahamiyati bor."
+            },
+            {
+              "eyebrow": "2-qadam",
+              "title": "Yangi paketni mint qiling",
+              "subtitle": "Kontrakt xaridor uchun yangi 4TEEN yaratadi.",
+              "text": "4TEEN miqdori sotib olish tranzaksiyasi vaqtida mint qilinadi. Shu mint qilingan paket xaridor hamyoniga bog‘lanadi va darhol qulflash mantiqiga kiradi.\n\nShuning uchun bevosita xarid swap dan farq qiladi. Swap mavjud likvidlikni savdo qiladi. Bevosita xarid token kontrakti orqali yangi qulflangan paket yaratadi."
+            },
+            {
+              "eyebrow": "3-qadam",
+              "title": "14 kunga qulflash",
+              "subtitle": "Har bir xarid o‘zining qulfdan chiqarish taymeriga ega.",
+              "text": "Sotib olingan paket 14 kunga qulflanadi. Agar o‘sha hamyon keyinroq yana xarid qilsa, ikkinchi xarid o‘z taymeriga ega alohida qulflangan paket yaratadi.\n\nHamyon qulfdan chiqarish vaqt jadvalini ko‘rsatadi, shunda foydalanuvchi har bir paket qachon harakatlantirilishi mumkinligini aniq ko‘ra oladi."
+            },
+            {
+              "eyebrow": "4-qadam",
+              "title": "Likvidlik tomonini oziqlantiring",
+              "subtitle": "Yangi xaridlar tizimga yangi TRX kiritishda davom etadi.",
+              "text": "Har bir bevosita xarid kiruvchi TRX ning 90% qismini likvidlik tomoniga yo‘naltiradi. Bu qiymat shunchaki marketing skrinshotida turib qolmaydi. U protokol likvidlik oqimiga kiradi va kunlik likvidlik bajarish mantiqi orqali qayta ishlanadi.\n\nFoydalanuvchilar tushunishi kerak bo‘lgan qism shu: keyingi xaridlar tizimni oziqlantirishda davom etadi, oldingi xaridorlar esa qulf davrini kutadi."
+            },
+            {
+              "eyebrow": "5-qadam",
+              "title": "Qulfdan chiqarish nuqtasiga yeting",
+              "subtitle": "Qulfdan chiqarilgandan keyin foydalanuvchi keyingi yo‘lni tanlaydi.",
+              "text": "Qulf muddati tugaganda, paket mavjud bo‘ladi. Holder pozitsiyani ushlab turishda davom etishi yoki bozor yo‘liga o‘tib, mavjud likvidlik orqali swap qilishi mumkin.\n\nMajburiy chiqish yo‘q. Sehrli tugma yo‘q. Faqat qulfdan chiqarish nuqtasi va bozor qarori bor, chunki DeFi ning o‘zi ham ortiqcha bema’nilik o‘ylab topmasdan yetarlicha dramatik."
+            }
+          ]
+        },
+        "priceLogic": {
+          "eyebrow": "Asosiy narx mantiqi",
+          "title": "Bevosita xarid hozir kontrakt narxi bilan kiradi va keyinroq bozor narxi bilan uchrashadi",
+          "cards": [
+            {
+              "eyebrow": "Baza",
+              "title": "Deploy vaqtida 1 TRX = 1 4TEEN",
+              "text": "Boshlang‘ich bevosita sotib olish narxi FourteenToken ichida token boshiga 1.000000 TRX sifatida kodlangan; keyingi compounding davrlari uni oldinga siljitadi."
+            },
+            {
+              "eyebrow": "O‘sish",
+              "title": "Har narx davrida 14.75% o‘sish",
+              "text": "Kontrakt annualGrowthRate = 1475 basis points qiymatini saqlaydi va yetarli vaqt o‘tganda tokenPrice ni compounding orqali oldinga suradi."
+            },
+            {
+              "eyebrow": "Interval",
+              "title": "Har 90 kunda",
+              "text": "Narx yangilanishlari ixtiyoriy admin tahrirlari emas. getCurrentPrice() lastPriceUpdate dan boshlab o‘tgan 90 kunlik davrlar asosida saqlangan token narxini oldinga siljitadi."
+            },
+            {
+              "eyebrow": "Qamrov",
+              "title": "Faqat bevosita chiqarish uchun",
+              "text": "Bu narx `buyTokens()` orqali bevosita chiqarishni boshqaradi. Paket qulfdan chiqarilib, foydalanuvchi bozor yo‘liga o‘tgandan keyin DEX narxi yoki keyingi chiqish shartlari haqida hech narsa va’da qilmaydi."
+            }
+          ],
+          "note": "Sayt bevosita narxni ommaviy axborot qatlami sifatida o‘qiydi. Haqiqiy hamyon yo‘li baribir muhim, chunki u shu kontrakt narxini tanlangan imzolovchi hamyon, haqiqiy TRX balansi va tasdiqlash vaqtidagi resurs tekshiruvlari bilan birlashtiradi."
+        },
+        "lockLayer": {
+          "eyebrow": "14 kunlik qulf qatlami",
+          "title": "Har bir bevosita xarid darhol mint qilinadi va darhol qulflanadi",
+          "bullets": [
+            "Har bir buyTokens() chaqiruvi 4TEEN ni xaridor manziliga darhol mint qiladi.",
+            "Xuddi shu tranzaksiya releaseTime = blok vaqti belgisi + 14 kun bo‘lgan yangi qulf yozuvini qo‘shadi.",
+            "Qulflar butun hamyon uchun bitta aralashtirilgan taymer emas, balki har bir xarid paketi bo‘yicha alohida bo‘ladi.",
+            "So‘ralgan miqdor hali qulflangan balansdan sarflanishiga olib kelsa, transfers va transferFrom bloklanadi.",
+            "Hamyondagi qulfdan chiqarish vaqt jadvali xariddan keyingi tabiiy hamroh yo‘ldir."
+          ],
+          "note": "Shuning uchun bevosita xarid va swap bir xil narsa emas. Bevosita xarid foydalanuvchiga avval protokolga xos chiqarishni beradi, keyin qat’iy kutish davri keladi va faqat qulfdan chiqarilgandan keyingina bozor yo‘li dolzarb bo‘ladi."
+        },
+        "trxRouting": {
+          "eyebrow": "Yo‘naltirish",
+          "title": "TRX qayerga boradi",
+          "rows": [
+            {
+              "share": "90%",
+              "title": "Likvidlikka",
+              "text": "Eng katta ulush tizimning likvidlik tomoniga o‘tadi. Bu foydalanuvchilar qulfdan chiqarishga yetgandan keyin bozor yo‘lini qo‘llab-quvvatlaydigan asosiy oqimdir.",
+              "linkLabel": "Likvidlik sahifasini ochish",
+              "linkHref": "/liquidity"
+            },
+            {
+              "share": "7%",
+              "title": "Controller ga",
+              "text": "Kichikroq ulush FourteenController ga boradi. Bu token administratsiyasi, xaridlarni kuzatish, ambassador mantiqi va mukofot hisob-kitobi bilan bog‘langan boshqaruv va hisob qatlamidir.",
+              "linkLabel": "Ambassadors sahifasini ochish",
+              "linkHref": "/ambassadors"
+            },
+            {
+              "share": "3%",
+              "title": "Airdrop tomoniga",
+              "text": "Yakuniy ulush airdrop tomoniga boradi, shuning uchun o‘sha bevosita sotib olish oqimi ommaviy taqsimot va ekotizim o‘sishini ham oziqlantirishda davom etadi.",
+              "linkLabel": "Airdrop sahifasini ochish",
+              "linkHref": "/airdrop"
+            }
+          ],
+          "note": "Bo‘linish sotib olish tranzaksiyasining o‘zida sodir bo‘ladi. Bu keyingi elektron jadval mashqi emas, “bizga ishoning, bro” ajratmasi emas va Telegram chatida tungi 3 da yozilgan qo‘lda berilgan va’da ham emas."
+        },
+        "walletFlow": {
+          "eyebrow": "Hamyon oqimi",
+          "title": "Haqiqiy mahsulot miqdor kiritishdan imzogacha qanday harakatlanadi",
+          "steps": [
+            {
+              "eyebrow": "1. Tayyorlash",
+              "title": "Haqiqatan xarid qiladigan hamyonni tanlang",
+              "text": "Ilova tanlangan imzolovchi hamyondan boshlaydi, uning TRX balansi, kontrakt narxi, qulflangan balansi va kontrakt manzillarini yuklaydi, so‘ng miqdor maydonini o‘sha hamyon haqiqatda qoplay oladigan qiymat bilan cheklaydi."
+            },
+            {
+              "eyebrow": "2. Ko‘rib chiqish",
+              "title": "Tasdiqlashdan oldin mint qilinadigan miqdor va bo‘linishni ko‘ring",
+              "text": "Foydalanuvchi biror narsani tasdiqlashidan oldin hamyon taxminiy 4TEEN chiqishini, 90 / 7 / 3 bo‘linishini, keyingi kontrakt narxi qadamini va shu paket uchun kelajakdagi qulfdan chiqarish vaqtini ko‘rsatadi."
+            },
+            {
+              "eyebrow": "3. Tasdiqlash",
+              "title": "Hamyon rozilik so‘rashidan oldin resurslarni tekshiring",
+              "text": "Tasdiqlash qatlami Energy, Bandwidth va har qanday yetishmovchilikni o‘lchaydi, shunda foydalanuvchi passcode yoki biometrik tasdiqdan oldin haqiqiy bajarish holatini ko‘radi."
+            },
+            {
+              "eyebrow": "4. Davom etish",
+              "title": "Resurslar yetishmasa, hamyon avval bo‘shliqni yopishi mumkin",
+              "text": "Tanlangan hamyonda bajarish resurslari yetishmasa, ilova energiya ijarasi uchun narx berishi va foydalanuvchini muvaffaqiyatsiz tranzaksiyaga ko‘r-ko‘rona kiritish o‘rniga bevosita xarid yuborilishidan oldin shu bo‘shliqni yopishi mumkin."
+            },
+            {
+              "eyebrow": "5. Joylashgandan keyin",
+              "title": "Tizim qulfdan chiqarishni ham, controller tomoni atributsiyasini ham kuzatadi",
+              "text": "Xarid joylashgach, hamyon o‘sha paket uchun qulf countdown ni ko‘rsatishi mumkin, FourteenController esa xaridorni bog‘lashi, har bir purchase ID bo‘yicha tasdiqlangan xaridni bir marta yozib qo‘yishi va allocation muvaffaqiyatli bo‘lganda ambassador mukofot balansini yakunlashi mumkin."
+            }
+          ],
+          "note": "Veb-sayt bu yo‘lni aniq tushuntirishi, so‘ng foydalanuvchini hamyonga olib kirishi kerak. U o‘zini bajarish qatlami deb ko‘rsatmasligi kerak."
+        },
+        "resourceLayer": {
+          "eyebrow": "Resurslarga tayyorlik",
+          "title": "Hamyon tarmoq xarajatini mahsulotning bir qismi deb biladi, oxirdagi tuzoq deb emas",
+          "cards": [
+            {
+              "eyebrow": "Baholash",
+              "title": "Energy va bandwidth imzodan oldin narxlanadi",
+              "text": "Hamyon `buyTokens()` uchun kontrakt chaqiruvi xarajatini imzodan oldin baholaydi, shuning uchun foydalanuvchi yakuniy tasdiqlash bosqichidan oldin yo‘lga nima kerakligini ko‘radi."
+            },
+            {
+              "eyebrow": "Qoplash",
+              "title": "Joriy hamyon resurslari yo‘l bilan solishtiriladi",
+              "text": "Ko‘rib chiqish bosqichi nafaqat TRX miqdorini, balki tanlangan hamyon hozir shu yo‘lni toza qoplay oladimi-yo‘qmi, shuni ham ko‘rsatadi."
+            },
+            {
+              "eyebrow": "Yetishmovchilik",
+              "title": "Resurslar yetishmasa, ilova bo‘shliqni yopishga yordam berishi mumkin",
+              "text": "Agar imzolovchi hamyon yetarli bo‘lmasa, mahsulot bo‘shliqni to‘g‘ridan-to‘g‘ri ko‘rsatadi va xarid yuborilishidan oldin energiya ijarasi bosqichiga o‘tishi mumkin."
+            }
+          ],
+          "note": "Bu muhim, chunki bevosita xarid shunchaki raqam maydoni emas. Bu jonli kontrakt yo‘li va hamyon uning ortidagi resurs holatini allaqachon ko‘rsatadi."
+        },
+        "latestPurchases": {
+          "eyebrow": "Jonli xarid lentasi",
+          "title": "Tasdiqlangan xaridlar allaqachon kontraktga tushgan",
+          "intro": "Bu qatorlar FourteenToken dagi tasdiqlangan `BuyTokens` hodisalaridan keladi. Haqiqiy hamyonlar, haqiqiy tranzaksiyalar, haqiqiy on-chain dalil. Soxta hajm emas, bezak jadvali emas, qorong‘i mavzu kiyib olgan yana bir dashboard gallyutsinatsiyasi ham emas.",
+          "headers": {
+            "wallet": "Hamyon",
+            "trxIn": "Kiritilgan TRX",
+            "minted": "Mint qilingan",
+            "lockEnds": "Qulf tugaydi",
+            "transaction": "Tranzaksiya",
+            "status": "Tasdiqlangan"
+          },
+          "statusConfirmed": "Tasdiqlangan",
+          "openTx": "Tx ni ochish",
+          "note": "Lenta bu yerda bitta sabab uchun bor: dalil. Foydalanuvchilar sotib olish moduli nazariy emasligini ko‘rishi kerak. Xaridlar sodir bo‘lgan, kontrakt hodisalar chiqargan va hamyon keyingi xaridorni aynan shu yo‘l orqali olib o‘ta oladi.",
+          "empty": "Tasdiqlangan BuyTokens hodisalari kutilmoqda.",
+          "unknownTime": "Vaqt mavjud emas",
+          "fallbackBody": "Yo‘l barqarorlashtirilayotgan paytda so‘nggi bevosita xaridlar ommaviy saytda vaqtincha yashirilgan. Mobil ilova sotib olish bajariladigan asosiy joy bo‘lib qoladi, ommaviy tekshirish havolalari esa mavjudligicha qoladi.",
+          "fallbackPrimaryCta": "Mobil ilova yo‘lini ochish",
+          "fallbackSecondaryCta": "Token kontraktini ochish"
+        },
+        "comparison": {
+          "eyebrow": "Sotib olish swap bilan bir xil emas",
+          "title": "Bevosita xarid — kirish yo‘li. Swap — bozor yo‘li.",
+          "intro": "Ikkala yo‘l ham muhim, ammo ular turli vazifani bajaradi. Foydalanuvchilar tugmalarni bosishni boshlashdan oldin qaysi mexanizmga tegayotganini bilishi kerak, go‘yo sivilizatsiya xato bo‘lganidek.",
+          "cards": [
+            {
+              "eyebrow": "Sotib olish",
+              "title": "Sotib olish",
+              "subtitle": "Bevosita kontrakt kirishi",
+              "text": "Bevosita xarid kontraktning sotib olish buyrug‘ini yuboradi, kontrakt qoidasi bo‘yicha yangi 4TEEN paketini mint qiladi, shu paket uchun yangi 14 kunlik qulf yaratadi va kiruvchi TRX ni likvidlik, controller hamda airdrop oqimlariga yo‘naltiradi.",
+              "footerLabel": "Eng mos",
+              "footerText": "Protokolga xos mint yo‘li orqali kirishni va sotib olish tranzaksiyasi qanday ishlashini aniq tushunishni xohlaydigan foydalanuvchilar uchun."
+            },
+            {
+              "eyebrow": "Swap",
+              "title": "Swap",
+              "subtitle": "Ikkilamchi bozor yo‘li",
+              "text": "Swap bozordagi mavjud likvidlikka qarshi savdo qiladi. U yangi paket mint qilmaydi, bevosita xarid qulfini yaratmaydi va o‘sha paytdagi yo‘l sifati, price impact, slippage hamda DEX sharoitlariga bog‘liq bo‘ladi.",
+              "footerLabel": "Eng mos",
+              "footerText": "Allaqachon qulfdan chiqarilgan 4TEEN ga ega bo‘lgan yoki mavjud bozor likvidligi orqali savdo qilmoqchi bo‘lgan foydalanuvchilar uchun."
+            },
+            {
+              "eyebrow": "Ma’no",
+              "title": "Ma’no",
+              "subtitle": "Bu yerdan kiring, keyin qaror qiling",
+              "text": "Bevosita xarid — kirish oqimi. Qulfdan chiqarish — kutish davri. Swap — foydalanuvchida harakatlantiriladigan tokenlar paydo bo‘lgandan keyingi bozor yo‘li.\n\nToza yo‘l oddiy: kontrakt orqali sotib oling, qulfni kuzating, lentani tomosha qiling, so‘ng qulfdan chiqarilgandan keyin keyingi harakatni tanlang."
+            }
+          ]
+        },
+        "afterPurchase": {
+          "eyebrow": "Xariddan keyin",
+          "title": "Xarid joylashgach keyin nima bo‘ladi",
+          "steps": [
+            {
+              "eyebrow": "Mint qilindi",
+              "title": "4TEEN darhol paydo bo‘ladi",
+              "text": "Token miqdori TRX ni qabul qiladigan o‘sha tranzaksiyaning o‘zida mint qilinadi. Bu kechiktirilgan backend allocation emas."
+            },
+            {
+              "eyebrow": "Qulflandi",
+              "title": "Sotib olingan paket o‘zining 14 kunlik qulfga kiradi",
+              "text": "Aynan shu xarid paketi uchun yangi qulf yozuvi yaratiladi. Hamyon keyinroq uni qulfdan chiqarish vaqt jadvalida alohida qator sifatida ko‘rsatishi mumkin."
+            },
+            {
+              "eyebrow": "Kuzatiladi",
+              "title": "Qulfdan chiqarish vaqt jadvali darhol foydali bo‘ladi",
+              "text": "Keyingi foydali ekran — qulfdan chiqarish yo‘li: u nimalar hali qulflanganini, nima keyin qulfdan chiqishini va shu paket qachon haqiqatda transfer qilinadigan bo‘lishini ko‘rsatadi."
+            },
+            {
+              "eyebrow": "Oldinga oziqlantirildi",
+              "title": "Xarid likvidlik va controller tomoni holatini oziqlantirishda davom etadi",
+              "text": "90% likvidlik ulushi allaqachon protokol likvidlik yo‘liga kirgan, FourteenController esa xaridorni bog‘lashi, har bir purchase ID bo‘yicha tasdiqlangan xaridni bir marta yozishi va ambassador tomoni mukofot hisobini yakunlashi mumkin."
+            }
+          ]
+        },
+        "signingWallet": {
+          "eyebrow": "Bajarish qatlami",
+          "title": "Veb-sayt yo‘lni tushuntiradi. Hamyon xaridni bajaradi.",
+          "body": "Ommaviy sayt kontrakt yo‘lini tushuntirishi mumkin, ammo haqiqiy xarid ilova ichidagi imzolovchi hamyondan amalga oshadi. Faqat kuzatish rejimi balanslarni o‘qish, yo‘llarni tekshirish va tizimni ko‘zdan kechirish uchun foydali. U bevosita sotib olish tranzaksiyasini imzolay olmaydi.\n\nSotib olish uchun foydalanuvchiga TRON da imzo qo‘ya oladigan hamyon kerak.",
+          "bullets": [
+            "Faqat kuzatish hamyonlari balanslar, yo‘llar, qulfdan chiqarish holatlari va ommaviy kontrakt ma’lumotlarini ko‘zdan kechira oladi.",
+            "Faqat imzolovchi hamyon jonli bevosita sotib olish yo‘liga kira oladi.",
+            "TRX balansi, Energy, Bandwidth va tranzaksiyaga tayyorlik imzodan oldin tekshiriladi.",
+            "Hamyon foydalanuvchi imzolashidan oldin kutilayotgan 4TEEN miqdori va qulf xatti-harakatini ko‘rsatadi."
+          ],
+          "ctaTitle": "Hamyonni o‘rnating va haqiqiy sotib olish oqimini ishga tushiring",
+          "ctaText": "Sayt sizga xaritani beradi. Hamyon esa bajarishni beradi: bevosita xarid, resurs tekshiruvi, Energy fallback, jonli kontrakt narxi, xarid tasdig‘i va tranzaksiyadan keyingi qulfdan chiqarish kuzatuvi."
+        },
+        "verification": {
+          "eyebrow": "Manba tekshiruvi",
+          "title": "Yuqoridagi da’volar kontraktlar va kodga bog‘langan",
+          "body": "Bu sahifa deploy qilingan FourteenToken kontrakti, controller arxitekturasi, hamyonning bevosita sotib olish moduli va xariddan keyin keladigan qulfdan chiqarish yo‘liga asoslangan.\n\nMaqsad oddiy: yangi foydalanuvchi imzolashdan oldin nima sodir bo‘lishini yetarlicha aniq tushunadigan darajada haqiqiy mexanikani izohlash. Inqilobiy g‘oya, aftidan.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Kontraktlar repository si",
+          "walletRepoLabel": "Hamyon repository si"
+        },
+        "cta": {
+          "eyebrow": "Keyingi qadam",
+          "title": "Haqiqiy sotib olish oqimiga tayyor bo‘lganingizda hamyonni oching",
+          "body": "Ommaviy sayt yo‘lni tushuntirishi mumkin. Haqiqiy xarid, resurs tekshiruvi, Energy fallback, jonli narx o‘qilishi, tranzaksiya imzosi va qulfdan chiqarish kuzatuvi — barchasi mobil hamyon ichida.\n\nHamyonni o‘rnating, imzolovchi account ni ulang, TRX kiriting, mint qilinadigan 4TEEN miqdorini ko‘rib chiqing, 14 kunlik qulfni tasdiqlang va faqat tranzaksiya tafsilotlari aniq bo‘lganda imzolang.",
+          "openApp": "Hamyon ilovasini o‘rnatish / ochish",
+          "openUnlock": "Qulfdan chiqarish vaqt jadvalini ochish"
+        }
+      }
     }
   }
 }
