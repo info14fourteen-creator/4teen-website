@@ -1,0 +1,97 @@
+name: Deploy Website
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - website-deploy
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-website
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Setup pnpm
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Load deployment credentials from ops control plane
+        env:
+          OPS_EXPORT_BASE_URL: ${{ vars.OPS_EXPORT_BASE_URL || 'https://fourteen-wallet-api-7af291023d36.herokuapp.com' }}
+          OPS_GITHUB_OIDC_AUDIENCE: ${{ vars.OPS_GITHUB_OIDC_AUDIENCE || '4teen-ops-runner' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          node - <<'NODE'
+          async function readJson(response) {
+            try {
+              return await response.json();
+            } catch {
+              return null;
+            }
+          }
+
+          async function fetchOidcToken() {
+            const requestUrl = process.env.ACTIONS_ID_TOKEN_REQUEST_URL;
+            const requestToken = process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN;
+            const audience = encodeURIComponent(process.env.OPS_GITHUB_OIDC_AUDIENCE || "4teen-ops-runner");
+
+            if (!requestUrl || !requestToken) {
+              throw new Error("GitHub OIDC request metadata is missing");
+            }
+
+            const separator = requestUrl.includes("?") ? "&" : "?";
+            const response = await fetch(`${requestUrl}${separator}audience=${audience}`, {
+              headers: { Authorization: `Bearer ${requestToken}` },
+            });
+            const payload = await readJson(response);
+
+            if (!response.ok || !payload?.value) {
+              throw new Error(payload?.message || `Failed to fetch OIDC token (${response.status})`);
+            }
+
+            return payload.value;
+          }
+
+          async function main() {
+            const baseUrl = String(process.env.OPS_EXPORT_BASE_URL).replace(/\/+$/, "");
+            const response = await fetch(`${baseUrl}/ops/blog-daily-publish-config`, {
+              headers: { Authorization: `Bearer ${await fetchOidcToken()}` },
+            });
+            const payload = await readJson(response);
+            const token = payload?.result?.cloudflareApiToken;
+
+            if (!response.ok || typeof token !== "string" || !token.trim()) {
+              throw new Error(payload?.error || payload?.message || "Cloudflare deployment token is unavailable");
+            }
+
+            const { appendFile } = await import("node:fs/promises");
+            await appendFile(process.env.GITHUB_ENV, `CLOUDFLARE_API_TOKEN=${token.trim()}\n`);
+          }
+
+          main().catch((error) => {
+            console.error(error);
+            process.exit(1);
+          });
+          NODE
+
+      - name: Deploy 4teen.me
+        run: pnpm run cf:deploy
