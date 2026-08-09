@@ -2577,6 +2577,142 @@
           "document": "**Версия:** 1.0\n\n**Дата:** 30 ноября 2025 г.\n\n---\n\n## Краткое описание\n\n4TEEN — токен на базе TRON, созданный для short-cycle price expansion, прозрачного liquidity flow и справедливой on-chain механики. Его экономика структурирована вокруг fixed entry price, dynamic supply, time-locked tokens и automated liquidity distribution model. Цель 4TEEN — создать предсказуемый, прозрачный и self-reinforcing growth mechanism, подходящий для DeFi participants, которые понимают on-chain liquidity и incentive flows.\n\n---\n\n## 1. Введение\n\n4TEEN — demand-driven token с **отсутствием фиксированного total supply**, где токены минтятся исключительно когда реальный TRX входит в систему. Проект построен для скорости, прозрачности и sustainable liquidity growth. Короткий **14-дневный lock period** обеспечивает market stability, а continuous liquidity forwarding со временем усиливает market depth токена.\n\n4TEEN разработан для DeFi users, которые ценят **чистую tokenomics**, **реальную liquidity** и **mechanics, которые нельзя вручную манипулировать**.\n\n---\n\n## 2. Как работает 4TEEN\n\n### 01. Фиксированная цена входа\n\n4TEEN использует постоянный entry rate:\n\n**1 TRX = 1 4TEEN**\n\nЭто устраняет slippage, arbitrary pricing и early-stage volatility.\n\nКаждый покупатель входит точно по одной и той же цене.\n\n---\n\n### 02. Mint-On-Purchase\n\n4TEEN не имеет заранее установленного предложения.\n\nНовые токены минтятся *только* в момент, когда покупатель отправляет TRX в контракт.\n\nНет pre-minting. Нет hidden allocations. Нет private rounds.\n\nЭто делает 4TEEN полностью **demand-driven**: supply растет только когда входит реальный TRX.\n\n---\n\n### 03. 14-дневный период блокировки\n\nКаждая покупка запускает **14-дневную блокировку** для сминченных токенов.\n\nВо время lock period токены нельзя переводить или продавать.\n\nЦель:\n\n- Предотвратить instant dumping\n\n- Создать короткие, предсказуемые holding cycles\n\n- Поддержать естественную liquidity и price formation\n\nЧерез 14 дней токены автоматически разблокируются и становятся доступны для transfers или trading.\n\n---\n\n## 3. Liquidity & TRX Flow\n\nКогда пользователи покупают 4TEEN, входящий TRX автоматически распределяется:\n\n| Destination | Percentage | Purpose |\n|---|---:|---|\n| Liquidity Pool | 90% | Strengthens price backing & market depth |\n| Owner Wallet | 7% | Operations & development |\n| Airdrop Address | 3% | Community incentives & growth |\n\nЭта структура гарантирует, что **большая часть** TRX направляется напрямую в liquidity, повышая долгосрочную stability.\n\n---\n\n## Модель ликвидности\n\nСтруктура ликвидности 4TEEN построена на трех принципах:\n\n### 1. РЕАЛЬНАЯ ЛИКВИДНОСТЬ ТОЛЬКО В TRX\n\nЛиквидность всегда поддержана реальным TRX от реальных покупателей.\n\n### 2. АВТОМАТИЧЕСКОЕ РАСПРЕДЕЛЕНИЕ\n\nLiquidity allocation происходит внутри smart contract каждый раз, когда кто-то покупает 4TEEN.\n\n### 3. РАСТУЩАЯ ГЛУБИНА РЫНКА\n\nБольше покупателей → больше TRX → глубже ликвидность → сильнее поддержка цены.\n\n---\n\n## 4. Динамическая модель предложения\n\n**4TEEN** **не** имеет max supply.\n\nSupply полностью **dynamic** и расширяется только когда происходят purchases.\n\n**Dynamic supply = no inflation without demand.**\n\nЭто создает естественный баланс:\n\n- Когда activity высока → supply expands\n\n- Когда activity низка → supply stops expanding\n\n- Liquidity продолжает усиливаться, пока происходят purchases\n\nЭто предотвращает oversupply и напрямую выравнивает token economy с user demand.\n\n---\n\n## 5. Автоматический рост цены\n\n**4TEEN** включает quarterly price-growth mechanism:\n\nКаждые **90 дней** minting price токена корректируется вверх на основе preset growth rate, по умолчанию: **14.75% annualized**.\n\nЭто означает:\n\n- Early buyers минтят по более низкой цене\n\n- Later buyers минтят по более высокой цене\n\n- Price grows автоматически со временем и demand\n\nЭто создает встроенный incentive для early adoption.\n\n---\n\n## 6. Архитектура smart contract\n\nКонтракт 4TEEN включает:\n\n### • TRC-20 Standard Compatibility\n\nПолностью совместим со стандартом токена TRON.\n\n### • Mint-on-buy Mechanism\n\nПрямой минтинг на основе входящего TRX.\n\n### • 14-Day Vesting Logic\n\nБлокировки отслеживаются индивидуально для каждого пользователя.\n\n### • Reentrancy Protection\n\nПредотвращает malicious recursive calls во время TRX forwarding.\n\n### • Owner Governance\n\nТолько owner может обновлять:\n\n- annual growth rate\n\n- liquidityPool address\n\n- airdrop address\n\n### • Transparent Events\n\nEvents для каждой buy, price update, transfer и approval.\n\n---\n\n## 7. Архитектура smart contract\n\n| Component | Value |\n|---|---|\n| Token Name | 4teen |\n| Symbol | 4TEEN |\n| Decimals | 6 |\n| Entry Price | 1 TRX = 1 4TEEN |\n| Supply Type | Dynamic |\n| Lock Duration | 14 days |\n| Liquidity Allocation | 90% of TRX |\n| Airdrop Allocation | 3% |\n| Operational Allocation | 7% |\n| Price Growth Interval | Every 90 days |\n| Price Model | Time-based compounding |\n\n---\n\n## 8. Заявление о рисках\n\n4TEEN — decentralized smart-contract system, deployed на blockchain TRON.\n\nУчастие связано с риском, включая, но не ограничиваясь:\n\n- Market volatility\n\n- Liquidity fluctuations\n\n- Smart contract vulnerabilities\n\n- Loss of private keys\n\n- Regulatory uncertainty\n\nНичто в этом документе не является financial advice.\n\nПользователям следует оценить собственную tolerance к риску перед взаимодействием с токеном 4TEEN или related products.\n\n---\n\n## 9. Заключение\n\n4TEEN представляет short-cycle, liquidity-driven token model, предназначенную для transparent growth, fair participation и predictable price behavior.\n\nС fixed entry price, dynamic minting, enforced lock periods и automatic liquidity forwarding 4TEEN выравнивает incentives всех market participants.\n\nКомбинация real TRX backing, dynamic supply и structured liquidity distribution позиционирует 4TEEN как modern DeFi-native asset, созданный для нового поколения on-chain liquidity engines."
         }
       }
+    },
+    "one-pager": {
+      "metadata": {
+        "title": "One-Pager 4TEEN",
+        "description": "Краткий one-pager 4TEEN для инвесторов и стратегических партнеров: статус продукта, механика протокола, подтверждение traction, использование капитала и ссылки для due diligence."
+      },
+      "hero": {
+        "eyebrow": "One-Pager 4TEEN",
+        "status": "Краткая справка для инвесторов",
+        "title": "4TEEN — это работающий TRON-кошелек и токен-система, построенные вокруг прямой покупки, 14-дневной разблокировки, маршрутизации ликвидности и инфраструктуры роста.",
+        "lead": "Этот one-pager — краткая версия investor deck: что уже существует, почему это важно, как работает цикл и где капитал или стратегическая поддержка могут ускорить развитие системы."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Продукт",
+          "title": "Токен-поток с приоритетом кошелька",
+          "body": "Пользователи заходят через интерфейс приложения, а не только через страницу контракта: покупка, разблокировка, swap, ликвидность, ambassador и proof-маршруты уже оформлены как единый продуктовый цикл."
+        },
+        {
+          "eyebrow": "Механика",
+          "title": "Маршрутизация покупки 90 / 7 / 3",
+          "body": "Каждая прямая покупка маршрутизирует TRX между ликвидностью, controller и airdrop-сторонами в рамках одной транзакции, делая базовую экономику проще для объяснения и проверки."
+        },
+        {
+          "eyebrow": "Удержание",
+          "title": "Пакетная разблокировка через 14 дней",
+          "body": "Токены, купленные напрямую, минтятся сразу, но разблокируются по каждому пакету покупки через 14 дней, превращая момент входа в видимое состояние кошелька."
+        },
+        {
+          "eyebrow": "Путь к масштабированию",
+          "title": "Инфраструктура роста уже существует",
+          "body": "Учет ambassador, финансирование airdrop, маршруты верификации и публичные proof-страницы создают основу для дистрибуции вместо пустой оболочки кампании."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "Что такое 4TEEN",
+          "title": "Структурированная система входа на TRON, упакованная как кошельковый опыт",
+          "body": "4TEEN объединяет токен-механику, учет на стороне controller, исполнение ликвидности, отслеживание ambassador и UX приложения в одном интерфейсе. Публичный сайт объясняет систему; кошелек ведет пользовательский workflow.",
+          "bullets": [
+            "Прямая покупка и логика разблокировки подкреплены контрактами.",
+            "Роли ликвидности и controller разделены для более прозрачной проверки.",
+            "Приложение и сайт уже раскрывают пользовательские, инвесторские и proof-интерфейсы."
+          ]
+        },
+        {
+          "eyebrow": "Почему это инвестиционно привлекательно",
+          "title": "Возможность заключается в масштабировании работающего цикла, а не в финансировании концепции",
+          "body": "У проекта уже есть механика, маршруты, история приложения и материалы для due diligence, необходимые для начала серьезных переговоров. Следующий шаг — дистрибуция, доработка, уверенность в ликвидности и расширение партнерского охвата.",
+          "bullets": [
+            "Продуктовый риск ниже, потому что ключевые потоки уже существуют.",
+            "Нарратив достаточно прост для объяснения: купить, заблокировать, разблокировать, затем выбрать следующий маршрут.",
+            "Капитал можно направить на ускорение, а не на первичное исследование."
+          ]
+        }
+      ],
+      "snapshot": [
+        {
+          "label": "Сеть",
+          "value": "TRON",
+          "detail": "Среда с низкими комиссиями для прямой покупки, видимости разблокировок и пользовательских действий через кошелек."
+        },
+        {
+          "label": "Основные интерфейсы",
+          "value": "App + site",
+          "detail": "Приложение обеспечивает поток действий; сайт отвечает за обучение, proof и инвесторский контекст."
+        },
+        {
+          "label": "Правило входа",
+          "value": "90 / 7 / 3",
+          "detail": "Маршрутизация на стороне покупки разделяет финансирование ликвидности, controller и airdrop внутри транзакции."
+        },
+        {
+          "label": "Правило разблокировки",
+          "value": "14 days",
+          "detail": "У каждой покупки есть собственный пакет разблокировки вместо одного непрозрачного lock на весь кошелек."
+        }
+      ],
+      "proofPoints": [
+        {
+          "title": "On-chain архитектура разделена",
+          "body": "Контракты token, controller, liquidity controller, bootstrapper и vault несут разные обязанности, что делает due diligence проще, чем история с одним непрозрачным контрактом."
+        },
+        {
+          "title": "UX кошелька уже отображает систему",
+          "body": "Приложение показывает прямую покупку, timeline разблокировки, swap, ликвидность, кабинет ambassador и информационные маршруты как рабочий продукт, а не как разрозненную документацию."
+        },
+        {
+          "title": "Публичный proof удобно передавать",
+          "body": "Whitepaper, verification, контекст блога, investor deck и этот one-pager дают партнерам разные уровни глубины проверки без необходимости сначала проводить приватную презентацию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Скачать PDF One-Pager",
+          "href": "/docs/4teen-one-pager.pdf",
+          "download": "4teen-one-pager.pdf"
+        },
+        {
+          "label": "Открыть Investor Deck",
+          "href": "/deck"
+        },
+        {
+          "label": "Прочитать Whitepaper",
+          "href": "/whitepaper"
+        },
+        {
+          "label": "Проверить контракты",
+          "href": "/verification"
+        },
+        {
+          "label": "Открыть прямую покупку",
+          "href": "/buy"
+        },
+        {
+          "label": "Репозиторий приложения кошелька",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Репозиторий smart contracts",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Ссылки для due diligence",
+      "footerNote": "Этот one-pager является краткой справкой о проекте. Он не является обещанием доходности, листинга на бирже, результата по ликвидности или рыночной динамики.",
+      "ask": {
+        "eyebrow": "Стратегический запрос",
+        "title": "Лучшие следующие переговоры сочетают капитал с дистрибуцией или операционным рычагом.",
+        "body": "4TEEN ищет партнеров, которые могут ускорить привлечение пользователей, укрепить уверенность в ликвидности, расширить региональный охват, доступ к рынку или доверие экосистемы.",
+        "email": "genesis@4teen.me",
+        "bullets": [
+          "Дистрибуция роста и расширение ambassador-программы.",
+          "Ликвидность, market-making, биржевые или экосистемные отношения.",
+          "Доработка продукта, локализация, аналитика и улучшение конверсии."
+        ]
+      }
     }
   }
 }
