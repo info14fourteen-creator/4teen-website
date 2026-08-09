@@ -1,8 +1,8 @@
 name: Localization Queue
 
 on:
-  schedule:
-    - cron: "*/15 * * * *"
+  # Temporarily paused while the production Worker bundle is reduced below
+  # Cloudflare's 3 MiB limit. Manual dispatch remains available for recovery.
   workflow_dispatch:
 
 permissions:
