@@ -38,9 +38,17 @@ export function validateTranslatedStructure(source, translated) {
       empty.push(path);
     }
 
+    const technicalInvariant =
+      path.includes(".links[") &&
+      path.endsWith(".value") ||
+      path.includes("liveMetrics.") &&
+      path.endsWith(".value") ||
+      /^architecture\.liquidity\.(controller\.title|executors\[\d+\]\.title)$/.test(path);
+
     if (
       sourceValue.length >= 24 &&
       translatedValue === sourceValue &&
+      !technicalInvariant &&
       !/^(https?:|\/|[A-Z0-9_.@+-]+$)/.test(sourceValue)
     ) {
       unchanged.push(path);
