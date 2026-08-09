@@ -7878,6 +7878,154 @@
           "openUnlock": "Kilit Açma Zaman Çizelgesini Aç"
         }
       }
+    },
+    "unlock": {
+      "metadata": {
+        "title": "4TEEN Kilit Açma | Kilit Haritası ve Serbest Bırakma Zamanlaması",
+        "description": "Güncel kilitli arz, vault saklama durumu, serbest dolaşımdaki tahmin, yaklaşan kilit açma partileri ve cüzdan tarafındaki kilit açma zaman çizelgesi bağlamını içeren herkese açık 4TEEN kilit açma haritası.",
+        "openGraphTitle": "4TEEN Kilit Açma",
+        "openGraphDescription": "Herkese açık 4TEEN kilit haritasını inceleyin: güncel kilitli arz, serbest dolaşımdaki tahmin, yaklaşan kilit açma partileri ve kişisel serbest bırakma takibi için cüzdan rotası."
+      },
+      "hero": {
+        "eyebrow": "Kilit Açma Zaman Çizelgesi",
+        "badge": "Herkese açık kilit topolojisi",
+        "title": "Kilitli Bir Parti Likit Hale Gelmeden Önce 4TEEN Kilit Açmalarını Takip Edin",
+        "subtitle": "Her doğrudan alım anında mint edilir, anında kilitlenir ve yalnızca kendi 14 günlük sayacı sona erdikten sonra transfer edilebilir hale gelir.",
+        "body": [
+          "Mobil cüzdan, seçili imzalama cüzdanı için kişisel kilit açma zaman çizelgesini gösterir. Herkese açık site ise sistem haritasını göstermelidir: nelerin hâlâ kilitli olduğu, nelerin zaten likit olduğu ve hangi doğrudan alım partilerinin sıradaki kilit açma aşamasına geldiği.",
+          "Bu, web sitesinde sahte bir kişisel portföy olmadığı anlamına gelir. Yalnızca serbest bırakma zamanlamasının, rezerv saklamasının ve kilitli mint’ten taşınabilir bakiyeye giden parti parti yolun herkese açık topolojisi vardır."
+        ],
+        "primaryCta": "Unlock'ı Uygulamada Aç",
+        "secondaryCta": "Buy Rotasını Aç",
+        "ctaNote": "Kişisel kilit açma satırları, geri sayımlar ve adrese özel kullanılabilirlik hâlâ mobil cüzdanda yer alır. Site, serbest bırakma mekaniklerini ve herkese açık kilit haritasını açıklar.",
+        "rotatingLines": [
+          "Her Buy Kendi Sayacını Alır.",
+          "Önce Kilitli. Sonra Likit.",
+          "Herkese Açık Harita. Cüzdan Zaman Çizelgesi.",
+          "Serbest Bırakma Partiye Bağlıdır.",
+          "Transfer Edilebilirlik Kilit Açıldıktan Sonra Başlar."
+        ],
+        "stats": {
+          "directPrice": "Doğrudan Alım Fiyatı",
+          "directPriceMeta": "Parti kendi 14 günlük kilit penceresine girmeden önce 4TEEN başına güncel kontrat tarafı giriş fiyatı.",
+          "lockWindow": "Kilit Penceresi",
+          "lockWindowMeta": "Her doğrudan alım partisi, kendi serbest bırakma zaman damgası gelene kadar donmuş kalır.",
+          "lockedNow": "Şu Anda Kilitli",
+          "lockedNowMeta": "Sistem genelinde hâlâ 14 günlük kilit penceresi içinde olan doğrudan alım partileri.",
+          "circulatingNow": "Serbest Dolaşımda",
+          "circulatingNowMeta": "Toplam arzdan aktif kilitler ve vault saklaması çıkarıldıktan sonraki herkese açık tahmin.",
+          "priceFallback": "1.147500",
+          "priceUnavailable": "Canlı fiyat şu anda kullanılamıyor. Yedek değer, bilinen en son doğrudan rotayı yansıtır.",
+          "readFailed": "Canlı kilit açma okuması başarısız oldu.",
+          "readRetry": "Birazdan yenilemeyi deneyin."
+        }
+      },
+      "sections": {
+        "unlockContext": {
+          "eyebrow": "Cüzdan Bağlamı",
+          "title": "Kişisel kilit açma zaman çizelgesi mobil cüzdanın içindedir",
+          "body": "Web sitesi kilit modelini açıklayabilir ve herkese açık serbest bırakma topolojisini gösterebilir, ancak kişisel kilit açma zaman çizelgesi uygulamaya aittir; çünkü seçili cüzdan adresine, o cüzdanın doğrudan alım geçmişine ve lockedBalanceOf(account) için canlı on-chain okumalarına bağlıdır.",
+          "bullets": [
+            "Her doğrudan alım, kendi serbest bırakma zaman damgasına sahip ayrı bir kilit partisi oluşturur.",
+            "Cüzdan kilit açma zaman çizelgesi, genel swap geçmişini değil yalnızca seçili cüzdana bağlı doğrudan alım geçmişini izler.",
+            "Bir partinin kilidi açıldığında tokenlar transfer edilebilir hale gelir ve swap gibi piyasa rotaları anlam kazanır."
+          ],
+          "openApp": "Mobil Uygulama Rotasını Aç",
+          "openBuy": "Buy Rotasını Aç"
+        },
+        "liveLockMap": {
+          "eyebrow": "Canlı Kilit Haritası",
+          "title": "Ne kadar 4TEEN kilitli ve ne kadarının gerçekten likit olduğu",
+          "rows": {
+            "totalSupply": "Toplam Arz",
+            "activeLockBatches": "Aktif Kilit Partileri",
+            "currentlyLocked": "Şu Anda Kilitli",
+            "vaultCustody": "Vault Saklaması",
+            "freelyCirculating": "Serbest Dolaşımda",
+            "nextUnlock": "Sıradaki Kilit Açma",
+            "snapshotUpdated": "Anlık Görüntü Güncellendi"
+          },
+          "note": "Buradaki serbest dolaşım, herkese açık bir sistem tahminidir: toplam arz eksi aktif doğrudan alım kilitleri eksi rezerv vault kontratlarında tutulan tokenlar. Bu, bilinçli olarak saf bir totalSupply görünümünden daha katıdır."
+        },
+        "upcomingUnlocks": {
+          "eyebrow": "Yaklaşan Kilit Açmalar",
+          "title": "Kilitlerinde hâlâ süre kalan son doğrudan alım partileri",
+          "headers": {
+            "buyer": "Alıcı",
+            "amount": "Kilitli Parti",
+            "unlockAt": "Kilit Açılma Zamanı",
+            "source": "Kaynak"
+          },
+          "openTx": "Tx aç",
+          "empty": "Şu anda görünür aktif doğrudan alım kilit partisi yok.",
+          "note": "Bu serbest bırakma haritası, hâlâ 14 günlük kilit penceresi içinde bulunan onaylanmış BuyTokens olaylarından oluşturulur. Özel bir cüzdan portföyünü değil, herkese açık parti zamanlamasını gösterir."
+        },
+        "vaultLayer": {
+          "eyebrow": "Vault Katmanı",
+          "title": "Rezerv saklama, serbest dolaşımla aynı şey değildir",
+          "body": "4TEEN mimarisi, rezerv tahsislerini özel kontratlarda tutar. FourteenVault likidite rezerv tokenlarını tutar, AirdropVault aşamalı topluluk dağıtım rezervlerini tutar ve TeamLockVault ekip tahsisini izole eder. Bu bakiyeler on-chain olarak vardır, ancak serbest dolaşımdaki arz gibi sunulmamalıdır.",
+          "note": "AirdropVault ayrıca doğrudan alımda yönlendirilen TRX alır, ancak burada gösterilen token bakiyesi yalnızca vault saklamasında gerçekten park edilmiş 4TEEN rezervidir."
+        },
+        "lockMechanics": {
+          "eyebrow": "Kilit Mekanikleri",
+          "title": "Ana token kontratının gerçekten zorunlu kıldığı şey",
+          "cards": [
+            {
+              "eyebrow": "Mint",
+              "title": "Doğrudan alım önce mint eder",
+              "text": "buyTokens(), TRX alan aynı işlem içinde 4TEEN mint eder. Satın alınan tutar için off-chain bir teslimat kuyruğu yoktur."
+            },
+            {
+              "eyebrow": "Parti",
+              "title": "Her satın alma ayrı bir kilit kaydı oluşturur",
+              "text": "Token kontratı, her doğrudan alım için yeni bir LockInfo kaydı ekler. Kilitler tek bir genel sayaçta birleştirilmez."
+            },
+            {
+              "eyebrow": "Kural",
+              "title": "Transferler lockedBalanceOf() tarafından engellenir",
+              "text": "transfer() ve transferFrom(), lockedBalanceOf(account) çıkarıldıktan sonra kullanılabilir bakiye olmasını zorunlu kılar. Kilitli tokenlar erken taşınamaz."
+            }
+          ]
+        },
+        "walletRoute": {
+          "eyebrow": "Cüzdan Rotası",
+          "title": "Uygulamanın bu kontrat durumunu kullanılabilir bir zaman çizelgesine dönüştürme şekli",
+          "cards": [
+            {
+              "eyebrow": "Bakiye",
+              "title": "Toplam, kilitli ve kullanılabilir bakiyeyi okur",
+              "text": "Cüzdan, hâlâ donmuş olanı ve zaten taşınabilir olanı göstermek için balanceOf(account) ile lockedBalanceOf(account) verilerini birleştirir."
+            },
+            {
+              "eyebrow": "Geçmiş",
+              "title": "Onaylanmış BuyTokens olaylarından satırlar oluşturur",
+              "text": "Her doğrudan alım olayı; kesin tutar, kilit açma zamanı, geri sayım ve Tronscan işlem yolu ile görünür bir kilit açma satırına dönüşür."
+            },
+            {
+              "eyebrow": "Aksiyon",
+              "title": "Kullanıcıyı sıradaki geçerli rotaya yönlendirir",
+              "text": "Kilit açma zaman çizelgesi, alımdan sonra doğru rotadır. Swap yalnızca kilitli parti serbest bırakıldıktan ve gerçekten transfer edilebilir hale geldikten sonra anlam kazanır."
+            }
+          ],
+          "note": "Bu nedenle herkese açık site kilit açmayı net şekilde açıklamalı, ardından kullanıcıyı yürütme yüzeyi gibi davranmak yerine kişisel geçmişi için cüzdana göndermelidir."
+        },
+        "verification": {
+          "eyebrow": "Doğrulama",
+          "title": "Sayıların ve kilit mantığının nereden geldiği",
+          "body": "Bu sayfa, dağıtılmış FourteenToken kontratını, cüzdan kilit açma zaman çizelgesi uygulamasını ve bilinen rezerv vault adreslerini kullanır. Her şeyi genel bir token arz grafiğine indirgemek yerine canlı mekanikleri ve saklama yapısını açıklar.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Contracts deposu",
+          "walletRepoLabel": "Cüzdan deposu"
+        },
+        "cta": {
+          "eyebrow": "Sonraki Adım",
+          "title": "Kişisel kilit açma zaman çizelgenize ihtiyacınız olduğunda uygulamayı kullanın",
+          "body": "Herkese açık site protokol genelindeki kilit haritasını gösterebilir. Adrese özel kilit açma satırları, geri sayımlar ve alım sonrası takip için doğru yüzey hâlâ cüzdandır.",
+          "openApp": "Unlock'ı Uygulamada Aç",
+          "openBuy": "Buy Rotasını Aç"
+        }
+      }
     }
   }
 }
