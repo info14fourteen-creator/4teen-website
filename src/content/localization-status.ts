@@ -66,7 +66,7 @@ export const localizationPageStatuses: LocalizationPageStatus[] = [
   {
     page: "app",
     source: "src/content/app-content.ts",
-    states: { en: "complete" },
+    states: { en: "complete", ru: "partial", uz: "partial" },
   },
   {
     page: "buy",
