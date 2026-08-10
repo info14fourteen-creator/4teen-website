@@ -28802,6 +28802,157 @@
           "repoLabel": "Wallet App Repo"
         }
       }
+    },
+    "verification": {
+      "metadata": {
+        "title": "Verificatie",
+        "description": "4TEEN-verificatieroute met live adressen, reservebalansen, protocol-eigenaarschapskaart en directe bewijslinks voor diepgaander onderzoek."
+      },
+      "hero": {
+        "eyebrow": "Verificatielaag",
+        "status": "Publieke architectuurkaart",
+        "title": "Dit is de vertrouwenslaag: wie bezit wat, waar reserves staan, hoe waarde beweegt en welke publieke adressen het project op dit moment ondersteunen.",
+        "lead": "Serieuze gebruikers en investeerders stoppen niet bij de landingspagina. Deze route geeft hen een snelle manier om eigenaarschap, custody, saldi en contractpaden te inspecteren zonder ze bij de eerste klik in een muur van ruwe explorer-tabs te laten belanden.",
+        "stats": {
+          "totalSupply": "Totale supply",
+          "totalSupplyMeta": "Huidige FourteenToken totalSupply on-chain.",
+          "currentPrice": "Directe prijs",
+          "currentPriceMeta": "Huidige previewprijs voor buyTokens(), uitgedrukt in TRX.",
+          "vaultCustody": "Kluis-custody",
+          "vaultCustodyMeta": "4TEEN staat momenteel geparkeerd in FourteenVault, TeamLockVault en AirdropVault.",
+          "controllerBalance": "Controllersaldo",
+          "controllerBalanceMeta": "TRX staat momenteel binnen FourteenController.",
+          "readFailed": "Live verificatie-uitlezing mislukt.",
+          "readRetry": "De statische architectuurkaart is nog steeds geldig. Vernieuw over een moment voor actuele cijfers."
+        }
+      },
+      "sections": {
+        "orientation": {
+          "eyebrow": "Oriëntatie",
+          "title": "Gebruik deze pagina om snel twee vragen te beantwoorden",
+          "body": "Ten eerste: welk contract of welke kluis eigenaar is van een specifieke protocoltaak. Ten tweede: of de publieke staat nog steeds overeenkomt met het verhaal dat het project overal elders vertelt. De pagina blijft bewust alleen-lezen. Haar taak is vertrouwen, niet uitvoering.",
+          "bullets": [
+            "FourteenToken is het contract voor kopen, minten, vergrendelen en de split-entry.",
+            "FourteenController is de admin- en attributielaag, niet de token zelf.",
+            "LiquidityController en LiquidityBootstrapper beheren de release-and-execution-rail.",
+            "Kluissaldi bestaan on-chain, maar reserve-custody is geen vrije circulatie."
+          ],
+          "openWhitepaper": "Whitepaper openen",
+          "openApp": "Mobiele app openen"
+        },
+        "tokenMap": {
+          "eyebrow": "Tokenkaart",
+          "title": "Hoe de hoofdtoken op dit moment is aangesloten",
+          "rows": {
+            "tokenOwner": "Token-eigenaar",
+            "liquidityRoute": "Liquiditeitsroute",
+            "airdropRoute": "Airdrop-route",
+            "directPrice": "Directe prijs",
+            "growthRule": "Groeiregel",
+            "lastPriceUpdate": "Laatste prijsupdate",
+            "snapshotUpdated": "Snapshot bijgewerkt"
+          },
+          "note": "Het belangrijkste detail is de eigendomsketen. FourteenToken valt niet onder een verhaal van een willekeurige owner-wallet. Het eigenaarspad komt uit bij FourteenController, en daarom horen beide oppervlakken hier bij elkaar."
+        },
+        "controllerState": {
+          "eyebrow": "Controllerstatus",
+          "title": "Wat de controller zegt over attributie en treasury-flow",
+          "rows": {
+            "controllerOwner": "Controller-eigenaar",
+            "contractBalance": "Contractsaldo",
+            "ownerAvailable": "Beschikbaar voor eigenaar",
+            "reservedRewards": "Gereserveerde rewards",
+            "unallocatedPurchaseFunds": "Niet-toegewezen aankoopmiddelen",
+            "ambassadors": "Totaal aantal ambassadors",
+            "activeAmbassadors": "Actieve ambassadors",
+            "boundBuyers": "Gekoppelde kopers",
+            "trackedVolume": "Getrackt volume",
+            "rewardsClaimed": "Geclaimde rewards"
+          },
+          "note": "Daarom is het controllerverhaal belangrijk. Het houdt aparte publieke buckets bij voor middelen die beschikbaar zijn voor de eigenaar, gereserveerde rewards, getrackt volume en aantallen koperattributies, in plaats van alles plat te slaan tot één ijdelheidsmetric."
+        },
+        "liquidityState": {
+          "eyebrow": "Liquiditeitsrail",
+          "title": "De uitvoeringskant is een afzonderlijk publiek systeem",
+          "rows": {
+            "controllerBalance": "Saldo van Liquidity Controller",
+            "controllerOwner": "Eigenaar van Liquidity Controller",
+            "minBalance": "Minimale triggersaldo",
+            "dailyRelease": "Dagelijkse releaseregel",
+            "justMoneyExecutor": "JustMoney Executor",
+            "sunExecutor": "Sun.io V3 Executor"
+          },
+          "note": "Automatisering kan de route activeren, maar de releasedrempel en het percentage blijven in de contracten staan. Gemak staat buiten de regels, niet erboven."
+        },
+        "architecture": {
+          "eyebrow": "Architectuur",
+          "title": "Het protocol is opgesplitst in expliciete taken in plaats van één gigantisch contract",
+          "cards": [
+            {
+              "eyebrow": "Core",
+              "title": "FourteenToken",
+              "text": "Ontvangt directe aankoop-TRX, mint 4TEEN, creëert per aankoop 14-daagse locks en splitst de aankoopwaarde atomair 90 / 7 / 3."
+            },
+            {
+              "eyebrow": "Admin",
+              "title": "FourteenController",
+              "text": "Bezit de tokenlaag, houdt de status bij voor attributie en reward-accounting, stelt publieke systeemoverzichten beschikbaar en bewaakt saldoafhandeling aan de owner-kant."
+            },
+            {
+              "eyebrow": "Uitvoering",
+              "title": "Liquidity Stack",
+              "text": "FourteenLiquidityController beheert de buy-side TRX-rail, terwijl LiquidityBootstrapper tokenvoorraad voorbereidt en liquiditeitspaden aan de executorkant triggert."
+            },
+            {
+              "eyebrow": "Custody",
+              "title": "Vault Separation",
+              "text": "FourteenVault, TeamLockVault en AirdropVault isoleren reservesaldi per doel, zodat treasury-, team- en groeisupply niet worden platgeslagen tot één generieke pool."
+            }
+          ],
+          "note": "Die scheiding is een van de sterkste punten die het makkelijkst publiek te verifiëren is. Explorer-links, repositorycode en live saldi wijzen allemaal terug naar dezelfde modulaire architectuur."
+        },
+        "reserveLayer": {
+          "eyebrow": "Reservelaag",
+          "title": "Live 4TEEN-saldi over kluis- en uitvoeringsadressen",
+          "body": "Deze saldi laten zien waar tokenvoorraad daadwerkelijk staat. Kluis-custody is geen vrije circulatie en executorvoorraad is geen gebruikerswalletsaldo. Door ze samen te tonen, blijft het systeem in één oogopslag leesbaar.",
+          "note": "Executorsaldi kunnen bewegen wanneer bootstrap- en liquiditeitsflows voorraad verschuiven. Kluissaldi vormen de stabielere bewijslaag voor reserve-custody.",
+          "labels": {
+            "balance": "Saldo",
+            "verify": "Verifiëren op Tronscan"
+          }
+        },
+        "verification": {
+          "eyebrow": "Bewijslinks",
+          "title": "Open de bewijslaag direct",
+          "body": "Elke groep hieronder brengt de gebruiker rechtstreeks van het verhaal naar de bewijslaag: contracten, kluizen, uitvoeringsrails en de repositories achter het product.",
+          "groups": {
+            "core": "Core-contracten",
+            "vaults": "Kluiscontracten",
+            "execution": "Uitvoeringscontracten",
+            "source": "Bronrepositories"
+          },
+          "labels": {
+            "token": "FourteenToken",
+            "controller": "FourteenController",
+            "liquidityController": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "fourteenVault": "FourteenVault",
+            "teamLockVault": "TeamLockVault",
+            "airdropVault": "AirdropVault",
+            "justMoneyExecutor": "LiquidityExecutorJustMoney",
+            "sunV3Executor": "LiquidityExecutorSunV3",
+            "contractsRepo": "Contracts repository",
+            "walletRepo": "Wallet repository"
+          }
+        },
+        "cta": {
+          "eyebrow": "Volgende stap",
+          "title": "Bouw hier overtuiging op en ga daarna verder in de app",
+          "body": "Gebruik de publieke route om het systeem te inspecteren. Gebruik de wallet wanneer je signing, kopen, unlocken, swappen, een airdrop claimen of een handmatige liquiditeitsactie wilt uitvoeren met echte accountstatus erachter.",
+          "openApp": "Mobiele app openen",
+          "openBuy": "Kooproute openen"
+        }
+      }
     }
   }
 }
