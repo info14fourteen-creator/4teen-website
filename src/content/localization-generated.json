@@ -13226,5 +13226,161 @@
       "linksEyebrow": "Nächste Routen",
       "footerNote": "Die aktuelle Route ist eine saubere Hülle für zukünftiges Publishing, kein künstlicher Feed. Wenn Artikel veröffentlicht werden, sollten sie mit den Beweis- und Produktebenen im Einklang bleiben."
     }
+  },
+  "fr": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "Copier",
+          "copied": "Copié",
+          "failed": "Échec",
+          "close": "Fermer",
+          "qrCode": "Code QR"
+        },
+        "taglines": [
+          "Entrer tôt. Sortir plus haut.",
+          "Les gagnants n’attendent pas.",
+          "Transformez 14 jours en profit.",
+          "Agissez tôt. Gagnez tôt."
+        ],
+        "header": {
+          "home": "Accueil",
+          "getApp": "Obtenir l’application",
+          "primaryNavAria": "Navigation principale du site"
+        },
+        "market": {
+          "loading": "Chargement du prix",
+          "unavailable": "Prix indisponible",
+          "liveAria": "Prix de marché en direct"
+        },
+        "refresh": {
+          "idle": "Actualiser les données",
+          "busy": "Actualisation",
+          "aria": "Actualiser l’instantané des données en direct"
+        },
+        "mobileSearch": {
+          "ariaLabel": "Rechercher des routes, contrats et docs",
+          "placeholder": "Rechercher des routes, contrats, docs...",
+          "eyebrow": "Recherche rapide",
+          "title": "Pages, contrats et surfaces de preuve",
+          "dialogAria": "Résultats de recherche",
+          "route": "Route",
+          "external": "Externe",
+          "empty": "Aucune correspondance rapide pour le moment. Essayez des mots liés à une route, un contrat ou une preuve."
+        },
+        "desktopSearch": {
+          "prompts": [
+            "Rechercher des contrats, routes, docs...",
+            "FourteenToken",
+            "Calendrier de déverrouillage",
+            "Contrôleur de liquidité",
+            "Récompenses des ambassadeurs",
+            "Whitepaper"
+          ],
+          "ariaLabel": "Rechercher des routes et contrats 4TEEN",
+          "actionAria": "Ouvrir les résultats de recherche",
+          "eyebrow": "Résultats de recherche rapide",
+          "title": "Pages, contrats et surfaces de preuve rapides.",
+          "dialogAria": "Résultats de recherche",
+          "closeAria": "Fermer la recherche",
+          "resultsSuffix": "résultats",
+          "noResultsYet": "Aucun résultat pour le moment",
+          "pressEnter": "Appuyez sur Entrée pour ouvrir la meilleure correspondance.",
+          "topMatch": "Meilleure correspondance",
+          "route": "Route",
+          "external": "Externe",
+          "empty": "Aucun résultat. Essayez `buy`, `unlock`, `airdrop`, `controller` ou `whitepaper`."
+        },
+        "locale": {
+          "eyebrow": "Langue",
+          "title": "Choisir la langue de l’interface",
+          "active": "Actif",
+          "soon": "Bientôt"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "Surfaces principales",
+          "docsAndRoutes": "Docs et routes",
+          "closeOpenPanelAria": "Fermer le panneau ouvert"
+        },
+        "mobileDock": {
+          "menu": "Menu",
+          "close": "Fermer",
+          "openMenuAria": "Ouvrir le menu mobile",
+          "closeMenuAria": "Fermer le menu mobile",
+          "openHomeAria": "Ouvrir l’accueil",
+          "openSearchAria": "Ouvrir la recherche mobile",
+          "openLanguageAria": "Ouvrir le panneau de langue"
+        },
+        "footer": {
+          "protocol": "Protocole",
+          "ecosystem": "Écosystème",
+          "legal": "Juridique",
+          "privacy": "Confidentialité",
+          "terms": "Conditions",
+          "support": "Support",
+          "investorDeck": "Présentation investisseurs",
+          "onePager": "One-Pager",
+          "officialChannels": "Canaux officiels",
+          "brandText": "L’application wallet porte désormais la surface système en direct : achat direct, état de déverrouillage, vérité du contrôleur, cabinet ambassadeur et flux de croissance axé sur Telegram.",
+          "getApp": "Obtenir l’application",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. Entrée structurée on-chain sur TRON.",
+          "officialWebsite": "Site officiel : 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "Protocole",
+          "growth": "Croissance",
+          "proof": "Preuve",
+          "ecosystem": "Écosystème"
+        },
+        "links": {
+          "home": "Accueil",
+          "buy": "Acheter",
+          "unlock": "Déverrouillage",
+          "liquidity": "Liquidité",
+          "airdrop": "Airdrop",
+          "ambassadors": "Ambassadeurs",
+          "whitepaper": "Whitepaper",
+          "verification": "Vérification",
+          "blog": "Blog",
+          "swap": "Swap",
+          "mobileApp": "Application mobile"
+        },
+        "shortLinks": {
+          "buy": "Acheter",
+          "unlock": "Déverrouiller",
+          "liquidity": "Liquidité",
+          "airdrop": "Airdrop",
+          "earn": "Gagner",
+          "swap": "Swap",
+          "app": "App",
+          "home": "Accueil"
+        },
+        "menuLinks": {
+          "buy": "Achat direct",
+          "unlock": "Calendrier de déverrouillage",
+          "liquidity": "Contrôleur de liquidité",
+          "swap": "Swap Token",
+          "privacy": "Politique de confidentialité",
+          "terms": "Conditions d’utilisation"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "Route principale",
+          "protocolSurface": "Surface du protocole",
+          "growthSurface": "Surface de croissance",
+          "proofSurface": "Surface de preuve",
+          "downloadRoute": "Route de téléchargement",
+          "publicPolicy": "Politique publique",
+          "supportRoute": "Route de support",
+          "coreContract": "Contrat principal",
+          "liquidityContract": "Contrat de liquidité",
+          "growthContract": "Contrat de croissance",
+          "githubSource": "Source GitHub"
+        }
+      }
+    }
   }
 }
