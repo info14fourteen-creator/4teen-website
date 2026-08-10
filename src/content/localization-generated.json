@@ -29692,6 +29692,74 @@
       ],
       "linksEyebrow": "Openbare uitgangen",
       "footerNote": "Begin voor releaselinks, contractreferenties of openbare statuspagina’s bij https://4teen.me. Officiële telefoon- en WhatsApp-support: +998 95 792 02 87."
+    },
+    "blog": {
+      "metadata": {
+        "title": "Blog",
+        "description": "De publicatielaag van 4TEEN voor lanceringen, protocoluitleg, ecosysteemupdates en productverhalen gericht op investeerders."
+      },
+      "hero": {
+        "eyebrow": "Blog",
+        "status": "Publicatielaag",
+        "title": "De blog is de plek waar 4TEEN met een marktgerichte stem kan spreken zonder het product plat te slaan tot banners en slogans.",
+        "lead": "De whitepaper is het uitgebreide structurele document. Verificatie is de bewijslaag. De blog is de plek waar lanceringen, route-updates, ecosysteemcontext en investeerdersgerichte verhalen thuishoren in een lichter format dat later kan uitgroeien naar meerdere talen."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Rol",
+          "title": "Narratieve laag",
+          "body": "Gebruik de blog voor lanceringen, updates, uitlegartikelen en teksten die momentum opbouwen, maar niet thuishoren binnen productroutes."
+        },
+        {
+          "eyebrow": "Doelgroep",
+          "title": "Nieuwe gebruikers en investeerders",
+          "body": "Deze route moet drempels verlagen voor mensen die sneller inzicht willen voordat ze de app, de kooproute of de whitepaper openen."
+        },
+        {
+          "eyebrow": "Format",
+          "title": "Klaar voor vertaling",
+          "body": "Posts moeten kunnen uitgroeien tot meertalige publicaties zonder de hele schil te herschrijven of het routemodel te wijzigen."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Wat hier thuishoort",
+          "title": "Publiceren dat interesse wekt zonder te liegen",
+          "body": "De blog is de juiste plek voor lanceringsnotities, productmijlpalen, route-uitleg, ecosysteem­partnerschappen, marktgerichte verhalen en leesbare toelichtingen op wat er is veranderd in de app of in de on-chain stack."
+        },
+        {
+          "eyebrow": "2. Wat hier niet thuishoort",
+          "title": "Geen vervanging voor bewijs",
+          "body": "De blog mag contractlinks, verificatiepagina’s of whitepaper-secties niet vervangen. Als een claim bewijs nodig heeft, moet de post verwijzen naar de bewijslaag in plaats van te doen alsof een verhaal voldoende is.",
+          "bullets": [
+            "De whitepaper blijft de uitgebreide structurele leesroute",
+            "Verificatie blijft de bewijsroute",
+            "De blog blijft de publicatie- en momentumroute"
+          ]
+        },
+        {
+          "eyebrow": "3. Waarom deze route belangrijk is",
+          "title": "De site heeft een flexibel groeivlak nodig",
+          "body": "Home kan niet elk verhaal dragen, en de whitepaper moet geen campagneteksten bevatten. De blog geeft de website een schonere manier om mensen aan te trekken, te informeren en op de hoogte te houden zonder de hoofdroutes op te blazen.",
+          "note": "Dit is ook de eenvoudigste plek om in de toekomst een meertalige publicatiestroom artikel voor artikel te laten groeien."
+        }
+      ],
+      "links": [
+        {
+          "label": "Open de app",
+          "href": "/app"
+        },
+        {
+          "label": "Open kopen",
+          "href": "/buy"
+        },
+        {
+          "label": "Lees de whitepaper",
+          "href": "/whitepaper"
+        }
+      ],
+      "linksEyebrow": "Volgende routes",
+      "footerNote": "De huidige route is een schone schil voor toekomstige publicaties, geen nepfeed. Wanneer artikelen verschijnen, moeten ze afgestemd blijven op de bewijs- en productlagen."
     }
   }
 }
