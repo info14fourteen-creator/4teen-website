@@ -15941,6 +15941,177 @@
           "Finition produit, localisation, analytics et amélioration de la conversion."
         ]
       }
+    },
+    "deck": {
+      "metadata": {
+        "title": "Deck investisseur 4TEEN",
+        "description": "4TEEN combine déjà un wallet opérationnel, un parcours d’achat direct et de déverrouillage, des contrats TRON modulaires, une exécution programmée de la liquidité, une conservation en vault et une comptabilité des ambassadeurs. Cette page est le point d’entrée pour les investisseurs."
+      },
+      "hero": {
+        "eyebrow": "Deck 4TEEN",
+        "status": "Pitch investisseur",
+        "title": "4TEEN dispose déjà de la boucle wallet, du cœur smart-contract et des rails de croissance. La thèse d’investissement consiste à faire passer un système live à l’échelle avant qu’une distribution plus forte ne l’atteigne en premier.",
+        "lead": "4TEEN n’est pas une landing page de token à la recherche d’un produit. Le wallet expose déjà l’achat direct, la chronologie de déverrouillage, le swap, la liquidité, l’espace ambassadeur et les surfaces d’information. Les contrats appliquent déjà le minting, les verrous de 14 jours, le routage 90 / 7 / 3, la comptabilité du controller et l’exécution programmée de la liquidité."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Produit live",
+          "title": "Wallet + contrats sont déjà connectés",
+          "body": "Le wallet expose déjà l’achat, le déverrouillage, le swap, la liquidité, l’espace ambassadeur et les surfaces d’information au lieu de s’arrêter à une landing page de token ou à une promesse de whitepaper."
+        },
+        {
+          "eyebrow": "Mécanique d’entrée",
+          "title": "Routage 90 / 7 / 3",
+          "body": "Chaque achat direct route les TRX au sein de la même transaction : 90% côté liquidité, 7% côté controller, 3% côté airdrop."
+        },
+        {
+          "eyebrow": "Conception du verrouillage",
+          "title": "14D par achat",
+          "body": "Les tokens achetés en direct sont mintés immédiatement et verrouillés par lot. Chaque nouvel achat crée son propre compte à rebours de déverrouillage au lieu de modifier tout l’état du wallet."
+        },
+        {
+          "eyebrow": "Cadence de liquidité",
+          "title": "Fenêtre de libération de 6.43%",
+          "body": "Le liquidity controller peut libérer de la valeur une fois par jour au-dessus d’un seuil fixe de 100 TRX, puis répartir l’exécution entre des rails propres à chaque DEX."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "Pourquoi maintenant",
+          "title": "Le travail de zéro à un est déjà visible",
+          "body": "4TEEN n’attend pas un premier prototype. La boucle centrale existe déjà à travers les contrats et l’UX du wallet : entrer par l’achat direct, verrouiller chaque lot, voir la liquidité côté controller s’accumuler, déverrouiller plus tard, puis décider de conserver ou d’utiliser la route de marché.",
+          "bullets": [
+            "Le contrat du token mint déjà à l’achat et applique le verrouillage de 14 jours.",
+            "Le controller détient déjà l’autorité administrative au lieu de laisser un contrôle critique à un simple wallet.",
+            "Le wallet expose déjà les surfaces d’achat, de déverrouillage, de swap, de liquidité et d’ambassadeur comme une seule histoire produit."
+          ]
+        },
+        {
+          "eyebrow": "Pourquoi le capital compte",
+          "title": "L’opportunité n’est pas d’imaginer un produit. Elle consiste à faire passer une boucle existante à l’échelle avant qu’une distribution plus forte ne l’atteigne en premier.",
+          "body": "Le meilleur argument investisseur ici n’est pas un slogan. Le produit, l’architecture on-chain et les rails de croissance sont déjà connectés. Un nouveau capital peut donc amplifier la distribution, l’acquisition utilisateur, la profondeur de liquidité et la crédibilité plus vite qu’il ne le ferait dans un projet de token parti de zéro."
+        }
+      ],
+      "thesis": [
+        {
+          "eyebrow": "1. Le risque produit est plus faible",
+          "title": "Le projet est déjà au-delà du stade conceptuel",
+          "body": "L’application wallet inclut déjà l’achat direct, la chronologie de déverrouillage, le swap, l’accueil wallet, le routage d’information et les surfaces opérationnelles destinées aux ambassadeurs. Cela fait passer la discussion investisseur du risque de concept au risque de passage à l’échelle."
+        },
+        {
+          "eyebrow": "2. L’architecture est explicable",
+          "title": "Contrôle, liquidité et réserves sont séparés",
+          "body": "FourteenToken, FourteenController, FourteenLiquidityController, LiquidityBootstrapper et les contrats de vault portent chacun des responsabilités distinctes. Cette séparation rend le système plus facile à vérifier, à expliquer et à faire évoluer."
+        },
+        {
+          "eyebrow": "3. Les rails de croissance sont réels",
+          "title": "La logique d’airdrop et d’ambassadeur est déjà connectée",
+          "body": "Le controller stocke l’état des ambassadeurs, l’association des acheteurs, la comptabilité des récompenses et les ID d’achats traités. La partie airdrop est financée dans la route d’achat direct au lieu de rester un simple souhait marketing."
+        },
+        {
+          "eyebrow": "4. La boucle est transmissible",
+          "title": "Acheter, verrouiller, déverrouiller, puis choisir la route suivante",
+          "body": "Cette séquence est assez claire pour les utilisateurs, assez forte pour le contenu et assez structurée pour la diligence des investisseurs. Elle crée une histoire que le wallet peut réellement exécuter et que le site peut prouver."
+        }
+      ],
+      "proofTracks": [
+        {
+          "eyebrow": "Preuve on-chain",
+          "title": "Ce que les contrats appliquent déjà",
+          "bullets": [
+            "FourteenToken mint à l’achat, verrouille chaque lot pendant 14 jours et route les TRX entrants selon des parts fixes 90 / 7 / 3.",
+            "FourteenController est le propriétaire du token et stocke l’état des ambassadeurs, les associations d’acheteurs, les ID d’achats traités et la comptabilité des récompenses.",
+            "FourteenLiquidityController applique un minimum de 100 TRX et une règle de libération de 6.43% une fois par jour UTC.",
+            "LiquidityBootstrapper prépare les soldes des exécuteurs avant l’exécution côté controller au lieu de deviner les apports de liquidité off-chain."
+          ]
+        },
+        {
+          "eyebrow": "Preuve produit",
+          "title": "Ce que le wallet expose déjà",
+          "bullets": [
+            "L’écran d’achat direct explique déjà la route de contrat live et lance le véritable widget d’achat.",
+            "La chronologie de déverrouillage affiche déjà la logique de libération par lots au lieu de faire comme si les déverrouillages étaient abstraits.",
+            "Manage Crypto et Swap positionnent déjà 4TEEN dans un produit wallet plus large, et non comme un gadget de token limité à un seul écran.",
+            "Les surfaces d’information cartographient déjà les rôles des contrats, les soldes des wallets d’actifs et la préparation des opérateurs dans un tableau de bord système lisible."
+          ]
+        },
+        {
+          "eyebrow": "Preuve narrative",
+          "title": "Ce que le site peut déjà expliquer au marché",
+          "bullets": [
+            "Le site public traduit déjà les surfaces du token, du controller, de la liquidité, du déverrouillage et de la preuve en une histoire utilisateur lisible.",
+            "Le whitepaper, les routes live du protocole et les liens vers les contrats réduisent la friction de diligence pour les nouveaux capitaux et les partenaires stratégiques.",
+            "Le message le plus fort est simple : la boucle produit existe, la logique chain existe, et la couche de croissance peut déjà être montrée, pas imaginée."
+          ]
+        }
+      ],
+      "capitalPlan": [
+        {
+          "eyebrow": "Utilisation du capital",
+          "title": "Distribution et boucles de croissance",
+          "body": "Étendre l’acquisition d’ambassadeurs, les opérations de campagne, la distribution régionale et la machine de contenu public qui transforme le protocole en une histoire que les utilisateurs peuvent réellement suivre."
+        },
+        {
+          "eyebrow": "Utilisation du capital",
+          "title": "Finition produit et rétention",
+          "body": "Renforcer l’UX du wallet, les surfaces de conversion, la localisation, l’instrumentation et la qualité d’onboarding afin que le produit puisse absorber des flux plus importants sans paraître inachevé."
+        },
+        {
+          "eyebrow": "Utilisation du capital",
+          "title": "Confiance dans la liquidité",
+          "body": "Améliorer la confiance du marché autour du récit d’achat direct, de la visibilité de la liquidité côté controller et de la fiabilité d’exécution afin que le système soit perçu comme durable plutôt qu’expérimental."
+        },
+        {
+          "eyebrow": "Utilisation du capital",
+          "title": "Couche de crédibilité",
+          "body": "Affiner la documentation, les supports investisseurs, les explications institutionnelles et les surfaces de vérification afin que les contreparties sérieuses puissent comprendre le projet sans avoir besoin d’une présentation privée préalable."
+        }
+      ],
+      "links": [
+        {
+          "label": "Télécharger le PDF du deck investisseur",
+          "href": "/docs/4teen-investor-deck.pdf",
+          "download": "4teen-investor-deck.pdf"
+        },
+        {
+          "label": "Ouvrir la route d’achat direct",
+          "href": "/buy"
+        },
+        {
+          "label": "Ouvrir la chronologie de déverrouillage",
+          "href": "/unlock"
+        },
+        {
+          "label": "Ouvrir la route de liquidité",
+          "href": "/liquidity"
+        },
+        {
+          "label": "Consulter le whitepaper actuel",
+          "href": "/whitepaper"
+        },
+        {
+          "label": "Dépôt de l’application wallet",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Dépôt des smart contracts",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "La diligence investisseur commence ici",
+      "footerNote": "Cette page vise à lancer des conversations investisseur autour d’un système live, et non à promettre des rendements ou à masquer la réalité du produit derrière un langage de token vague.",
+      "contact": {
+        "eyebrow": "Contacter Genesis",
+        "title": "Si cela ressemble à quelque chose qui mérite d’être financé, la prochaine étape devrait être un contact direct.",
+        "body": "Écrivez en indiquant le montant d’allocation, la valeur stratégique, le calendrier et l’endroit où vous pensez pouvoir accélérer le système le plus rapidement. Le bon investisseur ici n’est pas un capital passif. C’est du capital associé à de la distribution, de l’intelligence de marché, de la crédibilité en liquidité ou une portée écosystémique.",
+        "emailLabel": "Contact investisseur",
+        "email": "genesis@4teen.me",
+        "bullets": [
+          "Les discussions de capital seed, stratégique ou à l’échelle de l’écosystème sont les bienvenues.",
+          "Les introductions de passerelles, les relations de market-making, les voies d’accès aux exchanges et la distribution de croissance sont aussi pertinentes que le chèque lui-même.",
+          "La meilleure conversation commence par ce que vous pouvez accélérer, pas seulement par ce que vous pouvez virer."
+        ]
+      }
     }
   }
 }
