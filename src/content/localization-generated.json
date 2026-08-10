@@ -22936,6 +22936,148 @@
       ],
       "linksEyebrow": "Uscite pubbliche",
       "footerNote": "Leggi questi termini insieme agli indirizzi dei contratti, allo stato dell'explorer e alla schermata di conferma del wallet. Identità dell'organizzazione: \"AG PLUS\" LLC, D-U-N-S 933906683."
+    },
+    "support": {
+      "metadata": {
+        "title": "Supporto",
+        "description": "Ambito del supporto ufficiale 4TEEN, canali di contatto, aspettative sui tempi di risposta e ciò su cui il team può e non può aiutare."
+      },
+      "hero": {
+        "eyebrow": "Supporto",
+        "status": "Canali ufficiali",
+        "title": "Il supporto deve aiutarti a raggiungere il canale giusto, comprendere il sistema pubblico e verificare cosa è successo, senza fingere che qualcuno possa invertire la realtà della blockchain per te.",
+        "lead": "Usa i canali ufficiali 4TEEN per domande sul sito web, sul wallet, sulle release o sul protocollo pubblico. Per qualsiasi questione relativa a una transazione, porta dati specifici come indirizzo wallet, hash della transazione, screenshot, nome del percorso, tipo di dispositivo e build dell’app, se pertinenti."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Ideale per",
+          "title": "Aiuto su instradamento e verifica",
+          "body": "Il supporto può aiutarti a trovare la pagina ufficiale corretta, la superficie del wallet, il link del contratto o il percorso di stato pubblico, e a capire cosa mostrano tali superfici."
+        },
+        {
+          "eyebrow": "Porta",
+          "title": "Prove utili",
+          "body": "Il percorso più rapido è fattuale: indirizzo wallet, tx hash, URL della pagina, screenshot, timestamp e una breve descrizione di ciò che ti aspettavi rispetto a ciò che è accaduto."
+        },
+        {
+          "eyebrow": "Non inviare mai",
+          "title": "Nessun segreto di recupero",
+          "body": "Non inviare frasi seed, chiavi private grezze o codici di accesso del dispositivo a nessun canale di supporto. Il supporto ufficiale non dovrebbe mai averne bisogno."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Operatore ufficiale",
+          "title": "Il supporto è pubblicato dall’operatore legale di 4TEEN",
+          "body": "La società a responsabilità limitata \"AG PLUS\" gestisce il sito web ufficiale 4TEEN e i canali di supporto. Usa support@4teen.me o +998 95 792 02 87 per il supporto diretto e verifica i link di supporto da https://4teen.me.",
+          "bullets": [
+            "D-U-N-S Number: 933906683",
+            "Numero di registrazione: 3080788",
+            "Indirizzo legale: Repubblica dell’Uzbekistan, città di Tashkent, distretto di Yunusabad, Katta Xasanboy MFY, via Xasanboy, 8° vicolo, casa 3-B"
+          ]
+        },
+        {
+          "eyebrow": "2. Ambito del supporto",
+          "title": "Cosa deve coprire il supporto",
+          "body": "Il supporto serve per l’orientamento sui percorsi, la risoluzione fattuale dei problemi, la verifica dei link ufficiali, le informazioni sul protocollo pubblico, il chiarimento delle superfici del wallet, l’assistenza sulle pagine di release e l’identificazione del livello di contratto o prodotto pertinente al tuo problema."
+        },
+        {
+          "eyebrow": "3. Limiti del supporto",
+          "title": "Cosa il supporto non può promettere",
+          "body": "Il supporto non può annullare transazioni blockchain confermate, recuperare una frase seed persa, garantire un esito di prezzo del token, garantire ricompense future o sovrascrivere manualmente le regole dei contratti pubblici solo perché un risultato non era quello che volevi."
+        },
+        {
+          "eyebrow": "4. Qualità della risposta",
+          "title": "Come ottenere una risposta più rapida",
+          "bullets": [
+            "Includi il percorso o la pagina esatta in cui è apparso il problema",
+            "Se è on-chain, includi l’indirizzo wallet e il tx hash",
+            "Se riguarda l’app, includi dispositivo, OS e dettagli della build dell’app",
+            "Se è visivo, includi uno screenshot o una breve registrazione dello schermo"
+          ],
+          "note": "La qualità del supporto migliora quando la segnalazione è fattuale e riproducibile, non solo emotiva. Questo aiuta il team a verificare cosa è realmente accaduto."
+        }
+      ],
+      "channels": [
+        {
+          "label": "Telegram",
+          "href": "https://t.me/fourteentoken",
+          "note": "Il canale pubblico della community più rapido per annunci e orientamento di base."
+        },
+        {
+          "label": "Discord",
+          "href": "https://discord.gg/jWZF6KzPCB",
+          "note": "Utile per discussioni strutturate, contesto di troubleshooting e messaggi di follow-up."
+        },
+        {
+          "label": "X",
+          "href": "https://x.com/4teen_me",
+          "note": "Ideale per la visibilità pubblica delle release, ma non adatto ai dettagli sensibili dei problemi."
+        },
+        {
+          "label": "WhatsApp",
+          "href": "https://wa.me/998957920287",
+          "note": "Utile se è necessario un passaggio diretto al supporto e il numero ufficiale è appropriato per la tua regione."
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+          "note": "Utile per problemi di codice, release e repository quando il problema è chiaramente tecnico."
+        }
+      ],
+      "channelPanel": {
+        "eyebrow": "Canali ufficiali",
+        "title": "Usa le uscite ufficiali prima di fidarti del supporto.",
+        "routeLabel": "Percorso ufficiale"
+      },
+      "scopePanel": {
+        "eyebrow": "Ambito del supporto",
+        "title": "Il supporto deve chiarire, verificare e indirizzare. Non deve inventare poteri che non possiede.",
+        "canHelp": "Può aiutare",
+        "cannotHelp": "Non può aiutare"
+      },
+      "supportScope": {
+        "canHelp": [
+          "Verifica dei percorsi ufficiali e orientamento sulle pagine pubbliche",
+          "Download dell’app, pagine di release e troubleshooting del sito web",
+          "Orientamento su contratti, explorer o pagine di stato pubbliche",
+          "Triage fattuale di base per problemi relativi ad airdrop, ambassador o percorsi wallet"
+        ],
+        "cannotHelp": [
+          "Recuperare frasi seed, chiavi private o codici di accesso del dispositivo persi",
+          "Annullare transazioni on-chain confermate",
+          "Garantire esiti di prezzo, performance del token o idoneità alle ricompense",
+          "Agire come custode o prendere il controllo dei fondi degli utenti"
+        ]
+      },
+      "contactPanel": {
+        "eyebrow": "Contatto",
+        "title": "Usa solo le uscite ufficiali 4TEEN",
+        "body": "Se un canale di supporto non è collegato dal sito ufficiale, dal wallet o dall’elenco social ufficiale, verificalo prima di fidarti. L’operatore legale ufficiale è \"AG PLUS\" LLC e il D-U-N-S Number pubblicato è 933906683.",
+        "emailTitle": "Email di supporto",
+        "emailMissing": "Una casella di supporto pubblica dedicata non è pubblicata nei repository attuali. Finché non ne sarà pubblicata una, usa i canali ufficiali qui sotto e non condividere mai materiale segreto di recupero lì.",
+        "phoneTitle": "Telefono e WhatsApp",
+        "legalTitle": "Operatore legale",
+        "legalBody": "Società a responsabilità limitata \"AG PLUS\" · D-U-N-S® 933906683",
+        "securityTitle": "Promemoria di sicurezza",
+        "securityBody": "Nessun canale di supporto dovrebbe chiederti la tua frase seed, la chiave privata grezza o i segreti completi di sblocco del dispositivo. Se succede, consideralo non sicuro."
+      },
+      "links": [
+        {
+          "label": "Apri la pagina dell’app mobile",
+          "href": "/app"
+        },
+        {
+          "label": "Apri privacy",
+          "href": "/privacy"
+        },
+        {
+          "label": "Apri termini",
+          "href": "/terms"
+        }
+      ],
+      "linksEyebrow": "Uscite pubbliche",
+      "footerNote": "Per link di release, riferimenti ai contratti o pagine di stato pubbliche, parti da https://4teen.me. Supporto ufficiale via telefono e WhatsApp: +998 95 792 02 87."
     }
   }
 }
