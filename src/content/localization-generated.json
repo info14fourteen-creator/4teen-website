@@ -24413,6 +24413,154 @@
           "openUnlock": "Abrir Linha do Tempo de Desbloqueio"
         }
       }
+    },
+    "unlock": {
+      "metadata": {
+        "title": "Desbloqueio 4TEEN | Mapa de bloqueio e momento de liberação",
+        "description": "Mapa público de desbloqueio da 4TEEN com oferta atualmente bloqueada, custódia em vaults, estimativa de circulação livre, próximos lotes de desbloqueio e contexto da linha do tempo de desbloqueio no lado da carteira.",
+        "openGraphTitle": "Desbloqueio 4TEEN",
+        "openGraphDescription": "Leia o mapa público de bloqueio da 4TEEN: oferta atualmente bloqueada, estimativa de circulação livre, próximos lotes de desbloqueio e a rota da carteira para acompanhamento de liberações pessoais."
+      },
+      "hero": {
+        "eyebrow": "Linha do tempo de desbloqueio",
+        "badge": "Topologia pública de bloqueio",
+        "title": "Acompanhe os desbloqueios da 4TEEN antes que um lote bloqueado se torne líquido",
+        "subtitle": "Toda compra direta faz mint imediatamente, bloqueia imediatamente e só se torna transferível depois que seu próprio temporizador de 14 dias expira.",
+        "body": [
+          "A carteira mobile mostra a linha do tempo de desbloqueio pessoal para a carteira de assinatura selecionada. O site público deve mostrar o mapa do sistema: o que ainda está bloqueado, o que já está líquido e quais lotes de compra direta serão desbloqueados em seguida.",
+          "Isso significa que não há um portfólio pessoal falso no site. Apenas a topologia pública do momento de liberação, da custódia de reservas e do caminho lote a lote desde o mint bloqueado até o saldo movimentável."
+        ],
+        "primaryCta": "Abrir Desbloqueio no app",
+        "secondaryCta": "Abrir rota de compra",
+        "ctaNote": "Linhas de desbloqueio pessoais, contagens regressivas e disponibilidade específica por endereço continuam na carteira mobile. O site explica a mecânica de liberação e o mapa público de bloqueio.",
+        "rotatingLines": [
+          "Cada compra tem seu próprio temporizador.",
+          "Bloqueado primeiro. Líquido depois.",
+          "Mapa público. Linha do tempo na carteira.",
+          "A liberação depende do lote.",
+          "A transferibilidade começa após o desbloqueio."
+        ],
+        "stats": {
+          "directPrice": "Preço da compra direta",
+          "directPriceMeta": "Preço de entrada atual no lado do contrato por 4TEEN antes de o lote entrar em sua própria janela de bloqueio de 14 dias.",
+          "lockWindow": "Janela de bloqueio",
+          "lockWindowMeta": "Cada lote de compra direta permanece congelado até que seu próprio timestamp de liberação chegue.",
+          "lockedNow": "Bloqueado agora",
+          "lockedNowMeta": "Lotes de compra direta de todo o sistema ainda dentro da janela de bloqueio de 14 dias.",
+          "circulatingNow": "Em livre circulação",
+          "circulatingNowMeta": "Estimativa pública após remover os bloqueios ativos e a custódia em vaults da oferta total.",
+          "priceFallback": "1.147500",
+          "priceUnavailable": "O preço ao vivo está indisponível no momento. O fallback reflete a rota direta conhecida mais recente.",
+          "readFailed": "Falha na leitura ao vivo de desbloqueio.",
+          "readRetry": "Tente atualizar em alguns instantes."
+        }
+      },
+      "sections": {
+        "unlockContext": {
+          "eyebrow": "Contexto da carteira",
+          "title": "A linha do tempo de desbloqueio pessoal fica dentro da carteira mobile",
+          "body": "O site pode explicar o modelo de bloqueio e mostrar a topologia pública de liberação, mas a linha do tempo de desbloqueio pessoal pertence ao app porque depende do endereço da carteira selecionada, do histórico de compras diretas dessa carteira e de leituras on-chain ao vivo para lockedBalanceOf(account).",
+          "bullets": [
+            "Toda compra direta cria seu próprio lote bloqueado com seu próprio timestamp de liberação.",
+            "A linha do tempo de desbloqueio da carteira acompanha apenas o histórico de compras diretas vinculado à carteira selecionada, não um histórico genérico de swap.",
+            "Quando um lote é desbloqueado, os tokens se tornam transferíveis e rotas de mercado como swap passam a ser relevantes."
+          ],
+          "openApp": "Abrir rota do app mobile",
+          "openBuy": "Abrir rota de compra"
+        },
+        "liveLockMap": {
+          "eyebrow": "Mapa de bloqueio ao vivo",
+          "title": "Quanto de 4TEEN está bloqueado e quanto está realmente líquido",
+          "rows": {
+            "totalSupply": "Oferta total",
+            "activeLockBatches": "Lotes bloqueados ativos",
+            "currentlyLocked": "Atualmente bloqueado",
+            "vaultCustody": "Custódia em vaults",
+            "freelyCirculating": "Em livre circulação",
+            "nextUnlock": "Próximo desbloqueio",
+            "snapshotUpdated": "Snapshot atualizado"
+          },
+          "note": "A livre circulação aqui é uma estimativa pública dos sistemas: oferta total menos bloqueios ativos de compras diretas menos tokens mantidos em contratos de vault de reserva. Ela é intencionalmente mais rigorosa do que uma visão ingênua de totalSupply."
+        },
+        "upcomingUnlocks": {
+          "eyebrow": "Próximos desbloqueios",
+          "title": "Lotes recentes de compras diretas que ainda têm tempo restante em seu bloqueio",
+          "headers": {
+            "buyer": "Comprador",
+            "amount": "Lote bloqueado",
+            "unlockAt": "Desbloqueia em",
+            "source": "Origem"
+          },
+          "openTx": "Abrir tx",
+          "empty": "Nenhum lote ativo bloqueado de compra direta está visível no momento.",
+          "note": "Este mapa de liberação é construído a partir de eventos BuyTokens confirmados que ainda estão dentro da janela de bloqueio de 14 dias. Ele mostra o momento público dos lotes, não um portfólio privado de carteira."
+        },
+        "vaultLayer": {
+          "eyebrow": "Camada de vaults",
+          "title": "Custódia de reservas não é o mesmo que livre circulação",
+          "body": "A arquitetura da 4TEEN mantém alocações de reserva em contratos dedicados. FourteenVault mantém tokens de reserva de liquidez, AirdropVault mantém reservas de distribuição comunitária em etapas, e TeamLockVault isola a alocação da equipe. Esses saldos existem on-chain, mas não devem ser apresentados como oferta em livre circulação.",
+          "note": "AirdropVault também recebe TRX roteado em compras diretas, mas o saldo de tokens mostrado aqui é apenas a reserva em 4TEEN realmente estacionada na custódia dos vaults."
+        },
+        "lockMechanics": {
+          "eyebrow": "Mecânica de bloqueio",
+          "title": "O que o contrato principal do token realmente aplica",
+          "cards": [
+            {
+              "eyebrow": "Mint",
+              "title": "A compra direta faz mint primeiro",
+              "text": "buyTokens() faz mint de 4TEEN na mesma transação que recebe TRX. Não há fila de fulfillment off-chain para o valor comprado."
+            },
+            {
+              "eyebrow": "Lote",
+              "title": "Cada compra cria uma entrada de bloqueio separada",
+              "text": "O contrato do token adiciona um novo registro LockInfo por compra direta. Os bloqueios não são mesclados em um único temporizador genérico."
+            },
+            {
+              "eyebrow": "Regra",
+              "title": "Transferências são bloqueadas por lockedBalanceOf()",
+              "text": "transfer() e transferFrom() exigem saldo disponível após subtrair lockedBalanceOf(account). Tokens bloqueados não podem ser movimentados antecipadamente."
+            }
+          ]
+        },
+        "walletRoute": {
+          "eyebrow": "Rota da carteira",
+          "title": "Como o app transforma este estado do contrato em uma linha do tempo utilizável",
+          "cards": [
+            {
+              "eyebrow": "Saldo",
+              "title": "Lê saldo total, bloqueado e disponível",
+              "text": "A carteira combina balanceOf(account) com lockedBalanceOf(account) para mostrar o que ainda está congelado e o que já está movimentável."
+            },
+            {
+              "eyebrow": "Histórico",
+              "title": "Cria linhas a partir de eventos BuyTokens confirmados",
+              "text": "Cada evento de compra direta se torna uma linha de desbloqueio visível com valor exato, horário de desbloqueio, contagem regressiva e caminho da transação no Tronscan."
+            },
+            {
+              "eyebrow": "Ação",
+              "title": "Direciona o usuário para a próxima rota válida",
+              "text": "A linha do tempo de desbloqueio é a rota correta após a compra. O swap só se torna relevante depois que o lote bloqueado é liberado e realmente transferível."
+            }
+          ],
+          "note": "É por isso que o site público deve explicar o desbloqueio com clareza e então enviar o usuário para a carteira para o histórico pessoal, em vez de fingir ser a superfície de execução."
+        },
+        "verification": {
+          "eyebrow": "Verificação",
+          "title": "De onde vêm os números e a lógica de bloqueio",
+          "body": "Esta página usa o contrato FourteenToken implantado, a implementação da linha do tempo de desbloqueio da carteira e os endereços conhecidos dos vaults de reserva. Ela explica a mecânica ao vivo e a estrutura de custódia em vez de achatar tudo em um gráfico genérico de oferta do token.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Repositório de contratos",
+          "walletRepoLabel": "Repositório da carteira"
+        },
+        "cta": {
+          "eyebrow": "Próximo passo",
+          "title": "Use o app quando precisar da sua linha do tempo de desbloqueio pessoal",
+          "body": "O site público pode mostrar o mapa de bloqueio de todo o protocolo. A carteira continua sendo a superfície certa para linhas de desbloqueio específicas por endereço, contagens regressivas e acompanhamento pós-compra.",
+          "openApp": "Abrir Desbloqueio no app",
+          "openBuy": "Abrir rota de compra"
+        }
+      }
     }
   }
 }
