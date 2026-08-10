@@ -26454,5 +26454,161 @@
       "linksEyebrow": "Próximas rotas",
       "footerNote": "A rota atual é uma estrutura limpa para publicações futuras, não um feed falso. Quando os artigos entrarem, eles devem permanecer alinhados às camadas de prova e produto."
     }
+  },
+  "nl": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "Kopiëren",
+          "copied": "Gekopieerd",
+          "failed": "Mislukt",
+          "close": "Sluiten",
+          "qrCode": "QR-code"
+        },
+        "taglines": [
+          "Vroeg instappen. Hoger uitstappen.",
+          "Winnaars wachten niet.",
+          "Maak van 14 dagen winst.",
+          "Beweeg vroeg. Win vroeg."
+        ],
+        "header": {
+          "home": "Home",
+          "getApp": "Download app",
+          "primaryNavAria": "Primaire sitenavigatie"
+        },
+        "market": {
+          "loading": "Prijs laden",
+          "unavailable": "Prijs niet beschikbaar",
+          "liveAria": "Live marktprijs"
+        },
+        "refresh": {
+          "idle": "Gegevens vernieuwen",
+          "busy": "Bezig met vernieuwen",
+          "aria": "Live gegevenssnapshot vernieuwen"
+        },
+        "mobileSearch": {
+          "ariaLabel": "Zoek routes, contracten en docs",
+          "placeholder": "Zoek routes, contracten, docs...",
+          "eyebrow": "Snel zoeken",
+          "title": "Pagina’s, contracten en bewijsoppervlakken",
+          "dialogAria": "Zoekresultaten",
+          "route": "Route",
+          "external": "Extern",
+          "empty": "Nog geen snelle matches. Probeer woorden voor route, contract of bewijs."
+        },
+        "desktopSearch": {
+          "prompts": [
+            "Zoek contracten, routes, docs...",
+            "FourteenToken",
+            "Ontgrendelingstijdlijn",
+            "Liquiditeitscontroller",
+            "Ambassador-beloningen",
+            "Whitepaper"
+          ],
+          "ariaLabel": "Zoek 4TEEN-routes en contracten",
+          "actionAria": "Zoekresultaten openen",
+          "eyebrow": "Snelle zoekresultaten",
+          "title": "Snelle pagina’s, contracten en bewijsoppervlakken.",
+          "dialogAria": "Zoekresultaten",
+          "closeAria": "Zoeken sluiten",
+          "resultsSuffix": "resultaten",
+          "noResultsYet": "Nog geen resultaten",
+          "pressEnter": "Druk op Enter om de beste match te openen.",
+          "topMatch": "Beste match",
+          "route": "Route",
+          "external": "Extern",
+          "empty": "Geen resultaten. Probeer `buy`, `unlock`, `airdrop`, `controller` of `whitepaper`."
+        },
+        "locale": {
+          "eyebrow": "Taal",
+          "title": "Kies interfacetaal",
+          "active": "Actief",
+          "soon": "Binnenkort"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "Kernoppervlakken",
+          "docsAndRoutes": "Docs en routes",
+          "closeOpenPanelAria": "Open paneel sluiten"
+        },
+        "mobileDock": {
+          "menu": "Menu",
+          "close": "Sluiten",
+          "openMenuAria": "Mobiel menu openen",
+          "closeMenuAria": "Mobiel menu sluiten",
+          "openHomeAria": "Home openen",
+          "openSearchAria": "Mobiel zoeken openen",
+          "openLanguageAria": "Taalpaneel openen"
+        },
+        "footer": {
+          "protocol": "Protocol",
+          "ecosystem": "Ecosysteem",
+          "legal": "Juridisch",
+          "privacy": "Privacy",
+          "terms": "Voorwaarden",
+          "support": "Support",
+          "investorDeck": "Investeerdersdeck",
+          "onePager": "One-pager",
+          "officialChannels": "Officiële kanalen",
+          "brandText": "De wallet-app bevat nu het live systeemoppervlak: direct kopen, ontgrendelingsstatus, controller-waarheid, ambassador-kabinet en Telegram-first groeiflow.",
+          "getApp": "Download de app",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. Gestructureerde on-chain instap op TRON.",
+          "officialWebsite": "Officiële website: 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "Protocol",
+          "growth": "Groei",
+          "proof": "Bewijs",
+          "ecosystem": "Ecosysteem"
+        },
+        "links": {
+          "home": "Home",
+          "buy": "Kopen",
+          "unlock": "Ontgrendelen",
+          "liquidity": "Liquiditeit",
+          "airdrop": "Airdrop",
+          "ambassadors": "Ambassadors",
+          "whitepaper": "Whitepaper",
+          "verification": "Verificatie",
+          "blog": "Blog",
+          "swap": "Swap",
+          "mobileApp": "Mobiele app"
+        },
+        "shortLinks": {
+          "buy": "Kopen",
+          "unlock": "Ontgrendelen",
+          "liquidity": "Liquiditeit",
+          "airdrop": "Airdrop",
+          "earn": "Verdienen",
+          "swap": "Swap",
+          "app": "App",
+          "home": "Home"
+        },
+        "menuLinks": {
+          "buy": "Direct kopen",
+          "unlock": "Ontgrendelingstijdlijn",
+          "liquidity": "Liquiditeitscontroller",
+          "swap": "Token swappen",
+          "privacy": "Privacybeleid",
+          "terms": "Gebruiksvoorwaarden"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "Hoofdroute",
+          "protocolSurface": "Protocoloppervlak",
+          "growthSurface": "Groeioppervlak",
+          "proofSurface": "Bewijsoppervlak",
+          "downloadRoute": "Downloadroute",
+          "publicPolicy": "Openbaar beleid",
+          "supportRoute": "Supportroute",
+          "coreContract": "Kerncontract",
+          "liquidityContract": "Liquiditeitscontract",
+          "growthContract": "Groeicontract",
+          "githubSource": "GitHub-bron"
+        }
+      }
+    }
   }
 }
