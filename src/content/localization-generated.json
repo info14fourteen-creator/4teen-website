@@ -21254,6 +21254,197 @@
           "openBuy": "Apri il percorso di acquisto"
         }
       }
+    },
+    "liquidity": {
+      "metadata": {
+        "title": "Controller di liquidità pubblico",
+        "description": "Controller di liquidità pubblico di 4TEEN con saldo del controller in tempo reale, percorso di attivazione pubblica del bootstrapper, visibilità delle riserve e feed delle esecuzioni confermate."
+      },
+      "hero": {
+        "eyebrow": "Controller di liquidità",
+        "badge": "Controller di liquidità pubblico",
+        "title": "Controller di liquidità pubblico 4TEEN",
+        "subtitle": "L’automazione può risvegliare il percorso, ma qualsiasi wallet può comunque avviare il bootstrapper quando il gate del contratto è aperto.",
+        "body": [
+          "Questa pagina non dovrebbe sembrare un pannello operativo chiuso. Dovrebbe rendere evidente una cosa: il TRX lato controller è visibile, l’inventario lato riserve è visibile e le regole di rilascio restano comunque on-chain.",
+          "Se la finestra UTC è aperta, il controller è sopra la soglia e il wallet firmatario ha risorse di rete sufficienti, la liquidità può comunque essere eseguita dal wallet anche se il livello di automazione salta un giorno."
+        ],
+        "rotatingLines": [
+          "TRIGGER PUBBLICO. GATE DEL CONTRATTO.",
+          "L’AUTOMAZIONE AIUTA. I CONTRATTI DECIDONO.",
+          "PRIMA IL BOOTSTRAP. ESECUZIONE ON-CHAIN."
+        ],
+        "primaryCta": "Apri il percorso nel wallet",
+        "secondaryCta": "Vai alle esecuzioni live",
+        "ctaNote": "Il sito web è il livello di prova. Il wallet è la superficie di esecuzione per trigger manuale, controlli delle risorse e firma finale.",
+        "stats": {
+          "controllerBalance": {
+            "label": "Saldo del controller",
+            "meta": "TRX attualmente in attesa dentro FourteenLiquidityController."
+          },
+          "nextRelease": {
+            "label": "Prossimo rilascio",
+            "meta": "Rilascio TRX previsto quando la finestra del contratto è valida."
+          },
+          "triggerFloor": {
+            "label": "Soglia minima del trigger",
+            "meta": "Saldo minimo del controller richiesto prima che l’esecuzione sia valida."
+          },
+          "cadence": {
+            "label": "Cadenza",
+            "meta": "Una volta al giorno UTC. Il gate è applicato dal contratto, non dall’automazione."
+          },
+          "readFailed": "Lettura live della liquidità non riuscita.",
+          "readRetry": "Prova ad aggiornare tra un momento."
+        }
+      },
+      "sections": {
+        "publicRoute": {
+          "eyebrow": "Percorso pubblico",
+          "title": "L’automazione è configurata. L’esecuzione pubblica appartiene ancora al wallet.",
+          "intro": "L’app wallet integra già il percorso di automazione, ma il messaggio più importante è più ampio: questo percorso è ancora pubblico. Un wallet firmatario può risvegliare il bootstrapper quando le condizioni del contratto sono già soddisfatte.",
+          "mainCard": {
+            "eyebrow": "Controller di liquidità pubblico",
+            "title": "Qualsiasi wallet può risvegliare il percorso. Il controller decide comunque se la liquidità si muove davvero.",
+            "text": "Questa è la giusta separazione dei poteri. L’automazione può aiutare con il timing, ma il controller e il bootstrapper restano il livello di autorità. Il percorso di esecuzione non scompare se un bot si ferma.",
+            "bullets": [
+              "Gli acquisti diretti di 4TEEN inviano il 90% del TRX di acquisto nel saldo del controller.",
+              "LiquidityBootstrapper prepara il lato token da FourteenVault prima che il controller esegua.",
+              "La regola di una volta al giorno UTC, il saldo minimo, la percentuale di rilascio e la suddivisione restano on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Automazione",
+              "title": "Il repo del wallet collega già il percorso di risveglio",
+              "text": "Il flusso mobile espone insieme il trigger di liquidità e l’helper di automazione. Questo rende visibile lo scheduler, ma non trasforma lo scheduler in un operatore nascosto."
+            },
+            {
+              "eyebrow": "Trigger manuale",
+              "title": "Se l’automazione manca l’esecuzione, un utente può comunque firmare manualmente il percorso",
+              "text": "Il wallet può chiamare bootstrapAndExecute() da una normale sessione utente. Se il gate è aperto e le risorse sono disponibili, la liquidità viene comunque eseguita."
+            }
+          ],
+          "note": "Per questo la pagina dovrebbe parlare di un controller pubblico, non di un back office privato. Il percorso sopravvive oltre il livello di automazione."
+        },
+        "liveState": {
+          "eyebrow": "Stato live del controller",
+          "title": "Cosa indica il controller in questo momento",
+          "rows": {
+            "controllerBalance": "Saldo del controller",
+            "latestFunding": "Ultimo finanziamento",
+            "latestFundingAt": "Ultimo finanziamento alle",
+            "lastExecute": "Ultima esecuzione",
+            "minBalance": "Saldo minimo",
+            "dailyRelease": "Rilascio giornaliero",
+            "split": "Suddivisione target",
+            "windowState": "Stato della finestra",
+            "nextWindow": "Prossima finestra",
+            "snapshotUpdated": "Snapshot aggiornato"
+          },
+          "valueLabels": {
+            "openNow": "Aperta ora",
+            "waitForThreshold": "In attesa di finanziamento"
+          },
+          "stateLabels": {
+            "ready": "Pronto ora",
+            "waiting": "Già eseguito oggi",
+            "threshold": "Sotto soglia"
+          },
+          "note": "Lo snapshot è utile perché separa chiaramente le parti in movimento: TRX del controller, cadenza di finanziamento, dimensione del rilascio, soglia e gate temporale restano tutti visibili insieme."
+        },
+        "triggerModel": {
+          "eyebrow": "Modello di trigger",
+          "title": "Cosa succede davvero quando qualcuno tocca Trigger Liquidity",
+          "intro": "Il percorso è semplice se dichiarato con trasparenza: prima il bootstrapper controlla il gate giornaliero e rifornisce l’inventario dell’executor, poi il controller rilascia TRX, quindi i due percorsi di mercato ricevono la loro suddivisione.",
+          "mainCard": {
+            "eyebrow": "bootstrapAndExecute()",
+            "title": "Il percorso di trigger è pubblico, attento alle risorse e ancora governato dai contratti.",
+            "text": "Questo non è un falso pulsante admin. Il wallet deve soddisfare le normali condizioni di rete e il percorso continua solo se le stesse regole del controller passano ancora al momento dell’esecuzione.",
+            "bullets": [
+              "Passaggio 1: il bootstrapper controlla la finestra del controller e calcola la dimensione di rilascio consentita.",
+              "Passaggio 2: il bootstrapper rifornisce 4TEEN lato executor da FourteenVault prima che venga eseguita la gamba lato mercato.",
+              "Passaggio 3: il controller esegue il rilascio e suddivide il flusso 50 / 50 tra JustMoney e Sun.io V3."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Risorse",
+              "title": "Un wallet normale può coprire il percorso con noleggio o energia precaricata",
+              "text": "L’app inquadra già questa azione come attenta alle risorse. Il punto non è una chiave server nascosta. Il punto è che un wallet pubblico può comunque completare il percorso in modo pulito."
+            },
+            {
+              "eyebrow": "Set di regole",
+              "title": "La comodità dello scheduler non prevale mai sul set di regole del contratto",
+              "text": "Mancare la finestra del bot non riscrive la cadenza. Premere il pulsante in anticipo non aggira il gate. I contratti continuano ad accettare o rifiutare il percorso."
+            }
+          ],
+          "note": "Questo è il giusto segnale di mercato: trigger pubblico, preparazione visibile delle riserve, regola di rilascio deterministica."
+        },
+        "latestExecutions": {
+          "eyebrow": "Ultime esecuzioni",
+          "title": "Esecuzioni di liquidità confermate dal feed live",
+          "body": "Questa lista resta volutamente essenziale. Mostra le ultime righe di esecuzione confermate così un utente può verificare che il controller sia attivo senza trasformare la pagina in un clone rumoroso di un block explorer.",
+          "headers": {
+            "total": "Totale rilasciato",
+            "split": "Suddivisione",
+            "happened": "Avvenuto",
+            "day": "Giorno UTC",
+            "source": "Fonte"
+          },
+          "empty": "Nessuna riga LiquidityExecuted confermata è ancora visibile.",
+          "openTx": "Apri tx",
+          "note": "Ogni riga proviene da eventi LiquidityExecuted(day, totalAmount, amountA, amountB) confermati."
+        },
+        "reservePath": {
+          "eyebrow": "Percorso delle riserve",
+          "title": "I token di riserva sono inventario, non circolazione libera",
+          "intro": "Il TRX lato controller è solo metà del percorso. Anche il lato token necessita di inventario isolato, ed è per questo che FourteenVault esiste prima che i due percorsi di esecuzione ricevano i loro saldi.",
+          "primaryCard": {
+            "eyebrow": "Livello delle riserve",
+            "title": "FourteenVault sostiene il percorso di liquidità pubblico prima che inizi l’esecuzione di mercato.",
+            "text": "Questi saldi 4TEEN dovrebbero essere letti come inventario operativo lato riserve. Non sono saldi wallet ordinari e non dovrebbero essere presentati come offerta liberamente circolante.",
+            "bullets": [
+              "L’inventario del vault viene immesso nel percorso del bootstrapper prima che il controller esegua.",
+              "JustMoney e Sun.io V3 ricevono saldi preparati solo quando il percorso è valido.",
+              "Custodia delle riserve, TRX del controller e destinazioni degli executor sono livelli separati dello stesso motore."
+            ]
+          },
+          "secondaryCards": [
+            {
+              "key": "justmoney",
+              "title": "Percorso JustMoney",
+              "body": "Executor A prende metà del rilascio consentito ed esegue il percorso di liquidità lato AMM dopo che il suo inventario di token è stato preparato."
+            },
+            {
+              "key": "sun",
+              "title": "Percorso Sun.io V3",
+              "body": "Executor B prende l’altra metà e la instrada attraverso il percorso di liquidità concentrata con il proprio lato token preparato."
+            }
+          ],
+          "note": "Per questo la pagina dovrebbe spiegare un percorso, non limitarsi a stampare un singolo totale di facciata. Inventario delle riserve, saldo del controller e destinazioni di esecuzione svolgono funzioni diverse."
+        },
+        "verification": {
+          "eyebrow": "Verifica",
+          "title": "Apri il livello di prova",
+          "body": "Passa direttamente dalla narrazione ai binari sottostanti: il contratto del controller, il percorso del bootstrapper, i contratti executor e l’implementazione del wallet che espone sia automazione sia trigger manuale.",
+          "labels": {
+            "controller": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "justMoney": "Executor JustMoney",
+            "sunV3": "Executor Sun.io V3",
+            "contractsRepo": "Repository dei contratti",
+            "walletRepo": "Repository del wallet"
+          }
+        },
+        "cta": {
+          "eyebrow": "Prossimo passo",
+          "title": "Apri il wallet quando vuoi risvegliare tu stesso il percorso",
+          "body": "Il sito è dove verifichi lo stato. Il wallet mobile è dove un utente reale può ispezionare le risorse, chiamare il bootstrapper e firmare il percorso se il gate del controller è già aperto.",
+          "openApp": "Apri Liquidity nell’app",
+          "openBuy": "Apri il percorso di acquisto"
+        }
+      }
     }
   }
 }
