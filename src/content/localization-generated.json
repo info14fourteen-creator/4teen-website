@@ -15356,6 +15356,224 @@
           "updatedPrefix": "Instantané mis à jour"
         }
       }
+    },
+    "app": {
+      "metadata": {
+        "title": "App 4TEEN | Wallet TRON avec la couche opérationnelle 4TEEN",
+        "description": "Ouvrez le wallet mobile 4TEEN, parcourez les routes d’achat, de déverrouillage, de liquidité, d’ambassadeurs et de preuve, puis téléchargez le produit depuis les liens des stores.",
+        "openGraphTitle": "Lancement de l’app 4TEEN",
+        "openGraphDescription": "Explorez le wallet mobile 4TEEN et les routes opérationnelles en direct déjà intégrées au produit."
+      },
+      "hero": {
+        "eyebrow": "App mobile 4TEEN",
+        "status": "App Store + Google Play",
+        "title": "Un véritable wallet TRON avec la couche opérationnelle 4TEEN déjà intégrée.",
+        "lead": "Cette page doit ressembler à une page produit, pas à une note de lancement. L’app se comporte déjà comme un wallet TRON plus large, avec wallets, actifs, transferts, parcours QR, contacts, langues, paramètres, vérifications de ressources et toute la cartographie des routes 4TEEN dans une seule surface d’exécution.",
+        "stayOnWeb": "Rester sur le Web",
+        "primaryCta": "Options de téléchargement",
+        "secondaryCta": "Voir les surfaces du protocole",
+        "ctaNote": "La partie Web explique le système. La partie mobile signe, route, vérifie les ressources et exécute le véritable flux de transaction.",
+        "rotatingLines": [
+          "App Store + Google Play. Une seule surface produit.",
+          "Wallet universel. Couche 4TEEN native.",
+          "Large surface de tokens. Pas seulement un actif.",
+          "Les ressources d’abord. La signature ensuite.",
+          "Cœur de wallet. Routes de protocole. Même produit."
+        ],
+        "stats": [
+          {
+            "label": "Cœur du wallet",
+            "value": "TRON d’abord",
+            "meta": "Wallets, envoi, gestion d’actifs, scan, contacts, paramètres."
+          },
+          {
+            "label": "Périmètre des actifs",
+            "value": "Large",
+            "meta": "TRX, 4TEEN, actifs stables et entrées de tokens personnalisés gérées par l’utilisateur."
+          },
+          {
+            "label": "Langues",
+            "value": "16",
+            "meta": "Route linguistique dédiée avec contrôle de la langue à l’échelle de l’app."
+          },
+          {
+            "label": "Couche 4TEEN",
+            "value": "7 routes",
+            "meta": "Achat, swap, déverrouillage, liquidité, airdrop, ambassadeurs et informations."
+          }
+        ]
+      },
+      "storeLinks": [
+        {
+          "href": "https://apps.apple.com/",
+          "label": "App Store",
+          "meta": "Télécharger pour iPhone et iPad"
+        },
+        {
+          "href": "https://play.google.com/store/apps",
+          "label": "Google Play",
+          "meta": "Télécharger pour Android"
+        }
+      ],
+      "entryFlow": [
+        {
+          "eyebrow": "Démarrage",
+          "title": "Routage d’entrée intelligent",
+          "body": "L’app mobile ne déverse pas chaque utilisateur sur un écran de démarrage générique unique. Elle choisit entre le premier accès, le déverrouillage du wallet et le parcours du wallet actif avant même que l’utilisateur n’atteigne la couche principale du produit."
+        },
+        {
+          "eyebrow": "Accueil",
+          "title": "Hub compact",
+          "body": "Le véritable écran d’accueil agit déjà comme un hub fonctionnel : achat direct, visibilité du déverrouillage, contrôle de la liquidité et routes d’information restent proches, sans masquer leurs écrans dédiés plus profonds."
+        },
+        {
+          "eyebrow": "Routes profondes",
+          "title": "Des écrans complets quand c’est nécessaire",
+          "body": "Chaque action sérieuse s’ouvre toujours dans sa propre surface. L’app reste compacte au niveau supérieur, mais ne réduit jamais un flux important à un simple tableau de bord superficiel."
+        }
+      ],
+      "walletFoundation": [
+        {
+          "eyebrow": "Wallets",
+          "title": "Plusieurs identités, pas une coquille fixe unique",
+          "text": "Les utilisateurs peuvent créer, importer, renommer, changer et supprimer des wallets, tandis que le produit maintient une séparation claire entre les wallets de signature et les wallets en lecture seule."
+        },
+        {
+          "eyebrow": "Envoi",
+          "title": "Préparation réelle des transferts",
+          "text": "L’envoi n’est pas une simple zone d’adresse brute. Il prend déjà en charge le scan QR, les contacts, les destinataires récents, la sélection d’actifs, les règles de solde dépensable et une étape de confirmation claire."
+        },
+        {
+          "eyebrow": "Gérer les cryptos",
+          "title": "Plus large qu’un seul actif d’écosystème",
+          "text": "Gérer les cryptos constitue une véritable couche de wallet : TRX, 4TEEN, actifs stables, entrées de tokens personnalisés, filtres, modes de tri et sélection de l’actif cible pour l’envoi et le swap coexistent dans la même surface."
+        },
+        {
+          "eyebrow": "Langue",
+          "title": "16 langues d’interface",
+          "text": "La couche linguistique est déjà intégrée au produit avec une route dédiée et un contrôle de la langue au niveau de l’app sur les principaux points d’entrée régionaux."
+        }
+      ],
+      "resourceLayer": [
+        {
+          "eyebrow": "Besoin maintenant",
+          "title": "Les ressources sont mesurées avant la signature",
+          "text": "L’achat direct, l’envoi, le swap, l’exécution de liquidité et les autres routes de contrats estiment l’Energy et la Bandwidth avant que l’app ne demande le code d’accès ou la biométrie."
+        },
+        {
+          "eyebrow": "Déficit",
+          "title": "Le burn de TRX est rendu visible au lieu d’être caché",
+          "text": "L’app compare les ressources requises aux ressources actuelles du wallet, affiche le déficit et expose le parcours de burn attendu au lieu de laisser l’utilisateur le découvrir par un échec."
+        },
+        {
+          "eyebrow": "Location",
+          "title": "La recharge de ressources est intégrée au flux",
+          "text": "Le code prend déjà en charge les états de devis de location, de paiement, d’attente et de disponibilité pour les transferts d’envoi, le swap, l’achat direct, l’exécution de liquidité, l’inscription ambassadeur et les retraits ambassadeur."
+        },
+        {
+          "eyebrow": "Rejeu",
+          "title": "Les lignes en attente restent opérationnellement honnêtes",
+          "text": "Si le côté opérateur descend sous son seuil de ressources sécurisé, les lignes en file d’attente restent visibles pendant que le backend recharge les ressources, et le cycle de rejeu vérifie à nouveau jusqu’à ce que la récompense arrive on-chain."
+        }
+      ],
+      "protocolSurfaces": [
+        {
+          "eyebrow": "Achat direct",
+          "title": "Préparer → confirmer",
+          "text": "La route d’achat prépare d’abord la transaction : devis, contexte de mint à l’achat, verrouillage de 14 jours, aperçu de la répartition en TRX, puis seulement ensuite la véritable étape de confirmation et de signature.",
+          "href": "/buy"
+        },
+        {
+          "eyebrow": "Swap de token",
+          "title": "Comparaison des routes, pas échange à l’aveugle",
+          "text": "La route de swap peut comparer les chemins, changer les actifs cibles, afficher le minimum à recevoir protégé et interrompre le flux tôt si l’autorisation ou les ressources réseau ne sont pas prêtes.",
+          "href": "/swap"
+        },
+        {
+          "eyebrow": "Calendrier de déverrouillage",
+          "title": "Visibilité du verrouillage par achat",
+          "text": "Chaque lot verrouillé est affiché par wallet, montant, heure de déverrouillage UTC, compte à rebours et transaction source. C’est une surface de verrouillage conçue pour cet usage, pas seulement un historique générique.",
+          "href": "/unlock"
+        },
+        {
+          "eyebrow": "Contrôleur de liquidité",
+          "title": "Vérité côté contrôleur",
+          "text": "La route de liquidité expose le seuil de 100 TRX, la cadence de libération quotidienne de 6.43%, la répartition de l’exécuteur et le contrôle d’exécution dans l’app elle-même.",
+          "href": "/liquidity"
+        },
+        {
+          "eyebrow": "Airdrop",
+          "title": "État en direct orienté Telegram",
+          "text": "La route d’airdrop combine l’état actuel de la session bot, l’état local du wallet et l’état de claim on-chain. Telegram est actif maintenant ; les autres réseaux sociaux sont des rails préparés, pas de faux boutons actifs.",
+          "href": "/airdrop"
+        },
+        {
+          "eyebrow": "Ambassadeur",
+          "title": "Inscription et cabinet dans une seule route",
+          "text": "La route ambassadeur commence comme une inscription puis devient le cabinet du même wallet : slug d’identité, liaison acheteur, lignes d’achat, rejeu en attente, retraits et état réclamable.",
+          "href": "/ambassadors"
+        },
+        {
+          "eyebrow": "Info",
+          "title": "Carte compacte de l’architecture et du runtime",
+          "text": "La route d’information relie contrats, coffres, exécution de liquidité, soldes des wallets d’actifs et disponibilité de l’opérateur, afin que l’architecture et l’état du runtime soient visibles dans le produit.",
+          "href": "/verification"
+        }
+      ],
+      "operatingRules": [
+        {
+          "title": "Le wallet universel d’abord",
+          "text": "La lecture la plus forte de cette app n’est pas celle d’une « coquille d’écosystème ». Elle se comporte comme un wallet TRON plus large, avec un univers de tokens plus étendu, et 4TEEN est intégré à cette base comme une couche produit en direct."
+        },
+        {
+          "title": "La lecture seule et la signature sont des états différents",
+          "text": "L’app traite l’inspection et l’action différemment. Les wallets en lecture seule peuvent lire l’état du portefeuille et du protocole, tandis que l’achat direct, l’inscription, l’exécution de liquidité et le retrait nécessitent des wallets de signature avec accès complet."
+        },
+        {
+          "title": "La disponibilité opérationnelle fait partie de l’interface",
+          "text": "Le contrôle par le contrôleur, la couverture des ressources, les lignes de récompenses en file d’attente et le statut de rejeu sont exprimés comme des états produit. L’utilisateur voit ce qui est prêt maintenant, ce qui nécessite une recharge et ce qui est en attente."
+        },
+        {
+          "title": "Le multilingue est une infrastructure produit",
+          "text": "La prise en charge des langues est déjà encodée dans l’app, et non laissée comme un souhait futur. C’est important, car le produit est destiné à fonctionner au-delà d’un seul marché et au-delà d’une seule route d’entrée communautaire."
+        }
+      ],
+      "downloadReasons": [
+        "Utilisez-le comme un wallet TRON plus large, pas seulement comme un point d’accès à 4TEEN.",
+        "Gardez le portefeuille, la gestion des tokens personnalisés, les transferts, le scan, les contacts et le contrôle de la langue dans le même produit.",
+        "Ouvrez toute la couche 4TEEN dans le wallet : achat, swap, déverrouillage, liquidité, airdrop, ambassadeurs et informations.",
+        "Voyez la charge du réseau, le déficit de ressources, la protection des routes et la disponibilité opérationnelle avant de signer ou d’attendre à l’aveugle."
+      ],
+      "sections": {
+        "entryFlow": {
+          "eyebrow": "Flux d’entrée",
+          "title": "Comment la véritable app déplace l’utilisateur"
+        },
+        "walletFoundation": {
+          "eyebrow": "Fondation du wallet",
+          "title": "Pourquoi il s’agit d’abord d’un véritable wallet"
+        },
+        "resourceLayer": {
+          "eyebrow": "Intelligence des ressources",
+          "title": "Pourquoi l’exécution est plus sûre que la signature à l’aveugle",
+          "notePrefix": "Dans l’app, les cartes de charge réseau affichent déjà",
+          "noteNeedNow": "Besoin maintenant",
+          "noteMiddle": "Disponible maintenant",
+          "noteMissing": "Manquant",
+          "noteSuffix": "et le pourcentage de couverture pour l’Energy comme pour la Bandwidth. Cela rend le modèle d’exécution plus facile à comprendre et à vérifier, car le wallet explique le coût avant que la transaction ne soit signée."
+        },
+        "protocolSurfaces": {
+          "eyebrow": "Surfaces 4TEEN",
+          "title": "Ce que la couche protocolaire fait déjà dans le wallet"
+        },
+        "operatingRuleLabel": "Règle opérationnelle",
+        "download": {
+          "eyebrow": "Route de téléchargement",
+          "title": "Installez le wallet si vous voulez le produit complet, pas seulement la carte Web.",
+          "body": "La version la plus forte du produit vit dans l’app : véritable comportement de wallet, interface multilingue, exécution consciente des ressources et couche opérationnelle 4TEEN complète au même endroit dès l’ouverture du déploiement sur les stores.",
+          "repoLabel": "Repo de l’app wallet"
+        }
+      }
     }
   }
 }
