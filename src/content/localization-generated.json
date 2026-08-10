@@ -21106,6 +21106,154 @@
           "openUnlock": "Apri la timeline di sblocco"
         }
       }
+    },
+    "unlock": {
+      "metadata": {
+        "title": "Sblocco 4TEEN | Mappa dei lock e tempistiche di rilascio",
+        "description": "Mappa pubblica degli sblocchi 4TEEN con offerta attualmente bloccata, custodia nei vault, stima della circolazione libera, prossimi lotti in sblocco e contesto della timeline di sblocco lato wallet.",
+        "openGraphTitle": "Sblocco 4TEEN",
+        "openGraphDescription": "Consulta la mappa pubblica dei lock 4TEEN: offerta attualmente bloccata, stima della circolazione libera, prossimi lotti in sblocco e percorso nel wallet per il tracciamento dei rilasci personali."
+      },
+      "hero": {
+        "eyebrow": "Timeline di sblocco",
+        "badge": "Topologia pubblica dei lock",
+        "title": "Monitora gli sblocchi 4TEEN prima che un lotto bloccato diventi liquido",
+        "subtitle": "Ogni acquisto diretto viene mintato immediatamente, bloccato immediatamente e diventa trasferibile solo dopo la scadenza del proprio timer di 14 giorni.",
+        "body": [
+          "Il wallet mobile mostra la timeline di sblocco personale per il wallet di firma selezionato. Il sito pubblico dovrebbe mostrare la mappa di sistema: ciò che è ancora bloccato, ciò che è già liquido e quali lotti di acquisto diretto si sbloccheranno prossimamente.",
+          "Questo significa niente falsi portafogli personali sul sito web. Solo la topologia pubblica delle tempistiche di rilascio, della custodia delle riserve e del percorso lotto per lotto dal mint bloccato al saldo movimentabile."
+        ],
+        "primaryCta": "Apri lo sblocco nell'app",
+        "secondaryCta": "Apri il percorso di acquisto",
+        "ctaNote": "Le righe di sblocco personali, i countdown e la disponibilità specifica per indirizzo restano nel wallet mobile. Il sito spiega le meccaniche di rilascio e la mappa pubblica dei lock.",
+        "rotatingLines": [
+          "Ogni acquisto ha il proprio timer.",
+          "Prima bloccato. Poi liquido.",
+          "Mappa pubblica. Timeline nel wallet.",
+          "Il rilascio dipende dal lotto.",
+          "La trasferibilità inizia dopo lo sblocco."
+        ],
+        "stats": {
+          "directPrice": "Prezzo di acquisto diretto",
+          "directPriceMeta": "Prezzo di ingresso attuale lato contratto per 4TEEN prima che il lotto entri nella propria finestra di lock di 14 giorni.",
+          "lockWindow": "Finestra di lock",
+          "lockWindowMeta": "Ogni lotto di acquisto diretto resta congelato finché non arriva il proprio timestamp di rilascio.",
+          "lockedNow": "Bloccati ora",
+          "lockedNowMeta": "Lotti di acquisto diretto a livello di sistema ancora dentro la finestra di lock di 14 giorni.",
+          "circulatingNow": "Liberamente in circolazione",
+          "circulatingNowMeta": "Stima pubblica dopo aver rimosso dall'offerta totale i lock attivi e la custodia nei vault.",
+          "priceFallback": "1.147500",
+          "priceUnavailable": "Il prezzo live non è disponibile in questo momento. Il fallback riflette l'ultimo percorso diretto noto.",
+          "readFailed": "Lettura live degli sblocchi non riuscita.",
+          "readRetry": "Prova ad aggiornare tra un momento."
+        }
+      },
+      "sections": {
+        "unlockContext": {
+          "eyebrow": "Contesto del wallet",
+          "title": "La timeline di sblocco personale vive dentro il wallet mobile",
+          "body": "Il sito web può spiegare il modello di lock e mostrare la topologia pubblica dei rilasci, ma la timeline di sblocco personale appartiene all'app perché dipende dall'indirizzo wallet selezionato, dalla cronologia degli acquisti diretti per quel wallet e dalle letture live on-chain di lockedBalanceOf(account).",
+          "bullets": [
+            "Ogni acquisto diretto crea il proprio lotto bloccato con il proprio timestamp di rilascio.",
+            "La timeline di sblocco del wallet traccia solo la cronologia degli acquisti diretti collegati al wallet selezionato, non la cronologia generica degli swap.",
+            "Una volta sbloccato un lotto, i token diventano trasferibili e i percorsi di mercato come lo swap diventano rilevanti."
+          ],
+          "openApp": "Apri il percorso dell'app mobile",
+          "openBuy": "Apri il percorso di acquisto"
+        },
+        "liveLockMap": {
+          "eyebrow": "Mappa live dei lock",
+          "title": "Quanti 4TEEN sono bloccati e quanti sono davvero liquidi",
+          "rows": {
+            "totalSupply": "Offerta totale",
+            "activeLockBatches": "Lotti bloccati attivi",
+            "currentlyLocked": "Attualmente bloccati",
+            "vaultCustody": "Custodia nei vault",
+            "freelyCirculating": "Liberamente in circolazione",
+            "nextUnlock": "Prossimo sblocco",
+            "snapshotUpdated": "Snapshot aggiornato"
+          },
+          "note": "La circolazione libera qui è una stima pubblica dei sistemi: offerta totale meno lock attivi da acquisti diretti meno token detenuti nei contratti vault di riserva. È volutamente più restrittiva di una vista ingenua di totalSupply."
+        },
+        "upcomingUnlocks": {
+          "eyebrow": "Prossimi sblocchi",
+          "title": "Lotti recenti di acquisto diretto che hanno ancora tempo residuo nel loro lock",
+          "headers": {
+            "buyer": "Acquirente",
+            "amount": "Lotto bloccato",
+            "unlockAt": "Sblocco il",
+            "source": "Fonte"
+          },
+          "openTx": "Apri tx",
+          "empty": "Al momento non sono visibili lotti attivi di acquisto diretto bloccati.",
+          "note": "Questa mappa dei rilasci è costruita dagli eventi BuyTokens confermati che si trovano ancora dentro la finestra di lock di 14 giorni. Mostra le tempistiche pubbliche dei lotti, non un portafoglio wallet privato."
+        },
+        "vaultLayer": {
+          "eyebrow": "Livello vault",
+          "title": "La custodia delle riserve non è la stessa cosa della libera circolazione",
+          "body": "L'architettura 4TEEN mantiene le allocazioni di riserva in contratti dedicati. FourteenVault detiene i token della riserva di liquidità, AirdropVault detiene le riserve di distribuzione community a fasi e TeamLockVault isola l'allocazione del team. Questi saldi esistono on-chain, ma non dovrebbero essere presentati come offerta liberamente in circolazione.",
+          "note": "AirdropVault riceve anche TRX instradati sugli acquisti diretti, ma il saldo token mostrato qui è solo la riserva 4TEEN effettivamente parcheggiata in custodia nei vault."
+        },
+        "lockMechanics": {
+          "eyebrow": "Meccaniche di lock",
+          "title": "Cosa applica realmente il contratto token principale",
+          "cards": [
+            {
+              "eyebrow": "Mint",
+              "title": "L'acquisto diretto esegue prima il mint",
+              "text": "buyTokens() minta 4TEEN nella stessa transazione che riceve TRX. Non esiste una coda di fulfillment off-chain per l'importo acquistato."
+            },
+            {
+              "eyebrow": "Lotto",
+              "title": "Ogni acquisto crea una voce di lock separata",
+              "text": "Il contratto token aggiunge un nuovo record LockInfo per ogni acquisto diretto. I lock non vengono fusi in un unico timer generico."
+            },
+            {
+              "eyebrow": "Regola",
+              "title": "I trasferimenti sono bloccati da lockedBalanceOf()",
+              "text": "transfer() e transferFrom() richiedono entrambi un saldo disponibile dopo aver sottratto lockedBalanceOf(account). I token bloccati non possono essere spostati in anticipo."
+            }
+          ]
+        },
+        "walletRoute": {
+          "eyebrow": "Percorso nel wallet",
+          "title": "Come l'app trasforma questo stato del contratto in una timeline utilizzabile",
+          "cards": [
+            {
+              "eyebrow": "Saldo",
+              "title": "Legge saldo totale, bloccato e disponibile",
+              "text": "Il wallet combina balanceOf(account) con lockedBalanceOf(account) per mostrare ciò che è ancora congelato e ciò che è già movimentabile."
+            },
+            {
+              "eyebrow": "Cronologia",
+              "title": "Costruisce righe dagli eventi BuyTokens confermati",
+              "text": "Ogni evento di acquisto diretto diventa una riga di sblocco visibile con importo esatto, ora di sblocco, countdown e percorso della transazione su Tronscan."
+            },
+            {
+              "eyebrow": "Azione",
+              "title": "Indirizza l'utente verso il prossimo percorso valido",
+              "text": "La timeline di sblocco è il percorso corretto dopo l'acquisto. Lo swap diventa rilevante solo dopo che il lotto bloccato viene rilasciato ed è effettivamente trasferibile."
+            }
+          ],
+          "note": "Ecco perché il sito pubblico dovrebbe spiegare chiaramente lo sblocco, poi inviare l'utente nel wallet per la cronologia personale invece di fingere di essere la superficie di esecuzione."
+        },
+        "verification": {
+          "eyebrow": "Verifica",
+          "title": "Da dove provengono i numeri e la logica di lock",
+          "body": "Questa pagina utilizza il contratto FourteenToken distribuito, l'implementazione della timeline di sblocco del wallet e gli indirizzi noti dei vault di riserva. Spiega le meccaniche live e la struttura di custodia invece di appiattire tutto in un grafico generico dell'offerta token.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Repository dei contratti",
+          "walletRepoLabel": "Repository del wallet"
+        },
+        "cta": {
+          "eyebrow": "Prossimo passo",
+          "title": "Usa l'app quando ti serve la tua timeline di sblocco personale",
+          "body": "Il sito pubblico può mostrare la mappa dei lock a livello di protocollo. Il wallet resta comunque la superficie corretta per righe di sblocco specifiche per indirizzo, countdown e follow-up post-acquisto.",
+          "openApp": "Apri lo sblocco nell'app",
+          "openBuy": "Apri il percorso di acquisto"
+        }
+      }
     }
   }
 }
