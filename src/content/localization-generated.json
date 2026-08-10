@@ -10876,6 +10876,315 @@
           }
         ]
       }
+    },
+    "buy": {
+      "metadata": {
+        "title": "4TEEN kaufen | Contract-native TRON-Einstieg",
+        "description": "Kaufe 4TEEN direkt über den Smart Contract: präge einen gesperrten Batch, verfolge bestätigte Käufe, verstehe das 90/7/3-TRX-Routing, installiere anschließend die Wallet und führe den echten Kauf-Flow aus.",
+        "openGraphTitle": "4TEEN kaufen",
+        "openGraphDescription": "Steige über die contract-native Kaufroute in 4TEEN ein. Präge einen gesperrten Batch, beobachte bestätigte BuyTokens-Events, prüfe das TRX-Routing und führe die Transaktion aus einer signierenden Wallet aus."
+      },
+      "hero": {
+        "eyebrow": "FourteenToken",
+        "badge": "Contract-native Kaufroute",
+        "title": "Kaufe 4TEEN direkt über den Contract",
+        "subtitle": "Präge einen neuen 4TEEN-Batch, sperre ihn für 14 Tage, beobachte bestätigte Käufe im Feed und entscheide dann, was du tust, wenn der Unlock-Timer endet.",
+        "body": [
+          "Das ist kein generisches Swap-Formular, das so tut, als wäre es DeFi. Das ist die protokollnative Einstiegsroute.",
+          "Du gibst TRX ein, der Contract berechnet, wie viel 4TEEN geprägt wird, die Transaktion erstellt eine separate 14-tägige Sperre für diesen Batch, und die eingehenden TRX werden nach Contract-Regel geroutet: 90% an Liquidität, 7% an den Controller und 3% an die Airdrop-Seite.",
+          "Die Website zeigt die Karte. Die Wallet führt die Transaktion aus."
+        ],
+        "primaryCta": "Wallet installieren / öffnen",
+        "secondaryCta": "Neueste Käufe ansehen",
+        "ctaNote": "Eine signierende Wallet ist erforderlich. Der Watch-only-Modus kann das System lesen, aber er kann die Kauftransaktion nicht senden. Die Menschheit hat Signaturen entdeckt, und jetzt müssen wir sie alle respektieren.",
+        "rotatingLines": [
+          "Contract-Einstieg. Echte Sperre.",
+          "Erst prägen. Später freischalten.",
+          "On-Chain kaufen. Alles verfolgen.",
+          "Dein Batch. Dein Timer.",
+          "Kein Fake-Volumen. Nur Events."
+        ],
+        "stats": {
+          "directPrice": "Direktpreis",
+          "directPriceMeta": "Aktueller contract-seitiger Einstiegspreis pro 4TEEN aus der öffentlichen Snapshot-Ebene. Die Wallet aktualisiert den Live-Wert vor der Ausführung.",
+          "lockRule": "Sperrregel",
+          "lockRuleValue": "14 Tage",
+          "lockRuleMeta": "Jeder Direktkauf erstellt seinen eigenen gesperrten Batch. Der Timer gehört zu diesem Kauf, nicht zu deiner gesamten Wallet.",
+          "trxSplit": "TRX-Routing",
+          "trxSplitValue": "90 / 7 / 3",
+          "trxSplitMeta": "Eingehende TRX werden innerhalb der Kauftransaktion geroutet: Liquiditätsseite, Controller-Seite und Airdrop-Seite.",
+          "execution": "Ausführung",
+          "executionValue": "Wallet + Ressourcen",
+          "executionMeta": "Der echte Kauf-Flow läuft über eine signierende Wallet. TRX-Guthaben, Energy, Bandwidth und Transaktionsbereitschaft werden vor der finalen Signatur geprüft.",
+          "priceFallback": "1.147500 TRX",
+          "priceUnavailable": "Live-Preis ist im Moment nicht verfügbar. Der Fallback spiegelt die zuletzt bekannte Direktroute wider."
+        }
+      },
+      "sections": {
+        "executionRoute": {
+          "eyebrow": "So funktioniert der Zyklus",
+          "title": "Die Kaufseite sollte die gesamte Route erklären",
+          "intro": "Ein Direktkauf ist nicht einfach nur „TRX senden, Token erhalten“. Das Modul führt den Nutzer durch den tatsächlichen On-Chain-Zyklus: Contract-Einstieg, Mint, Sperre, Liquiditätsrouting und den Entscheidungspunkt nach dem Unlock.",
+          "cards": [
+            {
+              "eyebrow": "Schritt 1",
+              "title": "Über den Contract einsteigen",
+              "subtitle": "Das ist die primäre Protokollroute, nicht der Sekundärmarkt.",
+              "text": "Der Direktkauf sendet den `buyTokens()`-Befehl aus einer signierenden Wallet. Der Contract empfängt TRX, berechnet die 4TEEN-Menge und startet den Mint-Flow für genau diese Transaktion.\n\nKein Pool-Jagen. Kein Routen-Roulette. Kein So-tun, als wären ein Swap und ein Mint dasselbe, denn offenbar haben Worte immer noch Bedeutung."
+            },
+            {
+              "eyebrow": "Schritt 2",
+              "title": "Einen frischen Batch prägen",
+              "subtitle": "Der Contract erstellt neue 4TEEN für den Käufer.",
+              "text": "Die 4TEEN-Menge wird während der Kauftransaktion geprägt. Dieser geprägte Batch ist an die Käufer-Wallet gebunden und tritt sofort in die Sperrlogik ein.\n\nDeshalb unterscheidet sich der Direktkauf vom Swap. Ein Swap handelt bestehende Liquidität. Ein Direktkauf erstellt über den Token-Contract einen neuen gesperrten Batch."
+            },
+            {
+              "eyebrow": "Schritt 3",
+              "title": "Für 14 Tage sperren",
+              "subtitle": "Jeder Kauf erhält seinen eigenen Unlock-Timer.",
+              "text": "Der gekaufte Batch wird für 14 Tage gesperrt. Wenn dieselbe Wallet später erneut kauft, erstellt dieser zweite Kauf einen separaten gesperrten Batch mit eigenem Timer.\n\nDie Wallet zeigt die Unlock-Zeitleiste, damit der Nutzer genau sehen kann, wann jeder Batch beweglich wird."
+            },
+            {
+              "eyebrow": "Schritt 4",
+              "title": "Die Liquiditätsseite speisen",
+              "subtitle": "Neue Käufe bringen weiterhin frische TRX ins System.",
+              "text": "Jeder Direktkauf routet 90% der eingehenden TRX an die Liquiditätsseite. Dieser Wert liegt nicht einfach nur in einem Marketing-Screenshot herum. Er tritt in den Protokoll-Liquiditätsfluss ein und wird über die tägliche Liquiditätsausführungslogik verarbeitet.\n\nDas ist der Teil, den Nutzer verstehen müssen: Spätere Käufe speisen das System weiter, während frühere Käufer ihre Sperrfrist abwarten."
+            },
+            {
+              "eyebrow": "Schritt 5",
+              "title": "Den Unlock-Punkt erreichen",
+              "subtitle": "Nach dem Unlock wählt der Nutzer die nächste Route.",
+              "text": "Wenn die Sperre abläuft, wird der Batch verfügbar. Der Halter kann die Position weiter halten oder zur Marktroute wechseln und über verfügbare Liquidität swappen.\n\nKein erzwungener Exit. Kein magischer Button. Nur ein Unlock-Punkt und eine Marktentscheidung, denn DeFi ist schon dramatisch genug, ohne noch mehr Unsinn zu erfinden."
+            }
+          ]
+        },
+        "priceLogic": {
+          "eyebrow": "Primäre Preislogik",
+          "title": "Der Direktkauf steigt jetzt zum Contract-Preis ein und trifft später auf den Marktpreis",
+          "cards": [
+            {
+              "eyebrow": "Basis",
+              "title": "1 TRX = 1 4TEEN beim Deployment",
+              "text": "Der anfängliche Direktkaufpreis ist in FourteenToken als 1.000000 TRX pro Token codiert, bevor spätere Compounding-Perioden ihn weiterbewegen."
+            },
+            {
+              "eyebrow": "Wachstum",
+              "title": "14.75% Wachstum pro Preisperiode",
+              "text": "Der Contract speichert annualGrowthRate = 1475 Basispunkte und compounded tokenPrice nach vorne, sobald genügend Zeit vergangen ist."
+            },
+            {
+              "eyebrow": "Intervall",
+              "title": "Alle 90 Tage",
+              "text": "Preisaktualisierungen sind keine willkürlichen Admin-Edits. getCurrentPrice() schreibt den gespeicherten Token-Preis anhand der seit lastPriceUpdate vergangenen 90-Tage-Perioden fort."
+            },
+            {
+              "eyebrow": "Geltungsbereich",
+              "title": "Nur für direkte Ausgabe",
+              "text": "Dieser Preis steuert die direkte Ausgabe über `buyTokens()`. Er verspricht nichts über den DEX-Preis oder spätere Exit-Bedingungen, sobald der Batch entsperrt ist und der Nutzer zur Marktroute wechselt."
+            }
+          ],
+          "note": "Die Website liest den Direktpreis als öffentliche Informationsebene. Die echte Wallet-Route bleibt dennoch entscheidend, weil sie diesen Contract-Preis mit der ausgewählten signierenden Wallet, dem tatsächlichen TRX-Guthaben und den Ressourcenprüfungen zum Bestätigungszeitpunkt kombiniert."
+        },
+        "lockLayer": {
+          "eyebrow": "14-Tage-Sperrebene",
+          "title": "Jeder Direktkauf prägt sofort und sperrt sofort",
+          "bullets": [
+            "Jeder buyTokens()-Aufruf prägt 4TEEN sofort an die Käuferadresse.",
+            "Dieselbe Transaktion hängt einen neuen Sperreintrag mit releaseTime = Block-Timestamp + 14 Tage an.",
+            "Sperren gelten pro Kauf-Batch, nicht als ein zusammengefasster Timer für die gesamte Wallet.",
+            "Transfers und transferFrom werden blockiert, wenn der angeforderte Betrag aus noch gesperrtem Guthaben ausgegeben würde.",
+            "Die Unlock-Zeitleiste in der Wallet ist die natürliche Anschlussroute nach einem Kauf."
+          ],
+          "note": "Deshalb sind Direktkauf und Swap nicht dasselbe. Der Direktkauf gibt dem Nutzer zuerst die protokollnative Ausgabe, dann eine feste Wartezeit, und erst nach dem Unlock wird die Marktroute relevant."
+        },
+        "trxRouting": {
+          "eyebrow": "Routing",
+          "title": "Wohin die TRX gehen",
+          "rows": [
+            {
+              "share": "90%",
+              "title": "An Liquidität",
+              "text": "Der größte Anteil fließt in die Liquiditätsseite des Systems. Das ist der Kernfluss, der die Marktroute unterstützt, nachdem Nutzer den Unlock erreicht haben.",
+              "linkLabel": "Liquiditätsseite öffnen",
+              "linkHref": "/liquidity"
+            },
+            {
+              "share": "7%",
+              "title": "An den Controller",
+              "text": "Ein kleinerer Anteil geht an FourteenController. Das ist die Kontroll- und Accounting-Ebene, die mit Token-Administration, Kaufverfolgung, Ambassador-Logik und Reward-Abrechnung verbunden ist.",
+              "linkLabel": "Ambassadors-Seite öffnen",
+              "linkHref": "/ambassadors"
+            },
+            {
+              "share": "3%",
+              "title": "An die Airdrop-Seite",
+              "text": "Der letzte Anteil geht an die Airdrop-Seite, sodass derselbe Direktkauf-Flow auch die öffentliche Verteilung und das Ökosystemwachstum weiter speist.",
+              "linkLabel": "Airdrop-Seite öffnen",
+              "linkHref": "/airdrop"
+            }
+          ],
+          "note": "Der Split passiert innerhalb der Kauftransaktion selbst. Er ist keine spätere Tabellenkalkulationsübung, keine „vertrau uns, Bro“-Zuweisung und kein manuelles Versprechen, das um 3 Uhr morgens in einen Telegram-Chat geschrieben wurde."
+        },
+        "walletFlow": {
+          "eyebrow": "Wallet-Flow",
+          "title": "Wie das echte Produkt von der Betragseingabe zur Signatur kommt",
+          "steps": [
+            {
+              "eyebrow": "1. Vorbereiten",
+              "title": "Wähle die Wallet, die tatsächlich kaufen wird",
+              "text": "Die App beginnt mit der ausgewählten signierenden Wallet, lädt ihr TRX-Guthaben, den Contract-Preis, das gesperrte Guthaben und die Contract-Adressen und begrenzt dann das Betragsfeld auf das, was diese Wallet tatsächlich abdecken kann."
+            },
+            {
+              "eyebrow": "2. Prüfen",
+              "title": "Sieh die geprägte Menge und den Split, bevor du dich festlegst",
+              "text": "Bevor der Nutzer irgendetwas freigibt, zeigt die Wallet die geschätzte 4TEEN-Ausgabe, den 90 / 7 / 3-Split, den nächsten Contract-Preisschritt und die zukünftige Unlock-Zeit für diesen Batch."
+            },
+            {
+              "eyebrow": "3. Bestätigen",
+              "title": "Ressourcen prüfen, bevor die Wallet um Freigabe bittet",
+              "text": "Die Bestätigungsebene misst Energy, Bandwidth und jeden Fehlbetrag, damit der Nutzer den echten Ausführungszustand vor Passcode- oder biometrischer Freigabe sieht."
+            },
+            {
+              "eyebrow": "4. Fortfahren",
+              "title": "Wenn Ressourcen fehlen, kann die Wallet die Lücke zuerst schließen",
+              "text": "Wenn der ausgewählten Wallet Ausführungsressourcen fehlen, kann die App Energy-Rental quotieren und diese Lücke schließen, bevor der Direktkauf gesendet wird, statt den Nutzer blind in eine fehlgeschlagene Transaktion laufen zu lassen."
+            },
+            {
+              "eyebrow": "5. Nach der Bestätigung",
+              "title": "Das System verfolgt sowohl Unlock als auch controller-seitige Zuordnung",
+              "text": "Sobald der Kauf bestätigt ist, kann die Wallet den Sperr-Countdown für diesen Batch anzeigen, während FourteenController den Käufer binden, einen verifizierten Kauf einmal pro purchase ID aufzeichnen und den Ambassador-Reward-Saldo finalisieren kann, wenn die Zuweisung erfolgreich ist."
+            }
+          ],
+          "note": "Die Website sollte diesen Pfad klar erklären und den Nutzer dann an die Wallet übergeben. Sie sollte nicht so tun, als wäre sie selbst die Ausführungsebene."
+        },
+        "resourceLayer": {
+          "eyebrow": "Ressourcenbereitschaft",
+          "title": "Die Wallet behandelt Netzwerkkosten als Teil des Produkts, nicht als Falle am Ende",
+          "cards": [
+            {
+              "eyebrow": "Schätzung",
+              "title": "Energy und Bandwidth werden vor der Signatur bepreist",
+              "text": "Die Wallet schätzt die Contract-Call-Kosten für `buyTokens()` vor der Signatur, damit der Nutzer sieht, was die Route benötigt, bevor der finale Freigabeschritt kommt."
+            },
+            {
+              "eyebrow": "Abdeckung",
+              "title": "Aktuelle Wallet-Ressourcen werden mit der Route verglichen",
+              "text": "Der Prüfschritt zeigt nicht nur den TRX-Betrag, sondern auch, ob die ausgewählte Wallet die Route genau jetzt sauber abdecken kann."
+            },
+            {
+              "eyebrow": "Fehlbetrag",
+              "title": "Wenn Ressourcen fehlen, kann die App helfen, die Lücke zu schließen",
+              "text": "Wenn die signierende Wallet zu wenig Ressourcen hat, zeigt das Produkt die Lücke direkt an und kann in den Energy-Rental-Schritt wechseln, bevor der Kauf gesendet wird."
+            }
+          ],
+          "note": "Das ist wichtig, weil Direktkauf nicht nur ein Zahlenfeld ist. Es ist eine Live-Contract-Route, und die Wallet macht den dahinterliegenden Ressourcenstatus bereits sichtbar."
+        },
+        "latestPurchases": {
+          "eyebrow": "Live-Kauf-Feed",
+          "title": "Bestätigte Käufe haben den Contract bereits erreicht",
+          "intro": "Diese Zeilen stammen aus bestätigten `BuyTokens`-Events auf FourteenToken. Echte Wallets, echte Transaktionen, echter On-Chain-Nachweis. Kein Fake-Volumen, keine dekorative Tabelle, keine weitere Dashboard-Halluzination in dunklem Theme.",
+          "headers": {
+            "wallet": "Wallet",
+            "trxIn": "TRX rein",
+            "minted": "Geprägt",
+            "lockEnds": "Sperre endet",
+            "transaction": "Transaktion",
+            "status": "Bestätigt"
+          },
+          "statusConfirmed": "Bestätigt",
+          "openTx": "tx öffnen",
+          "note": "Der Feed ist aus einem Grund hier: Nachweis. Nutzer sollten sehen, dass das Kaufmodul nicht theoretisch ist. Käufe haben stattgefunden, der Contract hat Events emittiert, und die Wallet kann den nächsten Käufer durch dieselbe Route führen.",
+          "empty": "Warten auf bestätigte BuyTokens-Events.",
+          "unknownTime": "Zeit nicht verfügbar",
+          "fallbackBody": "Aktuelle Direktkäufe sind vorübergehend auf der öffentlichen Website ausgeblendet, während die Route stabilisiert wird. Die mobile App bleibt der primäre Ort, an dem der Kauf ausgeführt wird, und öffentliche Verifizierungslinks bleiben verfügbar.",
+          "fallbackPrimaryCta": "Mobile-App-Route öffnen",
+          "fallbackSecondaryCta": "Token-Contract öffnen"
+        },
+        "comparison": {
+          "eyebrow": "Kaufen ist nicht dasselbe wie Swappen",
+          "title": "Direktkauf ist die Einstiegsroute. Swap ist die Marktroute.",
+          "intro": "Beide Routen sind wichtig, aber sie erfüllen unterschiedliche Aufgaben. Nutzer müssen wissen, welche Maschine sie berühren, bevor sie anfangen, Knöpfe zu drücken, als wäre Zivilisation ein Fehler gewesen.",
+          "cards": [
+            {
+              "eyebrow": "Kaufen",
+              "title": "Kaufen",
+              "subtitle": "Direkter Contract-Einstieg",
+              "text": "Der Direktkauf sendet den Kaufbefehl an den Contract, prägt nach Contract-Regel einen frischen Batch 4TEEN, erstellt eine neue 14-tägige Sperre für diesen Batch und routet eingehende TRX in Liquiditäts-, Controller- und Airdrop-Flows.",
+              "footerLabel": "Am besten für",
+              "footerText": "Nutzer, die über die protokollnative Mint-Route einsteigen und genau verstehen möchten, wie die Kauftransaktion funktioniert."
+            },
+            {
+              "eyebrow": "Swap",
+              "title": "Swap",
+              "subtitle": "Sekundärmarkt-Route",
+              "text": "Swap handelt gegen verfügbare Liquidität am Markt. Er prägt keinen neuen Batch, erstellt keine Direktkauf-Sperre und hängt in diesem Moment von Routenqualität, Preisauswirkung, Slippage und DEX-Bedingungen ab.",
+              "footerLabel": "Am besten für",
+              "footerText": "Nutzer, die bereits entsperrte 4TEEN halten oder über verfügbare Marktliquidität handeln möchten."
+            },
+            {
+              "eyebrow": "Bedeutung",
+              "title": "Bedeutung",
+              "subtitle": "Hier einsteigen, später entscheiden",
+              "text": "Der Direktkauf ist der Einstiegs-Flow. Unlock ist die Warteperiode. Swap ist die Marktroute, nachdem der Nutzer bewegliche Token hat.\n\nDer saubere Pfad ist einfach: über den Contract kaufen, die Sperre verfolgen, den Feed beobachten und nach dem Unlock den nächsten Schritt wählen."
+            }
+          ]
+        },
+        "afterPurchase": {
+          "eyebrow": "Nach dem Kauf",
+          "title": "Was passiert, nachdem der Kauf bestätigt ist",
+          "steps": [
+            {
+              "eyebrow": "Geprägt",
+              "title": "4TEEN erscheint sofort",
+              "text": "Die Token-Menge wird in derselben Transaktion geprägt, die die TRX empfängt. Das ist keine verzögerte Backend-Zuweisung."
+            },
+            {
+              "eyebrow": "Gesperrt",
+              "title": "Der gekaufte Batch tritt in seine eigene 14-tägige Sperre ein",
+              "text": "Für genau diesen Kauf-Batch wird ein neuer Sperreintrag erstellt. Die Wallet kann ihn später als separate Zeile in der Unlock-Zeitleiste anzeigen."
+            },
+            {
+              "eyebrow": "Verfolgt",
+              "title": "Die Unlock-Zeitleiste wird sofort nützlich",
+              "text": "Der nächste nützliche Screen ist die Unlock-Route: Sie zeigt, was noch gesperrt ist, was als Nächstes freigeschaltet wird und wann dieser Batch tatsächlich übertragbar wird."
+            },
+            {
+              "eyebrow": "Weiter gespeist",
+              "title": "Der Kauf speist weiter Liquidität und controller-seitigen Status",
+              "text": "Der 90%-Liquiditätsanteil ist bereits in den Protokoll-Liquiditätspfad eingetreten, während FourteenController den Käufer binden, den verifizierten Kauf einmal pro purchase ID aufzeichnen und das Ambassador-seitige Reward-Accounting abrechnen kann."
+            }
+          ]
+        },
+        "signingWallet": {
+          "eyebrow": "Ausführungsebene",
+          "title": "Die Website erklärt die Route. Die Wallet führt den Kauf aus.",
+          "body": "Die öffentliche Website kann die Contract-Route erklären, aber der echte Kauf erfolgt aus einer signierenden Wallet innerhalb der App. Der Watch-only-Modus ist nützlich, um Guthaben zu lesen, Routen zu prüfen und das System zu inspizieren. Er kann die Direktkauf-Transaktion nicht signieren.\n\nZum Kaufen benötigt der Nutzer eine Wallet, die auf TRON signieren kann.",
+          "bullets": [
+            "Watch-only-Wallets können Guthaben, Routen, Unlock-Zustände und öffentliche Contract-Daten einsehen.",
+            "Nur eine signierende Wallet kann in die live Direktkauf-Route eintreten.",
+            "TRX-Guthaben, Energy, Bandwidth und Transaktionsbereitschaft werden vor der Signatur geprüft.",
+            "Die Wallet zeigt die erwartete 4TEEN-Menge und das Sperrverhalten, bevor der Nutzer signiert."
+          ],
+          "ctaTitle": "Installiere die Wallet und führe den echten Kauf-Flow aus",
+          "ctaText": "Die Website gibt dir die Karte. Die Wallet gibt dir die Ausführung: Direktkauf, Ressourcenprüfung, Energy-Fallback, Live-Contract-Preis, Kaufbestätigung und Unlock-Tracking nach der Transaktion."
+        },
+        "verification": {
+          "eyebrow": "Quellenprüfung",
+          "title": "Die obigen Aussagen sind mit Contracts und Code verknüpft",
+          "body": "Diese Seite basiert auf dem deployten FourteenToken-Contract, der Controller-Architektur, dem Direktkaufmodul der Wallet und der Unlock-Route, die nach dem Kauf folgt.\n\nDas Ziel ist einfach: die tatsächliche Mechanik klar genug erklären, damit ein neuer Nutzer versteht, was vor dem Signieren passiert. Offenbar ein revolutionäres Konzept.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Contracts-Repository",
+          "walletRepoLabel": "Wallet-Repository"
+        },
+        "cta": {
+          "eyebrow": "Nächster Schritt",
+          "title": "Öffne die Wallet, wenn du für den echten Kauf-Flow bereit bist",
+          "body": "Die öffentliche Website kann die Route erklären. Der echte Kauf, die Ressourcenprüfung, der Energy-Fallback, das Live-Preislesen, die Transaktionssignatur und die Unlock-Nachverfolgung befinden sich alle in der mobilen Wallet.\n\nInstalliere die Wallet, verbinde ein signierendes Konto, gib TRX ein, prüfe die geprägte 4TEEN-Menge, bestätige die 14-tägige Sperre und signiere nur, wenn die Transaktionsdetails klar sind.",
+          "openApp": "Wallet-App installieren / öffnen",
+          "openUnlock": "Unlock-Zeitleiste öffnen"
+        }
+      }
     }
   }
 }
