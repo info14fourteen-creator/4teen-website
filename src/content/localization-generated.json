@@ -26385,6 +26385,74 @@
       ],
       "linksEyebrow": "Saídas públicas",
       "footerNote": "Para links de lançamento, referências de contrato ou páginas de estado público, comece por https://4teen.me. Suporte oficial por telefone e WhatsApp: +998 95 792 02 87."
+    },
+    "blog": {
+      "metadata": {
+        "title": "Blog",
+        "description": "A camada de publicação da 4TEEN para lançamentos, leitura do protocolo, atualizações do ecossistema e narrativas de produto voltadas a investidores."
+      },
+      "hero": {
+        "eyebrow": "Blog",
+        "status": "Camada de publicação",
+        "title": "O blog é onde a 4TEEN pode falar com uma voz de mercado sem reduzir o produto a banners e slogans.",
+        "lead": "O whitepaper é o documento estrutural de longo formato. A verificação é a camada de prova. O blog é onde lançamentos, atualizações de rotas, contexto do ecossistema e narrativas voltadas a investidores devem existir em um formato mais leve, que depois pode se expandir para vários idiomas."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Função",
+          "title": "Camada narrativa",
+          "body": "Use o blog para lançamentos, atualizações, explicações e textos que construam tração sem pertencer às rotas do produto."
+        },
+        {
+          "eyebrow": "Público",
+          "title": "Novos usuários e investidores",
+          "body": "Esta rota deve reduzir o atrito para pessoas que querem uma leitura mais rápida antes de abrir o app, a rota de compra ou o whitepaper."
+        },
+        {
+          "eyebrow": "Formato",
+          "title": "Pronto para tradução",
+          "body": "As publicações devem conseguir evoluir para publicação multilíngue sem reescrever toda a estrutura ou alterar o modelo de rotas."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. O que pertence aqui",
+          "title": "Publicação que gera interesse sem mentir",
+          "body": "O blog é a superfície certa para notas de lançamento, marcos do produto, explicações de rotas, parcerias do ecossistema, histórias voltadas ao mercado e análises legíveis sobre o que mudou no app ou na stack on-chain."
+        },
+        {
+          "eyebrow": "2. O que não pertence aqui",
+          "title": "Não é um substituto para prova",
+          "body": "O blog não deve substituir links de contratos, páginas de verificação ou seções do whitepaper. Se uma afirmação precisa de prova, a publicação deve apontar para a camada de prova em vez de fingir que a narrativa basta.",
+          "bullets": [
+            "O whitepaper continua sendo a rota de leitura estrutural de longo formato",
+            "A verificação continua sendo a rota de prova",
+            "O blog continua sendo a rota de publicação e tração"
+          ]
+        },
+        {
+          "eyebrow": "3. Por que esta rota importa",
+          "title": "O site precisa de uma superfície flexível de crescimento",
+          "body": "A página inicial não pode conter toda história, e o whitepaper não deve carregar textos de campanha. O blog dá ao site uma forma mais limpa de atrair, educar e atualizar pessoas sem inflar as rotas principais.",
+          "note": "Este também é o lugar mais fácil para desenvolver um futuro fluxo de publicação multilíngue, um artigo por vez."
+        }
+      ],
+      "links": [
+        {
+          "label": "Abrir o app",
+          "href": "/app"
+        },
+        {
+          "label": "Abrir compra",
+          "href": "/buy"
+        },
+        {
+          "label": "Ler whitepaper",
+          "href": "/whitepaper"
+        }
+      ],
+      "linksEyebrow": "Próximas rotas",
+      "footerNote": "A rota atual é uma estrutura limpa para publicações futuras, não um feed falso. Quando os artigos entrarem, eles devem permanecer alinhados às camadas de prova e produto."
     }
   }
 }
