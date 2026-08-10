@@ -17947,6 +17947,197 @@
           "openBuy": "Abrir ruta de compra"
         }
       }
+    },
+    "liquidity": {
+      "metadata": {
+        "title": "Controlador de liquidez público",
+        "description": "Controlador de liquidez público de 4TEEN con saldo del controlador en vivo, ruta pública de activación del bootstrapper, visibilidad de reservas y feed de ejecuciones confirmadas."
+      },
+      "hero": {
+        "eyebrow": "Controlador de liquidez",
+        "badge": "Controlador de liquidez público",
+        "title": "Controlador de liquidez público de 4TEEN",
+        "subtitle": "La automatización puede despertar la ruta, pero cualquier wallet aún puede activar el bootstrapper cuando la compuerta del contrato está abierta.",
+        "body": [
+          "Esta página no debería leerse como un panel operativo cerrado. Debería dejar algo claro: el TRX del lado del controlador es visible, el inventario del lado de la reserva es visible y las reglas de liberación siguen viviendo on-chain.",
+          "Si la ventana UTC está abierta, el controlador está por encima del umbral y la wallet firmante tiene suficientes recursos de red, la liquidez aún puede ejecutarse desde la wallet aunque la capa de automatización falle un día."
+        ],
+        "rotatingLines": [
+          "ACTIVACIÓN PÚBLICA. COMPUERTA DEL CONTRATO.",
+          "LA AUTOMATIZACIÓN AYUDA. LOS CONTRATOS DECIDEN.",
+          "BOOTSTRAP PRIMERO. EJECUTA ON-CHAIN."
+        ],
+        "primaryCta": "Abrir ruta de wallet",
+        "secondaryCta": "Ir a ejecuciones en vivo",
+        "ctaNote": "El sitio web es la capa de prueba. La wallet es la superficie de ejecución para la activación manual, las comprobaciones de recursos y la firma final.",
+        "stats": {
+          "controllerBalance": {
+            "label": "Saldo del controlador",
+            "meta": "TRX actualmente esperando dentro de FourteenLiquidityController."
+          },
+          "nextRelease": {
+            "label": "Próxima liberación",
+            "meta": "Liberación proyectada de TRX cuando la ventana del contrato sea válida."
+          },
+          "triggerFloor": {
+            "label": "Piso de activación",
+            "meta": "Saldo mínimo del controlador requerido antes de que la ejecución sea válida."
+          },
+          "cadence": {
+            "label": "Cadencia",
+            "meta": "Una vez por día UTC. La compuerta la impone el contrato, no la automatización."
+          },
+          "readFailed": "Falló la lectura de liquidez en vivo.",
+          "readRetry": "Intenta actualizar en un momento."
+        }
+      },
+      "sections": {
+        "publicRoute": {
+          "eyebrow": "Ruta pública",
+          "title": "La automatización está configurada. La ejecución pública sigue perteneciendo a la wallet.",
+          "intro": "La app de wallet ya contiene la ruta de automatización, pero el mensaje más importante es más amplio que eso: esta ruta sigue siendo pública. Una wallet firmante puede despertar el bootstrapper cuando las condiciones del contrato ya están satisfechas.",
+          "mainCard": {
+            "eyebrow": "Controlador de liquidez público",
+            "title": "Cualquier wallet puede despertar la ruta. El controlador sigue decidiendo si la liquidez realmente se mueve.",
+            "text": "Esa es la separación de poderes correcta. La automatización puede ayudar con el timing, pero el controlador y el bootstrapper siguen siendo la capa de autoridad. La ruta de ejecución no desaparece si un bot se detiene.",
+            "bullets": [
+              "Las compras directas de 4TEEN envían el 90% del TRX de compra al saldo del controlador.",
+              "LiquidityBootstrapper prepara el lado del token desde FourteenVault antes de que el controlador ejecute.",
+              "La regla de una vez por día UTC, el saldo mínimo, el porcentaje de liberación y el split permanecen on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Automatización",
+              "title": "El repositorio de la wallet ya conecta la ruta de despertar",
+              "text": "El flujo móvil expone el trigger de liquidez y el helper de automatización juntos. Eso hace visible al scheduler, pero no convierte al scheduler en un operador oculto."
+            },
+            {
+              "eyebrow": "Activación manual",
+              "title": "Si la automatización falla, un usuario aún puede firmar la ruta manualmente",
+              "text": "La wallet puede llamar a bootstrapAndExecute() desde una sesión normal de usuario. Si la compuerta está abierta y los recursos están disponibles, la liquidez aún se procesa."
+            }
+          ],
+          "note": "Por eso la página debería hablar de un controlador público, no de un back office privado. La ruta sobrevive más allá de la capa de automatización."
+        },
+        "liveState": {
+          "eyebrow": "Estado en vivo del controlador",
+          "title": "Lo que dice el controlador ahora mismo",
+          "rows": {
+            "controllerBalance": "Saldo del controlador",
+            "latestFunding": "Financiación más reciente",
+            "latestFundingAt": "Financiación más reciente en",
+            "lastExecute": "Última ejecución",
+            "minBalance": "Saldo mínimo",
+            "dailyRelease": "Liberación diaria",
+            "split": "Split objetivo",
+            "windowState": "Estado de la ventana",
+            "nextWindow": "Próxima ventana",
+            "snapshotUpdated": "Snapshot actualizado"
+          },
+          "valueLabels": {
+            "openNow": "Abierta ahora",
+            "waitForThreshold": "Esperando financiación"
+          },
+          "stateLabels": {
+            "ready": "Listo ahora",
+            "waiting": "Ya ejecutado hoy",
+            "threshold": "Por debajo del umbral"
+          },
+          "note": "El snapshot es útil porque separa claramente las partes móviles: el TRX del controlador, la cadencia de financiación, el tamaño de liberación, el umbral y la compuerta temporal permanecen visibles a la vez."
+        },
+        "triggerModel": {
+          "eyebrow": "Modelo de activación",
+          "title": "Qué ocurre realmente cuando alguien toca Activar liquidez",
+          "intro": "La ruta es simple cuando se explica con honestidad: primero el bootstrapper revisa la compuerta diaria y recarga el inventario del ejecutor, luego el controlador libera TRX y después las dos rutas de mercado reciben su split.",
+          "mainCard": {
+            "eyebrow": "bootstrapAndExecute()",
+            "title": "La ruta de activación es pública, consciente de recursos y sigue regida por contratos.",
+            "text": "Esto no es un botón de administrador falso. La wallet tiene que cumplir las condiciones normales de la red, y la ruta solo continúa si las mismas reglas del controlador siguen pasando en el momento de la ejecución.",
+            "bullets": [
+              "Paso 1: el bootstrapper comprueba la ventana del controlador y calcula el tamaño de liberación permitido.",
+              "Paso 2: el bootstrapper recarga 4TEEN del lado del ejecutor desde FourteenVault antes de que corra la pierna del lado de mercado.",
+              "Paso 3: el controlador ejecuta la liberación y divide el flujo 50 / 50 entre JustMoney y Sun.io V3."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Recursos",
+              "title": "Una wallet normal puede cubrir la ruta con alquiler o energía precargada",
+              "text": "La app ya presenta esto como una acción consciente de recursos. El punto no es una clave de servidor oculta. El punto es que una wallet pública aún puede completar la ruta limpiamente."
+            },
+            {
+              "eyebrow": "Conjunto de reglas",
+              "title": "La comodidad del scheduler nunca anula el conjunto de reglas del contrato",
+              "text": "Perder la ventana del bot no reescribe la cadencia. Pulsar el botón demasiado pronto no evita la compuerta. Los contratos siguen aceptando o rechazando la ruta."
+            }
+          ],
+          "note": "Esa es la señal de mercado correcta: activación pública, preparación visible de reservas, regla de liberación determinista."
+        },
+        "latestExecutions": {
+          "eyebrow": "Ejecuciones más recientes",
+          "title": "Ejecuciones de liquidez confirmadas desde el feed en vivo",
+          "body": "Esta lista se mantiene intencionalmente ajustada. Muestra las filas de ejecución confirmadas más recientes para que un usuario pueda verificar que el controlador está vivo sin convertir la página en un clon ruidoso de un explorador de bloques.",
+          "headers": {
+            "total": "Total liberado",
+            "split": "Split",
+            "happened": "Ocurrió",
+            "day": "Día UTC",
+            "source": "Fuente"
+          },
+          "empty": "Aún no hay filas LiquidityExecuted confirmadas visibles.",
+          "openTx": "Abrir tx",
+          "note": "Cada fila proviene de eventos LiquidityExecuted(day, totalAmount, amountA, amountB) confirmados."
+        },
+        "reservePath": {
+          "eyebrow": "Ruta de reserva",
+          "title": "Los tokens de reserva son inventario, no circulación libre",
+          "intro": "El TRX del lado del controlador es solo la mitad de la ruta. El lado del token también necesita inventario aislado, y por eso existe FourteenVault antes de que las dos rutas de ejecución reciban sus saldos.",
+          "primaryCard": {
+            "eyebrow": "Capa de reserva",
+            "title": "FourteenVault respalda la ruta pública de liquidez antes de que comience la ejecución de mercado.",
+            "text": "Estos saldos de 4TEEN deben leerse como inventario operativo del lado de la reserva. No son saldos ordinarios de wallet y no deberían presentarse como suministro de libre circulación.",
+            "bullets": [
+              "El inventario del vault se recarga en la ruta del bootstrapper antes de que el controlador ejecute.",
+              "JustMoney y Sun.io V3 reciben saldos preparados solo cuando la ruta es válida.",
+              "La custodia de reservas, el TRX del controlador y los destinos de ejecutores son capas separadas del mismo motor."
+            ]
+          },
+          "secondaryCards": [
+            {
+              "key": "justmoney",
+              "title": "Ruta JustMoney",
+              "body": "El ejecutor A toma la mitad de la liberación permitida y ejecuta la ruta de liquidez del lado AMM después de que su inventario de tokens haya sido preparado."
+            },
+            {
+              "key": "sun",
+              "title": "Ruta Sun.io V3",
+              "body": "El ejecutor B toma la otra mitad y la enruta por la ruta de liquidez concentrada con su propio lado de tokens preparado."
+            }
+          ],
+          "note": "Por eso la página debería explicar una ruta, no solo imprimir un total vistoso. El inventario de reserva, el saldo del controlador y los destinos de ejecución cumplen funciones diferentes."
+        },
+        "verification": {
+          "eyebrow": "Verificación",
+          "title": "Abrir la capa de prueba",
+          "body": "Salta directamente de la historia a los rieles que la sostienen: el contrato del controlador, la ruta del bootstrapper, los contratos ejecutores y la implementación de la wallet que expone tanto la automatización como la activación manual.",
+          "labels": {
+            "controller": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "justMoney": "Ejecutor JustMoney",
+            "sunV3": "Ejecutor Sun.io V3",
+            "contractsRepo": "Repositorio de contratos",
+            "walletRepo": "Repositorio de la wallet"
+          }
+        },
+        "cta": {
+          "eyebrow": "Próximo paso",
+          "title": "Abre la wallet cuando quieras despertar la ruta tú mismo",
+          "body": "El sitio es donde verificas el estado. La wallet móvil es donde un usuario real puede inspeccionar recursos, llamar al bootstrapper y firmar la ruta si la compuerta del controlador ya está abierta.",
+          "openApp": "Abrir liquidez en la app",
+          "openBuy": "Abrir ruta de compra"
+        }
+      }
     }
   }
 }
