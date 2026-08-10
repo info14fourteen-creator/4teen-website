@@ -24104,6 +24104,315 @@
           }
         ]
       }
+    },
+    "buy": {
+      "metadata": {
+        "title": "Comprar 4TEEN | Entrada Nativa do Contrato na TRON",
+        "description": "Compre 4TEEN diretamente pelo smart contract: minte um lote bloqueado, acompanhe compras confirmadas, entenda o roteamento 90/7/3 de TRX, depois instale a wallet e execute o fluxo real de compra.",
+        "openGraphTitle": "Comprar 4TEEN",
+        "openGraphDescription": "Entre no 4TEEN pela rota de compra nativa do contrato. Minte um lote bloqueado, acompanhe eventos BuyTokens confirmados, revise o roteamento de TRX e execute a partir de uma wallet com assinatura."
+      },
+      "hero": {
+        "eyebrow": "FourteenToken",
+        "badge": "Rota de compra nativa do contrato",
+        "title": "Compre 4TEEN Direto do Contrato",
+        "subtitle": "Minte um novo lote de 4TEEN, bloqueie-o por 14 dias, acompanhe compras confirmadas chegando ao feed e então decida o que fazer quando o temporizador de desbloqueio terminar.",
+        "body": [
+          "Isto não é um formulário genérico de swap fingindo ser DeFi. Esta é a rota de entrada nativa do protocolo.",
+          "Você entra com TRX, o contrato calcula quanto de 4TEEN será mintado, a transação cria um bloqueio separado de 14 dias para esse lote, e o TRX recebido é roteado por regra do contrato: 90% para liquidez, 7% para o controlador e 3% para o lado do airdrop.",
+          "O site mostra o mapa. A wallet executa a transação."
+        ],
+        "primaryCta": "Instalar / Abrir Wallet",
+        "secondaryCta": "Ver Compras Recentes",
+        "ctaNote": "Uma wallet com assinatura é necessária. O modo somente visualização pode ler o sistema, mas não consegue enviar a transação de compra. A humanidade descobriu assinaturas, e agora todos precisamos respeitá-las.",
+        "rotatingLines": [
+          "Entrada pelo Contrato. Bloqueio Real.",
+          "Minte Primeiro. Desbloqueie Depois.",
+          "Compre On-Chain. Acompanhe Tudo.",
+          "Seu Lote. Seu Temporizador.",
+          "Sem Volume Falso. Só Eventos."
+        ],
+        "stats": {
+          "directPrice": "Preço Direto",
+          "directPriceMeta": "Preço atual de entrada pelo lado do contrato por 4TEEN a partir da camada pública de snapshot. A wallet atualiza o valor ao vivo antes da execução.",
+          "lockRule": "Regra de Bloqueio",
+          "lockRuleValue": "14 Dias",
+          "lockRuleMeta": "Cada compra direta cria seu próprio lote bloqueado. O temporizador pertence àquela compra, não à sua wallet inteira.",
+          "trxSplit": "Roteamento de TRX",
+          "trxSplitValue": "90 / 7 / 3",
+          "trxSplitMeta": "O TRX recebido é roteado dentro da transação de compra: lado da liquidez, lado do controlador e lado do airdrop.",
+          "execution": "Execução",
+          "executionValue": "Wallet + Recursos",
+          "executionMeta": "O fluxo real de compra roda a partir de uma wallet com assinatura. Saldo de TRX, Energy, Bandwidth e prontidão da transação são verificados antes da assinatura final.",
+          "priceFallback": "1.147500 TRX",
+          "priceUnavailable": "Preço ao vivo indisponível no momento. O fallback reflete a rota direta mais recente conhecida."
+        }
+      },
+      "sections": {
+        "executionRoute": {
+          "eyebrow": "Como o Ciclo Funciona",
+          "title": "A Página de Compra Deve Explicar a Rota Inteira",
+          "intro": "Uma compra direta não é apenas “enviar TRX, receber token”. O módulo guia o usuário pelo ciclo on-chain real: entrada pelo contrato, mint, bloqueio, roteamento de liquidez e o ponto de decisão após o desbloqueio.",
+          "cards": [
+            {
+              "eyebrow": "Etapa 1",
+              "title": "Entre pelo Contrato",
+              "subtitle": "Esta é a rota principal do protocolo, não o mercado secundário.",
+              "text": "A compra direta envia o comando `buyTokens()` a partir de uma wallet com assinatura. O contrato recebe TRX, calcula a quantidade de 4TEEN e inicia o fluxo de mint para aquela transação exata.\n\nSem caça a pools. Sem roleta de rotas. Sem fingir que um swap e um mint são a mesma coisa, porque aparentemente as palavras ainda importam."
+            },
+            {
+              "eyebrow": "Etapa 2",
+              "title": "Minte um Novo Lote",
+              "subtitle": "O contrato cria novos 4TEEN para o comprador.",
+              "text": "A quantidade de 4TEEN é mintada durante a transação de compra. Esse lote mintado fica vinculado à wallet do comprador e entra imediatamente na lógica de bloqueio.\n\nÉ por isso que compra direta é diferente de swap. Swap negocia liquidez existente. Compra direta cria um novo lote bloqueado por meio do contrato do token."
+            },
+            {
+              "eyebrow": "Etapa 3",
+              "title": "Bloqueio por 14 Dias",
+              "subtitle": "Cada compra recebe seu próprio temporizador de desbloqueio.",
+              "text": "O lote comprado fica bloqueado por 14 dias. Se a mesma wallet comprar novamente depois, essa segunda compra cria um lote bloqueado separado com seu próprio temporizador.\n\nA wallet mostra a linha do tempo de desbloqueio para que o usuário veja exatamente quando cada lote se torna movimentável."
+            },
+            {
+              "eyebrow": "Etapa 4",
+              "title": "Alimente o Lado da Liquidez",
+              "subtitle": "Novas compras continuam empurrando TRX novo para dentro do sistema.",
+              "text": "Cada compra direta roteia 90% do TRX recebido para o lado da liquidez. Esse valor não fica apenas parado em um print de marketing. Ele entra no fluxo de liquidez do protocolo e é processado pela lógica diária de execução de liquidez.\n\nEsta é a parte que os usuários precisam entender: compras posteriores continuam alimentando o sistema enquanto compradores anteriores aguardam durante o bloqueio."
+            },
+            {
+              "eyebrow": "Etapa 5",
+              "title": "Chegue ao Ponto de Desbloqueio",
+              "subtitle": "Após o desbloqueio, o usuário escolhe a próxima rota.",
+              "text": "Quando o bloqueio expira, o lote fica disponível. O holder pode continuar mantendo a posição ou ir para a rota de mercado e fazer swap pela liquidez disponível.\n\nSem saída forçada. Sem botão mágico. Apenas um ponto de desbloqueio e uma decisão de mercado, porque DeFi já é dramático o suficiente sem inventar mais besteira."
+            }
+          ]
+        },
+        "priceLogic": {
+          "eyebrow": "Lógica Principal de Preço",
+          "title": "A compra direta entra pelo preço do contrato agora e encontra o preço de mercado depois",
+          "cards": [
+            {
+              "eyebrow": "Base",
+              "title": "1 TRX = 1 4TEEN no deployment",
+              "text": "O preço inicial da compra direta é codificado no FourteenToken como 1.000000 TRX por token antes que períodos posteriores de composição o façam avançar."
+            },
+            {
+              "eyebrow": "Crescimento",
+              "title": "Crescimento de 14.75% por período de preço",
+              "text": "O contrato armazena annualGrowthRate = 1475 basis points e compõe tokenPrice para frente sempre que tempo suficiente tiver decorrido."
+            },
+            {
+              "eyebrow": "Intervalo",
+              "title": "A cada 90 dias",
+              "text": "Atualizações de preço não são edições arbitrárias de admin. getCurrentPrice() avança o preço armazenado do token com base em períodos de 90 dias decorridos desde lastPriceUpdate."
+            },
+            {
+              "eyebrow": "Escopo",
+              "title": "Somente para emissão direta",
+              "text": "Este preço rege a emissão direta por meio de `buyTokens()`. Ele não promete nada sobre preço em DEX nem sobre condições futuras de saída quando o lote desbloquear e o usuário migrar para a rota de mercado."
+            }
+          ],
+          "note": "O site lê o preço direto como uma camada pública informativa. A rota real da wallet ainda importa porque combina esse preço do contrato com a wallet de assinatura selecionada, o saldo real de TRX e as verificações de recursos no momento da confirmação."
+        },
+        "lockLayer": {
+          "eyebrow": "Camada de Bloqueio de 14 Dias",
+          "title": "Cada compra direta minta imediatamente e bloqueia imediatamente",
+          "bullets": [
+            "Cada chamada buyTokens() minta 4TEEN para o endereço do comprador imediatamente.",
+            "A mesma transação acrescenta um novo registro de bloqueio com releaseTime = timestamp do bloco + 14 dias.",
+            "Bloqueios são por lote de compra, não um temporizador misturado para a wallet inteira.",
+            "Transfers e transferFrom são bloqueados sempre que a quantidade solicitada gastaria saldo ainda bloqueado.",
+            "A linha do tempo de desbloqueio na wallet é a rota complementar natural após uma compra."
+          ],
+          "note": "É por isso que compra direta e swap não são a mesma coisa. A compra direta dá ao usuário primeiro uma emissão nativa do protocolo, depois uma espera fixa, e somente após o desbloqueio a rota de mercado se torna relevante."
+        },
+        "trxRouting": {
+          "eyebrow": "Roteamento",
+          "title": "Para Onde Vai o TRX",
+          "rows": [
+            {
+              "share": "90%",
+              "title": "Para Liquidez",
+              "text": "A maior parcela vai para o lado da liquidez do sistema. Este é o fluxo central que dá suporte à rota de mercado depois que os usuários chegam ao desbloqueio.",
+              "linkLabel": "Abrir Página de Liquidez",
+              "linkHref": "/liquidity"
+            },
+            {
+              "share": "7%",
+              "title": "Para o Controlador",
+              "text": "Uma parcela menor vai para FourteenController. Esta é a camada de controle e contabilidade conectada à administração do token, acompanhamento de compras, lógica de embaixadores e liquidação de recompensas.",
+              "linkLabel": "Abrir Página de Embaixadores",
+              "linkHref": "/ambassadors"
+            },
+            {
+              "share": "3%",
+              "title": "Para o Lado do Airdrop",
+              "text": "A parcela final vai para o lado do airdrop, então o mesmo fluxo de compra direta também continua alimentando a distribuição pública e o crescimento do ecossistema.",
+              "linkLabel": "Abrir Página de Airdrop",
+              "linkHref": "/airdrop"
+            }
+          ],
+          "note": "A divisão acontece dentro da própria transação de compra. Não é um exercício posterior de planilha, nem uma alocação de “confia, mano”, nem uma promessa manual escrita em um chat do Telegram às 3 da manhã."
+        },
+        "walletFlow": {
+          "eyebrow": "Fluxo da Wallet",
+          "title": "Como o produto real vai da entrada de valor até a assinatura",
+          "steps": [
+            {
+              "eyebrow": "1. Preparar",
+              "title": "Escolha a wallet que realmente vai comprar",
+              "text": "O app começa com a wallet de assinatura selecionada, carrega seu saldo de TRX, preço do contrato, saldo bloqueado e endereços de contrato, e então limita o campo de valor ao que aquela wallet realmente consegue cobrir."
+            },
+            {
+              "eyebrow": "2. Revisar",
+              "title": "Veja a quantidade mintada e a divisão antes de confirmar",
+              "text": "Antes de o usuário aprovar qualquer coisa, a wallet mostra a saída estimada em 4TEEN, a divisão 90 / 7 / 3, o próximo degrau de preço do contrato e o horário futuro de desbloqueio desse lote."
+            },
+            {
+              "eyebrow": "3. Confirmar",
+              "title": "Verifique recursos antes que a wallet peça aprovação",
+              "text": "A camada de confirmação mede Energy, Bandwidth e qualquer déficit para que o usuário veja o estado real de execução antes da aprovação por senha ou biometria."
+            },
+            {
+              "eyebrow": "4. Continuar",
+              "title": "Se os recursos forem insuficientes, a wallet pode fechar a lacuna primeiro",
+              "text": "Quando a wallet selecionada não tem recursos de execução suficientes, o app pode cotar aluguel de energy e eliminar essa lacuna antes que a compra direta seja enviada, em vez de deixar o usuário entrar às cegas em uma transação falhada."
+            },
+            {
+              "eyebrow": "5. Após confirmação on-chain",
+              "title": "O sistema acompanha tanto o desbloqueio quanto a atribuição do lado do controlador",
+              "text": "Assim que a compra é confirmada, a wallet pode mostrar a contagem regressiva de bloqueio desse lote, enquanto FourteenController pode vincular o comprador, registrar uma compra verificada uma vez por ID de compra e finalizar o saldo de recompensa de embaixador quando a alocação tiver sucesso."
+            }
+          ],
+          "note": "O site deve explicar esse caminho com clareza e então encaminhar o usuário para a wallet. Ele não deve fingir ser a própria camada de execução."
+        },
+        "resourceLayer": {
+          "eyebrow": "Prontidão de Recursos",
+          "title": "A wallet trata o custo de rede como parte do produto, não como uma armadilha no final",
+          "cards": [
+            {
+              "eyebrow": "Estimativa",
+              "title": "Energy e bandwidth são precificados antes da assinatura",
+              "text": "A wallet estima o custo da chamada de contrato para `buyTokens()` antes da assinatura, para que o usuário veja o que a rota exige antes da etapa final de aprovação."
+            },
+            {
+              "eyebrow": "Cobertura",
+              "title": "Os recursos atuais da wallet são comparados com a rota",
+              "text": "A etapa de revisão mostra não apenas o valor em TRX, mas também se a wallet selecionada consegue cobrir a rota corretamente agora."
+            },
+            {
+              "eyebrow": "Déficit",
+              "title": "Se faltarem recursos, o app pode ajudar a fechar a lacuna",
+              "text": "Se a wallet de assinatura ficar abaixo do necessário, o produto mostra a lacuna diretamente e pode seguir para a etapa de aluguel de energy antes que a compra seja enviada."
+            }
+          ],
+          "note": "Isso importa porque compra direta não é apenas um campo numérico. É uma rota de contrato ao vivo, e a wallet já expõe o estado de recursos por trás dela."
+        },
+        "latestPurchases": {
+          "eyebrow": "Feed de Compras ao Vivo",
+          "title": "Compras Confirmadas Já Chegaram ao Contrato",
+          "intro": "Estas linhas vêm de eventos `BuyTokens` confirmados no FourteenToken. Wallets reais, transações reais, prova on-chain real. Não é volume falso, não é uma tabela decorativa, não é mais uma alucinação de dashboard vestindo tema escuro.",
+          "headers": {
+            "wallet": "Wallet",
+            "trxIn": "TRX Recebido",
+            "minted": "Mintado",
+            "lockEnds": "Bloqueio Termina",
+            "transaction": "Transação",
+            "status": "Confirmado"
+          },
+          "statusConfirmed": "Confirmado",
+          "openTx": "Abrir tx",
+          "note": "O feed está aqui por um motivo: prova. Usuários devem ver que o módulo de compra não é teórico. Compras aconteceram, o contrato emitiu eventos, e a wallet pode levar o próximo comprador pela mesma rota.",
+          "empty": "Aguardando eventos BuyTokens confirmados.",
+          "unknownTime": "Horário indisponível",
+          "fallbackBody": "Compras diretas recentes estão temporariamente ocultas no site público enquanto a rota está sendo estabilizada. O app móvel continua sendo o local principal onde a compra é executada, e os links públicos de verificação permanecem disponíveis.",
+          "fallbackPrimaryCta": "Abrir Rota no App Móvel",
+          "fallbackSecondaryCta": "Abrir Contrato do Token"
+        },
+        "comparison": {
+          "eyebrow": "Comprar Não É o Mesmo que Fazer Swap",
+          "title": "Compra Direta É a Rota de Entrada. Swap É a Rota de Mercado.",
+          "intro": "As duas rotas importam, mas fazem trabalhos diferentes. Usuários precisam saber em qual máquina estão tocando antes de começar a apertar botões como se a civilização tivesse sido um erro.",
+          "cards": [
+            {
+              "eyebrow": "Comprar",
+              "title": "Comprar",
+              "subtitle": "Entrada direta pelo contrato",
+              "text": "A compra direta envia o comando de compra ao contrato, minta um novo lote de 4TEEN por regra do contrato, cria um novo bloqueio de 14 dias para esse lote e roteia o TRX recebido para fluxos de liquidez, controlador e airdrop.",
+              "footerLabel": "Melhor Para",
+              "footerText": "Usuários que querem entrar pela rota de mint nativa do protocolo e entender exatamente como a transação de compra funciona."
+            },
+            {
+              "eyebrow": "Swap",
+              "title": "Swap",
+              "subtitle": "Rota de mercado secundário",
+              "text": "Swap negocia contra a liquidez disponível no mercado. Ele não minta um novo lote, não cria o bloqueio da compra direta e depende da qualidade da rota, impacto de preço, slippage e condições da DEX naquele momento.",
+              "footerLabel": "Melhor Para",
+              "footerText": "Usuários que já possuem 4TEEN desbloqueado ou querem negociar pela liquidez de mercado disponível."
+            },
+            {
+              "eyebrow": "Significado",
+              "title": "Significado",
+              "subtitle": "Entre aqui, decida depois",
+              "text": "Compra direta é o fluxo de entrada. Desbloqueio é o período de espera. Swap é a rota de mercado depois que o usuário tem tokens movimentáveis.\n\nO caminho limpo é simples: compre pelo contrato, acompanhe o bloqueio, observe o feed e então escolha o próximo movimento após o desbloqueio."
+            }
+          ]
+        },
+        "afterPurchase": {
+          "eyebrow": "Após a Compra",
+          "title": "O que acontece depois que a compra é confirmada",
+          "steps": [
+            {
+              "eyebrow": "Mintado",
+              "title": "4TEEN aparece imediatamente",
+              "text": "A quantidade de tokens é mintada na mesma transação que recebe o TRX. Isto não é uma alocação de backend atrasada."
+            },
+            {
+              "eyebrow": "Bloqueado",
+              "title": "O lote comprado entra em seu próprio bloqueio de 14 dias",
+              "text": "Um novo registro de bloqueio é criado para aquele lote exato de compra. A wallet pode depois mostrá-lo como uma linha separada na linha do tempo de desbloqueio."
+            },
+            {
+              "eyebrow": "Acompanhado",
+              "title": "A linha do tempo de desbloqueio se torna útil imediatamente",
+              "text": "A próxima tela útil é a rota de desbloqueio: ela mostra o que ainda está bloqueado, o que desbloqueia em seguida e quando aquele lote realmente se torna transferível."
+            },
+            {
+              "eyebrow": "Alimentado adiante",
+              "title": "A compra continua alimentando a liquidez e o estado do lado do controlador",
+              "text": "A parcela de 90% para liquidez já entrou no caminho de liquidez do protocolo, enquanto FourteenController pode vincular o comprador, registrar a compra verificada uma vez por ID de compra e liquidar a contabilidade de recompensas do lado dos embaixadores."
+            }
+          ]
+        },
+        "signingWallet": {
+          "eyebrow": "Camada de Execução",
+          "title": "O Site Explica a Rota. A Wallet Executa a Compra.",
+          "body": "O site público pode explicar a rota do contrato, mas a compra real acontece a partir de uma wallet com assinatura dentro do app. O modo somente visualização é útil para ler saldos, verificar rotas e inspecionar o sistema. Ele não consegue assinar a transação de compra direta.\n\nPara comprar, o usuário precisa de uma wallet que consiga assinar na TRON.",
+          "bullets": [
+            "Wallets somente visualização podem inspecionar saldos, rotas, estados de desbloqueio e dados públicos de contrato.",
+            "Somente uma wallet com assinatura pode entrar na rota de compra direta ao vivo.",
+            "Saldo de TRX, Energy, Bandwidth e prontidão da transação são verificados antes da assinatura.",
+            "A wallet mostra a quantidade esperada de 4TEEN e o comportamento de bloqueio antes de o usuário assinar."
+          ],
+          "ctaTitle": "Instale a Wallet e Rode o Fluxo Real de Compra",
+          "ctaText": "O site dá o mapa. A wallet dá a execução: compra direta, verificação de recursos, fallback de Energy, preço do contrato ao vivo, confirmação de compra e acompanhamento de desbloqueio após a transação."
+        },
+        "verification": {
+          "eyebrow": "Verificação de Fonte",
+          "title": "As Afirmações Acima Estão Vinculadas a Contratos e Código",
+          "body": "Esta página se baseia no contrato FourteenToken implantado, na arquitetura do controlador, no módulo de compra direta da wallet e na rota de desbloqueio que vem após a compra.\n\nO objetivo é simples: explicar a mecânica real com clareza suficiente para que um novo usuário entenda o que acontece antes de assinar. Conceito revolucionário, aparentemente.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Repositório de contratos",
+          "walletRepoLabel": "Repositório da wallet"
+        },
+        "cta": {
+          "eyebrow": "Próximo Passo",
+          "title": "Abra a Wallet Quando Estiver Pronto para o Fluxo Real de Compra",
+          "body": "O site público pode explicar a rota. A compra real, verificação de recursos, fallback de Energy, leitura de preço ao vivo, assinatura da transação e acompanhamento de desbloqueio vivem todos dentro da wallet móvel.\n\nInstale a wallet, conecte uma conta com assinatura, insira TRX, revise a quantidade de 4TEEN mintada, confirme o bloqueio de 14 dias e assine somente quando os detalhes da transação estiverem claros.",
+          "openApp": "Instalar / Abrir App da Wallet",
+          "openUnlock": "Abrir Linha do Tempo de Desbloqueio"
+        }
+      }
     }
   }
 }
