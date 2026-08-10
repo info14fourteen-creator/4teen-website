@@ -27868,6 +27868,197 @@
           "openBuy": "Kooproute openen"
         }
       }
+    },
+    "liquidity": {
+      "metadata": {
+        "title": "Publieke liquiditeitscontroller",
+        "description": "4TEEN publieke liquiditeitscontroller met live controllersaldo, openbaar triggerpad voor de bootstrapper, zichtbaarheid van reserves en een feed met bevestigde uitvoeringen."
+      },
+      "hero": {
+        "eyebrow": "Liquiditeitscontroller",
+        "badge": "Publieke liquiditeitscontroller",
+        "title": "Publieke 4TEEN liquiditeitscontroller",
+        "subtitle": "Automatisering kan de route activeren, maar elke wallet kan de bootstrapper nog steeds aanroepen wanneer de contractpoort openstaat.",
+        "body": [
+          "Deze pagina moet niet aanvoelen als een gesloten operationeel paneel. Ze moet één ding duidelijk maken: TRX aan de controllerzijde is zichtbaar, de voorraad aan de reservezijde is zichtbaar, en de vrijgaveregels staan nog steeds on-chain.",
+          "Als het UTC-venster open is, de controller boven de drempel zit en de ondertekenende wallet genoeg netwerkresources heeft, kan liquiditeit nog steeds vanuit de wallet worden uitgevoerd, zelfs als de automatiseringslaag een dag mist."
+        ],
+        "rotatingLines": [
+          "PUBLIEKE TRIGGER. CONTRACTPOORT.",
+          "AUTOMATISERING HELPT. CONTRACTEN BESLISSEN.",
+          "EERST BOOTSTRAPPEN. ON-CHAIN UITVOEREN."
+        ],
+        "primaryCta": "Open wallet-route",
+        "secondaryCta": "Ga naar live uitvoeringen",
+        "ctaNote": "De website is de bewijslaag. De wallet is het uitvoeringsvlak voor handmatige triggers, resourcecontroles en de uiteindelijke ondertekening.",
+        "stats": {
+          "controllerBalance": {
+            "label": "Controllersaldo",
+            "meta": "TRX dat momenteel in FourteenLiquidityController wacht."
+          },
+          "nextRelease": {
+            "label": "Volgende vrijgave",
+            "meta": "Verwachte TRX-vrijgave wanneer het contractvenster geldig is."
+          },
+          "triggerFloor": {
+            "label": "Triggerdrempel",
+            "meta": "Minimaal controllersaldo dat vereist is voordat uitvoering geldig is."
+          },
+          "cadence": {
+            "label": "Ritme",
+            "meta": "Eén keer per UTC-dag. De poort wordt afgedwongen door het contract, niet door automatisering."
+          },
+          "readFailed": "Live liquiditeitsuitlezing mislukt.",
+          "readRetry": "Probeer het over enkele momenten opnieuw te vernieuwen."
+        }
+      },
+      "sections": {
+        "publicRoute": {
+          "eyebrow": "Publieke route",
+          "title": "Automatisering is geconfigureerd. Publieke uitvoering blijft bij de wallet horen.",
+          "intro": "De wallet-app bevat het automatiseringspad al, maar de belangrijkere boodschap is breder dan dat: deze route blijft publiek. Een ondertekenende wallet kan de bootstrapper activeren wanneer de contractvoorwaarden al zijn vervuld.",
+          "mainCard": {
+            "eyebrow": "Publieke liquiditeitscontroller",
+            "title": "Elke wallet kan de route activeren. De controller beslist nog steeds of liquiditeit daadwerkelijk beweegt.",
+            "text": "Dat is de juiste scheiding van bevoegdheden. Automatisering mag helpen met timing, maar de controller en bootstrapper blijven de autoriteitslaag. Het uitvoeringspad verdwijnt niet als een bot pauzeert.",
+            "bullets": [
+              "Directe 4TEEN-aankopen sturen 90% van de aankoop-TRX naar het controllersaldo.",
+              "LiquidityBootstrapper bereidt de tokenzijde voor vanuit FourteenVault voordat de controller uitvoert.",
+              "De regel van één keer per UTC-dag, het minimale saldo, het vrijgavepercentage en de verdeling blijven on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Automatisering",
+              "title": "De wallet-repo verbindt het activeringspad al",
+              "text": "De mobiele flow toont de liquiditeitstrigger en de automatiseringshelper samen. Dat maakt de scheduler zichtbaar, maar verandert de scheduler niet in een verborgen operator."
+            },
+            {
+              "eyebrow": "Handmatige trigger",
+              "title": "Als automatisering iets mist, kan een gebruiker de route nog steeds handmatig ondertekenen",
+              "text": "De wallet kan bootstrapAndExecute() aanroepen vanuit een normale gebruikerssessie. Als de poort open is en resources beschikbaar zijn, loopt de liquiditeit nog steeds door."
+            }
+          ],
+          "note": "Daarom moet de pagina spreken over een publieke controller, niet over een private backoffice. De route blijft bestaan voorbij de automatiseringslaag."
+        },
+        "liveState": {
+          "eyebrow": "Live controllerstatus",
+          "title": "Wat de controller nu zegt",
+          "rows": {
+            "controllerBalance": "Controllersaldo",
+            "latestFunding": "Laatste funding",
+            "latestFundingAt": "Laatste funding om",
+            "lastExecute": "Laatste uitvoering",
+            "minBalance": "Minimumsaldo",
+            "dailyRelease": "Dagelijkse vrijgave",
+            "split": "Doelverdeling",
+            "windowState": "Vensterstatus",
+            "nextWindow": "Volgend venster",
+            "snapshotUpdated": "Snapshot bijgewerkt"
+          },
+          "valueLabels": {
+            "openNow": "Nu open",
+            "waitForThreshold": "Wachten op funding"
+          },
+          "stateLabels": {
+            "ready": "Nu klaar",
+            "waiting": "Vandaag al uitgevoerd",
+            "threshold": "Onder drempel"
+          },
+          "note": "De snapshot is nuttig omdat hij de bewegende onderdelen duidelijk van elkaar scheidt: controller-TRX, fundingritme, vrijgavegrootte, drempel en tijdpoort blijven allemaal tegelijk zichtbaar."
+        },
+        "triggerModel": {
+          "eyebrow": "Triggermodel",
+          "title": "Wat er daadwerkelijk gebeurt wanneer iemand op Trigger Liquidity tikt",
+          "intro": "De route is eenvoudig wanneer je haar eerlijk beschrijft: eerst controleert de bootstrapper de dagpoort en vult hij de executorvoorraad aan, daarna geeft de controller TRX vrij, en vervolgens ontvangen de twee marktpaden hun verdeling.",
+          "mainCard": {
+            "eyebrow": "bootstrapAndExecute()",
+            "title": "Het triggerpad is publiek, houdt rekening met resources en blijft door contracten geregeerd.",
+            "text": "Dit is geen neppe admin-knop. De wallet moet voldoen aan normale netwerkvoorwaarden, en de route gaat alleen verder als dezelfde controllerregels op het moment van uitvoering nog steeds slagen.",
+            "bullets": [
+              "Stap 1: de bootstrapper controleert het controllervenster en berekent de toegestane vrijgavegrootte.",
+              "Stap 2: de bootstrapper vult executor-side 4TEEN aan vanuit FourteenVault voordat de marktleg wordt uitgevoerd.",
+              "Stap 3: de controller voert de vrijgave uit en verdeelt de flow 50 / 50 over JustMoney en Sun.io V3."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Resources",
+              "title": "Een normale wallet kan de route dekken met huur of vooraf geladen energy",
+              "text": "De app kadert dit al als een actie die rekening houdt met resources. Het punt is geen verborgen serversleutel. Het punt is dat een publieke wallet de route nog steeds netjes kan afronden."
+            },
+            {
+              "eyebrow": "Regelset",
+              "title": "Gemak door scheduling gaat nooit boven de contractregelset",
+              "text": "Het missen van het botvenster herschrijft het ritme niet. Te vroeg op de knop drukken omzeilt de poort niet. Contracten accepteren of weigeren de route nog steeds."
+            }
+          ],
+          "note": "Dat is het juiste marktsignaal: publieke trigger, zichtbare reservevoorbereiding, deterministische vrijgaveregel."
+        },
+        "latestExecutions": {
+          "eyebrow": "Laatste uitvoeringen",
+          "title": "Bevestigde liquiditeitsuitvoeringen uit de live feed",
+          "body": "Deze lijst blijft bewust compact. Hij toont de nieuwste bevestigde uitvoeringsregels, zodat een gebruiker kan verifiëren dat de controller actief is zonder de pagina te veranderen in een luidruchtige kopie van een block explorer.",
+          "headers": {
+            "total": "Totaal vrijgegeven",
+            "split": "Verdeling",
+            "happened": "Gebeurd",
+            "day": "UTC-dag",
+            "source": "Bron"
+          },
+          "empty": "Er zijn nog geen bevestigde LiquidityExecuted-regels zichtbaar.",
+          "openTx": "Tx openen",
+          "note": "Elke regel komt uit bevestigde LiquidityExecuted(day, totalAmount, amountA, amountB)-events."
+        },
+        "reservePath": {
+          "eyebrow": "Reservepad",
+          "title": "Reservetokens zijn voorraad, geen vrije circulatie",
+          "intro": "Controller-side TRX is slechts de helft van de route. De tokenzijde heeft ook geïsoleerde voorraad nodig, en daarom bestaat FourteenVault voordat de twee uitvoeringspaden hun saldi ontvangen.",
+          "primaryCard": {
+            "eyebrow": "Reservelaag",
+            "title": "FourteenVault ondersteunt de publieke liquiditeitsroute voordat marktuitvoering begint.",
+            "text": "Deze 4TEEN-saldi moeten worden gelezen als werkvoorraad aan de reservezijde. Het zijn geen gewone walletsaldos en ze moeten niet worden gepresenteerd als vrij circulerend aanbod.",
+            "bullets": [
+              "Vaultvoorraad wordt aangevuld in het bootstrapperpad voordat de controller uitvoert.",
+              "JustMoney en Sun.io V3 ontvangen alleen voorbereide saldi wanneer de route geldig is.",
+              "Reservebewaring, controller-TRX en executorbestemmingen zijn afzonderlijke lagen van dezelfde engine."
+            ]
+          },
+          "secondaryCards": [
+            {
+              "key": "justmoney",
+              "title": "JustMoney-pad",
+              "body": "Executor A neemt de helft van de toegestane vrijgave en voert het AMM-side liquiditeitspad uit nadat zijn tokenvoorraad is voorbereid."
+            },
+            {
+              "key": "sun",
+              "title": "Sun.io V3-pad",
+              "body": "Executor B neemt de andere helft en routeert die via het geconcentreerde-liquiditeitspad met zijn eigen voorbereide tokenzijde."
+            }
+          ],
+          "note": "Daarom moet de pagina een route uitleggen, en niet slechts één ijdel totaal tonen. Reservevoorraad, controllersaldo en uitvoeringsbestemmingen hebben verschillende taken."
+        },
+        "verification": {
+          "eyebrow": "Verificatie",
+          "title": "Open de bewijslaag",
+          "body": "Ga rechtstreeks van het verhaal naar de rails eronder: het controllercontract, de bootstrapperroute, executorcontracten en de wallet-implementatie die zowel automatisering als handmatige trigger zichtbaar maakt.",
+          "labels": {
+            "controller": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "justMoney": "JustMoney executor",
+            "sunV3": "Sun.io V3 executor",
+            "contractsRepo": "Contracts repository",
+            "walletRepo": "Wallet repository"
+          }
+        },
+        "cta": {
+          "eyebrow": "Volgende stap",
+          "title": "Open de wallet wanneer je de route zelf wilt activeren",
+          "body": "De site is waar je de status verifieert. De mobiele wallet is waar een echte gebruiker resources kan inspecteren, de bootstrapper kan aanroepen en de route kan ondertekenen als de controllerpoort al openstaat.",
+          "openApp": "Open Liquidity in App",
+          "openBuy": "Open kooproute"
+        }
+      }
     }
   }
 }
