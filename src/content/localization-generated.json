@@ -9919,5 +9919,161 @@
       "linksEyebrow": "Sonraki Rotalar",
       "footerNote": "Mevcut rota, sahte bir akış değil; gelecekteki yayınlar için temiz bir kabuktur. Makaleler geldiğinde, kanıt ve ürün katmanlarıyla uyumlu kalmalıdır."
     }
+  },
+  "de": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "Kopieren",
+          "copied": "Kopiert",
+          "failed": "Fehlgeschlagen",
+          "close": "Schließen",
+          "qrCode": "QR-Code"
+        },
+        "taglines": [
+          "Früh einsteigen. Höher aussteigen.",
+          "Gewinner warten nicht.",
+          "Verwandle 14 Tage in Gewinn.",
+          "Früh handeln. Früh gewinnen."
+        ],
+        "header": {
+          "home": "Startseite",
+          "getApp": "App holen",
+          "primaryNavAria": "Primäre Website-Navigation"
+        },
+        "market": {
+          "loading": "Preis wird geladen",
+          "unavailable": "Preis nicht verfügbar",
+          "liveAria": "Live-Marktpreis"
+        },
+        "refresh": {
+          "idle": "Daten aktualisieren",
+          "busy": "Wird aktualisiert",
+          "aria": "Live-Daten-Snapshot aktualisieren"
+        },
+        "mobileSearch": {
+          "ariaLabel": "Routen, Contracts und Docs durchsuchen",
+          "placeholder": "Routen, Contracts, Docs suchen...",
+          "eyebrow": "Schnellsuche",
+          "title": "Seiten, Contracts und Nachweisbereiche",
+          "dialogAria": "Suchergebnisse",
+          "route": "Route",
+          "external": "Extern",
+          "empty": "Noch keine Schnelltreffer. Versuche es mit Route-, Contract- oder Proof-Begriffen."
+        },
+        "desktopSearch": {
+          "prompts": [
+            "Contracts, Routen, Docs suchen...",
+            "FourteenToken",
+            "Unlock-Zeitplan",
+            "Liquiditäts-Controller",
+            "Ambassador-Prämien",
+            "Whitepaper"
+          ],
+          "ariaLabel": "4TEEN-Routen und -Contracts durchsuchen",
+          "actionAria": "Suchergebnisse öffnen",
+          "eyebrow": "Schnellsuchergebnisse",
+          "title": "Schnelle Seiten, Contracts und Nachweisbereiche.",
+          "dialogAria": "Suchergebnisse",
+          "closeAria": "Suche schließen",
+          "resultsSuffix": "Ergebnisse",
+          "noResultsYet": "Noch keine Ergebnisse",
+          "pressEnter": "Drücke Enter, um den besten Treffer zu öffnen.",
+          "topMatch": "Bester Treffer",
+          "route": "Route",
+          "external": "Extern",
+          "empty": "Keine Ergebnisse. Versuche es mit `buy`, `unlock`, `airdrop`, `controller` oder `whitepaper`."
+        },
+        "locale": {
+          "eyebrow": "Sprache",
+          "title": "Sprache der Benutzeroberfläche wählen",
+          "active": "Aktiv",
+          "soon": "Bald"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "Kernbereiche",
+          "docsAndRoutes": "Docs und Routen",
+          "closeOpenPanelAria": "Geöffnetes Panel schließen"
+        },
+        "mobileDock": {
+          "menu": "Menü",
+          "close": "Schließen",
+          "openMenuAria": "Mobiles Menü öffnen",
+          "closeMenuAria": "Mobiles Menü schließen",
+          "openHomeAria": "Startseite öffnen",
+          "openSearchAria": "Mobile Suche öffnen",
+          "openLanguageAria": "Sprachpanel öffnen"
+        },
+        "footer": {
+          "protocol": "Protokoll",
+          "ecosystem": "Ökosystem",
+          "legal": "Rechtliches",
+          "privacy": "Datenschutz",
+          "terms": "Nutzungsbedingungen",
+          "support": "Support",
+          "investorDeck": "Investor Deck",
+          "onePager": "One-Pager",
+          "officialChannels": "Offizielle Kanäle",
+          "brandText": "Die Wallet-App trägt jetzt die Live-Systemoberfläche: Direktkauf, Unlock-Status, Controller-Wahrheit, Ambassador-Cabinet und ein Telegram-first Wachstumsflow.",
+          "getApp": "App holen",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. Strukturierter On-Chain-Einstieg auf TRON.",
+          "officialWebsite": "Offizielle Website: 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "Protokoll",
+          "growth": "Wachstum",
+          "proof": "Nachweis",
+          "ecosystem": "Ökosystem"
+        },
+        "links": {
+          "home": "Startseite",
+          "buy": "Kaufen",
+          "unlock": "Unlock",
+          "liquidity": "Liquidität",
+          "airdrop": "Airdrop",
+          "ambassadors": "Ambassadors",
+          "whitepaper": "Whitepaper",
+          "verification": "Verifizierung",
+          "blog": "Blog",
+          "swap": "Swap",
+          "mobileApp": "Mobile App"
+        },
+        "shortLinks": {
+          "buy": "Kaufen",
+          "unlock": "Unlock",
+          "liquidity": "Liquidität",
+          "airdrop": "Airdrop",
+          "earn": "Verdienen",
+          "swap": "Swap",
+          "app": "App",
+          "home": "Startseite"
+        },
+        "menuLinks": {
+          "buy": "Direktkauf",
+          "unlock": "Unlock-Zeitplan",
+          "liquidity": "Liquiditäts-Controller",
+          "swap": "Token swappen",
+          "privacy": "Datenschutzerklärung",
+          "terms": "Nutzungsbedingungen"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "Hauptroute",
+          "protocolSurface": "Protokollbereich",
+          "growthSurface": "Wachstumsbereich",
+          "proofSurface": "Nachweisbereich",
+          "downloadRoute": "Download-Route",
+          "publicPolicy": "Öffentliche Richtlinie",
+          "supportRoute": "Support-Route",
+          "coreContract": "Core-Contract",
+          "liquidityContract": "Liquiditäts-Contract",
+          "growthContract": "Wachstums-Contract",
+          "githubSource": "GitHub-Quelle"
+        }
+      }
+    }
   }
 }
