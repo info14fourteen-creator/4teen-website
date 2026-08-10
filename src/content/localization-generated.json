@@ -25495,6 +25495,157 @@
           "repoLabel": "Repositório do Wallet App"
         }
       }
+    },
+    "verification": {
+      "metadata": {
+        "title": "Verificação",
+        "description": "Rota de verificação da 4TEEN com endereços ativos, saldos de reserva, mapa de propriedade do protocolo e links diretos de prova para uma pesquisa mais aprofundada."
+      },
+      "hero": {
+        "eyebrow": "Superfície de Verificação",
+        "status": "Mapa de arquitetura público",
+        "title": "Esta é a camada de confiança: quem possui o quê, onde as reservas ficam, como o valor se move e quais endereços públicos dão suporte ao projeto neste momento.",
+        "lead": "Usuários e investidores sérios não param na landing page. Esta rota oferece uma forma rápida de inspecionar propriedade, custódia, saldos e caminhos de contratos sem colocá-los, no primeiro clique, diante de uma parede de abas brutas de exploradores.",
+        "stats": {
+          "totalSupply": "Oferta Total",
+          "totalSupplyMeta": "totalSupply atual do FourteenToken on-chain.",
+          "currentPrice": "Preço Direto",
+          "currentPriceMeta": "Preço de prévia atual para buyTokens(), expresso em TRX.",
+          "vaultCustody": "Custódia em Vault",
+          "vaultCustodyMeta": "4TEEN atualmente alocado em FourteenVault, TeamLockVault e AirdropVault.",
+          "controllerBalance": "Saldo do Controller",
+          "controllerBalanceMeta": "TRX atualmente dentro do FourteenController.",
+          "readFailed": "Falha na leitura de verificação ao vivo.",
+          "readRetry": "O mapa de arquitetura estático ainda é válido. Atualize em alguns instantes para ver os números atuais."
+        }
+      },
+      "sections": {
+        "orientation": {
+          "eyebrow": "Orientação",
+          "title": "Use esta página para responder rapidamente a duas perguntas",
+          "body": "Primeiro: qual contrato ou vault possui uma função específica do protocolo. Segundo: se o estado público ainda corresponde à narrativa que o projeto apresenta em todos os outros lugares. A página permanece somente leitura de propósito. Sua função é gerar confiança, não executar ações.",
+          "bullets": [
+            "FourteenToken é o contrato de compra, mint, bloqueio e entrada de divisão.",
+            "FourteenController é a camada de administração e atribuição, não o token em si.",
+            "LiquidityController e LiquidityBootstrapper possuem o trilho de liberação e execução.",
+            "Os saldos dos vaults existem on-chain, mas a custódia de reserva não é circulação livre."
+          ],
+          "openWhitepaper": "Abrir Whitepaper",
+          "openApp": "Abrir Mobile App"
+        },
+        "tokenMap": {
+          "eyebrow": "Mapa do Token",
+          "title": "Como o token principal está conectado agora",
+          "rows": {
+            "tokenOwner": "Proprietário do Token",
+            "liquidityRoute": "Rota de Liquidez",
+            "airdropRoute": "Rota de Airdrop",
+            "directPrice": "Preço Direto",
+            "growthRule": "Regra de Crescimento",
+            "lastPriceUpdate": "Última Atualização de Preço",
+            "snapshotUpdated": "Snapshot Atualizado"
+          },
+          "note": "O detalhe principal é a cadeia de propriedade. O FourteenToken não se encaixa em uma narrativa casual de carteira proprietária. O caminho do proprietário resolve para o FourteenController, por isso as duas superfícies pertencem juntas aqui."
+        },
+        "controllerState": {
+          "eyebrow": "Estado do Controller",
+          "title": "O que o controller informa sobre atribuição e fluxo de tesouraria",
+          "rows": {
+            "controllerOwner": "Proprietário do Controller",
+            "contractBalance": "Saldo do Contrato",
+            "ownerAvailable": "Disponível ao Proprietário",
+            "reservedRewards": "Recompensas Reservadas",
+            "unallocatedPurchaseFunds": "Fundos de Compra Não Alocados",
+            "ambassadors": "Total de Embaixadores",
+            "activeAmbassadors": "Embaixadores Ativos",
+            "boundBuyers": "Compradores Vinculados",
+            "trackedVolume": "Volume Rastreado",
+            "rewardsClaimed": "Recompensas Reivindicadas"
+          },
+          "note": "É por isso que a narrativa do controller importa. Ele mantém compartimentos públicos separados para fundos disponíveis ao proprietário, recompensas reservadas, volume rastreado e contagens de atribuição de compradores, em vez de achatar tudo em uma única métrica de vaidade."
+        },
+        "liquidityState": {
+          "eyebrow": "Trilho de Liquidez",
+          "title": "O lado de execução é um sistema público separado",
+          "rows": {
+            "controllerBalance": "Saldo do Liquidity Controller",
+            "controllerOwner": "Proprietário do Liquidity Controller",
+            "minBalance": "Saldo Mínimo de Acionamento",
+            "dailyRelease": "Regra de Liberação Diária",
+            "justMoneyExecutor": "Executor JustMoney",
+            "sunExecutor": "Executor Sun.io V3"
+          },
+          "note": "A automação pode ativar a rota, mas o limite de liberação e a porcentagem ainda vivem nos contratos. A conveniência fica fora das regras, não acima delas."
+        },
+        "architecture": {
+          "eyebrow": "Arquitetura",
+          "title": "O protocolo é separado em funções explícitas em vez de um único contrato gigante",
+          "cards": [
+            {
+              "eyebrow": "Núcleo",
+              "title": "FourteenToken",
+              "text": "Recebe TRX de compras diretas, faz mint de 4TEEN, cria bloqueios de 14 dias por compra e divide atomicamente o valor da compra em 90 / 7 / 3."
+            },
+            {
+              "eyebrow": "Administração",
+              "title": "FourteenController",
+              "text": "Possui a camada do token, mantém o estado de atribuição e contabilidade de recompensas, expõe resumos públicos do sistema e controla o tratamento de saldos do lado do proprietário."
+            },
+            {
+              "eyebrow": "Execução",
+              "title": "Liquidity Stack",
+              "text": "FourteenLiquidityController mantém o trilho de TRX do lado comprador, enquanto LiquidityBootstrapper prepara o inventário de tokens e aciona caminhos de liquidez do lado dos executores."
+            },
+            {
+              "eyebrow": "Custódia",
+              "title": "Separação de Vaults",
+              "text": "FourteenVault, TeamLockVault e AirdropVault isolam saldos de reserva por finalidade, para que tesouraria, equipe e oferta de crescimento não sejam achatadas em um único pool genérico."
+            }
+          ],
+          "note": "Essa separação é uma das forças mais fáceis de verificar publicamente. Links de explorador, código do repositório e saldos ao vivo apontam todos de volta para a mesma arquitetura modular."
+        },
+        "reserveLayer": {
+          "eyebrow": "Camada de Reserva",
+          "title": "Saldos ativos de 4TEEN em endereços de vault e execução",
+          "body": "Esses saldos mostram onde o inventário de tokens realmente está. A custódia em vault não é circulação livre, e o inventário do executor não é saldo de carteira de usuário. Mantê-los juntos torna o sistema legível em um relance.",
+          "note": "Os saldos dos executores podem se mover conforme o bootstrap e o fluxo de liquidez deslocam o inventário. Os saldos dos vaults são a camada de prova mais estável para a custódia de reservas.",
+          "labels": {
+            "balance": "Saldo",
+            "verify": "Verificar no TronScan"
+          }
+        },
+        "verification": {
+          "eyebrow": "Links de Prova",
+          "title": "Abra diretamente a camada de prova",
+          "body": "Cada grupo abaixo leva o usuário diretamente da narrativa para a camada de prova: contratos, vaults, trilhos de execução e os repositórios por trás do produto.",
+          "groups": {
+            "core": "Contratos principais",
+            "vaults": "Contratos de vault",
+            "execution": "Contratos de execução",
+            "source": "Repositórios-fonte"
+          },
+          "labels": {
+            "token": "FourteenToken",
+            "controller": "FourteenController",
+            "liquidityController": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "fourteenVault": "FourteenVault",
+            "teamLockVault": "TeamLockVault",
+            "airdropVault": "AirdropVault",
+            "justMoneyExecutor": "LiquidityExecutorJustMoney",
+            "sunV3Executor": "LiquidityExecutorSunV3",
+            "contractsRepo": "Repositório de contratos",
+            "walletRepo": "Repositório da wallet"
+          }
+        },
+        "cta": {
+          "eyebrow": "Próximo Passo",
+          "title": "Construa convicção aqui, depois avance no app",
+          "body": "Use a rota pública para inspecionar o sistema. Use a wallet quando quiser assinar, comprar, desbloquear, fazer swap, reivindicar airdrop ou realizar ação manual de liquidez com estado real da conta por trás.",
+          "openApp": "Abrir Mobile App",
+          "openBuy": "Abrir Rota de Compra"
+        }
+      }
     }
   }
 }
