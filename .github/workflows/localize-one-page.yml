@@ -185,11 +185,23 @@ jobs:
       - name: Publish validated unit
         if: inputs.publish
         shell: bash
+        env:
+          TARGET_LOCALE: ${{ inputs.locale }}
+          TARGET_PAGE: ${{ inputs.page }}
         run: |
           set -euo pipefail
           target="src/content/localization-generated.json"
           git config user.name "4TEEN Localization Bot"
           git config user.email "localization-bot@4teen.me"
+          # A scheduled queue run and a manual fallback can select the same unit
+          # before either writes. Check main again after validation so the second
+          # run becomes a clean no-op rather than a non-fast-forward failure.
+          git fetch origin main
+          if git show "origin/main:${target}" > /tmp/localization-remote.json 2>/dev/null && \
+            node -e 'const fs=require("node:fs"); const content=JSON.parse(fs.readFileSync("/tmp/localization-remote.json", "utf8")); process.exit(content?.[process.env.TARGET_LOCALE]?.[process.env.TARGET_PAGE] ? 0 : 1)'; then
+            echo "Localization unit is already published on main."
+            exit 0
+          fi
           git add "${target}"
           if git diff --cached --quiet; then
             echo "No new localization content to publish."
