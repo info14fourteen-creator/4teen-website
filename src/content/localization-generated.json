@@ -11524,6 +11524,167 @@
           "openBuy": "Kauf-Route öffnen"
         }
       }
+    },
+    "swap": {
+      "metadata": {
+        "title": "Swap",
+        "description": "4TEEN-Swap-Route mit breiter Wallet-Token-Abdeckung, gerankten Routen, Schutz des Mindestempfangs, Genehmigungsprüfung und öffentlichen Live-Routenbeispielen."
+      },
+      "hero": {
+        "eyebrow": "Swap-Route",
+        "badge": "Wallet-first-Swap-Route",
+        "title": "4TEEN in ein breiteres TRON-Token-Universum swappen",
+        "subtitle": "Die Website zeigt nur Ankerbeispiele. Die Wallet durchsucht bereits ein deutlich größeres Token-Universum, bewertet Routen und führt den Nutzer durch Genehmigung, Prüfung und Swap.",
+        "body": [
+          "Diese Seite sollte nicht so wirken, als könne 4TEEN nur in ein oder zwei eigene Tokens geswappt werden. In der Wallet wird die Zielauswahl aus versendbaren Assets, dem Katalog benutzerdefinierter Tokens und der TronScan-Tokenliste gezogen und anschließend danach gefiltert, ob tatsächlich Routing existiert.",
+          "Das bedeutet: Die Route ist breiter als die öffentliche Vorschau auf der Website. Wenn Liquidität vorhanden ist und der Router eine Quote liefern kann, kann die Wallet sie anzeigen, einordnen und den Nutzer in einen echten Bestätigungsschritt führen."
+        ],
+        "rotatingLines": [
+          "BREITES TOKEN-UNIVERSUM. GERANKTE ROUTEN.",
+          "VORSCHAU AUF DER WEBSITE. AUSFÜHRUNG IN DER WALLET.",
+          "MIN OUT. GENEHMIGEN. SWAPPEN."
+        ],
+        "primaryCta": "Wallet-Route öffnen",
+        "secondaryCta": "Zu Live-Routenbeispielen springen",
+        "ctaNote": "Die Website ist die Nachweisebene. In der Wallet finden Token-Wechsel, Routenranking, Schutz des Mindestempfangs, Allowance-Prüfungen und die finale Signatur tatsächlich statt.",
+        "stats": {
+          "sampleAmount": {
+            "label": "Beispiel-Quote-Größe",
+            "meta": "Öffentliche Routenbeispiele werden mit demselben 4TEEN-Betrag aktualisiert."
+          },
+          "supportedTargets": {
+            "label": "Öffentliche Beispielrouten",
+            "meta": "Die Website hält nur einen sehr kleinen Ankersatz öffentlich. Die Wallet kann deutlich mehr Ziele durchsuchen, wenn Routen existieren."
+          },
+          "protectedRemainder": {
+            "label": "Geschützter Restbetrag",
+            "meta": "Die Wallet behält einen minimalen 4TEEN-Restbetrag, statt den Saldo auf null zu setzen."
+          },
+          "routerState": {
+            "label": "Router-Status",
+            "meta": "Schnelles Signal dafür, ob das öffentliche Routen-Sampling aktuell vollständig antwortet."
+          },
+          "readFailed": "Live-Auslesen des Swap-Routings fehlgeschlagen.",
+          "readRetry": "Versuche es in einem Moment erneut zu aktualisieren.",
+          "states": {
+            "live": "Live",
+            "partial": "Teilweise",
+            "offline": "Offline"
+          }
+        }
+      },
+      "sections": {
+        "tokenUniverse": {
+          "eyebrow": "Token-Universum",
+          "title": "Die Wallet ist nicht auf zwei Werbeziele beschränkt.",
+          "intro": "Die öffentliche Website hält die Darstellung bewusst klein. Die Wallet macht das Gegenteil: Sie führt versendbare Wallet-Assets, Einträge aus dem Katalog benutzerdefinierter Tokens und die TronScan-Tokenliste zusammen und lässt dann das Routing bestimmen, was tatsächlich swappbar ist.",
+          "mainCard": {
+            "eyebrow": "Breiter Zielzugang",
+            "title": "Wenn der Router eine Quote liefern kann, kann die Wallet sie in der Regel anzeigen.",
+            "text": "Das ist die wichtige Unterscheidung. Die Website-Vorschau ist absichtlich eng gefasst. Die Wallet ist der Ort, an dem Zielwechsel real werden, weil sie ein breiteres Token-Universum abrufen und direkt gegen die Routing-Ebene testen kann.",
+            "bullets": [
+              "Versendbare Wallet-Guthaben können zu Quell-Assets werden.",
+              "Benutzerdefinierte Katalogeinträge und die TronScan-Tokenliste erweitern die Zielauswahl weit über TRX und USDT hinaus.",
+              "Routen werden weiterhin danach gefiltert, ob echte Quotierung existiert, damit die Oberfläche ehrlich bleibt, statt so zu tun, als sei jeder Token liquide."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Zielwechsel",
+              "title": "Der Nutzer kann in der Wallet sowohl Quell- als auch Empfangs-Asset ändern",
+              "text": "Der mobile Ablauf ist nicht auf ein einzelnes Paar festgelegt. Er unterstützt Asset-Wechsel, bevor Quotes angefragt werden. Deshalb sollte die Swap-Route als breiteres Marktwerkzeug verstanden werden."
+            },
+            {
+              "eyebrow": "Routenranking",
+              "title": "Routen werden nach Output sortiert, nicht nach einer fest codierten Präferenz",
+              "text": "Verfügbare Routen werden von besserem zu schlechterem Output gerankt, wobei ausführbare Routen zuerst priorisiert werden. Der Nutzer sieht, was tatsächlich gewinnt, statt nur einen undurchsichtigen Pfad zu bekommen."
+            }
+          ],
+          "note": "Die richtige Produktbotschaft lautet also nicht „in TRX oder USDT swappen“. Die richtige Botschaft lautet: „Die Wallet kann ein deutlich größeres Zieluniversum durchsuchen, wenn Routing verfügbar ist.“"
+        },
+        "liveRoutes": {
+          "eyebrow": "Live-Routenbeispiele",
+          "title": "Ein kleines öffentliches Fenster in die Routing-Engine",
+          "body": "Diese Karten bleiben bewusst eng gefasst. Sie zeigen nur ein paar Ankerbeispiele, damit die Website belegen kann, dass die Engine aktiv ist, ohne vorzugeben, das gesamte Swap-Produkt abzubilden.",
+          "labels": {
+            "route": "Route",
+            "execution": "Ausführung",
+            "impact": "Auswirkung",
+            "targets": "Ziele",
+            "updated": "Aktualisiert",
+            "state": "Status"
+          },
+          "transfers": {
+            "eyebrow": "Neueste Router-Transfers",
+            "title": "Kürzlich bestätigte 4TEEN-Bewegungen mit Bezug zum öffentlichen Router",
+            "empty": "Derzeit sind keine aktuellen 4TEEN-Router-Transfers zwischengespeichert.",
+            "note": "Diese Liste wird über die Backend-Snapshot-Ebene geladen, in unserer Datenbank zwischengespeichert und stale-safe ausgeliefert, wenn der vorgelagerte Explorer unruhig ist.",
+            "labels": {
+              "direction": "Richtung",
+              "counterparty": "Gegenpartei",
+              "amount": "Betrag",
+              "updated": "Aktualisiert",
+              "tx": "Tx"
+            },
+            "states": {
+              "routerIn": "Router hat empfangen",
+              "routerOut": "Router hat gesendet",
+              "related": "Router-bezogen"
+            }
+          },
+          "states": {
+            "executable": "Ausführbare Route",
+            "reviewOnly": "Nur zur Prüfung"
+          },
+          "empty": "Derzeit ist kein öffentliches Routenbeispiel verfügbar.",
+          "note": "Innerhalb der Wallet erfolgen Zielwechsel und Routenranking über ein deutlich größeres Token-Universum hinweg. Die Website hält nur ein kompaktes öffentliches Beispiel sichtbar."
+        },
+        "reviewLayer": {
+          "eyebrow": "Prüfebene",
+          "title": "Die Wallet springt nicht direkt in den Swap. Sie baut zuerst eine kontrollierte Prüfung auf.",
+          "intro": "Der wichtigste Teil der Route ist nicht der Marketing-Screenshot. Es ist die kontrollierte Übergabe zwischen Quote-Vorschau und finaler Ausführung: geschütztes Minimum, Genehmigungsstatus, Bild der Netzwerkressourcen und der finale Signaturschritt.",
+          "mainCard": {
+            "eyebrow": "Genehmigen und swappen",
+            "title": "Minimum Out, Genehmigung und Ressourcenprüfung sind alle Teil der Route, bevor etwas gesendet wird.",
+            "text": "Eine Route kann sichtbar sein und dennoch noch nicht ausführbar sein. Das ist gesundes Verhalten. Die Wallet wartet, bis Genehmigungsstatus, Routengültigkeit und Ressourcenbereitschaft zusammenpassen, bevor sie die finale Aktion anbietet.",
+            "bullets": [
+              "Slippage schützt den Mindestbetrag, der empfangen wird, bevor der Swap die Wallet verlässt.",
+              "Die Genehmigung wird zuerst geprüft, wenn die Allowance fehlt.",
+              "Energie- und Bandbreitenkosten werden vor dem finalen Bestätigungsschritt angezeigt."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Ressourcenmiete",
+              "title": "Die Route kann den Nutzer zuerst in die Ressourcenmiete führen, wenn das günstiger ist",
+              "text": "Die Wallet stellt Logik zum Sparen von Ressourcen bereits als Teil des Ablaufs dar. So bleibt die Ausführung praktikabel, statt Nutzer Brennkosten erst nach der Signatur entdecken zu lassen."
+            },
+            {
+              "eyebrow": "Geschützter Dust",
+              "title": "Ein winziger 4TEEN-Restbetrag bleibt absichtlich zurück",
+              "text": "Der geschützte Restbetrag vermeidet fragile Edge Cases mit Nullsaldo und macht die spätere Routenverarbeitung ruhiger. Es ist eine kleine Regel, aber eine gute Wallet-Regel."
+            }
+          ],
+          "note": "Genau das lässt das Produkt seriös wirken: vorne breite Token-Entdeckung, hinten kontrollierte Ausführungsdisziplin."
+        },
+        "verification": {
+          "eyebrow": "Verifizierung",
+          "title": "Woher diese Routenbeschreibung stammt",
+          "body": "Diese Seite folgt der realen Wallet-Implementierung: Zielwechsel, Laden eines breiteren Token-Katalogs, Quote-Ranking, Schutz des Mindestempfangs, Genehmigungsprüfungen und finale Ausführung über die Router-Ebene hinter der App.",
+          "labels": {
+            "router": "Smart Router",
+            "token": "4TEEN-Token",
+            "walletRepo": "Wallet-Repository"
+          }
+        },
+        "cta": {
+          "eyebrow": "Die echte Route öffnen",
+          "title": "Öffne die Wallet, wenn du die vollständige Routenkarte möchtest",
+          "body": "Die Website soll die Swap-Chance verständlich machen. Die mobile Wallet ist der Ort, an dem das breitere Token-Universum, gerankte Routen, Genehmigungsprüfung, geschütztes Minimum und finale Signatur zusammenkommen.",
+          "openApp": "Mobile App öffnen",
+          "openBuy": "Buy-Route öffnen"
+        }
+      }
     }
   }
 }
