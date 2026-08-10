@@ -9708,6 +9708,148 @@
       ],
       "linksEyebrow": "Herkese Açık Çıkışlar",
       "footerNote": "Bu hükümleri sözleşme adresleri, explorer durumu ve cüzdan onay ekranıyla birlikte okuyun. Kuruluş kimliği: \"AG PLUS\" LLC, D-U-N-S 933906683."
+    },
+    "support": {
+      "metadata": {
+        "title": "Destek",
+        "description": "Resmî 4TEEN destek kapsamı, iletişim kanalları, yanıt beklentileri ve ekibin hangi konularda yardımcı olup olamayacağı."
+      },
+      "hero": {
+        "eyebrow": "Destek",
+        "status": "Resmî kanallar",
+        "title": "Destek; doğru kanala ulaşmanıza, herkese açık sistemi anlamanıza ve ne olduğunu doğrulamanıza yardımcı olmalıdır; ancak kimsenin sizin için blockchain gerçekliğini geri çevirebileceğini iddia etmemelidir.",
+        "lead": "Web sitesi, cüzdan, sürüm veya herkese açık protokol soruları için resmî 4TEEN kanallarını kullanın. İşlemle ilgili her konuda; cüzdan adresi, işlem hash’i, ekran görüntüleri, rota adı, cihaz türü ve ilgiliyse uygulama derlemesi gibi somut bilgileri paylaşmaya hazır olun."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "En uygun kullanım",
+          "title": "Yönlendirme ve doğrulama yardımı",
+          "body": "Destek; doğru resmî sayfayı, cüzdan arayüzünü, sözleşme bağlantısını veya herkese açık durum rotasını bulmanıza ve bu arayüzlerin ne gösterdiğini anlamanıza yardımcı olabilir."
+        },
+        {
+          "eyebrow": "Hazırlayın",
+          "title": "Faydalı kanıtlar",
+          "body": "En hızlı yol olgusal bilgidir: cüzdan adresi, tx hash, sayfa URL’si, ekran görüntüsü, zaman damgası ve ne beklediğiniz ile ne olduğuna dair kısa açıklama."
+        },
+        {
+          "eyebrow": "Asla göndermeyin",
+          "title": "Kurtarma sırları paylaşılmaz",
+          "body": "Seed phrase, ham private key veya cihaz şifrelerini hiçbir destek kanalına göndermeyin. Resmî desteğin bunlara asla ihtiyacı olmamalıdır."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Resmî işletici",
+          "title": "Destek, yasal 4TEEN işletici tarafından yayımlanır",
+          "body": "\"AG PLUS\" Limited Liability Company, resmî 4TEEN web sitesini ve destek rotalarını işletir. Doğrudan destek için support@4teen.me veya +998 95 792 02 87 kullanın ve destek bağlantılarını https://4teen.me üzerinden doğrulayın.",
+          "bullets": [
+            "D-U-N-S Numarası: 933906683",
+            "Kayıt numarası: 3080788",
+            "Yasal adres: Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B"
+          ]
+        },
+        {
+          "eyebrow": "2. Destek kapsamı",
+          "title": "Desteğin kapsaması amaçlanan konular",
+          "body": "Destek; rota yönlendirmesi, olgusal sorun giderme, resmî bağlantı doğrulama, herkese açık protokol bilgisi, cüzdan arayüzü açıklaması, sürüm sayfası yardımı ve sorununuzla ilgili sözleşme veya ürün katmanını belirleme içindir."
+        },
+        {
+          "eyebrow": "3. Desteğin sınırları",
+          "title": "Desteğin vaat edemeyeceği şeyler",
+          "body": "Destek; onaylanmış blockchain işlemlerini geri alamaz, kaybolmuş bir seed phrase’i kurtaramaz, token fiyat sonucunu garanti edemez, gelecekteki ödülleri garanti edemez veya sonuç istediğiniz gibi olmadığı için herkese açık sözleşme kurallarını manuel olarak geçersiz kılamaz."
+        },
+        {
+          "eyebrow": "4. Yanıt kalitesi",
+          "title": "Daha hızlı yanıt nasıl alınır",
+          "bullets": [
+            "Sorunun göründüğü tam rota veya sayfayı ekleyin",
+            "Konu on-chain ise cüzdan adresini ve tx hash’i ekleyin",
+            "Uygulamayla ilgiliyse cihaz, OS ve uygulama derlemesi ayrıntılarını ekleyin",
+            "Görsel bir sorunsa ekran görüntüsü veya kısa ekran kaydı ekleyin"
+          ],
+          "note": "Rapor yalnızca duygusal değil, olgusal ve yeniden üretilebilir olduğunda destek kalitesi artar. Bu, ekibin gerçekte ne olduğunu doğrulamasına yardımcı olur."
+        }
+      ],
+      "channels": [
+        {
+          "label": "Telegram",
+          "href": "https://t.me/fourteentoken",
+          "note": "Duyurular ve temel yönlendirme için en hızlı herkese açık topluluk rotası."
+        },
+        {
+          "label": "Discord",
+          "href": "https://discord.gg/jWZF6KzPCB",
+          "note": "Yapılandırılmış tartışma, sorun giderme bağlamı ve takip mesajları için kullanışlıdır."
+        },
+        {
+          "label": "X",
+          "href": "https://x.com/4teen_me",
+          "note": "Herkese açık sürüm görünürlüğü için en iyisidir, ancak hassas sorun ayrıntıları için ideal değildir."
+        },
+        {
+          "label": "WhatsApp",
+          "href": "https://wa.me/998957920287",
+          "note": "Doğrudan destek devri gerekiyorsa ve resmî numara bölgeniz için uygunsa kullanışlıdır."
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+          "note": "Sorun açıkça teknik olduğunda kod, sürüm ve depo düzeyindeki konular için kullanışlıdır."
+        }
+      ],
+      "channelPanel": {
+        "eyebrow": "Resmî kanallar",
+        "title": "Desteğe güvenmeden önce resmî çıkışları kullanın.",
+        "routeLabel": "Resmî rota"
+      },
+      "scopePanel": {
+        "eyebrow": "Destek kapsamı",
+        "title": "Destek açıklamalı, doğrulamalı ve yönlendirmelidir. Sahip olmadığı yetkileri varmış gibi göstermemelidir.",
+        "canHelp": "Yardımcı olabilir",
+        "cannotHelp": "Yardımcı olamaz"
+      },
+      "supportScope": {
+        "canHelp": [
+          "Resmî rota doğrulama ve herkese açık sayfa yönlendirmesi",
+          "Uygulama indirme, sürüm sayfası ve web sitesi sorun giderme",
+          "Sözleşme, explorer veya herkese açık durum sayfası yönlendirmesi",
+          "Airdrop, ambassador veya cüzdan rotası sorunları için temel olgusal ön inceleme"
+        ],
+        "cannotHelp": [
+          "Kaybolan seed phrase’leri, private key’leri veya cihaz şifrelerini kurtarmak",
+          "Onaylanmış on-chain işlemleri geri almak",
+          "Fiyat sonucunu, token performansını veya ödül uygunluğunu garanti etmek",
+          "Saklayıcı olarak hareket etmek veya kullanıcı fonlarının kontrolünü almak"
+        ]
+      },
+      "contactPanel": {
+        "eyebrow": "İletişim",
+        "title": "Yalnızca resmî 4TEEN çıkışlarını kullanın",
+        "body": "Bir destek rotası resmî siteden, cüzdandan veya resmî sosyal listesinden bağlantılanmıyorsa, güvenmeden önce doğrulayın. Resmî yasal işletici \"AG PLUS\" LLC’dir ve yayımlanan D-U-N-S Numarası 933906683’tür.",
+        "emailTitle": "Destek e-postası",
+        "emailMissing": "Mevcut depolarda özel bir herkese açık destek e-posta kutusu yayımlanmamıştır. Biri yayımlanana kadar aşağıdaki resmî kanalları kullanın ve kurtarma için gizli materyalleri orada asla paylaşmayın.",
+        "phoneTitle": "Telefon ve WhatsApp",
+        "legalTitle": "Yasal işletici",
+        "legalBody": "\"AG PLUS\" Limited Liability Company · D-U-N-S® 933906683",
+        "securityTitle": "Güvenlik hatırlatması",
+        "securityBody": "Hiçbir destek kanalı seed phrase’inizi, ham private key’inizi veya cihazınızın tam kilit açma sırlarını istememelidir. Böyle bir şey olursa bunu güvensiz kabul edin."
+      },
+      "links": [
+        {
+          "label": "Mobil uygulama sayfasını aç",
+          "href": "/app"
+        },
+        {
+          "label": "Gizlilik sayfasını aç",
+          "href": "/privacy"
+        },
+        {
+          "label": "Şartları aç",
+          "href": "/terms"
+        }
+      ],
+      "linksEyebrow": "Herkese Açık Çıkışlar",
+      "footerNote": "Sürüm bağlantıları, sözleşme referansları veya herkese açık durum sayfaları için https://4teen.me adresinden başlayın. Resmî telefon ve WhatsApp desteği: +998 95 792 02 87."
     }
   }
 }
