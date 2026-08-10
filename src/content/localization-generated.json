@@ -9850,6 +9850,74 @@
       ],
       "linksEyebrow": "Herkese Açık Çıkışlar",
       "footerNote": "Sürüm bağlantıları, sözleşme referansları veya herkese açık durum sayfaları için https://4teen.me adresinden başlayın. Resmî telefon ve WhatsApp desteği: +998 95 792 02 87."
+    },
+    "blog": {
+      "metadata": {
+        "title": "Blog",
+        "description": "Lansmanlar, protokol okumaları, ekosistem güncellemeleri ve yatırımcı odaklı ürün anlatıları için 4TEEN yayın katmanı."
+      },
+      "hero": {
+        "eyebrow": "Blog",
+        "status": "Yayın katmanı",
+        "title": "Blog, 4TEEN’in ürünü banner’lara ve sloganlara indirgemeden piyasa diliyle konuşabileceği yerdir.",
+        "lead": "Whitepaper, uzun formatlı yapısal belgedir. Verification, kanıt katmanıdır. Blog ise lansmanların, rota güncellemelerinin, ekosistem bağlamının ve yatırımcı odaklı anlatıların daha hafif bir formatta yer alması gereken; daha sonra birden fazla dile genişleyebilecek alandır."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Rol",
+          "title": "Anlatı katmanı",
+          "body": "Blog’u, ürün rotalarının içinde yer almaması gereken lansmanlar, güncellemeler, açıklayıcı içerikler ve ivme oluşturan yazılar için kullanın."
+        },
+        {
+          "eyebrow": "Kitle",
+          "title": "Yeni kullanıcılar ve yatırımcılar",
+          "body": "Bu rota; uygulamayı, satın alma rotasını veya whitepaper’ı açmadan önce daha hızlı bir okuma yapmak isteyen kişiler için sürtünmeyi azaltmalıdır."
+        },
+        {
+          "eyebrow": "Format",
+          "title": "Çeviriye hazır",
+          "body": "Gönderiler, tüm kabuğu yeniden yazmadan veya rota modelini değiştirmeden çok dilli yayına dönüşebilecek şekilde büyüyebilmelidir."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Buraya ne aittir",
+          "title": "Yalan söylemeden ilgi oluşturan yayıncılık",
+          "body": "Blog; lansman notları, ürün kilometre taşları, rota açıklamaları, ekosistem ortaklıkları, piyasaya dönük hikâyeler ve uygulamada ya da on-chain stack’te nelerin değiştiğine dair okunabilir dökümler için doğru yüzeydir."
+        },
+        {
+          "eyebrow": "2. Buraya ne ait değildir",
+          "title": "Kanıtın yerine geçmez",
+          "body": "Blog; kontrat bağlantılarının, verification sayfalarının veya whitepaper bölümlerinin yerini almamalıdır. Bir iddianın kanıta ihtiyacı varsa, gönderi anlatının yeterliymiş gibi davranmak yerine kanıt katmanına yönlendirmelidir.",
+          "bullets": [
+            "Whitepaper, uzun formatlı yapısal okuma rotası olarak kalır",
+            "Verification, kanıt rotası olarak kalır",
+            "Blog, yayın ve ivme rotası olarak kalır"
+          ]
+        },
+        {
+          "eyebrow": "3. Bu rota neden önemlidir",
+          "title": "Sitenin esnek bir büyüme yüzeyine ihtiyacı var",
+          "body": "Home her hikâyeyi taşıyamaz ve whitepaper kampanya yazımını üstlenmemelidir. Blog, ana rotaları şişirmeden insanları çekmek, eğitmek ve güncellemek için web sitesine daha temiz bir yol sağlar.",
+          "note": "Burası ayrıca gelecekteki çok dilli yayın akışını makale makale büyütmek için en kolay yerdir."
+        }
+      ],
+      "links": [
+        {
+          "label": "Uygulamayı aç",
+          "href": "/app"
+        },
+        {
+          "label": "Satın almayı aç",
+          "href": "/buy"
+        },
+        {
+          "label": "Whitepaper’ı oku",
+          "href": "/whitepaper"
+        }
+      ],
+      "linksEyebrow": "Sonraki Rotalar",
+      "footerNote": "Mevcut rota, sahte bir akış değil; gelecekteki yayınlar için temiz bir kabuktur. Makaleler geldiğinde, kanıt ve ürün katmanlarıyla uyumlu kalmalıdır."
     }
   }
 }
