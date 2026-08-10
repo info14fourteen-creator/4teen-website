@@ -16212,6 +16212,116 @@
       ],
       "linksEyebrow": "Sorties publiques",
       "footerNote": "Les questions de confidentialité peuvent être adressées à support@4teen.me. Support officiel par téléphone et WhatsApp : +998 95 792 02 87."
+    },
+    "terms": {
+      "metadata": {
+        "title": "Conditions",
+        "description": "Conditions de base pour utiliser le site web 4TEEN, les routes de portefeuille, les pages publiques du protocole et les surfaces de l’écosystème on-chain."
+      },
+      "hero": {
+        "eyebrow": "Conditions",
+        "status": "Conditions publiques",
+        "title": "4TEEN est une couche d’interface autour de systèmes blockchain publics, de l’exécution via portefeuille et de contrats on-chain, et non une promesse de résultat.",
+        "lead": "Ces conditions doivent être lues de manière pratique : le code, l’approbation du portefeuille, l’état du réseau et les règles des smart contracts définissent ce qui se produit réellement. Le site et l’application peuvent vous aider à atteindre ces surfaces, mais ils ne suppriment pas le risque on-chain ni le risque de marché."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Opérateur",
+          "title": "\"AG PLUS\" LLC",
+          "body": "La société à responsabilité limitée \"AG PLUS\" est l’opérateur légal du site web officiel 4TEEN et des canaux d’assistance publiés. Numéro D-U-N-S : 933906683."
+        },
+        {
+          "eyebrow": "Nature",
+          "title": "Interface, pas conservation",
+          "body": "Le site web et le portefeuille vous aident à consulter, préparer et signer des actions blockchain. Ils ne deviennent pas propriétaires de vos actifs simplement parce qu’ils affichent une route."
+        },
+        {
+          "eyebrow": "Risque",
+          "title": "Aucune garantie de marché",
+          "body": "Le prix du token, la liquidité, le calendrier de libération, les résultats de récompenses et les résultats de campagnes peuvent changer. Rien sur le site ne doit être interprété comme un rendement garanti ou une allocation garantie."
+        },
+        {
+          "eyebrow": "Responsabilité",
+          "title": "Vous approuvez l’action",
+          "body": "Si vous signez une transaction, collez une adresse ou interagissez avec un contrat, vous restez responsable de vérifier la route, l’actif, le montant et la destination."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Opérateur légal",
+          "title": "Le site web officiel 4TEEN est exploité par AG PLUS LLC",
+          "body": "La société à responsabilité limitée \"AG PLUS\", une société à responsabilité limitée enregistrée en République d’Ouzbékistan, exploite https://4teen.me et les surfaces publiques officielles du projet 4TEEN.",
+          "bullets": [
+            "Numéro d’identification fiscale : 312 696 228",
+            "Numéro d’enregistrement d’État : 3080788, enregistré le 06 janvier 2026",
+            "Numéro D-U-N-S : 933906683",
+            "Adresse légale : République d’Ouzbékistan, ville de Tachkent, district de Yunusabad, Katta Xasanboy MFY, rue Xasanboy, 8e ruelle, maison 3-B"
+          ],
+          "note": "Contact officiel légal et d’assistance : support@4teen.me ; téléphone et WhatsApp : +998 95 792 02 87."
+        },
+        {
+          "eyebrow": "2. Nature du produit",
+          "title": "Le site et l’application sont des couches d’accès",
+          "body": "Les surfaces 4TEEN incluent des pages d’information, des tableaux de bord publics du protocole, des routes de portefeuille mobile, des flux d’achat direct, des contrôles de liquidité, des vues d’airdrop et des routes d’ambassadeur. Ces surfaces vous aident à accéder à des actions blockchain, mais elles restent des interfaces superposées à des réseaux publics et à des contrats déployés."
+        },
+        {
+          "eyebrow": "3. Réalité non dépositaire et on-chain",
+          "title": "Le protocole est défini par les contrats et les signatures des utilisateurs",
+          "body": "Si un comportement est appliqué par le code du contrat, l’approbation du portefeuille ou des vérifications de ressources visibles, il est réel. Si quelque chose est seulement suggéré par le texte et n’est pas soutenu par une logique d’exécution, ne le considérez pas comme une garantie.",
+          "bullets": [
+            "Les transactions sont irréversibles une fois confirmées on-chain",
+            "La congestion du réseau, les frais, l’énergie et la bande passante peuvent affecter l’exécution",
+            "Le comportement des contrats dépend du code déployé et de l’état actuel"
+          ]
+        },
+        {
+          "eyebrow": "4. Aucune promesse d’investissement",
+          "title": "Rien ici ne constitue un conseil financier",
+          "body": "4TEEN ne promet pas de profit, d’appréciation du token, de valeur d’airdrop garantie, de revenu d’ambassadeur garanti ni de résultats de liquidité garantis. Le comportement du marché est externe, et toute participation reste aux propres risques de l’utilisateur."
+        },
+        {
+          "eyebrow": "5. Logique des récompenses et des campagnes",
+          "title": "L’éligibilité n’est pas un slogan marketing",
+          "body": "Les flux d’airdrop, d’ambassadeur et de récompense peuvent dépendre de règles de contrat, de conditions de campagne, de contrôles anti-abus, d’une logique de vérification, de la disponibilité des ressources ou de files de traitement backend. La participation seule ne garantit pas le versement."
+        },
+        {
+          "eyebrow": "6. Liens externes et tiers",
+          "title": "Toutes les surfaces liées ne sont pas contrôlées par 4TEEN",
+          "body": "Des explorateurs, des dépôts, des routes DEX, des canaux sociaux et des pages de boutique peuvent être liés depuis le site ou l’application. Ces services fonctionnent selon leurs propres conditions et exigences de disponibilité. 4TEEN ne garantit pas leur disponibilité ni leur comportement."
+        },
+        {
+          "eyebrow": "7. Responsabilité de l’utilisateur",
+          "title": "Vous devez toujours vérifier ce que vous faites",
+          "bullets": [
+            "Vérifiez les adresses de contrat et les symboles d’actifs avant de signer",
+            "Protégez votre phrase seed, votre clé privée et l’accès à votre appareil",
+            "Vérifiez les adresses de destination et les montants des transactions",
+            "Utilisez uniquement les canaux officiels lorsque vous vérifiez les versions ou contactez l’assistance"
+          ],
+          "note": "Les pertes causées par de mauvaises adresses, des appareils compromis, des phrases de récupération divulguées ou une mauvaise compréhension du comportement des contrats restent un risque côté utilisateur."
+        },
+        {
+          "eyebrow": "8. Mises à jour",
+          "title": "Le produit peut évoluer au fil du temps",
+          "body": "Les pages, les routes de portefeuille, les intégrations de protocole, la logique des campagnes et les textes publics peuvent changer à mesure que le produit évolue. La poursuite de l’utilisation du site web ou de l’application après des changements signifie que vous utilisez la version actuelle du produit, et non une attente antérieure."
+        }
+      ],
+      "links": [
+        {
+          "label": "Ouvrir la page de l’application mobile",
+          "href": "/app"
+        },
+        {
+          "label": "Ouvrir la vérification",
+          "href": "/verification"
+        },
+        {
+          "label": "Ouvrir le dépôt des smart contracts",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Sorties publiques",
+      "footerNote": "Lisez ces conditions conjointement avec les adresses de contrat, l’état des explorateurs et l’écran de confirmation du portefeuille. Identité de l’organisation : \"AG PLUS\" LLC, D-U-N-S 933906683."
     }
   }
 }
