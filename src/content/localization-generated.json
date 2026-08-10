@@ -13381,6 +13381,808 @@
           "githubSource": "Source GitHub"
         }
       }
+    },
+    "home": {
+      "ui": {
+        "aria": {
+          "heroPoints": "Points forts du protocole",
+          "livePriceSummary": "Résumé du prix en direct",
+          "quickLinks": "Liens rapides",
+          "verificationLinks": "Liens de vérification"
+        },
+        "marketStrip": {
+          "unavailable": "Indisponible",
+          "routerQuoteReadFailed": "Échec de lecture du devis du routeur",
+          "directPriceLabel": "Prix direct",
+          "directPriceSub": "Par 1 4TEEN via le protocole",
+          "dexReferenceLabel": "Référence DEX",
+          "dexPriceLabel": "Prix DEX",
+          "dexSubSuffix": "par 4TEEN",
+          "unlockCycleLabel": "Cycle de déverrouillage",
+          "unlockCycleValue": "14 Days",
+          "unlockCycleSub": "Période de verrouillage pour les achats directs",
+          "unlockCycleDailyRuleSub": "Verrouillage fixe pour les achats directs",
+          "dailyLiquidityRuleLabel": "Règle de liquidité quotidienne",
+          "dailyLiquidityRuleValue": "6.43%",
+          "dailyLiquidityRuleSub": "Libéré une fois par jour UTC par la logique du contrôleur"
+        }
+      },
+      "hero": {
+        "eyebrow": "Application mobile 4TEEN",
+        "meta": "TRON • Achat direct • Déverrouillage • Liquidité • Croissance",
+        "title": "Un seul endroit pour l’achat, la visibilité du verrouillage et le flux de liquidité.",
+        "lead": "L’application wallet est déjà la couche opérationnelle du système. L’achat direct, la chronologie de déverrouillage, le contrôleur de liquidité, l’état de réclamation Telegram, le cabinet ambassadeur et la route d’information compacte existent déjà sous forme de vrais écrans avec un état réel, plutôt que de simples promesses dans le texte.",
+        "points": [
+          "Préparez le vrai flux d’achat direct avec estimation, contexte de répartition et confirmation avant la signature.",
+          "Suivez chaque événement d’achat verrouillé avec compte à rebours, état de déverrouillage et transaction source.",
+          "Utilisez une seule route d’information pour les contrats, les wallets d’actifs, les exécutants et la disponibilité à l’exécution."
+        ],
+        "actions": [
+          {
+            "label": "Obtenir l’application",
+            "href": "/app"
+          },
+          {
+            "label": "Ouvrir l’achat direct",
+            "href": "/buy"
+          }
+        ],
+        "sideEyebrow": "Surfaces wallet",
+        "sideTitle": "L’application porte désormais le travail produit en direct.",
+        "sideStats": [
+          {
+            "label": "Vente primaire",
+            "value": "Préparer → Confirmer"
+          },
+          {
+            "label": "Visibilité",
+            "value": "Événements de déverrouillage"
+          },
+          {
+            "label": "Exécution",
+            "value": "État du contrôleur"
+          },
+          {
+            "label": "Vérification",
+            "value": "Route d’information"
+          }
+        ],
+        "sideHighlightTitle": "Hub produit clair.",
+        "sideHighlightText": "Achat, visibilité du verrouillage, vérité du contrôleur, rails de croissance et vérification se connectent désormais dans un seul flux de type wallet.",
+        "tools": [
+          {
+            "href": "/buy",
+            "title": "Achat direct",
+            "meta": "Préparez le vrai flux de mint à l’achat avant la confirmation"
+          },
+          {
+            "href": "/unlock",
+            "title": "Chronologie de déverrouillage",
+            "meta": "Consultez les événements d’achat direct par wallet, compte à rebours et état de déverrouillage"
+          },
+          {
+            "href": "/liquidity",
+            "title": "Contrôleur de liquidité",
+            "meta": "Consultez le seuil, le rythme de libération, les exécutants et l’historique du contrôleur"
+          },
+          {
+            "href": "/verification",
+            "title": "Route d’information",
+            "meta": "Ouvrez les contrats, coffres, wallets d’actifs et l’état de préparation à l’exécution"
+          }
+        ]
+      },
+      "wallets": {
+        "eyebrow": "Prise en charge des wallets",
+        "title": "La prise en charge des wallets compte, car l’application reflète désormais l’état du wallet sur des surfaces en direct.",
+        "description": "L’achat direct, les lignes de déverrouillage, les actions du cabinet et l’état de réclamation Telegram changent tous selon que le wallet sélectionné peut signer, qu’il est en lecture seule, et que le solde ainsi que l’état des ressources se résolvent correctement dans le flux.",
+        "bestStatus": "Meilleure expérience mobile",
+        "bestItems": [
+          {
+            "name": "Binance Wallet",
+            "note": "Fonctionne • Solde visible"
+          },
+          {
+            "name": "Bitget Wallet",
+            "note": "Fonctionne • Solde visible"
+          },
+          {
+            "name": "OKX Wallet",
+            "note": "Fonctionne • Solde visible"
+          },
+          {
+            "name": "TokenPocket",
+            "note": "Fonctionne • Solde visible"
+          }
+        ],
+        "compatibleStatus": "Fonctionne dans le navigateur mobile",
+        "compatibleItems": [
+          {
+            "name": "FoxWallet",
+            "note": "Fonctionne • Solde non affiché"
+          },
+          {
+            "name": "imToken",
+            "note": "Fonctionne • Solde non affiché"
+          },
+          {
+            "name": "MetaMask",
+            "note": "Fonctionne • Solde non affiché"
+          },
+          {
+            "name": "TronLink",
+            "note": "Fonctionne • Solde non affiché"
+          },
+          {
+            "name": "WalletConnect",
+            "note": "Fonctionne • Solde non affiché"
+          },
+          {
+            "name": "Trust Wallet",
+            "note": "Utiliser l’extension desktop Chrome"
+          }
+        ],
+        "highlightTitle": "Recommandé pour l’application + le flux d’achat :",
+        "highlightText": "Binance Wallet, Bitget Wallet, OKX Wallet et TokenPocket offrent l’expérience la plus fluide, car ils affichent correctement les soldes et rendent les surfaces conscientes du wallet plus faciles à vérifier."
+      },
+      "trust": {
+        "eyebrow": "Vérifier le protocole",
+        "title": "L’application wallet, les surfaces du site, les repos et la chaîne doivent tous pointer vers la même vérité.",
+        "links": [
+          {
+            "label": "App",
+            "value": "Téléchargement mobile",
+            "href": "/app"
+          },
+          {
+            "label": "Site web",
+            "value": "Surfaces en direct",
+            "href": "/buy"
+          },
+          {
+            "label": "Réseau",
+            "value": "TRON Mainnet",
+            "href": "https://tronscan.org",
+            "external": true
+          },
+          {
+            "label": "Repo",
+            "value": "Application wallet",
+            "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+            "external": true
+          },
+          {
+            "label": "Docs",
+            "value": "Whitepaper",
+            "href": "/whitepaper"
+          },
+          {
+            "label": "Info",
+            "value": "Vérification",
+            "href": "/verification"
+          }
+        ]
+      },
+      "howItWorks": {
+        "eyebrow": "Fonctionnement",
+        "title": "Ce que les surfaces opérationnelles couvrent désormais.",
+        "description": "L’application n’est plus seulement une coquille autour de liens. Elle gère déjà l’explication, le filtrage selon le wallet, le flux de confirmation, l’historique propre à chaque surface, l’état du contrôleur, le routage des récompenses et l’état des réclamations sociales.",
+        "steps": [
+          {
+            "step": "1",
+            "title": "Préparer l’achat direct dans l’application",
+            "text": "L’écran d’achat est d’abord une étape de préparation. Le wallet de signature sélectionné saisit des TRX, voit l’estimation en 4TEEN, puis seulement ensuite passe à la couche de confirmation où l’application construit la vraie transaction et vérifie les ressources."
+          },
+          {
+            "step": "2",
+            "title": "Suivre chaque lot verrouillé par achat",
+            "text": "La chronologie de déverrouillage n’est pas un historique générique. Elle lit les événements d’achat direct pour le wallet sélectionné, affiche l’heure de déverrouillage UTC, le compte à rebours en direct, l’état de verrouillage et la transaction Tronscan derrière chaque ligne d’achat."
+          },
+          {
+            "step": "3",
+            "title": "Ouvrir le contrôleur quand vous avez besoin de la vérité sur la liquidité",
+            "text": "L’exécution de la liquidité est une vraie surface dans l’application. Elle affiche le seuil de 100 TRX, la règle de libération quotidienne de 6.43%, la répartition des exécutants, les liens de contrats et l’historique récent côté contrôleur, au lieu de cacher cette logique dans le texte."
+          }
+        ],
+        "airdropStep": {
+          "step": "4",
+          "title": "Lire l’état d’airdrop social comme un vrai écran",
+          "text": "La page d’airdrop combine trois vérifications à la fois au lieu de prétendre que chaque route sociale est en direct.",
+          "items": [
+            {
+              "value": "Wallet",
+              "label": "L’état de signature ou de lecture seule détermine si le flux de réclamation peut continuer"
+            },
+            {
+              "value": "Session",
+              "label": "La session du bot Telegram décide si la carte est disponible, à vérifier maintenant ou avec session active"
+            },
+            {
+              "value": "Chaîne",
+              "label": "L’état de réclamation on-chain peut déjà afficher reçu, en file d’attente ou ancien déjà utilisé"
+            }
+          ]
+        },
+        "cabinetStep": {
+          "step": "5",
+          "title": "Utiliser un seul cabinet pour l’inscription, les acheteurs, les achats, les lignes en attente et les récompenses",
+          "text": "Le flux ambassadeur n’est plus une page d’inscription sans suite. La même route commence par une inscription unique de slug, puis devient un cabinet fonctionnel où l’identité de parrainage, les achats suivis, les récompenses réclamables, les totaux réclamés et la relecture des allocations en attente sont visibles ensemble."
+        }
+      },
+      "architecture": {
+        "eyebrow": "Schéma d’architecture",
+        "title": "Comment la route d’information explique le système on-chain.",
+        "description": "La route d’information compacte dans l’application relie désormais les contrats, le routage, les coffres, les exécutants, les wallets d’actifs et les contrôles d’exécution. Le site web peut toujours afficher la carte, mais il doit refléter que cette architecture dispose déjà d’un écran produit fonctionnel derrière elle.",
+        "entry": {
+          "label": "Entrée",
+          "title": "TRX utilisateur",
+          "text": "L’achat direct via le protocole entre dans le système"
+        },
+        "core": {
+          "label": "Contrat principal",
+          "title": "FourteenToken",
+          "text": "Mint à l’achat + verrouillage de 14 jours + répartition automatique des TRX",
+          "pills": [
+            "Mint à l’achat",
+            "Verrouillage de 14 jours",
+            "Répartition TRX : 90% / 7% / 3%"
+          ]
+        },
+        "liquidity": {
+          "eyebrow": "Chemin des 90% TRX",
+          "title": "Couche d’exécution de la liquidité",
+          "text": "La plus grande part est dirigée vers un système de liquidité dédié. Le calendrier de libération, le stockage de réserve, la préparation du bootstrap et l’exécution DEX sont isolés dans des rôles séparés.",
+          "controller": {
+            "label": "Contrôleur",
+            "title": "FourteenLiquidityController",
+            "text": "Libère 6.43% une fois par jour UTC et contrôle quand la liquidité peut se déplacer"
+          },
+          "vault": {
+            "label": "Coffre de réserve",
+            "title": "FourteenVault",
+            "text": "Stocke la réserve 4TEEN utilisée spécifiquement pour l’apport de liquidité"
+          },
+          "bootstrapper": {
+            "label": "Couche de préparation",
+            "title": "LiquidityBootstrapper",
+            "text": "Calcule les montants de tokens nécessaires, tire depuis FourteenVault, alimente les exécutants et déclenche le flux d’exécution"
+          },
+          "executors": [
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorJustMoney",
+              "text": "Chemin d’exécution spécifique DEX pour JustMoney"
+            },
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorSunV3",
+              "text": "Chemin d’exécution spécifique DEX pour Sun.io V3"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "Chemin des 7% TRX",
+          "title": "Couche de contrôle + récompenses ambassadeur",
+          "text": "Ce chemin reste en dehors de l’émission de tokens et de l’exécution de liquidité. Il combine le contrôle du protocole avec l’attribution de parrainage, l’allocation d’achats vérifiés, la progression de niveau et les récompenses ambassadeur réclamables.",
+          "controller": {
+            "label": "Contrôleur",
+            "title": "FourteenController",
+            "text": "Possède FourteenToken, gère les fonctions propriétaire, la logique opérateur, la comptabilité des récompenses, l’allocation des achats et les retraits contrôlés."
+          },
+          "flow": {
+            "label": "Flux ambassadeur",
+            "title": "Inscription → Liaison → Achat vérifié → Récompense",
+            "text": "Inscription du wallet, identité publique par slug, liaison de l’acheteur, enregistrement des achats vérifiés, accumulation des récompenses réclamables et retrait des récompenses."
+          },
+          "ladderTitle": "Échelle de récompenses ambassadeur",
+          "ladder": [
+            {
+              "level": "Bronze",
+              "buyers": "0–9 acheteurs",
+              "percent": "10%"
+            },
+            {
+              "level": "Silver",
+              "buyers": "10–99 acheteurs",
+              "percent": "25%"
+            },
+            {
+              "level": "Gold",
+              "buyers": "100–999 acheteurs",
+              "percent": "50%"
+            },
+            {
+              "level": "Platinum",
+              "buyers": "1000+ acheteurs",
+              "percent": "75%"
+            }
+          ],
+          "noteTitle": "Logique d’allocation",
+          "noteText": "la récompense ambassadeur est calculée à partir de la part propriétaire de l’achat lors de l’allocation d’achat vérifiée. La substitution de niveau est prise en charge, et les récompenses passent dans le solde réclamable avant le retrait."
+        },
+        "airdrop": {
+          "eyebrow": "Chemin des 3% TRX",
+          "title": "Couche de distribution communautaire",
+          "text": "Ce chemin alimente la structure d’airdrop en direct. La distribution est organisée par vagues et étendue sur plusieurs routes sociales, au lieu d’être traitée comme un giveaway ponctuel.",
+          "vault": {
+            "label": "Coffre",
+            "title": "AirdropVault",
+            "text": "Réserve communautaire et de croissance utilisée pour la distribution échelonnée de l’écosystème, les flux de récompenses liés aux wallets et les routes de campagne en direct"
+          },
+          "model": {
+            "label": "Modèle de distribution",
+            "title": "1,500,000 4TEEN • 6 vagues fixes",
+            "text": "Structure de libération par vagues avec une route active aujourd’hui et davantage de routes de campagne ajoutées au fil du temps"
+          },
+          "pills": [
+            {
+              "label": "Telegram en direct",
+              "tone": "live"
+            },
+            {
+              "label": "X bientôt",
+              "tone": "wait"
+            },
+            {
+              "label": "Instagram bientôt",
+              "tone": "wait"
+            },
+            {
+              "label": "Davantage de réseaux sociaux à venir",
+              "tone": "wait"
+            }
+          ],
+          "liveRoute": {
+            "label": "Route actuellement en direct",
+            "title": "Campagne Telegram",
+            "text": "Route publique actuelle dans l’infrastructure d’airdrop en direct",
+            "action": {
+              "label": "Ouvrir la route actuellement en direct",
+              "href": "/airdrop"
+            }
+          },
+          "snapshotTitle": "Instantané de l’airdrop en direct",
+          "snapshotRows": [
+            {
+              "label": "Statut",
+              "value": "En direct maintenant"
+            },
+            {
+              "label": "Plage de récompense",
+              "value": "1–5 4TEEN"
+            },
+            {
+              "label": "Vérification",
+              "value": "Requise"
+            },
+            {
+              "label": "Wallet requis",
+              "value": "Wallet TRON"
+            },
+            {
+              "label": "Livraison de la récompense",
+              "value": "On-chain"
+            },
+            {
+              "label": "Type de réclamation",
+              "value": "platformBit = 4"
+            }
+          ]
+        },
+        "facts": [
+          {
+            "label": "Liquidité",
+            "text": "Le calendrier de libération, le stockage de réserve, la préparation du bootstrap et l’exécution DEX sont isolés dans des contrats dédiés."
+          },
+          {
+            "label": "Ambassadeurs",
+            "text": "La progression de niveau et le pourcentage de récompense sont liés au nombre réel d’acheteurs et à l’allocation d’achats vérifiés."
+          },
+          {
+            "label": "Airdrop",
+            "text": "La route communautaire est basée sur des vagues, multiplateforme et déjà en direct via Telegram."
+          },
+          {
+            "label": "Pourquoi c’est important",
+            "text": "4TEEN se comporte comme un système de rôles séparés, pas comme un seul bloc de contrat surchargé."
+          }
+        ]
+      },
+      "why": {
+        "eyebrow": "Pourquoi cette structure compte",
+        "title": "La couche produit rattrape enfin la couche protocole.",
+        "description": "Les contrats ont toujours eu des rôles séparés. Ce qui a changé, c’est que l’application expose désormais ces rôles sous forme d’écrans lisibles et conscients du wallet, au lieu de laisser les utilisateurs avec seulement des idées brutes on-chain et des liens dispersés.",
+        "cards": [
+          {
+            "number": "01",
+            "title": "Un hub unique existe déjà dans l’application wallet",
+            "text": "L’accueil de l’application est déjà le hub produit compact : achat, déverrouillage, liquidité, airdrop, ambassadeurs et information sont regroupés en surfaces, pas enfouis dans une longue explication.",
+            "note": "Le site web doit diriger les personnes vers ces mêmes surfaces au lieu de décrire une ancienne feuille de route imaginaire."
+          },
+          {
+            "number": "02",
+            "title": "L’état conscient du wallet est désormais un vrai comportement",
+            "text": "Wallet en lecture seule ou wallet de signature, récompenses réclamables ou en attente, état de session Telegram et disponibilité des ressources changent tous ce que l’utilisateur peut réellement faire dans l’application.",
+            "note": "Cela signifie que le texte de la page d’accueil doit décrire des états et des actions, pas seulement la théorie des contrats."
+          },
+          {
+            "number": "03",
+            "title": "La vérification est déjà une route fonctionnelle",
+            "text": "L’architecture, les rôles des contrats, les coffres, les exécutants, les soldes des wallets d’actifs et la préparation à la relecture des allocations ne sont plus seulement des sujets de whitepaper. L’application les expose déjà dans un écran d’information compact.",
+            "note": "Le site est plus solide lorsqu’il décrit cette couche d’information comme un produit en direct, et non comme une documentation future."
+          }
+        ],
+        "notePrefix": "Pourquoi c’est important"
+      },
+      "liveMetrics": {
+        "eyebrow": "Métriques du protocole en direct",
+        "title": "Une lecture en direct de l’entrée, de la liquidité, des récompenses et de l’état opérationnel.",
+        "description": "Ces cartes doivent refléter ce que l’utilisateur peut réellement ouvrir dans l’application : contexte d’achat direct, état du déverrouillage et côté contrôleur, flux de récompenses du cabinet et route actuelle de distribution sociale centrée sur Telegram.",
+        "liquidity": {
+          "eyebrow": "Moteur de liquidité",
+          "title": "Flux de liquidité basé sur des règles",
+          "note": "Dans l’application, cela apparaît sous forme de contrôles de seuil, de contexte de prochaine libération, de répartition des exécutants, de liens de contrats et d’historique côté contrôleur, plutôt que d’une seule phrase opaque sur la « liquidité ».",
+          "rows": [
+            {
+              "label": "Contrôleur",
+              "value": "FourteenLiquidityController"
+            },
+            {
+              "label": "Coffre de réserve",
+              "value": "FourteenVault"
+            },
+            {
+              "label": "Couche de préparation",
+              "value": "LiquidityBootstrapper"
+            },
+            {
+              "label": "Répartition d’exécution",
+              "value": "50% / 50%"
+            },
+            {
+              "label": "Chemins DEX",
+              "value": "JustMoney + Sun.io V3"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "Couche ambassadeur",
+          "title": "Flux de récompenses du cabinet",
+          "note": "Dans l’application, cette route combine l’état du cabinet on-chain avec les lignes d’attribution backend, de sorte que le réclamable actuel, le total réclamé et la relecture en attente coexistent au même endroit.",
+          "ladder": [
+            {
+              "level": "Bronze",
+              "meta": "0–9 acheteurs",
+              "value": "10%"
+            },
+            {
+              "level": "Silver",
+              "meta": "10–99 acheteurs",
+              "value": "25%"
+            },
+            {
+              "level": "Gold",
+              "meta": "100–999 acheteurs",
+              "value": "50%"
+            },
+            {
+              "level": "Platinum",
+              "meta": "1000+ acheteurs",
+              "value": "75%"
+            }
+          ]
+        },
+        "airdrop": {
+          "eyebrow": "Couche airdrop",
+          "title": "Instantané de la distribution sociale en direct",
+          "rows": [
+            {
+              "label": "Allocation totale",
+              "value": "1,500,000 4TEEN",
+              "tone": "strong"
+            },
+            {
+              "label": "Structure par vagues",
+              "value": "6 vagues fixes"
+            },
+            {
+              "label": "Route actuellement en direct",
+              "value": "Telegram",
+              "tone": "live"
+            },
+            {
+              "label": "Autres réseaux sociaux",
+              "value": "Espaces réservés en lecture seule",
+              "tone": "wait"
+            },
+            {
+              "label": "Livraison de la récompense",
+              "value": "On-chain"
+            }
+          ],
+          "action": {
+            "label": "Ouvrir la route Telegram en direct",
+            "href": "/airdrop"
+          }
+        }
+      },
+      "tools": {
+        "eyebrow": "Outils",
+        "title": "Ouvrez les mêmes surfaces que l’application expose déjà.",
+        "description": "Ce ne sont plus des éléments de menu fictifs. Ils correspondent directement à des routes et à des comportements qui existent déjà dans le flux produit de type wallet et portent déjà l’état wallet en direct.",
+        "cards": [
+          {
+            "status": "Ouvert",
+            "tone": "live",
+            "title": "Application mobile",
+            "text": "Ouvrez la route dédiée à l’application mobile avec options de téléchargement en store et un retour propre vers les surfaces web.",
+            "href": "/app"
+          },
+          {
+            "status": "En direct",
+            "tone": "live",
+            "title": "Acheter 4TEEN",
+            "text": "Ouvrez l’écran de préparation d’achat direct avec saisie du montant, estimation, contexte de répartition et chemin de confirmation.",
+            "href": "/buy"
+          },
+          {
+            "status": "Suivre",
+            "tone": "live",
+            "title": "Chronologie de déverrouillage",
+            "text": "Consultez les lignes d’événements d’achat direct par wallet, horodatage de déverrouillage, compte à rebours en direct et transaction source.",
+            "href": "/unlock"
+          },
+          {
+            "status": "Suivre",
+            "tone": "live",
+            "title": "Contrôleur de liquidité",
+            "text": "Suivez le seuil, la libération quotidienne de 6.43%, les exécutants, les événements récents du contrôleur et la disponibilité à l’exécution.",
+            "href": "/liquidity"
+          },
+          {
+            "status": "En direct",
+            "tone": "live",
+            "title": "Statut de l’airdrop",
+            "text": "Consultez l’état de réclamation Telegram en direct, les restrictions en lecture seule, l’état de session du bot et l’état de récompense on-chain.",
+            "href": "/airdrop"
+          },
+          {
+            "status": "Gérer",
+            "tone": "live",
+            "title": "Cabinet ambassadeur",
+            "text": "Passez de l’inscription unique au mode cabinet avec slug, acheteurs, achats, lignes en attente et récompenses.",
+            "href": "/ambassadors"
+          },
+          {
+            "status": "Vérifier",
+            "tone": "wait",
+            "title": "Route d’information",
+            "text": "Ouvrez l’écran d’architecture compact pour les contrats, les wallets d’actifs, la santé à l’exécution et les liens de preuve publics.",
+            "href": "/verification"
+          }
+        ]
+      },
+      "verification": {
+        "eyebrow": "Vérification / Contrats",
+        "title": "Vérifiez le protocole à travers les contrats, repos, docs et le hub de l’application.",
+        "description": "L’histoire publique est désormais plus solide, car l’application wallet agit déjà comme une couche opérationnelle au-dessus de ces contrats, repos, docs, contrôles de wallets d’actifs et surfaces en direct.",
+        "contracts": {
+          "eyebrow": "Contrats on-chain",
+          "title": "Couche de déploiement Mainnet",
+          "links": [
+            {
+              "label": "Noyau",
+              "value": "FourteenToken",
+              "href": "https://tronscan.org/#/token20/TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A"
+            },
+            {
+              "label": "Noyau",
+              "value": "FourteenController",
+              "href": "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ"
+            },
+            {
+              "label": "Noyau",
+              "value": "FourteenLiquidityController",
+              "href": "https://tronscan.org/#/contract/TVKBLwg222skKnZ3F3boTiH35KC7nvYEuZ"
+            },
+            {
+              "label": "Coffre",
+              "value": "FourteenVault",
+              "href": "https://tronscan.org/#/contract/TNwkuHA727RZGtpbowH7q5B1yZWk2JEZTq"
+            },
+            {
+              "label": "Coffre",
+              "value": "TeamLockVault",
+              "href": "https://tronscan.org/#/contract/TYBfbgvMW6awPdZfSSwWoEX3nJjrKWZS3h"
+            },
+            {
+              "label": "Coffre",
+              "value": "AirdropVault",
+              "href": "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ"
+            },
+            {
+              "label": "Exécution",
+              "value": "LiquidityBootstrapper",
+              "href": "https://tronscan.org/#/contract/TWfUee6qFV91t7KbFdYLEfpi8nprUaJ7dc"
+            },
+            {
+              "label": "Exécution",
+              "value": "LiquidityExecutorSunV3",
+              "href": "https://tronscan.org/#/contract/TU8EwEWg4K594zwThvhTZxqzEuEYuR46xh"
+            },
+            {
+              "label": "Exécution",
+              "value": "LiquidityExecutorJustMoney",
+              "href": "https://tronscan.org/#/contract/TWrz68MRTf1m9vv8xpcdMD4z9kjBxiHw7F"
+            }
+          ]
+        },
+        "repositories": {
+          "eyebrow": "Repositories",
+          "title": "Infrastructure publique et code opérationnel",
+          "links": [
+            {
+              "label": "Repo",
+              "value": "4teen-smart-contracts",
+              "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-wallet-app",
+              "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-ambassador-system",
+              "href": "https://github.com/info14fourteen-creator/4teen-ambassador-system"
+            },
+            {
+              "label": "Repo",
+              "value": "liquidity-bootstrapper-cron",
+              "href": "https://github.com/info14fourteen-creator/liquidity-bootstrapper-cron"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-telegram-airdrop-bot",
+              "href": "https://github.com/info14fourteen-creator/4teen-telegram-airdrop-bot"
+            }
+          ]
+        },
+        "docs": {
+          "eyebrow": "Docs",
+          "title": "Couche de lecture publique",
+          "links": [
+            {
+              "label": "Docs",
+              "value": "Whitepaper",
+              "href": "/whitepaper"
+            },
+            {
+              "label": "Docs",
+              "value": "Vérification",
+              "href": "/verification"
+            },
+            {
+              "label": "Docs",
+              "value": "Blog",
+              "href": "/blog"
+            }
+          ]
+        },
+        "hubs": {
+          "eyebrow": "Hubs",
+          "title": "Points d’entrée publics de l’écosystème",
+          "links": [
+            {
+              "label": "Hub",
+              "value": "Hub airdrop",
+              "href": "/airdrop"
+            },
+            {
+              "label": "Hub",
+              "value": "Programme ambassadeur",
+              "href": "/ambassadors"
+            }
+          ]
+        }
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Des réponses claires avant d’ouvrir les surfaces en direct.",
+        "description": "Les bonnes questions changent. Les utilisateurs ont désormais besoin de clarté sur ce que fait réellement chaque route, quelles actions dépendent du type de wallet, et quels flux de croissance ou de vérification sont déjà en direct dans l’application.",
+        "items": [
+          {
+            "question": "Pourquoi 4TEEN a-t-il besoin d’un écran d’achat direct au lieu d’un simple swap ?",
+            "answer": "Parce que l’application traite l’achat direct comme une surface séparée côté contrat. Elle prépare un flux de mint à l’achat, affiche l’estimation, explique le verrouillage de 14 jours, puis passe à la vraie étape de confirmation."
+          },
+          {
+            "question": "Que suit exactement la chronologie de déverrouillage ?",
+            "answer": "Uniquement les événements d’achat direct liés au wallet sélectionné. Chaque ligne affiche le montant, l’heure de déverrouillage UTC, le compte à rebours en direct, l’état actuel du verrouillage et la transaction Tronscan derrière cet événement d’achat."
+          },
+          {
+            "question": "Pourquoi certaines routes tiennent-elles compte du fait que le wallet soit en lecture seule ?",
+            "answer": "Parce que l’application applique désormais le comportement selon le type de wallet. Les wallets en lecture seule peuvent lire l’état, mais ne peuvent pas s’inscrire comme ambassadeurs, retirer des récompenses ni exécuter des flux nécessitant une signature comme l’achat direct ou les actions de liquidité."
+          },
+          {
+            "question": "La page d’airdrop est-elle seulement une page promotionnelle maintenant ?",
+            "answer": "Non. C’est déjà un écran avec état. Telegram est la route en direct, et la carte combine l’état local du wallet, l’état actuel de session du bot et l’état de réclamation on-chain avant de décider quelle action est disponible ensuite."
+          },
+          {
+            "question": "Que vérifie la route d’information que le site web seul ne peut pas vérifier ?",
+            "answer": "Elle réunit les contrats, les coffres, les exécutants de liquidité, les soldes des wallets d’actifs et la préparation côté opérateur dans un seul écran opérationnel compact. Cela fait de la vérification une partie du flux produit, pas seulement une page de docs."
+          }
+        ]
+      },
+      "risk": {
+        "eyebrow": "Risque / Information",
+        "title": "Des mécaniques structurées ne suppriment pas le risque de marché.",
+        "description": "4TEEN est un protocole de token on-chain avec des règles visibles, des rôles de contrats séparés et des chemins de vérification publics. Cela rend le système plus facile à inspecter, mais ne transforme pas la participation au token en produit à rendement garanti.",
+        "understandTitle": "Ce que les utilisateurs doivent comprendre",
+        "understandItems": [
+          "Le prix direct du protocole n’est pas le même que le prix DEX du marché ouvert.",
+          "Un déverrouillage de 14 jours change le timing, mais ne garantit pas une sortie favorable.",
+          "Les règles de liquidité décrivent le comportement de libération, pas les résultats futurs du marché.",
+          "Les récompenses ambassadeur et les routes d’airdrop sont des couches structurées, pas des revenus garantis."
+        ],
+        "actionTitle": "Ce que les utilisateurs doivent faire",
+        "actionItems": [
+          "Vérifier les contrats, repos et la documentation publique avant d’agir.",
+          "Comprendre les mécaniques de verrouillage, de récompense et de distribution avant d’acheter.",
+          "Utiliser des wallets pris en charge et vérifier attentivement les routes en direct.",
+          "Prendre des décisions indépendantes au lieu de traiter la structure du protocole comme une promesse de profit."
+        ],
+        "noteTitle": "Important",
+        "noteText": "4TEEN est construit autour d’un comportement on-chain observable, pas de résultats garantis. Les utilisateurs doivent vérifier eux-mêmes le système et agir uniquement avec un risque qu’ils comprennent."
+      },
+      "cta": {
+        "eyebrow": "CTA final",
+        "title": "Choisissez la surface dont vous avez besoin",
+        "lead": "Obtenez l’application mobile, préparez un achat direct, vérifiez la route d’architecture compacte ou allez directement vers les surfaces de croissance et de suivi en direct.",
+        "cards": [
+          {
+            "status": "Ouvrir",
+            "tone": "live",
+            "title": "Obtenir l’application",
+            "text": "Commencez par la route de l’application mobile avec options de téléchargement en store et transition propre vers le produit wallet.",
+            "href": "/app"
+          },
+          {
+            "status": "Acheter",
+            "tone": "live",
+            "title": "Ouvrir l’achat direct",
+            "text": "Accédez directement au flux d’entrée côté contrat avec aperçu du montant, confirmation et filtrage selon le wallet.",
+            "href": "/buy"
+          },
+          {
+            "status": "Suivre",
+            "tone": "live",
+            "title": "Ouvrir la vérification",
+            "text": "Utilisez la couche de preuve publique pour les contrats, repos, logique de liquidité et carte d’architecture derrière les surfaces de l’application.",
+            "href": "/verification"
+          },
+          {
+            "status": "Gérer",
+            "tone": "live",
+            "title": "Ouvrir le cabinet ambassadeur",
+            "text": "Inscrivez-vous, inspectez l’identité de parrainage, suivez les achats et travaillez avec l’état des récompenses en direct dans une seule route.",
+            "href": "/ambassadors"
+          }
+        ],
+        "actions": [
+          {
+            "label": "Obtenir l’application",
+            "href": "/app"
+          },
+          {
+            "label": "Ouvrir l’achat direct",
+            "href": "/buy"
+          },
+          {
+            "label": "Ouvrir la route Telegram en direct",
+            "href": "/airdrop"
+          }
+        ]
+      }
     }
   }
 }
