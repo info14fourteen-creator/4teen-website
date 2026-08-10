@@ -29440,6 +29440,116 @@
       ],
       "linksEyebrow": "Openbare uitgangen",
       "footerNote": "Privacyvragen kunnen worden gericht aan support@4teen.me. Officiële telefoon- en WhatsApp-support: +998 95 792 02 87."
+    },
+    "terms": {
+      "metadata": {
+        "title": "Voorwaarden",
+        "description": "Basisvoorwaarden voor het gebruik van de 4TEEN-website, walletroutes, openbare protocolpagina’s en on-chain ecosysteemoppervlakken."
+      },
+      "hero": {
+        "eyebrow": "Voorwaarden",
+        "status": "Openbare voorwaarden",
+        "title": "4TEEN is een interfacelaag rond openbare blockchainsystemen, walletuitvoering en on-chain contracten, geen belofte van een uitkomst.",
+        "lead": "Lees deze voorwaarden op een praktische manier: code, walletgoedkeuring, netwerkstatus en smart-contractregels bepalen wat er daadwerkelijk gebeurt. De site en app kunnen u helpen die oppervlakken te bereiken, maar nemen on-chain risico of marktrisico niet weg."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Operator",
+          "title": "\"AG PLUS\" LLC",
+          "body": "\"AG PLUS\" Limited Liability Company is de juridische operator van de officiële 4TEEN-website en gepubliceerde supportroutes. D-U-N-S-nummer: 933906683."
+        },
+        {
+          "eyebrow": "Aard",
+          "title": "Interface, geen bewaring",
+          "body": "De website en wallet helpen u blockchainacties te bekijken, voor te bereiden en te ondertekenen. Ze worden niet de eigenaar van uw activa enkel omdat ze een route tonen."
+        },
+        {
+          "eyebrow": "Risico",
+          "title": "Geen marktgarantie",
+          "body": "Tokenprijs, liquiditeit, releasetiming, beloningsuitkomsten en campagneresultaten kunnen veranderen. Niets op de site mag worden gelezen als een gegarandeerd rendement of gegarandeerde toewijzing."
+        },
+        {
+          "eyebrow": "Verantwoordelijkheid",
+          "title": "U keurt de actie goed",
+          "body": "Als u een transactie ondertekent, een adres plakt of met een contract interageert, blijft u verantwoordelijk voor het controleren van de route, het activum, het bedrag en de bestemming."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Juridische operator",
+          "title": "De officiële 4TEEN-website wordt beheerd door AG PLUS LLC",
+          "body": "\"AG PLUS\" Limited Liability Company, een vennootschap met beperkte aansprakelijkheid geregistreerd in de Republiek Oezbekistan, beheert https://4teen.me en de officiële openbare projectoppervlakken voor 4TEEN.",
+          "bullets": [
+            "Belastingidentificatienummer: 312 696 228",
+            "Staatsregistratienummer: 3080788, geregistreerd op 06 January 2026",
+            "D-U-N-S-nummer: 933906683",
+            "Juridisch adres: Republiek Oezbekistan, stad Tasjkent, district Yunusabad, Katta Xasanboy MFY, Xasanboystraat, 8e steeg, huis 3-B"
+          ],
+          "note": "Officieel juridisch en supportcontact: support@4teen.me; telefoon en WhatsApp: +998 95 792 02 87."
+        },
+        {
+          "eyebrow": "2. Productaard",
+          "title": "De site en app zijn toegangslagen",
+          "body": "4TEEN-oppervlakken omvatten informatiepagina’s, openbare protocoldashboards, mobiele walletroutes, direct-buy flows, liquiditeitscontroles, airdropweergaven en ambassadoretroutes. Deze oppervlakken helpen u blockchainacties te bereiken, maar het blijven interfaces die bovenop openbare netwerken en gedeployde contracten zijn geplaatst."
+        },
+        {
+          "eyebrow": "3. Niet-bewarend en on-chain realiteit",
+          "title": "Het protocol wordt bepaald door contracten en handtekeningen van gebruikers",
+          "body": "Als gedrag wordt afgedwongen door contractcode, walletgoedkeuring of zichtbare resourcecontroles, is het reëel. Als iets alleen door tekst wordt geïmpliceerd en niet wordt ondersteund door uitvoeringslogica, behandel het dan niet als een garantie.",
+          "bullets": [
+            "Transacties zijn onomkeerbaar zodra ze on-chain zijn bevestigd",
+            "Netwerkcongestie, kosten, energie en bandbreedte kunnen de uitvoering beïnvloeden",
+            "Contractgedrag hangt af van gedeployde code en de huidige status"
+          ]
+        },
+        {
+          "eyebrow": "4. Geen investeringsbelofte",
+          "title": "Niets hier is financieel advies",
+          "body": "4TEEN belooft geen winst, tokenwaardestijging, gegarandeerde airdropwaarde, gegarandeerde ambassadeursinkomsten of gegarandeerde liquiditeitsresultaten. Marktgedrag is extern en alle deelname blijft op eigen risico van de gebruiker."
+        },
+        {
+          "eyebrow": "5. Logica voor beloningen en campagnes",
+          "title": "Geschiktheid is geen marketingslogan",
+          "body": "Airdrop-, ambassadeurs- en beloningsflows kunnen afhangen van contractregels, campagnevoorwaarden, anti-misbruikcontroles, verificatielogica, beschikbaarheid van resources of backendverwerkingswachtrijen. Deelname alleen garandeert geen uitbetaling."
+        },
+        {
+          "eyebrow": "6. Externe links en derden",
+          "title": "Niet elk gelinkt oppervlak wordt door 4TEEN beheerd",
+          "body": "Explorers, repositories, DEX-routes, sociale kanalen en storepagina’s kunnen vanaf de site of app worden gelinkt. Die diensten werken onder hun eigen voorwaarden en uptimecondities. 4TEEN garandeert hun beschikbaarheid of gedrag niet."
+        },
+        {
+          "eyebrow": "7. Verantwoordelijkheid van de gebruiker",
+          "title": "U moet nog steeds verifiëren wat u doet",
+          "bullets": [
+            "Controleer contractadressen en activasymbolen voordat u ondertekent",
+            "Bescherm uw seed phrase, private key en apparaattoegang",
+            "Controleer bestemmingsadressen en transactiebedragen",
+            "Gebruik alleen officiële kanalen bij het controleren van releases of support"
+          ],
+          "note": "Verlies veroorzaakt door verkeerde adressen, gecompromitteerde apparaten, gelekte recovery phrases of verkeerd begrepen contractgedrag blijft een risico aan de gebruikerskant."
+        },
+        {
+          "eyebrow": "8. Updates",
+          "title": "Het product kan in de loop van de tijd veranderen",
+          "body": "Pagina’s, walletroutes, protocolintegraties, campagnelogica en openbare teksten kunnen veranderen naarmate het product evolueert. Voortgezet gebruik van de website of app na wijzigingen betekent dat u de huidige versie van het product gebruikt, niet een oudere verwachting."
+        }
+      ],
+      "links": [
+        {
+          "label": "Open de pagina van de mobiele app",
+          "href": "/app"
+        },
+        {
+          "label": "Open verificatie",
+          "href": "/verification"
+        },
+        {
+          "label": "Open smart-contractrepository",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Openbare uitgangen",
+      "footerNote": "Lees deze voorwaarden samen met contractadressen, explorerstatus en het walletbevestigingsscherm. Organisatie-identiteit: \"AG PLUS\" LLC, D-U-N-S 933906683."
     }
   }
 }
