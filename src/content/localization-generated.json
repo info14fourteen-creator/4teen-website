@@ -14992,6 +14992,182 @@
           "openBuy": "Ouvrir la route d’achat"
         }
       }
+    },
+    "airdrop": {
+      "metadata": {
+        "title": "Airdrop",
+        "description": "Statut en direct de l’airdrop 4TEEN avec la vague actuelle, le solde débloqué, le solde du vault, l’état du parcours Telegram, l’accès au claim uniquement via wallet et les liens de vérification on-chain."
+      },
+      "hero": {
+        "eyebrow": "AirdropVault",
+        "status": "Parcours de claim via wallet",
+        "title": "Claim 4TEEN via le parcours wallet",
+        "lead": "Le site public affiche l’état en direct d’AirdropVault. Le wallet mobile gère le parcours de claim.",
+        "body": [
+          "L’airdrop n’est pas un faux bouton promotionnel sur une landing page. C’est un vault basé sur des vagues, un état de claim conscient du wallet et un parcours axé d’abord sur Telegram que l’application lit avant l’exécution.",
+          "Cette page reflète la partie publique : vague actuelle, solde du vault, quota débloqué, reste planifié, modèle de parcours et vérification on-chain. Le flux de claim en direct appartient au wallet."
+        ],
+        "rotatingLines": [
+          "État du vault. Claim via wallet.",
+          "Telegram en direct. Rails sociaux préparés.",
+          "Preuve publique. Exécution dans l’app.",
+          "Déblocages par vagues. Vérifications du parcours.",
+          "Pas de faux claims. Juste l’état."
+        ],
+        "primaryCta": "Ouvrir le parcours de l’app mobile",
+        "secondaryCta": "Ouvrir AirdropVault",
+        "ctaNote": "Le site web affiche le vault et la carte des parcours. Le wallet lit le compte sélectionné, la session Telegram, l’état du claim et le mode de signature avant l’ouverture du véritable parcours de claim.",
+        "stats": {
+          "currentWave": "Vague actuelle",
+          "vaultBalance": "Solde du vault",
+          "vaultBalanceMeta": "4TEEN actuellement détenu dans AirdropVault.",
+          "availableNow": "Disponible maintenant",
+          "availableNowMeta": "Ce qui peut être distribué maintenant selon les règles du contrat.",
+          "nextWave": "Prochaine vague",
+          "completed": "Terminée",
+          "readFailed": "La lecture en direct du vault a échoué.",
+          "readRetry": "Essayez d’actualiser dans un instant."
+        }
+      },
+      "sections": {
+        "vaultState": {
+          "eyebrow": "État du vault",
+          "title": "Ce que le contrat indique actuellement",
+          "rows": {
+            "totalAllocation": "Allocation totale",
+            "unlockedTotal": "Total débloqué",
+            "totalDistributed": "Total distribué",
+            "remainingUnlocked": "Restant débloqué",
+            "remainingPlanned": "Restant planifié",
+            "vaultBalance": "Solde du vault"
+          },
+          "noteTitle": "Pourquoi deux chiffres “restants” existent :",
+          "noteBody": "`Restant débloqué` est le quota que le contrat a déjà débloqué selon le calendrier des vagues. `Restant planifié` est la partie non distribuée de l’allocation complète de 1,500,000 4TEEN. `Disponible maintenant` est le plus petit montant entre le quota débloqué et le solde réel du vault."
+        },
+        "distribution": {
+          "eyebrow": "Empreinte de distribution",
+          "title": "Combien a déjà quitté le vault",
+          "cards": {
+            "distributed": {
+              "title": "Déjà distribué",
+              "text": "4TEEN déjà envoyé depuis l’allocation complète."
+            },
+            "planned": {
+              "title": "Encore planifié",
+              "text": "4TEEN encore restant dans le plan de distribution à long terme."
+            },
+            "lastDrop": {
+              "title": "Dernier drop confirmé",
+              "text": "4TEEN dans le dernier événement confirmé de distribution du vault."
+            },
+            "unlockedUndistributed": {
+              "title": "Débloqué mais non distribué",
+              "text": "Le quota déjà débloqué par les vagues mais pas encore envoyé."
+            }
+          },
+          "note": "Ce bloc est uniquement informatif. Il utilise des lectures en direct légères et sûres pour le site public : l’état du vault depuis les lectures du contrat et le dernier événement d’airdrop confirmé depuis le flux d’événements."
+        },
+        "dateLayer": {
+          "eyebrow": "Couche temporelle",
+          "title": "Le contrat fonctionne avec des horodatages fixes",
+          "rows": {
+            "issueDate": "Date d’émission",
+            "currentWave": "Vague actuelle",
+            "nextWave": "Prochaine vague",
+            "lastDrop": "Dernier drop confirmé",
+            "snapshotUpdated": "Snapshot mis à jour"
+          },
+          "note": "Les déblocages par vagues sont fixes dans le contrat. Le site web n’invente pas ces dates à partir d’un texte marketing ; il lit et formate l’horloge du contrat en direct."
+        },
+        "routeModel": {
+          "eyebrow": "Modèle de parcours en direct",
+          "title": "Telegram est en direct. Les autres éléments sociaux sont préparés.",
+          "note": "L’app wallet combine trois vérifications pour Telegram : l’état local du wallet, l’état actuel de la session bot et l’état de claim on-chain. Le site web ne simule pas ce flux de claim et ne prétend pas permettre de claim sur le web ; il affiche le vault en direct et le véritable modèle de parcours autour de celui-ci.",
+          "routes": {
+            "telegram": {
+              "title": "Telegram",
+              "statusLive": "En direct maintenant",
+              "statusSoon": "En direct maintenant",
+              "note": "La session wallet, l’état du bot et l’état de claim on-chain sont déjà connectés dans l’app mobile."
+            },
+            "instagram": {
+              "title": "Instagram",
+              "statusLive": "Emplacement réservé au déploiement",
+              "statusSoon": "Emplacement réservé au déploiement",
+              "note": "Le parcours existe dans le modèle de masque du contrat, mais le flux de claim en direct n’est pas encore ouvert."
+            },
+            "x": {
+              "title": "X",
+              "statusLive": "Emplacement réservé au déploiement",
+              "statusSoon": "Emplacement réservé au déploiement",
+              "note": "Le parcours existe dans le modèle de masque du contrat, mais le flux de claim en direct n’est pas encore ouvert."
+            },
+            "facebook": {
+              "title": "Facebook",
+              "statusLive": "Emplacement réservé au déploiement",
+              "statusSoon": "Emplacement réservé au déploiement",
+              "note": "Le parcours existe dans le modèle de masque du contrat, mais le flux de claim en direct n’est pas encore ouvert."
+            },
+            "youtube": {
+              "title": "YouTube",
+              "statusLive": "Emplacement réservé au déploiement",
+              "statusSoon": "Emplacement réservé au déploiement",
+              "note": "Le parcours existe dans le modèle de masque du contrat, mais le flux de claim en direct n’est pas encore ouvert."
+            }
+          }
+        },
+        "walletAccess": {
+          "eyebrow": "Accès au claim en direct",
+          "title": "Le parcours d’airdrop en direct fonctionne depuis le wallet mobile, pas depuis le site web public",
+          "body": "L’état de claim Telegram est conscient du wallet dans le produit réel. L’app combine le wallet sélectionné, la session bot actuelle et l’état de claim on-chain avant de décider si le parcours est disponible, en file d’attente, déjà reçu ou encore bloqué. Ce site web reste volontairement informatif.",
+          "bullets": [
+            "La disponibilité du claim dépend de l’état du wallet, pas seulement d’une visite sur une page publique.",
+            "Telegram est le seul parcours de claim en direct aujourd’hui ; les autres réseaux sociaux restent des rails préparés.",
+            "Le wallet peut distinguer les états en lecture seule, en signature, reçu, en file d’attente et déjà utilisé en mode legacy.",
+            "Utilisez le parcours de l’app pour la véritable interface de claim, puis revenez ici pour la vérification publique du vault."
+          ],
+          "openApp": "Ouvrir le parcours de l’app mobile",
+          "openVault": "Ouvrir AirdropVault"
+        },
+        "waveSchedule": {
+          "eyebrow": "Calendrier des vagues",
+          "title": "Six vagues fixes, une seule horloge de contrat",
+          "headers": {
+            "wave": "Vague",
+            "cap": "Cap",
+            "unlockTime": "Heure de déblocage",
+            "status": "Statut"
+          },
+          "current": "Actuelle",
+          "unlocked": "Débloquée",
+          "upcoming": "À venir"
+        },
+        "verification": {
+          "eyebrow": "Vérification",
+          "title": "Contrat et opérateur",
+          "body": "Le site lit la même logique de vault que celle utilisée par le wallet : vague actuelle, horodatage de la prochaine vague, solde débloqué, montant de distribution disponible et solde du vault.",
+          "vaultLabel": "AirdropVault",
+          "operatorLabel": "Opérateur"
+        },
+        "productContext": {
+          "eyebrow": "Contexte produit",
+          "title": "Comment le wallet lit cette surface",
+          "bullets": [
+            "Telegram est le seul parcours de claim social en direct aujourd’hui.",
+            "Les autres éléments sociaux existent déjà dans le modèle de masque du contrat.",
+            "L’historique des claims et le statut du claim sont spécifiques au wallet et sont lus dans l’app mobile, pas simulés ici.",
+            "Le financement du vault et le quota débloqué sont des réalités distinctes, donc l’app affiche les deux.",
+            "Ce site web n’effectue pas lui-même le claim en direct ; il pointe vers le parcours wallet qui le fait."
+          ]
+        },
+        "fallback": {
+          "eyebrow": "Repli",
+          "title": "Le parcours est prêt, mais les lectures en direct ont échoué.",
+          "body": "La page est déjà connectée autour du véritable contrat AirdropVault. Dès que la lecture en direct réussira à nouveau, elle renseignera automatiquement l’état des vagues, le solde, le quota débloqué, le reste planifié et le timing de la prochaine vague.",
+          "openVault": "Ouvrir AirdropVault",
+          "openApp": "Ouvrir le parcours de l’app mobile"
+        }
+      }
     }
   }
 }
