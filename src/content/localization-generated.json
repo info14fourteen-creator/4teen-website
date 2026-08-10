@@ -25089,6 +25089,194 @@
           "openApp": "Abrir rota do app móvel"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "Controlador Público de Embaixadores",
+        "description": "Controlador público de embaixadores da 4TEEN com totais ao vivo do FourteenController, fluxo de cadastro apoiado pelo gabinete, prova de vinculação de compradores, rastreamento de recompensas e prontidão em tempo de execução."
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "Controlador público de embaixadores",
+        "title": "Um Controlador Público de Embaixadores 4TEEN Com um Gabinete Real por Trás",
+        "subtitle": "O site é a camada de prova. Cadastro, propriedade de slug, vinculação de compradores, acúmulo de recompensas e saques ainda ficam no gabinete da carteira e liquidam contra o FourteenController.",
+        "body": [
+          "Esta rota não deve fingir que a página pública é o gabinete funcional. O fluxo real começa na carteira: um usuário cadastra uma identidade de embaixador, reivindica um slug, sincroniza o perfil on-chain e então acumula volume e recompensas atribuídos a compradores.",
+          "O site público tem outra função. Ele deve provar que o controlador está ativo, que existem perfis no gabinete, que as vinculações de compradores estão sendo rastreadas, que as compras estão sendo processadas e que o estado das recompensas permanece visível em vez de desaparecer em um back office."
+        ],
+        "rotatingLines": [
+          "CADASTRAR. VINCULAR. VERIFICAR. SACAR.",
+          "PROVA PÚBLICA. GABINETE REAL.",
+          "SLUG PRIMEIRO. FLUXO DE RECOMPENSA DEPOIS."
+        ],
+        "primaryCta": "Abrir Rota da Carteira",
+        "secondaryCta": "Ver Fluxo de Cadastro",
+        "ctaNote": "Identidade no gabinete, link de indicação, linhas de compradores, repetição pendente e saques permanecem nativos da carteira. O site continua público, legível e honesto.",
+        "stats": {
+          "profilesOnChain": {
+            "label": "Perfis On Chain",
+            "meta": "Perfis de embaixadores já visíveis por meio da camada de gabinete apoiada pelo controlador."
+          },
+          "boundBuyers": {
+            "label": "Compradores Vinculados",
+            "meta": "Identidades de compradores já anexadas a perfis de embaixadores."
+          },
+          "rewardsClaimed": {
+            "label": "Recompensas Reivindicadas",
+            "meta": "TRX já sacado por embaixadores por meio do fluxo do gabinete."
+          },
+          "pendingReplay": {
+            "label": "Repetição Pendente",
+            "meta": "Linhas ainda aguardando processamento seguro em recursos, em vez de serem falsamente marcadas como concluídas."
+          },
+          "readFailed": "Falha na leitura ao vivo de embaixadores.",
+          "readRetry": "Tente atualizar em instantes."
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "Rota do Gabinete",
+          "title": "A página pública não é o gabinete. Ela prova que o gabinete existe.",
+          "intro": "Essa é a divisão limpa do produto. A carteira controla as ações de identidade, vinculação, repetição e saque. O site explica a mecânica e mostra se o sistema está realmente em movimento.",
+          "mainCard": {
+            "eyebrow": "Controlador + Gabinete",
+            "title": "Cadastro e recompensas permanecem nativos da carteira. A prova pública permanece aberta.",
+            "text": "O endpoint do gabinete já combina o estado do painel on-chain com linhas do banco de dados para compradores, compras e repetição pendente. Isso significa que o site público pode falar com precisão sobre o fluxo sem fingir que pode substituir o próprio gabinete.",
+            "bullets": [
+              "O gabinete resolve um link de indicação a partir do slug do embaixador.",
+              "Compras atribuídas a compradores são persistidas e repetidas contra o controlador quando os recursos permitem.",
+              "O estado de recompensas reivindicáveis e o histórico de saques são rastreados junto ao perfil on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Propriedade do slug",
+              "title": "Uma carteira não se torna embaixadora apenas por texto de marketing",
+              "text": "O fluxo de cadastro verifica a disponibilidade do slug, impede o cadastro duplicado de carteiras e espera um perfil de embaixador on-chain real antes que a rota seja considerada concluída."
+            },
+            {
+              "eyebrow": "Vinculação de compradores",
+              "title": "A rota de ganhos começa quando as compras são realmente atribuídas",
+              "text": "Compradores vinculados, compras atribuídas, linhas processadas pelo controlador e repetição pendente são estados separados. O gabinete não os achata em um único número decorativo."
+            }
+          ],
+          "note": "É por isso que a página deve descrever um controlador público de embaixadores com um gabinete real por trás, não uma página falsa de indicação sem estado operacional."
+        },
+        "registration": {
+          "eyebrow": "Fluxo de Cadastro",
+          "title": "O cadastro começa na carteira e então se torna um perfil on-chain.",
+          "intro": "A tela de cadastro não é um formulário solto de inscrição. É o ponto em que seleção de slug, identidade da carteira, roteamento de energia e sincronização com o controlador passam a importar.",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "A carteira pode cotar recursos, validar o slug e só então finalizar o cadastro.",
+            "text": "A API verifica se o slug já foi usado, se a carteira já está cadastrada e se a rota de energia está pronta para a finalidade ambassador_registration. Após a transação, a sincronização do gabinete confirma que o perfil on-chain realmente existe.",
+            "bullets": [
+              "A disponibilidade do slug é verificada antes que a rota confirme.",
+              "O aluguel de energia pode ser solicitado especificamente para o cadastro de embaixador quando necessário.",
+              "A sincronização do gabinete verifica o hash do slug armazenado e expõe o link de indicação final."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Identidade da carteira",
+              "title": "O cadastro se torna um perfil, não um preenchimento único de formulário",
+              "text": "Depois de sincronizado, o embaixador tem um perfil vinculado à carteira com nível atual, percentual de recompensa, contagem de compradores, volume, recompensas acumuladas, recompensas reivindicadas e saldo reivindicável."
+            },
+            {
+              "eyebrow": "Segurança de repetição",
+              "title": "Se o lado do operador estiver sem recursos, as linhas aguardam em vez de mentir",
+              "text": "A repetição pendente faz parte da camada de verdade. O gabinete a mantém visível até que os recursos do operador estejam seguros o suficiente para processar compras verificadas de forma limpa."
+            }
+          ],
+          "note": "Portanto, a sequência de cadastro não é cosmética. Ela é a porta de entrada para o mesmo gabinete que depois mantém o estado de indicação, as linhas de compra e os saques."
+        },
+        "ledger": {
+          "eyebrow": "Livro-razão Público",
+          "title": "Os totais do controlador permanecem públicos mesmo quando as ações do gabinete permanecem privadas.",
+          "note": "O FourteenController expõe contagens e saldos em nível de sistema. O site deve tornar isso visível sem fingir que a camada pública pode assinar transações do gabinete.",
+          "rows": {
+            "totalAmbassadors": "Total de Embaixadores",
+            "activeAmbassadors": "Embaixadores Ativos",
+            "boundBuyers": "Compradores Vinculados",
+            "trackedVolume": "Volume Rastreado",
+            "rewardsAccrued": "Recompensas Acumuladas",
+            "rewardsClaimed": "Recompensas Reivindicadas",
+            "reservedRewards": "Recompensas Reservadas",
+            "ownerAvailable": "Disponível para o Proprietário",
+            "unallocatedFunds": "Fundos de Compra Não Alocados"
+          }
+        },
+        "runtime": {
+          "eyebrow": "Tempo de Execução do Gabinete",
+          "title": "Se os recursos estiverem baixos, as linhas aguardam em vez de fingirem que foram liquidadas.",
+          "note": "A visualização pública de tempo de execução importa porque explica por que a repetição pode legitimamente entrar em fila. Energia ou largura de banda baixas não são mais uma falha silenciosa; são um estado visível do sistema.",
+          "readyYes": "Pronto agora",
+          "readyNo": "Precisa de recarga",
+          "rows": {
+            "operatorWallet": "Carteira do Operador",
+            "readyNow": "Pronto Agora",
+            "profilesOnChain": "Perfis On Chain",
+            "profilesActive": "Perfis Ativos",
+            "pendingReplay": "Repetição Pendente",
+            "lastPurchaseSeen": "Última Compra Vista",
+            "lastWithdrawalSeen": "Último Saque Visto",
+            "energyAvailable": "Energia Disponível",
+            "bandwidthAvailable": "Largura de Banda Disponível",
+            "needPerAllocation": "Necessidade por Alocação",
+            "safeFloorAfterRun": "Piso Seguro Após a Execução"
+          }
+        },
+        "levels": {
+          "eyebrow": "Escada de Níveis",
+          "title": "O crescimento de compradores altera a participação na recompensa.",
+          "suffix": "% de participação na recompensa sobre o fluxo qualificado."
+        },
+        "proof": {
+          "eyebrow": "Camada de Prova",
+          "title": "O lado público ainda deve mostrar o que o gabinete já processou.",
+          "cards": {
+            "recordedPurchases": {
+              "title": "Compras Registradas",
+              "text": "Compras já gravadas na pegada do gabinete, abrangendo linhas processadas e pendentes."
+            },
+            "ambassadorsWithPurchases": {
+              "title": "Embaixadores Com Compras",
+              "text": "Perfis que já têm atribuição de compras passando pela rota de ganhos."
+            },
+            "withdrawals": {
+              "title": "Eventos de Saque",
+              "text": "Linhas de saque de recompensas já capturadas pelo backend e pela sincronização do gabinete."
+            },
+            "latestWithdrawal": {
+              "title": "Último Saque Visto",
+              "text": "Timestamp mais recente registrado de saque de recompensa de embaixador."
+            }
+          },
+          "note": "Isso mantém o site ancorado em evidências reais do gabinete: compras, fila de repetição e saques deixam uma pegada pública visível."
+        },
+        "route": {
+          "eyebrow": "Rotas de Prova",
+          "title": "Use a camada pública para inspecionar o controlador, a implementação da carteira e o app ao vivo.",
+          "cards": {
+            "contract": {
+              "eyebrow": "Contrato",
+              "title": "Abrir FourteenController",
+              "text": "Inspecione o controlador ao vivo que mantém estatísticas e saldos do sistema de embaixadores."
+            },
+            "walletRepo": {
+              "eyebrow": "Arquivos da Carteira",
+              "title": "Abrir o repo da carteira",
+              "text": "Veja o gabinete, o roteamento de recursos, a lógica de cadastro e o fluxo de repetição que impulsionam o produto real."
+            },
+            "app": {
+              "eyebrow": "Rota da Carteira",
+              "title": "Abrir a rota do app",
+              "text": "Cadastro, estado do gabinete, link de indicação e saques pertencem à experiência da carteira."
+            }
+          },
+          "updatedPrefix": "Snapshot atualizado"
+        }
+      }
     }
   }
 }
