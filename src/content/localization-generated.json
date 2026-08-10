@@ -13157,6 +13157,74 @@
       ],
       "linksEyebrow": "Öffentliche Ausgänge",
       "footerNote": "Für Release-Links, Contract-Referenzen oder öffentliche Statusseiten beginne bei https://4teen.me. Offizieller Telefon- und WhatsApp-Support: +998 95 792 02 87."
+    },
+    "blog": {
+      "metadata": {
+        "title": "Blog",
+        "description": "Die Publishing-Ebene von 4TEEN für Launches, Protokoll-Lektüre, Ökosystem-Updates und produktbezogene Narrative für Investoren."
+      },
+      "hero": {
+        "eyebrow": "Blog",
+        "status": "Publishing-Ebene",
+        "title": "Der Blog ist der Ort, an dem 4TEEN mit einer marktgerechten Stimme sprechen kann, ohne das Produkt auf Banner und Slogans zu reduzieren.",
+        "lead": "Das Whitepaper ist das langfristige strukturelle Dokument. Verification ist die Beweisebene. Der Blog ist der Ort, an dem Launches, Routen-Updates, Ökosystem-Kontext und Narrative für Investoren in einem leichteren Format erscheinen sollten, das später in mehrere Sprachen erweitert werden kann."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Rolle",
+          "title": "Narrative Ebene",
+          "body": "Nutze den Blog für Launches, Updates, Erklärstücke und momentumstarke Inhalte, die nicht in Produktrouten gehören."
+        },
+        {
+          "eyebrow": "Zielgruppe",
+          "title": "Neue Nutzer und Investoren",
+          "body": "Diese Route sollte Hürden für Menschen senken, die eine schnellere Einordnung wünschen, bevor sie die App, die Kaufroute oder das Whitepaper öffnen."
+        },
+        {
+          "eyebrow": "Format",
+          "title": "Bereit für Übersetzungen",
+          "body": "Beiträge sollten zu mehrsprachigem Publishing ausgebaut werden können, ohne die gesamte Hülle neu zu schreiben oder das Routenmodell zu ändern."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Was hierher gehört",
+          "title": "Publishing, das Interesse schafft, ohne zu übertreiben",
+          "body": "Der Blog ist die richtige Oberfläche für Launch-Notizen, Produkt-Meilensteine, Routen-Erklärungen, Ökosystem-Partnerschaften, marktorientierte Geschichten und verständliche Aufschlüsselungen dessen, was sich in der App oder im On-Chain-Stack geändert hat."
+        },
+        {
+          "eyebrow": "2. Was hier nicht hingehört",
+          "title": "Kein Ersatz für Nachweise",
+          "body": "Der Blog sollte Contract-Links, Verification-Seiten oder Whitepaper-Abschnitte nicht ersetzen. Wenn eine Aussage einen Nachweis braucht, sollte der Beitrag auf die Beweisebene verweisen, statt so zu tun, als wäre ein Narrativ ausreichend.",
+          "bullets": [
+            "Das Whitepaper bleibt die Route für langfristige strukturelle Lektüre",
+            "Verification bleibt die Beweisroute",
+            "Der Blog bleibt die Publishing- und Momentum-Route"
+          ]
+        },
+        {
+          "eyebrow": "3. Warum diese Route wichtig ist",
+          "title": "Die Website braucht eine flexible Wachstumsfläche",
+          "body": "Home kann nicht jede Geschichte aufnehmen, und das Whitepaper sollte keine Kampagnentexte tragen. Der Blog gibt der Website einen saubereren Weg, Menschen zu gewinnen, zu informieren und auf dem Laufenden zu halten, ohne die Hauptrouten aufzublähen.",
+          "note": "Dies ist außerdem der einfachste Ort, um einen zukünftigen mehrsprachigen Publishing-Flow Artikel für Artikel aufzubauen."
+        }
+      ],
+      "links": [
+        {
+          "label": "App öffnen",
+          "href": "/app"
+        },
+        {
+          "label": "Kaufroute öffnen",
+          "href": "/buy"
+        },
+        {
+          "label": "Whitepaper lesen",
+          "href": "/whitepaper"
+        }
+      ],
+      "linksEyebrow": "Nächste Routen",
+      "footerNote": "Die aktuelle Route ist eine saubere Hülle für zukünftiges Publishing, kein künstlicher Feed. Wenn Artikel veröffentlicht werden, sollten sie mit den Beweis- und Produktebenen im Einklang bleiben."
     }
   }
 }
