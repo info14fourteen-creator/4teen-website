@@ -14492,6 +14492,154 @@
           "openUnlock": "Ouvrir la chronologie de déverrouillage"
         }
       }
+    },
+    "unlock": {
+      "metadata": {
+        "title": "Déverrouillage 4TEEN | Carte des verrouillages et calendrier de libération",
+        "description": "Carte publique des déverrouillages 4TEEN avec l’offre actuellement verrouillée, la conservation en coffres, l’estimation de la circulation libre, les prochains lots à déverrouiller et le contexte du calendrier de déverrouillage côté wallet.",
+        "openGraphTitle": "Déverrouillage 4TEEN",
+        "openGraphDescription": "Consultez la carte publique des verrouillages 4TEEN : offre actuellement verrouillée, estimation de la circulation libre, prochains lots à déverrouiller et parcours wallet pour le suivi des libérations personnelles."
+      },
+      "hero": {
+        "eyebrow": "Calendrier de déverrouillage",
+        "badge": "Topologie publique des verrouillages",
+        "title": "Suivez les déverrouillages 4TEEN avant qu’un lot verrouillé ne devienne liquide",
+        "subtitle": "Chaque achat direct mint immédiatement, se verrouille immédiatement et ne devient transférable qu’après l’expiration de son propre délai de 14 jours.",
+        "body": [
+          "Le wallet mobile affiche le calendrier de déverrouillage personnel pour le wallet de signature sélectionné. Le site public doit afficher la carte du système : ce qui est encore verrouillé, ce qui est déjà liquide et quels lots d’achats directs seront déverrouillés ensuite.",
+          "Cela signifie aucun faux portefeuille personnel sur le site web. Seulement la topologie publique du calendrier de libération, de la conservation des réserves et du parcours lot par lot, du mint verrouillé au solde mobilisable."
+        ],
+        "primaryCta": "Ouvrir le déverrouillage dans l’app",
+        "secondaryCta": "Ouvrir le parcours d’achat",
+        "ctaNote": "Les lignes de déverrouillage personnelles, les comptes à rebours et la disponibilité propre à chaque adresse restent dans le wallet mobile. Le site explique les mécanismes de libération et la carte publique des verrouillages.",
+        "rotatingLines": [
+          "Chaque achat a son propre minuteur.",
+          "Verrouillé d’abord. Liquide ensuite.",
+          "Carte publique. Calendrier dans le wallet.",
+          "La libération dépend du lot.",
+          "La transférabilité commence après le déverrouillage."
+        ],
+        "stats": {
+          "directPrice": "Prix d’achat direct",
+          "directPriceMeta": "Prix d’entrée actuel côté contrat par 4TEEN avant que le lot n’entre dans sa propre fenêtre de verrouillage de 14 jours.",
+          "lockWindow": "Fenêtre de verrouillage",
+          "lockWindowMeta": "Chaque lot d’achat direct reste gelé jusqu’à l’arrivée de son propre horodatage de libération.",
+          "lockedNow": "Verrouillé actuellement",
+          "lockedNowMeta": "Lots d’achats directs à l’échelle du système encore dans la fenêtre de verrouillage de 14 jours.",
+          "circulatingNow": "En circulation libre",
+          "circulatingNowMeta": "Estimation publique après retrait des verrouillages actifs et de la conservation en coffres de l’offre totale.",
+          "priceFallback": "1.147500",
+          "priceUnavailable": "Le prix en direct est indisponible pour le moment. La valeur de secours reflète le dernier parcours direct connu.",
+          "readFailed": "La lecture en direct des déverrouillages a échoué.",
+          "readRetry": "Essayez d’actualiser dans un instant."
+        }
+      },
+      "sections": {
+        "unlockContext": {
+          "eyebrow": "Contexte du wallet",
+          "title": "Le calendrier de déverrouillage personnel se trouve dans le wallet mobile",
+          "body": "Le site web peut expliquer le modèle de verrouillage et afficher la topologie publique des libérations, mais le calendrier de déverrouillage personnel appartient à l’app, car il dépend de l’adresse de wallet sélectionnée, de l’historique d’achats directs de ce wallet et des lectures on-chain en direct pour lockedBalanceOf(account).",
+          "bullets": [
+            "Chaque achat direct crée son propre lot verrouillé avec son propre horodatage de libération.",
+            "Le calendrier de déverrouillage du wallet suit uniquement l’historique d’achats directs lié au wallet sélectionné, pas l’historique générique des swaps.",
+            "Une fois un lot déverrouillé, les tokens deviennent transférables et les parcours de marché comme le swap deviennent pertinents."
+          ],
+          "openApp": "Ouvrir le parcours de l’app mobile",
+          "openBuy": "Ouvrir le parcours d’achat"
+        },
+        "liveLockMap": {
+          "eyebrow": "Carte des verrouillages en direct",
+          "title": "Combien de 4TEEN sont verrouillés et combien sont réellement liquides",
+          "rows": {
+            "totalSupply": "Offre totale",
+            "activeLockBatches": "Lots verrouillés actifs",
+            "currentlyLocked": "Actuellement verrouillé",
+            "vaultCustody": "Conservation en coffres",
+            "freelyCirculating": "En circulation libre",
+            "nextUnlock": "Prochain déverrouillage",
+            "snapshotUpdated": "Instantané mis à jour"
+          },
+          "note": "La circulation libre ici est une estimation publique du système : offre totale moins verrouillages actifs d’achats directs moins tokens détenus dans les contrats de coffres de réserve. Elle est volontairement plus stricte qu’une simple vue totalSupply."
+        },
+        "upcomingUnlocks": {
+          "eyebrow": "Prochains déverrouillages",
+          "title": "Lots d’achats directs récents dont le verrouillage n’est pas encore terminé",
+          "headers": {
+            "buyer": "Acheteur",
+            "amount": "Lot verrouillé",
+            "unlockAt": "Déverrouillage à",
+            "source": "Source"
+          },
+          "openTx": "Ouvrir tx",
+          "empty": "Aucun lot verrouillé d’achat direct actif n’est visible pour le moment.",
+          "note": "Cette carte de libération est construite à partir d’événements BuyTokens confirmés qui se trouvent encore dans la fenêtre de verrouillage de 14 jours. Elle affiche le calendrier public des lots, pas un portefeuille wallet privé."
+        },
+        "vaultLayer": {
+          "eyebrow": "Couche des coffres",
+          "title": "La conservation des réserves n’est pas la même chose que la circulation libre",
+          "body": "L’architecture 4TEEN conserve les allocations de réserve dans des contrats dédiés. FourteenVault détient les tokens de réserve de liquidité, AirdropVault détient les réserves de distribution communautaire échelonnée, et TeamLockVault isole l’allocation de l’équipe. Ces soldes existent on-chain, mais ils ne doivent pas être présentés comme une offre en circulation libre.",
+          "note": "AirdropVault reçoit également des TRX acheminés lors des achats directs, mais le solde de tokens affiché ici correspond uniquement à la réserve 4TEEN réellement placée sous conservation en coffre."
+        },
+        "lockMechanics": {
+          "eyebrow": "Mécanismes de verrouillage",
+          "title": "Ce que le contrat principal du token impose réellement",
+          "cards": [
+            {
+              "eyebrow": "Mint",
+              "title": "L’achat direct mint d’abord",
+              "text": "buyTokens() mint des 4TEEN dans la même transaction qui reçoit les TRX. Il n’existe aucune file d’exécution off-chain pour le montant acheté."
+            },
+            {
+              "eyebrow": "Lot",
+              "title": "Chaque achat crée une entrée de verrouillage distincte",
+              "text": "Le contrat du token ajoute un nouvel enregistrement LockInfo pour chaque achat direct. Les verrouillages ne sont pas fusionnés dans un minuteur générique unique."
+            },
+            {
+              "eyebrow": "Règle",
+              "title": "Les transferts sont bloqués par lockedBalanceOf()",
+              "text": "transfer() et transferFrom() exigent tous deux un solde disponible après soustraction de lockedBalanceOf(account). Les tokens verrouillés ne peuvent pas être déplacés en avance."
+            }
+          ]
+        },
+        "walletRoute": {
+          "eyebrow": "Parcours wallet",
+          "title": "Comment l’app transforme cet état du contrat en calendrier utilisable",
+          "cards": [
+            {
+              "eyebrow": "Solde",
+              "title": "Lit le solde total, verrouillé et disponible",
+              "text": "Le wallet combine balanceOf(account) avec lockedBalanceOf(account) pour afficher ce qui est encore gelé et ce qui est déjà mobilisable."
+            },
+            {
+              "eyebrow": "Historique",
+              "title": "Construit les lignes à partir des événements BuyTokens confirmés",
+              "text": "Chaque événement d’achat direct devient une ligne de déverrouillage visible avec le montant exact, l’heure de déverrouillage, le compte à rebours et le chemin de transaction TronScan."
+            },
+            {
+              "eyebrow": "Action",
+              "title": "Oriente l’utilisateur vers le prochain parcours valide",
+              "text": "Le calendrier de déverrouillage est le bon parcours après l’achat. Le swap ne devient pertinent qu’après la libération du lot verrouillé et sa transférabilité effective."
+            }
+          ],
+          "note": "C’est pourquoi le site public doit expliquer clairement le déverrouillage, puis envoyer l’utilisateur dans le wallet pour son historique personnel, au lieu de prétendre être la surface d’exécution."
+        },
+        "verification": {
+          "eyebrow": "Vérification",
+          "title": "D’où viennent les chiffres et la logique de verrouillage",
+          "body": "Cette page utilise le contrat FourteenToken déployé, l’implémentation du calendrier de déverrouillage du wallet et les adresses connues des coffres de réserve. Elle explique les mécanismes en direct et la structure de conservation au lieu de tout aplatir dans un graphique générique de l’offre du token.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Dépôt des contrats",
+          "walletRepoLabel": "Dépôt du wallet"
+        },
+        "cta": {
+          "eyebrow": "Prochaine étape",
+          "title": "Utilisez l’app lorsque vous avez besoin de votre calendrier de déverrouillage personnel",
+          "body": "Le site public peut afficher la carte des verrouillages à l’échelle du protocole. Le wallet reste la bonne interface pour les lignes de déverrouillage propres à une adresse, les comptes à rebours et le suivi après achat.",
+          "openApp": "Ouvrir le déverrouillage dans l’app",
+          "openBuy": "Ouvrir le parcours d’achat"
+        }
+      }
     }
   }
 }
