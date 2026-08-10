@@ -24752,6 +24752,167 @@
           "openBuy": "Abrir Rota de Compra"
         }
       }
+    },
+    "swap": {
+      "metadata": {
+        "title": "Swap",
+        "description": "Rota de swap da 4TEEN com ampla cobertura de tokens na carteira, rotas ranqueadas, proteção de mínimo a receber, revisão de aprovação e amostras públicas de rotas ao vivo."
+      },
+      "hero": {
+        "eyebrow": "Rota de Swap",
+        "badge": "Rota de swap com foco na carteira",
+        "title": "Faça swap de 4TEEN para um universo mais amplo de tokens TRON",
+        "subtitle": "O site mostra apenas amostras-âncora. A carteira já pesquisa um universo de tokens muito mais amplo, ranqueia rotas e conduz o usuário por aprovação, revisão e swap.",
+        "body": [
+          "Esta página não deve parecer que a 4TEEN só faz swap para um ou dois tokens próprios. Na carteira, o conjunto de destino é puxado de ativos enviáveis, do catálogo de tokens personalizados e da lista de tokens da TronScan, depois filtrado conforme a existência real de roteamento.",
+          "Isso significa que a rota é mais ampla do que a prévia pública do site. Se houver liquidez e o roteador conseguir cotar, a carteira pode exibir, ranquear e levar o usuário a uma etapa real de confirmação."
+        ],
+        "rotatingLines": [
+          "UNIVERSO AMPLO DE TOKENS. ROTAS RANQUEADAS.",
+          "PRÉVIA NO SITE. EXECUÇÃO NA CARTEIRA.",
+          "MÍNIMO DE SAÍDA. APROVAÇÃO. SWAP."
+        ],
+        "primaryCta": "Abrir rota na carteira",
+        "secondaryCta": "Ir para amostras de rotas ao vivo",
+        "ctaNote": "O site é a camada de comprovação. A carteira é onde a troca de tokens, o ranqueamento de rotas, a proteção de mínimo a receber, as verificações de allowance e a assinatura final realmente acontecem.",
+        "stats": {
+          "sampleAmount": {
+            "label": "Tamanho da cotação de amostra",
+            "meta": "As amostras públicas de rotas são atualizadas com base no mesmo valor em 4TEEN."
+          },
+          "supportedTargets": {
+            "label": "Rotas públicas de amostra",
+            "meta": "O site mantém público apenas um conjunto-âncora minúsculo. A carteira consegue explorar muito mais destinos quando existem rotas."
+          },
+          "protectedRemainder": {
+            "label": "Saldo residual protegido",
+            "meta": "A carteira mantém um saldo residual mínimo de 4TEEN em vez de zerar completamente o saldo."
+          },
+          "routerState": {
+            "label": "Estado do roteador",
+            "meta": "Sinal rápido para indicar se a amostragem pública de rotas está respondendo totalmente agora."
+          },
+          "readFailed": "A leitura do roteamento de swap ao vivo falhou.",
+          "readRetry": "Tente atualizar em instantes.",
+          "states": {
+            "live": "Ao vivo",
+            "partial": "Parcial",
+            "offline": "Offline"
+          }
+        }
+      },
+      "sections": {
+        "tokenUniverse": {
+          "eyebrow": "Universo de Tokens",
+          "title": "A carteira não fica presa a dois destinos promocionais.",
+          "intro": "O site público mantém a história pequena de propósito. A carteira faz o oposto: combina ativos enviáveis da carteira, entradas do catálogo de tokens personalizados e a lista de tokens da TronScan, depois deixa o roteamento determinar o que é realmente passível de swap.",
+          "mainCard": {
+            "eyebrow": "Acesso amplo a destinos",
+            "title": "Se o roteador consegue cotar, a carteira geralmente consegue exibir.",
+            "text": "Essa é a distinção importante. A prévia do site é intencionalmente limitada. A carteira é onde a troca de destinos se torna real, porque ela consegue puxar um universo de tokens mais amplo e testá-lo diretamente contra a camada de roteamento.",
+            "bullets": [
+              "Saldos enviáveis da carteira podem se tornar ativos de origem.",
+              "Entradas do catálogo personalizado e a lista de tokens da TronScan ampliam o conjunto de destinos muito além de TRX e USDT.",
+              "As rotas ainda são filtradas conforme a existência de cotações reais, para que a interface permaneça honesta em vez de fingir que todo token tem liquidez."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Troca de destino",
+              "title": "O usuário pode alterar tanto o ativo de origem quanto o ativo a receber na carteira",
+              "text": "O fluxo mobile não fica congelado em torno de um único par. Ele permite trocar os ativos antes que as cotações sejam solicitadas, por isso a rota de swap deve ser apresentada como uma utilidade de mercado mais ampla."
+            },
+            {
+              "eyebrow": "Ranqueamento de rotas",
+              "title": "As rotas são ordenadas por saída, não por uma preferência codificada",
+              "text": "As rotas disponíveis são ranqueadas da melhor saída para a pior saída, com rotas executáveis priorizadas primeiro. O usuário vê o que realmente vence, em vez de um caminho opaco único."
+            }
+          ],
+          "note": "Portanto, a mensagem correta do produto não é “faça swap para TRX ou USDT”. A mensagem correta é “a carteira pode pesquisar em um universo de destinos muito mais amplo quando há roteamento disponível”."
+        },
+        "liveRoutes": {
+          "eyebrow": "Amostras de Rotas ao Vivo",
+          "title": "Uma pequena janela pública para o mecanismo de roteamento",
+          "body": "Estes cards permanecem intencionalmente limitados. Eles mostram apenas algumas amostras-âncora para que o site possa provar que o mecanismo está ativo sem fingir ser todo o produto de swap.",
+          "labels": {
+            "route": "Rota",
+            "execution": "Execução",
+            "impact": "Impacto",
+            "targets": "Destinos",
+            "updated": "Atualizado",
+            "state": "Estado"
+          },
+          "transfers": {
+            "eyebrow": "Transferências mais recentes do roteador",
+            "title": "Movimentação recente confirmada de 4TEEN tocando o roteador público",
+            "empty": "Nenhuma transferência recente de 4TEEN pelo roteador está em cache no momento.",
+            "note": "Esta lista é carregada pela camada de snapshots do backend, armazenada em cache em nosso banco de dados e servida com segurança contra dados desatualizados quando o explorador upstream está instável.",
+            "labels": {
+              "direction": "Direção",
+              "counterparty": "Contraparte",
+              "amount": "Valor",
+              "updated": "Atualizado",
+              "tx": "Tx"
+            },
+            "states": {
+              "routerIn": "Roteador recebeu",
+              "routerOut": "Roteador enviou",
+              "related": "Relacionado ao roteador"
+            }
+          },
+          "states": {
+            "executable": "Rota executável",
+            "reviewOnly": "Rota apenas para revisão"
+          },
+          "empty": "Nenhuma amostra pública de rota está disponível no momento.",
+          "note": "Dentro da carteira, a troca de destino e o ranqueamento de rotas acontecem contra um universo de tokens muito mais amplo. O site mantém visível apenas uma amostra pública compacta."
+        },
+        "reviewLayer": {
+          "eyebrow": "Camada de Revisão",
+          "title": "A carteira não pula direto para o swap. Ela constrói primeiro uma revisão controlada.",
+          "intro": "A parte mais importante da rota não é a captura de tela de marketing. É a passagem controlada entre a prévia da cotação e a execução final: mínimo protegido, estado de aprovação, visão dos recursos de rede e a etapa de assinatura final.",
+          "mainCard": {
+            "eyebrow": "Aprovar e fazer swap",
+            "title": "Mínimo de saída, aprovação e revisão de recursos fazem parte da rota antes que qualquer coisa seja enviada.",
+            "text": "Uma rota pode estar visível e ainda assim não ser executável. Esse é um comportamento saudável. A carteira espera até que o estado de aprovação, a validade da rota e a prontidão dos recursos estejam alinhados antes de oferecer a ação final.",
+            "bullets": [
+              "A slippage protege o valor mínimo recebido antes que o swap saia da carteira.",
+              "A aprovação é verificada primeiro quando a allowance está ausente.",
+              "Os custos de energia e bandwidth são exibidos antes da etapa de confirmação final."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Aluguel de recursos",
+              "title": "A rota pode orientar o usuário para uma execução com aluguel primeiro quando isso for mais barato",
+              "text": "A carteira já apresenta a lógica de economia de recursos como parte do fluxo. Isso mantém a execução prática, em vez de deixar que os usuários descubram os custos de queima apenas depois de assinar."
+            },
+            {
+              "eyebrow": "Dust protegido",
+              "title": "Um pequeno saldo residual de 4TEEN fica para trás de propósito",
+              "text": "O saldo residual protegido evita casos extremos frágeis de saldo zero e torna o tratamento posterior de rotas mais tranquilo. É uma regra pequena, mas é uma boa regra de carteira."
+            }
+          ],
+          "note": "É isso que faz o produto parecer sério: descoberta ampla de tokens na entrada, disciplina de execução controlada na saída."
+        },
+        "verification": {
+          "eyebrow": "Verificação",
+          "title": "De onde vem esta narrativa de rota",
+          "body": "Esta página segue a implementação real da carteira: troca de destino, carregamento de um catálogo de tokens mais amplo, ranqueamento de cotações, proteção de mínimo a receber, verificações de aprovação e execução final pela camada de roteador por trás do app.",
+          "labels": {
+            "router": "Roteador inteligente",
+            "token": "Token 4TEEN",
+            "walletRepo": "Repositório da carteira"
+          }
+        },
+        "cta": {
+          "eyebrow": "Abra a Rota Real",
+          "title": "Abra a carteira quando quiser o mapa completo de rotas",
+          "body": "O site deve tornar a oportunidade de swap compreensível. A carteira mobile é onde o universo mais amplo de tokens, as rotas ranqueadas, a revisão de aprovação, o mínimo protegido e a assinatura final se juntam.",
+          "openApp": "Abrir app mobile",
+          "openBuy": "Abrir rota de compra"
+        }
+      }
     }
   }
 }
