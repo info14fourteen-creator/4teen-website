@@ -19112,6 +19112,142 @@
           "document": "**Versión:** 1.0\n\n**Fecha:** 30 de noviembre de 2025\n\n---\n\n## Resumen\n\n4TEEN es un token basado en TRON construido para expansión de precio de ciclo corto, flujo de liquidez transparente y mecánicas on-chain justas. Su economía está estructurada alrededor de un precio de entrada fijo, suministro dinámico, tokens bloqueados por tiempo y un modelo automatizado de distribución de liquidez. El objetivo de 4TEEN es crear un mecanismo de crecimiento predecible, transparente y autorreforzado, adecuado para participantes DeFi que entienden la liquidez on-chain y los flujos de incentivos.\n\n---\n\n## 1. Introducción\n\n4TEEN es un token impulsado por demanda con **sin suministro total fijo**, donde los tokens se mintean exclusivamente cuando TRX real entra al sistema. El proyecto está construido para velocidad, transparencia y crecimiento sostenible de liquidez. Un periodo corto de bloqueo de **14 días** ayuda a la estabilidad del mercado, mientras el reenvío continuo de liquidez fortalece con el tiempo la profundidad de mercado del token.\n\n4TEEN está diseñado para usuarios DeFi que valoran **tokenomics limpias**, **liquidez real** y **mecánicas que no pueden manipularse manualmente**.\n\n---\n\n## 2. Cómo funciona 4TEEN\n\n### 01. Precio de entrada fijo\n\n4TEEN usa una tasa de entrada constante de:\n\n**1 TRX = 1 4TEEN**\n\nEsto elimina slippage, precios arbitrarios y volatilidad de etapa temprana.\n\nCada comprador entra exactamente al mismo precio.\n\n---\n\n### 02. Mint-on-purchase\n\n4TEEN no tiene un suministro preestablecido.\n\nLos nuevos tokens se mintean *solo* en el momento en que un comprador envía TRX al contrato.\n\nSin pre-minting. Sin asignaciones ocultas. Sin rondas privadas.\n\nEsto hace que 4TEEN esté completamente **impulsado por demanda**: el suministro crece solo cuando entra TRX real.\n\n---\n\n### 03. Periodo de bloqueo de 14 días\n\nCada compra inicia un **bloqueo de 14 días** para los tokens minteados.\n\nDurante el periodo de bloqueo, los tokens no pueden transferirse ni venderse.\n\nEl propósito:\n\n- Prevenir dumps instantáneos\n\n- Crear ciclos de holding cortos y predecibles\n\n- Apoyar liquidez natural y formación de precio\n\nDespués de 14 días, los tokens se desbloquean automáticamente y pasan a estar disponibles para transferencias o trading.\n\n---\n\n## 3. Liquidez y flujo de TRX\n\nCuando los usuarios compran 4TEEN, el TRX entrante se distribuye automáticamente:\n\n| Destino | Porcentaje | Propósito |\n|---|---:|---|\n| Pool de liquidez | 90% | Fortalece el respaldo de precio y la profundidad de mercado |\n| Wallet del propietario | 7% | Operaciones y desarrollo |\n| Dirección de airdrop | 3% | Incentivos comunitarios y crecimiento |\n\nEsta estructura asegura que **la mayor parte** del TRX vaya directamente a liquidez, aumentando la estabilidad a largo plazo.\n\n---\n\n## Modelo de liquidez\n\nLa estructura de liquidez de 4TEEN se construye sobre tres principios:\n\n### 1. LIQUIDEZ SOLO CON TRX REAL\n\nLa liquidez siempre está respaldada por TRX real de compradores reales.\n\n### 2. DISTRIBUCIÓN AUTOMÁTICA\n\nLa asignación de liquidez ocurre dentro del smart contract cada vez que alguien compra 4TEEN.\n\n### 3. PROFUNDIDAD DE MERCADO CRECIENTE\n\nMás compradores → más TRX → liquidez más profunda → soporte de precio más fuerte.\n\n---\n\n## 4. Modelo de suministro dinámico\n\n**4TEEN** **no** tiene un suministro máximo.\n\nEl suministro es **completamente dinámico** y se expande solo cuando ocurren compras.\n\n**Suministro dinámico = sin inflación sin demanda.**\n\nEsto crea un equilibrio natural:\n\n- Cuando la actividad es alta → el suministro se expande\n\n- Cuando la actividad es baja → el suministro deja de expandirse\n\n- La liquidez continúa fortaleciéndose mientras ocurran compras\n\nEsto previene el exceso de suministro y alinea la economía del token directamente con la demanda de los usuarios.\n\n---\n\n## 5. Crecimiento automatizado de precio\n\n**4TEEN** incluye un mecanismo trimestral de crecimiento de precio:\n\nCada **90 días**, el precio de minting del token se ajusta al alza según una tasa de crecimiento preestablecida, por defecto: **14.75% anualizado**.\n\nSignificado:\n\n- Los compradores tempranos mintean a un precio menor\n\n- Los compradores posteriores mintean a un precio mayor\n\n- El precio crece automáticamente con el tiempo y la demanda\n\nEsto crea un incentivo incorporado para la adopción temprana.\n\n---\n\n## 6. Arquitectura de smart contract\n\nEl contrato 4TEEN incluye:\n\n### • Compatibilidad con estándar TRC-20\n\nTotalmente compatible con el estándar de token de TRON.\n\n### • Mecanismo mint-on-buy\n\nMinting directo basado en TRX entrante.\n\n### • Lógica de vesting de 14 días\n\nLos bloqueos se rastrean individualmente por usuario.\n\n### • Protección contra reentrancy\n\nPreviene llamadas recursivas maliciosas durante el reenvío de TRX.\n\n### • Gobernanza del propietario\n\nSolo el propietario puede actualizar:\n\n- annual growth rate\n\n- dirección liquidityPool\n\n- dirección airdrop\n\n### • Eventos transparentes\n\nEventos para cada compra, actualización de precio, transferencia y aprobación.\n\n---\n\n## 7. Arquitectura de smart contract\n\n| Componente | Valor |\n|---|---|\n| Nombre del token | 4teen |\n| Símbolo | 4TEEN |\n| Decimales | 6 |\n| Precio de entrada | 1 TRX = 1 4TEEN |\n| Tipo de suministro | Dinámico |\n| Duración del bloqueo | 14 días |\n| Asignación de liquidez | 90% de TRX |\n| Asignación de airdrop | 3% |\n| Asignación operativa | 7% |\n| Intervalo de crecimiento de precio | Cada 90 días |\n| Modelo de precio | Capitalización basada en tiempo |\n\n---\n\n## 8. Declaración de riesgo\n\n4TEEN es un sistema descentralizado de smart contract desplegado en la blockchain TRON.\n\nLa participación implica riesgo, incluidos, entre otros:\n\n- Volatilidad de mercado\n\n- Fluctuaciones de liquidez\n\n- Vulnerabilidades de smart contracts\n\n- Pérdida de claves privadas\n\n- Incertidumbre regulatoria\n\nNada en este documento constituye asesoramiento financiero.\n\nLos usuarios deben evaluar su propia tolerancia al riesgo antes de interactuar con el token 4TEEN o productos relacionados.\n\n---\n\n## 9. Conclusión\n\n4TEEN introduce un modelo de token de ciclo corto e impulsado por liquidez diseñado para crecimiento transparente, participación justa y comportamiento de precio predecible.\n\nCon un precio de entrada fijo, minting dinámico, periodos de bloqueo exigidos y reenvío automático de liquidez, 4TEEN alinea incentivos entre todos los participantes del mercado.\n\nLa combinación de respaldo real en TRX, suministro dinámico y distribución estructurada de liquidez posiciona a 4TEEN como un activo moderno nativo de DeFi construido para una nueva generación de motores de liquidez on-chain."
         }
       }
+    },
+    "one-pager": {
+      "metadata": {
+        "title": "Resumen de una página de 4TEEN",
+        "description": "Un resumen conciso de una página de 4TEEN para inversores y socios estratégicos: estado del producto, mecánica del protocolo, prueba de tracción, uso del capital y enlaces de diligencia."
+      },
+      "hero": {
+        "eyebrow": "Resumen de una página de 4TEEN",
+        "status": "Informe rápido para inversores",
+        "title": "4TEEN es una wallet TRON activa y un sistema de token construido alrededor de compra directa, desbloqueos a 14 días, enrutamiento de liquidez y vías de crecimiento.",
+        "lead": "Este resumen de una página es la versión breve del deck para inversores: qué existe, por qué importa, cómo funciona el ciclo y dónde el capital o el apoyo estratégico pueden acelerar el sistema."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Producto",
+          "title": "Flujo de token centrado en la wallet",
+          "body": "Los usuarios entran a través de la superficie de la app, no solo de una página de contrato: comprar, desbloquear, intercambiar, liquidez, embajador y rutas de prueba ya están planteadas como un único ciclo de producto."
+        },
+        {
+          "eyebrow": "Mecánica",
+          "title": "Enrutamiento de compra 90 / 7 / 3",
+          "body": "Cada compra directa enruta TRX entre liquidez, controlador y airdrop dentro de la misma transacción, lo que hace que la economía central sea más fácil de explicar y verificar."
+        },
+        {
+          "eyebrow": "Retención",
+          "title": "Desbloqueo por lotes a 14 días",
+          "body": "Los tokens de compra directa se acuñan de inmediato, pero se desbloquean por lote de compra después de 14 días, convirtiendo el momento de entrada en un estado visible de la wallet."
+        },
+        {
+          "eyebrow": "Ruta de escala",
+          "title": "Las vías de crecimiento ya existen",
+          "body": "La contabilidad de embajadores, la financiación de airdrop, las rutas de verificación y las páginas públicas de prueba crean una base para la distribución en lugar de una estructura de campaña vacía."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "Qué es 4TEEN",
+          "title": "Un sistema de entrada estructurado en TRON, empaquetado como una experiencia de wallet",
+          "body": "4TEEN combina mecánicas de token, contabilidad del lado del controlador, ejecución de liquidez, seguimiento de embajadores y UX de app en una sola superficie. El sitio público explica el sistema; la wallet lleva el flujo de trabajo del usuario.",
+          "bullets": [
+            "La lógica de compra directa y desbloqueo está respaldada por contratos.",
+            "Los roles de liquidez y controlador están separados para una verificación más clara.",
+            "La app y el sitio ya exponen superficies para usuarios, inversores y pruebas."
+          ]
+        },
+        {
+          "eyebrow": "Por qué es invertible",
+          "title": "La oportunidad consiste en escalar un ciclo activo, no en financiar un concepto",
+          "body": "El proyecto ya cuenta con las mecánicas, rutas, narrativa de app y materiales de diligencia necesarios para iniciar conversaciones serias. El siguiente paso es distribución, pulido, confianza en la liquidez y alcance con socios.",
+          "bullets": [
+            "El riesgo de producto es menor porque los flujos principales ya existen.",
+            "La narrativa es lo suficientemente simple para enseñarla: comprar, bloquear, desbloquear y luego elegir la siguiente ruta.",
+            "El capital puede destinarse a la aceleración en lugar del descubrimiento inicial."
+          ]
+        }
+      ],
+      "snapshot": [
+        {
+          "label": "Red",
+          "value": "TRON",
+          "detail": "Entorno de bajas comisiones para compra directa, visibilidad de desbloqueos y acciones de usuario guiadas por la wallet."
+        },
+        {
+          "label": "Superficies principales",
+          "value": "App + sitio",
+          "detail": "La app lleva el flujo; el sitio web lleva la educación, la prueba y el contexto para inversores."
+        },
+        {
+          "label": "Regla de entrada",
+          "value": "90 / 7 / 3",
+          "detail": "El enrutamiento del lado de compra divide la financiación de liquidez, controlador y airdrop dentro de la transacción."
+        },
+        {
+          "label": "Regla de desbloqueo",
+          "value": "14 días",
+          "detail": "Cada compra tiene su propio lote de desbloqueo en lugar de un bloqueo opaco para toda la wallet."
+        }
+      ],
+      "proofPoints": [
+        {
+          "title": "La arquitectura on-chain está separada",
+          "body": "Los contratos de token, controlador, controlador de liquidez, bootstrapper y vault tienen responsabilidades distintas, lo que hace que la diligencia sea más sencilla que una narrativa de un único contrato opaco."
+        },
+        {
+          "title": "La UX de la wallet ya mapea el sistema",
+          "body": "La app presenta compra directa, línea de tiempo de desbloqueo, swap, liquidez, gabinete de embajador y rutas de información como un producto operativo en lugar de documentación suelta."
+        },
+        {
+          "title": "La prueba pública se puede compartir",
+          "body": "Whitepaper, verificación, contexto de blog, deck para inversores y este resumen de una página ofrecen a los socios diferentes niveles de revisión sin necesitar primero una presentación privada."
+        }
+      ],
+      "links": [
+        {
+          "label": "Descargar PDF del resumen de una página",
+          "href": "/docs/4teen-one-pager.pdf",
+          "download": "4teen-one-pager.pdf"
+        },
+        {
+          "label": "Abrir deck para inversores",
+          "href": "/deck"
+        },
+        {
+          "label": "Leer Whitepaper",
+          "href": "/whitepaper"
+        },
+        {
+          "label": "Verificar contratos",
+          "href": "/verification"
+        },
+        {
+          "label": "Abrir compra directa",
+          "href": "/buy"
+        },
+        {
+          "label": "Repositorio de la app de wallet",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Repositorio de smart contracts",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Enlaces de diligencia",
+      "footerNote": "Este resumen de una página es un informe conciso del proyecto. No es una promesa de rendimientos, listado en exchanges, resultado de liquidez ni desempeño de mercado.",
+      "ask": {
+        "eyebrow": "Solicitud estratégica",
+        "title": "Las mejores próximas conversaciones combinan capital con distribución o apalancamiento de ejecución.",
+        "body": "4TEEN busca socios que puedan acelerar la adquisición de usuarios, la confianza en la liquidez, el alcance regional, el acceso al mercado o la credibilidad del ecosistema.",
+        "email": "genesis@4teen.me",
+        "bullets": [
+          "Distribución de crecimiento y expansión de embajadores.",
+          "Relaciones de liquidez, market-making, exchanges o ecosistema.",
+          "Pulido del producto, localización, analítica y mejora de conversión."
+        ]
+      }
     }
   }
 }
