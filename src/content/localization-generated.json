@@ -21782,6 +21782,194 @@
           "openApp": "Apri il percorso dell’app mobile"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "Controller pubblico per ambassador",
+        "description": "Controller pubblico per ambassador 4TEEN con totali live di FourteenController, flusso di registrazione supportato dal cabinet, prova di binding degli acquirenti, tracciamento delle ricompense e prontezza runtime."
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "Controller pubblico per ambassador",
+        "title": "Un controller pubblico per ambassador 4TEEN con un vero cabinet alle spalle",
+        "subtitle": "Il sito web è il livello di prova. Registrazione, proprietà dello slug, binding degli acquirenti, maturazione delle ricompense e prelievi restano nel cabinet del wallet e vengono regolati su FourteenController.",
+        "body": [
+          "Questa route non deve fingere che la pagina pubblica sia il cabinet operativo. Il flusso reale parte nel wallet: un utente registra un’identità da ambassador, rivendica uno slug, sincronizza il profilo on-chain e poi accumula volume e ricompense attribuiti agli acquirenti.",
+          "Il sito pubblico ha un compito diverso. Deve dimostrare che il controller è live, che esistono profili nel cabinet, che i binding degli acquirenti vengono tracciati, che gli acquisti vengono processati e che lo stato delle ricompense resta visibile invece di sparire in un back office."
+        ],
+        "rotatingLines": [
+          "REGISTRA. COLLEGA. VERIFICA. PRELEVA.",
+          "PROVA PUBBLICA. CABINET REALE.",
+          "PRIMA LO SLUG. POI IL FLUSSO DI RICOMPENSE."
+        ],
+        "primaryCta": "Apri la route del wallet",
+        "secondaryCta": "Vedi il flusso di registrazione",
+        "ctaNote": "Identità nel cabinet, link referral, righe acquirente, replay in sospeso e prelievi restano nativi del wallet. Il sito web rimane pubblico, leggibile e trasparente.",
+        "stats": {
+          "profilesOnChain": {
+            "label": "Profili on-chain",
+            "meta": "Profili ambassador già visibili tramite il livello cabinet supportato dal controller."
+          },
+          "boundBuyers": {
+            "label": "Acquirenti collegati",
+            "meta": "Identità degli acquirenti già associate ai profili ambassador."
+          },
+          "rewardsClaimed": {
+            "label": "Ricompense richieste",
+            "meta": "TRX già prelevati dagli ambassador tramite il flusso del cabinet."
+          },
+          "pendingReplay": {
+            "label": "Replay in sospeso",
+            "meta": "Righe ancora in attesa di un’elaborazione sicura per le risorse, invece di essere finte come completate."
+          },
+          "readFailed": "Lettura live degli ambassador non riuscita.",
+          "readRetry": "Prova ad aggiornare tra un momento."
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "Route del cabinet",
+          "title": "La pagina pubblica non è il cabinet. Dimostra che il cabinet esiste.",
+          "intro": "Questa è la separazione di prodotto corretta. Il wallet gestisce identità, binding, replay e azioni di prelievo. Il sito spiega la meccanica e mostra se il sistema si sta davvero muovendo.",
+          "mainCard": {
+            "eyebrow": "Controller + Cabinet",
+            "title": "Registrazione e ricompense restano native del wallet. La prova pubblica resta aperta.",
+            "text": "L’endpoint del cabinet unisce già lo stato della dashboard on-chain con le righe del database per acquirenti, acquisti e replay in sospeso. Questo significa che il sito pubblico può descrivere il flusso in modo veritiero senza fingere di poter sostituire il cabinet stesso.",
+            "bullets": [
+              "Il cabinet risolve un link referral a partire dallo slug dell’ambassador.",
+              "Gli acquisti attribuiti agli acquirenti vengono persistiti e riprodotti sul controller quando le risorse lo consentono.",
+              "Lo stato delle ricompense richiedibili e la cronologia dei prelievi vengono tracciati insieme al profilo on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Proprietà dello slug",
+              "title": "Un wallet non diventa ambassador solo con un testo di marketing",
+              "text": "Il flusso di registrazione verifica la disponibilità dello slug, impedisce la registrazione duplicata del wallet e richiede un profilo ambassador on-chain reale prima che la route sia considerata completata."
+            },
+            {
+              "eyebrow": "Binding degli acquirenti",
+              "title": "La route di earning inizia quando gli acquisti sono davvero attribuiti",
+              "text": "Acquirenti collegati, acquisti attribuiti, righe del controller processate e replay in sospeso sono tutti stati separati. Il cabinet non li appiattisce in un unico numero decorativo."
+            }
+          ],
+          "note": "Ecco perché la pagina dovrebbe descrivere un controller pubblico per ambassador con un vero cabinet alle spalle, non una falsa landing page referral senza stato operativo."
+        },
+        "registration": {
+          "eyebrow": "Flusso di registrazione",
+          "title": "La registrazione inizia nel wallet, poi diventa un profilo on-chain.",
+          "intro": "La schermata di registrazione non è un semplice modulo di signup. È il punto in cui selezione dello slug, identità del wallet, instradamento dell’energia e sincronizzazione con il controller iniziano a contare.",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "Il wallet può quotare le risorse, validare lo slug e solo dopo finalizzare la registrazione.",
+            "text": "L’API verifica se lo slug è già occupato, se il wallet è già registrato e se la route dell’energia è pronta per lo scopo ambassador_registration. Dopo la transazione, la sincronizzazione del cabinet verifica che il profilo on-chain esista davvero.",
+            "bullets": [
+              "La disponibilità dello slug viene verificata prima che la route confermi.",
+              "Il noleggio di energia può essere richiesto specificamente per la registrazione ambassador quando necessario.",
+              "La sincronizzazione del cabinet verifica l’hash dello slug salvato ed espone il link referral finale."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Identità del wallet",
+              "title": "La registrazione diventa un profilo, non la compilazione una tantum di un modulo",
+              "text": "Una volta sincronizzato, l’ambassador ha un profilo collegato al wallet con livello attuale, percentuale di ricompensa, conteggio acquirenti, volume, ricompense maturate, ricompense richieste e saldo richiedibile."
+            },
+            {
+              "eyebrow": "Sicurezza del replay",
+              "title": "Se il lato operatore ha poche risorse, le righe attendono invece di mentire",
+              "text": "Il replay in sospeso fa parte del livello di verità. Il cabinet lo mantiene visibile finché le risorse dell’operatore non sono abbastanza sicure da processare in modo pulito gli acquisti verificati."
+            }
+          ],
+          "note": "Quindi la sequenza di registrazione non è cosmetica. È la porta d’ingresso nello stesso cabinet che in seguito contiene stato referral, righe di acquisto e prelievi."
+        },
+        "ledger": {
+          "eyebrow": "Ledger pubblico",
+          "title": "I totali del controller restano pubblici anche quando le azioni del cabinet restano private.",
+          "note": "FourteenController espone conteggi e saldi a livello di sistema. Il sito dovrebbe renderli visibili senza fingere che il livello pubblico possa firmare transazioni del cabinet.",
+          "rows": {
+            "totalAmbassadors": "Ambassador totali",
+            "activeAmbassadors": "Ambassador attivi",
+            "boundBuyers": "Acquirenti collegati",
+            "trackedVolume": "Volume tracciato",
+            "rewardsAccrued": "Ricompense maturate",
+            "rewardsClaimed": "Ricompense richieste",
+            "reservedRewards": "Ricompense riservate",
+            "ownerAvailable": "Disponibile per l’owner",
+            "unallocatedFunds": "Fondi di acquisto non allocati"
+          }
+        },
+        "runtime": {
+          "eyebrow": "Runtime del cabinet",
+          "title": "Se le risorse sono basse, le righe attendono invece di fingere di essere state chiuse.",
+          "note": "La vista pubblica del runtime è importante perché spiega perché il replay può legittimamente accodarsi. Energia o bandwidth basse non sono più un errore silenzioso; sono uno stato di sistema visibile.",
+          "readyYes": "Pronto ora",
+          "readyNo": "Richiede top-up",
+          "rows": {
+            "operatorWallet": "Wallet operatore",
+            "readyNow": "Pronto ora",
+            "profilesOnChain": "Profili on-chain",
+            "profilesActive": "Profili attivi",
+            "pendingReplay": "Replay in sospeso",
+            "lastPurchaseSeen": "Ultimo acquisto rilevato",
+            "lastWithdrawalSeen": "Ultimo prelievo rilevato",
+            "energyAvailable": "Energia disponibile",
+            "bandwidthAvailable": "Bandwidth disponibile",
+            "needPerAllocation": "Fabbisogno per allocazione",
+            "safeFloorAfterRun": "Soglia sicura dopo l’esecuzione"
+          }
+        },
+        "levels": {
+          "eyebrow": "Scala dei livelli",
+          "title": "La crescita degli acquirenti modifica la quota di ricompensa.",
+          "suffix": "% di quota ricompensa sul flusso qualificato."
+        },
+        "proof": {
+          "eyebrow": "Livello di prova",
+          "title": "Il lato pubblico dovrebbe comunque mostrare ciò che il cabinet ha già processato.",
+          "cards": {
+            "recordedPurchases": {
+              "title": "Acquisti registrati",
+              "text": "Acquisti già scritti nell’impronta del cabinet, tra righe processate e in sospeso."
+            },
+            "ambassadorsWithPurchases": {
+              "title": "Ambassador con acquisti",
+              "text": "Profili che hanno già attribuzione di acquisti in movimento attraverso la route di earning."
+            },
+            "withdrawals": {
+              "title": "Eventi di prelievo",
+              "text": "Righe di prelievo delle ricompense già acquisite dal backend e dalla sincronizzazione del cabinet."
+            },
+            "latestWithdrawal": {
+              "title": "Ultimo prelievo rilevato",
+              "text": "Timestamp più recente registrato per un prelievo di ricompense ambassador."
+            }
+          },
+          "note": "Questo mantiene il sito web ancorato a prove reali del cabinet: acquisti, coda di replay e prelievi lasciano tutti un’impronta pubblica visibile."
+        },
+        "route": {
+          "eyebrow": "Route di prova",
+          "title": "Usa il livello pubblico per ispezionare il controller, l’implementazione del wallet e l’app live.",
+          "cards": {
+            "contract": {
+              "eyebrow": "Contratto",
+              "title": "Apri FourteenController",
+              "text": "Ispeziona il controller live che contiene statistiche e saldi del sistema ambassador."
+            },
+            "walletRepo": {
+              "eyebrow": "File del wallet",
+              "title": "Apri il repo del wallet",
+              "text": "Guarda il cabinet, l’instradamento delle risorse, la logica di registrazione e il flusso di replay che alimentano il prodotto reale."
+            },
+            "app": {
+              "eyebrow": "Route del wallet",
+              "title": "Apri la route dell’app",
+              "text": "Registrazione, stato del cabinet, link referral e prelievi appartengono all’esperienza wallet."
+            }
+          },
+          "updatedPrefix": "Snapshot aggiornato"
+        }
+      }
     }
   }
 }
