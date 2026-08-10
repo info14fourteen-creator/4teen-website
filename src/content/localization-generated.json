@@ -19771,6 +19771,74 @@
       ],
       "linksEyebrow": "Salidas públicas",
       "footerNote": "Para enlaces de publicaciones, referencias de contratos o páginas de estado público, empieza desde https://4teen.me. Soporte oficial por teléfono y WhatsApp: +998 95 792 02 87."
+    },
+    "blog": {
+      "metadata": {
+        "title": "Blog",
+        "description": "La capa de publicación de 4TEEN para lanzamientos, lectura del protocolo, actualizaciones del ecosistema y narrativas de producto orientadas a inversores."
+      },
+      "hero": {
+        "eyebrow": "Blog",
+        "status": "Capa de publicación",
+        "title": "El blog es donde 4TEEN puede hablar con una voz de mercado sin reducir el producto a banners y eslóganes.",
+        "lead": "El whitepaper es el documento estructural de formato largo. La verificación es la capa de prueba. El blog es donde los lanzamientos, las actualizaciones de rutas, el contexto del ecosistema y las narrativas orientadas a inversores deberían vivir en un formato más ligero que luego pueda ampliarse a varios idiomas."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Rol",
+          "title": "Capa narrativa",
+          "body": "Usa el blog para lanzamientos, actualizaciones, explicaciones y textos que generen impulso y que no pertenecen dentro de las rutas del producto."
+        },
+        {
+          "eyebrow": "Audiencia",
+          "title": "Nuevos usuarios e inversores",
+          "body": "Esta ruta debería reducir la fricción para quienes quieren una lectura más rápida antes de abrir la app, la ruta de compra o el whitepaper."
+        },
+        {
+          "eyebrow": "Formato",
+          "title": "Listo para traducción",
+          "body": "Las publicaciones deberían poder crecer hacia una publicación multilingüe sin reescribir toda la estructura ni cambiar el modelo de rutas."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Qué pertenece aquí",
+          "title": "Publicación que genera interés sin mentir",
+          "body": "El blog es la superficie adecuada para notas de lanzamiento, hitos de producto, explicaciones de rutas, alianzas del ecosistema, historias orientadas al mercado y desgloses legibles de lo que cambió en la app o en la pila on-chain."
+        },
+        {
+          "eyebrow": "2. Qué no pertenece aquí",
+          "title": "No es un sustituto de la prueba",
+          "body": "El blog no debería reemplazar los enlaces de contratos, las páginas de verificación ni las secciones del whitepaper. Si una afirmación necesita prueba, la publicación debería apuntar a la capa de prueba en lugar de fingir que la narrativa es suficiente.",
+          "bullets": [
+            "El whitepaper sigue siendo la ruta de lectura estructural de formato largo",
+            "La verificación sigue siendo la ruta de prueba",
+            "El blog sigue siendo la ruta de publicación e impulso"
+          ]
+        },
+        {
+          "eyebrow": "3. Por qué importa esta ruta",
+          "title": "El sitio necesita una superficie de crecimiento flexible",
+          "body": "La página de inicio no puede contener todas las historias, y el whitepaper no debería cargar con textos de campaña. El blog ofrece al sitio web una forma más limpia de atraer, educar y actualizar a las personas sin recargar las rutas principales.",
+          "note": "Este también es el lugar más fácil para desarrollar un futuro flujo de publicación multilingüe, artículo por artículo."
+        }
+      ],
+      "links": [
+        {
+          "label": "Abrir la app",
+          "href": "/app"
+        },
+        {
+          "label": "Abrir compra",
+          "href": "/buy"
+        },
+        {
+          "label": "Leer whitepaper",
+          "href": "/whitepaper"
+        }
+      ],
+      "linksEyebrow": "Próximas rutas",
+      "footerNote": "La ruta actual es una estructura limpia para futuras publicaciones, no un feed falso. Cuando lleguen los artículos, deberían mantenerse alineados con las capas de prueba y de producto."
     }
   }
 }
