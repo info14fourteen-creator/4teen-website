@@ -24913,6 +24913,182 @@
           "openBuy": "Abrir rota de compra"
         }
       }
+    },
+    "airdrop": {
+      "metadata": {
+        "title": "Airdrop",
+        "description": "Status ao vivo do airdrop 4TEEN com onda atual, saldo desbloqueado, saldo do vault, estado da rota do Telegram, acesso de reivindicação somente pela carteira e links de verificação on-chain."
+      },
+      "hero": {
+        "eyebrow": "AirdropVault",
+        "status": "Rota de reivindicação pela carteira",
+        "title": "Reivindique 4TEEN pela rota da carteira",
+        "lead": "O site público mostra o estado ao vivo do AirdropVault. A carteira móvel processa a rota de reivindicação.",
+        "body": [
+          "O airdrop não é um botão promocional falso em uma landing page. É um vault baseado em ondas, um estado de reivindicação ciente da carteira e uma rota com Telegram em primeiro lugar que o app lê antes da execução.",
+          "Esta página espelha o lado público: onda atual, saldo do vault, cota desbloqueada, restante planejado, modelo de rota e verificação on-chain. O fluxo de reivindicação ao vivo pertence à carteira."
+        ],
+        "rotatingLines": [
+          "Estado do vault. Reivindicação pela carteira.",
+          "Telegram ao vivo. Trilhos sociais preparados.",
+          "Prova pública. Execução no app.",
+          "Desbloqueios por onda. Verificações de rota.",
+          "Sem reivindicações falsas. Apenas estado."
+        ],
+        "primaryCta": "Abrir rota do app móvel",
+        "secondaryCta": "Abrir AirdropVault",
+        "ctaNote": "O site mostra o vault e o mapa de rotas. A carteira lê a conta selecionada, a sessão do Telegram, o estado de reivindicação e o modo de assinatura antes de abrir o caminho real de reivindicação.",
+        "stats": {
+          "currentWave": "Onda atual",
+          "vaultBalance": "Saldo do vault",
+          "vaultBalanceMeta": "4TEEN atualmente mantido dentro do AirdropVault.",
+          "availableNow": "Disponível agora",
+          "availableNowMeta": "O que pode ser distribuído agora pelas regras do contrato.",
+          "nextWave": "Próxima onda",
+          "completed": "Concluído",
+          "readFailed": "Falha na leitura ao vivo do vault.",
+          "readRetry": "Tente atualizar em instantes."
+        }
+      },
+      "sections": {
+        "vaultState": {
+          "eyebrow": "Estado do vault",
+          "title": "O que o contrato diz neste momento",
+          "rows": {
+            "totalAllocation": "Alocação total",
+            "unlockedTotal": "Total desbloqueado",
+            "totalDistributed": "Total distribuído",
+            "remainingUnlocked": "Restante desbloqueado",
+            "remainingPlanned": "Restante planejado",
+            "vaultBalance": "Saldo do vault"
+          },
+          "noteTitle": "Por que existem dois números de “restante”:",
+          "noteBody": "`Restante desbloqueado` é a cota que o contrato já desbloqueou pelo cronograma das ondas. `Restante planejado` é a parte ainda não distribuída da alocação total de 1,500,000 4TEEN. `Disponível agora` é o menor valor entre a cota desbloqueada e o saldo real do vault."
+        },
+        "distribution": {
+          "eyebrow": "Pegada de distribuição",
+          "title": "Quanto já saiu do vault",
+          "cards": {
+            "distributed": {
+              "title": "Já distribuído",
+              "text": "4TEEN já enviado a partir da alocação total."
+            },
+            "planned": {
+              "title": "Ainda planejado",
+              "text": "4TEEN que ainda resta dentro do plano de distribuição de longo prazo."
+            },
+            "lastDrop": {
+              "title": "Último drop confirmado",
+              "text": "4TEEN no evento de distribuição do vault confirmado mais recente."
+            },
+            "unlockedUndistributed": {
+              "title": "Desbloqueado, mas não distribuído",
+              "text": "A cota já desbloqueada pelas ondas, mas ainda não enviada."
+            }
+          },
+          "note": "Este bloco é apenas informativo. Ele usa leituras ao vivo leves e seguras para o site público: estado do vault a partir de leituras do contrato e o último evento de airdrop confirmado a partir do feed de eventos."
+        },
+        "dateLayer": {
+          "eyebrow": "Camada de datas",
+          "title": "O contrato funciona com timestamps fixos",
+          "rows": {
+            "issueDate": "Data de emissão",
+            "currentWave": "Onda atual",
+            "nextWave": "Próxima onda",
+            "lastDrop": "Último drop confirmado",
+            "snapshotUpdated": "Snapshot atualizado"
+          },
+          "note": "Os desbloqueios por onda são fixos no contrato. O site não está inventando essas datas a partir de texto; ele lê e formata o relógio ao vivo do contrato."
+        },
+        "routeModel": {
+          "eyebrow": "Modelo de rota ao vivo",
+          "title": "Telegram está ao vivo. Outras partes sociais estão preparadas.",
+          "note": "O app da carteira combina três verificações para Telegram: estado local da carteira, estado atual da sessão do bot e estado de reivindicação on-chain. O site não falsifica esse fluxo de reivindicação nem finge reivindicar na web; ele mostra o vault ao vivo e o modelo de rota real ao redor dele.",
+          "routes": {
+            "telegram": {
+              "title": "Telegram",
+              "statusLive": "Ao vivo agora",
+              "statusSoon": "Ao vivo agora",
+              "note": "A sessão da carteira, o estado do bot e o estado de reivindicação on-chain já estão conectados no app móvel."
+            },
+            "instagram": {
+              "title": "Instagram",
+              "statusLive": "Marcador de lançamento gradual",
+              "statusSoon": "Marcador de lançamento gradual",
+              "note": "A rota existe no modelo de máscara do contrato, mas o fluxo de reivindicação ao vivo ainda não está aberto."
+            },
+            "x": {
+              "title": "X",
+              "statusLive": "Marcador de lançamento gradual",
+              "statusSoon": "Marcador de lançamento gradual",
+              "note": "A rota existe no modelo de máscara do contrato, mas o fluxo de reivindicação ao vivo ainda não está aberto."
+            },
+            "facebook": {
+              "title": "Facebook",
+              "statusLive": "Marcador de lançamento gradual",
+              "statusSoon": "Marcador de lançamento gradual",
+              "note": "A rota existe no modelo de máscara do contrato, mas o fluxo de reivindicação ao vivo ainda não está aberto."
+            },
+            "youtube": {
+              "title": "YouTube",
+              "statusLive": "Marcador de lançamento gradual",
+              "statusSoon": "Marcador de lançamento gradual",
+              "note": "A rota existe no modelo de máscara do contrato, mas o fluxo de reivindicação ao vivo ainda não está aberto."
+            }
+          }
+        },
+        "walletAccess": {
+          "eyebrow": "Acesso à reivindicação ao vivo",
+          "title": "A rota de airdrop ao vivo funciona a partir da carteira móvel, não pelo site público",
+          "body": "O estado de reivindicação pelo Telegram é ciente da carteira no produto real. O app combina a carteira selecionada, a sessão atual do bot e o estado de reivindicação on-chain antes de decidir se a rota está disponível, em fila, já recebida ou ainda bloqueada. Este site permanece informativo de propósito.",
+          "bullets": [
+            "A disponibilidade de reivindicação depende do estado da carteira, não apenas de uma visita à página pública.",
+            "Telegram é a única rota de reivindicação ao vivo hoje; outras redes sociais permanecem como trilhos preparados.",
+            "A carteira consegue distinguir estados somente observação, assinatura, recebido, em fila e legado usado.",
+            "Use a rota do app para a superfície real de reivindicação e depois volte aqui para a verificação pública do vault."
+          ],
+          "openApp": "Abrir rota do app móvel",
+          "openVault": "Abrir AirdropVault"
+        },
+        "waveSchedule": {
+          "eyebrow": "Cronograma de ondas",
+          "title": "Seis ondas fixas, um relógio de contrato",
+          "headers": {
+            "wave": "Onda",
+            "cap": "Limite",
+            "unlockTime": "Hora de desbloqueio",
+            "status": "Status"
+          },
+          "current": "Atual",
+          "unlocked": "Desbloqueado",
+          "upcoming": "Próxima"
+        },
+        "verification": {
+          "eyebrow": "Verificação",
+          "title": "Contrato e operador",
+          "body": "O site está lendo a mesma lógica de vault que a carteira usa: onda atual, timestamp da próxima onda, saldo desbloqueado, valor de distribuição disponível e saldo do vault.",
+          "vaultLabel": "AirdropVault",
+          "operatorLabel": "Operador"
+        },
+        "productContext": {
+          "eyebrow": "Contexto do produto",
+          "title": "Como a carteira lê esta superfície",
+          "bullets": [
+            "Telegram é a única rota de reivindicação social ao vivo hoje.",
+            "Outras partes sociais já existem no modelo de máscara do contrato.",
+            "O histórico de reivindicações e o status de reivindicação são específicos da carteira e são lidos no app móvel, não falsificados aqui.",
+            "O financiamento do vault e a cota desbloqueada são realidades separadas, por isso o app mostra ambos.",
+            "Este site não executa a reivindicação ao vivo por conta própria; ele aponta para a rota da carteira que executa."
+          ]
+        },
+        "fallback": {
+          "eyebrow": "Fallback",
+          "title": "A rota está pronta, mas as leituras ao vivo falharam.",
+          "body": "A página já está conectada ao contrato real AirdropVault. Assim que a leitura ao vivo for bem-sucedida novamente, ela preencherá automaticamente o estado da onda, saldo, cota desbloqueada, restante planejado e horário da próxima onda.",
+          "openVault": "Abrir AirdropVault",
+          "openApp": "Abrir rota do app móvel"
+        }
+      }
     }
   }
 }
