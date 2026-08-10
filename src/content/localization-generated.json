@@ -18475,6 +18475,194 @@
           "openApp": "Abrir ruta de la app móvil"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "Controlador público de embajadores",
+        "description": "Controlador público de embajadores de 4TEEN con totales en vivo de FourteenController, flujo de registro respaldado por el panel, prueba de vinculación de compradores, seguimiento de recompensas y estado operativo en tiempo real."
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "Controlador público de embajadores",
+        "title": "Un controlador público de embajadores de 4TEEN con un panel real detrás",
+        "subtitle": "El sitio web es la capa de prueba. El registro, la propiedad del slug, la vinculación de compradores, la acumulación de recompensas y los retiros siguen viviendo en el panel de la wallet y se liquidan contra FourteenController.",
+        "body": [
+          "Esta ruta no debe fingir que la página pública es el panel operativo. El flujo real empieza en la wallet: un usuario registra una identidad de embajador, reclama un slug, sincroniza el perfil on-chain y luego acumula volumen y recompensas atribuidos a compradores.",
+          "El sitio público tiene otra función. Debe demostrar que el controlador está activo, que existen perfiles en el panel, que se están rastreando vinculaciones de compradores, que se están procesando compras y que el estado de las recompensas permanece visible en lugar de desaparecer dentro de un back office."
+        ],
+        "rotatingLines": [
+          "REGISTRA. VINCULA. VERIFICA. RETIRA.",
+          "PRUEBA PÚBLICA. PANEL REAL.",
+          "PRIMERO EL SLUG. DESPUÉS EL FLUJO DE RECOMPENSAS."
+        ],
+        "primaryCta": "Abrir ruta de wallet",
+        "secondaryCta": "Ver flujo de registro",
+        "ctaNote": "La identidad del panel, el enlace de referido, las filas de compradores, la repetición pendiente y los retiros siguen siendo nativos de la wallet. El sitio web se mantiene público, legible y honesto.",
+        "stats": {
+          "profilesOnChain": {
+            "label": "Perfiles on-chain",
+            "meta": "Perfiles de embajadores ya visibles a través de la capa del panel respaldada por el controlador."
+          },
+          "boundBuyers": {
+            "label": "Compradores vinculados",
+            "meta": "Identidades de compradores ya asociadas a perfiles de embajadores."
+          },
+          "rewardsClaimed": {
+            "label": "Recompensas reclamadas",
+            "meta": "TRX ya retirado por embajadores mediante el flujo del panel."
+          },
+          "pendingReplay": {
+            "label": "Repetición pendiente",
+            "meta": "Filas que aún esperan un procesamiento seguro en recursos en lugar de fingirse como completadas."
+          },
+          "readFailed": "Falló la lectura en vivo de embajadores.",
+          "readRetry": "Intenta actualizar en un momento."
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "Ruta del panel",
+          "title": "La página pública no es el panel. Demuestra que el panel existe.",
+          "intro": "Esa es la separación limpia del producto. La wallet controla la identidad, la vinculación, la repetición y las acciones de retiro. El sitio explica la mecánica y muestra si el sistema realmente está avanzando.",
+          "mainCard": {
+            "eyebrow": "Controlador + panel",
+            "title": "El registro y las recompensas siguen siendo nativos de la wallet. La prueba pública permanece abierta.",
+            "text": "El endpoint del panel ya combina el estado on-chain del dashboard con filas de base de datos para compradores, compras y repetición pendiente. Eso significa que el sitio público puede hablar con honestidad sobre el flujo sin fingir que puede reemplazar al propio panel.",
+            "bullets": [
+              "El panel resuelve un enlace de referido a partir del slug del embajador.",
+              "Las compras atribuidas a compradores se persisten y se repiten contra el controlador cuando los recursos lo permiten.",
+              "El estado de recompensas reclamables y el historial de retiros se rastrean junto al perfil on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Propiedad del slug",
+              "title": "Una wallet no se convierte en embajadora solo con texto de marketing",
+              "text": "El flujo de registro comprueba la disponibilidad del slug, evita registros duplicados de wallet y espera un perfil de embajador on-chain real antes de considerar completada la ruta."
+            },
+            {
+              "eyebrow": "Vinculación de compradores",
+              "title": "La ruta de ganancias empieza cuando las compras se atribuyen de verdad",
+              "text": "Los compradores vinculados, las compras atribuidas, las filas procesadas del controlador y la repetición pendiente son estados separados. El panel no los aplana en un único número decorativo."
+            }
+          ],
+          "note": "Por eso la página debe describir un controlador público de embajadores con un panel real detrás, no una landing page de referidos falsa sin estado operativo."
+        },
+        "registration": {
+          "eyebrow": "Flujo de registro",
+          "title": "El registro empieza en la wallet y luego se convierte en un perfil on-chain.",
+          "intro": "La pantalla de registro no es un formulario de alta suelto. Es el punto donde la selección del slug, la identidad de la wallet, el enrutamiento de energía y la sincronización con el controlador empiezan a importar.",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "La wallet puede cotizar recursos, validar el slug y solo entonces finalizar el registro.",
+            "text": "La API comprueba si el slug ya está tomado, si la wallet ya está registrada y si la ruta de energía está lista para el propósito ambassador_registration. Después de la transacción, la sincronización del panel verifica que el perfil on-chain realmente exista.",
+            "bullets": [
+              "La disponibilidad del slug se comprueba antes de que la ruta confirme.",
+              "El alquiler de energía puede solicitarse específicamente para el registro de embajadores cuando sea necesario.",
+              "La sincronización del panel verifica el hash del slug almacenado y expone el enlace de referido final."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Identidad de wallet",
+              "title": "El registro se convierte en un perfil, no en un formulario llenado una sola vez",
+              "text": "Una vez sincronizado, el embajador tiene un perfil vinculado a la wallet con nivel actual, porcentaje de recompensa, conteo de compradores, volumen, recompensas acumuladas, recompensas reclamadas y saldo reclamable."
+            },
+            {
+              "eyebrow": "Seguridad de repetición",
+              "title": "Si el lado del operador no tiene suficientes recursos, las filas esperan en lugar de mentir",
+              "text": "La repetición pendiente forma parte de la capa de verdad. El panel la mantiene visible hasta que los recursos del operador sean lo bastante seguros para procesar limpiamente las compras verificadas."
+            }
+          ],
+          "note": "Así que la secuencia de registro no es cosmética. Es la puerta de entrada al mismo panel que después contiene el estado de referidos, las filas de compras y los retiros."
+        },
+        "ledger": {
+          "eyebrow": "Libro público",
+          "title": "Los totales del controlador permanecen públicos aunque las acciones del panel sigan siendo privadas.",
+          "note": "FourteenController expone conteos y saldos a nivel de sistema. El sitio debe hacer eso visible sin fingir que la capa pública puede firmar transacciones del panel.",
+          "rows": {
+            "totalAmbassadors": "Total de embajadores",
+            "activeAmbassadors": "Embajadores activos",
+            "boundBuyers": "Compradores vinculados",
+            "trackedVolume": "Volumen rastreado",
+            "rewardsAccrued": "Recompensas acumuladas",
+            "rewardsClaimed": "Recompensas reclamadas",
+            "reservedRewards": "Recompensas reservadas",
+            "ownerAvailable": "Disponible para el propietario",
+            "unallocatedFunds": "Fondos de compra no asignados"
+          }
+        },
+        "runtime": {
+          "eyebrow": "Runtime del panel",
+          "title": "Si los recursos son bajos, las filas esperan en lugar de fingir que se liquidaron.",
+          "note": "La vista pública de runtime importa porque explica por qué la repetición puede ponerse en cola de forma legítima. La baja energía o el bajo ancho de banda ya no son un fallo silencioso; son estado visible del sistema.",
+          "readyYes": "Listo ahora",
+          "readyNo": "Necesita recarga",
+          "rows": {
+            "operatorWallet": "Wallet del operador",
+            "readyNow": "Listo ahora",
+            "profilesOnChain": "Perfiles on-chain",
+            "profilesActive": "Perfiles activos",
+            "pendingReplay": "Repetición pendiente",
+            "lastPurchaseSeen": "Última compra vista",
+            "lastWithdrawalSeen": "Último retiro visto",
+            "energyAvailable": "Energía disponible",
+            "bandwidthAvailable": "Ancho de banda disponible",
+            "needPerAllocation": "Necesidad por asignación",
+            "safeFloorAfterRun": "Piso seguro después de la ejecución"
+          }
+        },
+        "levels": {
+          "eyebrow": "Escalera de niveles",
+          "title": "El crecimiento de compradores cambia la participación en recompensas.",
+          "suffix": "% de participación en recompensas sobre el flujo calificado."
+        },
+        "proof": {
+          "eyebrow": "Capa de prueba",
+          "title": "El lado público aún debe mostrar lo que el panel ya ha procesado.",
+          "cards": {
+            "recordedPurchases": {
+              "title": "Compras registradas",
+              "text": "Compras ya escritas en la huella del panel, entre filas procesadas y pendientes."
+            },
+            "ambassadorsWithPurchases": {
+              "title": "Embajadores con compras",
+              "text": "Perfiles que ya tienen atribución de compras moviéndose por la ruta de ganancias."
+            },
+            "withdrawals": {
+              "title": "Eventos de retiro",
+              "text": "Filas de retiro de recompensas ya capturadas por el backend y la sincronización del panel."
+            },
+            "latestWithdrawal": {
+              "title": "Último retiro visto",
+              "text": "Marca de tiempo del retiro de recompensas de embajador registrado más reciente."
+            }
+          },
+          "note": "Esto mantiene el sitio web anclado en evidencia real del panel: las compras, la cola de repetición y los retiros dejan una huella pública visible."
+        },
+        "route": {
+          "eyebrow": "Rutas de prueba",
+          "title": "Usa la capa pública para inspeccionar el controlador, la implementación de la wallet y la app en vivo.",
+          "cards": {
+            "contract": {
+              "eyebrow": "Contrato",
+              "title": "Abrir FourteenController",
+              "text": "Inspecciona el controlador en vivo que contiene las estadísticas y saldos del sistema de embajadores."
+            },
+            "walletRepo": {
+              "eyebrow": "Archivos de wallet",
+              "title": "Abrir el repo de la wallet",
+              "text": "Ve el panel, el enrutamiento de recursos, la lógica de registro y el flujo de repetición que impulsan el producto real."
+            },
+            "app": {
+              "eyebrow": "Ruta de wallet",
+              "title": "Abrir la ruta de la app",
+              "text": "El registro, el estado del panel, el enlace de referido y los retiros pertenecen a la experiencia de la wallet."
+            }
+          },
+          "updatedPrefix": "Snapshot actualizado"
+        }
+      }
     }
   }
 }
