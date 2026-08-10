@@ -16533,5 +16533,161 @@
       "linksEyebrow": "Routes suivantes",
       "footerNote": "La route actuelle est une enveloppe propre pour les futures publications, pas un faux flux. Lorsque les articles arriveront, ils devront rester alignés avec les couches de preuve et de produit."
     }
+  },
+  "es": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "Copiar",
+          "copied": "Copiado",
+          "failed": "Falló",
+          "close": "Cerrar",
+          "qrCode": "Código QR"
+        },
+        "taglines": [
+          "Entrada temprana. Salida más alta.",
+          "Los ganadores no esperan.",
+          "Convierte 14 días en ganancias.",
+          "Muévete temprano. Gana temprano."
+        ],
+        "header": {
+          "home": "Inicio",
+          "getApp": "Obtener la app",
+          "primaryNavAria": "Navegación principal del sitio"
+        },
+        "market": {
+          "loading": "Cargando precio",
+          "unavailable": "Precio no disponible",
+          "liveAria": "Precio de mercado en vivo"
+        },
+        "refresh": {
+          "idle": "Actualizar datos",
+          "busy": "Actualizando",
+          "aria": "Actualizar instantánea de datos en vivo"
+        },
+        "mobileSearch": {
+          "ariaLabel": "Buscar rutas, contratos y documentos",
+          "placeholder": "Buscar rutas, contratos, documentos...",
+          "eyebrow": "Búsqueda rápida",
+          "title": "Páginas, contratos y superficies de prueba",
+          "dialogAria": "Resultados de búsqueda",
+          "route": "Ruta",
+          "external": "Externo",
+          "empty": "Aún no hay coincidencias rápidas. Prueba con palabras de ruta, contrato o prueba."
+        },
+        "desktopSearch": {
+          "prompts": [
+            "Buscar contratos, rutas, documentos...",
+            "FourteenToken",
+            "Cronograma de desbloqueo",
+            "Controlador de liquidez",
+            "Recompensas para embajadores",
+            "Whitepaper"
+          ],
+          "ariaLabel": "Buscar rutas y contratos de 4TEEN",
+          "actionAria": "Abrir resultados de búsqueda",
+          "eyebrow": "Resultados de búsqueda rápida",
+          "title": "Páginas rápidas, contratos y superficies de prueba.",
+          "dialogAria": "Resultados de búsqueda",
+          "closeAria": "Cerrar búsqueda",
+          "resultsSuffix": "resultados",
+          "noResultsYet": "Aún no hay resultados",
+          "pressEnter": "Pulsa Enter para abrir la coincidencia principal.",
+          "topMatch": "Coincidencia principal",
+          "route": "Ruta",
+          "external": "Externo",
+          "empty": "Sin resultados. Prueba con `buy`, `unlock`, `airdrop`, `controller` o `whitepaper`."
+        },
+        "locale": {
+          "eyebrow": "Idioma",
+          "title": "Elige el idioma de la interfaz",
+          "active": "Activo",
+          "soon": "Próximamente"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "Superficies principales",
+          "docsAndRoutes": "Documentos y rutas",
+          "closeOpenPanelAria": "Cerrar panel abierto"
+        },
+        "mobileDock": {
+          "menu": "Menú",
+          "close": "Cerrar",
+          "openMenuAria": "Abrir menú móvil",
+          "closeMenuAria": "Cerrar menú móvil",
+          "openHomeAria": "Abrir inicio",
+          "openSearchAria": "Abrir búsqueda móvil",
+          "openLanguageAria": "Abrir panel de idioma"
+        },
+        "footer": {
+          "protocol": "Protocolo",
+          "ecosystem": "Ecosistema",
+          "legal": "Legal",
+          "privacy": "Privacidad",
+          "terms": "Términos",
+          "support": "Soporte",
+          "investorDeck": "Presentación para inversores",
+          "onePager": "Resumen de una página",
+          "officialChannels": "Canales oficiales",
+          "brandText": "La app de wallet ahora integra la superficie del sistema en vivo: compra directa, estado de desbloqueo, verdad del controlador, gabinete de embajadores y flujo de crecimiento centrado en Telegram.",
+          "getApp": "Obtener la app",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. Entrada estructurada on-chain en TRON.",
+          "officialWebsite": "Sitio web oficial: 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "Protocolo",
+          "growth": "Crecimiento",
+          "proof": "Prueba",
+          "ecosystem": "Ecosistema"
+        },
+        "links": {
+          "home": "Inicio",
+          "buy": "Comprar",
+          "unlock": "Desbloqueo",
+          "liquidity": "Liquidez",
+          "airdrop": "Airdrop",
+          "ambassadors": "Embajadores",
+          "whitepaper": "Whitepaper",
+          "verification": "Verificación",
+          "blog": "Blog",
+          "swap": "Swap",
+          "mobileApp": "App móvil"
+        },
+        "shortLinks": {
+          "buy": "Comprar",
+          "unlock": "Desbloqueo",
+          "liquidity": "Liquidez",
+          "airdrop": "Airdrop",
+          "earn": "Ganar",
+          "swap": "Swap",
+          "app": "App",
+          "home": "Inicio"
+        },
+        "menuLinks": {
+          "buy": "Compra directa",
+          "unlock": "Cronograma de desbloqueo",
+          "liquidity": "Controlador de liquidez",
+          "swap": "Swap de token",
+          "privacy": "Política de privacidad",
+          "terms": "Términos de uso"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "Ruta principal",
+          "protocolSurface": "Superficie del protocolo",
+          "growthSurface": "Superficie de crecimiento",
+          "proofSurface": "Superficie de prueba",
+          "downloadRoute": "Ruta de descarga",
+          "publicPolicy": "Política pública",
+          "supportRoute": "Ruta de soporte",
+          "coreContract": "Contrato principal",
+          "liquidityContract": "Contrato de liquidez",
+          "growthContract": "Contrato de crecimiento",
+          "githubSource": "Fuente de GitHub"
+        }
+      }
+    }
   }
 }
