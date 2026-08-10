@@ -28584,6 +28584,224 @@
           "updatedPrefix": "Snapshot bijgewerkt"
         }
       }
+    },
+    "app": {
+      "metadata": {
+        "title": "4TEEN App | TRON Wallet met de 4TEEN operating layer",
+        "description": "Open de mobiele 4TEEN wallet, navigeer door koop-, unlock-, liquidity-, ambassador- en proof-routes, en download het product via de store-links.",
+        "openGraphTitle": "4TEEN App-release",
+        "openGraphDescription": "Verken de mobiele 4TEEN wallet en de live operationele routes die al in het product zijn ingebouwd."
+      },
+      "hero": {
+        "eyebrow": "4TEEN Mobile App",
+        "status": "App Store + Google Play",
+        "title": "Een echte TRON wallet met de 4TEEN operating layer al ingebouwd.",
+        "lead": "Deze pagina moet aanvoelen als een productpagina, niet als een release-memo. De app gedraagt zich al als een bredere TRON wallet met wallets, assets, transfers, QR-flow, contacten, taal, instellingen, resource-controles en de volledige 4TEEN routekaart binnen één uitvoeringsomgeving.",
+        "stayOnWeb": "Op web blijven",
+        "primaryCta": "Downloadopties",
+        "secondaryCta": "Protocoloppervlakken bekijken",
+        "ctaNote": "De webkant legt het systeem uit. De mobiele kant ondertekent, routeert, controleert resources en voert de echte transactiestroom uit.",
+        "rotatingLines": [
+          "App Store + Google Play. Eén productoppervlak.",
+          "Universal Wallet. Native 4TEEN Layer.",
+          "Breed tokenoppervlak. Niet slechts één asset.",
+          "Resources eerst. Daarna ondertekening.",
+          "Wallet Core. Protocolroutes. Hetzelfde product."
+        ],
+        "stats": [
+          {
+            "label": "Wallet-kern",
+            "value": "TRON-first",
+            "meta": "Wallets, verzenden, assetbeheer, scannen, contacten, instellingen."
+          },
+          {
+            "label": "Assetbereik",
+            "value": "Breed",
+            "meta": "TRX, 4TEEN, stable assets en door gebruikers beheerde custom token entries."
+          },
+          {
+            "label": "Talen",
+            "value": "16",
+            "meta": "Speciale taalroute met app-brede locale-controle."
+          },
+          {
+            "label": "4TEEN layer",
+            "value": "7 Routes",
+            "meta": "Kopen, swappen, unlock, liquidity, airdrop, ambassadors en info."
+          }
+        ]
+      },
+      "storeLinks": [
+        {
+          "href": "https://apps.apple.com/",
+          "label": "App Store",
+          "meta": "Download voor iPhone en iPad"
+        },
+        {
+          "href": "https://play.google.com/store/apps",
+          "label": "Google Play",
+          "meta": "Download voor Android"
+        }
+      ],
+      "entryFlow": [
+        {
+          "eyebrow": "Boot",
+          "title": "Slimme instaproutering",
+          "body": "De mobiele app dumpt niet elke gebruiker in één generiek startscherm. Hij kiest tussen eerste toegang, wallet-unlock en het actieve wallet-pad nog voordat de gebruiker de hoofdlaag van het product bereikt."
+        },
+        {
+          "eyebrow": "Home",
+          "title": "Compacte hub",
+          "body": "Het echte homescherm fungeert al als een werkende hub: direct kopen, unlock-zichtbaarheid, liquidity-controle en informatieroutes blijven dichtbij zonder hun diepere, specifieke schermen te verbergen."
+        },
+        {
+          "eyebrow": "Diepe routes",
+          "title": "Volledige schermen wanneer nodig",
+          "body": "Elke serieuze actie opent nog steeds in een eigen oppervlak. De app blijft compact op de bovenste laag, maar propt belangrijke flows nooit samen in één oppervlakkig dashboard."
+        }
+      ],
+      "walletFoundation": [
+        {
+          "eyebrow": "Wallets",
+          "title": "Meerdere identiteiten, geen vaste schil",
+          "text": "Gebruikers kunnen wallets aanmaken, importeren, hernoemen, wisselen en verwijderen, terwijl het product een duidelijke scheiding behoudt tussen signing wallets en watch-only wallets."
+        },
+        {
+          "eyebrow": "Verzenden",
+          "title": "Echte transfervoorbereiding",
+          "text": "Verzenden is geen kaal adresveld. Het ondersteunt al QR-scan, contacten, recente ontvangers, assetselectie, regels voor besteedbaar saldo en een heldere bevestigingsstap."
+        },
+        {
+          "eyebrow": "Crypto beheren",
+          "title": "Breder dan één ecosystem-asset",
+          "text": "Crypto beheren is een echte wallet-laag: TRX, 4TEEN, stable assets, custom token entries, filters, sorteermodi en selectie van doel-assets voor verzenden en swap leven in hetzelfde oppervlak."
+        },
+        {
+          "eyebrow": "Taal",
+          "title": "16 interfacetalen",
+          "text": "De taallaag is al in het product ingebouwd met een speciale route en locale-controle op app-niveau over belangrijke regionale toegangspunten heen."
+        }
+      ],
+      "resourceLayer": [
+        {
+          "eyebrow": "Nu nodig",
+          "title": "Resources worden gemeten vóór ondertekening",
+          "text": "Direct kopen, verzenden, swap, liquidity-uitvoering en andere contractroutes schatten Energy en Bandwidth voordat de app om een toegangscode of biometrie vraagt."
+        },
+        {
+          "eyebrow": "Tekort",
+          "title": "TRX-burn wordt zichtbaar gemaakt in plaats van verborgen",
+          "text": "De app vergelijkt de vereiste resources met de huidige wallet-resources, toont het tekort en maakt het verwachte burn-pad zichtbaar in plaats van de gebruiker dit via een mislukking te laten ontdekken."
+        },
+        {
+          "eyebrow": "Rental",
+          "title": "Resource-aanvulling is in de flow geïntegreerd",
+          "text": "De code ondersteunt al rental quote, betaling, wachten en gereed-statussen voor send transfer, swap, direct buy, liquidity execution, ambassador registration en ambassador withdrawals."
+        },
+        {
+          "eyebrow": "Replay",
+          "title": "Pending rijen blijven operationeel eerlijk",
+          "text": "Als de operatorkant onder zijn veilige resource-vloer zakt, blijven wachtrijen zichtbaar terwijl de backend resources aanvult en de replay-cyclus opnieuw controleert totdat de reward on-chain landt."
+        }
+      ],
+      "protocolSurfaces": [
+        {
+          "eyebrow": "Direct Buy",
+          "title": "Voorbereiden → bevestigen",
+          "text": "De kooproute bereidt de transactie eerst voor: quote, mint-on-purchase-context, 14-daagse lock, TRX-splitpreview, en pas daarna de echte bevestigings- en ondertekeningsstap.",
+          "href": "/buy"
+        },
+        {
+          "eyebrow": "Swap Token",
+          "title": "Routevergelijking, geen blinde exchange",
+          "text": "De swaproute kan paden vergelijken, doel-assets wisselen, een beschermde minimale ontvangst tonen en de flow vroeg stoppen als allowance of netwerkresources niet gereed zijn.",
+          "href": "/swap"
+        },
+        {
+          "eyebrow": "Unlock Timeline",
+          "title": "Lock-zichtbaarheid per aankoop",
+          "text": "Elke gelockte batch wordt getoond per wallet, bedrag, UTC-unlocktijd, countdown en brontransactie. Dit is een doelgericht lock-oppervlak, niet alleen generieke geschiedenis.",
+          "href": "/unlock"
+        },
+        {
+          "eyebrow": "Liquidity Controller",
+          "title": "Waarheid aan controllerzijde",
+          "text": "De liquidity-route toont de drempel van 100 TRX, het dagelijkse release-ritme van 6.43%, de executor-split en execution gating in de app zelf.",
+          "href": "/liquidity"
+        },
+        {
+          "eyebrow": "Airdrop",
+          "title": "Telegram-first live-status",
+          "text": "De airdrop-route combineert de huidige bot-sessiestatus, lokale wallet-status en on-chain claimstatus. Telegram is nu live; andere socials zijn gefaseerde rails, geen neppe actieve knoppen.",
+          "href": "/airdrop"
+        },
+        {
+          "eyebrow": "Ambassador",
+          "title": "Registratie en cabinet in één route",
+          "text": "De ambassador-route begint als registratie en wordt het cabinet voor dezelfde wallet: identity slug, buyer binding, aankooprijen, pending replay, withdrawals en claimable status.",
+          "href": "/ambassadors"
+        },
+        {
+          "eyebrow": "Info",
+          "title": "Compacte architectuur- en runtimekaart",
+          "text": "De informatieroute verbindt contracts, vaults, liquidity execution, asset-wallet-saldi en operator readiness, zodat architectuur en runtime-status binnen het product zichtbaar zijn.",
+          "href": "/verification"
+        }
+      ],
+      "operatingRules": [
+        {
+          "title": "Universal wallet eerst",
+          "text": "De sterkste lezing van deze app is niet “een ecosystem-schil”. Hij gedraagt zich als een bredere TRON wallet met een groter tokenuniversum, en 4TEEN is in die basis ingebouwd als een live productlaag."
+        },
+        {
+          "title": "Watch-only en signing zijn verschillende statussen",
+          "text": "De app behandelt inspectie en actie verschillend. Watch-only wallets kunnen portfolio- en protocolstatus lezen, terwijl direct buy, registration, liquidity execution en withdrawal full-access signing wallets vereisen."
+        },
+        {
+          "title": "Operationele gereedheid is onderdeel van de interface",
+          "text": "Controller gating, resource-dekking, wachtrijen met rewards en replay-status worden uitgedrukt als productstatussen. De gebruiker ziet wat nu gereed is, wat aanvulling nodig heeft en wat wacht."
+        },
+        {
+          "title": "Meertalig is productinfrastructuur",
+          "text": "Taalondersteuning is al in de app gecodeerd en niet overgelaten als toekomstige wens. Dat is belangrijk omdat het product bedoeld is om buiten één markt en buiten één community-instaproute te werken."
+        }
+      ],
+      "downloadReasons": [
+        "Gebruik hem als een bredere TRON wallet, niet alleen als een 4TEEN-toegangspunt.",
+        "Houd portfolio, custom token-afhandeling, transfers, scannen, contacten en taalcontrole in hetzelfde product.",
+        "Open de volledige 4TEEN layer binnen de wallet: kopen, swap, unlock, liquidity, airdrop, ambassadors en info.",
+        "Zie netwerkbelasting, resource-tekort, routebescherming en operationele gereedheid voordat je ondertekent of blind wacht."
+      ],
+      "sections": {
+        "entryFlow": {
+          "eyebrow": "Entry Flow",
+          "title": "Hoe de echte app de gebruiker verplaatst"
+        },
+        "walletFoundation": {
+          "eyebrow": "Wallet Foundation",
+          "title": "Waarom dit eerst een echte wallet is"
+        },
+        "resourceLayer": {
+          "eyebrow": "Resource Intelligence",
+          "title": "Waarom uitvoering veiliger is dan blind ondertekenen",
+          "notePrefix": "Binnen de app tonen netwerkbelasting-kaarten al",
+          "noteNeedNow": "Nu nodig",
+          "noteMiddle": "Nu beschikbaar",
+          "noteMissing": "Ontbreekt",
+          "noteSuffix": "en het dekkingspercentage voor zowel Energy als Bandwidth. Dat maakt het uitvoeringsmodel makkelijker te vertrouwen, omdat de wallet de kosten uitlegt voordat de transactie wordt ondertekend."
+        },
+        "protocolSurfaces": {
+          "eyebrow": "4TEEN Surfaces",
+          "title": "Wat de protocollaag al doet binnen de wallet"
+        },
+        "operatingRuleLabel": "Operationele regel",
+        "download": {
+          "eyebrow": "Downloadroute",
+          "title": "Installeer de wallet als je het volledige product wilt, niet alleen de webkaart.",
+          "body": "De sterkste versie van het product leeft in de app: echt wallet-gedrag, meertalige interface, resource-bewuste uitvoering en de volledige 4TEEN operating layer op één plek zodra de store-uitrol opent.",
+          "repoLabel": "Wallet App Repo"
+        }
+      }
     }
   }
 }
