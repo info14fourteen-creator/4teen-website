@@ -17799,6 +17799,154 @@
           "openUnlock": "Abrir línea de tiempo de desbloqueo"
         }
       }
+    },
+    "unlock": {
+      "metadata": {
+        "title": "Desbloqueo de 4TEEN | Mapa de bloqueos y calendario de liberación",
+        "description": "Mapa público de desbloqueo de 4TEEN con suministro bloqueado actual, custodia en bóvedas, estimación de circulación libre, próximos lotes de desbloqueo y contexto del calendario de desbloqueo desde la wallet.",
+        "openGraphTitle": "Desbloqueo de 4TEEN",
+        "openGraphDescription": "Consulta el mapa público de bloqueos de 4TEEN: suministro bloqueado actual, estimación de circulación libre, próximos lotes de desbloqueo y la ruta de la wallet para el seguimiento de liberaciones personales."
+      },
+      "hero": {
+        "eyebrow": "Calendario de desbloqueo",
+        "badge": "Topología pública de bloqueos",
+        "title": "Sigue los desbloqueos de 4TEEN antes de que un lote bloqueado se vuelva líquido",
+        "subtitle": "Cada compra directa acuña de inmediato, se bloquea de inmediato y solo se vuelve transferible cuando expira su propio temporizador de 14 días.",
+        "body": [
+          "La wallet móvil muestra el calendario de desbloqueo personal para la wallet de firma seleccionada. El sitio público debe mostrar el mapa del sistema: qué sigue bloqueado, qué ya es líquido y qué lotes de compra directa se desbloquean después.",
+          "Eso significa que no hay un portafolio personal ficticio en el sitio web. Solo la topología pública del calendario de liberación, la custodia de reservas y el recorrido lote por lote desde la acuñación bloqueada hasta el saldo movible."
+        ],
+        "primaryCta": "Abrir Desbloqueo en la app",
+        "secondaryCta": "Abrir ruta de compra",
+        "ctaNote": "Las filas de desbloqueo personales, las cuentas regresivas y la disponibilidad específica por dirección siguen estando en la wallet móvil. El sitio explica la mecánica de liberación y el mapa público de bloqueos.",
+        "rotatingLines": [
+          "Cada compra tiene su propio temporizador.",
+          "Primero bloqueado. Líquido después.",
+          "Mapa público. Calendario en la wallet.",
+          "La liberación depende del lote.",
+          "La transferibilidad empieza después del desbloqueo."
+        ],
+        "stats": {
+          "directPrice": "Precio de compra directa",
+          "directPriceMeta": "Precio de entrada actual desde el contrato por 4TEEN antes de que el lote entre en su propia ventana de bloqueo de 14 días.",
+          "lockWindow": "Ventana de bloqueo",
+          "lockWindowMeta": "Cada lote de compra directa permanece congelado hasta que llega su propia marca de tiempo de liberación.",
+          "lockedNow": "Bloqueado ahora",
+          "lockedNowMeta": "Lotes de compra directa de todo el sistema que aún están dentro de la ventana de bloqueo de 14 días.",
+          "circulatingNow": "En circulación libre",
+          "circulatingNowMeta": "Estimación pública después de restar los bloqueos activos y la custodia en bóvedas del suministro total.",
+          "priceFallback": "1.147500",
+          "priceUnavailable": "El precio en vivo no está disponible en este momento. El valor de respaldo refleja la última ruta directa conocida.",
+          "readFailed": "Falló la lectura en vivo del desbloqueo.",
+          "readRetry": "Intenta actualizar en un momento."
+        }
+      },
+      "sections": {
+        "unlockContext": {
+          "eyebrow": "Contexto de la wallet",
+          "title": "El calendario de desbloqueo personal vive dentro de la wallet móvil",
+          "body": "El sitio web puede explicar el modelo de bloqueo y mostrar la topología pública de liberación, pero el calendario de desbloqueo personal pertenece a la app porque depende de la dirección de wallet seleccionada, del historial de compras directas de esa wallet y de lecturas on-chain en vivo de lockedBalanceOf(account).",
+          "bullets": [
+            "Cada compra directa crea su propio lote de bloqueo con su propia marca de tiempo de liberación.",
+            "El calendario de desbloqueo de la wallet rastrea solo el historial de compras directas vinculado a la wallet seleccionada, no el historial genérico de swaps.",
+            "Una vez que un lote se desbloquea, los tokens se vuelven transferibles y rutas de mercado como el swap pasan a ser relevantes."
+          ],
+          "openApp": "Abrir ruta de la app móvil",
+          "openBuy": "Abrir ruta de compra"
+        },
+        "liveLockMap": {
+          "eyebrow": "Mapa de bloqueos en vivo",
+          "title": "Cuánto 4TEEN está bloqueado y cuánto es realmente líquido",
+          "rows": {
+            "totalSupply": "Suministro total",
+            "activeLockBatches": "Lotes de bloqueo activos",
+            "currentlyLocked": "Actualmente bloqueado",
+            "vaultCustody": "Custodia en bóvedas",
+            "freelyCirculating": "En circulación libre",
+            "nextUnlock": "Próximo desbloqueo",
+            "snapshotUpdated": "Instantánea actualizada"
+          },
+          "note": "La circulación libre aquí es una estimación pública del sistema: suministro total menos bloqueos activos de compras directas menos tokens mantenidos en contratos de bóveda de reserva. Es intencionalmente más estricta que una vista ingenua de totalSupply."
+        },
+        "upcomingUnlocks": {
+          "eyebrow": "Próximos desbloqueos",
+          "title": "Lotes recientes de compra directa que todavía tienen tiempo restante en su bloqueo",
+          "headers": {
+            "buyer": "Comprador",
+            "amount": "Lote bloqueado",
+            "unlockAt": "Desbloquea en",
+            "source": "Fuente"
+          },
+          "openTx": "Abrir tx",
+          "empty": "No hay lotes activos de bloqueo por compra directa visibles en este momento.",
+          "note": "Este mapa de liberación se construye a partir de eventos BuyTokens confirmados que todavía están dentro de la ventana de bloqueo de 14 días. Muestra el calendario público de los lotes, no un portafolio privado de wallet."
+        },
+        "vaultLayer": {
+          "eyebrow": "Capa de bóvedas",
+          "title": "La custodia de reservas no es lo mismo que la libre circulación",
+          "body": "La arquitectura de 4TEEN mantiene las asignaciones de reserva en contratos dedicados. FourteenVault mantiene tokens de reserva de liquidez, AirdropVault mantiene reservas de distribución comunitaria por etapas y TeamLockVault aísla la asignación del equipo. Estos saldos existen on-chain, pero no deben presentarse como suministro en circulación libre.",
+          "note": "AirdropVault también recibe TRX enrutado en la compra directa, pero el saldo de tokens que se muestra aquí es solo la reserva de 4TEEN realmente estacionada en custodia de bóveda."
+        },
+        "lockMechanics": {
+          "eyebrow": "Mecánica de bloqueo",
+          "title": "Lo que realmente aplica el contrato principal del token",
+          "cards": [
+            {
+              "eyebrow": "Acuñación",
+              "title": "La compra directa acuña primero",
+              "text": "buyTokens() acuña 4TEEN en la misma transacción que recibe TRX. No hay una cola de cumplimiento off-chain para el importe comprado."
+            },
+            {
+              "eyebrow": "Lote",
+              "title": "Cada compra crea una entrada de bloqueo separada",
+              "text": "El contrato del token añade un nuevo registro LockInfo por cada compra directa. Los bloqueos no se fusionan en un único temporizador genérico."
+            },
+            {
+              "eyebrow": "Regla",
+              "title": "Las transferencias son bloqueadas por lockedBalanceOf()",
+              "text": "transfer() y transferFrom() requieren saldo disponible después de restar lockedBalanceOf(account). Los tokens bloqueados no pueden moverse antes de tiempo."
+            }
+          ]
+        },
+        "walletRoute": {
+          "eyebrow": "Ruta de la wallet",
+          "title": "Cómo la app convierte este estado del contrato en un calendario utilizable",
+          "cards": [
+            {
+              "eyebrow": "Saldo",
+              "title": "Lee el saldo total, bloqueado y disponible",
+              "text": "La wallet combina balanceOf(account) con lockedBalanceOf(account) para mostrar qué sigue congelado y qué ya se puede mover."
+            },
+            {
+              "eyebrow": "Historial",
+              "title": "Construye filas a partir de eventos BuyTokens confirmados",
+              "text": "Cada evento de compra directa se convierte en una fila de desbloqueo visible con importe exacto, hora de desbloqueo, cuenta regresiva y ruta de transacción de Tronscan."
+            },
+            {
+              "eyebrow": "Acción",
+              "title": "Dirige al usuario a la siguiente ruta válida",
+              "text": "El calendario de desbloqueo es la ruta correcta después de comprar. El swap solo pasa a ser relevante después de que el lote bloqueado se libera y es realmente transferible."
+            }
+          ],
+          "note": "Por eso el sitio público debe explicar el desbloqueo con claridad y luego enviar al usuario a la wallet para su historial personal, en lugar de fingir ser la superficie de ejecución."
+        },
+        "verification": {
+          "eyebrow": "Verificación",
+          "title": "De dónde vienen los números y la lógica de bloqueo",
+          "body": "Esta página usa el contrato FourteenToken desplegado, la implementación del calendario de desbloqueo de la wallet y las direcciones conocidas de las bóvedas de reserva. Explica la mecánica en vivo y la estructura de custodia en lugar de aplanarlo todo en un gráfico genérico de suministro de tokens.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Repositorio de contratos",
+          "walletRepoLabel": "Repositorio de la wallet"
+        },
+        "cta": {
+          "eyebrow": "Siguiente paso",
+          "title": "Usa la app cuando necesites tu calendario de desbloqueo personal",
+          "body": "El sitio público puede mostrar el mapa de bloqueos de todo el protocolo. La wallet sigue siendo la superficie correcta para filas de desbloqueo específicas por dirección, cuentas regresivas y seguimiento posterior a la compra.",
+          "openApp": "Abrir Desbloqueo en la app",
+          "openBuy": "Abrir ruta de compra"
+        }
+      }
     }
   }
 }
