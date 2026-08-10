@@ -15168,6 +15168,194 @@
           "openApp": "Ouvrir le parcours de l’app mobile"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "Contrôleur public des ambassadeurs",
+        "description": "Contrôleur public des ambassadeurs 4TEEN avec totaux FourteenController en direct, parcours d’inscription adossé au cabinet, preuve de rattachement des acheteurs, suivi des récompenses et disponibilité d’exécution."
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "Contrôleur public des ambassadeurs",
+        "title": "Un contrôleur public des ambassadeurs 4TEEN avec un véritable cabinet derrière lui",
+        "subtitle": "Le site web est la couche de preuve. L’inscription, la propriété du slug, le rattachement des acheteurs, l’accumulation des récompenses et les retraits restent dans le cabinet du portefeuille et se règlent via FourteenController.",
+        "body": [
+          "Cette route ne doit pas faire croire que la page publique est le cabinet opérationnel. Le véritable flux commence dans le portefeuille : un utilisateur enregistre une identité d’ambassadeur, revendique un slug, synchronise le profil on-chain, puis accumule du volume et des récompenses attribués aux acheteurs.",
+          "Le site public a une mission différente. Il doit prouver que le contrôleur est actif, que des profils de cabinet existent, que les rattachements d’acheteurs sont suivis, que les achats sont traités et que l’état des récompenses reste visible au lieu de disparaître dans un back-office."
+        ],
+        "rotatingLines": [
+          "S’INSCRIRE. RATTACHER. VÉRIFIER. RETIRER.",
+          "PREUVE PUBLIQUE. VRAI CABINET.",
+          "LE SLUG D’ABORD. LE FLUX DE RÉCOMPENSES ENSUITE."
+        ],
+        "primaryCta": "Ouvrir la route du portefeuille",
+        "secondaryCta": "Voir le parcours d’inscription",
+        "ctaNote": "L’identité du cabinet, le lien de parrainage, les lignes d’acheteurs, le rejeu en attente et les retraits restent natifs au portefeuille. Le site web reste public, lisible et honnête.",
+        "stats": {
+          "profilesOnChain": {
+            "label": "Profils on-chain",
+            "meta": "Profils d’ambassadeurs déjà visibles via la couche de cabinet adossée au contrôleur."
+          },
+          "boundBuyers": {
+            "label": "Acheteurs rattachés",
+            "meta": "Identités d’acheteurs déjà associées à des profils d’ambassadeurs."
+          },
+          "rewardsClaimed": {
+            "label": "Récompenses réclamées",
+            "meta": "TRX déjà retirés par les ambassadeurs via le flux du cabinet."
+          },
+          "pendingReplay": {
+            "label": "Rejeu en attente",
+            "meta": "Lignes encore en attente d’un traitement sûr en matière de ressources, au lieu d’être présentées à tort comme terminées."
+          },
+          "readFailed": "La lecture en direct des ambassadeurs a échoué.",
+          "readRetry": "Essayez d’actualiser dans un instant."
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "Route du cabinet",
+          "title": "La page publique n’est pas le cabinet. Elle prouve que le cabinet existe.",
+          "intro": "C’est la séparation produit la plus claire. Le portefeuille détient les actions d’identité, de rattachement, de rejeu et de retrait. Le site explique la mécanique et montre si le système avance réellement.",
+          "mainCard": {
+            "eyebrow": "Contrôleur + Cabinet",
+            "title": "L’inscription et les récompenses restent natives au portefeuille. La preuve publique reste ouverte.",
+            "text": "Le point de terminaison du cabinet fusionne déjà l’état du tableau de bord on-chain avec les lignes de base de données pour les acheteurs, les achats et le rejeu en attente. Cela signifie que le site public peut parler du flux avec exactitude sans prétendre remplacer le cabinet lui-même.",
+            "bullets": [
+              "Le cabinet résout un lien de parrainage à partir du slug de l’ambassadeur.",
+              "Les achats attribués aux acheteurs sont conservés puis rejoués auprès du contrôleur lorsque les ressources le permettent.",
+              "L’état des récompenses réclamables et l’historique des retraits sont suivis avec le profil on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Propriété du slug",
+              "title": "Un portefeuille ne devient pas ambassadeur avec un simple texte marketing",
+              "text": "Le parcours d’inscription vérifie la disponibilité du slug, empêche l’inscription en double d’un portefeuille et exige un véritable profil d’ambassadeur on-chain avant que la route soit considérée comme terminée."
+            },
+            {
+              "eyebrow": "Rattachement des acheteurs",
+              "title": "La route de revenus commence lorsque les achats sont réellement attribués",
+              "text": "Les acheteurs rattachés, les achats attribués, les lignes traitées par le contrôleur et le rejeu en attente sont tous des états distincts. Le cabinet ne les réduit pas à un seul chiffre décoratif."
+            }
+          ],
+          "note": "C’est pourquoi la page doit décrire un contrôleur public des ambassadeurs avec un véritable cabinet derrière lui, et non une fausse page de parrainage sans état opérationnel."
+        },
+        "registration": {
+          "eyebrow": "Parcours d’inscription",
+          "title": "L’inscription commence dans le portefeuille, puis devient un profil on-chain.",
+          "intro": "L’écran d’inscription n’est pas un simple formulaire libre. C’est le point où le choix du slug, l’identité du portefeuille, le routage de l’énergie et la synchronisation du contrôleur commencent à compter.",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "Le portefeuille peut estimer les ressources, valider le slug, puis seulement finaliser l’inscription.",
+            "text": "L’API vérifie si le slug est déjà pris, si le portefeuille est déjà inscrit et si la route d’énergie est prête pour l’objectif ambassador_registration. Après la transaction, la synchronisation du cabinet vérifie que le profil on-chain existe réellement.",
+            "bullets": [
+              "La disponibilité du slug est vérifiée avant que la route confirme.",
+              "La location d’énergie peut être demandée spécifiquement pour l’inscription d’un ambassadeur lorsque nécessaire.",
+              "La synchronisation du cabinet vérifie le hash du slug stocké et expose le lien de parrainage final."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Identité du portefeuille",
+              "title": "L’inscription devient un profil, pas un formulaire rempli une seule fois",
+              "text": "Une fois synchronisé, l’ambassadeur dispose d’un profil lié au portefeuille avec le niveau actuel, le pourcentage de récompense, le nombre d’acheteurs, le volume, les récompenses accumulées, les récompenses réclamées et le solde réclamable."
+            },
+            {
+              "eyebrow": "Sécurité du rejeu",
+              "title": "Si le côté opérateur manque de ressources, les lignes attendent au lieu de mentir",
+              "text": "Le rejeu en attente fait partie de la couche de vérité. Le cabinet le garde visible jusqu’à ce que les ressources de l’opérateur soient assez sûres pour traiter proprement les achats vérifiés."
+            }
+          ],
+          "note": "La séquence d’inscription n’est donc pas cosmétique. C’est la porte d’entrée vers le même cabinet qui conservera ensuite l’état de parrainage, les lignes d’achat et les retraits."
+        },
+        "ledger": {
+          "eyebrow": "Registre public",
+          "title": "Les totaux du contrôleur restent publics même lorsque les actions du cabinet restent privées.",
+          "note": "FourteenController expose les décomptes et soldes au niveau du système. Le site doit les rendre visibles sans prétendre que la couche publique peut signer les transactions du cabinet.",
+          "rows": {
+            "totalAmbassadors": "Total des ambassadeurs",
+            "activeAmbassadors": "Ambassadeurs actifs",
+            "boundBuyers": "Acheteurs rattachés",
+            "trackedVolume": "Volume suivi",
+            "rewardsAccrued": "Récompenses accumulées",
+            "rewardsClaimed": "Récompenses réclamées",
+            "reservedRewards": "Récompenses réservées",
+            "ownerAvailable": "Disponible pour le propriétaire",
+            "unallocatedFunds": "Fonds d’achat non alloués"
+          }
+        },
+        "runtime": {
+          "eyebrow": "Exécution du cabinet",
+          "title": "Si les ressources sont faibles, les lignes attendent au lieu de prétendre être validées.",
+          "note": "La vue publique de l’exécution est importante parce qu’elle explique pourquoi le rejeu peut légitimement être mis en file d’attente. Une faible énergie ou bande passante n’est plus un échec silencieux ; c’est un état système visible.",
+          "readyYes": "Prêt maintenant",
+          "readyNo": "Rechargement nécessaire",
+          "rows": {
+            "operatorWallet": "Portefeuille de l’opérateur",
+            "readyNow": "Prêt maintenant",
+            "profilesOnChain": "Profils on-chain",
+            "profilesActive": "Profils actifs",
+            "pendingReplay": "Rejeu en attente",
+            "lastPurchaseSeen": "Dernier achat observé",
+            "lastWithdrawalSeen": "Dernier retrait observé",
+            "energyAvailable": "Énergie disponible",
+            "bandwidthAvailable": "Bande passante disponible",
+            "needPerAllocation": "Besoin par allocation",
+            "safeFloorAfterRun": "Plancher de sécurité après exécution"
+          }
+        },
+        "levels": {
+          "eyebrow": "Échelle des niveaux",
+          "title": "La croissance des acheteurs modifie la part de récompense.",
+          "suffix": "% de part de récompense sur le flux qualifié."
+        },
+        "proof": {
+          "eyebrow": "Couche de preuve",
+          "title": "Le côté public doit quand même montrer ce que le cabinet a déjà traité.",
+          "cards": {
+            "recordedPurchases": {
+              "title": "Achats enregistrés",
+              "text": "Achats déjà inscrits dans l’empreinte du cabinet, sur les lignes traitées comme en attente."
+            },
+            "ambassadorsWithPurchases": {
+              "title": "Ambassadeurs avec achats",
+              "text": "Profils qui ont déjà une attribution d’achats en cours dans la route de revenus."
+            },
+            "withdrawals": {
+              "title": "Événements de retrait",
+              "text": "Lignes de retrait de récompenses déjà capturées par le backend et la synchronisation du cabinet."
+            },
+            "latestWithdrawal": {
+              "title": "Dernier retrait observé",
+              "text": "Horodatage du retrait de récompenses d’ambassadeur enregistré le plus récemment."
+            }
+          },
+          "note": "Cela maintient le site web ancré dans les preuves réelles du cabinet : les achats, la file de rejeu et les retraits laissent tous une empreinte publique visible."
+        },
+        "route": {
+          "eyebrow": "Routes de preuve",
+          "title": "Utilisez la couche publique pour inspecter le contrôleur, l’implémentation du portefeuille et l’application en direct.",
+          "cards": {
+            "contract": {
+              "eyebrow": "Contrat",
+              "title": "Ouvrir FourteenController",
+              "text": "Inspectez le contrôleur en direct qui détient les statistiques et soldes du système des ambassadeurs."
+            },
+            "walletRepo": {
+              "eyebrow": "Fichiers du portefeuille",
+              "title": "Ouvrir le repo du portefeuille",
+              "text": "Consultez le cabinet, le routage des ressources, la logique d’inscription et le flux de rejeu qui alimentent le vrai produit."
+            },
+            "app": {
+              "eyebrow": "Route du portefeuille",
+              "title": "Ouvrir la route de l’application",
+              "text": "L’inscription, l’état du cabinet, le lien de parrainage et les retraits appartiennent à l’expérience du portefeuille."
+            }
+          },
+          "updatedPrefix": "Instantané mis à jour"
+        }
+      }
     }
   }
 }
