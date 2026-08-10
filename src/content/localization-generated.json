@@ -21606,6 +21606,182 @@
           "openBuy": "Apri il percorso di acquisto"
         }
       }
+    },
+    "airdrop": {
+      "metadata": {
+        "title": "Airdrop",
+        "description": "Stato live dell’airdrop 4TEEN con wave corrente, saldo sbloccato, saldo del vault, stato del percorso Telegram, accesso al claim solo da wallet e link di verifica on-chain."
+      },
+      "hero": {
+        "eyebrow": "AirdropVault",
+        "status": "Percorso di claim via wallet",
+        "title": "Richiedi 4TEEN tramite il percorso wallet",
+        "lead": "Il sito pubblico mostra lo stato live di AirdropVault. Il wallet mobile gestisce il percorso di claim.",
+        "body": [
+          "Airdrop non è un finto pulsante promozionale su una landing page. È un vault basato su wave, uno stato di claim consapevole del wallet e un percorso Telegram-first che l’app legge prima dell’esecuzione.",
+          "Questa pagina rispecchia il lato pubblico: wave corrente, saldo del vault, quota sbloccata, residuo pianificato, modello di percorso e verifica on-chain. Il flusso di claim live appartiene al wallet."
+        ],
+        "rotatingLines": [
+          "Stato del Vault. Claim dal Wallet.",
+          "Telegram Live. Binari Social predisposti.",
+          "Prova pubblica. Esecuzione in App.",
+          "Sblocchi per wave. Controlli di percorso.",
+          "Nessun finto claim. Solo stato."
+        ],
+        "primaryCta": "Apri il percorso dell’app mobile",
+        "secondaryCta": "Apri AirdropVault",
+        "ctaNote": "Il sito mostra il vault e la mappa dei percorsi. Il wallet legge l’account selezionato, la sessione Telegram, lo stato del claim e la modalità di firma prima che si apra il vero percorso di claim.",
+        "stats": {
+          "currentWave": "Wave corrente",
+          "vaultBalance": "Saldo del Vault",
+          "vaultBalanceMeta": "4TEEN attualmente detenuti in AirdropVault.",
+          "availableNow": "Disponibile ora",
+          "availableNowMeta": "Ciò che può essere distribuito ora secondo le regole del contratto.",
+          "nextWave": "Prossima wave",
+          "completed": "Completato",
+          "readFailed": "Lettura live del vault non riuscita.",
+          "readRetry": "Prova ad aggiornare tra un momento."
+        }
+      },
+      "sections": {
+        "vaultState": {
+          "eyebrow": "Stato del Vault",
+          "title": "Cosa dice il contratto in questo momento",
+          "rows": {
+            "totalAllocation": "Allocazione totale",
+            "unlockedTotal": "Totale sbloccato",
+            "totalDistributed": "Totale distribuito",
+            "remainingUnlocked": "Residuo sbloccato",
+            "remainingPlanned": "Residuo pianificato",
+            "vaultBalance": "Saldo del Vault"
+          },
+          "noteTitle": "Perché esistono due numeri “residui”:",
+          "noteBody": "`Residuo sbloccato` è la quota che il contratto ha già sbloccato in base al tempo delle wave. `Residuo pianificato` è la parte non distribuita dell’intera allocazione di 1,500,000 4TEEN. `Disponibile ora` è il minore tra la quota sbloccata e il saldo effettivo del vault."
+        },
+        "distribution": {
+          "eyebrow": "Impronta della distribuzione",
+          "title": "Quanto è già uscito dal vault",
+          "cards": {
+            "distributed": {
+              "title": "Già distribuito",
+              "text": "4TEEN già inviati dall’allocazione totale."
+            },
+            "planned": {
+              "title": "Ancora pianificato",
+              "text": "4TEEN ancora rimasti nel piano di distribuzione a lungo termine."
+            },
+            "lastDrop": {
+              "title": "Ultimo drop confermato",
+              "text": "4TEEN nell’ultimo evento di distribuzione del vault confermato."
+            },
+            "unlockedUndistributed": {
+              "title": "Sbloccato ma non distribuito",
+              "text": "La quota già sbloccata dalle wave ma non ancora inviata."
+            }
+          },
+          "note": "Questo blocco è solo informativo. Utilizza letture live leggere e sicure per il sito pubblico: stato del vault dalle letture del contratto e ultimo evento di airdrop confermato dal feed degli eventi."
+        },
+        "dateLayer": {
+          "eyebrow": "Livello date",
+          "title": "Il contratto funziona su timestamp fissi",
+          "rows": {
+            "issueDate": "Data di emissione",
+            "currentWave": "Wave corrente",
+            "nextWave": "Prossima wave",
+            "lastDrop": "Ultimo drop confermato",
+            "snapshotUpdated": "Snapshot aggiornato"
+          },
+          "note": "Gli sblocchi delle wave sono fissi nel contratto. Il sito non inventa queste date dal testo; legge e formatta l’orologio live del contratto."
+        },
+        "routeModel": {
+          "eyebrow": "Modello di percorso live",
+          "title": "Telegram è live. Gli altri elementi social sono predisposti.",
+          "note": "L’app wallet combina tre controlli per Telegram: stato locale del wallet, stato corrente della sessione del bot e stato di claim on-chain. Il sito non falsifica quel flusso di claim né finge di effettuare il claim sul web; mostra il vault live e il modello di percorso reale attorno a esso.",
+          "routes": {
+            "telegram": {
+              "title": "Telegram",
+              "statusLive": "Live ora",
+              "statusSoon": "Live ora",
+              "note": "Sessione wallet, stato del bot e stato di claim on-chain sono già collegati nell’app mobile."
+            },
+            "instagram": {
+              "title": "Instagram",
+              "statusLive": "Placeholder di rollout",
+              "statusSoon": "Placeholder di rollout",
+              "note": "Il percorso esiste nel modello di mask del contratto, ma il flusso di claim live non è ancora aperto."
+            },
+            "x": {
+              "title": "X",
+              "statusLive": "Placeholder di rollout",
+              "statusSoon": "Placeholder di rollout",
+              "note": "Il percorso esiste nel modello di mask del contratto, ma il flusso di claim live non è ancora aperto."
+            },
+            "facebook": {
+              "title": "Facebook",
+              "statusLive": "Placeholder di rollout",
+              "statusSoon": "Placeholder di rollout",
+              "note": "Il percorso esiste nel modello di mask del contratto, ma il flusso di claim live non è ancora aperto."
+            },
+            "youtube": {
+              "title": "YouTube",
+              "statusLive": "Placeholder di rollout",
+              "statusSoon": "Placeholder di rollout",
+              "note": "Il percorso esiste nel modello di mask del contratto, ma il flusso di claim live non è ancora aperto."
+            }
+          }
+        },
+        "walletAccess": {
+          "eyebrow": "Accesso al claim live",
+          "title": "Il percorso di airdrop live funziona dal wallet mobile, non dal sito pubblico",
+          "body": "Lo stato del claim Telegram è consapevole del wallet nel prodotto reale. L’app combina il wallet selezionato, la sessione corrente del bot e lo stato di claim on-chain prima di decidere se il percorso è disponibile, in coda, già ricevuto o ancora bloccato. Questo sito rimane volutamente informativo.",
+          "bullets": [
+            "La disponibilità del claim dipende dallo stato del wallet, non solo da una visita a una pagina pubblica.",
+            "Telegram è l’unico percorso di claim live oggi; gli altri social restano binari predisposti.",
+            "Il wallet può distinguere stati watch-only, di firma, ricevuto, in coda e legacy utilizzato.",
+            "Usa il percorso dell’app per la vera superficie di claim, poi torna qui per la verifica pubblica del vault."
+          ],
+          "openApp": "Apri il percorso dell’app mobile",
+          "openVault": "Apri AirdropVault"
+        },
+        "waveSchedule": {
+          "eyebrow": "Calendario delle wave",
+          "title": "Sei wave fisse, un solo orologio del contratto",
+          "headers": {
+            "wave": "Wave",
+            "cap": "Cap",
+            "unlockTime": "Ora di sblocco",
+            "status": "Stato"
+          },
+          "current": "Corrente",
+          "unlocked": "Sbloccata",
+          "upcoming": "In arrivo"
+        },
+        "verification": {
+          "eyebrow": "Verifica",
+          "title": "Contratto e operatore",
+          "body": "Il sito legge la stessa logica del vault usata dal wallet: wave corrente, timestamp della prossima wave, saldo sbloccato, importo distribuibile disponibile e saldo del vault.",
+          "vaultLabel": "AirdropVault",
+          "operatorLabel": "Operatore"
+        },
+        "productContext": {
+          "eyebrow": "Contesto del prodotto",
+          "title": "Come il wallet legge questa superficie",
+          "bullets": [
+            "Telegram è l’unico percorso di claim social live oggi.",
+            "Gli altri elementi social esistono già nel modello di mask del contratto.",
+            "La cronologia dei claim e lo stato del claim sono specifici del wallet e vengono letti nell’app mobile, non simulati qui.",
+            "Il funding del vault e la quota sbloccata sono realtà separate, quindi l’app mostra entrambi.",
+            "Questo sito non esegue direttamente il claim live; punta al percorso wallet che lo fa."
+          ]
+        },
+        "fallback": {
+          "eyebrow": "Fallback",
+          "title": "Il percorso è pronto, ma le letture live non sono riuscite.",
+          "body": "La pagina è già collegata al vero contratto AirdropVault. Quando la lettura live riuscirà di nuovo, popolerà automaticamente lo stato della wave, il saldo, la quota sbloccata, il residuo pianificato e il timing della prossima wave.",
+          "openVault": "Apri AirdropVault",
+          "openApp": "Apri il percorso dell’app mobile"
+        }
+      }
     }
   }
 }
