@@ -11185,6 +11185,154 @@
           "openUnlock": "Unlock-Zeitleiste öffnen"
         }
       }
+    },
+    "unlock": {
+      "metadata": {
+        "title": "4TEEN Unlock | Lock-Map und Freigabezeitpunkt",
+        "description": "Öffentliche 4TEEN Unlock-Map mit aktuell gesperrtem Supply, Vault-Verwahrung, Schätzung des frei zirkulierenden Bestands, bevorstehenden Unlock-Batches und Kontext zur Wallet-seitigen Unlock-Timeline.",
+        "openGraphTitle": "4TEEN Unlock",
+        "openGraphDescription": "Lies die öffentliche 4TEEN Lock-Map: aktuell gesperrter Supply, Schätzung des frei zirkulierenden Bestands, bevorstehende Unlock-Batches und die Wallet-Route für persönliches Release-Tracking."
+      },
+      "hero": {
+        "eyebrow": "Unlock-Timeline",
+        "badge": "Öffentliche Lock-Topologie",
+        "title": "Verfolge 4TEEN Unlocks, bevor ein gesperrter Batch liquide wird",
+        "subtitle": "Jeder direkte Kauf mintet sofort, wird sofort gesperrt und ist erst übertragbar, nachdem sein eigener 14-Tage-Timer abgelaufen ist.",
+        "body": [
+          "Die Mobile Wallet zeigt die persönliche Unlock-Timeline für die ausgewählte Signing-Wallet. Die öffentliche Website sollte die Systemkarte zeigen: was noch gesperrt ist, was bereits liquide ist und welche Direct-Buy-Batches als Nächstes freigegeben werden.",
+          "Das bedeutet: kein gefälschtes persönliches Portfolio auf der Website. Nur die öffentliche Topologie von Release-Timing, Reserve-Verwahrung und dem Batch-für-Batch-Pfad vom gesperrten Mint bis zum beweglichen Guthaben."
+        ],
+        "primaryCta": "Unlock in der App öffnen",
+        "secondaryCta": "Buy-Route öffnen",
+        "ctaNote": "Persönliche Unlock-Zeilen, Countdowns und adressspezifische Verfügbarkeit bleiben weiterhin in der Mobile Wallet. Die Website erklärt die Release-Mechanik und die öffentliche Lock-Map.",
+        "rotatingLines": [
+          "Jeder Buy bekommt seinen eigenen Timer.",
+          "Zuerst gesperrt. Später liquide.",
+          "Öffentliche Map. Wallet-Timeline.",
+          "Die Freigabe hängt vom Batch ab.",
+          "Übertragbarkeit beginnt nach dem Unlock."
+        ],
+        "stats": {
+          "directPrice": "Direct-Buy-Preis",
+          "directPriceMeta": "Aktueller vertragsseitiger Einstiegspreis pro 4TEEN, bevor der Batch in sein eigenes 14-tägiges Lock-Fenster geht.",
+          "lockWindow": "Lock-Fenster",
+          "lockWindowMeta": "Jeder Direct-Buy-Batch bleibt eingefroren, bis sein eigener Release-Zeitstempel erreicht ist.",
+          "lockedNow": "Derzeit gesperrt",
+          "lockedNowMeta": "Systemweite Direct-Buy-Batches, die sich noch im 14-tägigen Lock-Fenster befinden.",
+          "circulatingNow": "Frei zirkulierend",
+          "circulatingNowMeta": "Öffentliche Schätzung nach Abzug aktiver Locks und Vault-Verwahrung vom Total Supply.",
+          "priceFallback": "1.147500",
+          "priceUnavailable": "Live-Preis ist aktuell nicht verfügbar. Der Fallback spiegelt die zuletzt bekannte direkte Route wider.",
+          "readFailed": "Live-Unlock-Abfrage fehlgeschlagen.",
+          "readRetry": "Versuche es in einem Moment erneut mit Aktualisieren."
+        }
+      },
+      "sections": {
+        "unlockContext": {
+          "eyebrow": "Wallet-Kontext",
+          "title": "Die persönliche Unlock-Timeline befindet sich in der Mobile Wallet",
+          "body": "Die Website kann das Lock-Modell erklären und die öffentliche Release-Topologie zeigen, aber die persönliche Unlock-Timeline gehört in die App, weil sie von der ausgewählten Wallet-Adresse, der Direct-Buy-Historie dieser Wallet und Live-On-Chain-Abfragen für lockedBalanceOf(account) abhängt.",
+          "bullets": [
+            "Jeder direkte Kauf erstellt seinen eigenen Lock-Batch mit eigenem Release-Zeitstempel.",
+            "Die Wallet-Unlock-Timeline verfolgt nur die Direct-Buy-Historie, die mit der ausgewählten Wallet verbunden ist, nicht generische Swap-Historie.",
+            "Sobald ein Batch freigegeben ist, werden die Tokens übertragbar und Marktrouten wie Swap werden relevant."
+          ],
+          "openApp": "Mobile-App-Route öffnen",
+          "openBuy": "Buy-Route öffnen"
+        },
+        "liveLockMap": {
+          "eyebrow": "Live Lock-Map",
+          "title": "Wie viel 4TEEN gesperrt ist und wie viel tatsächlich liquide ist",
+          "rows": {
+            "totalSupply": "Total Supply",
+            "activeLockBatches": "Aktive Lock-Batches",
+            "currentlyLocked": "Aktuell gesperrt",
+            "vaultCustody": "Vault-Verwahrung",
+            "freelyCirculating": "Frei zirkulierend",
+            "nextUnlock": "Nächster Unlock",
+            "snapshotUpdated": "Snapshot aktualisiert"
+          },
+          "note": "Frei zirkulierend ist hier eine öffentliche Systemschätzung: Total Supply minus aktive Direct-Buy-Locks minus Tokens, die in Reserve-Vault-Contracts gehalten werden. Das ist absichtlich strenger als eine naive totalSupply-Ansicht."
+        },
+        "upcomingUnlocks": {
+          "eyebrow": "Bevorstehende Unlocks",
+          "title": "Aktuelle Direct-Buy-Batches, die noch Restzeit in ihrem Lock haben",
+          "headers": {
+            "buyer": "Käufer",
+            "amount": "Gesperrter Batch",
+            "unlockAt": "Unlock am",
+            "source": "Quelle"
+          },
+          "openTx": "Transaktion öffnen",
+          "empty": "Derzeit sind keine aktiven Direct-Buy-Lock-Batches sichtbar.",
+          "note": "Diese Release-Map wird aus bestätigten BuyTokens-Events erstellt, die sich noch im 14-tägigen Lock-Fenster befinden. Sie zeigt öffentliches Batch-Timing, kein privates Wallet-Portfolio."
+        },
+        "vaultLayer": {
+          "eyebrow": "Vault-Ebene",
+          "title": "Reserve-Verwahrung ist nicht dasselbe wie freie Zirkulation",
+          "body": "Die 4TEEN Architektur hält Reserve-Zuteilungen in dedizierten Contracts. FourteenVault hält Tokens der Liquiditätsreserve, AirdropVault hält gestaffelte Reserven für Community-Verteilungen, und TeamLockVault isoliert die Team-Zuteilung. Diese Guthaben existieren on-chain, sollten aber nicht als frei zirkulierender Supply dargestellt werden.",
+          "note": "AirdropVault erhält bei einem direkten Kauf auch geroutete TRX, aber das hier gezeigte Token-Guthaben ist nur die 4TEEN Reserve, die tatsächlich in Vault-Verwahrung geparkt ist."
+        },
+        "lockMechanics": {
+          "eyebrow": "Lock-Mechanik",
+          "title": "Was der Haupt-Token-Contract tatsächlich durchsetzt",
+          "cards": [
+            {
+              "eyebrow": "Mint",
+              "title": "Direct Buy mintet zuerst",
+              "text": "buyTokens() mintet 4TEEN in derselben Transaktion, die TRX empfängt. Für den gekauften Betrag gibt es keine Off-Chain-Fulfillment-Warteschlange."
+            },
+            {
+              "eyebrow": "Batch",
+              "title": "Jeder Kauf erstellt einen separaten Lock-Eintrag",
+              "text": "Der Token-Contract hängt pro Direct Buy einen neuen LockInfo-Datensatz an. Locks werden nicht zu einem generischen Timer zusammengeführt."
+            },
+            {
+              "eyebrow": "Regel",
+              "title": "Transfers werden durch lockedBalanceOf() blockiert",
+              "text": "transfer() und transferFrom() erfordern beide verfügbares Guthaben nach Abzug von lockedBalanceOf(account). Gesperrte Tokens können nicht vorzeitig bewegt werden."
+            }
+          ]
+        },
+        "walletRoute": {
+          "eyebrow": "Wallet-Route",
+          "title": "Wie die App diesen Contract-Zustand in eine nutzbare Timeline übersetzt",
+          "cards": [
+            {
+              "eyebrow": "Guthaben",
+              "title": "Liest Gesamtguthaben, gesperrtes und verfügbares Guthaben",
+              "text": "Die Wallet kombiniert balanceOf(account) mit lockedBalanceOf(account), um zu zeigen, was noch eingefroren ist und was bereits beweglich ist."
+            },
+            {
+              "eyebrow": "Historie",
+              "title": "Erstellt Zeilen aus bestätigten BuyTokens-Events",
+              "text": "Jedes Direct-Buy-Event wird zu einer sichtbaren Unlock-Zeile mit exaktem Betrag, Unlock-Zeit, Countdown und Tronscan-Transaktionspfad."
+            },
+            {
+              "eyebrow": "Aktion",
+              "title": "Leitet den Nutzer zur nächsten gültigen Route",
+              "text": "Die Unlock-Timeline ist nach dem Buy die richtige Route. Swap wird erst relevant, nachdem der gesperrte Batch freigegeben und tatsächlich übertragbar ist."
+            }
+          ],
+          "note": "Deshalb sollte die öffentliche Website den Unlock klar erklären und den Nutzer anschließend für die persönliche Historie in die Wallet schicken, statt vorzugeben, die Ausführungsoberfläche zu sein."
+        },
+        "verification": {
+          "eyebrow": "Verifizierung",
+          "title": "Woher die Zahlen und die Lock-Logik stammen",
+          "body": "Diese Seite nutzt den bereitgestellten FourteenToken-Contract, die Wallet-Implementierung der Unlock-Timeline und die bekannten Reserve-Vault-Adressen. Sie erklärt Live-Mechanik und Verwahrungsstruktur, statt alles in ein generisches Token-Supply-Diagramm zu glätten.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Contracts-Repository",
+          "walletRepoLabel": "Wallet-Repository"
+        },
+        "cta": {
+          "eyebrow": "Nächster Schritt",
+          "title": "Nutze die App, wenn du deine persönliche Unlock-Timeline brauchst",
+          "body": "Die öffentliche Website kann die protokollweite Lock-Map zeigen. Die Wallet bleibt weiterhin die richtige Oberfläche für adressspezifische Unlock-Zeilen, Countdowns und Follow-up nach dem Buy.",
+          "openApp": "Unlock in der App öffnen",
+          "openBuy": "Buy-Route öffnen"
+        }
+      }
     }
   }
 }
