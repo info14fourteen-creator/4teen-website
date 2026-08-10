@@ -9191,6 +9191,142 @@
           "document": "**Sürüm:** 1.0\n\n**Tarih:** Nov 30, 2025\n\n---\n\n## Özet\n\n4TEEN; kısa döngülü fiyat genişlemesi, şeffaf likidite akışı ve adil on-chain mekanikler için inşa edilmiş TRON tabanlı bir token’dır. Ekonomisi sabit giriş fiyatı, dinamik arz, zaman kilitli token’lar ve otomatik likidite dağıtım modeli etrafında yapılandırılmıştır. 4TEEN’in hedefi, on-chain likidite ve incentive flows’u anlayan DeFi katılımcılarına uygun, öngörülebilir, şeffaf ve kendi kendini güçlendiren bir büyüme mekanizması oluşturmaktır.\n\n---\n\n## 1. Giriş\n\n4TEEN, gerçek TRX sisteme girdiğinde token’ların yalnızca o zaman mint edildiği, **sabit total supply olmayan** talep odaklı bir token’dır. Proje hız, şeffaflık ve sürdürülebilir likidite büyümesi için inşa edilmiştir. Kısa **14 günlük kilit süresi** piyasa istikrarını desteklerken, sürekli likidite yönlendirmesi zaman içinde token’ın piyasa derinliğini güçlendirir.\n\n4TEEN, **temiz tokenomics**, **gerçek likidite** ve **manuel olarak manipüle edilemeyen mekaniklere** değer veren DeFi kullanıcıları için tasarlanmıştır.\n\n---\n\n## 2. 4TEEN Nasıl Çalışır\n\n### 01. Sabit Giriş Fiyatı\n\n4TEEN sabit bir giriş oranı kullanır:\n\n**1 TRX = 1 4TEEN**\n\nBu slippage, arbitrary pricing ve early-stage volatility’yi ortadan kaldırır.\n\nHer alıcı tamamen aynı fiyattan girer.\n\n---\n\n### 02. Mint-On-Purchase\n\n4TEEN’in önceden belirlenmiş arzı yoktur.\n\nYeni token’lar *yalnızca* bir alıcı TRX’i kontrata gönderdiği anda mint edilir.\n\nPre-minting yok. Hidden allocations yok. Private rounds yok.\n\nBu, 4TEEN’i tamamen **talep odaklı** yapar: arz yalnızca gerçek TRX içeri aktığında büyür.\n\n---\n\n### 03. 14 Günlük Kilit Süresi\n\nHer satın alma, mint edilen token’lar için **14 günlük kilit** başlatır.\n\nKilit süresi boyunca token’lar transfer edilemez veya satılamaz.\n\nAmaç:\n\n- Anlık dumping’i önlemek\n\n- Kısa, öngörülebilir holding cycles oluşturmak\n\n- Doğal likidite ve fiyat oluşumunu desteklemek\n\n14 gün sonra token’ların kilidi otomatik açılır ve transfer veya trading için kullanılabilir hâle gelir.\n\n---\n\n## 3. Likidite & TRX Akışı\n\nKullanıcılar 4TEEN satın aldığında gelen TRX otomatik olarak dağıtılır:\n\n| Hedef | Yüzde | Amaç |\n|---|---:|---|\n| Liquidity Pool | 90% | Price backing & market depth’i güçlendirir |\n| Owner Wallet | 7% | Operations & development |\n| Airdrop Address | 3% | Community incentives & growth |\n\nBu yapı, TRX’in **çoğunun** doğrudan likiditeye gitmesini sağlayarak uzun vadeli istikrarı artırır.\n\n---\n\n## Likidite Modeli\n\n4TEEN’in likidite yapısı üç ilke üzerine kuruludur:\n\n### 1. YALNIZCA GERÇEK TRX LİKİDİTESİ\n\nLikidite her zaman gerçek alıcılardan gelen gerçek TRX ile desteklenir.\n\n### 2. OTOMATİK DAĞITIM\n\nLikidite tahsisi, biri her 4TEEN satın aldığında smart contract içinde gerçekleşir.\n\n### 3. ARTAN PİYASA DERİNLİĞİ\n\nDaha fazla alıcı → daha fazla TRX → daha derin likidite → daha güçlü fiyat desteği.\n\n---\n\n## 4. Dinamik Arz Modeli\n\n**4TEEN**’in **max supply**’ı yoktur.\n\nArz **tamamen dinamiktir** ve yalnızca satın almalar gerçekleştiğinde genişler.\n\n**Dinamik arz = talep olmadan enflasyon yok.**\n\nBu doğal bir denge oluşturur:\n\n- Aktivite yüksek olduğunda → arz genişler\n\n- Aktivite düşük olduğunda → arz genişlemesi durur\n\n- Satın almalar olduğu sürece likidite güçlenmeye devam eder\n\nBu, aşırı arzı önler ve token ekonomisini doğrudan kullanıcı talebiyle hizalar.\n\n---\n\n## 5. Otomatik Fiyat Büyümesi\n\n**4TEEN** üç aylık bir price-growth mechanism içerir:\n\nHer **90 günde**, token’ın minting price’ı önceden belirlenmiş growth rate’e göre yukarı ayarlanır; varsayılan: **14.75% annualized**.\n\nAnlamı:\n\n- Erken alıcılar daha düşük fiyattan mint eder\n\n- Daha sonraki alıcılar daha yüksek fiyattan mint eder\n\n- Fiyat zaman ve taleple otomatik büyür\n\nBu, erken benimseme için yerleşik bir incentive oluşturur.\n\n---\n\n## 6. Smart Contract Mimarisi\n\n4TEEN kontratı şunları içerir:\n\n### • TRC-20 Standard Compatibility\n\nTRON’un token standardı ile tamamen uyumludur.\n\n### • Mint-on-buy Mechanism\n\nGelen TRX’e dayalı doğrudan minting.\n\n### • 14-Day Vesting Logic\n\nKilitler kullanıcı başına ayrı ayrı takip edilir.\n\n### • Reentrancy Protection\n\nTRX forwarding sırasında kötü niyetli recursive calls’u önler.\n\n### • Owner Governance\n\nYalnızca owner şunları güncelleyebilir:\n\n- annual growth rate\n\n- liquidityPool address\n\n- airdrop address\n\n### • Transparent Events\n\nHer buy, price update, transfer ve approval için event’ler.\n\n---\n\n## 7. Smart Contract Mimarisi\n\n| Component | Value |\n|---|---|\n| Token Name | 4teen |\n| Symbol | 4TEEN |\n| Decimals | 6 |\n| Entry Price | 1 TRX = 1 4TEEN |\n| Supply Type | Dynamic |\n| Lock Duration | 14 days |\n| Liquidity Allocation | TRX’in 90%’ı |\n| Airdrop Allocation | 3% |\n| Operational Allocation | 7% |\n| Price Growth Interval | Her 90 days |\n| Price Model | Time-based compounding |\n\n---\n\n## 8. Risk Beyanı\n\n4TEEN, TRON blockchain üzerinde deployed merkeziyetsiz bir smart-contract sistemidir.\n\nKatılım, aşağıdakiler dahil ancak bunlarla sınırlı olmamak üzere risk içerir:\n\n- Market volatility\n\n- Liquidity fluctuations\n\n- Smart contract vulnerabilities\n\n- Loss of private keys\n\n- Regulatory uncertainty\n\nBu belgedeki hiçbir şey finansal tavsiye teşkil etmez.\n\nKullanıcılar 4TEEN token veya ilgili ürünlerle etkileşmeden önce kendi risk toleranslarını değerlendirmelidir.\n\n---\n\n## 9. Sonuç\n\n4TEEN; şeffaf büyüme, adil katılım ve öngörülebilir fiyat davranışı için tasarlanmış kısa döngülü, likidite odaklı bir token modeli sunar.\n\nSabit giriş fiyatı, dinamik minting, uygulanan kilit süreleri ve otomatik likidite yönlendirme ile 4TEEN tüm piyasa katılımcıları genelinde incentive’ları hizalar.\n\nGerçek TRX desteği, dinamik arz ve yapılandırılmış likidite dağıtımının birleşimi, 4TEEN’i yeni nesil on-chain liquidity engines için inşa edilmiş modern DeFi-native asset olarak konumlandırır."
         }
       }
+    },
+    "one-pager": {
+      "metadata": {
+        "title": "4TEEN Tek Sayfalık Özet",
+        "description": "Yatırımcılar ve stratejik ortaklar için kısa bir 4TEEN tek sayfalık özeti: ürün durumu, protokol mekanikleri, çekiş kanıtı, sermaye kullanımı ve inceleme bağlantıları."
+      },
+      "hero": {
+        "eyebrow": "4TEEN Tek Sayfalık Özet",
+        "status": "Hızlı yatırımcı özeti",
+        "title": "4TEEN; doğrudan satın alma, 14 günlük kilit açma, likidite yönlendirmesi ve büyüme kanalları etrafında inşa edilmiş, canlı bir TRON cüzdanı ve token sistemidir.",
+        "lead": "Bu tek sayfalık özet, yatırımcı sunumunun kısa versiyonudur: nelerin mevcut olduğu, neden önemli olduğu, döngünün nasıl çalıştığı ve sermaye ya da stratejik desteğin sistemi nerede hızlandırabileceği."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Ürün",
+          "title": "Cüzdan odaklı token akışı",
+          "body": "Kullanıcılar yalnızca bir kontrat sayfasından değil, uygulama yüzeyinden giriş yapar: satın alma, kilit açma, swap, likidite, elçi ve kanıt rotaları hâlihazırda tek bir ürün döngüsü olarak kurgulanmıştır."
+        },
+        {
+          "eyebrow": "Mekanikler",
+          "title": "90 / 7 / 3 satın alma yönlendirmesi",
+          "body": "Her doğrudan satın alma, TRX’i aynı işlem içinde likidite, kontrolcü ve airdrop taraflarına yönlendirir; bu da temel ekonominin açıklanmasını ve doğrulanmasını kolaylaştırır."
+        },
+        {
+          "eyebrow": "Elde tutma",
+          "title": "14 günlük parti kilit açma",
+          "body": "Doğrudan satın alınan tokenler hemen mint edilir, ancak her satın alma partisi 14 gün sonra açılır; böylece giriş zamanlaması görünür bir cüzdan durumuna dönüşür."
+        },
+        {
+          "eyebrow": "Ölçekleme yolu",
+          "title": "Büyüme kanalları zaten mevcut",
+          "body": "Elçi muhasebesi, airdrop fonlaması, doğrulama rotaları ve herkese açık kanıt sayfaları, boş bir kampanya kabuğu yerine dağıtım için bir temel oluşturur."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "4TEEN nedir",
+          "title": "TRON üzerinde, cüzdan deneyimi olarak paketlenmiş yapılandırılmış bir giriş sistemi",
+          "body": "4TEEN; token mekaniklerini, kontrolcü tarafı muhasebeyi, likidite yürütmesini, elçi takibini ve uygulama UX’ini tek bir yüzeyde birleştirir. Herkese açık site sistemi açıklar; cüzdan ise kullanıcı iş akışını taşır.",
+          "bullets": [
+            "Doğrudan satın alma ve kilit açma mantığı kontrat desteklidir.",
+            "Daha net doğrulama için likidite ve kontrolcü rolleri ayrılmıştır.",
+            "Uygulama ve site, kullanıcı, yatırımcı ve kanıt yüzeylerini hâlihazırda sunar."
+          ]
+        },
+        {
+          "eyebrow": "Neden yatırım yapılabilir",
+          "title": "Fırsat, bir fikri fonlamak değil, canlı bir döngüyü ölçeklemektir",
+          "body": "Proje; ciddi görüşmeleri başlatmak için gereken mekaniklere, rotalara, uygulama anlatısına ve inceleme materyallerine zaten sahiptir. Bir sonraki adım dağıtım, ürün cilası, likidite güveni ve ortak erişimidir.",
+          "bullets": [
+            "Çekirdek akışlar zaten mevcut olduğu için ürün riski daha düşüktür.",
+            "Anlatı öğretilecek kadar basittir: satın al, kilitle, kilidi aç, sonra bir sonraki rotayı seç.",
+            "Sermaye, ilk keşif yerine hızlandırmaya yönlendirilebilir."
+          ]
+        }
+      ],
+      "snapshot": [
+        {
+          "label": "Ağ",
+          "value": "TRON",
+          "detail": "Doğrudan satın alma, kilit açma görünürlüğü ve cüzdan odaklı kullanıcı aksiyonları için düşük ücretli ortam."
+        },
+        {
+          "label": "Birincil yüzeyler",
+          "value": "Uygulama + site",
+          "detail": "Uygulama akışı taşır; web sitesi eğitim, kanıt ve yatırımcı bağlamını taşır."
+        },
+        {
+          "label": "Giriş kuralı",
+          "value": "90 / 7 / 3",
+          "detail": "Satın alma tarafı yönlendirmesi, likiditeyi, kontrolcüyü ve airdrop fonlamasını işlem içinde böler."
+        },
+        {
+          "label": "Kilit açma kuralı",
+          "value": "14 days",
+          "detail": "Her satın almanın, tek bir opak cüzdan geneli kilit yerine kendi kilit açma partisi vardır."
+        }
+      ],
+      "proofPoints": [
+        {
+          "title": "On-chain mimari ayrıştırılmıştır",
+          "body": "Token, kontrolcü, likidite kontrolcüsü, bootstrapper ve vault kontratları farklı sorumluluklar taşır; bu da incelemeyi tek bir opak kontrat anlatısından daha kolay hâle getirir."
+        },
+        {
+          "title": "Cüzdan UX’i sistemi zaten haritalandırıyor",
+          "body": "Uygulama; doğrudan satın alma, kilit açma zaman çizelgesi, swap, likidite, elçi paneli ve bilgi rotalarını dağınık dokümantasyon yerine operasyonel bir ürün olarak sunar."
+        },
+        {
+          "title": "Herkese açık kanıt paylaşılabilir",
+          "body": "Whitepaper, doğrulama, blog bağlamı, yatırımcı sunumu ve bu tek sayfalık özet, ortaklara önce özel bir anlatıma ihtiyaç duymadan farklı inceleme derinlikleri sunar."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tek Sayfalık Özet PDF’ini İndir",
+          "href": "/docs/4teen-one-pager.pdf",
+          "download": "4teen-one-pager.pdf"
+        },
+        {
+          "label": "Yatırımcı Sunumunu Aç",
+          "href": "/deck"
+        },
+        {
+          "label": "Whitepaper’ı Oku",
+          "href": "/whitepaper"
+        },
+        {
+          "label": "Kontratları Doğrula",
+          "href": "/verification"
+        },
+        {
+          "label": "Doğrudan Satın Almayı Aç",
+          "href": "/buy"
+        },
+        {
+          "label": "Cüzdan uygulaması deposu",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Akıllı kontratlar deposu",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "İnceleme Bağlantıları",
+      "footerNote": "Bu tek sayfalık özet, kısa bir proje bilgilendirmesidir. Getiri, borsa listelemesi, likidite sonucu veya piyasa performansı vaadi değildir.",
+      "ask": {
+        "eyebrow": "Stratejik Talep",
+        "title": "En iyi sonraki görüşmeler, sermayeyi dağıtım veya yürütme kaldıraçıyla birleştirir.",
+        "body": "4TEEN; kullanıcı edinimini, likidite güvenini, bölgesel erişimi, piyasa erişimini veya ekosistem itibarını hızlandırabilecek ortaklar arıyor.",
+        "email": "genesis@4teen.me",
+        "bullets": [
+          "Büyüme dağıtımı ve elçi genişlemesi.",
+          "Likidite, market-making, borsa veya ekosistem ilişkileri.",
+          "Ürün cilası, yerelleştirme, analitik ve dönüşüm iyileştirmesi."
+        ]
+      }
     }
   }
 }
