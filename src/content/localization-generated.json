@@ -29550,6 +29550,148 @@
       ],
       "linksEyebrow": "Openbare uitgangen",
       "footerNote": "Lees deze voorwaarden samen met contractadressen, explorerstatus en het walletbevestigingsscherm. Organisatie-identiteit: \"AG PLUS\" LLC, D-U-N-S 933906683."
+    },
+    "support": {
+      "metadata": {
+        "title": "Support",
+        "description": "Officiële 4TEEN-supportscope, contactroutes, verwachte responstijden en waar het team wel en niet mee kan helpen."
+      },
+      "hero": {
+        "eyebrow": "Support",
+        "status": "Officiële kanalen",
+        "title": "Support moet je helpen de juiste route te vinden, het openbare systeem te begrijpen en te verifiëren wat er is gebeurd, zonder te doen alsof iemand de realiteit van de blockchain voor je kan terugdraaien.",
+        "lead": "Gebruik officiële 4TEEN-kanalen voor vragen over de website, wallet, releases of het openbare protocol. Neem voor alles wat met transacties te maken heeft specifieke feiten mee, zoals walletadres, transactiehash, screenshots, routenaam, apparaattype en app-build indien relevant."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Het meest geschikt voor",
+          "title": "Hulp bij routering en verificatie",
+          "body": "Support kan je helpen de juiste officiële pagina, wallet-interface, contractlink of openbare statusroute te vinden en te begrijpen wat die interfaces tonen."
+        },
+        {
+          "eyebrow": "Neem mee",
+          "title": "Nuttig bewijs",
+          "body": "De snelste route is feitelijk: walletadres, tx-hash, pagina-URL, screenshot, tijdstempel en een korte beschrijving van wat je verwachtte versus wat er gebeurde."
+        },
+        {
+          "eyebrow": "Stuur nooit",
+          "title": "Geen herstelgeheimen",
+          "body": "Stuur geen seed phrases, ruwe private keys of apparaatwachtcodes naar welk supportkanaal dan ook. Officiële support zou die nooit nodig moeten hebben."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Officiële operator",
+          "title": "Support wordt gepubliceerd door de juridische 4TEEN-operator",
+          "body": "\"AG PLUS\" Limited Liability Company beheert de officiële 4TEEN-website en supportroutes. Gebruik support@4teen.me of +998 95 792 02 87 voor directe support, en verifieer supportlinks via https://4teen.me.",
+          "bullets": [
+            "D-U-N-S Number: 933906683",
+            "Registratienummer: 3080788",
+            "Juridisch adres: Republiek Oezbekistan, stad Tasjkent, district Yunusabad, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, huis 3-B"
+          ]
+        },
+        {
+          "eyebrow": "2. Supportscope",
+          "title": "Waar support voor bedoeld is",
+          "body": "Support is bedoeld voor routebegeleiding, feitelijke probleemoplossing, verificatie van officiële links, openbare protocolinformatie, verduidelijking van wallet-interfaces, hulp bij releasepagina’s en het bepalen welke contract- of productlaag relevant is voor jouw probleem."
+        },
+        {
+          "eyebrow": "3. Beperkingen van support",
+          "title": "Wat support niet kan beloven",
+          "body": "Support kan bevestigde blockchaintransacties niet terugdraaien, een verloren seed phrase niet herstellen, geen tokenprijsuitkomst garanderen, geen toekomstige beloningen garanderen en openbare contractregels niet handmatig omzeilen alleen omdat een resultaat niet was wat je wilde."
+        },
+        {
+          "eyebrow": "4. Kwaliteit van de respons",
+          "title": "Hoe je sneller antwoord krijgt",
+          "bullets": [
+            "Vermeld de exacte route of pagina waar het probleem verscheen",
+            "Als het on-chain is, voeg dan het walletadres en de tx-hash toe",
+            "Als het app-gerelateerd is, voeg dan apparaat-, OS- en app-buildgegevens toe",
+            "Als het visueel is, voeg dan een screenshot of korte schermopname toe"
+          ],
+          "note": "De kwaliteit van support verbetert wanneer de melding feitelijk en reproduceerbaar is, niet alleen emotioneel. Dat helpt het team te verifiëren wat er daadwerkelijk is gebeurd."
+        }
+      ],
+      "channels": [
+        {
+          "label": "Telegram",
+          "href": "https://t.me/fourteentoken",
+          "note": "Snelste openbare communityroute voor aankondigingen en basisbegeleiding."
+        },
+        {
+          "label": "Discord",
+          "href": "https://discord.gg/jWZF6KzPCB",
+          "note": "Nuttig voor gestructureerde discussie, context bij probleemoplossing en vervolgberichten."
+        },
+        {
+          "label": "X",
+          "href": "https://x.com/4teen_me",
+          "note": "Het beste voor openbare zichtbaarheid van releases, maar niet ideaal voor gevoelige probleemd details."
+        },
+        {
+          "label": "WhatsApp",
+          "href": "https://wa.me/998957920287",
+          "note": "Nuttig als een directe supportoverdracht nodig is en het officiële nummer geschikt is voor jouw regio."
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+          "note": "Nuttig voor code-, release- en repositoryniveau-problemen wanneer het probleem duidelijk technisch is."
+        }
+      ],
+      "channelPanel": {
+        "eyebrow": "Officiële kanalen",
+        "title": "Gebruik officiële uitgangen voordat je support vertrouwt.",
+        "routeLabel": "Officiële route"
+      },
+      "scopePanel": {
+        "eyebrow": "Supportscope",
+        "title": "Support moet verduidelijken, verifiëren en routeren. Het moet geen bevoegdheden verzinnen die het niet heeft.",
+        "canHelp": "Kan helpen",
+        "cannotHelp": "Kan niet helpen"
+      },
+      "supportScope": {
+        "canHelp": [
+          "Verificatie van officiële routes en begeleiding bij openbare pagina’s",
+          "Probleemoplossing voor app-downloads, releasepagina’s en website",
+          "Oriëntatie bij contracten, explorers of openbare statuspagina’s",
+          "Basale feitelijke triage voor problemen met airdrop-, ambassador- of wallet-routes"
+        ],
+        "cannotHelp": [
+          "Verloren seed phrases, private keys of apparaatwachtcodes herstellen",
+          "Bevestigde on-chain transacties ongedaan maken",
+          "Prijsuitkomst, tokenprestaties of geschiktheid voor beloningen garanderen",
+          "Optreden als custodian of controle nemen over gebruikersfondsen"
+        ]
+      },
+      "contactPanel": {
+        "eyebrow": "Contact",
+        "title": "Gebruik alleen officiële 4TEEN-uitgangen",
+        "body": "Als een supportroute niet is gelinkt vanaf de officiële site, wallet of officiële social-lijst, verifieer deze dan voordat je erop vertrouwt. De officiële juridische operator is \"AG PLUS\" LLC en het gepubliceerde D-U-N-S Number is 933906683.",
+        "emailTitle": "Support-e-mail",
+        "emailMissing": "Er is geen speciale openbare supportmailbox gepubliceerd in de huidige repositories. Totdat die is gepubliceerd, gebruik je de officiële kanalen hieronder en deel je daar nooit geheim herstelmateriaal.",
+        "phoneTitle": "Telefoon en WhatsApp",
+        "legalTitle": "Juridische operator",
+        "legalBody": "\"AG PLUS\" Limited Liability Company · D-U-N-S® 933906683",
+        "securityTitle": "Beveiligingsherinnering",
+        "securityBody": "Geen enkel supportkanaal zou om je seed phrase, ruwe private key of volledige ontgrendelingsgeheimen van je apparaat moeten vragen. Als dat gebeurt, behandel het dan als onveilig."
+      },
+      "links": [
+        {
+          "label": "Open de mobiele app-pagina",
+          "href": "/app"
+        },
+        {
+          "label": "Open privacy",
+          "href": "/privacy"
+        },
+        {
+          "label": "Open voorwaarden",
+          "href": "/terms"
+        }
+      ],
+      "linksEyebrow": "Openbare uitgangen",
+      "footerNote": "Begin voor releaselinks, contractreferenties of openbare statuspagina’s bij https://4teen.me. Officiële telefoon- en WhatsApp-support: +998 95 792 02 87."
     }
   }
 }
