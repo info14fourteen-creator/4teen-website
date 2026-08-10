@@ -18299,6 +18299,182 @@
           "openBuy": "Abrir ruta de compra"
         }
       }
+    },
+    "airdrop": {
+      "metadata": {
+        "title": "Airdrop",
+        "description": "Estado en vivo del airdrop de 4TEEN con la wave actual, saldo desbloqueado, saldo del vault, estado de la ruta de Telegram, acceso de reclamo solo desde la wallet y enlaces de verificación on-chain."
+      },
+      "hero": {
+        "eyebrow": "AirdropVault",
+        "status": "Ruta de reclamo desde la wallet",
+        "title": "Reclama 4TEEN a través de la ruta de la wallet",
+        "lead": "El sitio público muestra el estado en vivo de AirdropVault. La wallet móvil gestiona la ruta de reclamo.",
+        "body": [
+          "El airdrop no es un botón promocional falso en una landing page. Es un vault basado en waves, un estado de reclamo consciente de la wallet y una ruta centrada primero en Telegram que la app lee antes de ejecutar.",
+          "Esta página refleja la parte pública: wave actual, saldo del vault, cuota desbloqueada, remanente planificado, modelo de ruta y verificación on-chain. El flujo de reclamo en vivo pertenece dentro de la wallet."
+        ],
+        "rotatingLines": [
+          "Estado del vault. Reclamo desde la wallet.",
+          "Telegram en vivo. Canales sociales preparados.",
+          "Prueba pública. Ejecución en la app.",
+          "Desbloqueos por wave. Verificaciones de ruta.",
+          "Sin reclamos falsos. Solo estado."
+        ],
+        "primaryCta": "Abrir ruta de la app móvil",
+        "secondaryCta": "Abrir AirdropVault",
+        "ctaNote": "El sitio web muestra el vault y el mapa de rutas. La wallet lee la cuenta seleccionada, la sesión de Telegram, el estado de reclamo y el modo de firma antes de que se abra la ruta real de reclamo.",
+        "stats": {
+          "currentWave": "Wave actual",
+          "vaultBalance": "Saldo del vault",
+          "vaultBalanceMeta": "4TEEN actualmente retenido dentro de AirdropVault.",
+          "availableNow": "Disponible ahora",
+          "availableNowMeta": "Lo que puede distribuirse ahora según las reglas del contrato.",
+          "nextWave": "Próxima wave",
+          "completed": "Completado",
+          "readFailed": "Falló la lectura en vivo del vault.",
+          "readRetry": "Intenta actualizar en un momento."
+        }
+      },
+      "sections": {
+        "vaultState": {
+          "eyebrow": "Estado del vault",
+          "title": "Lo que dice el contrato ahora mismo",
+          "rows": {
+            "totalAllocation": "Asignación total",
+            "unlockedTotal": "Total desbloqueado",
+            "totalDistributed": "Total distribuido",
+            "remainingUnlocked": "Remanente desbloqueado",
+            "remainingPlanned": "Remanente planificado",
+            "vaultBalance": "Saldo del vault"
+          },
+          "noteTitle": "Por qué existen dos números de “remanente”:",
+          "noteBody": "`Remaining unlocked` es la cuota que el contrato ya desbloqueó según el tiempo de la wave. `Remaining planned` es la parte no distribuida de la asignación completa de 1,500,000 4TEEN. `Available now` es el menor entre la cuota desbloqueada y el saldo real del vault."
+        },
+        "distribution": {
+          "eyebrow": "Huella de distribución",
+          "title": "Cuánto ya salió del vault",
+          "cards": {
+            "distributed": {
+              "title": "Ya distribuido",
+              "text": "4TEEN ya enviado desde la asignación completa."
+            },
+            "planned": {
+              "title": "Aún planificado",
+              "text": "4TEEN que aún queda dentro del plan de distribución a largo plazo."
+            },
+            "lastDrop": {
+              "title": "Último drop confirmado",
+              "text": "4TEEN en el evento de distribución del vault confirmado más reciente."
+            },
+            "unlockedUndistributed": {
+              "title": "Desbloqueado pero no distribuido",
+              "text": "La cuota ya desbloqueada por waves, pero aún no enviada."
+            }
+          },
+          "note": "Este bloque es solo informativo. Usa lecturas en vivo ligeras que son seguras para el sitio público: estado del vault desde lecturas del contrato y el último evento de airdrop confirmado desde el feed de eventos."
+        },
+        "dateLayer": {
+          "eyebrow": "Capa de fechas",
+          "title": "El contrato funciona con timestamps fijos",
+          "rows": {
+            "issueDate": "Fecha de emisión",
+            "currentWave": "Wave actual",
+            "nextWave": "Próxima wave",
+            "lastDrop": "Último drop confirmado",
+            "snapshotUpdated": "Snapshot actualizado"
+          },
+          "note": "Los desbloqueos por wave están fijados en el contrato. El sitio web no inventa estas fechas a partir del texto; lee y formatea el reloj del contrato en vivo."
+        },
+        "routeModel": {
+          "eyebrow": "Modelo de ruta en vivo",
+          "title": "Telegram está en vivo. Otros componentes sociales están preparados.",
+          "note": "La app de wallet combina tres verificaciones para Telegram: estado local de la wallet, estado actual de la sesión del bot y estado de reclamo on-chain. El sitio web no falsifica ese flujo de reclamo ni pretende reclamar en la web; muestra el vault en vivo y el modelo de ruta real a su alrededor.",
+          "routes": {
+            "telegram": {
+              "title": "Telegram",
+              "statusLive": "Activo ahora",
+              "statusSoon": "Activo ahora",
+              "note": "La sesión de la wallet, el estado del bot y el estado de reclamo on-chain ya están conectados en la app móvil."
+            },
+            "instagram": {
+              "title": "Instagram",
+              "statusLive": "Marcador de despliegue",
+              "statusSoon": "Marcador de despliegue",
+              "note": "La ruta existe en el modelo de máscara del contrato, pero el flujo de reclamo en vivo aún no está abierto."
+            },
+            "x": {
+              "title": "X",
+              "statusLive": "Marcador de despliegue",
+              "statusSoon": "Marcador de despliegue",
+              "note": "La ruta existe en el modelo de máscara del contrato, pero el flujo de reclamo en vivo aún no está abierto."
+            },
+            "facebook": {
+              "title": "Facebook",
+              "statusLive": "Marcador de despliegue",
+              "statusSoon": "Marcador de despliegue",
+              "note": "La ruta existe en el modelo de máscara del contrato, pero el flujo de reclamo en vivo aún no está abierto."
+            },
+            "youtube": {
+              "title": "YouTube",
+              "statusLive": "Marcador de despliegue",
+              "statusSoon": "Marcador de despliegue",
+              "note": "La ruta existe en el modelo de máscara del contrato, pero el flujo de reclamo en vivo aún no está abierto."
+            }
+          }
+        },
+        "walletAccess": {
+          "eyebrow": "Acceso de reclamo en vivo",
+          "title": "La ruta de airdrop en vivo funciona desde la wallet móvil, no desde el sitio web público",
+          "body": "El estado de reclamo de Telegram es consciente de la wallet en el producto real. La app combina la wallet seleccionada, la sesión actual del bot y el estado de reclamo on-chain antes de decidir si la ruta está disponible, en cola, ya recibida o todavía bloqueada. Este sitio web se mantiene informativo a propósito.",
+          "bullets": [
+            "La disponibilidad del reclamo depende del estado de la wallet, no solo de una visita a una página pública.",
+            "Telegram es la única ruta de reclamo en vivo hoy; las demás redes sociales siguen siendo canales preparados.",
+            "La wallet puede distinguir estados de solo observación, firma, recibido, en cola y uso heredado.",
+            "Usa la ruta de la app para la superficie real de reclamo y luego vuelve aquí para la verificación pública del vault."
+          ],
+          "openApp": "Abrir ruta de la app móvil",
+          "openVault": "Abrir AirdropVault"
+        },
+        "waveSchedule": {
+          "eyebrow": "Calendario de waves",
+          "title": "Seis waves fijas, un solo reloj de contrato",
+          "headers": {
+            "wave": "Wave",
+            "cap": "Límite",
+            "unlockTime": "Hora de desbloqueo",
+            "status": "Estado"
+          },
+          "current": "Actual",
+          "unlocked": "Desbloqueada",
+          "upcoming": "Próxima"
+        },
+        "verification": {
+          "eyebrow": "Verificación",
+          "title": "Contrato y operador",
+          "body": "El sitio está leyendo la misma lógica del vault que usa la wallet: wave actual, timestamp de la próxima wave, saldo desbloqueado, importe de distribución disponible y saldo del vault.",
+          "vaultLabel": "AirdropVault",
+          "operatorLabel": "Operador"
+        },
+        "productContext": {
+          "eyebrow": "Contexto del producto",
+          "title": "Cómo la wallet lee esta superficie",
+          "bullets": [
+            "Telegram es la única ruta de reclamo social en vivo hoy.",
+            "Otros componentes sociales ya existen en el modelo de máscara del contrato.",
+            "El historial de reclamos y el estado de reclamo son específicos de cada wallet y se leen en la app móvil, no se falsifican aquí.",
+            "La financiación del vault y la cuota desbloqueada son realidades separadas, por eso la app muestra ambas.",
+            "Este sitio web no realiza el reclamo en vivo por sí mismo; apunta a la ruta de la wallet que sí lo hace."
+          ]
+        },
+        "fallback": {
+          "eyebrow": "Fallback",
+          "title": "La ruta está lista, pero fallaron las lecturas en vivo.",
+          "body": "La página ya está conectada alrededor del contrato real AirdropVault. Cuando la lectura en vivo vuelva a funcionar, completará automáticamente el estado de la wave, el saldo, la cuota desbloqueada, el remanente planificado y el momento de la próxima wave.",
+          "openVault": "Abrir AirdropVault",
+          "openApp": "Abrir ruta de la app móvil"
+        }
+      }
     }
   }
 }
