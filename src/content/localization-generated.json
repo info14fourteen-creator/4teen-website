@@ -19840,5 +19840,161 @@
       "linksEyebrow": "Próximas rutas",
       "footerNote": "La ruta actual es una estructura limpia para futuras publicaciones, no un feed falso. Cuando lleguen los artículos, deberían mantenerse alineados con las capas de prueba y de producto."
     }
+  },
+  "it": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "Copia",
+          "copied": "Copiato",
+          "failed": "Non riuscito",
+          "close": "Chiudi",
+          "qrCode": "Codice QR"
+        },
+        "taglines": [
+          "Ingresso anticipato. Uscita più alta.",
+          "I vincitori non aspettano.",
+          "Trasforma 14 giorni in profitto.",
+          "Muoviti presto. Vinci presto."
+        ],
+        "header": {
+          "home": "Home",
+          "getApp": "Scarica l'app",
+          "primaryNavAria": "Navigazione principale del sito"
+        },
+        "market": {
+          "loading": "Caricamento prezzo",
+          "unavailable": "Prezzo non disponibile",
+          "liveAria": "Prezzo di mercato in tempo reale"
+        },
+        "refresh": {
+          "idle": "Aggiorna dati",
+          "busy": "Aggiornamento",
+          "aria": "Aggiorna snapshot dei dati live"
+        },
+        "mobileSearch": {
+          "ariaLabel": "Cerca route, contratti e documenti",
+          "placeholder": "Cerca route, contratti, documenti...",
+          "eyebrow": "Ricerca rapida",
+          "title": "Pagine, contratti e superfici di prova",
+          "dialogAria": "Risultati della ricerca",
+          "route": "Route",
+          "external": "Esterno",
+          "empty": "Ancora nessuna corrispondenza rapida. Prova parole relative a route, contratto o prova."
+        },
+        "desktopSearch": {
+          "prompts": [
+            "Cerca contratti, route, documenti...",
+            "FourteenToken",
+            "Timeline di sblocco",
+            "Controller della liquidità",
+            "Ricompense Ambassador",
+            "Whitepaper"
+          ],
+          "ariaLabel": "Cerca route e contratti 4TEEN",
+          "actionAria": "Apri risultati della ricerca",
+          "eyebrow": "Risultati di ricerca rapida",
+          "title": "Pagine rapide, contratti e superfici di prova.",
+          "dialogAria": "Risultati della ricerca",
+          "closeAria": "Chiudi ricerca",
+          "resultsSuffix": "risultati",
+          "noResultsYet": "Ancora nessun risultato",
+          "pressEnter": "Premi Invio per aprire la corrispondenza principale.",
+          "topMatch": "Corrispondenza principale",
+          "route": "Route",
+          "external": "Esterno",
+          "empty": "Nessun risultato. Prova `buy`, `unlock`, `airdrop`, `controller` o `whitepaper`."
+        },
+        "locale": {
+          "eyebrow": "Lingua",
+          "title": "Scegli la lingua dell'interfaccia",
+          "active": "Attiva",
+          "soon": "Presto"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "Superfici principali",
+          "docsAndRoutes": "Documenti e route",
+          "closeOpenPanelAria": "Chiudi pannello aperto"
+        },
+        "mobileDock": {
+          "menu": "Menu",
+          "close": "Chiudi",
+          "openMenuAria": "Apri menu mobile",
+          "closeMenuAria": "Chiudi menu mobile",
+          "openHomeAria": "Apri home",
+          "openSearchAria": "Apri ricerca mobile",
+          "openLanguageAria": "Apri pannello lingua"
+        },
+        "footer": {
+          "protocol": "Protocollo",
+          "ecosystem": "Ecosistema",
+          "legal": "Legale",
+          "privacy": "Privacy",
+          "terms": "Termini",
+          "support": "Supporto",
+          "investorDeck": "Investor Deck",
+          "onePager": "One-Pager",
+          "officialChannels": "Canali ufficiali",
+          "brandText": "L'app wallet ora integra la superficie del sistema live: acquisto diretto, stato di sblocco, verità del controller, cabinet Ambassador e flusso di crescita Telegram-first.",
+          "getApp": "Scarica l'app",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. Ingresso strutturato on-chain su TRON.",
+          "officialWebsite": "Sito web ufficiale: 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "Protocollo",
+          "growth": "Crescita",
+          "proof": "Prova",
+          "ecosystem": "Ecosistema"
+        },
+        "links": {
+          "home": "Home",
+          "buy": "Acquista",
+          "unlock": "Sblocco",
+          "liquidity": "Liquidità",
+          "airdrop": "Airdrop",
+          "ambassadors": "Ambassador",
+          "whitepaper": "Whitepaper",
+          "verification": "Verifica",
+          "blog": "Blog",
+          "swap": "Swap",
+          "mobileApp": "App mobile"
+        },
+        "shortLinks": {
+          "buy": "Acquista",
+          "unlock": "Sblocca",
+          "liquidity": "Liquidità",
+          "airdrop": "Airdrop",
+          "earn": "Guadagna",
+          "swap": "Swap",
+          "app": "App",
+          "home": "Home"
+        },
+        "menuLinks": {
+          "buy": "Acquisto diretto",
+          "unlock": "Timeline di sblocco",
+          "liquidity": "Controller della liquidità",
+          "swap": "Swap Token",
+          "privacy": "Informativa sulla privacy",
+          "terms": "Termini di utilizzo"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "Route principale",
+          "protocolSurface": "Superficie del protocollo",
+          "growthSurface": "Superficie di crescita",
+          "proofSurface": "Superficie di prova",
+          "downloadRoute": "Route di download",
+          "publicPolicy": "Policy pubblica",
+          "supportRoute": "Route di supporto",
+          "coreContract": "Contratto core",
+          "liquidityContract": "Contratto di liquidità",
+          "growthContract": "Contratto di crescita",
+          "githubSource": "Sorgente GitHub"
+        }
+      }
+    }
   }
 }
