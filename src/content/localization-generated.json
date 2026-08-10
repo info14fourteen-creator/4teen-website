@@ -28059,6 +28059,167 @@
           "openBuy": "Open kooproute"
         }
       }
+    },
+    "swap": {
+      "metadata": {
+        "title": "Swap",
+        "description": "4TEEN swap-route met brede dekking van wallettokens, gerangschikte routes, bescherming voor minimale ontvangst, goedkeuringscontrole en live openbare routevoorbeelden."
+      },
+      "hero": {
+        "eyebrow": "Swap-route",
+        "badge": "Wallet-first swap-route",
+        "title": "Swap 4TEEN naar een breder TRON-tokenuniversum",
+        "subtitle": "De site toont alleen ankervoorbeelden. De wallet doorzoekt al een veel breder tokenuniversum, rangschikt routes en begeleidt de gebruiker door goedkeuren, controleren en swappen.",
+        "body": [
+          "Deze pagina moet niet overkomen alsof 4TEEN alleen naar één of twee eigen tokens kan swappen. In de wallet wordt de doelset gehaald uit verzendbare assets, de catalogus met aangepaste tokens en de Tronscan-tokenlijst, en daarna gefilterd op de vraag of er daadwerkelijk routing bestaat.",
+          "Dat betekent dat de route breder is dan de openbare preview op de website. Als er liquiditeit bestaat en de router een quote kan geven, kan de wallet die tonen, rangschikken en de gebruiker naar een echte bevestigingsstap brengen."
+        ],
+        "rotatingLines": [
+          "BREED TOKENUNIVERSUM. GERANGSCHIKTE ROUTES.",
+          "PREVIEW OP DE SITE. UITVOERING IN DE WALLET.",
+          "MIN. UIT. GOEDKEUREN. SWAPPEN."
+        ],
+        "primaryCta": "Open wallet-route",
+        "secondaryCta": "Ga naar live routevoorbeelden",
+        "ctaNote": "De site is de bewijslaag. De wallet is waar tokenwisseling, route-rangschikking, bescherming voor minimale ontvangst, allowance-controles en de uiteindelijke ondertekening daadwerkelijk plaatsvinden.",
+        "stats": {
+          "sampleAmount": {
+            "label": "Voorbeeldgrootte quote",
+            "meta": "Openbare routevoorbeelden worden ververst op basis van hetzelfde 4TEEN-bedrag."
+          },
+          "supportedTargets": {
+            "label": "Openbare voorbeeldroutes",
+            "meta": "De website houdt slechts een kleine ankerset openbaar. De wallet kan veel meer doelen doorzoeken wanneer routes bestaan."
+          },
+          "protectedRemainder": {
+            "label": "Beschermd restant",
+            "meta": "De wallet behoudt een minimaal 4TEEN-restant in plaats van het saldo tot nul leeg te trekken."
+          },
+          "routerState": {
+            "label": "Routerstatus",
+            "meta": "Snelle indicatie of openbare route-sampling op dit moment volledig reageert."
+          },
+          "readFailed": "Live uitlezing van swap-routing is mislukt.",
+          "readRetry": "Probeer over een moment te verversen.",
+          "states": {
+            "live": "Live",
+            "partial": "Gedeeltelijk",
+            "offline": "Offline"
+          }
+        }
+      },
+      "sections": {
+        "tokenUniverse": {
+          "eyebrow": "Tokenuniversum",
+          "title": "De wallet zit niet vast in twee promotionele doelen.",
+          "intro": "De openbare site houdt het verhaal bewust klein. De wallet doet het tegenovergestelde: hij combineert verzendbare wallet-assets, vermeldingen uit de catalogus met aangepaste tokens en de Tronscan-tokenlijst, en laat routing vervolgens bepalen wat daadwerkelijk swappable is.",
+          "mainCard": {
+            "eyebrow": "Brede toegang tot doelen",
+            "title": "Als de router een quote kan geven, kan de wallet het meestal tonen.",
+            "text": "Dat is het belangrijke onderscheid. De websitepreview is bewust smal. De wallet is waar het wisselen van doel echt wordt, omdat hij een breder tokenuniversum kan ophalen en dit direct tegen de routinglaag kan testen.",
+            "bullets": [
+              "Verzendbare walletsaldos kunnen bron-assets worden.",
+              "Vermeldingen uit de aangepaste catalogus en de Tronscan-tokenlijst breiden de doelset veel verder uit dan TRX en USDT.",
+              "Routes worden nog steeds gefilterd op basis van het bestaan van echte quotes, zodat de interface eerlijk blijft in plaats van te doen alsof elk token liquide is."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Doel wisselen",
+              "title": "De gebruiker kan in de wallet zowel de bron- als de ontvangende asset wijzigen",
+              "text": "De mobiele flow is niet vastgezet op één paar. Hij ondersteunt het wisselen van assets voordat quotes worden aangevraagd, daarom moet de swap-route worden gepositioneerd als een bredere marktutility."
+            },
+            {
+              "eyebrow": "Route-rangschikking",
+              "title": "Routes worden gesorteerd op output, niet op een hard-gecodeerde voorkeur",
+              "text": "Beschikbare routes worden gerangschikt van betere output naar slechtere output, waarbij uitvoerbare routes eerst prioriteit krijgen. De gebruiker ziet wat daadwerkelijk wint in plaats van één ondoorzichtig pad."
+            }
+          ],
+          "note": "De juiste productboodschap is dus niet “swappen naar TRX of USDT.” De juiste boodschap is “de wallet kan in een veel breder doeluniversum zoeken wanneer routing beschikbaar is.”"
+        },
+        "liveRoutes": {
+          "eyebrow": "Live routevoorbeelden",
+          "title": "Een klein openbaar venster op de routing-engine",
+          "body": "Deze kaarten blijven bewust smal. Ze tonen slechts een paar ankervoorbeelden, zodat de site kan bewijzen dat de engine actief is zonder te doen alsof dit het volledige swap-product is.",
+          "labels": {
+            "route": "Route",
+            "execution": "Uitvoering",
+            "impact": "Impact",
+            "targets": "Doelen",
+            "updated": "Bijgewerkt",
+            "state": "Status"
+          },
+          "transfers": {
+            "eyebrow": "Laatste routertransfers",
+            "title": "Recente bevestigde 4TEEN-bewegingen die de openbare router raken",
+            "empty": "Er zijn momenteel geen recente 4TEEN-routertransfers in de cache.",
+            "note": "Deze lijst wordt geladen via de backend-snapshotlaag, in onze database gecachet en stale-safe geserveerd wanneer de upstream explorer rumoerig is.",
+            "labels": {
+              "direction": "Richting",
+              "counterparty": "Tegenpartij",
+              "amount": "Bedrag",
+              "updated": "Bijgewerkt",
+              "tx": "Tx"
+            },
+            "states": {
+              "routerIn": "Router ontvangen",
+              "routerOut": "Router verzonden",
+              "related": "Router-gerelateerd"
+            }
+          },
+          "states": {
+            "executable": "Uitvoerbare route",
+            "reviewOnly": "Alleen ter controle-route"
+          },
+          "empty": "Er is momenteel geen openbaar routevoorbeeld beschikbaar.",
+          "note": "Binnen de wallet vinden doelwisseling en route-rangschikking plaats tegen een veel breder tokenuniversum. De website houdt alleen een compacte openbare sample zichtbaar."
+        },
+        "reviewLayer": {
+          "eyebrow": "Controlelaag",
+          "title": "De wallet springt niet rechtstreeks naar swap. Hij bouwt eerst een gecontroleerde review op.",
+          "intro": "Het belangrijkste deel van de route is niet de marketingscreenshot. Het is de gecontroleerde overdracht tussen quotepreview en definitieve uitvoering: beschermd minimum, goedkeuringsstatus, beeld van netwerkresources en de uiteindelijke ondertekeningsstap.",
+          "mainCard": {
+            "eyebrow": "Goedkeuren en swappen",
+            "title": "Minimum out, goedkeuring en resourcecontrole maken allemaal deel uit van de route voordat er iets wordt verzonden.",
+            "text": "Een route kan zichtbaar zijn en toch nog niet uitvoerbaar. Dat is gezond gedrag. De wallet wacht tot goedkeuringsstatus, routegeldigheid en resourcegereedheid allemaal kloppen voordat hij de uiteindelijke actie aanbiedt.",
+            "bullets": [
+              "Slippage beschermt het minimaal ontvangen bedrag voordat de swap de wallet verlaat.",
+              "Goedkeuring wordt eerst gecontroleerd wanneer de allowance ontbreekt.",
+              "Kosten voor energy en bandwidth worden zichtbaar gemaakt vóór de laatste bevestigingsstap."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Resources huren",
+              "title": "De route kan de gebruiker naar rent-first uitvoering sturen wanneer dat goedkoper is",
+              "text": "De wallet presenteert save-resources-logica al als onderdeel van de flow. Dat houdt de uitvoering praktisch, in plaats van gebruikers de burn-kosten pas te laten ontdekken nadat ze hebben ondertekend."
+            },
+            {
+              "eyebrow": "Beschermde dust",
+              "title": "Een klein 4TEEN-restant blijft bewust achter",
+              "text": "Het beschermde restant voorkomt kwetsbare edgecases met een nulsaldo en maakt latere routeafhandeling rustiger. Het is een kleine regel, maar wel een goede wallet-regel."
+            }
+          ],
+          "note": "Dat is wat het product serieus laat aanvoelen: brede tokendiscovery aan de voorkant, gecontroleerde uitvoeringsdiscipline aan de achterkant."
+        },
+        "verification": {
+          "eyebrow": "Verificatie",
+          "title": "Waar dit routeverhaal vandaan komt",
+          "body": "Deze pagina volgt de echte wallet-implementatie: doelen wisselen, een bredere tokencatalogus laden, quotes rangschikken, bescherming voor minimale ontvangst, goedkeuringscontroles en definitieve uitvoering via de routerlaag achter de app.",
+          "labels": {
+            "router": "Smart router",
+            "token": "4TEEN-token",
+            "walletRepo": "Wallet-repository"
+          }
+        },
+        "cta": {
+          "eyebrow": "Open de echte route",
+          "title": "Open de wallet wanneer je de volledige routekaart wilt",
+          "body": "De website moet de swap-kans begrijpelijk maken. De mobiele wallet is waar het bredere tokenuniversum, gerangschikte routes, goedkeuringscontrole, beschermd minimum en uiteindelijke ondertekening allemaal samenkomen.",
+          "openApp": "Open mobiele app",
+          "openBuy": "Open kooproute"
+        }
+      }
     }
   }
 }
