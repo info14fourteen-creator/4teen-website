@@ -28220,6 +28220,182 @@
           "openBuy": "Open kooproute"
         }
       }
+    },
+    "airdrop": {
+      "metadata": {
+        "title": "Airdrop",
+        "description": "Live 4TEEN-airdropstatus met huidige wave, vrijgegeven saldo, vaultsaldo, Telegram-routestatus, claimtoegang alleen via wallet en on-chain verificatielinks."
+      },
+      "hero": {
+        "eyebrow": "AirdropVault",
+        "status": "Wallet-claimroute",
+        "title": "Claim 4TEEN via de wallet-route",
+        "lead": "De publieke site toont de live status van AirdropVault. De mobiele wallet verwerkt de claimroute.",
+        "body": [
+          "Airdrop is geen neppe promotieknop op een landingspagina. Het is een wave-gebaseerde vault, een wallet-bewuste claimstatus en een Telegram-first route die de app uitleest vóór uitvoering.",
+          "Deze pagina weerspiegelt de publieke kant: huidige wave, vaultsaldo, vrijgegeven quotum, geplande rest, routemodel en on-chain verificatie. De live claimflow hoort thuis in de wallet."
+        ],
+        "rotatingLines": [
+          "Vaultstatus. Walletclaim.",
+          "Telegram live. Social rails gefaseerd.",
+          "Publiek bewijs. App-uitvoering.",
+          "Wave-vrijgaven. Routecontroles.",
+          "Geen nepclaims. Alleen status."
+        ],
+        "primaryCta": "Open mobiele app-route",
+        "secondaryCta": "Open AirdropVault",
+        "ctaNote": "De website toont de vault en de routekaart. De wallet leest het geselecteerde account, de Telegram-sessie, de claimstatus en de ondertekenmodus voordat het echte claimpad wordt geopend.",
+        "stats": {
+          "currentWave": "Huidige wave",
+          "vaultBalance": "Vaultsaldo",
+          "vaultBalanceMeta": "4TEEN momenteel aangehouden in AirdropVault.",
+          "availableNow": "Nu beschikbaar",
+          "availableNowMeta": "Wat nu volgens de contractregels kan worden verdeeld.",
+          "nextWave": "Volgende wave",
+          "completed": "Voltooid",
+          "readFailed": "Live uitlezing van de vault is mislukt.",
+          "readRetry": "Probeer over een moment te vernieuwen."
+        }
+      },
+      "sections": {
+        "vaultState": {
+          "eyebrow": "Vaultstatus",
+          "title": "Wat het contract nu zegt",
+          "rows": {
+            "totalAllocation": "Totale allocatie",
+            "unlockedTotal": "Totaal vrijgegeven",
+            "totalDistributed": "Totaal verdeeld",
+            "remainingUnlocked": "Resterend vrijgegeven",
+            "remainingPlanned": "Resterend gepland",
+            "vaultBalance": "Vaultsaldo"
+          },
+          "noteTitle": "Waarom er twee “resterende” cijfers zijn:",
+          "noteBody": "`Resterend vrijgegeven` is het quotum dat het contract al op basis van de wave-tijd heeft vrijgegeven. `Resterend gepland` is het nog niet verdeelde deel van de volledige allocatie van 1,500,000 4TEEN. `Nu beschikbaar` is de kleinste waarde van het vrijgegeven quotum en het daadwerkelijke vaultsaldo."
+        },
+        "distribution": {
+          "eyebrow": "Distributieprofiel",
+          "title": "Hoeveel er al uit de vault is verplaatst",
+          "cards": {
+            "distributed": {
+              "title": "Al verdeeld",
+              "text": "4TEEN is al verzonden vanuit de volledige allocatie."
+            },
+            "planned": {
+              "title": "Nog gepland",
+              "text": "4TEEN staat nog binnen het langetermijndistributieplan."
+            },
+            "lastDrop": {
+              "title": "Laatste bevestigde drop",
+              "text": "4TEEN in de meest recente bevestigde vault-distributiegebeurtenis."
+            },
+            "unlockedUndistributed": {
+              "title": "Vrijgegeven maar niet verdeeld",
+              "text": "Het quotum dat al door waves is vrijgegeven, maar nog niet is verzonden."
+            }
+          },
+          "note": "Dit blok is uitsluitend informatief. Het gebruikt lichte live uitlezingen die veilig zijn voor de publieke site: vaultstatus via contract reads en de meest recente bevestigde airdropgebeurtenis uit de event feed."
+        },
+        "dateLayer": {
+          "eyebrow": "Datumlaag",
+          "title": "Het contract draait op vaste timestamps",
+          "rows": {
+            "issueDate": "Uitgiftedatum",
+            "currentWave": "Huidige wave",
+            "nextWave": "Volgende wave",
+            "lastDrop": "Laatste bevestigde drop",
+            "snapshotUpdated": "Snapshot bijgewerkt"
+          },
+          "note": "Wave-vrijgaven liggen vast in het contract. De website verzint deze datums niet op basis van tekst; hij leest en formatteert de live contractklok."
+        },
+        "routeModel": {
+          "eyebrow": "Live routemodel",
+          "title": "Telegram is live. Andere sociale onderdelen zijn gefaseerd.",
+          "note": "De wallet-app combineert drie controles voor Telegram: lokale walletstatus, huidige botsessiestatus en on-chain claimstatus. De website faket die claimflow niet en doet niet alsof je op het web kunt claimen; hij toont de live vault en het echte routemodel eromheen.",
+          "routes": {
+            "telegram": {
+              "title": "Telegram",
+              "statusLive": "Nu live",
+              "statusSoon": "Nu live",
+              "note": "Walletsessie, botstatus en on-chain claimstatus zijn al gekoppeld in de mobiele app."
+            },
+            "instagram": {
+              "title": "Instagram",
+              "statusLive": "Rollout-placeholder",
+              "statusSoon": "Rollout-placeholder",
+              "note": "De route bestaat in het contractmaskermodel, maar de live claimflow is nog niet geopend."
+            },
+            "x": {
+              "title": "X",
+              "statusLive": "Rollout-placeholder",
+              "statusSoon": "Rollout-placeholder",
+              "note": "De route bestaat in het contractmaskermodel, maar de live claimflow is nog niet geopend."
+            },
+            "facebook": {
+              "title": "Facebook",
+              "statusLive": "Rollout-placeholder",
+              "statusSoon": "Rollout-placeholder",
+              "note": "De route bestaat in het contractmaskermodel, maar de live claimflow is nog niet geopend."
+            },
+            "youtube": {
+              "title": "YouTube",
+              "statusLive": "Rollout-placeholder",
+              "statusSoon": "Rollout-placeholder",
+              "note": "De route bestaat in het contractmaskermodel, maar de live claimflow is nog niet geopend."
+            }
+          }
+        },
+        "walletAccess": {
+          "eyebrow": "Live claimtoegang",
+          "title": "De live airdroproute werkt vanuit de mobiele wallet, niet vanaf de publieke website",
+          "body": "De Telegram-claimstatus is wallet-bewust in het echte product. De app combineert de geselecteerde wallet, de huidige botsessie en de on-chain claimstatus voordat hij bepaalt of de route beschikbaar, in de wachtrij, al ontvangen of nog geblokkeerd is. Deze website blijft bewust informatief.",
+          "bullets": [
+            "Beschikbaarheid van claims hangt af van de walletstatus, niet alleen van een bezoek aan een publieke pagina.",
+            "Telegram is vandaag de enige live claimroute; andere socials blijven gefaseerde rails.",
+            "De wallet kan onderscheid maken tussen watch-only, ondertekenen, ontvangen, in de wachtrij en legacy-gebruikte statussen.",
+            "Gebruik de app-route voor de echte claimomgeving en kom daarna hier terug voor publieke vaultverificatie."
+          ],
+          "openApp": "Open mobiele app-route",
+          "openVault": "Open AirdropVault"
+        },
+        "waveSchedule": {
+          "eyebrow": "Wave-schema",
+          "title": "Zes vaste waves, één contractklok",
+          "headers": {
+            "wave": "Wave",
+            "cap": "Cap",
+            "unlockTime": "Vrijgavetijd",
+            "status": "Status"
+          },
+          "current": "Huidig",
+          "unlocked": "Vrijgegeven",
+          "upcoming": "Aankomend"
+        },
+        "verification": {
+          "eyebrow": "Verificatie",
+          "title": "Contract en operator",
+          "body": "De site leest dezelfde vaultlogica die de wallet gebruikt: huidige wave, timestamp van de volgende wave, vrijgegeven saldo, beschikbare distributiehoeveelheid en vaultsaldo.",
+          "vaultLabel": "AirdropVault",
+          "operatorLabel": "Operator"
+        },
+        "productContext": {
+          "eyebrow": "Productcontext",
+          "title": "Hoe de wallet deze omgeving uitleest",
+          "bullets": [
+            "Telegram is vandaag de enige live sociale claimroute.",
+            "Andere sociale onderdelen bestaan al in het contractmaskermodel.",
+            "Claimgeschiedenis en claimstatus zijn wallet-specifiek en worden in de mobiele app uitgelezen, niet hier gefaket.",
+            "Vaultfinanciering en vrijgegeven quotum zijn afzonderlijke realiteiten, dus de app toont beide.",
+            "Deze website voert de live claim niet zelf uit; hij verwijst naar de wallet-route die dat wel doet."
+          ]
+        },
+        "fallback": {
+          "eyebrow": "Fallback",
+          "title": "De route is klaar, maar live uitlezingen zijn mislukt.",
+          "body": "De pagina is al gekoppeld aan het echte AirdropVault-contract. Zodra de live uitlezing weer slaagt, vult hij automatisch de wave-status, het saldo, het vrijgegeven quotum, de geplande rest en de timing van de volgende wave in.",
+          "openVault": "Open AirdropVault",
+          "openApp": "Open mobiele app-route"
+        }
+      }
     }
   }
 }
