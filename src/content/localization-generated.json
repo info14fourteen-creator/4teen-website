@@ -14183,6 +14183,315 @@
           }
         ]
       }
+    },
+    "buy": {
+      "metadata": {
+        "title": "Acheter 4TEEN | Entrée TRON native au contrat",
+        "description": "Achetez 4TEEN directement depuis le smart contract : mintez un lot verrouillé, suivez les achats confirmés, comprenez le routage TRX 90/7/3, puis installez le portefeuille et exécutez le vrai flux d’achat.",
+        "openGraphTitle": "Acheter 4TEEN",
+        "openGraphDescription": "Entrez dans 4TEEN via le parcours d’achat natif au contrat. Mintez un lot verrouillé, observez les événements BuyTokens confirmés, consultez le routage TRX et exécutez depuis un portefeuille de signature."
+      },
+      "hero": {
+        "eyebrow": "FourteenToken",
+        "badge": "Parcours d’achat natif au contrat",
+        "title": "Achetez 4TEEN directement depuis le contrat",
+        "subtitle": "Mintez un nouveau lot de 4TEEN, verrouillez-le pendant 14 jours, regardez les achats confirmés apparaître dans le flux, puis décidez quoi faire lorsque le compte à rebours de déverrouillage se termine.",
+        "body": [
+          "Ce n’est pas un formulaire de swap générique qui prétend être de la DeFi. C’est le parcours d’entrée natif du protocole.",
+          "Vous entrez des TRX, le contrat calcule combien de 4TEEN seront mintés, la transaction crée un verrouillage séparé de 14 jours pour ce lot, et les TRX entrants sont routés selon la règle du contrat : 90 % vers la liquidité, 7 % vers le contrôleur et 3 % vers le côté airdrop.",
+          "Le site web montre la carte. Le portefeuille exécute la transaction."
+        ],
+        "primaryCta": "Installer / ouvrir le portefeuille",
+        "secondaryCta": "Voir les derniers achats",
+        "ctaNote": "Un portefeuille de signature est requis. Le mode lecture seule peut lire le système, mais il ne peut pas envoyer la transaction d’achat. L’humanité a découvert les signatures, et nous devons désormais tous les respecter.",
+        "rotatingLines": [
+          "Entrée par contrat. Vrai verrouillage.",
+          "Minter d’abord. Déverrouiller plus tard.",
+          "Acheter on-chain. Tout suivre.",
+          "Votre lot. Votre minuteur.",
+          "Pas de faux volume. Juste des événements."
+        ],
+        "stats": {
+          "directPrice": "Prix direct",
+          "directPriceMeta": "Prix d’entrée actuel côté contrat par 4TEEN depuis la couche publique d’instantané. Le portefeuille actualise la valeur en direct avant l’exécution.",
+          "lockRule": "Règle de verrouillage",
+          "lockRuleValue": "14 jours",
+          "lockRuleMeta": "Chaque achat direct crée son propre lot verrouillé. Le minuteur appartient à cet achat, pas à l’ensemble de votre portefeuille.",
+          "trxSplit": "Routage TRX",
+          "trxSplitValue": "90 / 7 / 3",
+          "trxSplitMeta": "Les TRX entrants sont routés dans la transaction d’achat : côté liquidité, côté contrôleur et côté airdrop.",
+          "execution": "Exécution",
+          "executionValue": "Portefeuille + ressources",
+          "executionMeta": "Le vrai flux d’achat s’exécute depuis un portefeuille de signature. Le solde TRX, l’Energy, la Bandwidth et la préparation de la transaction sont vérifiés avant la signature finale.",
+          "priceFallback": "1.147500 TRX",
+          "priceUnavailable": "Le prix en direct est indisponible pour le moment. La valeur de secours reflète le dernier parcours direct connu."
+        }
+      },
+      "sections": {
+        "executionRoute": {
+          "eyebrow": "Fonctionnement du cycle",
+          "title": "La page d’achat doit expliquer tout le parcours",
+          "intro": "Un achat direct ne se résume pas à « envoyer des TRX, recevoir un token ». Le module guide l’utilisateur à travers le vrai cycle on-chain : entrée par contrat, mint, verrouillage, routage de liquidité et point de décision après déverrouillage.",
+          "cards": [
+            {
+              "eyebrow": "Étape 1",
+              "title": "Entrer par le contrat",
+              "subtitle": "C’est le parcours principal du protocole, pas le marché secondaire.",
+              "text": "L’achat direct envoie la commande `buyTokens()` depuis un portefeuille de signature. Le contrat reçoit des TRX, calcule le montant de 4TEEN et lance le flux de mint pour cette transaction précise.\n\nPas de chasse aux pools. Pas de roulette de routage. Pas de prétention selon laquelle un swap et un mint seraient la même chose, parce qu’apparemment les mots comptent encore."
+            },
+            {
+              "eyebrow": "Étape 2",
+              "title": "Minter un nouveau lot",
+              "subtitle": "Le contrat crée de nouveaux 4TEEN pour l’acheteur.",
+              "text": "Le montant de 4TEEN est minté pendant la transaction d’achat. Ce lot minté est lié au portefeuille de l’acheteur et entre immédiatement dans la logique de verrouillage.\n\nC’est pourquoi l’achat direct est différent du swap. Le swap échange de la liquidité existante. L’achat direct crée un nouveau lot verrouillé via le contrat du token."
+            },
+            {
+              "eyebrow": "Étape 3",
+              "title": "Verrouiller pendant 14 jours",
+              "subtitle": "Chaque achat reçoit son propre minuteur de déverrouillage.",
+              "text": "Le lot acheté est verrouillé pendant 14 jours. Si le même portefeuille achète à nouveau plus tard, ce deuxième achat crée un lot verrouillé séparé avec son propre minuteur.\n\nLe portefeuille affiche la chronologie de déverrouillage afin que l’utilisateur voie exactement quand chaque lot devient déplaçable."
+            },
+            {
+              "eyebrow": "Étape 4",
+              "title": "Alimenter le côté liquidité",
+              "subtitle": "Les nouveaux achats continuent d’injecter des TRX frais dans le système.",
+              "text": "Chaque achat direct route 90 % des TRX entrants vers le côté liquidité. Cette valeur ne reste pas simplement posée dans une capture marketing. Elle entre dans le flux de liquidité du protocole et est traitée via la logique quotidienne d’exécution de liquidité.\n\nC’est la partie que les utilisateurs doivent comprendre : les achats ultérieurs continuent d’alimenter le système pendant que les acheteurs précédents attendent pendant leur verrouillage."
+            },
+            {
+              "eyebrow": "Étape 5",
+              "title": "Atteindre le point de déverrouillage",
+              "subtitle": "Après le déverrouillage, l’utilisateur choisit le prochain parcours.",
+              "text": "Lorsque le verrouillage expire, le lot devient disponible. Le détenteur peut continuer à conserver la position ou passer au parcours de marché et swapper via la liquidité disponible.\n\nPas de sortie forcée. Pas de bouton magique. Juste un point de déverrouillage et une décision de marché, parce que la DeFi est déjà assez dramatique sans inventer plus d’absurdités."
+            }
+          ]
+        },
+        "priceLogic": {
+          "eyebrow": "Logique de prix principale",
+          "title": "L’achat direct entre au prix du contrat maintenant et rencontre le prix de marché plus tard",
+          "cards": [
+            {
+              "eyebrow": "Base",
+              "title": "1 TRX = 1 4TEEN au déploiement",
+              "text": "Le prix initial d’achat direct est encodé dans FourteenToken à 1.000000 TRX par token avant que les périodes de capitalisation ultérieures ne le fassent avancer."
+            },
+            {
+              "eyebrow": "Croissance",
+              "title": "14,75 % de croissance par période de prix",
+              "text": "Le contrat stocke annualGrowthRate = 1475 points de base et capitalise tokenPrice vers l’avant chaque fois que suffisamment de temps s’est écoulé."
+            },
+            {
+              "eyebrow": "Intervalle",
+              "title": "Tous les 90 jours",
+              "text": "Les mises à jour de prix ne sont pas des modifications arbitraires d’administrateur. getCurrentPrice() fait avancer le prix stocké du token selon les périodes de 90 jours écoulées depuis lastPriceUpdate."
+            },
+            {
+              "eyebrow": "Portée",
+              "title": "Uniquement pour l’émission directe",
+              "text": "Ce prix régit l’émission directe via `buyTokens()`. Il ne promet rien concernant le prix DEX ni les conditions de sortie ultérieures une fois que le lot est déverrouillé et que l’utilisateur passe au parcours de marché."
+            }
+          ],
+          "note": "Le site lit le prix direct comme une couche d’information publique. Le vrai parcours du portefeuille reste essentiel, car il combine ce prix du contrat avec le portefeuille de signature sélectionné, le solde TRX réel et les contrôles de ressources au moment de la confirmation."
+        },
+        "lockLayer": {
+          "eyebrow": "Couche de verrouillage de 14 jours",
+          "title": "Chaque achat direct mint immédiatement et verrouille immédiatement",
+          "bullets": [
+            "Chaque appel buyTokens() mint immédiatement des 4TEEN à l’adresse de l’acheteur.",
+            "La même transaction ajoute un nouvel enregistrement de verrouillage avec releaseTime = horodatage du bloc + 14 jours.",
+            "Les verrouillages sont par lot d’achat, et non un seul minuteur fusionné pour tout le portefeuille.",
+            "Les transferts et transferFrom sont bloqués chaque fois que le montant demandé puiserait dans un solde encore verrouillé.",
+            "La chronologie de déverrouillage dans le portefeuille est le parcours complémentaire naturel après un achat."
+          ],
+          "note": "C’est pourquoi l’achat direct et le swap ne sont pas la même chose. L’achat direct donne d’abord à l’utilisateur une émission native au protocole, puis une attente fixe, et ce n’est qu’après le déverrouillage que le parcours de marché devient pertinent."
+        },
+        "trxRouting": {
+          "eyebrow": "Routage",
+          "title": "Où vont les TRX",
+          "rows": [
+            {
+              "share": "90%",
+              "title": "Vers la liquidité",
+              "text": "La plus grande part va vers le côté liquidité du système. C’est le flux central qui soutient le parcours de marché après que les utilisateurs ont atteint le déverrouillage.",
+              "linkLabel": "Ouvrir la page Liquidité",
+              "linkHref": "/liquidity"
+            },
+            {
+              "share": "7%",
+              "title": "Vers le contrôleur",
+              "text": "Une plus petite part va à FourteenController. C’est la couche de contrôle et de comptabilité liée à l’administration du token, au suivi des achats, à la logique ambassadeur et au règlement des récompenses.",
+              "linkLabel": "Ouvrir la page Ambassadeurs",
+              "linkHref": "/ambassadors"
+            },
+            {
+              "share": "3%",
+              "title": "Vers le côté airdrop",
+              "text": "La part finale va vers le côté airdrop, de sorte que le même flux d’achat direct continue aussi d’alimenter la distribution publique et la croissance de l’écosystème.",
+              "linkLabel": "Ouvrir la page Airdrop",
+              "linkHref": "/airdrop"
+            }
+          ],
+          "note": "La répartition se fait à l’intérieur de la transaction d’achat elle-même. Ce n’est pas un exercice de tableur ultérieur, ni une allocation façon « fais-nous confiance mon frère », ni une promesse manuelle écrite dans un chat Telegram à 3 h du matin."
+        },
+        "walletFlow": {
+          "eyebrow": "Flux du portefeuille",
+          "title": "Comment le vrai produit passe de la saisie du montant à la signature",
+          "steps": [
+            {
+              "eyebrow": "1. Préparer",
+              "title": "Choisir le portefeuille qui achètera réellement",
+              "text": "L’application commence avec le portefeuille de signature sélectionné, charge son solde TRX, le prix du contrat, le solde verrouillé et les adresses de contrat, puis limite le champ de montant à ce que ce portefeuille peut réellement couvrir."
+            },
+            {
+              "eyebrow": "2. Examiner",
+              "title": "Voir le montant minté et la répartition avant de s’engager",
+              "text": "Avant que l’utilisateur n’approuve quoi que ce soit, le portefeuille affiche la sortie estimée en 4TEEN, la répartition 90 / 7 / 3, la prochaine étape de prix du contrat et l’heure future de déverrouillage pour ce lot."
+            },
+            {
+              "eyebrow": "3. Confirmer",
+              "title": "Vérifier les ressources avant que le portefeuille ne demande l’approbation",
+              "text": "La couche de confirmation mesure l’Energy, la Bandwidth et tout déficit afin que l’utilisateur voie l’état réel d’exécution avant l’approbation par code secret ou biométrie."
+            },
+            {
+              "eyebrow": "4. Continuer",
+              "title": "Si les ressources manquent, le portefeuille peut d’abord combler l’écart",
+              "text": "Lorsque le portefeuille sélectionné manque de ressources d’exécution, l’application peut proposer un devis de location d’Energy et combler cet écart avant l’envoi de l’achat direct, au lieu de laisser l’utilisateur foncer aveuglément vers une transaction échouée."
+            },
+            {
+              "eyebrow": "5. Après validation",
+              "title": "Le système suit à la fois le déverrouillage et l’attribution côté contrôleur",
+              "text": "Une fois l’achat validé, le portefeuille peut afficher le compte à rebours de verrouillage pour ce lot, tandis que FourteenController peut lier l’acheteur, enregistrer un achat vérifié une fois par ID d’achat et finaliser le solde de récompense ambassadeur lorsque l’allocation réussit."
+            }
+          ],
+          "note": "Le site web doit expliquer ce parcours clairement, puis transmettre l’utilisateur au portefeuille. Il ne doit pas prétendre être lui-même la couche d’exécution."
+        },
+        "resourceLayer": {
+          "eyebrow": "Préparation des ressources",
+          "title": "Le portefeuille traite le coût réseau comme une partie du produit, pas comme un piège à la fin",
+          "cards": [
+            {
+              "eyebrow": "Estimation",
+              "title": "L’Energy et la Bandwidth sont chiffrées avant la signature",
+              "text": "Le portefeuille estime le coût de l’appel au contrat pour `buyTokens()` avant la signature, afin que l’utilisateur voie ce dont le parcours a besoin avant l’étape d’approbation finale."
+            },
+            {
+              "eyebrow": "Couverture",
+              "title": "Les ressources actuelles du portefeuille sont comparées au parcours",
+              "text": "L’étape d’examen affiche non seulement le montant en TRX, mais aussi si le portefeuille sélectionné peut couvrir proprement le parcours à cet instant."
+            },
+            {
+              "eyebrow": "Déficit",
+              "title": "Si des ressources manquent, l’application peut aider à combler l’écart",
+              "text": "Si le portefeuille de signature est insuffisant, le produit expose directement l’écart et peut passer à l’étape de location d’Energy avant l’envoi de l’achat."
+            }
+          ],
+          "note": "C’est important parce que l’achat direct n’est pas seulement un champ numérique. C’est un parcours de contrat en direct, et le portefeuille expose déjà l’état des ressources qui se trouve derrière."
+        },
+        "latestPurchases": {
+          "eyebrow": "Flux d’achats en direct",
+          "title": "Des achats confirmés ont déjà atteint le contrat",
+          "intro": "Ces lignes proviennent d’événements `BuyTokens` confirmés sur FourteenToken. De vrais portefeuilles, de vraies transactions, de vraies preuves on-chain. Pas de faux volume, pas de tableau décoratif, pas un autre dashboard halluciné portant un thème sombre.",
+          "headers": {
+            "wallet": "Portefeuille",
+            "trxIn": "TRX entrants",
+            "minted": "Minté",
+            "lockEnds": "Fin du verrouillage",
+            "transaction": "Transaction",
+            "status": "Confirmé"
+          },
+          "statusConfirmed": "Confirmé",
+          "openTx": "Ouvrir la tx",
+          "note": "Le flux est ici pour une seule raison : la preuve. Les utilisateurs doivent voir que le module d’achat n’est pas théorique. Des achats ont eu lieu, le contrat a émis des événements, et le portefeuille peut faire passer le prochain acheteur par le même parcours.",
+          "empty": "En attente d’événements BuyTokens confirmés.",
+          "unknownTime": "Heure indisponible",
+          "fallbackBody": "Les achats directs récents sont temporairement masqués sur le site public pendant que le parcours est stabilisé. L’application mobile reste l’endroit principal où l’achat est exécuté, et les liens de vérification publique restent disponibles.",
+          "fallbackPrimaryCta": "Ouvrir le parcours de l’application mobile",
+          "fallbackSecondaryCta": "Ouvrir le contrat du token"
+        },
+        "comparison": {
+          "eyebrow": "Acheter n’est pas la même chose que swapper",
+          "title": "L’achat direct est le parcours d’entrée. Le swap est le parcours de marché.",
+          "intro": "Les deux parcours comptent, mais ils font des choses différentes. Les utilisateurs doivent savoir quelle machine ils touchent avant de commencer à appuyer sur des boutons comme si la civilisation avait été une erreur.",
+          "cards": [
+            {
+              "eyebrow": "Acheter",
+              "title": "Acheter",
+              "subtitle": "Entrée directe par contrat",
+              "text": "L’achat direct envoie la commande d’achat au contrat, mint un nouveau lot de 4TEEN selon la règle du contrat, crée un nouveau verrouillage de 14 jours pour ce lot et route les TRX entrants vers les flux de liquidité, de contrôleur et d’airdrop.",
+              "footerLabel": "Idéal pour",
+              "footerText": "Les utilisateurs qui veulent entrer via le parcours de mint natif au protocole et comprendre exactement comment fonctionne la transaction d’achat."
+            },
+            {
+              "eyebrow": "Swap",
+              "title": "Swap",
+              "subtitle": "Parcours de marché secondaire",
+              "text": "Le swap échange contre la liquidité disponible sur le marché. Il ne mint pas de nouveau lot, ne crée pas le verrouillage d’achat direct et dépend de la qualité du routage, de l’impact sur le prix, du slippage et des conditions DEX à ce moment-là.",
+              "footerLabel": "Idéal pour",
+              "footerText": "Les utilisateurs qui détiennent déjà des 4TEEN déverrouillés ou qui veulent trader via la liquidité de marché disponible."
+            },
+            {
+              "eyebrow": "Signification",
+              "title": "Signification",
+              "subtitle": "Entrer ici, décider plus tard",
+              "text": "L’achat direct est le flux d’entrée. Le déverrouillage est la période d’attente. Le swap est le parcours de marché après que l’utilisateur dispose de tokens déplaçables.\n\nLe chemin propre est simple : acheter via le contrat, suivre le verrouillage, surveiller le flux, puis choisir le prochain mouvement après le déverrouillage."
+            }
+          ]
+        },
+        "afterPurchase": {
+          "eyebrow": "Après l’achat",
+          "title": "Ce qui se passe ensuite une fois l’achat validé",
+          "steps": [
+            {
+              "eyebrow": "Minté",
+              "title": "4TEEN apparaît immédiatement",
+              "text": "Le montant de tokens est minté dans la même transaction qui reçoit les TRX. Ce n’est pas une allocation backend différée."
+            },
+            {
+              "eyebrow": "Verrouillé",
+              "title": "Le lot acheté entre dans son propre verrouillage de 14 jours",
+              "text": "Un nouvel enregistrement de verrouillage est créé pour ce lot d’achat précis. Le portefeuille peut ensuite l’afficher comme une ligne séparée dans la chronologie de déverrouillage."
+            },
+            {
+              "eyebrow": "Suivi",
+              "title": "La chronologie de déverrouillage devient immédiatement utile",
+              "text": "Le prochain écran utile est le parcours de déverrouillage : il montre ce qui est encore verrouillé, ce qui se déverrouille ensuite et quand ce lot devient réellement transférable."
+            },
+            {
+              "eyebrow": "Alimenté vers l’avant",
+              "title": "L’achat continue d’alimenter la liquidité et l’état côté contrôleur",
+              "text": "La part de 90 % destinée à la liquidité est déjà entrée dans le chemin de liquidité du protocole, tandis que FourteenController peut lier l’acheteur, enregistrer l’achat vérifié une fois par ID d’achat et régler la comptabilité des récompenses côté ambassadeur."
+            }
+          ]
+        },
+        "signingWallet": {
+          "eyebrow": "Couche d’exécution",
+          "title": "Le site web explique le parcours. Le portefeuille exécute l’achat.",
+          "body": "Le site public peut expliquer le parcours du contrat, mais le véritable achat se fait depuis un portefeuille de signature dans l’application. Le mode lecture seule est utile pour lire les soldes, vérifier les routes et inspecter le système. Il ne peut pas signer la transaction d’achat direct.\n\nPour acheter, l’utilisateur a besoin d’un portefeuille capable de signer sur TRON.",
+          "bullets": [
+            "Les portefeuilles en lecture seule peuvent inspecter les soldes, les routes, les états de déverrouillage et les données publiques des contrats.",
+            "Seul un portefeuille de signature peut entrer dans le parcours d’achat direct en direct.",
+            "Le solde TRX, l’Energy, la Bandwidth et la préparation de la transaction sont vérifiés avant la signature.",
+            "Le portefeuille affiche le montant attendu en 4TEEN et le comportement de verrouillage avant que l’utilisateur ne signe."
+          ],
+          "ctaTitle": "Installez le portefeuille et lancez le vrai flux d’achat",
+          "ctaText": "Le site vous donne la carte. Le portefeuille vous donne l’exécution : achat direct, contrôle des ressources, solution de secours Energy, prix de contrat en direct, confirmation d’achat et suivi du déverrouillage après la transaction."
+        },
+        "verification": {
+          "eyebrow": "Vérification des sources",
+          "title": "Les affirmations ci-dessus sont reliées aux contrats et au code",
+          "body": "Cette page s’appuie sur le contrat FourteenToken déployé, l’architecture du contrôleur, le module d’achat direct du portefeuille et le parcours de déverrouillage qui suit l’achat.\n\nL’objectif est simple : expliquer les mécanismes réels assez clairement pour qu’un nouvel utilisateur comprenne ce qui se passe avant de signer. Concept révolutionnaire, apparemment.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Dépôt des contrats",
+          "walletRepoLabel": "Dépôt du portefeuille"
+        },
+        "cta": {
+          "eyebrow": "Prochaine étape",
+          "title": "Ouvrez le portefeuille lorsque vous êtes prêt pour le vrai flux d’achat",
+          "body": "Le site public peut expliquer le parcours. Le véritable achat, le contrôle des ressources, la solution de secours Energy, la lecture du prix en direct, la signature de transaction et le suivi du déverrouillage se trouvent tous dans le portefeuille mobile.\n\nInstallez le portefeuille, connectez un compte de signature, entrez des TRX, examinez le montant de 4TEEN minté, confirmez le verrouillage de 14 jours et signez uniquement lorsque les détails de la transaction sont clairs.",
+          "openApp": "Installer / ouvrir l’application portefeuille",
+          "openUnlock": "Ouvrir la chronologie de déverrouillage"
+        }
+      }
     }
   }
 }
