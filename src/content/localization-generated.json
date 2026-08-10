@@ -9327,6 +9327,177 @@
           "Ürün cilası, yerelleştirme, analitik ve dönüşüm iyileştirmesi."
         ]
       }
+    },
+    "deck": {
+      "metadata": {
+        "title": "4TEEN Yatırımcı Sunumu",
+        "description": "4TEEN hâlihazırda canlı bir cüzdanı, doğrudan alım ve kilit açma ürün akışını, modüler TRON sözleşmelerini, planlı likidite yürütmesini, kasa saklamasını ve elçi muhasebesini bir araya getiriyor. Bu sayfa yatırımcılar için giriş noktasıdır."
+      },
+      "hero": {
+        "eyebrow": "4TEEN Sunumu",
+        "status": "Yatırımcı sunumu",
+        "title": "4TEEN cüzdan döngüsüne, akıllı sözleşme çekirdeğine ve büyüme altyapısına zaten sahip. Yatırım tezi, daha güçlü dağıtım ona önce ulaşmadan canlı bir sistemi ölçeklemektir.",
+        "lead": "4TEEN, ürün arayan bir token açılış sayfası değildir. Cüzdan; doğrudan alım, kilit açma zaman çizelgesi, swap, likidite, elçi ve bilgi yüzeylerini zaten sunuyor. Sözleşmeler; mint işlemini, 14 günlük kilitleri, 90 / 7 / 3 yönlendirmeyi, kontrolör muhasebesini ve planlı likidite yürütmesini zaten uyguluyor."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Canlı ürün",
+          "title": "Cüzdan + sözleşmeler zaten birbirine bağlı",
+          "body": "Cüzdan, bir token açılış sayfasında veya whitepaper vaadinde kalmak yerine alım, kilit açma, swap, likidite, elçi ve bilgi yüzeylerini zaten sunuyor."
+        },
+        {
+          "eyebrow": "Giriş mekanikleri",
+          "title": "90 / 7 / 3 yönlendirme",
+          "body": "Her doğrudan alım, TRX’i aynı işlem içinde yönlendirir: %90 likidite tarafı, %7 kontrolör tarafı, %3 airdrop tarafı."
+        },
+        {
+          "eyebrow": "Kilit tasarımı",
+          "title": "Alım başına 14 gün",
+          "body": "Doğrudan alım token’ları anında mint edilir ve parti bazında kilitlenir. Her yeni alım, tüm cüzdan durumunu değiştirmek yerine kendi kilit açma zamanlayıcısını oluşturur."
+        },
+        {
+          "eyebrow": "Likidite ritmi",
+          "title": "%6.43 serbest bırakma penceresi",
+          "body": "Likidite kontrolörü, 100 TRX’lik katı eşiğin üzerinde günde bir kez değer serbest bırakabilir, ardından yürütmeyi DEX’e özel kanallar arasında böler."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "Neden şimdi",
+          "title": "Sıfırdan bire giden çalışma zaten görünür durumda",
+          "body": "4TEEN ilk prototipi beklemiyor. Temel döngü, sözleşmeler ve cüzdan UX’i boyunca zaten mevcut: doğrudan alım ile gir, her partiyi kilitle, kontrolör tarafındaki likiditenin birikimini izle, sonra kilidi aç ve elde tutmaya mı yoksa piyasa rotasını kullanmaya mı karar ver.",
+          "bullets": [
+            "Token sözleşmesi alımda zaten mint eder ve 14 günlük kilidi uygular.",
+            "Kontrolör, kritik kontrolü düz bir cüzdanda bırakmak yerine idari yetkiyi zaten elinde tutar.",
+            "Cüzdan; alım, kilit açma, swap, likidite ve elçi yüzeylerini tek bir ürün hikâyesi olarak zaten sunar."
+          ]
+        },
+        {
+          "eyebrow": "Sermaye neden önemli",
+          "title": "Fırsat, bir ürün hayal etmek değildir. Daha güçlü dağıtım ona önce ulaşmadan mevcut bir döngüyü ölçeklemektir.",
+          "body": "Buradaki en güçlü yatırımcı argümanı bir slogan değildir. Ürün, on-chain mimari ve büyüme altyapısı zaten birbirine bağlıdır. Bu nedenle yeni sermaye; dağıtımı, kullanıcı edinimini, likidite derinliğini ve güvenilirliği, sıfırdan başlayan bir token projesine kıyasla daha hızlı bileşik etkiyle büyütebilir."
+        }
+      ],
+      "thesis": [
+        {
+          "eyebrow": "1. Ürün riski daha düşük",
+          "title": "Bu proje konsept aşamasının zaten ötesinde",
+          "body": "Cüzdan uygulaması doğrudan alım, kilit açma zaman çizelgesi, swap, cüzdan ana ekranı, bilgi yönlendirmesi ve elçilere dönük operasyonel yüzeyleri zaten içeriyor. Bu, yatırımcı görüşmesini konsept riskinden ölçekleme riskine taşır."
+        },
+        {
+          "eyebrow": "2. Mimari açıklanabilir",
+          "title": "Kontrol, likidite ve rezervler ayrıştırılmıştır",
+          "body": "FourteenToken, FourteenController, FourteenLiquidityController, LiquidityBootstrapper ve kasa sözleşmelerinin her biri ayrı sorumluluklar taşır. Bu ayrım sistemi doğrulamayı, açıklamayı ve geliştirmeyi kolaylaştırır."
+        },
+        {
+          "eyebrow": "3. Büyüme altyapısı gerçek",
+          "title": "Airdrop ve elçi mantığı zaten bağlı",
+          "body": "Kontrolör; elçi durumunu, alıcı eşleştirmesini, ödül muhasebesini ve işlenmiş alım ID’lerini saklar. Airdrop tarafı, bir pazarlama temennisi olarak bırakılmak yerine doğrudan alım rotası içinde fonlanır."
+        },
+        {
+          "eyebrow": "4. Döngü aktarılabilir",
+          "title": "Al, kilitle, kilidi aç, sonra bir sonraki rotayı seç",
+          "body": "Bu sıra kullanıcılar için yeterince net, içerik için yeterince güçlü ve yatırımcı incelemesi için yeterince yapılandırılmıştır. Cüzdanın gerçekten yürütebildiği ve sitenin kanıtlayabildiği bir hikâye oluşturur."
+        }
+      ],
+      "proofTracks": [
+        {
+          "eyebrow": "On-chain kanıt",
+          "title": "Sözleşmelerin hâlihazırda uyguladığı şeyler",
+          "bullets": [
+            "FourteenToken alımda mint eder, her partiyi 14 gün kilitler ve gelen TRX’i sabit 90 / 7 / 3 paylarıyla yönlendirir.",
+            "FourteenController token sahibidir ve elçi durumunu, alıcı eşleştirmelerini, işlenmiş alım ID’lerini ve ödül muhasebesini saklar.",
+            "FourteenLiquidityController 100 TRX minimumunu ve UTC günü başına bir kez %6.43 serbest bırakma kuralını uygular.",
+            "LiquidityBootstrapper, likidite girdilerini off-chain tahmin etmek yerine kontrolör tarafı yürütmeden önce yürütücü bakiyelerini hazırlar."
+          ]
+        },
+        {
+          "eyebrow": "Ürün kanıtı",
+          "title": "Cüzdanın hâlihazırda sunduğu şeyler",
+          "bullets": [
+            "Doğrudan alım ekranı canlı sözleşme rotasını zaten açıklar ve gerçek alım widget’ını başlatır.",
+            "Kilit açma zaman çizelgesi, kilit açmaları soyutmuş gibi göstermek yerine parti bazlı serbest bırakma mantığını zaten işler.",
+            "Manage Crypto ve Swap, 4TEEN’i tek ekranlı bir token oyuncağı olarak değil, daha geniş bir cüzdan ürünü içinde konumlandırır.",
+            "Bilgi yüzeyleri; sözleşme rollerini, varlık cüzdanı bakiyelerini ve operatör hazırlığını okunabilir bir sistem panosuna zaten dönüştürür."
+          ]
+        },
+        {
+          "eyebrow": "Anlatı kanıtı",
+          "title": "Sitenin pazara hâlihazırda açıklayabildiği şeyler",
+          "bullets": [
+            "Herkese açık site; token, kontrolör, likidite, kilit açma ve kanıt yüzeylerini okunabilir tek bir kullanıcı hikâyesine zaten dönüştürür.",
+            "Whitepaper, canlı protokol rotaları ve sözleşme bağlantıları; yeni sermaye ve stratejik ortaklar için inceleme sürtünmesini azaltır.",
+            "En güçlü mesaj basittir: ürün döngüsü var, zincir mantığı var ve büyüme katmanı hayal edilmek yerine şimdiden gösterilebilir."
+          ]
+        }
+      ],
+      "capitalPlan": [
+        {
+          "eyebrow": "Sermaye kullanımı",
+          "title": "Dağıtım ve büyüme döngüleri",
+          "body": "Elçi edinimini, kampanya operasyonlarını, bölgesel dağıtımı ve protokolü kullanıcıların gerçekten takip edebileceği bir hikâyeye dönüştüren herkese açık içerik makinesini genişletmek."
+        },
+        {
+          "eyebrow": "Sermaye kullanımı",
+          "title": "Ürün iyileştirme ve elde tutma",
+          "body": "Cüzdan UX’ini, dönüşüm yüzeylerini, yerelleştirmeyi, ölçümlemeyi ve onboarding kalitesini ileri taşımak; böylece ürün daha büyük girişleri tamamlanmamış görünmeden destekleyebilir."
+        },
+        {
+          "eyebrow": "Sermaye kullanımı",
+          "title": "Likidite güveni",
+          "body": "Doğrudan alım anlatısı, kontrolör tarafı likidite görünürlüğü ve yürütme güvenilirliği etrafında piyasa güvenini artırmak; böylece sistem deneysel değil dayanıklı görünür."
+        },
+        {
+          "eyebrow": "Sermaye kullanımı",
+          "title": "Güvenilirlik katmanı",
+          "body": "Dokümantasyonu, yatırımcı materyallerini, kurumsal açıklamaları ve doğrulama yüzeylerini keskinleştirmek; böylece ciddi muhataplar projeyi önce özel bir anlatıma ihtiyaç duymadan anlayabilir."
+        }
+      ],
+      "links": [
+        {
+          "label": "Yatırımcı Sunumu PDF’ini İndir",
+          "href": "/docs/4teen-investor-deck.pdf",
+          "download": "4teen-investor-deck.pdf"
+        },
+        {
+          "label": "Doğrudan alım rotasını aç",
+          "href": "/buy"
+        },
+        {
+          "label": "Kilit açma zaman çizelgesini aç",
+          "href": "/unlock"
+        },
+        {
+          "label": "Likidite rotasını aç",
+          "href": "/liquidity"
+        },
+        {
+          "label": "Mevcut whitepaper’ı incele",
+          "href": "/whitepaper"
+        },
+        {
+          "label": "Cüzdan uygulaması repository’si",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Akıllı sözleşmeler repository’si",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Yatırımcı İncelemesi Burada Başlar",
+      "footerNote": "Bu sayfa, getiri vaat etmek veya ürün gerçekliğini belirsiz token dili arkasına saklamak için değil, canlı bir sistem etrafında yatırımcı görüşmelerini başlatmak için hazırlanmıştır.",
+      "contact": {
+        "eyebrow": "Genesis ile iletişim",
+        "title": "Bu size fonlamaya değer bir şey gibi görünüyorsa, bir sonraki adım doğrudan iletişim olmalıdır.",
+        "body": "Tahsis büyüklüğü, stratejik değer, zaman çizelgesi ve sistemi en hızlı nerede hızlandırabileceğinizi düşündüğünüzle birlikte yazın. Burada doğru yatırımcı pasif sermaye değildir. Sermaye artı dağıtım, piyasa zekâsı, likidite güvenilirliği veya ekosistem erişimidir.",
+        "emailLabel": "Yatırımcı iletişimi",
+        "email": "genesis@4teen.me",
+        "bullets": [
+          "Seed, stratejik veya ekosistem ölçeğinde sermaye görüşmelerine açığız.",
+          "Köprü tanıştırmaları, market-making ilişkileri, borsa yolları ve büyüme dağıtımı, çekin kendisi kadar önemlidir.",
+          "En güçlü görüşme yalnızca ne kadar aktarabileceğinizle değil, neyi hızlandırabileceğinizle başlar."
+        ]
+      }
     }
   }
 }
