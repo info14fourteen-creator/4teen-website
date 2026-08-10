@@ -25277,6 +25277,224 @@
           "updatedPrefix": "Snapshot atualizado"
         }
       }
+    },
+    "app": {
+      "metadata": {
+        "title": "4TEEN App | Carteira TRON com a camada operacional 4TEEN",
+        "description": "Abra a carteira móvel 4TEEN, navegue pelas rotas de compra, desbloqueio, liquidez, embaixadores e prova, e baixe o produto pelos links das lojas.",
+        "openGraphTitle": "Lançamento do 4TEEN App",
+        "openGraphDescription": "Explore a carteira móvel 4TEEN e as rotas operacionais ativas já integradas ao produto."
+      },
+      "hero": {
+        "eyebrow": "4TEEN Mobile App",
+        "status": "App Store + Google Play",
+        "title": "Uma carteira TRON real com a camada operacional 4TEEN já integrada.",
+        "lead": "Esta página deve parecer uma página de produto, não um memorando de lançamento. O app já funciona como uma carteira TRON mais ampla, com carteiras, ativos, transferências, fluxo de QR, contatos, idioma, configurações, verificações de recursos e todo o mapa de rotas 4TEEN dentro de uma única superfície de execução.",
+        "stayOnWeb": "Permanecer na Web",
+        "primaryCta": "Opções de download",
+        "secondaryCta": "Ver superfícies do protocolo",
+        "ctaNote": "O lado web explica o sistema. O lado móvel assina, roteia, verifica recursos e executa o fluxo real de transações.",
+        "rotatingLines": [
+          "App Store + Google Play. Uma única superfície de produto.",
+          "Carteira universal. Camada 4TEEN nativa.",
+          "Superfície ampla de tokens. Não apenas um ativo.",
+          "Recursos primeiro. Assinatura depois.",
+          "Núcleo de carteira. Rotas de protocolo. Mesmo produto."
+        ],
+        "stats": [
+          {
+            "label": "Núcleo da carteira",
+            "value": "TRON-first",
+            "meta": "Carteiras, envio, gestão de ativos, leitura, contatos, configurações."
+          },
+          {
+            "label": "Escopo de ativos",
+            "value": "Amplo",
+            "meta": "TRX, 4TEEN, ativos estáveis e entradas de tokens personalizados gerenciadas pelo usuário."
+          },
+          {
+            "label": "Idiomas",
+            "value": "16",
+            "meta": "Rota de idioma dedicada com controle de localidade em todo o app."
+          },
+          {
+            "label": "Camada 4TEEN",
+            "value": "7 Rotas",
+            "meta": "Compra, swap, desbloqueio, liquidez, airdrop, embaixadores e informações."
+          }
+        ]
+      },
+      "storeLinks": [
+        {
+          "href": "https://apps.apple.com/",
+          "label": "App Store",
+          "meta": "Baixar para iPhone e iPad"
+        },
+        {
+          "href": "https://play.google.com/store/apps",
+          "label": "Google Play",
+          "meta": "Baixar para Android"
+        }
+      ],
+      "entryFlow": [
+        {
+          "eyebrow": "Inicialização",
+          "title": "Roteamento de entrada inteligente",
+          "body": "O app móvel não despeja todos os usuários em uma única tela inicial genérica. Ele decide entre primeiro acesso, desbloqueio de carteira e o caminho da carteira ativa antes mesmo de o usuário chegar à camada principal do produto."
+        },
+        {
+          "eyebrow": "Início",
+          "title": "Hub compacto",
+          "body": "A tela inicial real já atua como um hub funcional: compra direta, visibilidade de desbloqueio, controle de liquidez e rotas de informação permanecem próximos sem esconder suas telas dedicadas mais profundas."
+        },
+        {
+          "eyebrow": "Rotas profundas",
+          "title": "Telas completas quando necessário",
+          "body": "Toda ação relevante ainda se abre em sua própria superfície. O app permanece compacto na camada superior, mas nunca comprime um fluxo importante em um painel raso."
+        }
+      ],
+      "walletFoundation": [
+        {
+          "eyebrow": "Carteiras",
+          "title": "Múltiplas identidades, não uma estrutura fixa",
+          "text": "Os usuários podem criar, importar, renomear, trocar e remover carteiras, enquanto o produto mantém uma separação clara entre carteiras de assinatura e carteiras somente para observação."
+        },
+        {
+          "eyebrow": "Enviar",
+          "title": "Preparação real de transferência",
+          "text": "Enviar não é uma caixa de endereço bruta. Já há suporte para leitura de QR, contatos, destinatários recentes, seleção de ativos, regras de saldo gastável e uma etapa limpa de confirmação."
+        },
+        {
+          "eyebrow": "Gerenciar Crypto",
+          "title": "Mais amplo que um único ativo de ecossistema",
+          "text": "Gerenciar Crypto é uma camada real de carteira: TRX, 4TEEN, ativos estáveis, entradas de tokens personalizados, filtros, modos de ordenação e seleção de ativo-alvo para envio e swap vivem na mesma superfície."
+        },
+        {
+          "eyebrow": "Idioma",
+          "title": "16 idiomas de interface",
+          "text": "A camada de idioma já está integrada ao produto, com uma rota dedicada e controle de localidade no nível do app nos principais pontos de entrada regionais."
+        }
+      ],
+      "resourceLayer": [
+        {
+          "eyebrow": "Necessário agora",
+          "title": "Os recursos são medidos antes da assinatura",
+          "text": "Compra direta, envio, swap, execução de liquidez e outras rotas de contrato estimam Energy e Bandwidth antes que o app solicite senha ou biometria."
+        },
+        {
+          "eyebrow": "Insuficiência",
+          "title": "A queima de TRX é tornada visível em vez de ficar oculta",
+          "text": "O app compara os recursos necessários com os recursos atuais da carteira, mostra a insuficiência e expõe o caminho de queima esperado em vez de deixar o usuário descobri-lo por meio de uma falha."
+        },
+        {
+          "eyebrow": "Aluguel",
+          "title": "O reforço de recursos é integrado ao fluxo",
+          "text": "O código já oferece suporte a estados de cotação de aluguel, pagamento, espera e prontidão para transferência de envio, swap, compra direta, execução de liquidez, registro de embaixador e saques de embaixador."
+        },
+        {
+          "eyebrow": "Reexecução",
+          "title": "As linhas pendentes permanecem operacionalmente honestas",
+          "text": "Se o lado do operador cair abaixo do seu piso seguro de recursos, as linhas em fila permanecem visíveis enquanto o backend recarrega recursos e o ciclo de reexecução verifica novamente até que a recompensa chegue on-chain."
+        }
+      ],
+      "protocolSurfaces": [
+        {
+          "eyebrow": "Compra direta",
+          "title": "Preparar → confirmar",
+          "text": "A rota de compra prepara a transação primeiro: cotação, contexto de mint-on-purchase, bloqueio de 14 dias, prévia da divisão de TRX e só então a etapa real de confirmação e assinatura.",
+          "href": "/buy"
+        },
+        {
+          "eyebrow": "Swap Token",
+          "title": "Comparação de rotas, não troca às cegas",
+          "text": "A rota de swap pode comparar caminhos, trocar ativos-alvo, exibir o recebimento mínimo protegido e interromper o fluxo cedo se a permissão ou os recursos de rede não estiverem prontos.",
+          "href": "/swap"
+        },
+        {
+          "eyebrow": "Linha do tempo de desbloqueio",
+          "title": "Visibilidade de bloqueio por compra",
+          "text": "Cada lote bloqueado é exibido por carteira, valor, horário de desbloqueio em UTC, contagem regressiva e transação de origem. Esta é uma superfície de bloqueio criada para esse fim, não apenas um histórico genérico.",
+          "href": "/unlock"
+        },
+        {
+          "eyebrow": "Controlador de liquidez",
+          "title": "Verdade do lado do controlador",
+          "text": "A rota de liquidez expõe o limite de 100 TRX, a cadência de liberação diária de 6.43%, a divisão do executor e o bloqueio de execução dentro do próprio app.",
+          "href": "/liquidity"
+        },
+        {
+          "eyebrow": "Airdrop",
+          "title": "Estado ativo com Telegram primeiro",
+          "text": "A rota de airdrop combina o estado atual da sessão do bot, o estado local da carteira e o estado de claim on-chain. Telegram está ativo agora; outras redes sociais são trilhos preparados, não botões falsamente ativos.",
+          "href": "/airdrop"
+        },
+        {
+          "eyebrow": "Embaixador",
+          "title": "Registro e painel na mesma rota",
+          "text": "A rota de embaixador começa como registro e se torna o painel da mesma carteira: slug de identidade, vínculo de comprador, linhas de compra, reexecução pendente, saques e estado resgatável.",
+          "href": "/ambassadors"
+        },
+        {
+          "eyebrow": "Informações",
+          "title": "Mapa compacto de arquitetura e execução",
+          "text": "A rota de informações conecta contratos, vaults, execução de liquidez, saldos de carteiras de ativos e prontidão do operador, para que a arquitetura e o estado de execução fiquem visíveis dentro do produto.",
+          "href": "/verification"
+        }
+      ],
+      "operatingRules": [
+        {
+          "title": "Carteira universal primeiro",
+          "text": "A leitura mais forte deste app não é “uma estrutura de ecossistema”. Ele se comporta como uma carteira TRON mais ampla, com um universo de tokens maior, e 4TEEN é integrado a essa base como uma camada de produto ativa."
+        },
+        {
+          "title": "Somente observação e assinatura são estados diferentes",
+          "text": "O app trata inspeção e ação de formas diferentes. Carteiras somente para observação podem ler portfólio e estado do protocolo, enquanto compra direta, registro, execução de liquidez e saque exigem carteiras de assinatura com acesso total."
+        },
+        {
+          "title": "Prontidão operacional faz parte da interface",
+          "text": "Bloqueio do controlador, cobertura de recursos, linhas de recompensa em fila e status de reexecução são expressos como estados do produto. O usuário vê o que está pronto agora, o que precisa de recarga e o que está aguardando."
+        },
+        {
+          "title": "Multilíngue é infraestrutura de produto",
+          "text": "O suporte a idiomas já está codificado no app, não deixado como um desejo futuro. Isso importa porque o produto foi feito para funcionar além de um mercado e além de uma única rota de entrada comunitária."
+        }
+      ],
+      "downloadReasons": [
+        "Use-o como uma carteira TRON mais ampla, não apenas como um ponto de acesso 4TEEN.",
+        "Mantenha portfólio, gestão de tokens personalizados, transferências, leitura, contatos e controle de idioma no mesmo produto.",
+        "Abra a camada 4TEEN completa dentro da carteira: compra, swap, desbloqueio, liquidez, airdrop, embaixadores e informações.",
+        "Veja carga da rede, insuficiência de recursos, proteção de rota e prontidão operacional antes de assinar ou esperar às cegas."
+      ],
+      "sections": {
+        "entryFlow": {
+          "eyebrow": "Fluxo de entrada",
+          "title": "Como o app real conduz o usuário"
+        },
+        "walletFoundation": {
+          "eyebrow": "Base da carteira",
+          "title": "Por que isto é uma carteira real antes de tudo"
+        },
+        "resourceLayer": {
+          "eyebrow": "Inteligência de recursos",
+          "title": "Por que a execução é mais segura que assinar às cegas",
+          "notePrefix": "Dentro do app, os cartões de carga da rede já exibem",
+          "noteNeedNow": "Necessário agora",
+          "noteMiddle": "Disponível agora",
+          "noteMissing": "Faltando",
+          "noteSuffix": "e a porcentagem de cobertura tanto para Energy quanto para Bandwidth. Isso torna o modelo de execução mais fácil de confiar, porque a carteira explica o custo antes que a transação seja assinada."
+        },
+        "protocolSurfaces": {
+          "eyebrow": "Superfícies 4TEEN",
+          "title": "O que a camada de protocolo já faz dentro da carteira"
+        },
+        "operatingRuleLabel": "Regra operacional",
+        "download": {
+          "eyebrow": "Rota de download",
+          "title": "Instale a carteira se quiser o produto completo, não apenas o mapa web.",
+          "body": "A versão mais forte do produto vive no app: comportamento real de carteira, interface multilíngue, execução ciente de recursos e toda a camada operacional 4TEEN em um só lugar assim que a distribuição nas lojas abrir.",
+          "repoLabel": "Repositório do Wallet App"
+        }
+      }
     }
   }
 }
