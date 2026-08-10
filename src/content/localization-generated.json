@@ -29761,5 +29761,161 @@
       "linksEyebrow": "Volgende routes",
       "footerNote": "De huidige route is een schone schil voor toekomstige publicaties, geen nepfeed. Wanneer artikelen verschijnen, moeten ze afgestemd blijven op de bewijs- en productlagen."
     }
+  },
+  "pl": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "Kopiuj",
+          "copied": "Skopiowano",
+          "failed": "Niepowodzenie",
+          "close": "Zamknij",
+          "qrCode": "Kod QR"
+        },
+        "taglines": [
+          "Wczesne wejście. Wyższe wyjście.",
+          "Zwycięzcy nie czekają.",
+          "Zamień 14 dni w zysk.",
+          "Wejdź wcześnie. Wygraj wcześnie."
+        ],
+        "header": {
+          "home": "Strona główna",
+          "getApp": "Pobierz aplikację",
+          "primaryNavAria": "Główna nawigacja serwisu"
+        },
+        "market": {
+          "loading": "Ładowanie ceny",
+          "unavailable": "Cena niedostępna",
+          "liveAria": "Cena rynkowa na żywo"
+        },
+        "refresh": {
+          "idle": "Odśwież dane",
+          "busy": "Odświeżanie",
+          "aria": "Odśwież migawkę danych na żywo"
+        },
+        "mobileSearch": {
+          "ariaLabel": "Szukaj tras, kontraktów i dokumentów",
+          "placeholder": "Szukaj tras, kontraktów, dokumentów...",
+          "eyebrow": "Szybkie wyszukiwanie",
+          "title": "Strony, kontrakty i powierzchnie dowodowe",
+          "dialogAria": "Wyniki wyszukiwania",
+          "route": "Trasa",
+          "external": "Zewnętrzne",
+          "empty": "Nie ma jeszcze szybkich dopasowań. Spróbuj słów dotyczących trasy, kontraktu lub dowodu."
+        },
+        "desktopSearch": {
+          "prompts": [
+            "Szukaj kontraktów, tras, dokumentów...",
+            "FourteenToken",
+            "Harmonogram odblokowania",
+            "Kontroler płynności",
+            "Nagrody ambasadorskie",
+            "Whitepaper"
+          ],
+          "ariaLabel": "Szukaj tras i kontraktów 4TEEN",
+          "actionAria": "Otwórz wyniki wyszukiwania",
+          "eyebrow": "Szybkie wyniki wyszukiwania",
+          "title": "Szybkie strony, kontrakty i powierzchnie dowodowe.",
+          "dialogAria": "Wyniki wyszukiwania",
+          "closeAria": "Zamknij wyszukiwanie",
+          "resultsSuffix": "wyników",
+          "noResultsYet": "Brak wyników",
+          "pressEnter": "Naciśnij Enter, aby otworzyć najlepsze dopasowanie.",
+          "topMatch": "Najlepsze dopasowanie",
+          "route": "Trasa",
+          "external": "Zewnętrzne",
+          "empty": "Brak wyników. Spróbuj `buy`, `unlock`, `airdrop`, `controller` lub `whitepaper`."
+        },
+        "locale": {
+          "eyebrow": "Język",
+          "title": "Wybierz język interfejsu",
+          "active": "Aktywny",
+          "soon": "Wkrótce"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "Kluczowe powierzchnie",
+          "docsAndRoutes": "Dokumenty i trasy",
+          "closeOpenPanelAria": "Zamknij otwarty panel"
+        },
+        "mobileDock": {
+          "menu": "Menu",
+          "close": "Zamknij",
+          "openMenuAria": "Otwórz menu mobilne",
+          "closeMenuAria": "Zamknij menu mobilne",
+          "openHomeAria": "Otwórz stronę główną",
+          "openSearchAria": "Otwórz wyszukiwanie mobilne",
+          "openLanguageAria": "Otwórz panel języka"
+        },
+        "footer": {
+          "protocol": "Protokół",
+          "ecosystem": "Ekosystem",
+          "legal": "Prawne",
+          "privacy": "Prywatność",
+          "terms": "Warunki",
+          "support": "Wsparcie",
+          "investorDeck": "Prezentacja dla inwestorów",
+          "onePager": "One-Pager",
+          "officialChannels": "Oficjalne kanały",
+          "brandText": "Aplikacja portfelowa zawiera teraz powierzchnię działającego systemu: bezpośredni zakup, stan odblokowania, prawdę kontrolera, panel ambasadora i przepływ wzrostu w pierwszej kolejności przez Telegram.",
+          "getApp": "Pobierz aplikację",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. Strukturyzowane wejście on-chain na TRON.",
+          "officialWebsite": "Oficjalna strona internetowa: 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "Protokół",
+          "growth": "Wzrost",
+          "proof": "Dowód",
+          "ecosystem": "Ekosystem"
+        },
+        "links": {
+          "home": "Strona główna",
+          "buy": "Kup",
+          "unlock": "Odblokowanie",
+          "liquidity": "Płynność",
+          "airdrop": "Airdrop",
+          "ambassadors": "Ambasadorzy",
+          "whitepaper": "Whitepaper",
+          "verification": "Weryfikacja",
+          "blog": "Blog",
+          "swap": "Swap",
+          "mobileApp": "Aplikacja mobilna"
+        },
+        "shortLinks": {
+          "buy": "Kup",
+          "unlock": "Odblokuj",
+          "liquidity": "Płynność",
+          "airdrop": "Airdrop",
+          "earn": "Zarabiaj",
+          "swap": "Swap",
+          "app": "Aplikacja",
+          "home": "Strona główna"
+        },
+        "menuLinks": {
+          "buy": "Bezpośredni zakup",
+          "unlock": "Harmonogram odblokowania",
+          "liquidity": "Kontroler płynności",
+          "swap": "Swap tokena",
+          "privacy": "Polityka prywatności",
+          "terms": "Warunki korzystania"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "Główna trasa",
+          "protocolSurface": "Powierzchnia protokołu",
+          "growthSurface": "Powierzchnia wzrostu",
+          "proofSurface": "Powierzchnia dowodowa",
+          "downloadRoute": "Trasa pobierania",
+          "publicPolicy": "Polityka publiczna",
+          "supportRoute": "Trasa wsparcia",
+          "coreContract": "Główny kontrakt",
+          "liquidityContract": "Kontrakt płynności",
+          "growthContract": "Kontrakt wzrostu",
+          "githubSource": "Źródło GitHub"
+        }
+      }
+    }
   }
 }
