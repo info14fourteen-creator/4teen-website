@@ -11333,6 +11333,197 @@
           "openBuy": "Buy-Route öffnen"
         }
       }
+    },
+    "liquidity": {
+      "metadata": {
+        "title": "Öffentlicher Liquiditäts-Controller",
+        "description": "Öffentlicher Liquiditäts-Controller von 4TEEN mit Live-Controller-Saldo, öffentlichem Bootstrapper-Trigger-Pfad, Reserve-Transparenz und bestätigtem Ausführungs-Feed."
+      },
+      "hero": {
+        "eyebrow": "Liquiditäts-Controller",
+        "badge": "Öffentlicher Liquiditäts-Controller",
+        "title": "Öffentlicher 4TEEN Liquiditäts-Controller",
+        "subtitle": "Automatisierung kann die Route aktivieren, aber jede Wallet kann den Bootstrapper weiterhin auslösen, wenn das Contract-Gate offen ist.",
+        "body": [
+          "Diese Seite sollte sich nicht wie ein geschlossenes Ops-Panel lesen. Sie sollte eines klar machen: Controller-seitige TRX sind sichtbar, Reserve-seitiger Bestand ist sichtbar, und die Freigaberegeln liegen weiterhin on-chain.",
+          "Wenn das UTC-Fenster offen ist, der Controller über dem Schwellenwert liegt und die signierende Wallet genügend Netzwerkressourcen hat, kann Liquidität weiterhin aus der Wallet ausgeführt werden, selbst wenn die Automatisierungsebene einen Tag verpasst."
+        ],
+        "rotatingLines": [
+          "ÖFFENTLICHER TRIGGER. CONTRACT-GATE.",
+          "AUTOMATISIERUNG HILFT. CONTRACTS ENTSCHEIDEN.",
+          "ERST BOOTSTRAP. ON-CHAIN AUSFÜHREN."
+        ],
+        "primaryCta": "Wallet-Route öffnen",
+        "secondaryCta": "Zu Live-Ausführungen springen",
+        "ctaNote": "Die Website ist die Nachweisebene. Die Wallet ist die Ausführungsoberfläche für manuellen Trigger, Ressourcenprüfungen und die finale Signatur.",
+        "stats": {
+          "controllerBalance": {
+            "label": "Controller-Saldo",
+            "meta": "TRX, die derzeit in FourteenLiquidityController warten."
+          },
+          "nextRelease": {
+            "label": "Nächste Freigabe",
+            "meta": "Voraussichtliche TRX-Freigabe, wenn das Contract-Fenster gültig ist."
+          },
+          "triggerFloor": {
+            "label": "Trigger-Untergrenze",
+            "meta": "Mindest-Controller-Saldo, der erforderlich ist, bevor eine Ausführung gültig ist."
+          },
+          "cadence": {
+            "label": "Taktung",
+            "meta": "Einmal pro UTC-Tag. Das Gate wird durch den Contract erzwungen, nicht durch Automatisierung."
+          },
+          "readFailed": "Live-Liquiditätsabfrage fehlgeschlagen.",
+          "readRetry": "Versuche es gleich erneut mit einer Aktualisierung."
+        }
+      },
+      "sections": {
+        "publicRoute": {
+          "eyebrow": "Öffentliche Route",
+          "title": "Automatisierung ist konfiguriert. Die öffentliche Ausführung gehört weiterhin der Wallet.",
+          "intro": "Die Wallet-App enthält bereits den Automatisierungspfad, aber die wichtigere Botschaft geht darüber hinaus: Diese Route ist weiterhin öffentlich. Eine signierende Wallet kann den Bootstrapper aktivieren, wenn die Contract-Bedingungen bereits erfüllt sind.",
+          "mainCard": {
+            "eyebrow": "Öffentlicher Liquiditäts-Controller",
+            "title": "Jede Wallet kann die Route aktivieren. Der Controller entscheidet weiterhin, ob Liquidität tatsächlich bewegt wird.",
+            "text": "Das ist die richtige Gewaltenteilung. Automatisierung darf beim Timing helfen, aber Controller und Bootstrapper bleiben die Autoritätsebene. Der Ausführungspfad verschwindet nicht, wenn ein Bot pausiert.",
+            "bullets": [
+              "Direkte 4TEEN-Käufe senden 90% der Kauf-TRX in den Controller-Saldo.",
+              "LiquidityBootstrapper bereitet die Token-Seite aus FourteenVault vor, bevor der Controller ausführt.",
+              "Die Einmal-pro-UTC-Tag-Regel, der Mindestbetrag, der Freigabeprozentsatz und die Aufteilung bleiben on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Automatisierung",
+              "title": "Das Wallet-Repo verdrahtet den Wake-up-Pfad bereits",
+              "text": "Der mobile Flow stellt den Liquiditäts-Trigger und den Automatisierungshelfer gemeinsam bereit. Dadurch wird der Scheduler sichtbar, aber er wird nicht zu einem versteckten Betreiber."
+            },
+            {
+              "eyebrow": "Manueller Trigger",
+              "title": "Wenn die Automatisierung aussetzt, kann ein Nutzer die Route weiterhin manuell signieren",
+              "text": "Die Wallet kann bootstrapAndExecute() aus einer normalen Nutzersitzung aufrufen. Wenn das Gate offen ist und Ressourcen verfügbar sind, läuft die Liquidität weiterhin durch."
+            }
+          ],
+          "note": "Deshalb sollte die Seite über einen öffentlichen Controller sprechen, nicht über ein privates Backoffice. Die Route besteht über die Automatisierungsebene hinaus weiter."
+        },
+        "liveState": {
+          "eyebrow": "Live-Controller-Status",
+          "title": "Was der Controller gerade sagt",
+          "rows": {
+            "controllerBalance": "Controller-Saldo",
+            "latestFunding": "Letzte Finanzierung",
+            "latestFundingAt": "Letzte Finanzierung um",
+            "lastExecute": "Letzte Ausführung",
+            "minBalance": "Mindestbetrag",
+            "dailyRelease": "Tägliche Freigabe",
+            "split": "Zielaufteilung",
+            "windowState": "Fensterstatus",
+            "nextWindow": "Nächstes Fenster",
+            "snapshotUpdated": "Snapshot aktualisiert"
+          },
+          "valueLabels": {
+            "openNow": "Jetzt offen",
+            "waitForThreshold": "Auf Finanzierung warten"
+          },
+          "stateLabels": {
+            "ready": "Jetzt bereit",
+            "waiting": "Heute bereits ausgeführt",
+            "threshold": "Unter dem Schwellenwert"
+          },
+          "note": "Der Snapshot ist nützlich, weil er die beweglichen Teile sauber trennt: Controller-TRX, Finanzierungstakt, Freigabegröße, Schwellenwert und Zeit-Gate bleiben gleichzeitig sichtbar."
+        },
+        "triggerModel": {
+          "eyebrow": "Trigger-Modell",
+          "title": "Was tatsächlich passiert, wenn jemand auf Liquidität auslösen tippt",
+          "intro": "Die Route ist einfach, wenn man sie ehrlich beschreibt: Zuerst prüft der Bootstrapper das Tages-Gate und füllt den Executor-Bestand auf, dann gibt der Controller TRX frei, dann erhalten die zwei Marktpfade ihre Aufteilung.",
+          "mainCard": {
+            "eyebrow": "bootstrapAndExecute()",
+            "title": "Der Trigger-Pfad ist öffentlich, ressourcenbewusst und weiterhin von Contracts geregelt.",
+            "text": "Das ist kein gefälschter Admin-Button. Die Wallet muss normale Netzwerkbedingungen erfüllen, und die Route läuft nur weiter, wenn dieselben Controller-Regeln zum Ausführungszeitpunkt weiterhin bestehen.",
+            "bullets": [
+              "Schritt 1: Der Bootstrapper prüft das Controller-Fenster und berechnet die zulässige Freigabegröße.",
+              "Schritt 2: Der Bootstrapper füllt Executor-seitige 4TEEN aus FourteenVault auf, bevor der marktseitige Leg läuft.",
+              "Schritt 3: Der Controller führt die Freigabe aus und teilt den Flow 50 / 50 auf JustMoney und Sun.io V3 auf."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Ressourcen",
+              "title": "Eine normale Wallet kann die Route mit gemieteten oder vorgeladenen Energie-Ressourcen abdecken",
+              "text": "Die App rahmt dies bereits als ressourcenbewusste Aktion ein. Es geht nicht um einen versteckten Server-Key. Es geht darum, dass eine öffentliche Wallet die Route weiterhin sauber abschließen kann."
+            },
+            {
+              "eyebrow": "Regelwerk",
+              "title": "Scheduler-Komfort überschreibt niemals das Contract-Regelwerk",
+              "text": "Ein verpasstes Bot-Fenster schreibt die Taktung nicht um. Ein zu frühes Drücken des Buttons umgeht das Gate nicht. Contracts akzeptieren oder verwerfen die Route weiterhin."
+            }
+          ],
+          "note": "Das ist das richtige Marktsignal: öffentlicher Trigger, sichtbare Reservevorbereitung, deterministische Freigaberegel."
+        },
+        "latestExecutions": {
+          "eyebrow": "Neueste Ausführungen",
+          "title": "Bestätigte Liquiditätsausführungen aus dem Live-Feed",
+          "body": "Diese Liste bleibt bewusst schlank. Sie zeigt die neuesten bestätigten Ausführungszeilen, damit ein Nutzer verifizieren kann, dass der Controller aktiv ist, ohne die Seite in einen lauten Block-Explorer-Klon zu verwandeln.",
+          "headers": {
+            "total": "Insgesamt freigegeben",
+            "split": "Aufteilung",
+            "happened": "Ausgeführt",
+            "day": "UTC-Tag",
+            "source": "Quelle"
+          },
+          "empty": "Noch sind keine bestätigten LiquidityExecuted-Zeilen sichtbar.",
+          "openTx": "Tx öffnen",
+          "note": "Jede Zeile stammt aus bestätigten LiquidityExecuted(day, totalAmount, amountA, amountB)-Events."
+        },
+        "reservePath": {
+          "eyebrow": "Reserve-Pfad",
+          "title": "Reserve-Token sind Bestand, kein freier Umlauf",
+          "intro": "Controller-seitige TRX sind nur die Hälfte der Route. Auch die Token-Seite benötigt isolierten Bestand, und deshalb existiert FourteenVault, bevor die zwei Ausführungspfade ihre Salden erhalten.",
+          "primaryCard": {
+            "eyebrow": "Reserve-Ebene",
+            "title": "FourteenVault stützt die öffentliche Liquiditätsroute, bevor die Marktausführung beginnt.",
+            "text": "Diese 4TEEN-Salden sollten als Reserve-seitiger Arbeitsbestand gelesen werden. Sie sind keine gewöhnlichen Wallet-Salden und sollten nicht wie frei zirkulierendes Angebot dargestellt werden.",
+            "bullets": [
+              "Vault-Bestand wird in den Bootstrapper-Pfad aufgefüllt, bevor der Controller ausführt.",
+              "JustMoney und Sun.io V3 erhalten vorbereitete Salden nur, wenn die Route gültig ist.",
+              "Reserve-Verwahrung, Controller-TRX und Executor-Ziele sind getrennte Ebenen derselben Engine."
+            ]
+          },
+          "secondaryCards": [
+            {
+              "key": "justmoney",
+              "title": "JustMoney-Pfad",
+              "body": "Executor A übernimmt die Hälfte der zulässigen Freigabe und führt den AMM-seitigen Liquiditätspfad aus, nachdem sein Token-Bestand vorbereitet wurde."
+            },
+            {
+              "key": "sun",
+              "title": "Sun.io V3-Pfad",
+              "body": "Executor B übernimmt die andere Hälfte und leitet sie über den konzentrierten Liquiditätspfad mit eigener vorbereiteter Token-Seite."
+            }
+          ],
+          "note": "Deshalb sollte die Seite eine Route erklären und nicht nur eine Vanity-Gesamtsumme ausgeben. Reserve-Bestand, Controller-Saldo und Ausführungsziele erfüllen unterschiedliche Aufgaben."
+        },
+        "verification": {
+          "eyebrow": "Verifizierung",
+          "title": "Nachweisebene öffnen",
+          "body": "Springe direkt von der Story zu den darunterliegenden Rails: dem Controller-Contract, der Bootstrapper-Route, den Executor-Contracts und der Wallet-Implementierung, die sowohl Automatisierung als auch manuellen Trigger bereitstellt.",
+          "labels": {
+            "controller": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "justMoney": "JustMoney-Executor",
+            "sunV3": "Sun.io V3-Executor",
+            "contractsRepo": "Contracts-Repository",
+            "walletRepo": "Wallet-Repository"
+          }
+        },
+        "cta": {
+          "eyebrow": "Nächster Schritt",
+          "title": "Öffne die Wallet, wenn du die Route selbst aktivieren möchtest",
+          "body": "Die Website ist der Ort, an dem du den Status verifizierst. Die mobile Wallet ist der Ort, an dem ein echter Nutzer Ressourcen prüfen, den Bootstrapper aufrufen und die Route signieren kann, wenn das Controller-Gate bereits offen ist.",
+          "openApp": "Liquidität in der App öffnen",
+          "openBuy": "Kauf-Route öffnen"
+        }
+      }
     }
   }
 }
