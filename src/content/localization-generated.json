@@ -26243,6 +26243,148 @@
       ],
       "linksEyebrow": "Saídas públicas",
       "footerNote": "Leia estes termos junto com os endereços de contratos, o estado do explorador e a tela de confirmação da carteira. Identidade da organização: \"AG PLUS\" LLC, D-U-N-S 933906683."
+    },
+    "support": {
+      "metadata": {
+        "title": "Suporte",
+        "description": "Escopo oficial do suporte da 4TEEN, canais de contato, expectativas de resposta e o que a equipe pode e não pode ajudar a resolver."
+      },
+      "hero": {
+        "eyebrow": "Suporte",
+        "status": "Canais oficiais",
+        "title": "O suporte deve ajudar você a chegar ao canal certo, entender o sistema público e verificar o que aconteceu, sem fingir que alguém pode reverter a realidade da blockchain por você.",
+        "lead": "Use os canais oficiais da 4TEEN para dúvidas sobre site, carteira, lançamentos ou protocolo público. Para qualquer assunto relacionado a transações, traga fatos específicos, como endereço da carteira, hash da transação, capturas de tela, nome da rota, tipo de dispositivo e build do app, se relevante."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Ideal para",
+          "title": "Ajuda com encaminhamento e verificação",
+          "body": "O suporte pode ajudar você a encontrar a página oficial correta, a interface da carteira, o link do contrato ou a rota de status público, além de entender o que essas interfaces estão mostrando."
+        },
+        {
+          "eyebrow": "Traga",
+          "title": "Evidências úteis",
+          "body": "O caminho mais rápido é factual: endereço da carteira, hash da tx, URL da página, captura de tela, timestamp e uma breve descrição do que você esperava versus o que aconteceu."
+        },
+        {
+          "eyebrow": "Nunca envie",
+          "title": "Nenhum segredo de recuperação",
+          "body": "Não envie frases seed, chaves privadas brutas ou senhas de dispositivo para nenhum canal de suporte. O suporte oficial nunca deve precisar disso."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Operador oficial",
+          "title": "O suporte é publicado pelo operador legal da 4TEEN",
+          "body": "A Sociedade de Responsabilidade Limitada \"AG PLUS\" opera o site oficial da 4TEEN e as rotas de suporte. Use support@4teen.me ou +998 95 792 02 87 para suporte direto e verifique os links de suporte em https://4teen.me.",
+          "bullets": [
+            "Número D-U-N-S: 933906683",
+            "Número de registro: 3080788",
+            "Endereço legal: República do Uzbequistão, cidade de Tashkent, distrito de Yunusabad, Katta Xasanboy MFY, Rua Xasanboy, 8ª Travessa, casa 3-B"
+          ]
+        },
+        {
+          "eyebrow": "2. Escopo do suporte",
+          "title": "O que o suporte deve cobrir",
+          "body": "O suporte é destinado a orientação de rotas, resolução factual de problemas, verificação de links oficiais, informações de protocolo público, esclarecimento sobre interfaces de carteira, ajuda com páginas de lançamento e identificação de qual contrato ou camada de produto é relevante para o seu problema."
+        },
+        {
+          "eyebrow": "3. Limites do suporte",
+          "title": "O que o suporte não pode prometer",
+          "body": "O suporte não pode reverter transações confirmadas na blockchain, recuperar uma frase seed perdida, garantir resultado de preço do token, garantir recompensas futuras ou substituir manualmente regras de contratos públicos só porque um resultado não foi o que você queria."
+        },
+        {
+          "eyebrow": "4. Qualidade da resposta",
+          "title": "Como obter uma resposta mais rápida",
+          "bullets": [
+            "Inclua a rota ou página exata onde o problema apareceu",
+            "Se for on-chain, inclua o endereço da carteira e o hash da tx",
+            "Se for relacionado ao app, inclua detalhes do dispositivo, sistema operacional e build do app",
+            "Se for visual, inclua uma captura de tela ou uma gravação curta da tela"
+          ],
+          "note": "A qualidade do suporte melhora quando o relatório é factual e reproduzível, não apenas emocional. Isso ajuda a equipe a verificar o que realmente aconteceu."
+        }
+      ],
+      "channels": [
+        {
+          "label": "Telegram",
+          "href": "https://t.me/fourteentoken",
+          "note": "Canal público de comunidade mais rápido para anúncios e orientações básicas."
+        },
+        {
+          "label": "Discord",
+          "href": "https://discord.gg/jWZF6KzPCB",
+          "note": "Útil para discussões estruturadas, contexto de resolução de problemas e mensagens de acompanhamento."
+        },
+        {
+          "label": "X",
+          "href": "https://x.com/4teen_me",
+          "note": "Melhor para visibilidade pública de lançamentos, mas não é ideal para detalhes sensíveis de problemas."
+        },
+        {
+          "label": "WhatsApp",
+          "href": "https://wa.me/998957920287",
+          "note": "Útil se for necessário um encaminhamento direto ao suporte e o número oficial for adequado para sua região."
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+          "note": "Útil para questões de código, lançamento e repositório quando o problema for claramente técnico."
+        }
+      ],
+      "channelPanel": {
+        "eyebrow": "Canais oficiais",
+        "title": "Use os canais oficiais antes de confiar em suporte.",
+        "routeLabel": "Rota oficial"
+      },
+      "scopePanel": {
+        "eyebrow": "Escopo do suporte",
+        "title": "O suporte deve esclarecer, verificar e encaminhar. Ele não deve inventar poderes que não tem.",
+        "canHelp": "Pode ajudar",
+        "cannotHelp": "Não pode ajudar"
+      },
+      "supportScope": {
+        "canHelp": [
+          "Verificação de rotas oficiais e orientação em páginas públicas",
+          "Download do app, página de lançamento e resolução de problemas do site",
+          "Orientação sobre contrato, explorador ou página de status público",
+          "Triagem factual básica para problemas de airdrop, embaixador ou rota de carteira"
+        ],
+        "cannotHelp": [
+          "Recuperar frases seed, chaves privadas ou senhas de dispositivo perdidas",
+          "Desfazer transações on-chain confirmadas",
+          "Garantir resultado de preço, desempenho do token ou elegibilidade a recompensas",
+          "Atuar como custodiante ou assumir controle dos fundos dos usuários"
+        ]
+      },
+      "contactPanel": {
+        "eyebrow": "Contato",
+        "title": "Use apenas canais oficiais da 4TEEN",
+        "body": "Se uma rota de suporte não estiver vinculada a partir do site oficial, da carteira ou da lista social oficial, verifique-a antes de confiar nela. O operador legal oficial é a \"AG PLUS\" LLC e o Número D-U-N-S publicado é 933906683.",
+        "emailTitle": "Email de suporte",
+        "emailMissing": "Uma caixa de email pública dedicada ao suporte não está publicada nos repositórios atuais. Até que uma seja publicada, use os canais oficiais abaixo e nunca compartilhe material secreto de recuperação neles.",
+        "phoneTitle": "Telefone e WhatsApp",
+        "legalTitle": "Operador legal",
+        "legalBody": "Sociedade de Responsabilidade Limitada \"AG PLUS\" · D-U-N-S® 933906683",
+        "securityTitle": "Lembrete de segurança",
+        "securityBody": "Nenhum canal de suporte deve pedir sua frase seed, chave privada bruta ou segredos completos de desbloqueio do dispositivo. Se isso acontecer, trate como inseguro."
+      },
+      "links": [
+        {
+          "label": "Abrir a página do app móvel",
+          "href": "/app"
+        },
+        {
+          "label": "Abrir privacidade",
+          "href": "/privacy"
+        },
+        {
+          "label": "Abrir termos",
+          "href": "/terms"
+        }
+      ],
+      "linksEyebrow": "Saídas públicas",
+      "footerNote": "Para links de lançamento, referências de contrato ou páginas de estado público, comece por https://4teen.me. Suporte oficial por telefone e WhatsApp: +998 95 792 02 87."
     }
   }
 }
