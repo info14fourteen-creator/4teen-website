@@ -20797,6 +20797,315 @@
           }
         ]
       }
+    },
+    "buy": {
+      "metadata": {
+        "title": "Compra 4TEEN | Ingresso TRON nativo da contratto",
+        "description": "Compra 4TEEN direttamente dallo smart contract: conia un batch bloccato, monitora gli acquisti confermati, comprendi l'instradamento TRX 90/7/3, poi installa il wallet ed esegui il flusso di acquisto reale.",
+        "openGraphTitle": "Compra 4TEEN",
+        "openGraphDescription": "Entra in 4TEEN tramite la rotta di acquisto nativa da contratto. Conia un batch bloccato, osserva gli eventi BuyTokens confermati, rivedi l'instradamento TRX ed esegui da un wallet di firma."
+      },
+      "hero": {
+        "eyebrow": "FourteenToken",
+        "badge": "Rotta di acquisto nativa da contratto",
+        "title": "Compra 4TEEN direttamente dal contratto",
+        "subtitle": "Conia un nuovo batch di 4TEEN, bloccalo per 14 giorni, osserva gli acquisti confermati arrivare nel feed, poi decidi cosa fare quando termina il timer di sblocco.",
+        "body": [
+          "Questo non è un modulo di swap generico che finge di essere DeFi. Questa è la rotta di ingresso nativa del protocollo.",
+          "Inserisci TRX, il contratto calcola quanti 4TEEN verranno coniati, la transazione crea un blocco separato di 14 giorni per quel batch e i TRX in ingresso vengono instradati secondo la regola del contratto: 90% alla liquidità, 7% al controller e 3% al lato airdrop.",
+          "Il sito web mostra la mappa. Il wallet esegue la transazione."
+        ],
+        "primaryCta": "Installa / Apri Wallet",
+        "secondaryCta": "Vedi gli ultimi acquisti",
+        "ctaNote": "È richiesto un wallet di firma. La modalità solo osservazione può leggere il sistema, ma non può inviare la transazione di acquisto. L'umanità ha scoperto le firme, e ora dobbiamo tutti rispettarle.",
+        "rotatingLines": [
+          "Ingresso da contratto. Blocco reale.",
+          "Conia prima. Sblocca dopo.",
+          "Compra on-chain. Monitora tutto.",
+          "Il tuo batch. Il tuo timer.",
+          "Nessun volume finto. Solo eventi."
+        ],
+        "stats": {
+          "directPrice": "Prezzo diretto",
+          "directPriceMeta": "Prezzo di ingresso attuale lato contratto per 4TEEN dal livello di snapshot pubblico. Il wallet aggiorna il valore live prima dell'esecuzione.",
+          "lockRule": "Regola di blocco",
+          "lockRuleValue": "14 giorni",
+          "lockRuleMeta": "Ogni acquisto diretto crea il proprio batch bloccato. Il timer appartiene a quell'acquisto, non a tutto il tuo wallet.",
+          "trxSplit": "Instradamento TRX",
+          "trxSplitValue": "90 / 7 / 3",
+          "trxSplitMeta": "I TRX in ingresso vengono instradati all'interno della transazione di acquisto: lato liquidità, lato controller e lato airdrop.",
+          "execution": "Esecuzione",
+          "executionValue": "Wallet + Risorse",
+          "executionMeta": "Il flusso di acquisto reale viene eseguito da un wallet di firma. Saldo TRX, Energy, Bandwidth e prontezza della transazione vengono verificati prima della firma finale.",
+          "priceFallback": "1.147500 TRX",
+          "priceUnavailable": "Prezzo live non disponibile in questo momento. Il fallback riflette l'ultima rotta diretta nota."
+        }
+      },
+      "sections": {
+        "executionRoute": {
+          "eyebrow": "Come funziona il ciclo",
+          "title": "La pagina di acquisto dovrebbe spiegare l'intera rotta",
+          "intro": "Un acquisto diretto non è semplicemente “invia TRX, ricevi token”. Il modulo accompagna l'utente attraverso il ciclo on-chain reale: ingresso da contratto, mint, blocco, instradamento della liquidità e punto decisionale dopo lo sblocco.",
+          "cards": [
+            {
+              "eyebrow": "Passaggio 1",
+              "title": "Entra tramite il contratto",
+              "subtitle": "Questa è la rotta primaria del protocollo, non il mercato secondario.",
+              "text": "L'acquisto diretto invia il comando `buyTokens()` da un wallet di firma. Il contratto riceve TRX, calcola l'importo di 4TEEN e avvia il flusso di mint per quella transazione esatta.\n\nNessuna caccia al pool. Nessuna roulette delle rotte. Nessuna finzione che uno swap e un mint siano la stessa cosa, perché a quanto pare le parole contano ancora."
+            },
+            {
+              "eyebrow": "Passaggio 2",
+              "title": "Conia un nuovo batch",
+              "subtitle": "Il contratto crea nuovi 4TEEN per l'acquirente.",
+              "text": "L'importo di 4TEEN viene coniato durante la transazione di acquisto. Quel batch coniato è collegato al wallet dell'acquirente ed entra immediatamente nella logica di blocco.\n\nEcco perché l'acquisto diretto è diverso dallo swap. Lo swap scambia liquidità esistente. L'acquisto diretto crea un nuovo batch bloccato tramite il contratto del token."
+            },
+            {
+              "eyebrow": "Passaggio 3",
+              "title": "Blocco per 14 giorni",
+              "subtitle": "Ogni acquisto riceve il proprio timer di sblocco.",
+              "text": "Il batch acquistato è bloccato per 14 giorni. Se lo stesso wallet acquista di nuovo più tardi, quel secondo acquisto crea un batch bloccato separato con il proprio timer.\n\nIl wallet mostra la timeline di sblocco così l'utente può vedere esattamente quando ogni batch diventa trasferibile."
+            },
+            {
+              "eyebrow": "Passaggio 4",
+              "title": "Alimenta il lato liquidità",
+              "subtitle": "I nuovi acquisti continuano a immettere TRX freschi nel sistema.",
+              "text": "Ogni acquisto diretto instrada il 90% dei TRX in ingresso al lato liquidità. Quel valore non resta semplicemente fermo in uno screenshot di marketing. Entra nel flusso di liquidità del protocollo e viene processato attraverso la logica di esecuzione giornaliera della liquidità.\n\nQuesta è la parte che gli utenti devono capire: gli acquisti successivi continuano ad alimentare il sistema mentre gli acquirenti precedenti attendono durante il loro blocco."
+            },
+            {
+              "eyebrow": "Passaggio 5",
+              "title": "Raggiungi il punto di sblocco",
+              "subtitle": "Dopo lo sblocco, l'utente sceglie la rotta successiva.",
+              "text": "Quando il blocco scade, il batch diventa disponibile. Il detentore può continuare a mantenere la posizione oppure passare alla rotta di mercato e fare swap tramite la liquidità disponibile.\n\nNessuna uscita forzata. Nessun pulsante magico. Solo un punto di sblocco e una decisione di mercato, perché DeFi è già abbastanza drammatica senza inventare altre sciocchezze."
+            }
+          ]
+        },
+        "priceLogic": {
+          "eyebrow": "Logica del prezzo primario",
+          "title": "L'acquisto diretto entra ora al prezzo del contratto e incontra il prezzo di mercato più tardi",
+          "cards": [
+            {
+              "eyebrow": "Base",
+              "title": "1 TRX = 1 4TEEN al deployment",
+              "text": "Il prezzo iniziale di acquisto diretto è codificato in FourteenToken come 1.000000 TRX per token prima che i successivi periodi di capitalizzazione lo facciano avanzare."
+            },
+            {
+              "eyebrow": "Crescita",
+              "title": "Crescita del 14.75% per periodo di prezzo",
+              "text": "Il contratto conserva annualGrowthRate = 1475 punti base e capitalizza in avanti tokenPrice ogni volta che è trascorso abbastanza tempo."
+            },
+            {
+              "eyebrow": "Intervallo",
+              "title": "Ogni 90 giorni",
+              "text": "Gli aggiornamenti di prezzo non sono modifiche amministrative arbitrarie. getCurrentPrice() fa avanzare il prezzo del token memorizzato in base ai periodi di 90 giorni trascorsi da lastPriceUpdate."
+            },
+            {
+              "eyebrow": "Ambito",
+              "title": "Solo per emissione diretta",
+              "text": "Questo prezzo governa l'emissione diretta tramite `buyTokens()`. Non promette nulla sul prezzo DEX o sulle condizioni di uscita successive una volta che il batch si sblocca e l'utente passa alla rotta di mercato."
+            }
+          ],
+          "note": "Il sito legge il prezzo diretto come livello informativo pubblico. La rotta reale del wallet resta comunque importante perché combina quel prezzo di contratto con il wallet di firma selezionato, il saldo TRX effettivo e i controlli delle risorse al momento della conferma."
+        },
+        "lockLayer": {
+          "eyebrow": "Livello di blocco di 14 giorni",
+          "title": "Ogni acquisto diretto conia immediatamente e blocca immediatamente",
+          "bullets": [
+            "Ogni chiamata buyTokens() conia subito 4TEEN all'indirizzo dell'acquirente.",
+            "La stessa transazione aggiunge un nuovo record di blocco con releaseTime = block timestamp + 14 giorni.",
+            "I blocchi sono per batch di acquisto, non un unico timer miscelato per tutto il wallet.",
+            "Transfers e transferFrom vengono bloccati ogni volta che l'importo richiesto spenderebbe da un saldo ancora bloccato.",
+            "La timeline di sblocco nel wallet è la rotta complementare naturale dopo un acquisto."
+          ],
+          "note": "Ecco perché acquisto diretto e swap non sono la stessa cosa. L'acquisto diretto offre all'utente prima un'emissione nativa del protocollo, poi un'attesa fissa, e solo dopo lo sblocco la rotta di mercato diventa rilevante."
+        },
+        "trxRouting": {
+          "eyebrow": "Instradamento",
+          "title": "Dove vanno i TRX",
+          "rows": [
+            {
+              "share": "90%",
+              "title": "Alla liquidità",
+              "text": "La quota più grande si sposta nel lato liquidità del sistema. Questo è il flusso centrale che supporta la rotta di mercato dopo che gli utenti raggiungono lo sblocco.",
+              "linkLabel": "Apri la pagina Liquidità",
+              "linkHref": "/liquidity"
+            },
+            {
+              "share": "7%",
+              "title": "Al controller",
+              "text": "Una quota più piccola va a FourteenController. Questo è il livello di controllo e contabilità connesso all'amministrazione del token, al tracciamento degli acquisti, alla logica ambassador e al regolamento delle ricompense.",
+              "linkLabel": "Apri la pagina Ambassador",
+              "linkHref": "/ambassadors"
+            },
+            {
+              "share": "3%",
+              "title": "Al lato airdrop",
+              "text": "La quota finale va al lato airdrop, così lo stesso flusso di acquisto diretto continua anche ad alimentare la distribuzione pubblica e la crescita dell'ecosistema.",
+              "linkLabel": "Apri la pagina Airdrop",
+              "linkHref": "/airdrop"
+            }
+          ],
+          "note": "La divisione avviene all'interno della stessa transazione di acquisto. Non è un esercizio su foglio di calcolo successivo, non una allocazione “fidati bro”, e non una promessa manuale scritta in una chat Telegram alle 3 del mattino."
+        },
+        "walletFlow": {
+          "eyebrow": "Flusso del wallet",
+          "title": "Come il prodotto reale passa dall'inserimento dell'importo alla firma",
+          "steps": [
+            {
+              "eyebrow": "1. Prepara",
+              "title": "Scegli il wallet che acquisterà davvero",
+              "text": "L'app parte dal wallet di firma selezionato, carica il suo saldo TRX, il prezzo del contratto, il saldo bloccato e gli indirizzi dei contratti, poi limita il campo importo a ciò che quel wallet può effettivamente coprire."
+            },
+            {
+              "eyebrow": "2. Rivedi",
+              "title": "Vedi l'importo coniato e la divisione prima di impegnarti",
+              "text": "Prima che l'utente approvi qualsiasi cosa, il wallet mostra l'output stimato in 4TEEN, la divisione 90 / 7 / 3, il prossimo step di prezzo del contratto e l'orario futuro di sblocco per quel batch."
+            },
+            {
+              "eyebrow": "3. Conferma",
+              "title": "Controlla le risorse prima che il wallet chieda l'approvazione",
+              "text": "Il livello di conferma misura Energy, Bandwidth ed eventuali carenze, così l'utente vede lo stato reale di esecuzione prima dell'approvazione con passcode o biometria."
+            },
+            {
+              "eyebrow": "4. Continua",
+              "title": "Se le risorse sono insufficienti, il wallet può prima colmare il divario",
+              "text": "Quando il wallet selezionato è a corto di risorse di esecuzione, l'app può quotare il noleggio di energia e colmare quel divario prima che l'acquisto diretto venga inviato, invece di lasciare che l'utente finisca alla cieca in una transazione fallita."
+            },
+            {
+              "eyebrow": "5. Dopo l'arrivo on-chain",
+              "title": "Il sistema monitora sia lo sblocco sia l'attribuzione lato controller",
+              "text": "Una volta che l'acquisto arriva on-chain, il wallet può mostrare il conto alla rovescia del blocco per quel batch, mentre FourteenController può associare l'acquirente, registrare un acquisto verificato una volta per ID di acquisto e finalizzare il saldo delle ricompense ambassador quando l'allocazione riesce."
+            }
+          ],
+          "note": "Il sito web dovrebbe spiegare chiaramente questo percorso, poi passare l'utente al wallet. Non dovrebbe fingere di essere esso stesso il livello di esecuzione."
+        },
+        "resourceLayer": {
+          "eyebrow": "Prontezza delle risorse",
+          "title": "Il wallet tratta il costo di rete come parte del prodotto, non come una trappola alla fine",
+          "cards": [
+            {
+              "eyebrow": "Stima",
+              "title": "Energy e Bandwidth vengono prezzati prima della firma",
+              "text": "Il wallet stima il costo della chiamata al contratto per `buyTokens()` prima della firma, così l'utente vede di cosa ha bisogno la rotta prima del passaggio finale di approvazione."
+            },
+            {
+              "eyebrow": "Copertura",
+              "title": "Le risorse attuali del wallet vengono confrontate con la rotta",
+              "text": "Il passaggio di revisione mostra non solo l'importo in TRX, ma anche se il wallet selezionato può coprire la rotta in modo pulito in questo momento."
+            },
+            {
+              "eyebrow": "Carenza",
+              "title": "Se mancano risorse, l'app può aiutare a colmare il divario",
+              "text": "Se il wallet di firma risulta carente, il prodotto mostra direttamente il divario e può passare alla fase di noleggio di energia prima che l'acquisto venga inviato."
+            }
+          ],
+          "note": "Questo conta perché l'acquisto diretto non è solo un campo numerico. È una rotta di contratto live, e il wallet espone già lo stato delle risorse che ci sta dietro."
+        },
+        "latestPurchases": {
+          "eyebrow": "Feed acquisti live",
+          "title": "Acquisti confermati hanno già raggiunto il contratto",
+          "intro": "Queste righe provengono da eventi `BuyTokens` confermati su FourteenToken. Wallet reali, transazioni reali, prova on-chain reale. Non volume finto, non una tabella decorativa, non un'altra allucinazione da dashboard con tema scuro.",
+          "headers": {
+            "wallet": "Wallet",
+            "trxIn": "TRX in ingresso",
+            "minted": "Coniati",
+            "lockEnds": "Fine blocco",
+            "transaction": "Transazione",
+            "status": "Confermato"
+          },
+          "statusConfirmed": "Confermato",
+          "openTx": "Apri tx",
+          "note": "Il feed è qui per una sola ragione: la prova. Gli utenti dovrebbero vedere che il modulo di acquisto non è teorico. Gli acquisti sono avvenuti, il contratto ha emesso eventi e il wallet può portare il prossimo acquirente attraverso la stessa rotta.",
+          "empty": "In attesa di eventi BuyTokens confermati.",
+          "unknownTime": "Ora non disponibile",
+          "fallbackBody": "Gli acquisti diretti recenti sono temporaneamente nascosti sul sito pubblico mentre la rotta viene stabilizzata. L'app mobile resta il luogo principale in cui viene eseguito l'acquisto, e i link di verifica pubblici restano disponibili.",
+          "fallbackPrimaryCta": "Apri la rotta dell'app mobile",
+          "fallbackSecondaryCta": "Apri il contratto del token"
+        },
+        "comparison": {
+          "eyebrow": "Comprare non è la stessa cosa che fare swap",
+          "title": "L'acquisto diretto è la rotta di ingresso. Lo swap è la rotta di mercato.",
+          "intro": "Entrambe le rotte contano, ma svolgono compiti diversi. Gli utenti devono sapere quale macchina stanno toccando prima di iniziare a premere pulsanti come se la civiltà fosse stata un errore.",
+          "cards": [
+            {
+              "eyebrow": "Compra",
+              "title": "Compra",
+              "subtitle": "Ingresso diretto da contratto",
+              "text": "L'acquisto diretto invia il comando di acquisto al contratto, conia un nuovo batch di 4TEEN secondo la regola del contratto, crea un nuovo blocco di 14 giorni per quel batch e instrada i TRX in ingresso nei flussi di liquidità, controller e airdrop.",
+              "footerLabel": "Ideale per",
+              "footerText": "Utenti che vogliono entrare tramite la rotta di mint nativa del protocollo e capire esattamente come funziona la transazione di acquisto."
+            },
+            {
+              "eyebrow": "Swap",
+              "title": "Swap",
+              "subtitle": "Rotta di mercato secondario",
+              "text": "Lo swap scambia contro la liquidità disponibile sul mercato. Non conia un nuovo batch, non crea il blocco dell'acquisto diretto e dipende dalla qualità della rotta, dall'impatto sul prezzo, dallo slippage e dalle condizioni DEX in quel momento.",
+              "footerLabel": "Ideale per",
+              "footerText": "Utenti che detengono già 4TEEN sbloccati o vogliono fare trading tramite la liquidità di mercato disponibile."
+            },
+            {
+              "eyebrow": "Significato",
+              "title": "Significato",
+              "subtitle": "Entra qui, decidi dopo",
+              "text": "L'acquisto diretto è il flusso di ingresso. Lo sblocco è il periodo di attesa. Lo swap è la rotta di mercato dopo che l'utente ha token trasferibili.\n\nIl percorso pulito è semplice: compra tramite il contratto, monitora il blocco, osserva il feed, poi scegli la prossima mossa dopo lo sblocco."
+            }
+          ]
+        },
+        "afterPurchase": {
+          "eyebrow": "Dopo l'acquisto",
+          "title": "Cosa succede dopo una volta che l'acquisto arriva on-chain",
+          "steps": [
+            {
+              "eyebrow": "Coniati",
+              "title": "4TEEN appare immediatamente",
+              "text": "L'importo del token viene coniato nella stessa transazione che riceve i TRX. Non è un'allocazione backend ritardata."
+            },
+            {
+              "eyebrow": "Bloccati",
+              "title": "Il batch acquistato entra nel proprio blocco di 14 giorni",
+              "text": "Viene creato un nuovo record di blocco per quel batch di acquisto esatto. Il wallet potrà poi mostrarlo come riga separata nella timeline di sblocco."
+            },
+            {
+              "eyebrow": "Monitorati",
+              "title": "La timeline di sblocco diventa utile immediatamente",
+              "text": "La schermata utile successiva è la rotta di sblocco: mostra cosa è ancora bloccato, cosa si sblocca dopo e quando quel batch diventa effettivamente trasferibile."
+            },
+            {
+              "eyebrow": "Alimentato in avanti",
+              "title": "L'acquisto continua ad alimentare liquidità e stato lato controller",
+              "text": "La quota del 90% destinata alla liquidità è già entrata nel percorso di liquidità del protocollo, mentre FourteenController può associare l'acquirente, registrare l'acquisto verificato una volta per ID di acquisto e regolare la contabilità delle ricompense lato ambassador."
+            }
+          ]
+        },
+        "signingWallet": {
+          "eyebrow": "Livello di esecuzione",
+          "title": "Il sito web spiega la rotta. Il wallet esegue l'acquisto.",
+          "body": "Il sito pubblico può spiegare la rotta del contratto, ma l'acquisto reale avviene da un wallet di firma dentro l'app. La modalità solo osservazione è utile per leggere saldi, controllare rotte e ispezionare il sistema. Non può firmare la transazione di acquisto diretto.\n\nPer comprare, l'utente ha bisogno di un wallet che possa firmare su TRON.",
+          "bullets": [
+            "I wallet solo osservazione possono ispezionare saldi, rotte, stati di sblocco e dati pubblici dei contratti.",
+            "Solo un wallet di firma può entrare nella rotta live di acquisto diretto.",
+            "Saldo TRX, Energy, Bandwidth e prontezza della transazione vengono verificati prima della firma.",
+            "Il wallet mostra l'importo 4TEEN atteso e il comportamento del blocco prima che l'utente firmi."
+          ],
+          "ctaTitle": "Installa il Wallet ed esegui il flusso di acquisto reale",
+          "ctaText": "Il sito ti dà la mappa. Il wallet ti dà l'esecuzione: acquisto diretto, controllo risorse, fallback Energy, prezzo live del contratto, conferma dell'acquisto e monitoraggio dello sblocco dopo la transazione."
+        },
+        "verification": {
+          "eyebrow": "Controllo delle fonti",
+          "title": "Le affermazioni sopra sono collegate a contratti e codice",
+          "body": "Questa pagina si basa sul contratto FourteenToken distribuito, sull'architettura del controller, sul modulo di acquisto diretto del wallet e sulla rotta di sblocco che segue dopo l'acquisto.\n\nL'obiettivo è semplice: spiegare la meccanica reale in modo abbastanza chiaro perché un nuovo utente capisca cosa succede prima di firmare. Un concetto rivoluzionario, a quanto pare.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Repository dei contratti",
+          "walletRepoLabel": "Repository del wallet"
+        },
+        "cta": {
+          "eyebrow": "Prossimo passo",
+          "title": "Apri il wallet quando sei pronto per il flusso di acquisto reale",
+          "body": "Il sito pubblico può spiegare la rotta. L'acquisto reale, il controllo delle risorse, il fallback Energy, la lettura del prezzo live, la firma della transazione e il follow-up dello sblocco vivono tutti dentro il wallet mobile.\n\nInstalla il wallet, collega un account di firma, inserisci TRX, rivedi l'importo 4TEEN coniato, conferma il blocco di 14 giorni e firma solo quando i dettagli della transazione sono chiari.",
+          "openApp": "Installa / Apri Wallet App",
+          "openUnlock": "Apri la timeline di sblocco"
+        }
+      }
     }
   }
 }
