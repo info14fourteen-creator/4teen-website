@@ -26609,6 +26609,808 @@
           "githubSource": "GitHub-bron"
         }
       }
+    },
+    "home": {
+      "ui": {
+        "aria": {
+          "heroPoints": "Protocolhoogtepunten",
+          "livePriceSummary": "Live prijsoverzicht",
+          "quickLinks": "Snelle links",
+          "verificationLinks": "Verificatielinks"
+        },
+        "marketStrip": {
+          "unavailable": "Niet beschikbaar",
+          "routerQuoteReadFailed": "Router-quote kon niet worden gelezen",
+          "directPriceLabel": "Directe prijs",
+          "directPriceSub": "Per 1 4TEEN via protocol",
+          "dexReferenceLabel": "DEX-referentie",
+          "dexPriceLabel": "DEX-prijs",
+          "dexSubSuffix": "per 4TEEN",
+          "unlockCycleLabel": "Unlock-cyclus",
+          "unlockCycleValue": "14 dagen",
+          "unlockCycleSub": "Lockperiode voor directe aankoop",
+          "unlockCycleDailyRuleSub": "Vaste lock voor directe aankopen",
+          "dailyLiquidityRuleLabel": "Dagelijkse liquiditeitsregel",
+          "dailyLiquidityRuleValue": "6.43%",
+          "dailyLiquidityRuleSub": "Eén keer per UTC-dag vrijgegeven door controllerlogica"
+        }
+      },
+      "hero": {
+        "eyebrow": "4TEEN Mobile App",
+        "meta": "TRON • Direct kopen • Unlock • Liquiditeit • Groei",
+        "title": "Eén plek voor kopen, lock-inzicht en liquiditeitsflow.",
+        "lead": "De wallet-app is al de operationele laag van het systeem. Direct kopen, de unlock-tijdlijn, liquiditeitscontroller, Telegram-claimstatus, ambassador-cabinet en de compacte inforoute bestaan al als echte schermen met echte status, in plaats van beloftes in tekst.",
+        "points": [
+          "Bereid de echte direct-buy flow voor met schatting, splitcontext en bevestiging vóór ondertekening.",
+          "Volg elke gelockte aankoopgebeurtenis via countdown, unlock-status en brontransactie.",
+          "Gebruik één inforoute voor contracten, asset-wallets, executors en runtime-gereedheid."
+        ],
+        "actions": [
+          {
+            "label": "App downloaden",
+            "href": "/app"
+          },
+          {
+            "label": "Direct kopen openen",
+            "href": "/buy"
+          }
+        ],
+        "sideEyebrow": "Wallet-oppervlakken",
+        "sideTitle": "De app draagt nu het live productwerk.",
+        "sideStats": [
+          {
+            "label": "Primaire verkoop",
+            "value": "Voorbereiden → Bevestigen"
+          },
+          {
+            "label": "Zichtbaarheid",
+            "value": "Unlock-gebeurtenissen"
+          },
+          {
+            "label": "Uitvoering",
+            "value": "Controllerstatus"
+          },
+          {
+            "label": "Verificatie",
+            "value": "Inforoute"
+          }
+        ],
+        "sideHighlightTitle": "Schone producthub.",
+        "sideHighlightText": "Kopen, lock-inzicht, controllerwaarheid, groeirails en verificatie zijn nu verbonden via één wallet-achtige flow.",
+        "tools": [
+          {
+            "href": "/buy",
+            "title": "Direct kopen",
+            "meta": "Bereid de echte mint-bij-aankoop flow voor vóór bevestiging"
+          },
+          {
+            "href": "/unlock",
+            "title": "Unlock-tijdlijn",
+            "meta": "Lees direct-buy gebeurtenissen per wallet, countdown en unlock-status"
+          },
+          {
+            "href": "/liquidity",
+            "title": "Liquiditeitscontroller",
+            "meta": "Bekijk drempel, vrijgavecadans, executors en controllerhistorie"
+          },
+          {
+            "href": "/verification",
+            "title": "Inforoute",
+            "meta": "Open contracten, vaults, asset-wallets en runtime-gereedheid"
+          }
+        ]
+      },
+      "wallets": {
+        "eyebrow": "Wallet-ondersteuning",
+        "title": "Wallet-ondersteuning is belangrijk omdat de app nu wallet-status weerspiegelt op live oppervlakken.",
+        "description": "Direct kopen, unlock-rijen, cabinet-acties en Telegram-claimstatus veranderen allemaal afhankelijk van of de geselecteerde wallet kan ondertekenen, of deze watch-only is, en of saldo- en resourcestatus soepel in de flow worden opgehaald.",
+        "bestStatus": "Beste mobiele ervaring",
+        "bestItems": [
+          {
+            "name": "Binance Wallet",
+            "note": "Werkt • Saldo zichtbaar"
+          },
+          {
+            "name": "Bitget Wallet",
+            "note": "Werkt • Saldo zichtbaar"
+          },
+          {
+            "name": "OKX Wallet",
+            "note": "Werkt • Saldo zichtbaar"
+          },
+          {
+            "name": "TokenPocket",
+            "note": "Werkt • Saldo zichtbaar"
+          }
+        ],
+        "compatibleStatus": "Werkt in mobiele browser",
+        "compatibleItems": [
+          {
+            "name": "FoxWallet",
+            "note": "Werkt • Saldo niet weergegeven"
+          },
+          {
+            "name": "imToken",
+            "note": "Werkt • Saldo niet weergegeven"
+          },
+          {
+            "name": "MetaMask",
+            "note": "Werkt • Saldo niet weergegeven"
+          },
+          {
+            "name": "TronLink",
+            "note": "Werkt • Saldo niet weergegeven"
+          },
+          {
+            "name": "WalletConnect",
+            "note": "Werkt • Saldo niet weergegeven"
+          },
+          {
+            "name": "Trust Wallet",
+            "note": "Gebruik de desktop Chrome-extensie"
+          }
+        ],
+        "highlightTitle": "Aanbevolen voor app + koopflow:",
+        "highlightText": "Binance Wallet, Bitget Wallet, OKX Wallet en TokenPocket bieden de soepelste ervaring omdat ze saldi correct weergeven en de wallet-bewuste oppervlakken makkelijker te vertrouwen maken."
+      },
+      "trust": {
+        "eyebrow": "Verifieer het protocol",
+        "title": "De wallet-app, website-oppervlakken, repos en chain moeten allemaal naar dezelfde waarheid wijzen.",
+        "links": [
+          {
+            "label": "App",
+            "value": "Mobiele download",
+            "href": "/app"
+          },
+          {
+            "label": "Website",
+            "value": "Live oppervlakken",
+            "href": "/buy"
+          },
+          {
+            "label": "Netwerk",
+            "value": "TRON Mainnet",
+            "href": "https://tronscan.org",
+            "external": true
+          },
+          {
+            "label": "Repo",
+            "value": "Wallet-app",
+            "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+            "external": true
+          },
+          {
+            "label": "Docs",
+            "value": "Whitepaper",
+            "href": "/whitepaper"
+          },
+          {
+            "label": "Info",
+            "value": "Verificatie",
+            "href": "/verification"
+          }
+        ]
+      },
+      "howItWorks": {
+        "eyebrow": "Hoe het werkt",
+        "title": "Wat de operationele oppervlakken nu afdekken.",
+        "description": "De app is niet langer slechts een schil rond links. Hij verwerkt al uitleg, wallet-bewuste gating, bevestigingsflow, oppervlak-specifieke historie, controllerstatus, beloningsrouting en social-claimstatus.",
+        "steps": [
+          {
+            "step": "1",
+            "title": "Bereid de directe aankoop voor in de app",
+            "text": "Het koopscherm is eerst een voorbereidingsstap. De geselecteerde ondertekenende wallet voert TRX in, ziet de geschatte 4TEEN en gaat pas daarna naar de bevestigingslaag waar de app de echte transactie opbouwt en resources controleert."
+          },
+          {
+            "step": "2",
+            "title": "Volg elke gelockte batch per aankoop",
+            "text": "Unlock Timeline is geen generieke historie. Het leest direct-buy gebeurtenissen voor de geselecteerde wallet, toont de UTC-unlocktijd, live countdown, lockstatus en de TronScan-transactie achter elke aankooprij."
+          },
+          {
+            "step": "3",
+            "title": "Open de controller wanneer je liquiditeitswaarheid nodig hebt",
+            "text": "Liquiditeitsuitvoering is een echt oppervlak in de app. Het toont de drempel van 100 TRX, de dagelijkse vrijgaveregel van 6.43%, executor-split, contractlinks en recente controller-side historie, in plaats van die logica in tekst te verbergen."
+          }
+        ],
+        "airdropStep": {
+          "step": "4",
+          "title": "Lees social airdrop-status als een echt scherm",
+          "text": "De airdrop-pagina combineert drie checks tegelijk in plaats van te doen alsof elke sociale route live is.",
+          "items": [
+            {
+              "value": "Wallet",
+              "label": "Ondertekenende of watch-only status verandert of de claimflow kan doorgaan"
+            },
+            {
+              "value": "Sessie",
+              "label": "Telegram-botsessie bepaalt of de kaart beschikbaar, nu-verifiëren of sessie-live is"
+            },
+            {
+              "value": "Chain",
+              "label": "On-chain claimstatus kan al ontvangen, in wachtrij of legacy-gebruikt tonen"
+            }
+          ]
+        },
+        "cabinetStep": {
+          "step": "5",
+          "title": "Gebruik één cabinet voor registratie, kopers, aankopen, pending rijen en beloningen",
+          "text": "De ambassador-flow is niet langer een doodlopende registratiepagina. Dezelfde route begint met een eenmalige slugregistratie en wordt daarna een werkend cabinet waar referral-identiteit, gevolgde aankopen, claimbare beloningen, geclaimde totalen en pending allocation replay samen zichtbaar zijn."
+        }
+      },
+      "architecture": {
+        "eyebrow": "Architectuurdiagram",
+        "title": "Hoe de inforoute het systeem on-chain uitlegt.",
+        "description": "De compacte inforoute in de app verbindt nu contracten, routing, vaults, executors, asset-wallets en runtime-checks. De website kan de kaart nog steeds tonen, maar moet weerspiegelen dat achter deze architectuur al een werkend productscherm zit.",
+        "entry": {
+          "label": "Instap",
+          "title": "Gebruikers-TRX",
+          "text": "Directe protocolaankoop komt het systeem binnen"
+        },
+        "core": {
+          "label": "Kerncontract",
+          "title": "FourteenToken",
+          "text": "Mint bij aankoop + 14-daagse lock + automatische TRX-split",
+          "pills": [
+            "Mint bij aankoop",
+            "14-daagse lock",
+            "TRX-split: 90% / 7% / 3%"
+          ]
+        },
+        "liquidity": {
+          "eyebrow": "90% TRX-pad",
+          "title": "Liquiditeitsuitvoeringslaag",
+          "text": "Het grootste deel gaat naar een dedicated liquiditeitssysteem. Vrijgavetiming, reserveopslag, bootstrap-voorbereiding en DEX-uitvoering zijn geïsoleerd in afzonderlijke rollen.",
+          "controller": {
+            "label": "Controller",
+            "title": "FourteenLiquidityController",
+            "text": "Geeft één keer per UTC-dag 6.43% vrij en bepaalt wanneer liquiditeit kan bewegen"
+          },
+          "vault": {
+            "label": "Reserve-vault",
+            "title": "FourteenVault",
+            "text": "Bewaart de 4TEEN-reserve die specifiek wordt gebruikt voor liquiditeitsvoorziening"
+          },
+          "bootstrapper": {
+            "label": "Voorbereidingslaag",
+            "title": "LiquidityBootstrapper",
+            "text": "Berekent benodigde tokenbedragen, haalt uit FourteenVault, voorziet executors en triggert de uitvoeringsflow"
+          },
+          "executors": [
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorJustMoney",
+              "text": "DEX-specifiek uitvoeringspad voor JustMoney"
+            },
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorSunV3",
+              "text": "DEX-specifiek uitvoeringspad voor Sun.io V3"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "7% TRX-pad",
+          "title": "Controle- + ambassador-beloninglaag",
+          "text": "Dit pad blijft buiten tokenuitgifte en liquiditeitsuitvoering. Het combineert protocolcontrole met referral-toewijzing, geverifieerde aankoopallocatie, levelprogressie en claimbare ambassador-beloningen.",
+          "controller": {
+            "label": "Controller",
+            "title": "FourteenController",
+            "text": "Bezit FourteenToken, beheert owner-functies, operatorlogica, reward accounting, aankoopallocatie en gecontroleerde withdrawals."
+          },
+          "flow": {
+            "label": "Ambassador-flow",
+            "title": "Registratie → Binding → Geverifieerde aankoop → Beloning",
+            "text": "Walletregistratie, publieke slug-identiteit, koperbinding, geverifieerde aankoopregistratie, opbouw van claimbare beloning en beloningsopname."
+          },
+          "ladderTitle": "Ambassador-beloningsladder",
+          "ladder": [
+            {
+              "level": "Bronze",
+              "buyers": "0–9 kopers",
+              "percent": "10%"
+            },
+            {
+              "level": "Silver",
+              "buyers": "10–99 kopers",
+              "percent": "25%"
+            },
+            {
+              "level": "Gold",
+              "buyers": "100–999 kopers",
+              "percent": "50%"
+            },
+            {
+              "level": "Platinum",
+              "buyers": "1000+ kopers",
+              "percent": "75%"
+            }
+          ],
+          "noteTitle": "Allocatielogica",
+          "noteText": "ambassador-beloning wordt berekend uit het aankoop-ownerdeel tijdens geverifieerde aankoopallocatie. Level override wordt ondersteund, en beloningen gaan naar claimbaar saldo vóór opname."
+        },
+        "airdrop": {
+          "eyebrow": "3% TRX-pad",
+          "title": "Community-distributielaag",
+          "text": "Dit pad voedt de live airdrop-structuur. Distributie wordt gefaseerd via waves en uitgebreid over meerdere sociale routes, in plaats van behandeld te worden als een eenmalige giveaway.",
+          "vault": {
+            "label": "Vault",
+            "title": "AirdropVault",
+            "text": "Community- en groeireserve gebruikt voor gefaseerde ecosysteemdistributie, wallet-gekoppelde beloningsflows en live campagneroutes"
+          },
+          "model": {
+            "label": "Distributiemodel",
+            "title": "1,500,000 4TEEN • 6 vaste waves",
+            "text": "Wave-gebaseerde vrijgavestructuur met vandaag één live route en in de loop van de tijd meer campagneroutes"
+          },
+          "pills": [
+            {
+              "label": "Telegram live",
+              "tone": "live"
+            },
+            {
+              "label": "X binnenkort",
+              "tone": "wait"
+            },
+            {
+              "label": "Instagram binnenkort",
+              "tone": "wait"
+            },
+            {
+              "label": "Meer socials volgen",
+              "tone": "wait"
+            }
+          ],
+          "liveRoute": {
+            "label": "Huidige live route",
+            "title": "Telegram-campagne",
+            "text": "Huidige publieke route binnen de live airdrop-infrastructuur",
+            "action": {
+              "label": "Huidige live route openen",
+              "href": "/airdrop"
+            }
+          },
+          "snapshotTitle": "Live airdrop-snapshot",
+          "snapshotRows": [
+            {
+              "label": "Status",
+              "value": "Nu live"
+            },
+            {
+              "label": "Beloningsrange",
+              "value": "1–5 4TEEN"
+            },
+            {
+              "label": "Verificatie",
+              "value": "Vereist"
+            },
+            {
+              "label": "Wallet nodig",
+              "value": "TRON Wallet"
+            },
+            {
+              "label": "Beloningslevering",
+              "value": "On-chain"
+            },
+            {
+              "label": "Claimtype",
+              "value": "platformBit = 4"
+            }
+          ]
+        },
+        "facts": [
+          {
+            "label": "Liquiditeit",
+            "text": "Vrijgavetiming, reserveopslag, bootstrap-voorbereiding en DEX-uitvoering zijn geïsoleerd in dedicated contracten."
+          },
+          {
+            "label": "Ambassadors",
+            "text": "Levelprogressie en beloningspercentage zijn gekoppeld aan echte kopersaantallen en geverifieerde aankoopallocatie."
+          },
+          {
+            "label": "Airdrop",
+            "text": "De community-route is wave-gebaseerd, multi-platform en al live via Telegram."
+          },
+          {
+            "label": "Waarom het ertoe doet",
+            "text": "4TEEN gedraagt zich als een systeem van gescheiden rollen, niet als één overbelaste contractblob."
+          }
+        ]
+      },
+      "why": {
+        "eyebrow": "Waarom deze structuur ertoe doet",
+        "title": "De productlaag haalt eindelijk de protocollaag in.",
+        "description": "Contracten hadden altijd gescheiden rollen. Wat is veranderd: de app toont die rollen nu als leesbare, wallet-bewuste schermen, in plaats van gebruikers alleen ruwe on-chain ideeën en verspreide links te geven.",
+        "cards": [
+          {
+            "number": "01",
+            "title": "Er bestaat al één hub in de wallet-app",
+            "text": "De app-home is al de compacte producthub: kopen, unlock, liquiditeit, airdrop, ambassadors en info zijn gegroepeerd als oppervlakken, niet begraven in één lange uitleg.",
+            "note": "De website moet mensen naar diezelfde oppervlakken leiden in plaats van een oudere denkbeeldige roadmap te beschrijven."
+          },
+          {
+            "number": "02",
+            "title": "Wallet-bewuste status is nu echt gedrag",
+            "text": "Watch-only versus ondertekenende wallet, claimbare versus pending beloningen, Telegram-sessiestatus en resource-gereedheid veranderen allemaal wat de gebruiker daadwerkelijk in de app kan doen.",
+            "note": "Dat betekent dat de homepagetekst statussen en acties moet beschrijven, niet alleen contracttheorie."
+          },
+          {
+            "number": "03",
+            "title": "Verificatie is al een werkende route",
+            "text": "Architectuur, contractrollen, vaults, executors, asset-walletsaldi en gereedheid voor allocation replay zijn niet langer alleen whitepaper-onderwerpen. De app toont ze al als één compact infoscherm.",
+            "note": "De site is het sterkst wanneer hij die infolaag beschrijft als live product, niet als toekomstige documentatie."
+          }
+        ],
+        "notePrefix": "Waarom het ertoe doet"
+      },
+      "liveMetrics": {
+        "eyebrow": "Live protocolstatistieken",
+        "title": "Een live lezing van instap, liquiditeit, beloningen en operationele status.",
+        "description": "Deze kaarten moeten weerspiegelen wat de gebruiker daadwerkelijk in de app kan openen: direct-buy context, unlock- en controller-side status, cabinet-beloningflow en de huidige Telegram-first sociale distributieroute.",
+        "liquidity": {
+          "eyebrow": "Liquiditeitsengine",
+          "title": "Regelgebaseerde liquiditeitsflow",
+          "note": "In de app verschijnt dit als drempelchecks, context voor de volgende vrijgave, executor-split, contractlinks en controller-side historie, in plaats van één ondoorzichtige “liquiditeit”-zin.",
+          "rows": [
+            {
+              "label": "Controller",
+              "value": "FourteenLiquidityController"
+            },
+            {
+              "label": "Reserve-vault",
+              "value": "FourteenVault"
+            },
+            {
+              "label": "Voorbereidingslaag",
+              "value": "LiquidityBootstrapper"
+            },
+            {
+              "label": "Uitvoeringssplit",
+              "value": "50% / 50%"
+            },
+            {
+              "label": "DEX-paden",
+              "value": "JustMoney + Sun.io V3"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "Ambassador-laag",
+          "title": "Cabinet-beloningflow",
+          "note": "In de app combineert deze route on-chain cabinetstatus met backend-attributierijen, zodat nu claimbaar, totaal geclaimd en pending replay samen op één plek live zijn.",
+          "ladder": [
+            {
+              "level": "Bronze",
+              "meta": "0–9 kopers",
+              "value": "10%"
+            },
+            {
+              "level": "Silver",
+              "meta": "10–99 kopers",
+              "value": "25%"
+            },
+            {
+              "level": "Gold",
+              "meta": "100–999 kopers",
+              "value": "50%"
+            },
+            {
+              "level": "Platinum",
+              "meta": "1000+ kopers",
+              "value": "75%"
+            }
+          ]
+        },
+        "airdrop": {
+          "eyebrow": "Airdrop-laag",
+          "title": "Snapshot van live sociale distributie",
+          "rows": [
+            {
+              "label": "Totale allocatie",
+              "value": "1,500,000 4TEEN",
+              "tone": "strong"
+            },
+            {
+              "label": "Wave-structuur",
+              "value": "6 vaste waves"
+            },
+            {
+              "label": "Huidige live route",
+              "value": "Telegram",
+              "tone": "live"
+            },
+            {
+              "label": "Andere socials",
+              "value": "Read-only placeholders",
+              "tone": "wait"
+            },
+            {
+              "label": "Beloningslevering",
+              "value": "On-chain"
+            }
+          ],
+          "action": {
+            "label": "Live Telegram-route openen",
+            "href": "/airdrop"
+          }
+        }
+      },
+      "tools": {
+        "eyebrow": "Tools",
+        "title": "Open dezelfde oppervlakken die de app al toont.",
+        "description": "Dit zijn geen placeholder-menu-items meer. Ze mappen direct naar routes en gedragingen die al bestaan in de wallet-achtige productflow en al live wallet-status dragen.",
+        "cards": [
+          {
+            "status": "Openen",
+            "tone": "live",
+            "title": "Mobile App",
+            "text": "Open de dedicated mobile-app route met store-downloadopties en een schone fallback terug naar de weboppervlakken.",
+            "href": "/app"
+          },
+          {
+            "status": "Live",
+            "tone": "live",
+            "title": "4TEEN kopen",
+            "text": "Open het direct-buy voorbereidingsscherm met bedraginvoer, schatting, splitcontext en bevestigingspad.",
+            "href": "/buy"
+          },
+          {
+            "status": "Volgen",
+            "tone": "live",
+            "title": "Unlock-tijdlijn",
+            "text": "Lees direct-buy gebeurtenisrijen per wallet, unlock-timestamp, live countdown en transactiebron.",
+            "href": "/unlock"
+          },
+          {
+            "status": "Volgen",
+            "tone": "live",
+            "title": "Liquiditeitscontroller",
+            "text": "Volg drempel, dagelijkse vrijgave van 6.43%, executors, recente controller-events en uitvoeringsgereedheid.",
+            "href": "/liquidity"
+          },
+          {
+            "status": "Live",
+            "tone": "live",
+            "title": "Airdrop-status",
+            "text": "Bekijk Telegram live-claimstatus, watch-only beperkingen, botsessiestatus en on-chain beloningsstatus.",
+            "href": "/airdrop"
+          },
+          {
+            "status": "Beheren",
+            "tone": "live",
+            "title": "Ambassador-cabinet",
+            "text": "Ga van eenmalige registratie naar cabinet-modus met slug, kopers, aankopen, pending rijen en beloningen.",
+            "href": "/ambassadors"
+          },
+          {
+            "status": "Verifiëren",
+            "tone": "wait",
+            "title": "Inforoute",
+            "text": "Open het compacte architectuurscherm voor contracten, asset-wallets, runtime-gezondheid en publieke bewijslinks.",
+            "href": "/verification"
+          }
+        ]
+      },
+      "verification": {
+        "eyebrow": "Verificatie / Contracten",
+        "title": "Verifieer het protocol via contracten, repos, docs en de app-hub.",
+        "description": "Het publieke verhaal is nu sterker omdat de wallet-app al fungeert als een operationele laag bovenop die contracten, repos, docs, asset-walletchecks en live oppervlakken.",
+        "contracts": {
+          "eyebrow": "On-chain contracten",
+          "title": "Mainnet-deploymentlaag",
+          "links": [
+            {
+              "label": "Kern",
+              "value": "FourteenToken",
+              "href": "https://tronscan.org/#/token20/TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A"
+            },
+            {
+              "label": "Kern",
+              "value": "FourteenController",
+              "href": "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ"
+            },
+            {
+              "label": "Kern",
+              "value": "FourteenLiquidityController",
+              "href": "https://tronscan.org/#/contract/TVKBLwg222skKnZ3F3boTiH35KC7nvYEuZ"
+            },
+            {
+              "label": "Vault",
+              "value": "FourteenVault",
+              "href": "https://tronscan.org/#/contract/TNwkuHA727RZGtpbowH7q5B1yZWk2JEZTq"
+            },
+            {
+              "label": "Vault",
+              "value": "TeamLockVault",
+              "href": "https://tronscan.org/#/contract/TYBfbgvMW6awPdZfSSwWoEX3nJjrKWZS3h"
+            },
+            {
+              "label": "Vault",
+              "value": "AirdropVault",
+              "href": "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ"
+            },
+            {
+              "label": "Uitvoering",
+              "value": "LiquidityBootstrapper",
+              "href": "https://tronscan.org/#/contract/TWfUee6qFV91t7KbFdYLEfpi8nprUaJ7dc"
+            },
+            {
+              "label": "Uitvoering",
+              "value": "LiquidityExecutorSunV3",
+              "href": "https://tronscan.org/#/contract/TU8EwEWg4K594zwThvhTZxqzEuEYuR46xh"
+            },
+            {
+              "label": "Uitvoering",
+              "value": "LiquidityExecutorJustMoney",
+              "href": "https://tronscan.org/#/contract/TWrz68MRTf1m9vv8xpcdMD4z9kjBxiHw7F"
+            }
+          ]
+        },
+        "repositories": {
+          "eyebrow": "Repositories",
+          "title": "Publieke infra en operationele code",
+          "links": [
+            {
+              "label": "Repo",
+              "value": "4teen-smart-contracts",
+              "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-wallet-app",
+              "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-ambassador-system",
+              "href": "https://github.com/info14fourteen-creator/4teen-ambassador-system"
+            },
+            {
+              "label": "Repo",
+              "value": "liquidity-bootstrapper-cron",
+              "href": "https://github.com/info14fourteen-creator/liquidity-bootstrapper-cron"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-telegram-airdrop-bot",
+              "href": "https://github.com/info14fourteen-creator/4teen-telegram-airdrop-bot"
+            }
+          ]
+        },
+        "docs": {
+          "eyebrow": "Docs",
+          "title": "Publieke leeslaag",
+          "links": [
+            {
+              "label": "Docs",
+              "value": "Whitepaper",
+              "href": "/whitepaper"
+            },
+            {
+              "label": "Docs",
+              "value": "Verificatie",
+              "href": "/verification"
+            },
+            {
+              "label": "Docs",
+              "value": "Blog",
+              "href": "/blog"
+            }
+          ]
+        },
+        "hubs": {
+          "eyebrow": "Hubs",
+          "title": "Publieke instappunten voor het ecosysteem",
+          "links": [
+            {
+              "label": "Hub",
+              "value": "Airdrop-hub",
+              "href": "/airdrop"
+            },
+            {
+              "label": "Hub",
+              "value": "Ambassador-programma",
+              "href": "/ambassadors"
+            }
+          ]
+        }
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Duidelijke antwoorden voordat je de live oppervlakken opent.",
+        "description": "De juiste vragen veranderen. Gebruikers hebben nu duidelijkheid nodig over wat elke route daadwerkelijk doet, welke acties afhangen van wallettype, en welke groei- of verificatieflows al live zijn in de app.",
+        "items": [
+          {
+            "question": "Waarom heeft 4TEEN een direct-buy scherm nodig in plaats van alleen een swap?",
+            "answer": "Omdat de app direct kopen behandelt als een afzonderlijk contract-side oppervlak. Hij bereidt een mint-bij-aankoop flow voor, toont de schatting, legt de 14-daagse lock uit en gaat daarna naar de echte bevestigingsstap."
+          },
+          {
+            "question": "Wat volgt Unlock Timeline precies?",
+            "answer": "Alleen direct-buy gebeurtenissen die aan de geselecteerde wallet zijn gekoppeld. Elke rij toont het bedrag, de UTC-unlocktijd, live countdown, huidige lockstatus en de TronScan-transactie achter die aankoopgebeurtenis."
+          },
+          {
+            "question": "Waarom maakt het voor sommige routes uit of de wallet watch-only is?",
+            "answer": "Omdat de app nu gedrag afdwingt per wallettype. Watch-only wallets kunnen status lezen, maar kunnen zich niet registreren als ambassadors, beloningen opnemen of ondertekeningsflows uitvoeren zoals direct kopen of liquiditeitsacties."
+          },
+          {
+            "question": "Is de airdrop-pagina nu alleen een promopagina?",
+            "answer": "Nee. Het is al een stateful scherm. Telegram is de live route, en de kaart combineert lokale wallet-status, huidige botsessiestatus en on-chain claimstatus voordat wordt bepaald welke actie als volgende beschikbaar is."
+          },
+          {
+            "question": "Wat verifieert de inforoute dat de website alleen niet kan?",
+            "answer": "Hij brengt contracten, vaults, liquiditeitsexecutors, asset-walletsaldi en operator-side gereedheid samen in één compact operationeel scherm. Daarmee wordt verificatie onderdeel van de productflow, niet alleen een docspagina."
+          }
+        ]
+      },
+      "risk": {
+        "eyebrow": "Risico / Disclosure",
+        "title": "Gestructureerde mechanieken nemen marktrisico niet weg.",
+        "description": "4TEEN is een on-chain tokenprotocol met zichtbare regels, gescheiden contractrollen en publieke verificatiepaden. Dat maakt het systeem makkelijker te inspecteren, maar verandert tokendeelname niet in een product met gegarandeerd rendement.",
+        "understandTitle": "Wat gebruikers moeten begrijpen",
+        "understandItems": [
+          "De directe protocolprijs is niet hetzelfde als de open-market DEX-prijs.",
+          "Een 14-daagse unlock verandert de timing, maar garandeert geen gunstige exit.",
+          "Liquiditeitsregels beschrijven vrijgavegedrag, geen toekomstige marktuitkomsten.",
+          "Ambassador-beloningen en airdrop-routes zijn gestructureerde lagen, geen gegarandeerd inkomen."
+        ],
+        "actionTitle": "Wat gebruikers moeten doen",
+        "actionItems": [
+          "Verifieer contracten, repos en publieke documentatie voordat je handelt.",
+          "Begrijp de lock-, belonings- en distributiemechanieken voordat je koopt.",
+          "Gebruik ondersteunde wallets en controleer live routes zorgvuldig.",
+          "Neem onafhankelijke beslissingen in plaats van protocolstructuur als winstbelofte te behandelen."
+        ],
+        "noteTitle": "Belangrijk",
+        "noteText": "4TEEN is gebouwd rond observeerbaar on-chain gedrag, niet rond gegarandeerde uitkomsten. Gebruikers moeten het systeem zelf verifiëren en alleen handelen met risico dat ze begrijpen."
+      },
+      "cta": {
+        "eyebrow": "Laatste CTA",
+        "title": "Kies het oppervlak dat je nodig hebt",
+        "lead": "Download de mobile app, bereid een directe aankoop voor, verifieer de compacte architectuurroute of ga direct naar de live groei- en trackingoppervlakken.",
+        "cards": [
+          {
+            "status": "Openen",
+            "tone": "live",
+            "title": "App downloaden",
+            "text": "Start vanaf de mobile-app route met store-downloadopties en een schone overdracht naar het wallet-product.",
+            "href": "/app"
+          },
+          {
+            "status": "Kopen",
+            "tone": "live",
+            "title": "Direct kopen openen",
+            "text": "Ga direct naar de contract-side instapflow met bedragpreview, bevestiging en wallet-bewuste gating.",
+            "href": "/buy"
+          },
+          {
+            "status": "Volgen",
+            "tone": "live",
+            "title": "Verificatie openen",
+            "text": "Gebruik de publieke bewijslaag voor contracten, repos, liquiditeitslogica en de architectuurkaart achter de app-oppervlakken.",
+            "href": "/verification"
+          },
+          {
+            "status": "Beheren",
+            "tone": "live",
+            "title": "Ambassador-cabinet openen",
+            "text": "Registreer, inspecteer referral-identiteit, volg aankopen en werk met live beloningsstatus in één route.",
+            "href": "/ambassadors"
+          }
+        ],
+        "actions": [
+          {
+            "label": "App downloaden",
+            "href": "/app"
+          },
+          {
+            "label": "Direct kopen openen",
+            "href": "/buy"
+          },
+          {
+            "label": "Live Telegram-route openen",
+            "href": "/airdrop"
+          }
+        ]
+      }
     }
   }
 }
