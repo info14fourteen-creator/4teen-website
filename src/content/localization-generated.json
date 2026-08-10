@@ -18138,6 +18138,167 @@
           "openBuy": "Abrir ruta de compra"
         }
       }
+    },
+    "swap": {
+      "metadata": {
+        "title": "Swap",
+        "description": "Ruta de swap de 4TEEN con amplia cobertura de tokens del wallet, rutas clasificadas, protección de recepción mínima, revisión de aprobaciones y muestras públicas de rutas en vivo."
+      },
+      "hero": {
+        "eyebrow": "Ruta de swap",
+        "badge": "Ruta de swap centrada en el wallet",
+        "title": "Haz swap de 4TEEN hacia un universo más amplio de tokens TRON",
+        "subtitle": "El sitio solo muestra muestras ancla. El wallet ya busca en un universo de tokens mucho más amplio, clasifica rutas y guía al usuario por aprobar, revisar y hacer swap.",
+        "body": [
+          "Esta página no debe leerse como si 4TEEN solo hiciera swap hacia uno o dos tokens propios. En el wallet, el conjunto de destino se obtiene de activos enviables, del catálogo de tokens personalizados y de la lista de tokens de Tronscan, y luego se filtra según si la ruta realmente existe.",
+          "Eso significa que la ruta es más amplia que la vista previa del sitio público. Si existe liquidez y el router puede cotizarla, el wallet puede mostrarla, clasificarla y llevar al usuario a un paso de confirmación real."
+        ],
+        "rotatingLines": [
+          "UNIVERSO AMPLIO DE TOKENS. RUTAS CLASIFICADAS.",
+          "VISTA PREVIA EN EL SITIO. EJECUCIÓN EN EL WALLET.",
+          "MÍNIMO DE SALIDA. APROBAR. SWAP."
+        ],
+        "primaryCta": "Abrir ruta en el wallet",
+        "secondaryCta": "Ir a muestras de rutas en vivo",
+        "ctaNote": "El sitio es la capa de prueba. El wallet es donde realmente ocurren el cambio de token, la clasificación de rutas, la protección de recepción mínima, las verificaciones de allowance y la firma final.",
+        "stats": {
+          "sampleAmount": {
+            "label": "Tamaño de cotización de muestra",
+            "meta": "Las muestras públicas de rutas se actualizan contra el mismo importe de 4TEEN."
+          },
+          "supportedTargets": {
+            "label": "Rutas públicas de muestra",
+            "meta": "El sitio web mantiene público solo un conjunto ancla muy pequeño. El wallet puede explorar muchos más destinos cuando existen rutas."
+          },
+          "protectedRemainder": {
+            "label": "Remanente protegido",
+            "meta": "El wallet mantiene un remanente mínimo de 4TEEN en lugar de llevar el saldo a cero."
+          },
+          "routerState": {
+            "label": "Estado del router",
+            "meta": "Señal rápida de si el muestreo público de rutas está respondiendo por completo en este momento."
+          },
+          "readFailed": "Falló la lectura de enrutamiento de swap en vivo.",
+          "readRetry": "Intenta actualizar en un momento.",
+          "states": {
+            "live": "En vivo",
+            "partial": "Parcial",
+            "offline": "Sin conexión"
+          }
+        }
+      },
+      "sections": {
+        "tokenUniverse": {
+          "eyebrow": "Universo de tokens",
+          "title": "El wallet no está limitado a dos destinos promocionales.",
+          "intro": "El sitio público mantiene la historia deliberadamente pequeña. El wallet hace lo contrario: combina activos enviables del wallet, entradas del catálogo de tokens personalizados y la lista de tokens de Tronscan, y luego deja que el enrutamiento determine qué es realmente intercambiable.",
+          "mainCard": {
+            "eyebrow": "Acceso amplio a destinos",
+            "title": "Si el router puede cotizarlo, el wallet normalmente puede mostrarlo.",
+            "text": "Esa es la distinción importante. La vista previa del sitio web es intencionalmente estrecha. El wallet es donde el cambio de destino se vuelve real, porque puede cargar un universo de tokens más amplio y probarlo directamente contra la capa de enrutamiento.",
+            "bullets": [
+              "Los saldos enviables del wallet pueden convertirse en activos de origen.",
+              "Las entradas del catálogo personalizado y la lista de tokens de Tronscan amplían el conjunto de destinos mucho más allá de TRX y USDT.",
+              "Las rutas siguen filtrándose según si existe una cotización real, de modo que la interfaz se mantiene honesta en lugar de fingir que todos los tokens tienen liquidez."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Cambio de destino",
+              "title": "El usuario puede cambiar tanto el activo de origen como el activo a recibir en el wallet",
+              "text": "El flujo móvil no está congelado alrededor de un solo par. Permite cambiar activos antes de solicitar cotizaciones, por eso la ruta de swap debe presentarse como una utilidad de mercado más amplia."
+            },
+            {
+              "eyebrow": "Clasificación de rutas",
+              "title": "Las rutas se ordenan por salida, no por una preferencia codificada de forma rígida",
+              "text": "Las rutas disponibles se clasifican de mejor salida a peor salida, priorizando primero las rutas ejecutables. El usuario ve lo que realmente gana en lugar de una ruta opaca."
+            }
+          ],
+          "note": "Por eso, el mensaje correcto del producto no es “haz swap hacia TRX o USDT”. El mensaje correcto es “el wallet puede buscar en un universo de destinos mucho más amplio cuando hay enrutamiento disponible”."
+        },
+        "liveRoutes": {
+          "eyebrow": "Muestras de rutas en vivo",
+          "title": "Una pequeña ventana pública al motor de enrutamiento",
+          "body": "Estas tarjetas se mantienen intencionalmente estrechas. Muestran solo un par de muestras ancla para que el sitio pueda demostrar que el motor está activo sin pretender ser todo el producto de swap.",
+          "labels": {
+            "route": "Ruta",
+            "execution": "Ejecución",
+            "impact": "Impacto",
+            "targets": "Destinos",
+            "updated": "Actualizado",
+            "state": "Estado"
+          },
+          "transfers": {
+            "eyebrow": "Últimas transferencias del router",
+            "title": "Movimiento reciente confirmado de 4TEEN que toca el router público",
+            "empty": "No hay transferencias recientes del router de 4TEEN en caché en este momento.",
+            "note": "Esta lista se carga a través de la capa de snapshot del backend, se almacena en caché en nuestra base de datos y se sirve de forma segura ante datos obsoletos cuando el explorador externo está ruidoso.",
+            "labels": {
+              "direction": "Dirección",
+              "counterparty": "Contraparte",
+              "amount": "Importe",
+              "updated": "Actualizado",
+              "tx": "Tx"
+            },
+            "states": {
+              "routerIn": "Router recibió",
+              "routerOut": "Router envió",
+              "related": "Relacionado con el router"
+            }
+          },
+          "states": {
+            "executable": "Ruta ejecutable",
+            "reviewOnly": "Ruta solo para revisión"
+          },
+          "empty": "No hay ninguna muestra pública de ruta disponible en este momento.",
+          "note": "Dentro del wallet, el cambio de destino y la clasificación de rutas ocurren contra un universo de tokens mucho más amplio. El sitio web mantiene visible solo una muestra pública compacta."
+        },
+        "reviewLayer": {
+          "eyebrow": "Capa de revisión",
+          "title": "El wallet no salta directamente al swap. Primero construye una revisión controlada.",
+          "intro": "La parte más importante de la ruta no es la captura de marketing. Es el traspaso controlado entre la vista previa de cotización y la ejecución final: mínimo protegido, estado de aprobación, panorama de recursos de red y el paso de firma final.",
+          "mainCard": {
+            "eyebrow": "Aprobar y hacer swap",
+            "title": "El mínimo de salida, la aprobación y la revisión de recursos forman parte de la ruta antes de que se envíe cualquier cosa.",
+            "text": "Una ruta puede ser visible y aun así no ser ejecutable todavía. Ese es un comportamiento saludable. El wallet espera hasta que el estado de aprobación, la validez de la ruta y la preparación de recursos estén alineados antes de ofrecer la acción final.",
+            "bullets": [
+              "El slippage protege el importe mínimo recibido antes de que el swap salga del wallet.",
+              "La aprobación se verifica primero cuando falta la allowance.",
+              "Los costos de energía y ancho de banda se muestran antes del paso de confirmación final."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Alquiler de recursos",
+              "title": "La ruta puede guiar al usuario hacia una ejecución con alquiler primero cuando sea más barato",
+              "text": "El wallet ya presenta la lógica de ahorro de recursos como parte del flujo. Eso mantiene la ejecución práctica en lugar de permitir que los usuarios descubran los costos de quema solo después de firmar."
+            },
+            {
+              "eyebrow": "Polvo protegido",
+              "title": "Un pequeño remanente de 4TEEN se queda atrás a propósito",
+              "text": "El remanente protegido evita casos frágiles de saldo cero y hace que el manejo posterior de rutas sea más tranquilo. Es una regla pequeña, pero es una buena regla de wallet."
+            }
+          ],
+          "note": "Eso es lo que hace que el producto se sienta serio: descubrimiento amplio de tokens al frente y disciplina de ejecución controlada al final."
+        },
+        "verification": {
+          "eyebrow": "Verificación",
+          "title": "De dónde viene esta historia de rutas",
+          "body": "Esta página sigue la implementación real del wallet: cambio de destino, carga de un catálogo de tokens más amplio, clasificación de cotizaciones, protección de recepción mínima, verificaciones de aprobación y ejecución final a través de la capa del router detrás de la app.",
+          "labels": {
+            "router": "Router inteligente",
+            "token": "Token 4TEEN",
+            "walletRepo": "Repositorio del wallet"
+          }
+        },
+        "cta": {
+          "eyebrow": "Abre la ruta real",
+          "title": "Abre el wallet cuando quieras el mapa completo de rutas",
+          "body": "El sitio web debe hacer comprensible la oportunidad de swap. El wallet móvil es donde el universo de tokens más amplio, las rutas clasificadas, la revisión de aprobaciones, el mínimo protegido y la firma final se unen.",
+          "openApp": "Abrir app móvil",
+          "openBuy": "Abrir ruta de compra"
+        }
+      }
     }
   }
 }
