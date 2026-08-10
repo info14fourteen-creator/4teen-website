@@ -14640,6 +14640,197 @@
           "openBuy": "Ouvrir le parcours d’achat"
         }
       }
+    },
+    "liquidity": {
+      "metadata": {
+        "title": "Contrôleur de liquidité public",
+        "description": "Contrôleur de liquidité public 4TEEN avec solde du contrôleur en direct, chemin de déclenchement public du bootstrapper, visibilité des réserves et flux d’exécutions confirmées."
+      },
+      "hero": {
+        "eyebrow": "Contrôleur de liquidité",
+        "badge": "Contrôleur de liquidité public",
+        "title": "Contrôleur de liquidité public 4TEEN",
+        "subtitle": "L’automatisation peut réveiller la route, mais n’importe quel wallet peut toujours déclencher le bootstrapper lorsque la porte du contrat est ouverte.",
+        "body": [
+          "Cette page ne doit pas ressembler à un panneau d’opérations fermé. Elle doit rendre une chose évidente : les TRX côté contrôleur sont visibles, l’inventaire côté réserve est visible, et les règles de libération restent on-chain.",
+          "Si la fenêtre UTC est ouverte, que le contrôleur est au-dessus du seuil et que le wallet signataire dispose de suffisamment de ressources réseau, la liquidité peut toujours être exécutée depuis le wallet même si la couche d’automatisation manque une journée."
+        ],
+        "rotatingLines": [
+          "DÉCLENCHEMENT PUBLIC. PORTE CONTRACTUELLE.",
+          "L’AUTOMATISATION AIDE. LES CONTRATS DÉCIDENT.",
+          "BOOTSTRAP D’ABORD. EXÉCUTION ON-CHAIN."
+        ],
+        "primaryCta": "Ouvrir la route du wallet",
+        "secondaryCta": "Aller aux exécutions en direct",
+        "ctaNote": "Le site web est la couche de preuve. Le wallet est la surface d’exécution pour le déclenchement manuel, les vérifications de ressources et la signature finale.",
+        "stats": {
+          "controllerBalance": {
+            "label": "Solde du contrôleur",
+            "meta": "TRX actuellement en attente dans FourteenLiquidityController."
+          },
+          "nextRelease": {
+            "label": "Prochaine libération",
+            "meta": "Libération de TRX projetée lorsque la fenêtre du contrat est valide."
+          },
+          "triggerFloor": {
+            "label": "Seuil de déclenchement",
+            "meta": "Solde minimal du contrôleur requis pour que l’exécution soit valide."
+          },
+          "cadence": {
+            "label": "Cadence",
+            "meta": "Une fois par jour UTC. La porte est appliquée par le contrat, pas par l’automatisation."
+          },
+          "readFailed": "Échec de la lecture de liquidité en direct.",
+          "readRetry": "Essayez d’actualiser dans un instant."
+        }
+      },
+      "sections": {
+        "publicRoute": {
+          "eyebrow": "Route publique",
+          "title": "L’automatisation est configurée. L’exécution publique appartient toujours au wallet.",
+          "intro": "L’application wallet intègre déjà le chemin d’automatisation, mais le message le plus important va plus loin : cette route reste publique. Un wallet signataire peut réveiller le bootstrapper lorsque les conditions du contrat sont déjà remplies.",
+          "mainCard": {
+            "eyebrow": "Contrôleur de liquidité public",
+            "title": "N’importe quel wallet peut réveiller la route. Le contrôleur décide toujours si la liquidité se déplace réellement.",
+            "text": "C’est la bonne séparation des pouvoirs. L’automatisation peut aider sur le timing, mais le contrôleur et le bootstrapper restent la couche d’autorité. Le chemin d’exécution ne disparaît pas si un bot se met en pause.",
+            "bullets": [
+              "Les achats directs de 4TEEN envoient 90% des TRX d’achat dans le solde du contrôleur.",
+              "LiquidityBootstrapper prépare le côté token depuis FourteenVault avant que le contrôleur n’exécute.",
+              "La règle d’une fois par jour UTC, le solde minimum, le pourcentage de libération et la répartition restent on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Automatisation",
+              "title": "Le repo du wallet câble déjà le chemin de réveil",
+              "text": "Le flux mobile expose ensemble le déclencheur de liquidité et l’assistant d’automatisation. Cela rend le planificateur visible, mais ne transforme pas le planificateur en opérateur caché."
+            },
+            {
+              "eyebrow": "Déclenchement manuel",
+              "title": "Si l’automatisation manque son passage, un utilisateur peut toujours signer la route manuellement",
+              "text": "Le wallet peut appeler bootstrapAndExecute() depuis une session utilisateur normale. Si la porte est ouverte et que les ressources sont disponibles, la liquidité passe quand même."
+            }
+          ],
+          "note": "C’est pourquoi la page doit parler d’un contrôleur public, et non d’un back-office privé. La route survit au-delà de la couche d’automatisation."
+        },
+        "liveState": {
+          "eyebrow": "État du contrôleur en direct",
+          "title": "Ce que dit le contrôleur maintenant",
+          "rows": {
+            "controllerBalance": "Solde du contrôleur",
+            "latestFunding": "Dernier financement",
+            "latestFundingAt": "Dernier financement à",
+            "lastExecute": "Dernière exécution",
+            "minBalance": "Solde min.",
+            "dailyRelease": "Libération quotidienne",
+            "split": "Répartition cible",
+            "windowState": "État de la fenêtre",
+            "nextWindow": "Prochaine fenêtre",
+            "snapshotUpdated": "Instantané mis à jour"
+          },
+          "valueLabels": {
+            "openNow": "Ouvert maintenant",
+            "waitForThreshold": "En attente de financement"
+          },
+          "stateLabels": {
+            "ready": "Prêt maintenant",
+            "waiting": "Déjà exécuté aujourd’hui",
+            "threshold": "Sous le seuil"
+          },
+          "note": "L’instantané est utile car il sépare clairement les éléments mobiles : les TRX du contrôleur, la cadence de financement, la taille de la libération, le seuil et la porte temporelle restent tous visibles en même temps."
+        },
+        "triggerModel": {
+          "eyebrow": "Modèle de déclenchement",
+          "title": "Ce qui se passe réellement lorsque quelqu’un appuie sur Déclencher la liquidité",
+          "intro": "La route est simple lorsqu’elle est décrite honnêtement : d’abord, le bootstrapper vérifie la porte journalière et alimente l’inventaire de l’exécuteur, puis le contrôleur libère les TRX, puis les deux chemins de marché reçoivent leur répartition.",
+          "mainCard": {
+            "eyebrow": "bootstrapAndExecute()",
+            "title": "Le chemin de déclenchement est public, tient compte des ressources et reste régi par les contrats.",
+            "text": "Ce n’est pas un faux bouton d’administration. Le wallet doit satisfaire les conditions réseau normales, et la route ne continue que si les mêmes règles du contrôleur passent encore au moment de l’exécution.",
+            "bullets": [
+              "Étape 1 : le bootstrapper vérifie la fenêtre du contrôleur et calcule la taille de libération autorisée.",
+              "Étape 2 : le bootstrapper alimente en 4TEEN côté exécuteur depuis FourteenVault avant le lancement de la branche côté marché.",
+              "Étape 3 : le contrôleur exécute la libération et répartit le flux 50 / 50 entre JustMoney et Sun.io V3."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Ressources",
+              "title": "Un wallet normal peut couvrir la route avec de la location ou de l’énergie préchargée",
+              "text": "L’application présente déjà cela comme une action consciente des ressources. L’objectif n’est pas une clé serveur cachée. L’objectif est qu’un wallet public puisse toujours terminer proprement la route."
+            },
+            {
+              "eyebrow": "Ensemble de règles",
+              "title": "Le confort du planificateur ne remplace jamais l’ensemble de règles du contrat",
+              "text": "Manquer la fenêtre du bot ne réécrit pas la cadence. Appuyer sur le bouton trop tôt ne contourne pas la porte. Les contrats acceptent ou rejettent toujours la route."
+            }
+          ],
+          "note": "C’est le bon signal de marché : déclenchement public, préparation visible des réserves, règle de libération déterministe."
+        },
+        "latestExecutions": {
+          "eyebrow": "Dernières exécutions",
+          "title": "Exécutions de liquidité confirmées depuis le flux en direct",
+          "body": "Cette liste reste volontairement concise. Elle affiche les dernières lignes d’exécution confirmées afin qu’un utilisateur puisse vérifier que le contrôleur est actif sans transformer la page en clone bruyant d’un explorateur de blocs.",
+          "headers": {
+            "total": "Total libéré",
+            "split": "Répartition",
+            "happened": "Survenu",
+            "day": "Jour UTC",
+            "source": "Source"
+          },
+          "empty": "Aucune ligne LiquidityExecuted confirmée n’est encore visible.",
+          "openTx": "Ouvrir la tx",
+          "note": "Chaque ligne provient d’événements LiquidityExecuted(day, totalAmount, amountA, amountB) confirmés."
+        },
+        "reservePath": {
+          "eyebrow": "Chemin de réserve",
+          "title": "Les tokens de réserve sont de l’inventaire, pas de la circulation libre",
+          "intro": "Les TRX côté contrôleur ne représentent que la moitié de la route. Le côté token a lui aussi besoin d’un inventaire isolé, et c’est pourquoi FourteenVault existe avant que les deux chemins d’exécution ne reçoivent leurs soldes.",
+          "primaryCard": {
+            "eyebrow": "Couche de réserve",
+            "title": "FourteenVault soutient la route de liquidité publique avant le début de l’exécution de marché.",
+            "text": "Ces soldes 4TEEN doivent être compris comme un inventaire opérationnel côté réserve. Ce ne sont pas des soldes de wallet ordinaires et ils ne doivent pas être présentés comme une offre en libre circulation.",
+            "bullets": [
+              "L’inventaire du vault est injecté dans le chemin du bootstrapper avant que le contrôleur n’exécute.",
+              "JustMoney et Sun.io V3 reçoivent des soldes préparés uniquement lorsque la route est valide.",
+              "La conservation de réserve, les TRX du contrôleur et les destinations des exécuteurs sont des couches séparées du même moteur."
+            ]
+          },
+          "secondaryCards": [
+            {
+              "key": "justmoney",
+              "title": "Chemin JustMoney",
+              "body": "L’exécuteur A prend la moitié de la libération autorisée et lance le chemin de liquidité côté AMM après que son inventaire de tokens a été préparé."
+            },
+            {
+              "key": "sun",
+              "title": "Chemin Sun.io V3",
+              "body": "L’exécuteur B prend l’autre moitié et la route via le chemin de liquidité concentrée avec son propre côté token préparé."
+            }
+          ],
+          "note": "C’est pourquoi la page doit expliquer une route, et pas seulement afficher un total de vanité. L’inventaire de réserve, le solde du contrôleur et les destinations d’exécution remplissent des rôles différents."
+        },
+        "verification": {
+          "eyebrow": "Vérification",
+          "title": "Ouvrir la couche de preuve",
+          "body": "Passez directement du récit aux rails qui le sous-tendent : le contrat du contrôleur, la route du bootstrapper, les contrats d’exécution et l’implémentation du wallet qui expose à la fois l’automatisation et le déclenchement manuel.",
+          "labels": {
+            "controller": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "justMoney": "Exécuteur JustMoney",
+            "sunV3": "Exécuteur Sun.io V3",
+            "contractsRepo": "Référentiel des contrats",
+            "walletRepo": "Référentiel du wallet"
+          }
+        },
+        "cta": {
+          "eyebrow": "Prochaine étape",
+          "title": "Ouvrez le wallet lorsque vous voulez réveiller la route vous-même",
+          "body": "Le site est l’endroit où vous vérifiez l’état. Le wallet mobile est l’endroit où un véritable utilisateur peut inspecter les ressources, appeler le bootstrapper et signer la route si la porte du contrôleur est déjà ouverte.",
+          "openApp": "Ouvrir Liquidité dans l’app",
+          "openBuy": "Ouvrir la route d’achat"
+        }
+      }
     }
   }
 }
