@@ -9598,6 +9598,116 @@
       ],
       "linksEyebrow": "Herkese Açık Çıkışlar",
       "footerNote": "Gizlilik soruları support@4teen.me adresine yönlendirilebilir. Resmi telefon ve WhatsApp desteği: +998 95 792 02 87."
+    },
+    "terms": {
+      "metadata": {
+        "title": "Hükümler",
+        "description": "4TEEN web sitesini, cüzdan rotalarını, herkese açık protokol sayfalarını ve zincir üstü ekosistem yüzeylerini kullanmaya ilişkin temel hükümler."
+      },
+      "hero": {
+        "eyebrow": "Hükümler",
+        "status": "Herkese açık hükümler",
+        "title": "4TEEN; halka açık blockchain sistemleri, cüzdan yürütümü ve zincir üstü sözleşmeler etrafında bir arayüz katmanıdır, sonuç vaadi değildir.",
+        "lead": "Bu hükümler pratik bir şekilde okunmalıdır: gerçekte ne olacağını kod, cüzdan onayı, ağ durumu ve smart-contract kuralları belirler. Site ve uygulama bu yüzeylere erişmenize yardımcı olabilir, ancak zincir üstü riski veya piyasa riskini ortadan kaldırmaz."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Operatör",
+          "title": "\"AG PLUS\" LLC",
+          "body": "\"AG PLUS\" Limited Liability Company, resmi 4TEEN web sitesi ve yayımlanmış destek rotaları için yasal operatördür. D-U-N-S Numarası: 933906683."
+        },
+        {
+          "eyebrow": "Nitelik",
+          "title": "Arayüz, saklama hizmeti değil",
+          "body": "Web sitesi ve cüzdan, blockchain işlemlerini görüntülemenize, hazırlamanıza ve imzalamanıza yardımcı olur. Bir rotayı göstermeleri, varlıklarınızın sahibi oldukları anlamına gelmez."
+        },
+        {
+          "eyebrow": "Risk",
+          "title": "Piyasa garantisi yok",
+          "body": "Token fiyatı, likidite, yayınlanma zamanlaması, ödül sonuçları ve kampanya sonuçları değişebilir. Sitedeki hiçbir şey garanti getiri veya garanti tahsis olarak okunmamalıdır."
+        },
+        {
+          "eyebrow": "Sorumluluk",
+          "title": "İşlemi siz onaylarsınız",
+          "body": "Bir işlemi imzalarsanız, bir adres yapıştırırsanız veya bir sözleşmeyle etkileşime girerseniz; rotayı, varlığı, tutarı ve hedefi kontrol etme sorumluluğu sizde kalır."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Yasal Operatör",
+          "title": "Resmi 4TEEN web sitesi AG PLUS LLC tarafından işletilir",
+          "body": "Özbekistan Cumhuriyeti'nde kayıtlı bir Limited Liability Company olan \"AG PLUS\" Limited Liability Company, https://4teen.me adresini ve 4TEEN için resmi herkese açık proje yüzeylerini işletir.",
+          "bullets": [
+            "Vergi Mükellefi Kimlik Numarası: 312 696 228",
+            "Devlet sicil numarası: 3080788, kayıt tarihi 06 Ocak 2026",
+            "D-U-N-S Numarası: 933906683",
+            "Yasal adres: Özbekistan Cumhuriyeti, Taşkent şehri, Yunusabad ilçesi, Katta Xasanboy MFY, Xasanboy Caddesi, 8. Sokak, ev 3-B"
+          ],
+          "note": "Resmi yasal ve destek iletişimi: support@4teen.me; telefon ve WhatsApp: +998 95 792 02 87."
+        },
+        {
+          "eyebrow": "2. Ürün Niteliği",
+          "title": "Site ve uygulama erişim katmanlarıdır",
+          "body": "4TEEN yüzeyleri; bilgilendirme sayfalarını, herkese açık protokol panellerini, mobil cüzdan rotalarını, doğrudan satın alma akışlarını, likidite kontrollerini, airdrop görünümlerini ve ambassador rotalarını içerir. Bu yüzeyler blockchain işlemlerine erişmenize yardımcı olur, ancak yine de halka açık ağların ve devreye alınmış sözleşmelerin üzerine yerleştirilmiş arayüzlerdir."
+        },
+        {
+          "eyebrow": "3. Saklama hizmeti sunmama ve zincir üstü gerçeklik",
+          "title": "Protokol, sözleşmeler ve kullanıcı imzalarıyla tanımlanır",
+          "body": "Bir davranış sözleşme kodu, cüzdan onayı veya görünür kaynak kontrolleri tarafından uygulanıyorsa gerçektir. Bir şey yalnızca metinde ima ediliyor ve yürütme mantığıyla desteklenmiyorsa, bunu bir garanti olarak değerlendirmeyin.",
+          "bullets": [
+            "İşlemler zincir üzerinde onaylandıktan sonra geri alınamaz",
+            "Ağ yoğunluğu, ücretler, enerji ve bant genişliği yürütümü etkileyebilir",
+            "Sözleşme davranışı, devreye alınmış koda ve mevcut duruma bağlıdır"
+          ]
+        },
+        {
+          "eyebrow": "4. Yatırım vaadi yok",
+          "title": "Buradaki hiçbir şey finansal tavsiye değildir",
+          "body": "4TEEN kâr, token değer artışı, garanti airdrop değeri, garanti ambassador geliri veya garanti likidite sonucu vaat etmez. Piyasa davranışı dışsaldır ve tüm katılım kullanıcının kendi riski altında kalır."
+        },
+        {
+          "eyebrow": "5. Ödül ve kampanya mantığı",
+          "title": "Uygunluk bir pazarlama sloganı değildir",
+          "body": "Airdrop, ambassador ve ödül akışları; sözleşme kurallarına, kampanya koşullarına, kötüye kullanımı önleme kontrollerine, doğrulama mantığına, kaynak kullanılabilirliğine veya backend işlem kuyruklarına bağlı olabilir. Yalnızca katılım, ödeme yapılacağını garanti etmez."
+        },
+        {
+          "eyebrow": "6. Harici bağlantılar ve üçüncü taraflar",
+          "title": "Bağlantı verilen her yüzey 4TEEN tarafından kontrol edilmez",
+          "body": "Gezginler, depolar, DEX rotaları, sosyal kanallar ve mağaza sayfaları site veya uygulama üzerinden bağlantı olarak verilebilir. Bu hizmetler kendi hükümleri ve çalışma süresi koşulları kapsamında faaliyet gösterir. 4TEEN bunların erişilebilirliğini veya davranışını garanti etmez."
+        },
+        {
+          "eyebrow": "7. Kullanıcı sorumluluğu",
+          "title": "Yaptığınız şeyi yine de doğrulamanız gerekir",
+          "bullets": [
+            "İmzalamadan önce sözleşme adreslerini ve varlık sembollerini kontrol edin",
+            "Seed phrase, private key ve cihaz erişiminizi koruyun",
+            "Hedef adresleri ve işlem tutarlarını doğrulayın",
+            "Sürümleri veya desteği kontrol ederken yalnızca resmi kanalları kullanın"
+          ],
+          "note": "Yanlış adreslerden, ele geçirilmiş cihazlardan, sızdırılmış kurtarma ifadelerinden veya yanlış anlaşılmış sözleşme davranışından kaynaklanan kayıp, kullanıcı taraflı bir risk olarak kalır."
+        },
+        {
+          "eyebrow": "8. Güncellemeler",
+          "title": "Ürün zaman içinde değişebilir",
+          "body": "Sayfalar, cüzdan rotaları, protokol entegrasyonları, kampanya mantığı ve herkese açık metinler ürün geliştikçe değişebilir. Değişikliklerden sonra web sitesini veya uygulamayı kullanmaya devam etmek, eski bir beklentiyi değil ürünün mevcut sürümünü kullandığınız anlamına gelir."
+        }
+      ],
+      "links": [
+        {
+          "label": "Mobil uygulama sayfasını aç",
+          "href": "/app"
+        },
+        {
+          "label": "Doğrulamayı aç",
+          "href": "/verification"
+        },
+        {
+          "label": "Smart contracts deposunu aç",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Herkese Açık Çıkışlar",
+      "footerNote": "Bu hükümleri sözleşme adresleri, explorer durumu ve cüzdan onay ekranıyla birlikte okuyun. Kuruluş kimliği: \"AG PLUS\" LLC, D-U-N-S 933906683."
     }
   }
 }
