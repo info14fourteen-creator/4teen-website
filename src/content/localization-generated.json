@@ -28396,6 +28396,194 @@
           "openApp": "Open mobiele app-route"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "Publieke Ambassador Controller",
+        "description": "Publieke 4TEEN-ambassadorcontroller met live FourteenController-totalen, een registratieflow ondersteund door het cabinet, bewijs van koperskoppeling, beloningstracking en runtime-gereedheid."
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "Publieke ambassadorcontroller",
+        "title": "Een publieke 4TEEN Ambassador Controller met een echt cabinet erachter",
+        "subtitle": "De website is de bewijslaag. Registratie, slug-eigendom, koperskoppeling, opbouw van beloningen en opnames blijven in het wallet-cabinet en worden afgehandeld via FourteenController.",
+        "body": [
+          "Deze route mag niet doen alsof de publieke pagina het werkende cabinet is. De echte flow begint in de wallet: een gebruiker registreert een ambassador-identiteit, claimt een slug, synchroniseert het on-chain profiel en bouwt daarna aan koper-toegeschreven volume en beloningen.",
+          "De publieke site heeft een andere taak. Deze moet bewijzen dat de controller live is, cabinet-profielen bestaan, koperskoppelingen worden bijgehouden, aankopen worden verwerkt en de beloningsstatus zichtbaar blijft in plaats van te verdwijnen in een backoffice."
+        ],
+        "rotatingLines": [
+          "REGISTREER. KOPPEL. VERIFIEER. NEEM OP.",
+          "PUBLIEK BEWIJS. ECHT CABINET.",
+          "EERST DE SLUG. LATER DE BELONINGSFLOW."
+        ],
+        "primaryCta": "Wallet-route openen",
+        "secondaryCta": "Registratieflow bekijken",
+        "ctaNote": "Cabinet-identiteit, referral-link, kopersrijen, wachtende replay en opnames blijven wallet-native. De website blijft publiek, leesbaar en eerlijk.",
+        "stats": {
+          "profilesOnChain": {
+            "label": "Profielen on-chain",
+            "meta": "Ambassador-profielen die al zichtbaar zijn via de door de controller ondersteunde cabinet-laag."
+          },
+          "boundBuyers": {
+            "label": "Gekoppelde kopers",
+            "meta": "Koperidentiteiten die al aan ambassador-profielen zijn gekoppeld."
+          },
+          "rewardsClaimed": {
+            "label": "Geclaimde beloningen",
+            "meta": "TRX die al door ambassadors is opgenomen via de cabinet-flow."
+          },
+          "pendingReplay": {
+            "label": "Wachtende replay",
+            "meta": "Rijen die nog wachten op resource-veilige verwerking in plaats van nep als voltooid te worden weergegeven."
+          },
+          "readFailed": "Live uitlezing van ambassadors mislukt.",
+          "readRetry": "Probeer over een moment te vernieuwen."
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "Cabinet-route",
+          "title": "De publieke pagina is niet het cabinet. Ze bewijst dat het cabinet bestaat.",
+          "intro": "Dat is de heldere productscheiding. De wallet beheert identiteit, koppeling, replay en opnameacties. De site legt de mechanismen uit en laat zien of het systeem daadwerkelijk beweegt.",
+          "mainCard": {
+            "eyebrow": "Controller + Cabinet",
+            "title": "Registratie en beloningen blijven wallet-native. Publiek bewijs blijft open.",
+            "text": "Het cabinet-endpoint voegt on-chain dashboardstatus al samen met database-rijen voor kopers, aankopen en wachtende replay. Dat betekent dat de publieke site eerlijk over de flow kan communiceren zonder te doen alsof ze het cabinet zelf kan vervangen.",
+            "bullets": [
+              "Het cabinet herleidt een referral-link uit de ambassador-slug.",
+              "Aan kopers toegeschreven aankopen worden opgeslagen en opnieuw tegen de controller afgespeeld wanneer resources dat toelaten.",
+              "Claimbare beloningsstatus en opnamegeschiedenis worden samen met het on-chain profiel bijgehouden."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Slug-eigendom",
+              "title": "Een wallet wordt geen ambassador door marketingtekst alleen",
+              "text": "De registratieflow controleert of de slug beschikbaar is, voorkomt dubbele walletregistratie en verwacht een echt on-chain ambassador-profiel voordat de route als voltooid wordt beschouwd."
+            },
+            {
+              "eyebrow": "Koperskoppeling",
+              "title": "De earn-route begint wanneer aankopen daadwerkelijk worden toegeschreven",
+              "text": "Gekoppelde kopers, toegeschreven aankopen, verwerkte controller-rijen en wachtende replay zijn allemaal afzonderlijke statussen. Het cabinet vlakt ze niet af tot één decoratief getal."
+            }
+          ],
+          "note": "Daarom moet de pagina een publieke ambassadorcontroller met een echt cabinet erachter beschrijven, en geen neppe referral-landingspagina zonder operationele status."
+        },
+        "registration": {
+          "eyebrow": "Registratieflow",
+          "title": "Registratie begint in de wallet en wordt daarna een on-chain profiel.",
+          "intro": "Het registratiescherm is geen los aanmeldformulier. Het is het punt waar slug-selectie, wallet-identiteit, energierouting en controllersynchronisatie belangrijk beginnen te worden.",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "De wallet kan resources offreren, de slug valideren en pas daarna de registratie afronden.",
+            "text": "De API controleert of de slug al bezet is, of de wallet al geregistreerd is en of de energieroute klaar is voor het doel ambassador_registration. Na de transactie verifieert de cabinet-sync dat het on-chain profiel echt bestaat.",
+            "bullets": [
+              "Beschikbaarheid van de slug wordt gecontroleerd voordat de route bevestigt.",
+              "Energiehuur kan specifiek voor ambassador-registratie worden aangevraagd wanneer dat nodig is.",
+              "De cabinet-sync verifieert de opgeslagen slug-hash en toont de definitieve referral-link."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Wallet-identiteit",
+              "title": "Registratie wordt een profiel, geen eenmalig ingevuld formulier",
+              "text": "Na synchronisatie heeft de ambassador een wallet-gebonden profiel met huidig level, beloningspercentage, aantal kopers, volume, opgebouwde beloningen, geclaimde beloningen en claimbaar saldo."
+            },
+            {
+              "eyebrow": "Replay-veiligheid",
+              "title": "Als de operatorzijde te weinig resources heeft, wachten rijen in plaats van te liegen",
+              "text": "Wachtende replay maakt deel uit van de waarheidslaag. Het cabinet houdt dit zichtbaar totdat operatorresources veilig genoeg zijn om geverifieerde aankopen netjes te verwerken."
+            }
+          ],
+          "note": "De registratiereeks is dus niet cosmetisch. Het is de toegang tot hetzelfde cabinet dat later referral-status, aankooprijen en opnames bevat."
+        },
+        "ledger": {
+          "eyebrow": "Publiek grootboek",
+          "title": "Controllertotalen blijven publiek, zelfs wanneer cabinet-acties privé blijven.",
+          "note": "FourteenController toont tellingen en saldi op systeemniveau. De site moet dat zichtbaar maken zonder te doen alsof de publieke laag cabinet-transacties kan ondertekenen.",
+          "rows": {
+            "totalAmbassadors": "Totaal aantal ambassadors",
+            "activeAmbassadors": "Actieve ambassadors",
+            "boundBuyers": "Gekoppelde kopers",
+            "trackedVolume": "Getrackt volume",
+            "rewardsAccrued": "Opgebouwde beloningen",
+            "rewardsClaimed": "Geclaimde beloningen",
+            "reservedRewards": "Gereserveerde beloningen",
+            "ownerAvailable": "Beschikbaar voor eigenaar",
+            "unallocatedFunds": "Niet-toegewezen aankoopfondsen"
+          }
+        },
+        "runtime": {
+          "eyebrow": "Cabinet-runtime",
+          "title": "Als resources laag zijn, wachten rijen in plaats van te doen alsof ze zijn verwerkt.",
+          "note": "De publieke runtime-weergave is belangrijk omdat die uitlegt waarom replay terecht in de wachtrij kan staan. Lage energie of bandbreedte is geen stille fout meer; het is zichtbare systeemstatus.",
+          "readyYes": "Nu gereed",
+          "readyNo": "Top-up nodig",
+          "rows": {
+            "operatorWallet": "Operator-wallet",
+            "readyNow": "Nu gereed",
+            "profilesOnChain": "Profielen on-chain",
+            "profilesActive": "Actieve profielen",
+            "pendingReplay": "Wachtende replay",
+            "lastPurchaseSeen": "Laatste aankoop gezien",
+            "lastWithdrawalSeen": "Laatste opname gezien",
+            "energyAvailable": "Beschikbare energie",
+            "bandwidthAvailable": "Beschikbare bandbreedte",
+            "needPerAllocation": "Benodigd per toewijzing",
+            "safeFloorAfterRun": "Veilige ondergrens na run"
+          }
+        },
+        "levels": {
+          "eyebrow": "Level-ladder",
+          "title": "Kopersgroei verandert het beloningsaandeel.",
+          "suffix": "% beloningsaandeel op gekwalificeerde flow."
+        },
+        "proof": {
+          "eyebrow": "Bewijslaag",
+          "title": "De publieke kant moet nog steeds tonen wat het cabinet al heeft verwerkt.",
+          "cards": {
+            "recordedPurchases": {
+              "title": "Geregistreerde aankopen",
+              "text": "Aankopen die al in de cabinet-footprint zijn geschreven, over verwerkte en wachtende rijen heen."
+            },
+            "ambassadorsWithPurchases": {
+              "title": "Ambassadors met aankopen",
+              "text": "Profielen die al aankooptoeschrijving door de earn-route laten lopen."
+            },
+            "withdrawals": {
+              "title": "Opname-events",
+              "text": "Rijen voor beloningsopnames die al door de backend en cabinet-sync zijn vastgelegd."
+            },
+            "latestWithdrawal": {
+              "title": "Laatste opname gezien",
+              "text": "Tijdstempel van de meest recent geregistreerde opname van ambassador-beloningen."
+            }
+          },
+          "note": "Dit houdt de website verankerd in echt cabinet-bewijs: aankopen, replay-wachtrij en opnames laten allemaal een zichtbare publieke footprint achter."
+        },
+        "route": {
+          "eyebrow": "Bewijsroutes",
+          "title": "Gebruik de publieke laag om de controller, de wallet-implementatie en de live app te inspecteren.",
+          "cards": {
+            "contract": {
+              "eyebrow": "Contract",
+              "title": "FourteenController openen",
+              "text": "Inspecteer de live controller die statistieken en saldi van het ambassador-systeem bevat."
+            },
+            "walletRepo": {
+              "eyebrow": "Wallet-bestanden",
+              "title": "De wallet-repo openen",
+              "text": "Bekijk het cabinet, de resourcerouting, registratielogica en replay-flow die het echte product aandrijven."
+            },
+            "app": {
+              "eyebrow": "Wallet-route",
+              "title": "De app-route openen",
+              "text": "Registratie, cabinet-status, referral-link en opnames horen bij de wallet-ervaring."
+            }
+          },
+          "updatedPrefix": "Snapshot bijgewerkt"
+        }
+      }
     }
   }
 }
