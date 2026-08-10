@@ -26033,6 +26033,106 @@
           "A conversa mais forte começa com o que você pode acelerar, não apenas com o que você pode transferir."
         ]
       }
+    },
+    "privacy": {
+      "metadata": {
+        "title": "Privacidade",
+        "description": "Como o site e a carteira 4TEEN lidam com dados públicos de blockchain, estado local da carteira, links externos e questões de privacidade."
+      },
+      "hero": {
+        "eyebrow": "Privacidade",
+        "status": "Política pública",
+        "title": "A 4TEEN é construída em torno do estado público da blockchain e do comportamento de carteira não custodial, por isso a abordagem de privacidade precisa permanecer simples e verdadeira.",
+        "lead": "O site público é principalmente informativo. A carteira móvel é não custodial. Dados de redes públicas podem ser consultados para que saldos, recursos, estado do protocolo e status de campanhas sejam exibidos, mas seed phrases e chaves privadas não devem ser enviadas por meio deste site."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Operadora",
+          "title": "\"AG PLUS\" LLC",
+          "body": "O site público da 4TEEN e os canais oficiais de suporte são operados para o projeto pela \"AG PLUS\" Limited Liability Company, registrada no Uzbequistão. Número D-U-N-S: 933906683."
+        },
+        {
+          "eyebrow": "Site",
+          "title": "Nenhum segredo de carteira aqui",
+          "body": "O site público atual não pede que você informe uma seed phrase ou uma chave privada bruta. Se algum dia você vir isso em um site público, pare e verifique a fonte primeiro."
+        },
+        {
+          "eyebrow": "Blockchain",
+          "title": "Endereços são públicos por design",
+          "body": "Endereços de carteira, transações, saldos e interações com contratos na TRON são registros públicos. O site e o app podem lê-los para mostrar o estado do protocolo, mas eles não são dados privados depois que estão on-chain."
+        },
+        {
+          "eyebrow": "Infraestrutura",
+          "title": "Logs básicos de requisições ainda podem existir",
+          "body": "Mesmo sem um rastreador dedicado de analytics de terceiros na versão web atual, a infraestrutura normal de hospedagem, CDN, API e exploradores ainda pode processar dados rotineiros de requisição, como endereço IP, navegador, horário e rota solicitada."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Operadora Legal",
+          "title": "Quem opera as superfícies oficiais da 4TEEN",
+          "body": "A \"AG PLUS\" Limited Liability Company opera o site oficial da 4TEEN em https://4teen.me, rotas públicas relacionadas ao projeto e a caixa de e-mail de suporte publicada para dúvidas sobre privacidade e produto.",
+          "bullets": [
+            "Número de Identificação do Contribuinte: 312 696 228",
+            "Número de registro estadual: 3080788, registrado em 06 January 2026",
+            "Número D-U-N-S: 933906683",
+            "Endereço legal: Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B"
+          ],
+          "note": "Dúvidas sobre privacidade e suporte podem ser encaminhadas para support@4teen.me ou +998 95 792 02 87."
+        },
+        {
+          "eyebrow": "2. Site Público",
+          "title": "Para que este site foi projetado",
+          "body": "O site da 4TEEN é usado para apresentar informações do protocolo, páginas de lançamento, links públicos de contratos, estado de airdrop, estado de embaixadores, leituras de preço e rotas de download para o app móvel. Ele não se destina a custodiar fundos nem a coletar credenciais secretas de carteira.",
+          "bullets": [
+            "Exibir informações públicas do protocolo e dos contratos",
+            "Ler snapshots públicos de mercado, cofre, controlador e rotas",
+            "Criar links para exploradores, repositórios, lojas e canais sociais oficiais"
+          ]
+        },
+        {
+          "eyebrow": "3. Carteira Móvel",
+          "title": "O que o app pode manter localmente no dispositivo",
+          "body": "A carteira móvel já oferece suporte a rótulos locais de carteira, preferência de idioma, moeda de exibição, configurações de segurança, fluxos watch-only e gerenciamento de cache. Com base nos caminhos de código atualmente visíveis, esses tipos de configurações podem ser armazenados localmente no dispositivo para tornar o app utilizável, enquanto o material privado de assinatura deve permanecer sob controle do usuário, em vez de ser armazenado em um servidor do site da 4TEEN.",
+          "note": "Se você importar, criar ou desbloquear uma carteira, trate o dispositivo móvel e suas práticas de backup como o verdadeiro limite de segurança."
+        },
+        {
+          "eyebrow": "4. Leituras Públicas da Blockchain",
+          "title": "O que pode ser consultado para mostrar saldos ou estado do protocolo",
+          "body": "Para renderizar saldos, recursos, status de airdrop, estado de embaixadores, informações de preço ou outras visualizações públicas do protocolo, os serviços da 4TEEN podem consultar infraestrutura de blockchain, endpoints de exploradores, endpoints de proxy ou rotas de snapshot operadas pela 4TEEN. Essas leituras podem envolver um endereço público de carteira ou estado público de contrato, mas não exigem uma chave privada.",
+          "bullets": [
+            "Endereços públicos de carteira que você intencionalmente visualiza ou cola",
+            "Endereços de contratos e valores de armazenamento de contratos",
+            "Hashes de transações e histórico público de eventos"
+          ]
+        },
+        {
+          "eyebrow": "5. Serviços Externos",
+          "title": "O que acontece quando você sai das superfícies da 4TEEN",
+          "body": "O site e a carteira podem abrir TronScan, rotas DEX, repositórios, canais sociais e páginas de lojas de apps. Esses serviços externos operam sob suas próprias regras de privacidade e tratamento de dados. Abrir um link externo significa que sua requisição é tratada por esse terceiro, não apenas pela 4TEEN."
+        },
+        {
+          "eyebrow": "6. Sem falsas promessas de privacidade",
+          "title": "O que não estamos afirmando",
+          "body": "Esta política não afirma processamento de KYC, serviços de custódia, licenciamento financeiro ou garantias invisíveis de privacidade que não sejam claramente aplicadas pelo código e pelo comportamento atual do produto. Um Número D-U-N-S identifica a organização nos registros da Dun & Bradstreet; ele não é uma promessa de que riscos de blockchain, mercado ou infraestrutura de terceiros desaparecem."
+        }
+      ],
+      "links": [
+        {
+          "label": "Site oficial",
+          "href": "https://4teen.me"
+        },
+        {
+          "label": "Repositório do app de carteira",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Repositório de smart contracts",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Saídas Públicas",
+      "footerNote": "Dúvidas sobre privacidade podem ser encaminhadas para support@4teen.me. Telefone oficial e suporte por WhatsApp: +998 95 792 02 87."
     }
   }
 }
