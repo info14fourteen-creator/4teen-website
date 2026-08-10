@@ -29169,6 +29169,177 @@
           "Productverfijning, lokalisatie, analytics en verbetering van conversie."
         ]
       }
+    },
+    "deck": {
+      "metadata": {
+        "title": "4TEEN-investeerdersdeck",
+        "description": "4TEEN combineert al een live wallet, directe aankoop- en unlock-productflow, modulaire TRON-contracten, geplande liquiditeitsuitvoering, vault-custody en ambassador-boekhouding. Deze pagina is het instappunt voor investeerders."
+      },
+      "hero": {
+        "eyebrow": "4TEEN Deck",
+        "status": "Investeerderspitch",
+        "title": "4TEEN heeft de wallet-loop, smart-contract-kern en groeirails al staan. De investeringscase is om een live systeem op te schalen voordat sterkere distributie het als eerste bereikt.",
+        "lead": "4TEEN is geen token-landingspagina die nog op zoek is naar een product. De wallet toont al directe aankoop, unlock-tijdlijn, swap, liquiditeit, ambassador- en informatie-oppervlakken. De contracten dwingen minting, 14-daagse locks, 90 / 7 / 3-routering, controller-boekhouding en geplande liquiditeitsuitvoering al af."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Live product",
+          "title": "Wallet + contracten zijn al gekoppeld",
+          "body": "De wallet toont al aankoop-, unlock-, swap-, liquiditeits-, ambassador- en informatie-oppervlakken in plaats van te stoppen bij een token-landingspagina of een whitepaper-belofte."
+        },
+        {
+          "eyebrow": "Instapmechaniek",
+          "title": "90 / 7 / 3-routering",
+          "body": "Elke directe aankoop routeert TRX binnen dezelfde transactie: 90% naar de liquiditeitskant, 7% naar de controller-kant, 3% naar de airdrop-kant."
+        },
+        {
+          "eyebrow": "Lock-ontwerp",
+          "title": "14D per aankoop",
+          "body": "Direct-buy tokens worden onmiddellijk gemint en per batch gelockt. Elke nieuwe aankoop creëert zijn eigen unlock-timer in plaats van de volledige walletstatus te muteren."
+        },
+        {
+          "eyebrow": "Liquiditeitscadans",
+          "title": "6.43% releasevenster",
+          "body": "De liquiditeitscontroller kan eenmaal per dag waarde vrijgeven boven een harde drempel van 100 TRX, en de uitvoering daarna opsplitsen over DEX-specifieke rails."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "Waarom nu",
+          "title": "Het zero-to-one-werk is al zichtbaar",
+          "body": "4TEEN wacht niet op een eerste prototype. De kernloop bestaat al over contracten en wallet-UX heen: instappen via directe aankoop, elke batch locken, controller-side liquiditeit zien oplopen, later unlocken en beslissen of je wilt vasthouden of de marktroute wilt gebruiken.",
+          "bullets": [
+            "Het tokencontract mint al bij aankoop en dwingt de 14-daagse lock af.",
+            "De controller houdt al de administratieve bevoegdheid in plaats van kritieke controle bij een gewone wallet te laten.",
+            "De wallet toont de aankoop-, unlock-, swap-, liquiditeits- en ambassador-oppervlakken al als één productverhaal."
+          ]
+        },
+        {
+          "eyebrow": "Waarom kapitaal telt",
+          "title": "De kans is niet om een product te bedenken. Het is om een bestaande loop op te schalen voordat sterkere distributie het als eerste bereikt.",
+          "body": "Het sterkste investeerdersargument hier is geen slogan. Product, on-chain architectuur en groeirails zijn al met elkaar verbonden. Nieuw kapitaal kan distributie, gebruikersacquisitie, liquiditeitsdiepte en geloofwaardigheid daardoor sneller laten renderen dan in een tokenproject dat vanaf nul begint."
+        }
+      ],
+      "thesis": [
+        {
+          "eyebrow": "1. Productrisico is lager",
+          "title": "Dit is al voorbij de conceptfase",
+          "body": "De wallet-app bevat al directe aankoop, unlock-tijdlijn, swap, wallet-home, informatieroutering en operationele oppervlakken voor ambassadors. Dat verandert het investeerdersgesprek van conceptrisico naar opschalingsrisico."
+        },
+        {
+          "eyebrow": "2. Architectuur is uitlegbaar",
+          "title": "Controle, liquiditeit en reserves zijn gescheiden",
+          "body": "FourteenToken, FourteenController, FourteenLiquidityController, LiquidityBootstrapper en de vault-contracten dragen elk afzonderlijke verantwoordelijkheden. Die scheiding maakt het systeem eenvoudiger te verifiëren, uit te leggen en door te ontwikkelen."
+        },
+        {
+          "eyebrow": "3. Groeirails zijn echt",
+          "title": "Airdrop- en ambassador-logica zijn al verbonden",
+          "body": "De controller slaat ambassador-status, koperbinding, reward-boekhouding en verwerkte aankoop-ID's op. De airdrop-kant wordt binnen de directe aankooproute gefinancierd in plaats van als marketingwens te blijven liggen."
+        },
+        {
+          "eyebrow": "4. De loop is overdraagbaar",
+          "title": "Koop, lock, unlock en kies daarna de volgende route",
+          "body": "Die volgorde is duidelijk genoeg voor gebruikers, sterk genoeg voor content en gestructureerd genoeg voor investeerders-diligence. Het creëert een verhaal dat de wallet daadwerkelijk kan uitvoeren en dat de site kan bewijzen."
+        }
+      ],
+      "proofTracks": [
+        {
+          "eyebrow": "On-chain bewijs",
+          "title": "Wat de contracten al afdwingen",
+          "bullets": [
+            "FourteenToken mint bij aankoop, lockt elke batch voor 14 dagen en routeert binnenkomende TRX volgens vaste 90 / 7 / 3-aandelen.",
+            "FourteenController is de token-eigenaar en slaat ambassador-status, koperbindingen, verwerkte aankoop-ID's en reward-boekhouding op.",
+            "FourteenLiquidityController dwingt een minimum van 100 TRX en een eenmaal-per-UTC-dag 6.43%-releaseregel af.",
+            "LiquidityBootstrapper bereidt executor-saldi voor vóór controller-side uitvoering in plaats van liquiditeitsinputs off-chain te raden."
+          ]
+        },
+        {
+          "eyebrow": "Productbewijs",
+          "title": "Wat de wallet al toont",
+          "bullets": [
+            "Het directe-aankoopscherm legt de live contractroute al uit en start de echte buy-widget.",
+            "De unlock-tijdlijn toont al batchgebaseerde releaselogica in plaats van te doen alsof unlocks abstract zijn.",
+            "Manage Crypto en Swap plaatsen 4TEEN al binnen een breder walletproduct, niet als een token-speeltje met één scherm.",
+            "De informatie-oppervlakken brengen contractrollen, asset-wallet-saldi en operator-gereedheid al samen in een leesbaar systeemdashboard."
+          ]
+        },
+        {
+          "eyebrow": "Narratief bewijs",
+          "title": "Wat de site al aan de markt kan uitleggen",
+          "bullets": [
+            "De publieke site vertaalt de token-, controller-, liquiditeits-, unlock- en proof-oppervlakken al naar één leesbaar gebruikersverhaal.",
+            "De whitepaper, live protocolroutes en contractlinks verminderen diligence-frictie voor nieuw kapitaal en strategische partners.",
+            "De sterkste boodschap is eenvoudig: de productloop bestaat, de chain-logica bestaat en de groeilaag kan al worden getoond, niet alleen voorgesteld."
+          ]
+        }
+      ],
+      "capitalPlan": [
+        {
+          "eyebrow": "Gebruik van kapitaal",
+          "title": "Distributie- en groeiloops",
+          "body": "Breid ambassador-acquisitie, campagne-operaties, regionale distributie en de publieke contentmachine uit die het protocol verandert in een verhaal dat gebruikers daadwerkelijk kunnen volgen."
+        },
+        {
+          "eyebrow": "Gebruik van kapitaal",
+          "title": "Productpolish en retentie",
+          "body": "Verbeter wallet-UX, conversie-oppervlakken, lokalisatie, instrumentatie en onboardingkwaliteit, zodat het product grotere instromen kan ondersteunen zonder onaf te ogen."
+        },
+        {
+          "eyebrow": "Gebruik van kapitaal",
+          "title": "Liquiditeitsvertrouwen",
+          "body": "Versterk het marktvertrouwen rond het directe-aankoopverhaal, de zichtbaarheid van controller-side liquiditeit en de betrouwbaarheid van uitvoering, zodat het systeem duurzaam leest in plaats van experimenteel."
+        },
+        {
+          "eyebrow": "Gebruik van kapitaal",
+          "title": "Geloofwaardigheidslaag",
+          "body": "Scherp docs, investeerdersmaterialen, institutionele uitleg en verificatie-oppervlakken aan, zodat serieuze tegenpartijen het project kunnen begrijpen zonder eerst een private walkthrough nodig te hebben."
+        }
+      ],
+      "links": [
+        {
+          "label": "Download Investor Deck PDF",
+          "href": "/docs/4teen-investor-deck.pdf",
+          "download": "4teen-investor-deck.pdf"
+        },
+        {
+          "label": "Open directe aankooproute",
+          "href": "/buy"
+        },
+        {
+          "label": "Open unlock-tijdlijn",
+          "href": "/unlock"
+        },
+        {
+          "label": "Open liquiditeitsroute",
+          "href": "/liquidity"
+        },
+        {
+          "label": "Bekijk huidige whitepaper",
+          "href": "/whitepaper"
+        },
+        {
+          "label": "Wallet-app-repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Smart-contracts-repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Investor Diligence begint hier",
+      "footerNote": "Deze pagina is bedoeld om investeerdersgesprekken te starten rond een live systeem, niet om rendementen te beloven of de productrealiteit te verbergen achter vage token-taal.",
+      "contact": {
+        "eyebrow": "Contact met Genesis",
+        "title": "Als dit leest als iets dat financiering waard is, zou de volgende stap direct contact moeten zijn.",
+        "body": "Schrijf met allocatiegrootte, strategische waarde, tijdlijn en waar je denkt het systeem het snelst te kunnen versnellen. De juiste investeerder hier is geen passief kapitaal. Het is kapitaal plus distributie, marktinzicht, liquiditeitsgeloofwaardigheid of ecosysteembereik.",
+        "emailLabel": "Investeerderscontact",
+        "email": "genesis@4teen.me",
+        "bullets": [
+          "Seed-, strategische of ecosysteem-schaal kapitaalgesprekken zijn welkom.",
+          "Bridge-introducties, market-makingrelaties, exchange-paden en groeidistributie zijn net zo relevant als de cheque zelf.",
+          "Het sterkste gesprek begint met wat je kunt versnellen, niet alleen met wat je kunt overmaken."
+        ]
+      }
     }
   }
 }
