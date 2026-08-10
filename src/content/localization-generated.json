@@ -12805,6 +12805,106 @@
           "Das stärkste Gespräch beginnt damit, was Sie beschleunigen können, nicht nur damit, was Sie überweisen können."
         ]
       }
+    },
+    "privacy": {
+      "metadata": {
+        "title": "Datenschutz",
+        "description": "Wie die 4TEEN-Website und Wallet mit öffentlichen Blockchain-Daten, lokalem Wallet-Status, externen Links und Datenschutzfragen umgehen."
+      },
+      "hero": {
+        "eyebrow": "Datenschutz",
+        "status": "Öffentliche Richtlinie",
+        "title": "4TEEN basiert auf öffentlichem Blockchain-Status und nicht-verwahrendem Wallet-Verhalten, daher muss die Datenschutzerklärung einfach und wahrheitsgemäß bleiben.",
+        "lead": "Die öffentliche Website dient hauptsächlich Informationszwecken. Die mobile Wallet ist nicht-verwahrend. Öffentliche Chain-Daten können abgefragt werden, damit Guthaben, Ressourcen, Protokollstatus und Kampagnenstatus angezeigt werden können, aber Seed-Phrasen und private Schlüssel sind nicht dafür vorgesehen, über diese Website gesendet zu werden."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Betreiber",
+          "title": "\"AG PLUS\" LLC",
+          "body": "Die öffentliche 4TEEN-Website und die offiziellen Support-Wege werden für das Projekt von der \"AG PLUS\" Limited Liability Company betrieben, die in Usbekistan registriert ist. D-U-N-S-Nummer: 933906683."
+        },
+        {
+          "eyebrow": "Website",
+          "title": "Keine Wallet-Geheimnisse hier",
+          "body": "Die aktuelle öffentliche Website fordert dich nicht auf, eine Seed-Phrase oder einen rohen privaten Schlüssel einzugeben. Wenn du so etwas jemals auf einer öffentlichen Website siehst, halte an und überprüfe zuerst die Quelle."
+        },
+        {
+          "eyebrow": "Blockchain",
+          "title": "Adressen sind absichtlich öffentlich",
+          "body": "Wallet-Adressen, Transaktionen, Guthaben und Vertragsinteraktionen auf TRON sind öffentliche Aufzeichnungen. Die Website und die App können sie auslesen, um den Protokollstatus anzuzeigen, aber sobald sie on-chain sind, handelt es sich nicht mehr um private Daten."
+        },
+        {
+          "eyebrow": "Infrastruktur",
+          "title": "Grundlegende Anfrageprotokolle können dennoch existieren",
+          "body": "Auch ohne einen dedizierten Drittanbieter-Analytics-Tracker im aktuellen Web-Build können normale Hosting-, CDN-, API- und Explorer-Infrastrukturen weiterhin routinemäßige Anfragedaten wie IP-Adresse, Browser, Uhrzeit und angeforderte Route verarbeiten."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Rechtlicher Betreiber",
+          "title": "Wer die offiziellen 4TEEN-Oberflächen betreibt",
+          "body": "Die \"AG PLUS\" Limited Liability Company betreibt die offizielle 4TEEN-Website unter https://4teen.me, zugehörige öffentliche Projekt-Routen und das veröffentlichte Support-Postfach für Datenschutz- und Produktfragen.",
+          "bullets": [
+            "Steueridentifikationsnummer: 312 696 228",
+            "Staatliche Registrierungsnummer: 3080788, registriert am 06 January 2026",
+            "D-U-N-S-Nummer: 933906683",
+            "Rechtsanschrift: Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B"
+          ],
+          "note": "Datenschutz- und Supportfragen können an support@4teen.me oder +998 95 792 02 87 gerichtet werden."
+        },
+        {
+          "eyebrow": "2. Öffentliche Website",
+          "title": "Wofür diese Website konzipiert ist",
+          "body": "Die 4TEEN-Website wird genutzt, um Protokollinformationen, Release-Seiten, öffentliche Vertragslinks, Airdrop-Status, Ambassador-Status, Preisabrufe und Download-Routen für die mobile App bereitzustellen. Sie ist nicht dafür gedacht, Gelder zu verwahren oder geheime Wallet-Zugangsdaten zu sammeln.",
+          "bullets": [
+            "Öffentliche Protokoll- und Vertragsinformationen anzeigen",
+            "Öffentliche Markt-, Vault-, Controller- und Routen-Snapshots auslesen",
+            "Auf Explorer, Repositories, Stores und offizielle Social-Media-Kanäle verlinken"
+          ]
+        },
+        {
+          "eyebrow": "3. Mobile Wallet",
+          "title": "Was die App lokal auf dem Gerät speichern kann",
+          "body": "Die mobile Wallet unterstützt bereits lokale Wallet-Labels, Spracheinstellung, Anzeigewährung, Sicherheitseinstellungen, Watch-only-Abläufe und Cache-Verwaltung. Basierend auf den derzeit sichtbaren Code-Pfaden können solche Einstellungen lokal auf dem Gerät gespeichert werden, damit die App nutzbar ist, während privates Signiermaterial unter der Kontrolle des Nutzers bleiben soll, anstatt auf einem 4TEEN-Website-Server gespeichert zu werden.",
+          "note": "Wenn du eine Wallet importierst, erstellst oder entsperrst, betrachte das mobile Gerät und deine Backup-Praxis als die eigentliche Sicherheitsgrenze."
+        },
+        {
+          "eyebrow": "4. Öffentliche Blockchain-Abfragen",
+          "title": "Was abgefragt werden kann, um Guthaben oder Protokollstatus anzuzeigen",
+          "body": "Um Guthaben, Ressourcen, Airdrop-Status, Ambassador-Status, Preisinformationen oder andere öffentliche Protokollansichten darzustellen, können 4TEEN-Dienste Blockchain-Infrastruktur, Explorer-Endpunkte, Proxy-Endpunkte oder von 4TEEN betriebene Snapshot-Routen abfragen. Diese Lesevorgänge können eine öffentliche Wallet-Adresse oder öffentlichen Vertragsstatus betreffen, erfordern aber keinen privaten Schlüssel.",
+          "bullets": [
+            "Öffentliche Wallet-Adressen, die du absichtlich ansiehst oder einfügst",
+            "Vertragsadressen und Vertragsspeicherwerte",
+            "Transaktions-Hashes und öffentliche Ereignishistorie"
+          ]
+        },
+        {
+          "eyebrow": "5. Externe Dienste",
+          "title": "Was passiert, wenn du 4TEEN-Oberflächen verlässt",
+          "body": "Die Website und Wallet können TronScan, DEX-Routen, Repositories, Social-Media-Kanäle und App-Store-Seiten öffnen. Diese externen Dienste unterliegen ihren eigenen Datenschutz- und Datenverarbeitungsregeln. Das Öffnen eines externen Links bedeutet, dass deine Anfrage von diesem Drittanbieter verarbeitet wird, nicht nur von 4TEEN."
+        },
+        {
+          "eyebrow": "6. Keine falschen Datenschutzversprechen",
+          "title": "Was wir nicht behaupten",
+          "body": "Diese Richtlinie behauptet keine KYC-Verarbeitung, Verwahrungsdienste, Finanzlizenzierung oder unsichtbaren Datenschutzgarantien, die nicht eindeutig durch den aktuellen Code und das Produktverhalten erzwungen werden. Eine D-U-N-S-Nummer identifiziert die Organisation in den Aufzeichnungen von Dun & Bradstreet; sie ist kein Versprechen, dass Blockchain-, Markt- oder Drittanbieter-Infrastrukturrisiken verschwinden."
+        }
+      ],
+      "links": [
+        {
+          "label": "Offizielle Website",
+          "href": "https://4teen.me"
+        },
+        {
+          "label": "Wallet-App-Repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Smart-Contracts-Repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Öffentliche Ausgänge",
+      "footerNote": "Datenschutzfragen können an support@4teen.me gerichtet werden. Offizieller Telefon- und WhatsApp-Support: +998 95 792 02 87."
     }
   }
 }
