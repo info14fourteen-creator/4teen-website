@@ -11685,6 +11685,182 @@
           "openBuy": "Buy-Route öffnen"
         }
       }
+    },
+    "airdrop": {
+      "metadata": {
+        "title": "Airdrop",
+        "description": "Live-Status des 4TEEN-Airdrops mit aktueller Welle, freigegebenem Guthaben, Vault-Guthaben, Telegram-Routenstatus, Claim-Zugriff nur über die Wallet und On-Chain-Verifizierungslinks."
+      },
+      "hero": {
+        "eyebrow": "AirdropVault",
+        "status": "Wallet-Claim-Route",
+        "title": "4TEEN über die Wallet-Route claimen",
+        "lead": "Die öffentliche Website zeigt den Live-Status des AirdropVault. Die mobile Wallet übernimmt die Claim-Route.",
+        "body": [
+          "Der Airdrop ist kein falscher Promo-Button auf einer Landingpage. Er ist ein wellenbasierter Vault, ein Wallet-bewusster Claim-Status und eine Telegram-first-Route, die die App vor der Ausführung ausliest.",
+          "Diese Seite spiegelt die öffentliche Seite wider: aktuelle Welle, Vault-Guthaben, freigegebene Quote, geplanter Rest, Routenmodell und On-Chain-Verifizierung. Der Live-Claim-Flow gehört in die Wallet."
+        ],
+        "rotatingLines": [
+          "Vault-Status. Wallet-Claim.",
+          "Telegram live. Social-Routen vorbereitet.",
+          "Öffentlicher Nachweis. Ausführung in der App.",
+          "Wellen-Freigaben. Routen-Prüfungen.",
+          "Keine Schein-Claims. Nur Status."
+        ],
+        "primaryCta": "Mobile-App-Route öffnen",
+        "secondaryCta": "AirdropVault öffnen",
+        "ctaNote": "Die Website zeigt den Vault und die Routenübersicht. Die Wallet liest das ausgewählte Konto, die Telegram-Sitzung, den Claim-Status und den Signiermodus aus, bevor der echte Claim-Pfad geöffnet wird.",
+        "stats": {
+          "currentWave": "Aktuelle Welle",
+          "vaultBalance": "Vault-Guthaben",
+          "vaultBalanceMeta": "4TEEN, die derzeit im AirdropVault gehalten werden.",
+          "availableNow": "Jetzt verfügbar",
+          "availableNowMeta": "Was nach den Vertragsregeln jetzt verteilt werden kann.",
+          "nextWave": "Nächste Welle",
+          "completed": "Abgeschlossen",
+          "readFailed": "Live-Auslesen des Vault fehlgeschlagen.",
+          "readRetry": "Versuche es in Kürze erneut mit einer Aktualisierung."
+        }
+      },
+      "sections": {
+        "vaultState": {
+          "eyebrow": "Vault-Status",
+          "title": "Was der Vertrag im Moment sagt",
+          "rows": {
+            "totalAllocation": "Gesamtzuteilung",
+            "unlockedTotal": "Insgesamt freigegeben",
+            "totalDistributed": "Insgesamt verteilt",
+            "remainingUnlocked": "Freigegebener Rest",
+            "remainingPlanned": "Geplanter Rest",
+            "vaultBalance": "Vault-Guthaben"
+          },
+          "noteTitle": "Warum es zwei „Rest“-Zahlen gibt:",
+          "noteBody": "`Freigegebener Rest` ist die Quote, die der Vertrag nach Wellenzeit bereits freigegeben hat. `Geplanter Rest` ist der noch nicht verteilte Teil der vollständigen Zuteilung von 1,500,000 4TEEN. `Jetzt verfügbar` ist der kleinere Wert aus freigegebener Quote und tatsächlichem Vault-Guthaben."
+        },
+        "distribution": {
+          "eyebrow": "Verteilungsumfang",
+          "title": "Wie viel bereits aus dem Vault bewegt wurde",
+          "cards": {
+            "distributed": {
+              "title": "Bereits verteilt",
+              "text": "4TEEN, die bereits aus der Gesamtzuteilung versendet wurden."
+            },
+            "planned": {
+              "title": "Weiterhin geplant",
+              "text": "4TEEN, die im langfristigen Verteilungsplan noch übrig sind."
+            },
+            "lastDrop": {
+              "title": "Letzter bestätigter Drop",
+              "text": "4TEEN im zuletzt bestätigten Vault-Verteilungsereignis."
+            },
+            "unlockedUndistributed": {
+              "title": "Freigegeben, aber nicht verteilt",
+              "text": "Die Quote, die durch Wellen bereits freigegeben, aber noch nicht versendet wurde."
+            }
+          },
+          "note": "Dieser Block dient nur zur Information. Er nutzt leichte Live-Abfragen, die für die öffentliche Website sicher sind: Vault-Status aus Vertragsabfragen und das zuletzt bestätigte Airdrop-Ereignis aus dem Ereignis-Feed."
+        },
+        "dateLayer": {
+          "eyebrow": "Datumsebene",
+          "title": "Der Vertrag läuft nach festen Zeitstempeln",
+          "rows": {
+            "issueDate": "Ausgabedatum",
+            "currentWave": "Aktuelle Welle",
+            "nextWave": "Nächste Welle",
+            "lastDrop": "Letzter bestätigter Drop",
+            "snapshotUpdated": "Snapshot aktualisiert"
+          },
+          "note": "Wellen-Freigaben sind im Vertrag festgelegt. Die Website erfindet diese Daten nicht aus Texten; sie liest und formatiert die Live-Vertragsuhr."
+        },
+        "routeModel": {
+          "eyebrow": "Live-Routenmodell",
+          "title": "Telegram ist live. Andere Social-Bestandteile sind vorbereitet.",
+          "note": "Die Wallet-App kombiniert drei Prüfungen für Telegram: lokalen Wallet-Status, aktuellen Bot-Sitzungsstatus und On-Chain-Claim-Status. Die Website fälscht diesen Claim-Flow nicht und tut nicht so, als könne man im Web claimen; sie zeigt den Live-Vault und das echte Routenmodell darum herum.",
+          "routes": {
+            "telegram": {
+              "title": "Telegram",
+              "statusLive": "Jetzt live",
+              "statusSoon": "Jetzt live",
+              "note": "Wallet-Sitzung, Bot-Status und On-Chain-Claim-Status sind in der mobilen App bereits angebunden."
+            },
+            "instagram": {
+              "title": "Instagram",
+              "statusLive": "Rollout-Platzhalter",
+              "statusSoon": "Rollout-Platzhalter",
+              "note": "Die Route existiert im Maskenmodell des Vertrags, aber der Live-Claim-Flow ist noch nicht geöffnet."
+            },
+            "x": {
+              "title": "X",
+              "statusLive": "Rollout-Platzhalter",
+              "statusSoon": "Rollout-Platzhalter",
+              "note": "Die Route existiert im Maskenmodell des Vertrags, aber der Live-Claim-Flow ist noch nicht geöffnet."
+            },
+            "facebook": {
+              "title": "Facebook",
+              "statusLive": "Rollout-Platzhalter",
+              "statusSoon": "Rollout-Platzhalter",
+              "note": "Die Route existiert im Maskenmodell des Vertrags, aber der Live-Claim-Flow ist noch nicht geöffnet."
+            },
+            "youtube": {
+              "title": "YouTube",
+              "statusLive": "Rollout-Platzhalter",
+              "statusSoon": "Rollout-Platzhalter",
+              "note": "Die Route existiert im Maskenmodell des Vertrags, aber der Live-Claim-Flow ist noch nicht geöffnet."
+            }
+          }
+        },
+        "walletAccess": {
+          "eyebrow": "Live-Claim-Zugriff",
+          "title": "Die Live-Airdrop-Route funktioniert über die mobile Wallet, nicht über die öffentliche Website",
+          "body": "Der Telegram-Claim-Status ist im echten Produkt Wallet-bewusst. Die App kombiniert die ausgewählte Wallet, die aktuelle Bot-Sitzung und den On-Chain-Claim-Status, bevor sie entscheidet, ob die Route verfügbar, in der Warteschlange, bereits erhalten oder noch blockiert ist. Diese Website bleibt bewusst informativ.",
+          "bullets": [
+            "Die Claim-Verfügbarkeit hängt vom Wallet-Status ab, nicht nur vom Besuch einer öffentlichen Seite.",
+            "Telegram ist heute die einzige Live-Claim-Route; andere Socials bleiben vorbereitete Schienen.",
+            "Die Wallet kann zwischen Watch-only-, Signier-, Erhalten-, Warteschlangen- und Legacy-genutzt-Status unterscheiden.",
+            "Nutze die App-Route für die echte Claim-Oberfläche und kehre dann zur öffentlichen Vault-Verifizierung hierher zurück."
+          ],
+          "openApp": "Mobile-App-Route öffnen",
+          "openVault": "AirdropVault öffnen"
+        },
+        "waveSchedule": {
+          "eyebrow": "Wellenplan",
+          "title": "Sechs feste Wellen, eine Vertragsuhr",
+          "headers": {
+            "wave": "Welle",
+            "cap": "Obergrenze",
+            "unlockTime": "Freigabezeit",
+            "status": "Status"
+          },
+          "current": "Aktuell",
+          "unlocked": "Freigegeben",
+          "upcoming": "Bevorstehend"
+        },
+        "verification": {
+          "eyebrow": "Verifizierung",
+          "title": "Vertrag und Operator",
+          "body": "Die Website liest dieselbe Vault-Logik aus, die die Wallet nutzt: aktuelle Welle, Zeitstempel der nächsten Welle, freigegebenes Guthaben, verfügbarer Verteilungsbetrag und Vault-Guthaben.",
+          "vaultLabel": "AirdropVault",
+          "operatorLabel": "Operator"
+        },
+        "productContext": {
+          "eyebrow": "Produktkontext",
+          "title": "Wie die Wallet diese Oberfläche liest",
+          "bullets": [
+            "Telegram ist heute die einzige Live-Social-Claim-Route.",
+            "Andere Social-Bestandteile existieren bereits im Maskenmodell des Vertrags.",
+            "Claim-Verlauf und Claim-Status sind Wallet-spezifisch und werden in der mobilen App gelesen, nicht hier vorgetäuscht.",
+            "Vault-Finanzierung und freigegebene Quote sind getrennte Realitäten, daher zeigt die App beides.",
+            "Diese Website führt den Live-Claim nicht selbst aus; sie verweist auf die Wallet-Route, die das tut."
+          ]
+        },
+        "fallback": {
+          "eyebrow": "Fallback",
+          "title": "Die Route ist bereit, aber Live-Abfragen sind fehlgeschlagen.",
+          "body": "Die Seite ist bereits rund um den echten AirdropVault-Vertrag angebunden. Sobald das Live-Auslesen wieder erfolgreich ist, füllt sie Wellenstatus, Guthaben, freigegebene Quote, geplanten Rest und Timing der nächsten Welle automatisch aus.",
+          "openVault": "AirdropVault öffnen",
+          "openApp": "Mobile-App-Route öffnen"
+        }
+      }
     }
   }
 }
