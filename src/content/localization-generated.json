@@ -27411,6 +27411,315 @@
           }
         ]
       }
+    },
+    "buy": {
+      "metadata": {
+        "title": "Koop 4TEEN | Contract-native TRON-instap",
+        "description": "Koop 4TEEN rechtstreeks via het smart contract: mint een vergrendelde batch, volg bevestigde aankopen, begrijp de 90/7/3 TRX-routering, installeer daarna de wallet en voer de echte koopflow uit.",
+        "openGraphTitle": "Koop 4TEEN",
+        "openGraphDescription": "Stap in 4TEEN via de contract-native kooproute. Mint een vergrendelde batch, bekijk bevestigde BuyTokens-events, controleer de TRX-routering en voer uit vanuit een ondertekenende wallet."
+      },
+      "hero": {
+        "eyebrow": "FourteenToken",
+        "badge": "Contract-native kooproute",
+        "title": "Koop 4TEEN rechtstreeks via het contract",
+        "subtitle": "Mint een nieuwe 4TEEN-batch, vergrendel die 14 dagen, zie bevestigde aankopen in de feed verschijnen en beslis daarna wat je doet wanneer de ontgrendeltimer afloopt.",
+        "body": [
+          "Dit is geen generiek swapformulier dat doet alsof het DeFi is. Dit is de protocol-native instaproute.",
+          "Je voert TRX in, het contract berekent hoeveel 4TEEN er wordt gemint, de transactie maakt een aparte vergrendeling van 14 dagen aan voor die batch, en de binnenkomende TRX wordt volgens de contractregel gerouteerd: 90% naar liquiditeit, 7% naar de controller en 3% naar de airdrop-kant.",
+          "De website toont de kaart. De wallet voert de transactie uit."
+        ],
+        "primaryCta": "Installeer / Open Wallet",
+        "secondaryCta": "Bekijk nieuwste aankopen",
+        "ctaNote": "Een ondertekenende wallet is vereist. Alleen-kijken-modus kan het systeem lezen, maar kan de kooptransactie niet verzenden. De mensheid heeft handtekeningen ontdekt, en nu moeten we die allemaal respecteren.",
+        "rotatingLines": [
+          "Contractinstap. Echte vergrendeling.",
+          "Eerst minten. Later ontgrendelen.",
+          "On-chain kopen. Alles volgen.",
+          "Jouw batch. Jouw timer.",
+          "Geen nepvolume. Alleen events."
+        ],
+        "stats": {
+          "directPrice": "Directe prijs",
+          "directPriceMeta": "Huidige instapprijs per 4TEEN aan contractzijde vanuit de publieke snapshotlaag. De wallet ververst de livewaarde vóór uitvoering.",
+          "lockRule": "Vergrendelregel",
+          "lockRuleValue": "14 dagen",
+          "lockRuleMeta": "Elke directe aankoop maakt zijn eigen vergrendelde batch aan. De timer hoort bij die aankoop, niet bij je hele wallet.",
+          "trxSplit": "TRX-routering",
+          "trxSplitValue": "90 / 7 / 3",
+          "trxSplitMeta": "Binnenkomende TRX wordt binnen de kooptransactie gerouteerd: liquiditeitskant, controllerkant en airdrop-kant.",
+          "execution": "Uitvoering",
+          "executionValue": "Wallet + Resources",
+          "executionMeta": "De echte koopflow loopt vanuit een ondertekenende wallet. TRX-saldo, Energy, Bandwidth en transactiegereedheid worden gecontroleerd vóór de definitieve handtekening.",
+          "priceFallback": "1.147500 TRX",
+          "priceUnavailable": "Liveprijs is op dit moment niet beschikbaar. De fallback weerspiegelt de laatst bekende directe route."
+        }
+      },
+      "sections": {
+        "executionRoute": {
+          "eyebrow": "Hoe de cyclus werkt",
+          "title": "De kooppagina moet de hele route uitleggen",
+          "intro": "Een directe aankoop is niet gewoon “stuur TRX, ontvang token”. De module leidt de gebruiker door de echte on-chain cyclus: contractinstap, mint, vergrendeling, liquiditeitsroutering en het beslismoment na ontgrendeling.",
+          "cards": [
+            {
+              "eyebrow": "Stap 1",
+              "title": "Stap in via het contract",
+              "subtitle": "Dit is de primaire protocolroute, niet de secundaire markt.",
+              "text": "Direct kopen verzendt de opdracht `buyTokens()` vanuit een ondertekenende wallet. Het contract ontvangt TRX, berekent het 4TEEN-bedrag en start de mintflow voor precies die transactie.\n\nGeen pooljacht. Geen routeroulette. Niet doen alsof een swap en een mint hetzelfde zijn, want blijkbaar doen woorden er nog steeds toe."
+            },
+            {
+              "eyebrow": "Stap 2",
+              "title": "Mint een nieuwe batch",
+              "subtitle": "Het contract maakt nieuwe 4TEEN aan voor de koper.",
+              "text": "Het 4TEEN-bedrag wordt tijdens de kooptransactie gemint. Die geminte batch wordt gekoppeld aan de wallet van de koper en gaat meteen de vergrendellogica in.\n\nDaarom verschilt direct kopen van swap. Swap verhandelt bestaande liquiditeit. Direct kopen creëert een nieuwe vergrendelde batch via het tokencontract."
+            },
+            {
+              "eyebrow": "Stap 3",
+              "title": "Vergrendel 14 dagen",
+              "subtitle": "Elke aankoop krijgt zijn eigen ontgrendeltimer.",
+              "text": "De gekochte batch wordt 14 dagen vergrendeld. Als dezelfde wallet later opnieuw koopt, maakt die tweede aankoop een aparte vergrendelde batch aan met een eigen timer.\n\nDe wallet toont de ontgrendeltijdlijn zodat de gebruiker precies kan zien wanneer elke batch verplaatsbaar wordt."
+            },
+            {
+              "eyebrow": "Stap 4",
+              "title": "Voed de liquiditeitskant",
+              "subtitle": "Nieuwe aankopen blijven verse TRX het systeem in duwen.",
+              "text": "Elke directe aankoop routeert 90% van de binnenkomende TRX naar de liquiditeitskant. Die waarde blijft niet gewoon in een marketingscreenshot staan. Ze gaat de liquiditeitsflow van het protocol in en wordt verwerkt via de dagelijkse liquiditeitsuitvoeringslogica.\n\nDit is het deel dat gebruikers moeten begrijpen: latere aankopen blijven het systeem voeden terwijl eerdere kopers hun vergrendeling uitzitten."
+            },
+            {
+              "eyebrow": "Stap 5",
+              "title": "Bereik het ontgrendelpunt",
+              "subtitle": "Na ontgrendeling kiest de gebruiker de volgende route.",
+              "text": "Wanneer de vergrendeling afloopt, komt de batch beschikbaar. De houder kan de positie blijven houden of naar de marktroute gaan en via beschikbare liquiditeit swappen.\n\nGeen gedwongen exit. Geen magische knop. Gewoon een ontgrendelpunt en een marktbeslissing, omdat DeFi al dramatisch genoeg is zonder extra onzin te verzinnen."
+            }
+          ]
+        },
+        "priceLogic": {
+          "eyebrow": "Primaire prijslogica",
+          "title": "Direct kopen stapt nu in tegen de contractprijs en ontmoet later de marktprijs",
+          "cards": [
+            {
+              "eyebrow": "Basis",
+              "title": "1 TRX = 1 4TEEN bij deployment",
+              "text": "De startprijs voor direct kopen is in FourteenToken vastgelegd als 1.000000 TRX per token voordat latere samengestelde perioden die prijs vooruit bewegen."
+            },
+            {
+              "eyebrow": "Groei",
+              "title": "14.75% groei per prijsperiode",
+              "text": "Het contract bewaart annualGrowthRate = 1475 basispunten en laat tokenPrice samengesteld vooruitgaan wanneer er voldoende tijd is verstreken."
+            },
+            {
+              "eyebrow": "Interval",
+              "title": "Elke 90 dagen",
+              "text": "Prijsupdates zijn geen willekeurige adminwijzigingen. getCurrentPrice() verhoogt de opgeslagen tokenprijs op basis van verstreken perioden van 90 dagen sinds lastPriceUpdate."
+            },
+            {
+              "eyebrow": "Bereik",
+              "title": "Alleen voor directe uitgifte",
+              "text": "Deze prijs regelt directe uitgifte via `buyTokens()`. Hij belooft niets over de DEX-prijs of latere exitvoorwaarden zodra de batch ontgrendelt en de gebruiker naar de marktroute gaat."
+            }
+          ],
+          "note": "De site leest de directe prijs als een publieke informatielaag. De echte walletroute blijft belangrijk, omdat die deze contractprijs combineert met de geselecteerde ondertekenende wallet, het daadwerkelijke TRX-saldo en resourcecontroles op bevestigingstijdstip."
+        },
+        "lockLayer": {
+          "eyebrow": "14-daagse vergrendellaag",
+          "title": "Elke directe aankoop mint onmiddellijk en vergrendelt onmiddellijk",
+          "bullets": [
+            "Elke buyTokens()-aanroep mint meteen 4TEEN naar het adres van de koper.",
+            "Dezelfde transactie voegt een nieuw vergrendelrecord toe met releaseTime = block timestamp + 14 dagen.",
+            "Vergrendelingen gelden per aankoopbatch, niet als één samengevoegde timer voor de hele wallet.",
+            "Transfers en transferFrom worden geblokkeerd wanneer het gevraagde bedrag uit nog vergrendeld saldo zou worden besteed.",
+            "De ontgrendeltijdlijn in de wallet is de natuurlijke vervolgroute na een aankoop."
+          ],
+          "note": "Daarom zijn direct kopen en swap niet hetzelfde. Direct kopen geeft de gebruiker eerst protocol-native uitgifte, daarna een vaste wachttijd, en pas na ontgrendeling wordt de marktroute relevant."
+        },
+        "trxRouting": {
+          "eyebrow": "Routering",
+          "title": "Waar de TRX naartoe gaat",
+          "rows": [
+            {
+              "share": "90%",
+              "title": "Naar liquiditeit",
+              "text": "Het grootste deel gaat naar de liquiditeitskant van het systeem. Dit is de kernflow die de marktroute ondersteunt nadat gebruikers de ontgrendeling bereiken.",
+              "linkLabel": "Open liquiditeitspagina",
+              "linkHref": "/liquidity"
+            },
+            {
+              "share": "7%",
+              "title": "Naar de controller",
+              "text": "Een kleiner deel gaat naar FourteenController. Dit is de controle- en boekhoudlaag die is verbonden met tokenbeheer, aankooptracking, ambassadeurslogica en beloningsafwikkeling.",
+              "linkLabel": "Open ambassadeurspagina",
+              "linkHref": "/ambassadors"
+            },
+            {
+              "share": "3%",
+              "title": "Naar de airdrop-kant",
+              "text": "Het laatste deel gaat naar de airdrop-kant, zodat dezelfde direct-buy-flow ook publieke distributie en ecosysteemgroei blijft voeden.",
+              "linkLabel": "Open airdroppagina",
+              "linkHref": "/airdrop"
+            }
+          ],
+          "note": "De splitsing gebeurt binnen de kooptransactie zelf. Het is geen latere spreadsheetoefening, geen “vertrouw ons bro”-allocatie en geen handmatige belofte die om 3 uur ’s nachts in een Telegram-chat is geschreven."
+        },
+        "walletFlow": {
+          "eyebrow": "Walletflow",
+          "title": "Hoe het echte product van bedraginvoer naar handtekening gaat",
+          "steps": [
+            {
+              "eyebrow": "1. Voorbereiden",
+              "title": "Kies de wallet die daadwerkelijk gaat kopen",
+              "text": "De app begint met de geselecteerde ondertekenende wallet, laadt het TRX-saldo, de contractprijs, het vergrendelde saldo en de contractadressen, en beperkt vervolgens het bedragveld tot wat die wallet echt kan dekken."
+            },
+            {
+              "eyebrow": "2. Controleren",
+              "title": "Bekijk het geminte bedrag en de splitsing voordat je vastlegt",
+              "text": "Voordat de gebruiker iets goedkeurt, toont de wallet de geschatte 4TEEN-output, de 90 / 7 / 3-splitsing, de volgende contractprijsstap en de toekomstige ontgrendeltijd voor die batch."
+            },
+            {
+              "eyebrow": "3. Bevestigen",
+              "title": "Controleer resources voordat de wallet om goedkeuring vraagt",
+              "text": "De bevestigingslaag meet Energy, Bandwidth en elk tekort, zodat de gebruiker de echte uitvoeringsstatus ziet vóór goedkeuring met toegangscode of biometrie."
+            },
+            {
+              "eyebrow": "4. Doorgaan",
+              "title": "Als resources tekortschieten, kan de wallet eerst het gat dichten",
+              "text": "Wanneer de geselecteerde wallet te weinig uitvoeringsresources heeft, kan de app energierental quoten en dat tekort wegwerken voordat de directe aankoop wordt verzonden, in plaats van de gebruiker blind een mislukte transactie in te laten lopen."
+            },
+            {
+              "eyebrow": "5. Na landing",
+              "title": "Het systeem volgt zowel ontgrendeling als attributie aan controllerzijde",
+              "text": "Zodra de aankoop landt, kan de wallet de vergrendel-countdown voor die batch tonen, terwijl FourteenController de koper kan binden, eenmaal per aankoop-ID een geverifieerde aankoop kan registreren en het ambassadeursbeloningssaldo kan finaliseren wanneer de allocatie slaagt."
+            }
+          ],
+          "note": "De website moet dit pad duidelijk uitleggen en de gebruiker daarna naar de wallet doorsturen. Ze moet niet doen alsof ze zelf de uitvoeringslaag is."
+        },
+        "resourceLayer": {
+          "eyebrow": "Resourcegereedheid",
+          "title": "De wallet behandelt netwerkkosten als onderdeel van het product, niet als val aan het einde",
+          "cards": [
+            {
+              "eyebrow": "Schatting",
+              "title": "Energy en bandwidth worden vóór ondertekening geprijsd",
+              "text": "De wallet schat de contract-call-kosten voor `buyTokens()` vóór ondertekening, zodat de gebruiker ziet wat de route nodig heeft vóór de laatste goedkeuringsstap."
+            },
+            {
+              "eyebrow": "Dekking",
+              "title": "Huidige walletresources worden vergeleken met de route",
+              "text": "De controlestap toont niet alleen het TRX-bedrag, maar ook of de geselecteerde wallet de route op dit moment netjes kan dekken."
+            },
+            {
+              "eyebrow": "Tekort",
+              "title": "Als resources ontbreken, kan de app helpen het gat te dichten",
+              "text": "Als de ondertekenende wallet tekortkomt, toont het product het tekort direct en kan het naar de energierental-stap gaan voordat de aankoop wordt verzonden."
+            }
+          ],
+          "note": "Dit is belangrijk omdat direct kopen niet zomaar een getallenveld is. Het is een live contractroute, en de wallet toont de resourcestatus daarachter al."
+        },
+        "latestPurchases": {
+          "eyebrow": "Live koopfeed",
+          "title": "Bevestigde aankopen hebben het contract al bereikt",
+          "intro": "Deze rijen komen uit bevestigde `BuyTokens`-events op FourteenToken. Echte wallets, echte transacties, echt on-chain bewijs. Geen nepvolume, geen decoratieve tabel, geen nieuw dashboardhallucinatie in een dark theme.",
+          "headers": {
+            "wallet": "Wallet",
+            "trxIn": "TRX in",
+            "minted": "Gemint",
+            "lockEnds": "Vergrendeling eindigt",
+            "transaction": "Transactie",
+            "status": "Bevestigd"
+          },
+          "statusConfirmed": "Bevestigd",
+          "openTx": "Open tx",
+          "note": "De feed is hier om één reden: bewijs. Gebruikers moeten zien dat de koopmodule niet theoretisch is. Aankopen hebben plaatsgevonden, het contract heeft events uitgezonden en de wallet kan de volgende koper door dezelfde route leiden.",
+          "empty": "Wachten op bevestigde BuyTokens-events.",
+          "unknownTime": "Tijd niet beschikbaar",
+          "fallbackBody": "Recente directe aankopen zijn tijdelijk verborgen op de publieke site terwijl de route wordt gestabiliseerd. De mobiele app blijft de primaire plek waar de aankoop wordt uitgevoerd, en publieke verificatielinks blijven beschikbaar.",
+          "fallbackPrimaryCta": "Open route in mobiele app",
+          "fallbackSecondaryCta": "Open tokencontract"
+        },
+        "comparison": {
+          "eyebrow": "Kopen is niet hetzelfde als swappen",
+          "title": "Direct kopen is de instaproute. Swap is de marktroute.",
+          "intro": "Beide routes doen ertoe, maar ze doen verschillend werk. Gebruikers moeten weten welke machine ze aanraken voordat ze knoppen beginnen in te drukken alsof de beschaving een vergissing was.",
+          "cards": [
+            {
+              "eyebrow": "Kopen",
+              "title": "Kopen",
+              "subtitle": "Directe contractinstap",
+              "text": "Direct kopen verzendt de koopopdracht naar het contract, mint volgens de contractregel een nieuwe batch 4TEEN, maakt een nieuwe vergrendeling van 14 dagen aan voor die batch en routeert binnenkomende TRX naar liquiditeits-, controller- en airdropflows.",
+              "footerLabel": "Beste voor",
+              "footerText": "Gebruikers die via de protocol-native mintroute willen instappen en precies willen begrijpen hoe de kooptransactie werkt."
+            },
+            {
+              "eyebrow": "Swap",
+              "title": "Swap",
+              "subtitle": "Secundaire-marktroute",
+              "text": "Swap handelt tegen beschikbare liquiditeit op de markt. Het mint geen nieuwe batch, creëert geen direct-buy-vergrendeling en hangt op dat moment af van routekwaliteit, prijsimpact, slippage en DEX-omstandigheden.",
+              "footerLabel": "Beste voor",
+              "footerText": "Gebruikers die al ontgrendelde 4TEEN hebben of via beschikbare marktliquiditeit willen handelen."
+            },
+            {
+              "eyebrow": "Betekenis",
+              "title": "Betekenis",
+              "subtitle": "Stap hier in, beslis later",
+              "text": "Direct kopen is de instapflow. Ontgrendeling is de wachttijd. Swap is de marktroute nadat de gebruiker verplaatsbare tokens heeft.\n\nHet heldere pad is simpel: koop via het contract, volg de vergrendeling, bekijk de feed en kies daarna de volgende zet na ontgrendeling."
+            }
+          ]
+        },
+        "afterPurchase": {
+          "eyebrow": "Na aankoop",
+          "title": "Wat er gebeurt zodra de aankoop landt",
+          "steps": [
+            {
+              "eyebrow": "Gemint",
+              "title": "4TEEN verschijnt onmiddellijk",
+              "text": "Het tokenbedrag wordt gemint in dezelfde transactie die de TRX ontvangt. Dit is geen vertraagde backendallocatie."
+            },
+            {
+              "eyebrow": "Vergrendeld",
+              "title": "De gekochte batch gaat zijn eigen 14-daagse vergrendeling in",
+              "text": "Voor precies die aankoopbatch wordt een nieuw vergrendelrecord aangemaakt. De wallet kan dit later als aparte rij in de ontgrendeltijdlijn tonen."
+            },
+            {
+              "eyebrow": "Gevolgd",
+              "title": "De ontgrendeltijdlijn wordt meteen nuttig",
+              "text": "Het volgende nuttige scherm is de ontgrendelroute: die toont wat nog vergrendeld is, wat als volgende ontgrendelt en wanneer die batch daadwerkelijk overdraagbaar wordt."
+            },
+            {
+              "eyebrow": "Vooruit gevoed",
+              "title": "De aankoop blijft liquiditeit en controllerstatus voeden",
+              "text": "Het liquiditeitsdeel van 90% is al het liquiditeitspad van het protocol ingegaan, terwijl FourteenController de koper kan binden, de geverifieerde aankoop eenmaal per aankoop-ID kan registreren en de beloningsboekhouding aan ambassadeurszijde kan afwikkelen."
+            }
+          ]
+        },
+        "signingWallet": {
+          "eyebrow": "Uitvoeringslaag",
+          "title": "De website legt de route uit. De wallet voert de aankoop uit.",
+          "body": "De publieke site kan de contractroute uitleggen, maar de echte aankoop gebeurt vanuit een ondertekenende wallet in de app. Alleen-kijken-modus is nuttig voor het lezen van saldi, het controleren van routes en het inspecteren van het systeem. Deze modus kan de direct-buy-transactie niet ondertekenen.\n\nOm te kopen heeft de gebruiker een wallet nodig die op TRON kan ondertekenen.",
+          "bullets": [
+            "Alleen-kijken-wallets kunnen saldi, routes, ontgrendelstatussen en publieke contractdata inspecteren.",
+            "Alleen een ondertekenende wallet kan de live direct-buy-route binnengaan.",
+            "TRX-saldo, Energy, Bandwidth en transactiegereedheid worden gecontroleerd vóór ondertekening.",
+            "De wallet toont het verwachte 4TEEN-bedrag en het vergrendelgedrag voordat de gebruiker ondertekent."
+          ],
+          "ctaTitle": "Installeer de wallet en doorloop de echte koopflow",
+          "ctaText": "De site geeft je de kaart. De wallet geeft je uitvoering: direct kopen, resourcecontrole, Energy-fallback, live contractprijs, aankoopbevestiging en ontgrendeltracking na de transactie."
+        },
+        "verification": {
+          "eyebrow": "Broncontrole",
+          "title": "De claims hierboven zijn teruggekoppeld aan contracten en code",
+          "body": "Deze pagina is gebaseerd op het gedeployde FourteenToken-contract, de controllerarchitectuur, de direct-buy-module van de wallet en de ontgrendelroute die na aankoop volgt.\n\nHet doel is simpel: de echte mechanics duidelijk genoeg uitleggen zodat een nieuwe gebruiker begrijpt wat er gebeurt vóór ondertekening. Blijkbaar een revolutionair concept.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Contracts repository",
+          "walletRepoLabel": "Wallet repository"
+        },
+        "cta": {
+          "eyebrow": "Volgende stap",
+          "title": "Open de wallet wanneer je klaar bent voor de echte koopflow",
+          "body": "De publieke site kan de route uitleggen. De echte aankoop, resourcecontrole, Energy-fallback, live prijsuitlezing, transactiehandtekening en ontgrendelopvolging zitten allemaal in de mobiele wallet.\n\nInstalleer de wallet, verbind een ondertekenend account, voer TRX in, controleer het geminte 4TEEN-bedrag, bevestig de vergrendeling van 14 dagen en onderteken alleen wanneer de transactiedetails duidelijk zijn.",
+          "openApp": "Installeer / Open Wallet App",
+          "openUnlock": "Open ontgrendeltijdlijn"
+        }
+      }
     }
   }
 }
