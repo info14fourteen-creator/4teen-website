@@ -29033,6 +29033,142 @@
           "document": "**Versie:** 1.0\n\n**Datum:** 30 november 2025\n\n---\n\n## Samenvatting\n\n4TEEN is een op TRON gebaseerde token die is gebouwd voor kortcyclische prijsuitbreiding, transparante liquiditeitsflow en eerlijke on-chain mechanismen. De economie is gestructureerd rond een vaste instapprijs, dynamische supply, tijdgelockte tokens en een geautomatiseerd liquiditeitsdistributiemodel. Het doel van 4TEEN is een voorspelbaar, transparant en zichzelf versterkend groeimechanisme te creëren dat geschikt is voor DeFi-deelnemers die on-chain liquiditeit en incentive-flows begrijpen.\n\n---\n\n## 1. Introductie\n\n4TEEN is een vraaggedreven token met **geen vaste total supply**, waarbij tokens uitsluitend worden gemint wanneer echte TRX het systeem binnenkomt. Het project is gebouwd voor snelheid, transparantie en duurzame liquiditeitsgroei. Een korte **lockperiode van 14 dagen** zorgt voor marktstabiliteit, terwijl continue liquiditeitsforwarding de marktdiepte van de token in de loop van de tijd versterkt.\n\n4TEEN is ontworpen voor DeFi-gebruikers die waarde hechten aan **schone tokenomics**, **echte liquiditeit** en **mechanismen die niet handmatig kunnen worden gemanipuleerd**.\n\n---\n\n## 2. Hoe 4TEEN werkt\n\n### 01. Vaste instapprijs\n\n4TEEN gebruikt een constante instapratio van:\n\n**1 TRX = 1 4TEEN**\n\nDit elimineert slippage, willekeurige prijsstelling en volatiliteit in de vroege fase.\n\nElke koper stapt in tegen exact dezelfde prijs.\n\n---\n\n### 02. Mint-on-purchase\n\n4TEEN heeft geen vooraf ingestelde supply.\n\nNieuwe tokens worden *alleen* gemint op het moment dat een koper TRX naar het contract stuurt.\n\nGeen pre-minting. Geen verborgen allocaties. Geen private rounds.\n\nDit maakt 4TEEN volledig **vraaggedreven**: supply groeit alleen wanneer echte TRX binnenstroomt.\n\n---\n\n### 03. Lockperiode van 14 dagen\n\nElke aankoop start een **lock van 14 dagen** voor de geminte tokens.\n\nTijdens de lockperiode kunnen tokens niet worden overgedragen of verkocht.\n\nHet doel:\n\n- Direct dumpen voorkomen\n\n- Korte, voorspelbare holdingcycli creëren\n\n- Natuurlijke liquiditeit en prijsvorming ondersteunen\n\nNa 14 dagen unlocken tokens automatisch en worden ze beschikbaar voor transfers of handel.\n\n---\n\n## 3. Liquiditeit & TRX-flow\n\nWanneer gebruikers 4TEEN kopen, wordt de inkomende TRX automatisch verdeeld:\n\n| Bestemming | Percentage | Doel |\n|---|---:|---|\n| Liquidity Pool | 90% | Versterkt prijsdekking & marktdiepte |\n| Owner Wallet | 7% | Operaties & ontwikkeling |\n| Airdrop Address | 3% | Community-incentives & groei |\n\nDeze structuur zorgt ervoor dat **het grootste deel** van de TRX rechtstreeks naar liquiditeit gaat, wat de langetermijnstabiliteit verhoogt.\n\n---\n\n## Liquiditeitsmodel\n\nDe liquiditeitsstructuur van 4TEEN is gebouwd op drie principes:\n\n### 1. ECHTE LIQUIDITEIT ALLEEN IN TRX\n\nLiquiditeit wordt altijd ondersteund door echte TRX van echte kopers.\n\n### 2. AUTOMATISCHE DISTRIBUTIE\n\nLiquiditeitsallocatie gebeurt binnen het smart contract elke keer dat iemand 4TEEN koopt.\n\n### 3. TOENEMENDE MARKTDIEPTE\n\nMeer kopers → meer TRX → diepere liquiditeit → sterkere prijsondersteuning.\n\n---\n\n## 4. Dynamisch supplymodel\n\n**4TEEN** heeft **geen** max supply.\n\nDe supply is **volledig dynamisch** en groeit alleen wanneer aankopen plaatsvinden.\n\n**Dynamische supply = geen inflatie zonder vraag.**\n\nDit creëert een natuurlijk evenwicht:\n\n- Wanneer activiteit hoog is → supply groeit\n\n- Wanneer activiteit laag is → supply stopt met groeien\n\n- Liquiditeit blijft sterker worden zolang aankopen plaatsvinden\n\nDit voorkomt oversupply en stemt de tokeneconomie rechtstreeks af op gebruikersvraag.\n\n---\n\n## 5. Geautomatiseerde prijsgroei\n\n**4TEEN** bevat een kwartaalmechanisme voor prijsgroei:\n\nElke **90 dagen** past de mintingprijs van de token opwaarts aan op basis van een vooraf ingesteld groeipercentage, standaard: **14.75% geannualiseerd**.\n\nDit betekent:\n\n- Vroege kopers minten tegen een lagere prijs\n\n- Latere kopers minten tegen een hogere prijs\n\n- Prijs groeit automatisch met tijd en vraag\n\nDit creëert een ingebouwde incentive voor vroege adoptie.\n\n---\n\n## 6. Smart-contract-architectuur\n\nHet 4TEEN-contract bevat:\n\n### • TRC-20-standaardcompatibiliteit\n\nVolledig compliant met de tokenstandaard van TRON.\n\n### • Mint-on-buy-mechanisme\n\nDirecte minting op basis van inkomende TRX.\n\n### • Vestinglogica van 14 dagen\n\nLocks worden individueel per gebruiker bijgehouden.\n\n### • Reentrancy-bescherming\n\nVoorkomt kwaadaardige recursieve calls tijdens TRX-forwarding.\n\n### • Owner Governance\n\nAlleen de owner kan bijwerken:\n\n- annual growth rate\n\n- liquidityPool address\n\n- airdrop address\n\n### • Transparante events\n\nEvents voor elke buy, prijsupdate, transfer en approval.\n\n---\n\n## 7. Smart-contract-architectuur\n\n| Component | Waarde |\n|---|---|\n| Tokennaam | 4teen |\n| Symbool | 4TEEN |\n| Decimalen | 6 |\n| Instapprijs | 1 TRX = 1 4TEEN |\n| Supplytype | Dynamisch |\n| Lockduur | 14 dagen |\n| Liquiditeitsallocatie | 90% van TRX |\n| Airdrop-allocatie | 3% |\n| Operationele allocatie | 7% |\n| Prijsgroei-interval | Elke 90 dagen |\n| Prijsmodel | Tijdgebaseerde compounding |\n\n---\n\n## 8. Risicoverklaring\n\n4TEEN is een gedecentraliseerd smart-contract-systeem dat is gedeployd op de TRON-blockchain.\n\nDeelname brengt risico met zich mee, waaronder maar niet beperkt tot:\n\n- Marktvolatiliteit\n\n- Liquiditeitsschommelingen\n\n- Smart-contract-kwetsbaarheden\n\n- Verlies van private keys\n\n- Regelgevende onzekerheid\n\nNiets in dit document vormt financieel advies.\n\nGebruikers moeten hun eigen risicotolerantie beoordelen voordat zij met de 4TEEN-token of gerelateerde producten interacteren.\n\n---\n\n## 9. Conclusie\n\n4TEEN introduceert een kortcyclisch, liquiditeitsgedreven tokenmodel dat is ontworpen voor transparante groei, eerlijke deelname en voorspelbaar prijsgedrag.\n\nMet een vaste instapprijs, dynamische minting, afgedwongen lockperioden en automatische liquiditeitsforwarding stemt 4TEEN incentives af tussen alle marktdeelnemers.\n\nDe combinatie van echte TRX-dekking, dynamische supply en gestructureerde liquiditeitsdistributie positioneert 4TEEN als een moderne DeFi-native asset gebouwd voor een nieuwe generatie on-chain liquiditeitsengines."
         }
       }
+    },
+    "one-pager": {
+      "metadata": {
+        "title": "4TEEN One-Pager",
+        "description": "Een beknopte 4TEEN one-pager voor investeerders en strategische partners: productstatus, protocolmechanismen, bewijs van tractie, kapitaalgebruik en links voor due diligence."
+      },
+      "hero": {
+        "eyebrow": "4TEEN One-Pager",
+        "status": "Korte briefing voor investeerders",
+        "title": "4TEEN is een live TRON-wallet en tokensysteem, gebouwd rond directe aankoop, ontgrendeling na 14 dagen, liquiditeitsroutering en groeirails.",
+        "lead": "Deze one-pager is de korte versie van het investeerdersdeck: wat er bestaat, waarom het ertoe doet, hoe de loop werkt en waar kapitaal of strategische hulp het systeem kan versnellen."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Product",
+          "title": "Tokenflow met wallet als vertrekpunt",
+          "body": "Gebruikers stappen binnen via de app-interface, niet alleen via een contractpagina: kopen, ontgrendelen, swappen, liquiditeit, ambassador en proof-routes zijn al vormgegeven als één productloop."
+        },
+        {
+          "eyebrow": "Mechanismen",
+          "title": "90 / 7 / 3-routering bij aankoop",
+          "body": "Elke directe aankoop routeert TRX binnen dezelfde transactie over liquiditeit, controller en airdrop-zijdes, waardoor de kerneconomie eenvoudiger uit te leggen en te verifiëren is."
+        },
+        {
+          "eyebrow": "Retentie",
+          "title": "Batchontgrendeling na 14 dagen",
+          "body": "Tokens uit directe aankopen worden direct gemint, maar worden per aankoopbatch na 14 dagen ontgrendeld, waardoor het instapmoment een zichtbare wallet-status wordt."
+        },
+        {
+          "eyebrow": "Schaalpad",
+          "title": "Groeirails bestaan al",
+          "body": "Ambassador-administratie, airdrop-financiering, verificatieroutes en publieke proof-pagina’s vormen een basis voor distributie in plaats van een lege campagnehuls."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "Wat 4TEEN is",
+          "title": "Een gestructureerd instapsysteem op TRON, verpakt als wallet-ervaring",
+          "body": "4TEEN combineert tokenmechanismen, controller-side administratie, liquiditeitsuitvoering, ambassador-tracking en app-UX in één interface. De publieke site legt het systeem uit; de wallet draagt de gebruikersworkflow.",
+          "bullets": [
+            "Directe aankoop en ontgrendelingslogica worden door contracten ondersteund.",
+            "Liquiditeits- en controllerrollen zijn gescheiden voor duidelijkere verificatie.",
+            "De app en site tonen al interfaces voor gebruikers, investeerders en proof."
+          ]
+        },
+        {
+          "eyebrow": "Waarom het investeerbaar is",
+          "title": "De kans ligt in het opschalen van een live loop, niet in het financieren van een concept",
+          "body": "Het project heeft al de mechanismen, routes, app-verhaal en due-diligence-materialen die nodig zijn om serieuze gesprekken te starten. De volgende stap is distributie, verfijning, vertrouwen in liquiditeit en partnerbereik.",
+          "bullets": [
+            "Productrisico is lager omdat de kernflows al bestaan.",
+            "Het narratief is eenvoudig genoeg om uit te leggen: kopen, locken, ontgrendelen en daarna de volgende route kiezen.",
+            "Kapitaal kan naar versnelling gaan in plaats van naar eerste ontdekking."
+          ]
+        }
+      ],
+      "snapshot": [
+        {
+          "label": "Netwerk",
+          "value": "TRON",
+          "detail": "Omgeving met lage fees voor directe aankoop, zichtbaarheid van ontgrendeling en wallet-gestuurde gebruikersacties."
+        },
+        {
+          "label": "Primaire interfaces",
+          "value": "App + site",
+          "detail": "De app draagt de flow; de website draagt educatie, proof en investeerderscontext."
+        },
+        {
+          "label": "Instapregel",
+          "value": "90 / 7 / 3",
+          "detail": "Routering aan de koopzijde splitst liquiditeit, controller en airdrop-financiering binnen de transactie."
+        },
+        {
+          "label": "Ontgrendelingsregel",
+          "value": "14 dagen",
+          "detail": "Elke aankoop heeft zijn eigen ontgrendelingsbatch in plaats van één ondoorzichtige wallet-brede lock."
+        }
+      ],
+      "proofPoints": [
+        {
+          "title": "De on-chain architectuur is gescheiden",
+          "body": "Token-, controller-, liquiditeitscontroller-, bootstrapper- en vault-contracten dragen afzonderlijke verantwoordelijkheden, wat due diligence eenvoudiger maakt dan één ondoorzichtig contractverhaal."
+        },
+        {
+          "title": "Wallet-UX brengt het systeem al in kaart",
+          "body": "De app toont directe aankoop, ontgrendelingstijdlijn, swap, liquiditeit, ambassador-kabinet en informatieroutes als een operationeel product in plaats van losse documentatie."
+        },
+        {
+          "title": "Publieke proof is deelbaar",
+          "body": "Whitepaper, verificatie, blogcontext, investeerdersdeck en deze one-pager geven partners verschillende beoordelingsniveaus zonder dat eerst een privé-walkthrough nodig is."
+        }
+      ],
+      "links": [
+        {
+          "label": "One-Pager PDF downloaden",
+          "href": "/docs/4teen-one-pager.pdf",
+          "download": "4teen-one-pager.pdf"
+        },
+        {
+          "label": "Investeerdersdeck openen",
+          "href": "/deck"
+        },
+        {
+          "label": "Whitepaper lezen",
+          "href": "/whitepaper"
+        },
+        {
+          "label": "Contracten verifiëren",
+          "href": "/verification"
+        },
+        {
+          "label": "Directe aankoop openen",
+          "href": "/buy"
+        },
+        {
+          "label": "Wallet-app repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Smart contracts repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Due-diligence-links",
+      "footerNote": "Deze one-pager is een beknopte projectbriefing. Het is geen belofte van rendement, exchange-listing, liquiditeitsuitkomst of marktprestaties.",
+      "ask": {
+        "eyebrow": "Strategische vraag",
+        "title": "De beste volgende gesprekken combineren kapitaal met hefboomwerking in distributie of uitvoering.",
+        "body": "4TEEN zoekt partners die gebruikersacquisitie, vertrouwen in liquiditeit, regionaal bereik, markttoegang of ecosysteemgeloofwaardigheid kunnen versnellen.",
+        "email": "genesis@4teen.me",
+        "bullets": [
+          "Groeidistributie en uitbreiding van ambassadors.",
+          "Relaties voor liquiditeit, market-making, exchanges of ecosystemen.",
+          "Productverfijning, lokalisatie, analytics en verbetering van conversie."
+        ]
+      }
     }
   }
 }
