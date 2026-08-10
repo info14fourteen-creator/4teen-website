@@ -9498,6 +9498,106 @@
           "En güçlü görüşme yalnızca ne kadar aktarabileceğinizle değil, neyi hızlandırabileceğinizle başlar."
         ]
       }
+    },
+    "privacy": {
+      "metadata": {
+        "title": "Gizlilik",
+        "description": "4TEEN web sitesi ve cüzdanının herkese açık blockchain verilerini, yerel cüzdan durumunu, harici bağlantıları ve gizlilik sorularını nasıl ele aldığı."
+      },
+      "hero": {
+        "eyebrow": "Gizlilik",
+        "status": "Herkese açık politika",
+        "title": "4TEEN, herkese açık blockchain durumu ve gözetimsiz cüzdan davranışı etrafında inşa edilmiştir; bu nedenle gizlilik anlatısının sade ve doğru kalması gerekir.",
+        "lead": "Herkese açık web sitesi ağırlıklı olarak bilgilendirme amaçlıdır. Mobil cüzdan gözetimsizdir. Bakiyelerin, kaynakların, protokol durumunun ve kampanya durumunun gösterilebilmesi için herkese açık zincir verileri sorgulanabilir; ancak seed phrase’lerin ve private key’lerin bu site üzerinden gönderilmesi amaçlanmamaktadır."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Operatör",
+          "title": "\"AG PLUS\" LLC",
+          "body": "4TEEN herkese açık web sitesi ve resmi destek kanalları, proje adına Özbekistan’da kayıtlı \"AG PLUS\" Limited Liability Company tarafından işletilmektedir. D-U-N-S Number: 933906683."
+        },
+        {
+          "eyebrow": "Web sitesi",
+          "title": "Burada cüzdan sırları yok",
+          "body": "Mevcut herkese açık site sizden seed phrase veya ham private key girmenizi istemez. Bunu herhangi bir herkese açık web sitesinde görürseniz, durun ve önce kaynağı doğrulayın."
+        },
+        {
+          "eyebrow": "Blockchain",
+          "title": "Adresler tasarım gereği herkese açıktır",
+          "body": "TRON üzerindeki cüzdan adresleri, işlemler, bakiyeler ve kontrat etkileşimleri herkese açık kayıtlardır. Site ve uygulama, protokol durumunu göstermek için bunları okuyabilir; ancak zincire girdikten sonra bunlar özel veri değildir."
+        },
+        {
+          "eyebrow": "Altyapı",
+          "title": "Temel istek günlükleri yine de mevcut olabilir",
+          "body": "Mevcut web yapısında özel bir üçüncü taraf analiz izleyicisi olmasa bile normal barındırma, CDN, API ve explorer altyapısı; IP adresi, tarayıcı, zaman ve istenen route gibi rutin istek verilerini işlemeye devam edebilir."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Yasal Operatör",
+          "title": "Resmi 4TEEN yüzeylerini kim işletir",
+          "body": "\"AG PLUS\" Limited Liability Company; https://4teen.me adresindeki resmi 4TEEN web sitesini, ilgili herkese açık proje route’larını ve gizlilik ile ürün soruları için yayımlanan destek posta kutusunu işletir.",
+          "bullets": [
+            "Taxpayer Identification Number: 312 696 228",
+            "State registration number: 3080788, registered 06 January 2026",
+            "D-U-N-S Number: 933906683",
+            "Legal address: Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B"
+          ],
+          "note": "Gizlilik ve destek soruları support@4teen.me veya +998 95 792 02 87 üzerinden iletilebilir."
+        },
+        {
+          "eyebrow": "2. Herkese Açık Web Sitesi",
+          "title": "Bu web sitesi ne yapmak için tasarlanmıştır",
+          "body": "4TEEN web sitesi; protokol bilgilerini, yayın sayfalarını, herkese açık kontrat bağlantılarını, airdrop durumunu, ambassador durumunu, fiyat okumalarını ve mobil uygulama indirme route’larını sunmak için kullanılır. Fonları saklamak veya gizli cüzdan kimlik bilgilerini toplamak amaçlanmamıştır.",
+          "bullets": [
+            "Herkese açık protokol ve kontrat bilgilerini gösterme",
+            "Herkese açık piyasa, vault, controller ve route anlık görüntülerini okuma",
+            "Explorer’lara, repository’lere, mağazalara ve resmi sosyal kanallara bağlantı verme"
+          ]
+        },
+        {
+          "eyebrow": "3. Mobil Cüzdan",
+          "title": "Uygulama cihazda yerel olarak neleri tutabilir",
+          "body": "Mobil cüzdan hâlihazırda yerel cüzdan etiketlerini, dil tercihini, görüntüleme para birimini, güvenlik ayarlarını, watch-only akışlarını ve önbellek yönetimini destekler. Şu anda görünür olan kod yollarına göre, bu tür ayarlar uygulamayı kullanılabilir kılmak için cihazda yerel olarak saklanabilir; private signing material ise bir 4TEEN web sitesi sunucusunda saklanmak yerine kullanıcının kontrolü altında kalacak şekilde tasarlanmıştır.",
+          "note": "Bir cüzdanı içe aktarıyor, oluşturuyor veya kilidini açıyorsanız, mobil cihazı ve yedekleme uygulamalarınızı gerçek güvenlik sınırı olarak değerlendirin."
+        },
+        {
+          "eyebrow": "4. Herkese Açık Blockchain Okumaları",
+          "title": "Bakiyeleri veya protokol durumunu göstermek için neler sorgulanabilir",
+          "body": "Bakiyeleri, kaynakları, airdrop durumunu, ambassador durumunu, fiyat bilgilerini veya diğer herkese açık protokol görünümlerini işlemek için 4TEEN hizmetleri blockchain altyapısını, explorer endpoint’lerini, proxy endpoint’lerini veya 4TEEN tarafından işletilen snapshot route’larını sorgulayabilir. Bu okumalar herkese açık bir cüzdan adresini veya herkese açık kontrat durumunu içerebilir; ancak private key gerektirmez.",
+          "bullets": [
+            "Bilerek görüntülediğiniz veya yapıştırdığınız herkese açık cüzdan adresleri",
+            "Kontrat adresleri ve kontrat depolama değerleri",
+            "İşlem hash’leri ve herkese açık event geçmişi"
+          ]
+        },
+        {
+          "eyebrow": "5. Harici Hizmetler",
+          "title": "4TEEN yüzeylerinden ayrıldığınızda ne olur",
+          "body": "Web sitesi ve cüzdan TronScan, DEX route’ları, repository’ler, sosyal kanallar ve app-store sayfalarını açabilir. Bu harici hizmetler kendi gizlilik ve veri işleme kuralları kapsamında çalışır. Harici bir bağlantıyı açmak, isteğinizin yalnızca 4TEEN tarafından değil, o üçüncü taraf tarafından da ele alındığı anlamına gelir."
+        },
+        {
+          "eyebrow": "6. Yanlış gizlilik vaatleri yok",
+          "title": "Neyi iddia etmiyoruz",
+          "body": "Bu politika; KYC işleme, saklama hizmetleri, finansal lisanslama veya mevcut kod ve ürün davranışı tarafından açıkça uygulanmayan görünmez gizlilik garantileri iddia etmez. Bir D-U-N-S Number, kuruluşu Dun & Bradstreet kayıtlarında tanımlar; blockchain, piyasa veya üçüncü taraf altyapı riskinin ortadan kalktığına dair bir vaat değildir."
+        }
+      ],
+      "links": [
+        {
+          "label": "Resmi web sitesi",
+          "href": "https://4teen.me"
+        },
+        {
+          "label": "Cüzdan uygulaması repository’si",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Smart contract repository’si",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Herkese Açık Çıkışlar",
+      "footerNote": "Gizlilik soruları support@4teen.me adresine yönlendirilebilir. Resmi telefon ve WhatsApp desteği: +998 95 792 02 87."
     }
   }
 }
