@@ -29340,6 +29340,106 @@
           "Het sterkste gesprek begint met wat je kunt versnellen, niet alleen met wat je kunt overmaken."
         ]
       }
+    },
+    "privacy": {
+      "metadata": {
+        "title": "Privacy",
+        "description": "Hoe de 4TEEN-website en wallet omgaan met openbare blockchaingegevens, lokale walletstatus, externe links en privacyvragen."
+      },
+      "hero": {
+        "eyebrow": "Privacy",
+        "status": "Openbaar beleid",
+        "title": "4TEEN is gebouwd rond openbare blockchainstatus en non-custodial walletgedrag, dus het privacyverhaal moet eenvoudig en waarheidsgetrouw blijven.",
+        "lead": "De openbare website is vooral informatief. De mobiele wallet is non-custodial. Openbare chaingegevens kunnen worden opgevraagd zodat saldi, resources, protocolstatus en campagnestatus kunnen worden weergegeven, maar seed phrases en private keys zijn niet bedoeld om via deze site te worden verzonden."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Operator",
+          "title": "\"AG PLUS\" LLC",
+          "body": "De openbare 4TEEN-website en officiële supportroutes worden voor het project beheerd door \"AG PLUS\" Limited Liability Company, geregistreerd in Oezbekistan. D-U-N-S Number: 933906683."
+        },
+        {
+          "eyebrow": "Website",
+          "title": "Hier geen walletgeheimen",
+          "body": "De huidige openbare site vraagt je niet om een seed phrase of ruwe private key in te voeren. Als je dat ooit op een openbare website ziet, stop dan en verifieer eerst de bron."
+        },
+        {
+          "eyebrow": "Blockchain",
+          "title": "Adressen zijn bewust openbaar",
+          "body": "Walletadressen, transacties, saldi en contractinteracties op TRON zijn openbare gegevens. De site en app kunnen ze lezen om protocolstatus te tonen, maar het zijn geen privégegevens meer zodra ze on-chain staan."
+        },
+        {
+          "eyebrow": "Infrastructuur",
+          "title": "Basislogboeken van verzoeken kunnen nog steeds bestaan",
+          "body": "Zelfs zonder een dedicated externe analytics-tracker in de huidige webbuild kunnen normale hosting-, CDN-, API- en explorerinfrastructuur nog steeds routinematige verzoekgegevens verwerken, zoals IP-adres, browser, tijdstip en opgevraagde route."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Juridische operator",
+          "title": "Wie de officiële 4TEEN-oppervlakken beheert",
+          "body": "\"AG PLUS\" Limited Liability Company beheert de officiële 4TEEN-website op https://4teen.me, gerelateerde openbare projectroutes en de gepubliceerde supportmailbox voor privacy- en productvragen.",
+          "bullets": [
+            "Taxpayer Identification Number: 312 696 228",
+            "State registration number: 3080788, geregistreerd op 06 januari 2026",
+            "D-U-N-S Number: 933906683",
+            "Juridisch adres: Republiek Oezbekistan, stad Tasjkent, district Yunusabad, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, huis 3-B"
+          ],
+          "note": "Privacy- en supportvragen kunnen worden gericht aan support@4teen.me of +998 95 792 02 87."
+        },
+        {
+          "eyebrow": "2. Openbare website",
+          "title": "Waarvoor deze website is ontworpen",
+          "body": "De 4TEEN-website wordt gebruikt om protocolinformatie, releasepagina's, openbare contractlinks, airdropstatus, ambassadorstatus, prijsgegevens en downloadroutes voor de mobiele app te presenteren. De site is niet bedoeld om funds in bewaring te nemen of geheime walletgegevens te verzamelen.",
+          "bullets": [
+            "Openbare protocol- en contractinformatie weergeven",
+            "Openbare snapshots van markt, vault, controller en routes lezen",
+            "Doorlinken naar explorers, repositories, stores en officiële socialmediakanalen"
+          ]
+        },
+        {
+          "eyebrow": "3. Mobiele wallet",
+          "title": "Wat de app lokaal op het apparaat kan bewaren",
+          "body": "De mobiele wallet ondersteunt al lokale walletlabels, taalvoorkeur, weergavevaluta, beveiligingsinstellingen, watch-only flows en cachebeheer. Op basis van de momenteel zichtbare codepaden kunnen dit soort instellingen lokaal op het apparaat worden opgeslagen om de app bruikbaar te maken, terwijl privé-ondertekeningsmateriaal onder controle van de gebruiker hoort te blijven in plaats van op een 4TEEN-websiteserver te worden opgeslagen.",
+          "note": "Als je een wallet importeert, aanmaakt of ontgrendelt, beschouw het mobiele apparaat en je back-uppraktijken dan als de echte beveiligingsgrens."
+        },
+        {
+          "eyebrow": "4. Openbare blockchainreads",
+          "title": "Wat kan worden opgevraagd om saldi of protocolstatus te tonen",
+          "body": "Om saldi, resources, airdropstatus, ambassadorstatus, prijsinformatie of andere openbare protocolweergaven te tonen, kunnen 4TEEN-services blockchaininfrastructuur, explorerendpoints, proxyendpoints of door 4TEEN beheerde snapshotroutes opvragen. Die reads kunnen een openbaar walletadres of openbare contractstatus omvatten, maar ze vereisen geen private key.",
+          "bullets": [
+            "Openbare walletadressen die je bewust bekijkt of plakt",
+            "Contractadressen en contractopslagwaarden",
+            "Transactiehashes en openbare eventgeschiedenis"
+          ]
+        },
+        {
+          "eyebrow": "5. Externe services",
+          "title": "Wat er gebeurt wanneer je 4TEEN-oppervlakken verlaat",
+          "body": "De website en wallet kunnen TronScan, DEX-routes, repositories, socialmediakanalen en app-storepagina's openen. Die externe services werken volgens hun eigen privacy- en gegevensverwerkingsregels. Het openen van een externe link betekent dat je verzoek door die derde partij wordt verwerkt, niet alleen door 4TEEN."
+        },
+        {
+          "eyebrow": "6. Geen valse privacybeloften",
+          "title": "Wat we niet beweren",
+          "body": "Dit beleid beweert geen KYC-verwerking, bewaardiensten, financiële licenties of onzichtbare privacygaranties die niet duidelijk worden afgedwongen door de huidige code en het productgedrag. Een D-U-N-S Number identificeert de organisatie in de gegevens van Dun & Bradstreet; het is geen belofte dat blockchain-, markt- of infrastructuurrisico van derden verdwijnt."
+        }
+      ],
+      "links": [
+        {
+          "label": "Officiële website",
+          "href": "https://4teen.me"
+        },
+        {
+          "label": "Wallet-apprepository",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Smart contracts-repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Openbare uitgangen",
+      "footerNote": "Privacyvragen kunnen worden gericht aan support@4teen.me. Officiële telefoon- en WhatsApp-support: +998 95 792 02 87."
     }
   }
 }
