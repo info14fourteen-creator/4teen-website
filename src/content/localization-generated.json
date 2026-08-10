@@ -23078,6 +23078,74 @@
       ],
       "linksEyebrow": "Uscite pubbliche",
       "footerNote": "Per link di release, riferimenti ai contratti o pagine di stato pubbliche, parti da https://4teen.me. Supporto ufficiale via telefono e WhatsApp: +998 95 792 02 87."
+    },
+    "blog": {
+      "metadata": {
+        "title": "Blog",
+        "description": "Il livello editoriale di 4TEEN per lanci, letture del protocollo, aggiornamenti dell’ecosistema e narrazioni di prodotto rivolte agli investitori."
+      },
+      "hero": {
+        "eyebrow": "Blog",
+        "status": "Livello editoriale",
+        "title": "Il blog è il luogo in cui 4TEEN può parlare con una voce di mercato senza ridurre il prodotto a banner e slogan.",
+        "lead": "Il whitepaper è il documento strutturale di lungo formato. La verifica è il livello di prova. Il blog è il luogo in cui lanci, aggiornamenti delle route, contesto dell’ecosistema e narrazioni rivolte agli investitori dovrebbero vivere in un formato più leggero, che in seguito può espandersi in più lingue."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Ruolo",
+          "title": "Livello narrativo",
+          "body": "Usa il blog per lanci, aggiornamenti, spiegazioni e contenuti che creano slancio senza appartenere alle route di prodotto."
+        },
+        {
+          "eyebrow": "Pubblico",
+          "title": "Nuovi utenti e investitori",
+          "body": "Questa route dovrebbe ridurre l’attrito per le persone che vogliono una lettura più rapida prima di aprire l’app, la route di acquisto o il whitepaper."
+        },
+        {
+          "eyebrow": "Formato",
+          "title": "Pronto per la traduzione",
+          "body": "I post dovrebbero poter crescere in una pubblicazione multilingue senza riscrivere l’intero contenitore o modificare il modello delle route."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Cosa appartiene qui",
+          "title": "Pubblicazione che crea interesse senza mentire",
+          "body": "Il blog è la superficie giusta per note di lancio, traguardi di prodotto, spiegazioni delle route, partnership dell’ecosistema, storie orientate al mercato e analisi leggibili di ciò che è cambiato nell’app o nello stack on-chain."
+        },
+        {
+          "eyebrow": "2. Cosa non appartiene qui",
+          "title": "Non è un sostituto della prova",
+          "body": "Il blog non dovrebbe sostituire link ai contratti, pagine di verifica o sezioni del whitepaper. Se un’affermazione richiede una prova, il post dovrebbe indirizzare al livello di prova invece di fingere che la narrazione sia sufficiente.",
+          "bullets": [
+            "Il whitepaper rimane la route di lettura strutturale di lungo formato",
+            "La verifica rimane la route di prova",
+            "Il blog rimane la route editoriale e di slancio"
+          ]
+        },
+        {
+          "eyebrow": "3. Perché questa route conta",
+          "title": "Il sito ha bisogno di una superficie di crescita flessibile",
+          "body": "La Home non può contenere ogni storia, e il whitepaper non dovrebbe sostenere testi di campagna. Il blog offre al sito un modo più pulito per attrarre, educare e aggiornare le persone senza appesantire le route principali.",
+          "note": "Questo è anche il luogo più semplice per far crescere un futuro flusso editoriale multilingue, un articolo alla volta."
+        }
+      ],
+      "links": [
+        {
+          "label": "Apri l’app",
+          "href": "/app"
+        },
+        {
+          "label": "Apri acquisto",
+          "href": "/buy"
+        },
+        {
+          "label": "Leggi il whitepaper",
+          "href": "/whitepaper"
+        }
+      ],
+      "linksEyebrow": "Route successive",
+      "footerNote": "La route attuale è un contenitore pulito per le pubblicazioni future, non un feed fittizio. Quando gli articoli arriveranno, dovrebbero restare allineati con i livelli di prova e di prodotto."
     }
   }
 }
