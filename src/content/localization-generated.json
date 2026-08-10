@@ -11861,6 +11861,194 @@
           "openApp": "Mobile-App-Route öffnen"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "Öffentlicher Ambassador-Controller",
+        "description": "Öffentlicher 4TEEN Ambassador-Controller mit Live-Gesamtdaten aus dem FourteenController, cabinet-gestütztem Registrierungsablauf, Nachweis der Käuferbindung, Reward-Tracking und Laufzeitbereitschaft."
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "Öffentlicher Ambassador-Controller",
+        "title": "Ein öffentlicher 4TEEN Ambassador-Controller mit einem echten Cabinet im Hintergrund",
+        "subtitle": "Die Website ist die Nachweisebene. Registrierung, Slug-Eigentum, Käuferbindung, Reward-Aufbau und Auszahlungen bleiben weiterhin im Wallet-Cabinet und werden gegen den FourteenController abgerechnet.",
+        "body": [
+          "Diese Route sollte nicht so tun, als wäre die öffentliche Seite das funktionierende Cabinet. Der echte Ablauf beginnt im Wallet: Ein Nutzer registriert eine Ambassador-Identität, beansprucht einen Slug, synchronisiert das On-Chain-Profil und sammelt danach käuferzugeordnetes Volumen und Rewards.",
+          "Die öffentliche Website hat eine andere Aufgabe. Sie soll nachweisen, dass der Controller live ist, Cabinet-Profile existieren, Käuferbindungen verfolgt werden, Käufe verarbeitet werden und der Reward-Status sichtbar bleibt, statt in einem Backoffice zu verschwinden."
+        ],
+        "rotatingLines": [
+          "REGISTRIEREN. BINDEN. VERIFIZIEREN. AUSZAHLEN.",
+          "ÖFFENTLICHER NACHWEIS. ECHTES CABINET.",
+          "ERST DER SLUG. SPÄTER DER REWARD-FLOW."
+        ],
+        "primaryCta": "Wallet-Route öffnen",
+        "secondaryCta": "Registrierungsablauf ansehen",
+        "ctaNote": "Cabinet-Identität, Referral-Link, Käuferzeilen, ausstehende Wiederverarbeitung und Auszahlungen bleiben wallet-nativ. Die Website bleibt öffentlich, lesbar und ehrlich.",
+        "stats": {
+          "profilesOnChain": {
+            "label": "Profile On-Chain",
+            "meta": "Ambassador-Profile, die bereits über die controller-gestützte Cabinet-Ebene sichtbar sind."
+          },
+          "boundBuyers": {
+            "label": "Gebundene Käufer",
+            "meta": "Käuferidentitäten, die bereits Ambassador-Profilen zugeordnet sind."
+          },
+          "rewardsClaimed": {
+            "label": "Ausgezahlte Rewards",
+            "meta": "TRX, die bereits von Ambassadors über den Cabinet-Ablauf abgehoben wurden."
+          },
+          "pendingReplay": {
+            "label": "Ausstehende Wiederverarbeitung",
+            "meta": "Zeilen, die noch auf eine ressourcenschonende Verarbeitung warten, statt als abgeschlossen vorgetäuscht zu werden."
+          },
+          "readFailed": "Live-Auslesen der Ambassador-Daten fehlgeschlagen.",
+          "readRetry": "Versuche es in einem Moment erneut zu aktualisieren."
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "Cabinet-Route",
+          "title": "Die öffentliche Seite ist nicht das Cabinet. Sie beweist, dass das Cabinet existiert.",
+          "intro": "Das ist die saubere Produkttrennung. Das Wallet besitzt Identität, Bindung, Wiederverarbeitung und Auszahlungsaktionen. Die Website erklärt die Mechanik und zeigt, ob sich das System tatsächlich bewegt.",
+          "mainCard": {
+            "eyebrow": "Controller + Cabinet",
+            "title": "Registrierung und Rewards bleiben wallet-nativ. Öffentliche Nachweise bleiben offen.",
+            "text": "Der Cabinet-Endpunkt führt bereits den On-Chain-Dashboard-Status mit Datenbankzeilen für Käufer, Käufe und ausstehende Wiederverarbeitung zusammen. Das bedeutet, dass die öffentliche Website wahrheitsgemäß über den Ablauf sprechen kann, ohne vorzugeben, das Cabinet selbst ersetzen zu können.",
+            "bullets": [
+              "Das Cabinet löst einen Referral-Link aus dem Ambassador-Slug auf.",
+              "Käuferzugeordnete Käufe werden gespeichert und gegen den Controller wiederverarbeitet, sobald die Ressourcen es zulassen.",
+              "Auszahlbarer Reward-Status und Auszahlungshistorie werden zusammen mit dem On-Chain-Profil verfolgt."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Slug-Eigentum",
+              "title": "Ein Wallet wird nicht allein durch Marketingtext zu einem Ambassador",
+              "text": "Der Registrierungsablauf prüft die Verfügbarkeit des Slugs, verhindert doppelte Wallet-Registrierungen und erwartet ein echtes On-Chain-Ambassador-Profil, bevor die Route als abgeschlossen gilt."
+            },
+            {
+              "eyebrow": "Käuferbindung",
+              "title": "Die Earn-Route beginnt, wenn Käufe tatsächlich zugeordnet werden",
+              "text": "Gebundene Käufer, zugeordnete Käufe, verarbeitete Controller-Zeilen und ausstehende Wiederverarbeitung sind getrennte Zustände. Das Cabinet reduziert sie nicht auf eine einzige dekorative Zahl."
+            }
+          ],
+          "note": "Deshalb sollte die Seite einen öffentlichen Ambassador-Controller mit einem echten Cabinet im Hintergrund beschreiben, nicht eine gefälschte Referral-Landingpage ohne Betriebszustand."
+        },
+        "registration": {
+          "eyebrow": "Registrierungsablauf",
+          "title": "Die Registrierung beginnt im Wallet und wird dann zu einem On-Chain-Profil.",
+          "intro": "Der Registrierungsbildschirm ist kein loses Anmeldeformular. Er ist der Punkt, an dem Slug-Auswahl, Wallet-Identität, Energie-Routing und Controller-Synchronisierung relevant werden.",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "Das Wallet kann Ressourcen kalkulieren, den Slug validieren und erst dann die Registrierung abschließen.",
+            "text": "Die API prüft, ob der Slug vergeben ist, ob das Wallet bereits registriert ist und ob die Energie-Route für den Zweck ambassador_registration bereit ist. Nach der Transaktion verifiziert die Cabinet-Synchronisierung, dass das On-Chain-Profil wirklich existiert.",
+            "bullets": [
+              "Die Slug-Verfügbarkeit wird geprüft, bevor die Route bestätigt.",
+              "Bei Bedarf kann Energie-Miete gezielt für die Ambassador-Registrierung angefordert werden.",
+              "Die Cabinet-Synchronisierung verifiziert den gespeicherten Slug-Hash und stellt den finalen Referral-Link bereit."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Wallet-Identität",
+              "title": "Die Registrierung wird zu einem Profil, nicht zu einem einmaligen Formular-Eintrag",
+              "text": "Nach der Synchronisierung hat der Ambassador ein wallet-gebundenes Profil mit aktuellem Level, Reward-Prozentsatz, Käuferanzahl, Volumen, aufgelaufenen Rewards, ausgezahlten Rewards und auszahlbarem Guthaben."
+            },
+            {
+              "eyebrow": "Sicherheit bei der Wiederverarbeitung",
+              "title": "Wenn die Betreiberseite zu wenig Ressourcen hat, warten Zeilen, statt zu lügen",
+              "text": "Ausstehende Wiederverarbeitung ist Teil der Wahrheitsebene. Das Cabinet hält sie sichtbar, bis die Betreiberressourcen sicher genug sind, um verifizierte Käufe sauber zu verarbeiten."
+            }
+          ],
+          "note": "Die Registrierungssequenz ist also nicht kosmetisch. Sie ist der Einstieg in dasselbe Cabinet, das später Referral-Status, Kaufzeilen und Auszahlungen hält."
+        },
+        "ledger": {
+          "eyebrow": "Öffentliches Ledger",
+          "title": "Controller-Gesamtdaten bleiben öffentlich, auch wenn Cabinet-Aktionen privat bleiben.",
+          "note": "FourteenController stellt systemweite Zähler und Salden bereit. Die Website sollte das sichtbar machen, ohne vorzugeben, dass die öffentliche Ebene Cabinet-Transaktionen signieren kann.",
+          "rows": {
+            "totalAmbassadors": "Ambassadors insgesamt",
+            "activeAmbassadors": "Aktive Ambassadors",
+            "boundBuyers": "Gebundene Käufer",
+            "trackedVolume": "Verfolgtes Volumen",
+            "rewardsAccrued": "Aufgelaufene Rewards",
+            "rewardsClaimed": "Ausgezahlte Rewards",
+            "reservedRewards": "Reservierte Rewards",
+            "ownerAvailable": "Für Owner verfügbar",
+            "unallocatedFunds": "Nicht zugeordnete Kaufmittel"
+          }
+        },
+        "runtime": {
+          "eyebrow": "Cabinet-Laufzeit",
+          "title": "Wenn Ressourcen knapp sind, warten Zeilen, statt vorzugeben, sie seien verarbeitet.",
+          "note": "Die öffentliche Laufzeitansicht ist wichtig, weil sie erklärt, warum Wiederverarbeitung berechtigt in die Warteschlange gehen kann. Niedrige Energie oder Bandbreite ist nicht länger ein stiller Fehler; sie ist sichtbarer Systemstatus.",
+          "readyYes": "Jetzt bereit",
+          "readyNo": "Aufladung erforderlich",
+          "rows": {
+            "operatorWallet": "Operator Wallet",
+            "readyNow": "Jetzt bereit",
+            "profilesOnChain": "Profile On-Chain",
+            "profilesActive": "Aktive Profile",
+            "pendingReplay": "Ausstehende Wiederverarbeitung",
+            "lastPurchaseSeen": "Letzter gesehener Kauf",
+            "lastWithdrawalSeen": "Letzte gesehene Auszahlung",
+            "energyAvailable": "Verfügbare Energie",
+            "bandwidthAvailable": "Verfügbare Bandbreite",
+            "needPerAllocation": "Bedarf pro Zuteilung",
+            "safeFloorAfterRun": "Sicherer Mindestbestand nach Durchlauf"
+          }
+        },
+        "levels": {
+          "eyebrow": "Level-Leiter",
+          "title": "Käuferwachstum verändert den Reward-Anteil.",
+          "suffix": "% Reward-Anteil auf qualifizierten Flow."
+        },
+        "proof": {
+          "eyebrow": "Nachweisebene",
+          "title": "Die öffentliche Seite sollte weiterhin zeigen, was das Cabinet bereits verarbeitet hat.",
+          "cards": {
+            "recordedPurchases": {
+              "title": "Erfasste Käufe",
+              "text": "Käufe, die bereits in den Cabinet-Footprint geschrieben wurden, über verarbeitete und ausstehende Zeilen hinweg."
+            },
+            "ambassadorsWithPurchases": {
+              "title": "Ambassadors mit Käufen",
+              "text": "Profile, bei denen Kaufzuordnung bereits durch die Earn-Route läuft."
+            },
+            "withdrawals": {
+              "title": "Auszahlungsereignisse",
+              "text": "Reward-Auszahlungszeilen, die bereits vom Backend und der Cabinet-Synchronisierung erfasst wurden."
+            },
+            "latestWithdrawal": {
+              "title": "Letzte gesehene Auszahlung",
+              "text": "Zeitstempel der zuletzt erfassten Ambassador-Reward-Auszahlung."
+            }
+          },
+          "note": "So bleibt die Website auf tatsächliche Cabinet-Nachweise gestützt: Käufe, Wiederverarbeitungswarteschlange und Auszahlungen hinterlassen alle einen sichtbaren öffentlichen Footprint."
+        },
+        "route": {
+          "eyebrow": "Nachweis-Routen",
+          "title": "Nutze die öffentliche Ebene, um den Controller, die Wallet-Implementierung und die Live-App zu prüfen.",
+          "cards": {
+            "contract": {
+              "eyebrow": "Contract",
+              "title": "FourteenController öffnen",
+              "text": "Prüfe den Live-Controller, der Ambassador-Systemstatistiken und Salden hält."
+            },
+            "walletRepo": {
+              "eyebrow": "Wallet-Dateien",
+              "title": "Wallet-Repo öffnen",
+              "text": "Sieh dir das Cabinet, Ressourcen-Routing, Registrierungslogik und den Wiederverarbeitungsablauf an, die das echte Produkt antreiben."
+            },
+            "app": {
+              "eyebrow": "Wallet-Route",
+              "title": "App-Route öffnen",
+              "text": "Registrierung, Cabinet-Status, Referral-Link und Auszahlungen gehören zur Wallet-Erfahrung."
+            }
+          },
+          "updatedPrefix": "Snapshot aktualisiert"
+        }
+      }
     }
   }
 }
