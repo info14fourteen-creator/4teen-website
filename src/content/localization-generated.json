@@ -27720,6 +27720,154 @@
           "openUnlock": "Open ontgrendeltijdlijn"
         }
       }
+    },
+    "unlock": {
+      "metadata": {
+        "title": "Ontgrendel 4TEEN | Lockkaart en vrijgavetiming",
+        "description": "Openbare 4TEEN-ontgrendelingskaart met huidige vergrendelde voorraad, vault-bewaring, schatting van vrij circulerende voorraad, aankomende ontgrendelingsbatches en wallet-context voor de ontgrendelingstijdlijn.",
+        "openGraphTitle": "Ontgrendel 4TEEN",
+        "openGraphDescription": "Bekijk de openbare 4TEEN-lockkaart: huidige vergrendelde voorraad, schatting van vrij circulerende voorraad, aankomende ontgrendelingsbatches en de wallet-route voor persoonlijke vrijgavetracking."
+      },
+      "hero": {
+        "eyebrow": "Ontgrendelingstijdlijn",
+        "badge": "Openbare locktopologie",
+        "title": "Volg 4TEEN-ontgrendelingen voordat een vergrendelde batch liquide wordt",
+        "subtitle": "Elke directe koop mint onmiddellijk, wordt onmiddellijk vergrendeld en wordt pas overdraagbaar nadat de eigen timer van 14 dagen is verstreken.",
+        "body": [
+          "De mobiele wallet toont de persoonlijke ontgrendelingstijdlijn voor de geselecteerde ondertekenende wallet. De openbare site moet de systeemkaart tonen: wat nog vergrendeld is, wat al liquide is en welke directe-koopbatches als volgende ontgrendelen.",
+          "Dat betekent geen neppe persoonlijke portfolio op de website. Alleen de openbare topologie van vrijgavetiming, reservebewaring en het batch-voor-batch pad van vergrendelde mint naar verplaatsbaar saldo."
+        ],
+        "primaryCta": "Ontgrendeling openen in app",
+        "secondaryCta": "Kooproute openen",
+        "ctaNote": "Persoonlijke ontgrendelingsrijen, countdowns en adres-specifieke beschikbaarheid blijven in de mobiele wallet. De site legt de vrijgavemechaniek en de openbare lockkaart uit.",
+        "rotatingLines": [
+          "Elke koop krijgt zijn eigen timer.",
+          "Eerst vergrendeld. Later liquide.",
+          "Openbare kaart. Wallet-tijdlijn.",
+          "Vrijgave hangt af van de batch.",
+          "Overdraagbaarheid begint na ontgrendeling."
+        ],
+        "stats": {
+          "directPrice": "Prijs voor directe koop",
+          "directPriceMeta": "Huidige contract-side instapprijs per 4TEEN voordat de batch zijn eigen lockvenster van 14 dagen ingaat.",
+          "lockWindow": "Lockvenster",
+          "lockWindowMeta": "Elke directe-koopbatch blijft bevroren totdat de eigen vrijgavetimestamp is bereikt.",
+          "lockedNow": "Nu vergrendeld",
+          "lockedNowMeta": "Systeembrede directe-koopbatches die nog binnen het lockvenster van 14 dagen vallen.",
+          "circulatingNow": "Vrij circulerend",
+          "circulatingNowMeta": "Openbare schatting na aftrek van actieve locks en vault-bewaring van de totale voorraad.",
+          "priceFallback": "1.147500",
+          "priceUnavailable": "Live prijs is momenteel niet beschikbaar. De fallback weerspiegelt de laatst bekende directe route.",
+          "readFailed": "Live uitlezing van ontgrendeling mislukt.",
+          "readRetry": "Probeer over een moment te vernieuwen."
+        }
+      },
+      "sections": {
+        "unlockContext": {
+          "eyebrow": "Wallet-context",
+          "title": "De persoonlijke ontgrendelingstijdlijn staat in de mobiele wallet",
+          "body": "De website kan het lockmodel uitleggen en de openbare vrijgavetopologie tonen, maar de persoonlijke ontgrendelingstijdlijn hoort in de app omdat die afhangt van het geselecteerde wallet-adres, de directe-koopgeschiedenis voor die wallet en live on-chain uitlezingen voor lockedBalanceOf(account).",
+          "bullets": [
+            "Elke directe koop maakt zijn eigen lockbatch aan met een eigen vrijgavetimestamp.",
+            "De wallet-ontgrendelingstijdlijn volgt alleen directe-koopgeschiedenis die aan de geselecteerde wallet is gekoppeld, niet generieke swapgeschiedenis.",
+            "Zodra een batch ontgrendelt, worden de tokens overdraagbaar en worden marktroutes zoals swap relevant."
+          ],
+          "openApp": "Mobiele app-route openen",
+          "openBuy": "Kooproute openen"
+        },
+        "liveLockMap": {
+          "eyebrow": "Live lockkaart",
+          "title": "Hoeveel 4TEEN is vergrendeld en hoeveel daadwerkelijk liquide is",
+          "rows": {
+            "totalSupply": "Totale voorraad",
+            "activeLockBatches": "Actieve lockbatches",
+            "currentlyLocked": "Momenteel vergrendeld",
+            "vaultCustody": "Vault-bewaring",
+            "freelyCirculating": "Vrij circulerend",
+            "nextUnlock": "Volgende ontgrendeling",
+            "snapshotUpdated": "Snapshot bijgewerkt"
+          },
+          "note": "Vrij circulerend is hier een openbare systeemschatting: totale voorraad minus actieve directe-kooplocks minus tokens die in reserve-vaultcontracten worden gehouden. Dit is bewust strikter dan een naïeve totalSupply-weergave."
+        },
+        "upcomingUnlocks": {
+          "eyebrow": "Aankomende ontgrendelingen",
+          "title": "Recente directe-koopbatches die nog resterende tijd op hun lock hebben",
+          "headers": {
+            "buyer": "Koper",
+            "amount": "Vergrendelde batch",
+            "unlockAt": "Ontgrendelt op",
+            "source": "Bron"
+          },
+          "openTx": "Tx openen",
+          "empty": "Er zijn momenteel geen actieve directe-koop-lockbatches zichtbaar.",
+          "note": "Deze vrijgavekaart is opgebouwd uit bevestigde BuyTokens-events die nog binnen het lockvenster van 14 dagen vallen. Ze toont openbare batchtiming, geen privé-walletportfolio."
+        },
+        "vaultLayer": {
+          "eyebrow": "Vault-laag",
+          "title": "Reservebewaring is niet hetzelfde als vrije circulatie",
+          "body": "De 4TEEN-architectuur houdt reservetoewijzingen in dedicated contracten. FourteenVault houdt tokens voor de liquiditeitsreserve, AirdropVault houdt gefaseerde reserves voor communitydistributie en TeamLockVault isoleert de teamtoewijzing. Deze saldi bestaan on-chain, maar ze mogen niet worden gepresenteerd als vrij circulerende voorraad.",
+          "note": "AirdropVault ontvangt ook gerouteerde TRX bij directe koop, maar het tokensaldo dat hier wordt getoond is alleen de 4TEEN-reserve die daadwerkelijk in vault-bewaring is geparkeerd."
+        },
+        "lockMechanics": {
+          "eyebrow": "Lockmechaniek",
+          "title": "Wat het hoofd-tokencontract daadwerkelijk afdwingt",
+          "cards": [
+            {
+              "eyebrow": "Mint",
+              "title": "Directe koop mint eerst",
+              "text": "buyTokens() mint 4TEEN in dezelfde transactie die TRX ontvangt. Er is geen off-chain afhandelingswachtrij voor het gekochte bedrag."
+            },
+            {
+              "eyebrow": "Batch",
+              "title": "Elke aankoop maakt een aparte lockentry aan",
+              "text": "Het tokencontract voegt per directe koop een nieuw LockInfo-record toe. Locks worden niet samengevoegd tot één generieke timer."
+            },
+            {
+              "eyebrow": "Regel",
+              "title": "Transfers worden geblokkeerd door lockedBalanceOf()",
+              "text": "transfer() en transferFrom() vereisen allebei beschikbaar saldo na aftrek van lockedBalanceOf(account). Vergrendelde tokens kunnen niet vroegtijdig worden verplaatst."
+            }
+          ]
+        },
+        "walletRoute": {
+          "eyebrow": "Wallet-route",
+          "title": "Hoe de app deze contractstatus omzet in een bruikbare tijdlijn",
+          "cards": [
+            {
+              "eyebrow": "Saldo",
+              "title": "Leest totaal, vergrendeld en beschikbaar saldo uit",
+              "text": "De wallet combineert balanceOf(account) met lockedBalanceOf(account) om te tonen wat nog bevroren is en wat al verplaatsbaar is."
+            },
+            {
+              "eyebrow": "Geschiedenis",
+              "title": "Bouwt rijen op uit bevestigde BuyTokens-events",
+              "text": "Elk directe-koopevent wordt een zichtbare ontgrendelingsrij met exact bedrag, ontgrendeltijd, countdown en TronScan-transactiepad."
+            },
+            {
+              "eyebrow": "Actie",
+              "title": "Wijst de gebruiker naar de volgende geldige route",
+              "text": "De ontgrendelingstijdlijn is de juiste route na aankoop. Swap wordt pas relevant nadat de vergrendelde batch is vrijgegeven en daadwerkelijk overdraagbaar is."
+            }
+          ],
+          "note": "Daarom moet de openbare site ontgrendeling duidelijk uitleggen en de gebruiker daarna naar de wallet sturen voor persoonlijke geschiedenis, in plaats van te doen alsof de site het uitvoeringsoppervlak is."
+        },
+        "verification": {
+          "eyebrow": "Verificatie",
+          "title": "Waar de cijfers en locklogica vandaan komen",
+          "body": "Deze pagina gebruikt het gedeployde FourteenToken-contract, de wallet-implementatie van de ontgrendelingstijdlijn en de bekende reserve-vaultadressen. Ze legt live mechaniek en bewaringsstructuur uit in plaats van alles plat te slaan tot een generieke tokenvoorraadgrafiek.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Contracts repository",
+          "walletRepoLabel": "Wallet repository"
+        },
+        "cta": {
+          "eyebrow": "Volgende stap",
+          "title": "Gebruik de app wanneer je je persoonlijke ontgrendelingstijdlijn nodig hebt",
+          "body": "De openbare site kan de protocolbrede lockkaart tonen. De wallet blijft het juiste oppervlak voor adres-specifieke ontgrendelingsrijen, countdowns en opvolging na aankoop.",
+          "openApp": "Ontgrendeling openen in app",
+          "openBuy": "Kooproute openen"
+        }
+      }
     }
   }
 }
