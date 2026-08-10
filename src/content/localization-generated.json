@@ -16464,6 +16464,74 @@
       ],
       "linksEyebrow": "Sorties publiques",
       "footerNote": "Pour les liens de publication, les références de contrats ou les pages d’état publiques, commencez depuis https://4teen.me. Support officiel par téléphone et WhatsApp : +998 95 792 02 87."
+    },
+    "blog": {
+      "metadata": {
+        "title": "Blog",
+        "description": "La couche de publication de 4TEEN pour les lancements, la lecture du protocole, les mises à jour de l’écosystème et les narratifs produit destinés aux investisseurs."
+      },
+      "hero": {
+        "eyebrow": "Blog",
+        "status": "Couche de publication",
+        "title": "Le blog est l’endroit où 4TEEN peut s’exprimer avec une voix de marché sans réduire le produit à des bannières et des slogans.",
+        "lead": "Le whitepaper est le document structurel au format long. La vérification est la couche de preuve. Le blog est l’endroit où les lancements, les mises à jour de routes, le contexte de l’écosystème et les narratifs destinés aux investisseurs doivent vivre dans un format plus léger, pouvant ensuite s’étendre à plusieurs langues."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Rôle",
+          "title": "Couche narrative",
+          "body": "Utilisez le blog pour les lancements, les mises à jour, les contenus explicatifs et les textes qui créent de l’élan sans avoir leur place dans les routes produit."
+        },
+        {
+          "eyebrow": "Audience",
+          "title": "Nouveaux utilisateurs et investisseurs",
+          "body": "Cette route doit réduire la friction pour les personnes qui veulent une lecture plus rapide avant d’ouvrir l’application, la route d’achat ou le whitepaper."
+        },
+        {
+          "eyebrow": "Format",
+          "title": "Prêt pour la traduction",
+          "body": "Les articles doivent pouvoir évoluer vers une publication multilingue sans réécrire toute l’enveloppe ni modifier le modèle de route."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Ce qui a sa place ici",
+          "title": "Une publication qui suscite l’intérêt sans mentir",
+          "body": "Le blog est la bonne surface pour les notes de lancement, les jalons produit, les explications de routes, les partenariats d’écosystème, les récits orientés marché et les synthèses lisibles de ce qui a changé dans l’application ou dans la stack on-chain."
+        },
+        {
+          "eyebrow": "2. Ce qui n’a pas sa place ici",
+          "title": "Pas un substitut à la preuve",
+          "body": "Le blog ne doit pas remplacer les liens de contrats, les pages de vérification ni les sections du whitepaper. Si une affirmation nécessite une preuve, l’article doit renvoyer vers la couche de preuve au lieu de faire comme si le narratif suffisait.",
+          "bullets": [
+            "Le whitepaper reste la route de lecture structurelle au format long",
+            "La vérification reste la route de preuve",
+            "Le blog reste la route de publication et de dynamique"
+          ]
+        },
+        {
+          "eyebrow": "3. Pourquoi cette route compte",
+          "title": "Le site a besoin d’une surface de croissance flexible",
+          "body": "La page d’accueil ne peut pas contenir chaque histoire, et le whitepaper ne doit pas porter les textes de campagne. Le blog donne au site web une manière plus claire d’attirer, d’éduquer et de tenir les gens informés sans alourdir les routes principales.",
+          "note": "C’est aussi l’endroit le plus simple pour développer à l’avenir un flux de publication multilingue, un article à la fois."
+        }
+      ],
+      "links": [
+        {
+          "label": "Ouvrir l’application",
+          "href": "/app"
+        },
+        {
+          "label": "Ouvrir l’achat",
+          "href": "/buy"
+        },
+        {
+          "label": "Lire le whitepaper",
+          "href": "/whitepaper"
+        }
+      ],
+      "linksEyebrow": "Routes suivantes",
+      "footerNote": "La route actuelle est une enveloppe propre pour les futures publications, pas un faux flux. Lorsque les articles arriveront, ils devront rester alignés avec les couches de preuve et de produit."
     }
   }
 }
