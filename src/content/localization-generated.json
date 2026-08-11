@@ -41970,6 +41970,157 @@
           "repoLabel": "Wallet App Repo"
         }
       }
+    },
+    "verification": {
+      "metadata": {
+        "title": "検証",
+        "description": "ライブアドレス、リザーブ残高、プロトコル所有権マップ、さらに詳しい調査のための直接的な証明リンクを備えた、4TEEN の検証ルート。"
+      },
+      "hero": {
+        "eyebrow": "検証サーフェス",
+        "status": "公開アーキテクチャマップ",
+        "title": "これは信頼のレイヤーです。誰が何を所有しているのか、リザーブがどこにあるのか、価値がどう移動するのか、そして現時点でどの公開アドレスがプロジェクトを裏付けているのかを示します。",
+        "lead": "真剣なユーザーや投資家は、ランディングページだけでは止まりません。このルートは、最初のクリックで生のエクスプローラータブの壁に放り込むことなく、所有権、カストディ、残高、コントラクト経路を素早く確認できる手段を提供します。",
+        "stats": {
+          "totalSupply": "総供給量",
+          "totalSupplyMeta": "オンチェーン上の現在の FourteenToken totalSupply。",
+          "currentPrice": "直接価格",
+          "currentPriceMeta": "TRX 建てで表示される、buyTokens() の現在のプレビュー価格。",
+          "vaultCustody": "Vault カストディ",
+          "vaultCustodyMeta": "現在 FourteenVault、TeamLockVault、AirdropVault に保管されている 4TEEN。",
+          "controllerBalance": "Controller 残高",
+          "controllerBalanceMeta": "現在 FourteenController 内にある TRX。",
+          "readFailed": "ライブ検証の読み取りに失敗しました。",
+          "readRetry": "静的アーキテクチャマップは引き続き有効です。現在の数値は、少ししてから更新してください。"
+        }
+      },
+      "sections": {
+        "orientation": {
+          "eyebrow": "概要",
+          "title": "このページで 2 つの疑問に素早く答える",
+          "body": "第一に、特定のプロトコル上の役割をどのコントラクトまたは Vault が担っているのか。第二に、公開状態がプロジェクトが他の場所で伝えている内容とまだ一致しているのか。このページは意図的に読み取り専用のままです。役割は信頼性の確認であり、実行ではありません。",
+          "bullets": [
+            "FourteenToken は、購入、ミント、ロック、分割エントリーを担うコントラクトです。",
+            "FourteenController は、トークンそのものではなく、管理およびアトリビューションのレイヤーです。",
+            "LiquidityController と LiquidityBootstrapper は、リリースと実行のレールを所有します。",
+            "Vault 残高はオンチェーン上に存在しますが、リザーブのカストディは自由流通分ではありません。"
+          ],
+          "openWhitepaper": "Whitepaper を開く",
+          "openApp": "Mobile App を開く"
+        },
+        "tokenMap": {
+          "eyebrow": "トークンマップ",
+          "title": "現在のメイントークンの接続構造",
+          "rows": {
+            "tokenOwner": "Token Owner",
+            "liquidityRoute": "Liquidity Route",
+            "airdropRoute": "Airdrop Route",
+            "directPrice": "Direct Price",
+            "growthRule": "Growth Rule",
+            "lastPriceUpdate": "Last Price Update",
+            "snapshotUpdated": "Snapshot Updated"
+          },
+          "note": "重要なポイントは所有権のチェーンです。FourteenToken は、単なる所有者ウォレットのストーリーの下にあるわけではありません。所有者の経路は FourteenController に解決されるため、ここでは両方のサーフェスを一体で扱う必要があります。"
+        },
+        "controllerState": {
+          "eyebrow": "Controller 状態",
+          "title": "アトリビューションとトレジャリーフローについて Controller が示す内容",
+          "rows": {
+            "controllerOwner": "Controller Owner",
+            "contractBalance": "Contract Balance",
+            "ownerAvailable": "Owner Available",
+            "reservedRewards": "Reserved Rewards",
+            "unallocatedPurchaseFunds": "Unallocated Purchase Funds",
+            "ambassadors": "Total Ambassadors",
+            "activeAmbassadors": "Active Ambassadors",
+            "boundBuyers": "Bound Buyers",
+            "trackedVolume": "Tracked Volume",
+            "rewardsClaimed": "Rewards Claimed"
+          },
+          "note": "これが Controller のストーリーが重要である理由です。すべてを 1 つの見栄えのよい指標に平坦化するのではなく、所有者が利用可能な資金、予約済み報酬、追跡済みボリューム、購入者アトリビューション数を、公開バケットとして分離して保持します。"
+        },
+        "liquidityState": {
+          "eyebrow": "流動性レール",
+          "title": "実行側は独立した公開システムです",
+          "rows": {
+            "controllerBalance": "Liquidity Controller Balance",
+            "controllerOwner": "Liquidity Controller Owner",
+            "minBalance": "Minimum Trigger Balance",
+            "dailyRelease": "Daily Release Rule",
+            "justMoneyExecutor": "JustMoney Executor",
+            "sunExecutor": "Sun.io V3 Executor"
+          },
+          "note": "自動化によってルートを起動できますが、リリースしきい値と割合は依然としてコントラクト内にあります。利便性はルールの外側にあり、ルールの上位にあるわけではありません。"
+        },
+        "architecture": {
+          "eyebrow": "アーキテクチャ",
+          "title": "プロトコルは 1 つの巨大なコントラクトではなく、明示的な役割ごとに分離されています",
+          "cards": [
+            {
+              "eyebrow": "コア",
+              "title": "FourteenToken",
+              "text": "直接購入の TRX を受け取り、4TEEN をミントし、購入ごとに 14日間のロックを作成し、購入価値を 90 / 7 / 3 でアトミックに分割します。"
+            },
+            {
+              "eyebrow": "管理",
+              "title": "FourteenController",
+              "text": "トークンレイヤーを所有し、アトリビューションと報酬会計の状態を保持し、公開システムサマリーを公開し、所有者側の残高処理をゲートします。"
+            },
+            {
+              "eyebrow": "実行",
+              "title": "Liquidity Stack",
+              "text": "FourteenLiquidityController は購入側の TRX レールを保持し、LiquidityBootstrapper はトークン在庫を準備して、Executor 側の流動性経路をトリガーします。"
+            },
+            {
+              "eyebrow": "カストディ",
+              "title": "Vault 分離",
+              "text": "FourteenVault、TeamLockVault、AirdropVault は目的別にリザーブ残高を分離するため、トレジャリー、チーム、成長用供給が 1 つの汎用プールに平坦化されることはありません。"
+            }
+          ],
+          "note": "この分離は、公開で検証しやすい強みの 1 つです。エクスプローラーリンク、リポジトリコード、ライブ残高はすべて、同じモジュラーアーキテクチャへとつながっています。"
+        },
+        "reserveLayer": {
+          "eyebrow": "リザーブレイヤー",
+          "title": "Vault および実行アドレス全体のライブ 4TEEN 残高",
+          "body": "これらの残高は、トークン在庫が実際にどこにあるかを示します。Vault カストディは自由流通分ではなく、Executor 在庫はユーザーウォレット残高ではありません。これらをまとめて表示することで、システムを一目で読み取りやすくしています。",
+          "note": "Bootstrap と流動性フローが在庫を移動させるため、Executor 残高は変動する場合があります。Vault 残高は、リザーブカストディに関するより安定した証明レイヤーです。",
+          "labels": {
+            "balance": "残高",
+            "verify": "Tronscan で検証"
+          }
+        },
+        "verification": {
+          "eyebrow": "証明リンク",
+          "title": "証明レイヤーを直接開く",
+          "body": "以下の各グループは、ユーザーをストーリーから証明レイヤーへ直接つなぎます。コントラクト、Vault、実行レール、そしてプロダクトを支えるリポジトリです。",
+          "groups": {
+            "core": "コアコントラクト",
+            "vaults": "Vault コントラクト",
+            "execution": "実行コントラクト",
+            "source": "ソースリポジトリ"
+          },
+          "labels": {
+            "token": "FourteenToken",
+            "controller": "FourteenController",
+            "liquidityController": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "fourteenVault": "FourteenVault",
+            "teamLockVault": "TeamLockVault",
+            "airdropVault": "AirdropVault",
+            "justMoneyExecutor": "LiquidityExecutorJustMoney",
+            "sunV3Executor": "LiquidityExecutorSunV3",
+            "contractsRepo": "Contracts リポジトリ",
+            "walletRepo": "Wallet リポジトリ"
+          }
+        },
+        "cta": {
+          "eyebrow": "次のステップ",
+          "title": "ここで確信を固め、その後はアプリで進める",
+          "body": "公開ルートを使ってシステムを検証してください。署名、購入、アンロック、スワップ、エアドロップ請求、または実際のアカウント状態に基づく手動の流動性アクションを行いたい場合は、ウォレットを使用してください。",
+          "openApp": "Mobile App を開く",
+          "openBuy": "購入ルートを開く"
+        }
+      }
     }
   }
 }
