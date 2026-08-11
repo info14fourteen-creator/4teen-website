@@ -32949,6 +32949,74 @@
       ],
       "linksEyebrow": "Publiczne wyjścia",
       "footerNote": "W przypadku linków do wydań, odniesień do kontraktów lub publicznych stron stanu zacznij od https://4teen.me. Oficjalne wsparcie telefoniczne i WhatsApp: +998 95 792 02 87."
+    },
+    "blog": {
+      "metadata": {
+        "title": "Blog",
+        "description": "Warstwa publikacyjna 4TEEN dla premier, lektury protokołu, aktualizacji ekosystemu oraz narracji produktowych skierowanych do inwestorów."
+      },
+      "hero": {
+        "eyebrow": "Blog",
+        "status": "Warstwa publikacyjna",
+        "title": "Blog to miejsce, w którym 4TEEN może mówić językiem rynku bez spłaszczania produktu do banerów i sloganów.",
+        "lead": "Whitepaper jest długim dokumentem strukturalnym. Weryfikacja to warstwa dowodowa. Blog to miejsce, w którym premiery, aktualizacje tras, kontekst ekosystemu i narracje skierowane do inwestorów powinny funkcjonować w lżejszym formacie, który później może zostać rozszerzony na wiele języków."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Rola",
+          "title": "Warstwa narracyjna",
+          "body": "Używaj bloga do premier, aktualizacji, wyjaśnień i tekstów budujących momentum, które nie należą do tras produktowych."
+        },
+        {
+          "eyebrow": "Odbiorcy",
+          "title": "Nowi użytkownicy i inwestorzy",
+          "body": "Ta trasa powinna zmniejszać tarcie dla osób, które chcą szybciej zapoznać się z projektem, zanim otworzą aplikację, trasę zakupu lub whitepaper."
+        },
+        {
+          "eyebrow": "Format",
+          "title": "Gotowy do tłumaczenia",
+          "body": "Posty powinny móc rozwijać się w publikacje wielojęzyczne bez przepisywania całej powłoki ani zmieniania modelu tras."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Co tu pasuje",
+          "title": "Publikowanie, które buduje zainteresowanie bez kłamania",
+          "body": "Blog jest właściwą przestrzenią na notatki premierowe, kamienie milowe produktu, wyjaśnienia tras, partnerstwa ekosystemowe, historie skierowane do rynku oraz przystępne omówienia zmian w aplikacji lub stosie on-chain."
+        },
+        {
+          "eyebrow": "2. Co tu nie pasuje",
+          "title": "Nie jest zamiennikiem dowodu",
+          "body": "Blog nie powinien zastępować linków do kontraktów, stron weryfikacyjnych ani sekcji whitepaper. Jeśli twierdzenie wymaga dowodu, post powinien kierować do warstwy dowodowej, zamiast udawać, że sama narracja wystarczy.",
+          "bullets": [
+            "Whitepaper pozostaje długą, strukturalną trasą lektury",
+            "Weryfikacja pozostaje trasą dowodową",
+            "Blog pozostaje trasą publikacyjną i budującą momentum"
+          ]
+        },
+        {
+          "eyebrow": "3. Dlaczego ta trasa ma znaczenie",
+          "title": "Strona potrzebuje elastycznej przestrzeni wzrostu",
+          "body": "Strona główna nie może pomieścić każdej historii, a whitepaper nie powinien przenosić treści kampanijnych. Blog daje stronie czystszy sposób przyciągania, edukowania i aktualizowania ludzi bez przeciążania głównych tras.",
+          "note": "To także najłatwiejsze miejsce, aby rozwijać przyszły wielojęzyczny przepływ publikacji artykuł po artykule."
+        }
+      ],
+      "links": [
+        {
+          "label": "Otwórz aplikację",
+          "href": "/app"
+        },
+        {
+          "label": "Otwórz zakup",
+          "href": "/buy"
+        },
+        {
+          "label": "Przeczytaj whitepaper",
+          "href": "/whitepaper"
+        }
+      ],
+      "linksEyebrow": "Następne trasy",
+      "footerNote": "Obecna trasa jest czystą powłoką dla przyszłych publikacji, a nie fałszywym feedem. Gdy pojawią się artykuły, powinny pozostać spójne z warstwami dowodową i produktową."
     }
   }
 }
