@@ -31175,6 +31175,197 @@
           "openBuy": "Otwórz ścieżkę zakupu"
         }
       }
+    },
+    "liquidity": {
+      "metadata": {
+        "title": "Publiczny kontroler płynności",
+        "description": "Publiczny kontroler płynności 4TEEN z bieżącym saldem kontrolera, publiczną ścieżką uruchamiania bootstrappera, widocznością rezerw oraz potwierdzonym strumieniem wykonań."
+      },
+      "hero": {
+        "eyebrow": "Kontroler płynności",
+        "badge": "Publiczny kontroler płynności",
+        "title": "Publiczny kontroler płynności 4TEEN",
+        "subtitle": "Automatyzacja może wybudzić trasę, ale każdy portfel nadal może uruchomić bootstrapper, gdy bramka kontraktu jest otwarta.",
+        "body": [
+          "Ta strona nie powinna wyglądać jak zamknięty panel operacyjny. Powinna jasno pokazywać jedną rzecz: TRX po stronie kontrolera jest widoczny, zapasy po stronie rezerwy są widoczne, a zasady uwalniania nadal działają on-chain.",
+          "Jeśli okno UTC jest otwarte, kontroler przekracza próg, a portfel podpisujący ma wystarczające zasoby sieciowe, płynność nadal może zostać wykonana z portfela, nawet jeśli warstwa automatyzacji opuści jeden dzień."
+        ],
+        "rotatingLines": [
+          "PUBLICZNY WYZWALACZ. BRAMKA KONTRAKTU.",
+          "AUTOMATYZACJA POMAGA. KONTRAKTY DECYDUJĄ.",
+          "NAJPIERW BOOTSTRAP. WYKONANIE ON-CHAIN."
+        ],
+        "primaryCta": "Otwórz trasę w portfelu",
+        "secondaryCta": "Przejdź do wykonań na żywo",
+        "ctaNote": "Strona internetowa jest warstwą dowodową. Portfel jest powierzchnią wykonania dla ręcznego wyzwolenia, kontroli zasobów i końcowego podpisu.",
+        "stats": {
+          "controllerBalance": {
+            "label": "Saldo kontrolera",
+            "meta": "TRX obecnie oczekujący w FourteenLiquidityController."
+          },
+          "nextRelease": {
+            "label": "Następne uwolnienie",
+            "meta": "Prognozowane uwolnienie TRX, gdy okno kontraktu będzie prawidłowe."
+          },
+          "triggerFloor": {
+            "label": "Próg wyzwolenia",
+            "meta": "Minimalne saldo kontrolera wymagane, aby wykonanie było prawidłowe."
+          },
+          "cadence": {
+            "label": "Częstotliwość",
+            "meta": "Raz na dzień UTC. Bramka jest egzekwowana przez kontrakt, nie przez automatyzację."
+          },
+          "readFailed": "Nie udało się odczytać płynności na żywo.",
+          "readRetry": "Spróbuj odświeżyć za chwilę."
+        }
+      },
+      "sections": {
+        "publicRoute": {
+          "eyebrow": "Trasa publiczna",
+          "title": "Automatyzacja jest skonfigurowana. Publiczne wykonanie nadal należy do portfela.",
+          "intro": "Aplikacja portfela zawiera już ścieżkę automatyzacji, ale ważniejszy komunikat jest szerszy: ta trasa nadal jest publiczna. Portfel podpisujący może wybudzić bootstrapper, gdy warunki kontraktu są już spełnione.",
+          "mainCard": {
+            "eyebrow": "Publiczny kontroler płynności",
+            "title": "Każdy portfel może wybudzić trasę. Kontroler nadal decyduje, czy płynność faktycznie się przemieści.",
+            "text": "To właściwy podział uprawnień. Automatyzacja może pomagać w wyczuciu momentu, ale kontroler i bootstrapper pozostają warstwą autorytetu. Ścieżka wykonania nie znika, jeśli bot się zatrzyma.",
+            "bullets": [
+              "Bezpośrednie zakupy 4TEEN wysyłają 90% TRX z zakupu do salda kontrolera.",
+              "LiquidityBootstrapper przygotowuje stronę tokenową z FourteenVault, zanim kontroler wykona operację.",
+              "Zasada raz na dzień UTC, minimalne saldo, procent uwolnienia i podział pozostają on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Automatyzacja",
+              "title": "Repozytorium portfela ma już podłączoną ścieżkę wybudzania",
+              "text": "Przepływ mobilny pokazuje wyzwalacz płynności oraz pomocnika automatyzacji razem. Dzięki temu harmonogram jest widoczny, ale nie zamienia harmonogramu w ukrytego operatora."
+            },
+            {
+              "eyebrow": "Ręczne wyzwolenie",
+              "title": "Jeśli automatyzacja zawiedzie, użytkownik nadal może ręcznie podpisać trasę",
+              "text": "Portfel może wywołać bootstrapAndExecute() ze zwykłej sesji użytkownika. Jeśli bramka jest otwarta, a zasoby są dostępne, płynność nadal przechodzi dalej."
+            }
+          ],
+          "note": "Dlatego strona powinna mówić o publicznym kontrolerze, a nie o prywatnym zapleczu operacyjnym. Trasa przetrwa poza warstwą automatyzacji."
+        },
+        "liveState": {
+          "eyebrow": "Stan kontrolera na żywo",
+          "title": "Co kontroler pokazuje teraz",
+          "rows": {
+            "controllerBalance": "Saldo kontrolera",
+            "latestFunding": "Najnowsze zasilenie",
+            "latestFundingAt": "Czas najnowszego zasilenia",
+            "lastExecute": "Ostatnie wykonanie",
+            "minBalance": "Minimalne saldo",
+            "dailyRelease": "Dzienne uwolnienie",
+            "split": "Docelowy podział",
+            "windowState": "Stan okna",
+            "nextWindow": "Następne okno",
+            "snapshotUpdated": "Aktualizacja migawki"
+          },
+          "valueLabels": {
+            "openNow": "Otwarte teraz",
+            "waitForThreshold": "Oczekiwanie na zasilenie"
+          },
+          "stateLabels": {
+            "ready": "Gotowe teraz",
+            "waiting": "Wykonano już dzisiaj",
+            "threshold": "Poniżej progu"
+          },
+          "note": "Migawka jest przydatna, ponieważ przejrzyście rozdziela elementy ruchome: TRX kontrolera, częstotliwość zasilania, wielkość uwolnienia, próg i bramka czasowa pozostają widoczne jednocześnie."
+        },
+        "triggerModel": {
+          "eyebrow": "Model wyzwalania",
+          "title": "Co faktycznie dzieje się, gdy ktoś naciska Wyzwól płynność",
+          "intro": "Trasa jest prosta, gdy opisać ją uczciwie: najpierw bootstrapper sprawdza bramkę dnia i uzupełnia zapasy wykonawcy, potem kontroler uwalnia TRX, a następnie dwie ścieżki rynkowe otrzymują swój podział.",
+          "mainCard": {
+            "eyebrow": "bootstrapAndExecute()",
+            "title": "Ścieżka wyzwolenia jest publiczna, uwzględnia zasoby i nadal podlega kontraktom.",
+            "text": "To nie jest fałszywy przycisk administratora. Portfel musi spełnić normalne warunki sieciowe, a trasa jest kontynuowana tylko wtedy, gdy te same zasady kontrolera nadal przechodzą w momencie wykonania.",
+            "bullets": [
+              "Krok 1: bootstrapper sprawdza okno kontrolera i oblicza dozwoloną wielkość uwolnienia.",
+              "Krok 2: bootstrapper uzupełnia 4TEEN po stronie wykonawcy z FourteenVault, zanim uruchomi się odnoga po stronie rynku.",
+              "Krok 3: kontroler wykonuje uwolnienie i dzieli przepływ 50 / 50 pomiędzy JustMoney i Sun.io V3."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Zasoby",
+              "title": "Zwykły portfel może obsłużyć trasę dzięki wynajętym lub wcześniej załadowanym zasobom energii",
+              "text": "Aplikacja już przedstawia to jako działanie uwzględniające zasoby. Nie chodzi o ukryty klucz serwera. Chodzi o to, że publiczny portfel nadal może czysto dokończyć trasę."
+            },
+            {
+              "eyebrow": "Zestaw reguł",
+              "title": "Wygoda harmonogramu nigdy nie nadpisuje zestawu reguł kontraktu",
+              "text": "Pominięcie okna bota nie przepisuje częstotliwości. Naciśnięcie przycisku zbyt wcześnie nie omija bramki. Kontrakty nadal akceptują albo odrzucają trasę."
+            }
+          ],
+          "note": "To właściwy sygnał rynkowy: publiczny wyzwalacz, widoczne przygotowanie rezerwy, deterministyczna zasada uwolnienia."
+        },
+        "latestExecutions": {
+          "eyebrow": "Najnowsze wykonania",
+          "title": "Potwierdzone wykonania płynności z kanału na żywo",
+          "body": "Ta lista celowo pozostaje zwięzła. Pokazuje najnowsze potwierdzone wiersze wykonań, aby użytkownik mógł zweryfikować, że kontroler działa, bez zamieniania strony w hałaśliwą kopię eksploratora bloków.",
+          "headers": {
+            "total": "Łącznie uwolniono",
+            "split": "Podział",
+            "happened": "Wystąpiło",
+            "day": "Dzień UTC",
+            "source": "Źródło"
+          },
+          "empty": "Nie widać jeszcze żadnych potwierdzonych wierszy LiquidityExecuted.",
+          "openTx": "Otwórz tx",
+          "note": "Każdy wiersz pochodzi z potwierdzonych zdarzeń LiquidityExecuted(day, totalAmount, amountA, amountB)."
+        },
+        "reservePath": {
+          "eyebrow": "Ścieżka rezerwy",
+          "title": "Tokeny rezerwowe są zapasem operacyjnym, a nie swobodnym obiegiem",
+          "intro": "TRX po stronie kontrolera to tylko połowa trasy. Strona tokenowa również potrzebuje odizolowanego zapasu i właśnie dlatego FourteenVault istnieje, zanim dwie ścieżki wykonania otrzymają swoje salda.",
+          "primaryCard": {
+            "eyebrow": "Warstwa rezerwy",
+            "title": "FourteenVault wspiera publiczną trasę płynności, zanim rozpocznie się wykonanie rynkowe.",
+            "text": "Te salda 4TEEN należy odczytywać jako roboczy zapas po stronie rezerwy. Nie są to zwykłe salda portfela i nie powinny być przedstawiane jak podaż swobodnie krążąca w obiegu.",
+            "bullets": [
+              "Zapas skarbca jest uzupełniany w ścieżce bootstrappera, zanim kontroler wykona operację.",
+              "JustMoney i Sun.io V3 otrzymują przygotowane salda tylko wtedy, gdy trasa jest prawidłowa.",
+              "Powiernictwo rezerwy, TRX kontrolera i miejsca docelowe wykonawców to oddzielne warstwy tego samego silnika."
+            ]
+          },
+          "secondaryCards": [
+            {
+              "key": "justmoney",
+              "title": "Ścieżka JustMoney",
+              "body": "Wykonawca A bierze połowę dozwolonego uwolnienia i uruchamia ścieżkę płynności po stronie AMM po przygotowaniu swojego zapasu tokenów."
+            },
+            {
+              "key": "sun",
+              "title": "Ścieżka Sun.io V3",
+              "body": "Wykonawca B bierze drugą połowę i kieruje ją przez ścieżkę skoncentrowanej płynności z własną przygotowaną stroną tokenową."
+            }
+          ],
+          "note": "Dlatego strona powinna wyjaśniać trasę, a nie tylko drukować jedną efektowną sumę. Zapas rezerwy, saldo kontrolera i miejsca docelowe wykonania wykonują różne zadania."
+        },
+        "verification": {
+          "eyebrow": "Weryfikacja",
+          "title": "Otwórz warstwę dowodową",
+          "body": "Przejdź bezpośrednio od opisu do szyn pod spodem: kontraktu kontrolera, trasy bootstrappera, kontraktów wykonawców oraz implementacji portfela, która udostępnia zarówno automatyzację, jak i ręczne wyzwolenie.",
+          "labels": {
+            "controller": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "justMoney": "Wykonawca JustMoney",
+            "sunV3": "Wykonawca Sun.io V3",
+            "contractsRepo": "Repozytorium kontraktów",
+            "walletRepo": "Repozytorium portfela"
+          }
+        },
+        "cta": {
+          "eyebrow": "Następny krok",
+          "title": "Otwórz portfel, gdy chcesz samodzielnie wybudzić trasę",
+          "body": "Strona to miejsce, w którym weryfikujesz stan. Portfel mobilny to miejsce, w którym prawdziwy użytkownik może sprawdzić zasoby, wywołać bootstrapper i podpisać trasę, jeśli bramka kontrolera jest już otwarta.",
+          "openApp": "Otwórz płynność w aplikacji",
+          "openBuy": "Otwórz trasę zakupu"
+        }
+      }
     }
   }
 }
