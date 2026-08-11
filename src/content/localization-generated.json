@@ -39622,5 +39622,161 @@
       "linksEyebrow": "अगले रूट्स",
       "footerNote": "मौजूदा रूट भविष्य की पब्लिशिंग के लिए एक साफ़ शेल है, कोई नकली फ़ीड नहीं। जब लेख आएँ, तो उन्हें प्रूफ और प्रोडक्ट लेयर्स के साथ संरेखित रहना चाहिए।"
     }
+  },
+  "ja": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "コピー",
+          "copied": "コピーしました",
+          "failed": "失敗しました",
+          "close": "閉じる",
+          "qrCode": "QRコード"
+        },
+        "taglines": [
+          "早期参入。より高い出口へ。",
+          "勝者は待たない。",
+          "14日を利益に変える。",
+          "早く動き、早く勝つ。"
+        ],
+        "header": {
+          "home": "ホーム",
+          "getApp": "アプリを入手",
+          "primaryNavAria": "メインサイトナビゲーション"
+        },
+        "market": {
+          "loading": "価格を読み込み中",
+          "unavailable": "価格を利用できません",
+          "liveAria": "ライブ市場価格"
+        },
+        "refresh": {
+          "idle": "データを更新",
+          "busy": "更新中",
+          "aria": "ライブデータのスナップショットを更新"
+        },
+        "mobileSearch": {
+          "ariaLabel": "ルート、コントラクト、ドキュメントを検索",
+          "placeholder": "ルート、コントラクト、ドキュメントを検索...",
+          "eyebrow": "クイック検索",
+          "title": "ページ、コントラクト、証明サーフェス",
+          "dialogAria": "検索結果",
+          "route": "ルート",
+          "external": "外部",
+          "empty": "まだクイック一致はありません。ルート、コントラクト、または証明に関する語句を試してください。"
+        },
+        "desktopSearch": {
+          "prompts": [
+            "コントラクト、ルート、ドキュメントを検索...",
+            "FourteenToken",
+            "アンロックのタイムライン",
+            "流動性コントローラー",
+            "アンバサダー報酬",
+            "Whitepaper"
+          ],
+          "ariaLabel": "4TEENのルートとコントラクトを検索",
+          "actionAria": "検索結果を開く",
+          "eyebrow": "クイック検索結果",
+          "title": "クイックページ、コントラクト、証明サーフェス。",
+          "dialogAria": "検索結果",
+          "closeAria": "検索を閉じる",
+          "resultsSuffix": "件の結果",
+          "noResultsYet": "まだ結果はありません",
+          "pressEnter": "Enterキーを押して最上位の一致を開きます。",
+          "topMatch": "最上位の一致",
+          "route": "ルート",
+          "external": "外部",
+          "empty": "結果はありません。`buy`、`unlock`、`airdrop`、`controller`、または`whitepaper`を試してください。"
+        },
+        "locale": {
+          "eyebrow": "言語",
+          "title": "インターフェース言語を選択",
+          "active": "有効",
+          "soon": "近日公開"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "コアサーフェス",
+          "docsAndRoutes": "ドキュメントとルート",
+          "closeOpenPanelAria": "開いているパネルを閉じる"
+        },
+        "mobileDock": {
+          "menu": "メニュー",
+          "close": "閉じる",
+          "openMenuAria": "モバイルメニューを開く",
+          "closeMenuAria": "モバイルメニューを閉じる",
+          "openHomeAria": "ホームを開く",
+          "openSearchAria": "モバイル検索を開く",
+          "openLanguageAria": "言語パネルを開く"
+        },
+        "footer": {
+          "protocol": "プロトコル",
+          "ecosystem": "エコシステム",
+          "legal": "法務",
+          "privacy": "プライバシー",
+          "terms": "利用規約",
+          "support": "サポート",
+          "investorDeck": "投資家向け資料",
+          "onePager": "One-Pager",
+          "officialChannels": "公式チャンネル",
+          "brandText": "ウォレットアプリは現在、ライブシステムサーフェスを搭載しています。直接購入、アンロック状態、コントローラーの真実性、アンバサダーキャビネット、Telegramファーストの成長フローを利用できます。",
+          "getApp": "アプリを入手",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. TRON上で構成されたオンチェーン参入。",
+          "officialWebsite": "公式ウェブサイト: 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "プロトコル",
+          "growth": "成長",
+          "proof": "証明",
+          "ecosystem": "エコシステム"
+        },
+        "links": {
+          "home": "ホーム",
+          "buy": "購入",
+          "unlock": "アンロック",
+          "liquidity": "流動性",
+          "airdrop": "Airdrop",
+          "ambassadors": "アンバサダー",
+          "whitepaper": "Whitepaper",
+          "verification": "検証",
+          "blog": "ブログ",
+          "swap": "Swap",
+          "mobileApp": "モバイルアプリ"
+        },
+        "shortLinks": {
+          "buy": "購入",
+          "unlock": "アンロック",
+          "liquidity": "流動性",
+          "airdrop": "Airdrop",
+          "earn": "獲得",
+          "swap": "Swap",
+          "app": "アプリ",
+          "home": "ホーム"
+        },
+        "menuLinks": {
+          "buy": "直接購入",
+          "unlock": "アンロックのタイムライン",
+          "liquidity": "流動性コントローラー",
+          "swap": "トークンをSwap",
+          "privacy": "プライバシーポリシー",
+          "terms": "利用規約"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "メインルート",
+          "protocolSurface": "プロトコルサーフェス",
+          "growthSurface": "成長サーフェス",
+          "proofSurface": "証明サーフェス",
+          "downloadRoute": "ダウンロードルート",
+          "publicPolicy": "公開ポリシー",
+          "supportRoute": "サポートルート",
+          "coreContract": "コアコントラクト",
+          "liquidityContract": "流動性コントラクト",
+          "growthContract": "成長コントラクト",
+          "githubSource": "GitHubソース"
+        }
+      }
+    }
   }
 }
