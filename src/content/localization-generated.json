@@ -44690,6 +44690,182 @@
           "openBuy": "打开购买路由"
         }
       }
+    },
+    "airdrop": {
+      "metadata": {
+        "title": "空投",
+        "description": "实时查看 4TEEN 空投状态，包括当前波次、已解锁余额、金库余额、Telegram 路由状态、仅钱包可访问的领取入口，以及链上验证链接。"
+      },
+      "hero": {
+        "eyebrow": "AirdropVault",
+        "status": "钱包领取路由",
+        "title": "通过钱包路由领取 4TEEN",
+        "lead": "公开网站展示实时 AirdropVault 状态。移动钱包负责处理领取路由。",
+        "body": [
+          "Airdrop 不是落地页上的虚假推广按钮。它是一个基于波次的金库、一个感知钱包的领取状态，以及一个以 Telegram 优先的路由，应用会在执行前读取这些信息。",
+          "本页面同步展示公开侧信息：当前波次、金库余额、已解锁额度、计划剩余额度、路由模型和链上验证。实时领取流程属于钱包内部。"
+        ],
+        "rotatingLines": [
+          "金库状态。钱包领取。",
+          "Telegram 实时。社交通道已准备。",
+          "公开证明。App 执行。",
+          "波次解锁。路由检查。",
+          "没有虚假领取。只有状态。"
+        ],
+        "primaryCta": "打开移动 App 路由",
+        "secondaryCta": "打开 AirdropVault",
+        "ctaNote": "网站展示金库和路由图。钱包会在真实领取路径开启前，读取所选账户、Telegram 会话、领取状态和签名模式。",
+        "stats": {
+          "currentWave": "当前波次",
+          "vaultBalance": "金库余额",
+          "vaultBalanceMeta": "AirdropVault 内当前持有的 4TEEN。",
+          "availableNow": "当前可用",
+          "availableNowMeta": "根据合约规则当前可分发的数量。",
+          "nextWave": "下一波次",
+          "completed": "已完成",
+          "readFailed": "实时金库读取失败。",
+          "readRetry": "请稍后尝试刷新。"
+        }
+      },
+      "sections": {
+        "vaultState": {
+          "eyebrow": "金库状态",
+          "title": "合约当前显示的信息",
+          "rows": {
+            "totalAllocation": "总分配量",
+            "unlockedTotal": "已解锁总量",
+            "totalDistributed": "已分发总量",
+            "remainingUnlocked": "已解锁剩余量",
+            "remainingPlanned": "计划剩余量",
+            "vaultBalance": "金库余额"
+          },
+          "noteTitle": "为什么存在两个“剩余”数字：",
+          "noteBody": "`Remaining unlocked` 是合约按波次时间已经解锁的额度。`Remaining planned` 是完整 1,500,000 4TEEN 分配总量中尚未分发的部分。`Available now` 是已解锁额度与实际金库余额两者中的较小值。"
+        },
+        "distribution": {
+          "eyebrow": "分发概况",
+          "title": "已有多少数量从金库转出",
+          "cards": {
+            "distributed": {
+              "title": "已分发",
+              "text": "已从总分配量中发送出去的 4TEEN。"
+            },
+            "planned": {
+              "title": "仍在计划中",
+              "text": "长期分发计划中仍剩余的 4TEEN。"
+            },
+            "lastDrop": {
+              "title": "最近确认的空投",
+              "text": "最近一次已确认金库分发事件中的 4TEEN。"
+            },
+            "unlockedUndistributed": {
+              "title": "已解锁但未分发",
+              "text": "已按波次解锁但尚未发送出去的额度。"
+            }
+          },
+          "note": "此模块仅供信息参考。它使用适合公开网站的轻量实时读取：通过合约读取获取金库状态，并通过事件源获取最近一次已确认的空投事件。"
+        },
+        "dateLayer": {
+          "eyebrow": "日期层",
+          "title": "合约按固定时间戳运行",
+          "rows": {
+            "issueDate": "发行日期",
+            "currentWave": "当前波次",
+            "nextWave": "下一波次",
+            "lastDrop": "最近确认的空投",
+            "snapshotUpdated": "快照已更新"
+          },
+          "note": "波次解锁在合约中固定。网站并不是通过文案编造这些日期；它读取并格式化实时合约时钟。"
+        },
+        "routeModel": {
+          "eyebrow": "实时路由模型",
+          "title": "Telegram 已上线。其他社交部分处于预备阶段。",
+          "note": "钱包 App 会对 Telegram 组合三项检查：本地钱包状态、当前机器人会话状态以及链上领取状态。网站不会伪造该领取流程，也不会假装可在网页上领取；它展示实时金库以及围绕它的真实路由模型。",
+          "routes": {
+            "telegram": {
+              "title": "Telegram",
+              "statusLive": "当前已上线",
+              "statusSoon": "当前已上线",
+              "note": "钱包会话、机器人状态和链上领取状态已在移动 App 中接入。"
+            },
+            "instagram": {
+              "title": "Instagram",
+              "statusLive": "上线占位",
+              "statusSoon": "上线占位",
+              "note": "该路由存在于合约掩码模型中，但实时领取流程尚未开放。"
+            },
+            "x": {
+              "title": "X",
+              "statusLive": "上线占位",
+              "statusSoon": "上线占位",
+              "note": "该路由存在于合约掩码模型中，但实时领取流程尚未开放。"
+            },
+            "facebook": {
+              "title": "Facebook",
+              "statusLive": "上线占位",
+              "statusSoon": "上线占位",
+              "note": "该路由存在于合约掩码模型中，但实时领取流程尚未开放。"
+            },
+            "youtube": {
+              "title": "YouTube",
+              "statusLive": "上线占位",
+              "statusSoon": "上线占位",
+              "note": "该路由存在于合约掩码模型中，但实时领取流程尚未开放。"
+            }
+          }
+        },
+        "walletAccess": {
+          "eyebrow": "实时领取访问",
+          "title": "实时空投路由通过移动钱包使用，而不是通过公开网站",
+          "body": "在真实产品中，Telegram 领取状态会感知钱包。App 会结合所选钱包、当前机器人会话和链上领取状态，然后再判断该路由是可用、排队中、已领取，还是仍被阻止。此网站有意保持为信息展示。",
+          "bullets": [
+            "领取可用性取决于钱包状态，而不仅仅是访问公开页面。",
+            "Telegram 是目前唯一实时开放的领取路由；其他社交仍为预备通道。",
+            "钱包可以区分仅查看、签名、已领取、排队中和旧版已使用状态。",
+            "请使用 App 路由进入真实领取界面，然后回到这里进行公开金库验证。"
+          ],
+          "openApp": "打开移动 App 路由",
+          "openVault": "打开 AirdropVault"
+        },
+        "waveSchedule": {
+          "eyebrow": "波次计划",
+          "title": "六个固定波次，一个合约时钟",
+          "headers": {
+            "wave": "波次",
+            "cap": "上限",
+            "unlockTime": "解锁时间",
+            "status": "状态"
+          },
+          "current": "当前",
+          "unlocked": "已解锁",
+          "upcoming": "即将开始"
+        },
+        "verification": {
+          "eyebrow": "验证",
+          "title": "合约和运营方",
+          "body": "网站读取的是钱包使用的同一套金库逻辑：当前波次、下一波次时间戳、已解锁余额、可用分发数量以及金库余额。",
+          "vaultLabel": "AirdropVault",
+          "operatorLabel": "运营方"
+        },
+        "productContext": {
+          "eyebrow": "产品背景",
+          "title": "钱包如何读取此界面",
+          "bullets": [
+            "Telegram 是目前唯一实时开放的社交领取路由。",
+            "其他社交部分已存在于合约掩码模型中。",
+            "领取历史和领取状态是钱包特定的，会在移动 App 中读取，而不是在这里伪造。",
+            "金库资金和已解锁额度是两件不同的事，因此 App 会同时显示两者。",
+            "此网站本身不执行实时领取；它会指向负责执行领取的钱包路由。"
+          ]
+        },
+        "fallback": {
+          "eyebrow": "回退",
+          "title": "路由已准备就绪，但实时读取失败。",
+          "body": "页面已经围绕真实的 AirdropVault 合约完成接入。一旦实时读取再次成功，它将自动填充波次状态、余额、已解锁额度、计划剩余额度和下一波次时间。",
+          "openVault": "打开 AirdropVault",
+          "openApp": "打开移动 App 路由"
+        }
+      }
     }
   }
 }
