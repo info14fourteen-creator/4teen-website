@@ -46015,6 +46015,148 @@
       ],
       "linksEyebrow": "公开出口",
       "footerNote": "请将这些条款与合约地址、区块浏览器状态和钱包确认屏幕一并阅读。组织身份：\"AG PLUS\" LLC，D-U-N-S 933906683。"
+    },
+    "support": {
+      "metadata": {
+        "title": "支持",
+        "description": "4TEEN 官方支持范围、联系方式、响应预期，以及团队能帮助和不能帮助的事项。"
+      },
+      "hero": {
+        "eyebrow": "支持",
+        "status": "官方渠道",
+        "title": "支持应帮助你找到正确的渠道、理解公开系统并核实发生了什么，而不是假装有人可以为你逆转区块链现实。",
+        "lead": "如有网站、钱包、版本发布或公开协议相关问题，请使用 4TEEN 官方渠道。对于任何与交易相关的问题，请提供具体事实，例如钱包地址、交易哈希、截图、路径名称、设备类型，以及如相关的 app 构建版本。"
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "最适合",
+          "title": "渠道指引和核实帮助",
+          "body": "支持可以帮助你找到正确的官方页面、钱包界面、合约链接或公开状态路径，并理解这些界面正在显示的内容。"
+        },
+        {
+          "eyebrow": "请提供",
+          "title": "有用证据",
+          "body": "最快的处理方式是基于事实：钱包地址、tx hash、页面 URL、截图、时间戳，以及对你预期发生什么和实际发生什么的简短说明。"
+        },
+        {
+          "eyebrow": "切勿发送",
+          "title": "不要提供恢复密钥",
+          "body": "不要向任何支持渠道发送助记词、原始私钥或设备密码。官方支持绝不应该需要这些信息。"
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. 官方运营方",
+          "title": "支持由 4TEEN 合法运营方发布",
+          "body": "\"AG PLUS\" Limited Liability Company 运营 4TEEN 官方网站和支持渠道。请使用 support@4teen.me 或 +998 95 792 02 87 获取直接支持，并从 https://4teen.me 核验支持链接。",
+          "bullets": [
+            "D-U-N-S 编号：933906683",
+            "注册号：3080788",
+            "法定地址：Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B"
+          ]
+        },
+        {
+          "eyebrow": "2. 支持范围",
+          "title": "支持旨在涵盖的内容",
+          "body": "支持用于渠道指引、基于事实的故障排查、官方链接核验、公开协议信息、钱包界面说明、版本发布页面帮助，以及识别与你的问题相关的合约或产品层。"
+        },
+        {
+          "eyebrow": "3. 支持限制",
+          "title": "支持无法承诺的事项",
+          "body": "支持无法撤销已确认的区块链交易、找回丢失的助记词、保证代币价格结果、保证未来奖励，或仅仅因为结果不符合你的预期就手动覆盖公开合约规则。"
+        },
+        {
+          "eyebrow": "4. 响应质量",
+          "title": "如何更快获得答复",
+          "bullets": [
+            "包含问题出现的确切路径或页面",
+            "如果属于链上问题，请包含钱包地址和 tx hash",
+            "如果与 app 相关，请包含设备、OS 和 app 构建版本详情",
+            "如果属于视觉问题，请包含截图或简短录屏"
+          ],
+          "note": "当报告基于事实且可复现，而不只是情绪表达时，支持质量会提高。这有助于团队核实实际发生了什么。"
+        }
+      ],
+      "channels": [
+        {
+          "label": "Telegram",
+          "href": "https://t.me/fourteentoken",
+          "note": "用于公告和基础指引的最快公开社区渠道。"
+        },
+        {
+          "label": "Discord",
+          "href": "https://discord.gg/jWZF6KzPCB",
+          "note": "适合结构化讨论、故障排查背景信息和后续消息。"
+        },
+        {
+          "label": "X",
+          "href": "https://x.com/4teen_me",
+          "note": "最适合公开版本发布可见性，但不适合提供敏感问题细节。"
+        },
+        {
+          "label": "WhatsApp",
+          "href": "https://wa.me/998957920287",
+          "note": "如果需要直接支持交接，且官方号码适用于你所在地区，则此渠道很有用。"
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+          "note": "当问题明确属于技术问题时，适合用于代码、版本发布和仓库层面的事项。"
+        }
+      ],
+      "channelPanel": {
+        "eyebrow": "官方渠道",
+        "title": "在信任支持之前，请先使用官方出口。",
+        "routeLabel": "官方路径"
+      },
+      "scopePanel": {
+        "eyebrow": "支持范围",
+        "title": "支持应进行说明、核实和引导，不应虚构自己不具备的能力。",
+        "canHelp": "可以帮助",
+        "cannotHelp": "无法帮助"
+      },
+      "supportScope": {
+        "canHelp": [
+          "官方路径核验和公开页面指引",
+          "App 下载、版本发布页面和网站故障排查",
+          "合约、浏览器或公开状态页面导览",
+          "针对 airdrop、ambassador 或钱包路径问题的基础事实分诊"
+        ],
+        "cannotHelp": [
+          "找回丢失的助记词、私钥或设备密码",
+          "撤销已确认的链上交易",
+          "保证价格结果、代币表现或奖励资格",
+          "充当托管方或控制用户资金"
+        ]
+      },
+      "contactPanel": {
+        "eyebrow": "联系",
+        "title": "仅使用 4TEEN 官方出口",
+        "body": "如果某个支持渠道并非来自官方网站、钱包或官方社交列表的链接，请在信任之前先核验。官方合法运营方是 \"AG PLUS\" LLC，已公布的 D-U-N-S 编号为 933906683。",
+        "emailTitle": "支持邮箱",
+        "emailMissing": "当前仓库中尚未公布专用的公开支持邮箱。在公布之前，请使用下方官方渠道，并且绝不要在那里分享秘密恢复材料。",
+        "phoneTitle": "电话和 WhatsApp",
+        "legalTitle": "合法运营方",
+        "legalBody": "\"AG PLUS\" Limited Liability Company · D-U-N-S® 933906683",
+        "securityTitle": "安全提醒",
+        "securityBody": "任何支持渠道都不应索要你的助记词、原始私钥或完整设备解锁密钥。如果发生这种情况，请将其视为不安全。"
+      },
+      "links": [
+        {
+          "label": "打开移动 app 页面",
+          "href": "/app"
+        },
+        {
+          "label": "打开隐私政策",
+          "href": "/privacy"
+        },
+        {
+          "label": "打开条款",
+          "href": "/terms"
+        }
+      ],
+      "linksEyebrow": "公开出口",
+      "footerNote": "如需版本发布链接、合约引用或公开状态页面，请从 https://4teen.me 开始。官方电话和 WhatsApp 支持：+998 95 792 02 87."
     }
   }
 }
