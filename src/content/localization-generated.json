@@ -42924,5 +42924,161 @@
       "linksEyebrow": "次のルート",
       "footerNote": "現在のルートは、偽のフィードではなく、将来のパブリッシングに向けたクリーンなシェルです。記事が公開される際は、証明レイヤーおよびプロダクトレイヤーとの整合性を保つべきです。"
     }
+  },
+  "zh-CN": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "复制",
+          "copied": "已复制",
+          "failed": "失败",
+          "close": "关闭",
+          "qrCode": "二维码"
+        },
+        "taglines": [
+          "早入场，更高退出收益。",
+          "赢家从不等待。",
+          "把 14 天变成利润。",
+          "早行动，早获胜。"
+        ],
+        "header": {
+          "home": "首页",
+          "getApp": "获取 App",
+          "primaryNavAria": "主站导航"
+        },
+        "market": {
+          "loading": "正在加载价格",
+          "unavailable": "价格不可用",
+          "liveAria": "实时市场价格"
+        },
+        "refresh": {
+          "idle": "刷新数据",
+          "busy": "正在刷新",
+          "aria": "刷新实时数据快照"
+        },
+        "mobileSearch": {
+          "ariaLabel": "搜索路由、合约和文档",
+          "placeholder": "搜索路由、合约、文档...",
+          "eyebrow": "快速搜索",
+          "title": "页面、合约与证明界面",
+          "dialogAria": "搜索结果",
+          "route": "路由",
+          "external": "外部",
+          "empty": "暂无快速匹配。请尝试输入路由、合约或证明相关词。"
+        },
+        "desktopSearch": {
+          "prompts": [
+            "搜索合约、路由、文档...",
+            "FourteenToken",
+            "解锁时间线",
+            "流动性控制器",
+            "大使奖励",
+            "白皮书"
+          ],
+          "ariaLabel": "搜索 4TEEN 路由和合约",
+          "actionAria": "打开搜索结果",
+          "eyebrow": "快速搜索结果",
+          "title": "快速页面、合约与证明界面。",
+          "dialogAria": "搜索结果",
+          "closeAria": "关闭搜索",
+          "resultsSuffix": "条结果",
+          "noResultsYet": "暂无结果",
+          "pressEnter": "按 Enter 打开最匹配的结果。",
+          "topMatch": "最佳匹配",
+          "route": "路由",
+          "external": "外部",
+          "empty": "没有结果。请尝试 `buy`、`unlock`、`airdrop`、`controller` 或 `whitepaper`。"
+        },
+        "locale": {
+          "eyebrow": "语言",
+          "title": "选择界面语言",
+          "active": "当前启用",
+          "soon": "即将推出"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "核心界面",
+          "docsAndRoutes": "文档与路由",
+          "closeOpenPanelAria": "关闭已打开面板"
+        },
+        "mobileDock": {
+          "menu": "菜单",
+          "close": "关闭",
+          "openMenuAria": "打开移动端菜单",
+          "closeMenuAria": "关闭移动端菜单",
+          "openHomeAria": "打开首页",
+          "openSearchAria": "打开移动端搜索",
+          "openLanguageAria": "打开语言面板"
+        },
+        "footer": {
+          "protocol": "协议",
+          "ecosystem": "生态系统",
+          "legal": "法律",
+          "privacy": "隐私",
+          "terms": "条款",
+          "support": "支持",
+          "investorDeck": "投资者演示文稿",
+          "onePager": "单页简介",
+          "officialChannels": "官方渠道",
+          "brandText": "钱包 App 现在承载实时系统界面：直接购买、解锁状态、控制器真实信息、大使柜台，以及以 Telegram 优先的增长流程。",
+          "getApp": "获取 App",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. 在 TRON 上构建的链上结构化入场。",
+          "officialWebsite": "官方网站：4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "协议",
+          "growth": "增长",
+          "proof": "证明",
+          "ecosystem": "生态系统"
+        },
+        "links": {
+          "home": "首页",
+          "buy": "购买",
+          "unlock": "解锁",
+          "liquidity": "流动性",
+          "airdrop": "空投",
+          "ambassadors": "大使",
+          "whitepaper": "白皮书",
+          "verification": "验证",
+          "blog": "博客",
+          "swap": "Swap",
+          "mobileApp": "移动 App"
+        },
+        "shortLinks": {
+          "buy": "购买",
+          "unlock": "解锁",
+          "liquidity": "流动性",
+          "airdrop": "空投",
+          "earn": "赚取",
+          "swap": "Swap",
+          "app": "App",
+          "home": "首页"
+        },
+        "menuLinks": {
+          "buy": "直接购买",
+          "unlock": "解锁时间线",
+          "liquidity": "流动性控制器",
+          "swap": "Swap Token",
+          "privacy": "隐私政策",
+          "terms": "使用条款"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "主路由",
+          "protocolSurface": "协议界面",
+          "growthSurface": "增长界面",
+          "proofSurface": "证明界面",
+          "downloadRoute": "下载路由",
+          "publicPolicy": "公开政策",
+          "supportRoute": "支持路由",
+          "coreContract": "核心合约",
+          "liquidityContract": "流动性合约",
+          "growthContract": "增长合约",
+          "githubSource": "GitHub 源代码"
+        }
+      }
+    }
   }
 }
