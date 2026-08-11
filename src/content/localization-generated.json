@@ -43079,6 +43079,808 @@
           "githubSource": "GitHub 源代码"
         }
       }
+    },
+    "home": {
+      "ui": {
+        "aria": {
+          "heroPoints": "协议亮点",
+          "livePriceSummary": "实时价格摘要",
+          "quickLinks": "快捷链接",
+          "verificationLinks": "验证链接"
+        },
+        "marketStrip": {
+          "unavailable": "不可用",
+          "routerQuoteReadFailed": "路由报价读取失败",
+          "directPriceLabel": "直购价格",
+          "directPriceSub": "通过协议每 1 4TEEN",
+          "dexReferenceLabel": "DEX 参考",
+          "dexPriceLabel": "DEX 价格",
+          "dexSubSuffix": "每 4TEEN",
+          "unlockCycleLabel": "解锁周期",
+          "unlockCycleValue": "14 天",
+          "unlockCycleSub": "直购锁定期",
+          "unlockCycleDailyRuleSub": "直购固定锁定",
+          "dailyLiquidityRuleLabel": "每日流动性规则",
+          "dailyLiquidityRuleValue": "6.43%",
+          "dailyLiquidityRuleSub": "由控制器逻辑按 UTC 每日释放一次"
+        }
+      },
+      "hero": {
+        "eyebrow": "4TEEN 移动应用",
+        "meta": "TRON • 直购 • 解锁 • 流动性 • 增长",
+        "title": "一个地方完成购买、锁定可视化与流动性流转。",
+        "lead": "钱包应用已经是系统的运行层。直购、解锁时间线、流动性控制器、Telegram 领取状态、大使控制台以及紧凑的信息路由，都已经是带有真实状态的真实页面，而不是文案里的承诺。",
+        "points": [
+          "在签名前准备真实的直购流程，包括预估、分配上下文和确认。",
+          "按倒计时、解锁状态和来源交易追踪每一笔锁定购买事件。",
+          "用一个信息路由查看合约、资产钱包、执行器和运行时就绪状态。"
+        ],
+        "actions": [
+          {
+            "label": "获取应用",
+            "href": "/app"
+          },
+          {
+            "label": "打开直购",
+            "href": "/buy"
+          }
+        ],
+        "sideEyebrow": "钱包界面",
+        "sideTitle": "应用现在承载真实的产品工作。",
+        "sideStats": [
+          {
+            "label": "一级销售",
+            "value": "准备 → 确认"
+          },
+          {
+            "label": "可视化",
+            "value": "解锁事件"
+          },
+          {
+            "label": "执行",
+            "value": "控制器状态"
+          },
+          {
+            "label": "验证",
+            "value": "信息路由"
+          }
+        ],
+        "sideHighlightTitle": "清晰的产品中心。",
+        "sideHighlightText": "购买、锁定可视化、控制器真实状态、增长通道和验证，现在通过一个钱包式流程连接起来。",
+        "tools": [
+          {
+            "href": "/buy",
+            "title": "直购",
+            "meta": "在确认前准备真实的购买即铸造流程"
+          },
+          {
+            "href": "/unlock",
+            "title": "解锁时间线",
+            "meta": "按钱包、倒计时和解锁状态读取直购事件"
+          },
+          {
+            "href": "/liquidity",
+            "title": "流动性控制器",
+            "meta": "查看阈值、释放节奏、执行器和控制器历史"
+          },
+          {
+            "href": "/verification",
+            "title": "信息路由",
+            "meta": "打开合约、金库、资产钱包和运行时就绪状态"
+          }
+        ]
+      },
+      "wallets": {
+        "eyebrow": "钱包支持",
+        "title": "钱包支持很重要，因为应用现在会在各个实时界面反映钱包状态。",
+        "description": "直购、解锁行、控制台操作和 Telegram 领取状态都会随所选钱包是否可签名、是否为只读观察、以及余额和资源状态能否在流程中清晰解析而变化。",
+        "bestStatus": "最佳移动体验",
+        "bestItems": [
+          {
+            "name": "Binance Wallet",
+            "note": "可用 • 余额可见"
+          },
+          {
+            "name": "Bitget Wallet",
+            "note": "可用 • 余额可见"
+          },
+          {
+            "name": "OKX Wallet",
+            "note": "可用 • 余额可见"
+          },
+          {
+            "name": "TokenPocket",
+            "note": "可用 • 余额可见"
+          }
+        ],
+        "compatibleStatus": "可在移动浏览器中使用",
+        "compatibleItems": [
+          {
+            "name": "FoxWallet",
+            "note": "可用 • 不显示余额"
+          },
+          {
+            "name": "imToken",
+            "note": "可用 • 不显示余额"
+          },
+          {
+            "name": "MetaMask",
+            "note": "可用 • 不显示余额"
+          },
+          {
+            "name": "TronLink",
+            "note": "可用 • 不显示余额"
+          },
+          {
+            "name": "WalletConnect",
+            "note": "可用 • 不显示余额"
+          },
+          {
+            "name": "Trust Wallet",
+            "note": "使用桌面版 Chrome 扩展"
+          }
+        ],
+        "highlightTitle": "推荐用于应用 + 购买流程：",
+        "highlightText": "Binance Wallet、Bitget Wallet、OKX Wallet 和 TokenPocket 提供最顺畅的体验，因为它们能正确显示余额，并让具备钱包感知能力的界面更容易被信任。"
+      },
+      "trust": {
+        "eyebrow": "验证协议",
+        "title": "钱包应用、网站界面、代码仓库和链上状态都应指向同一个真实来源。",
+        "links": [
+          {
+            "label": "应用",
+            "value": "移动下载",
+            "href": "/app"
+          },
+          {
+            "label": "网站",
+            "value": "实时界面",
+            "href": "/buy"
+          },
+          {
+            "label": "网络",
+            "value": "TRON Mainnet",
+            "href": "https://tronscan.org",
+            "external": true
+          },
+          {
+            "label": "代码仓库",
+            "value": "钱包应用",
+            "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+            "external": true
+          },
+          {
+            "label": "文档",
+            "value": "白皮书",
+            "href": "/whitepaper"
+          },
+          {
+            "label": "信息",
+            "value": "验证",
+            "href": "/verification"
+          }
+        ]
+      },
+      "howItWorks": {
+        "eyebrow": "运作方式",
+        "title": "当前运行界面覆盖的内容。",
+        "description": "应用不再只是包裹链接的外壳。它已经处理说明、钱包感知准入、确认流程、特定界面历史、控制器状态、奖励路由和社交领取状态。",
+        "steps": [
+          {
+            "step": "1",
+            "title": "在应用内准备直购",
+            "text": "购买页面首先是一个准备步骤。所选签名钱包输入 TRX，看到预估的 4TEEN，然后才进入确认层，由应用构建真实交易并检查资源。"
+          },
+          {
+            "step": "2",
+            "title": "按购买追踪每一批锁定资产",
+            "text": "解锁时间线不是泛泛的历史记录。它读取所选钱包的直购事件，显示 UTC 解锁时间、实时倒计时、锁定状态，以及每条购买记录背后的 TronScan 交易。"
+          },
+          {
+            "step": "3",
+            "title": "需要流动性真实状态时打开控制器",
+            "text": "流动性执行是应用中的真实界面。它展示 100 TRX 阈值、6.43% 每日释放规则、执行器拆分、合约链接和近期控制器侧历史，而不是把这些逻辑隐藏在文案里。"
+          }
+        ],
+        "airdropStep": {
+          "step": "4",
+          "title": "把社交空投状态作为真实页面读取",
+          "text": "空投页面一次性组合三项检查，而不是假装每条社交路线都已上线。",
+          "items": [
+            {
+              "value": "钱包",
+              "label": "签名或只读观察状态会改变领取流程是否能继续"
+            },
+            {
+              "value": "会话",
+              "label": "Telegram 机器人会话决定卡片是不可用、立即验证还是会话已生效"
+            },
+            {
+              "value": "链上",
+              "label": "链上领取状态已经可以显示已收到、排队中或旧版已使用"
+            }
+          ]
+        },
+        "cabinetStep": {
+          "step": "5",
+          "title": "用一个控制台管理注册、买家、购买、待处理行和奖励",
+          "text": "大使流程不再是一个走到尽头的注册页面。同一路由从一次性 slug 注册开始，随后成为可工作的控制台，把推荐身份、已追踪购买、可领取奖励、已领取总额和待分配重放一起展示。"
+        }
+      },
+      "architecture": {
+        "eyebrow": "架构图",
+        "title": "信息路由如何解释链上系统。",
+        "description": "应用中的紧凑信息路由现在把合约、路由、金库、执行器、资产钱包和运行时检查连接在一起。网站仍然可以展示这张地图，但它应该反映出该架构背后已经有一个可工作的产品页面。",
+        "entry": {
+          "label": "入口",
+          "title": "用户 TRX",
+          "text": "协议直购进入系统"
+        },
+        "core": {
+          "label": "核心合约",
+          "title": "FourteenToken",
+          "text": "购买即铸造 + 14 天锁定 + TRX 自动拆分",
+          "pills": [
+            "购买即铸造",
+            "14 天锁定",
+            "TRX 拆分：90% / 7% / 3%"
+          ]
+        },
+        "liquidity": {
+          "eyebrow": "90% TRX 路径",
+          "title": "流动性执行层",
+          "text": "最大份额进入专用流动性系统。释放时间、储备存储、启动准备和 DEX 执行被隔离到不同角色中。",
+          "controller": {
+            "label": "控制器",
+            "title": "FourteenLiquidityController",
+            "text": "按 UTC 每日释放一次 6.43%，并控制流动性何时可以移动"
+          },
+          "vault": {
+            "label": "储备金库",
+            "title": "FourteenVault",
+            "text": "存储专门用于提供流动性的 4TEEN 储备"
+          },
+          "bootstrapper": {
+            "label": "准备层",
+            "title": "LiquidityBootstrapper",
+            "text": "计算所需代币数量，从 FourteenVault 拉取，供应执行器，并触发执行流程"
+          },
+          "executors": [
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorJustMoney",
+              "text": "JustMoney 的 DEX 专用执行路径"
+            },
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorSunV3",
+              "text": "Sun.io V3 的 DEX 专用执行路径"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "7% TRX 路径",
+          "title": "控制 + 大使奖励层",
+          "text": "该路径位于代币发行和流动性执行之外。它把协议控制与推荐归因、已验证购买分配、等级进阶和可领取大使奖励结合起来。",
+          "controller": {
+            "label": "控制器",
+            "title": "FourteenController",
+            "text": "拥有 FourteenToken，管理所有者功能、操作员逻辑、奖励记账、购买分配和受控提现。"
+          },
+          "flow": {
+            "label": "大使流程",
+            "title": "注册 → 绑定 → 已验证购买 → 奖励",
+            "text": "钱包注册、公开 slug 身份、买家绑定、已验证购买记录、可领取奖励累积和奖励提现。"
+          },
+          "ladderTitle": "大使奖励阶梯",
+          "ladder": [
+            {
+              "level": "青铜",
+              "buyers": "0–9 位买家",
+              "percent": "10%"
+            },
+            {
+              "level": "白银",
+              "buyers": "10–99 位买家",
+              "percent": "25%"
+            },
+            {
+              "level": "黄金",
+              "buyers": "100–999 位买家",
+              "percent": "50%"
+            },
+            {
+              "level": "铂金",
+              "buyers": "1000+ 位买家",
+              "percent": "75%"
+            }
+          ],
+          "noteTitle": "分配逻辑",
+          "noteText": "大使奖励根据已验证购买分配中的购买所有者份额计算。支持等级覆盖，奖励会在提现前进入可领取余额。"
+        },
+        "airdrop": {
+          "eyebrow": "3% TRX 路径",
+          "title": "社区分发层",
+          "text": "该路径为实时空投结构提供资金。分发按波次进行，并扩展到多条社交路线，而不是被当作一次性赠送。",
+          "vault": {
+            "label": "金库",
+            "title": "AirdropVault",
+            "text": "用于分阶段生态分发、钱包关联奖励流程和实时活动路线的社区与增长储备"
+          },
+          "model": {
+            "label": "分发模型",
+            "title": "1,500,000 4TEEN • 6 个固定波次",
+            "text": "基于波次的释放结构，目前已有一条实时路线，未来会逐步增加更多活动路线"
+          },
+          "pills": [
+            {
+              "label": "Telegram 已上线",
+              "tone": "live"
+            },
+            {
+              "label": "X 即将推出",
+              "tone": "wait"
+            },
+            {
+              "label": "Instagram 即将推出",
+              "tone": "wait"
+            },
+            {
+              "label": "更多社交平台即将加入",
+              "tone": "wait"
+            }
+          ],
+          "liveRoute": {
+            "label": "当前实时路线",
+            "title": "Telegram 活动",
+            "text": "实时空投基础设施内当前公开路线",
+            "action": {
+              "label": "打开当前实时路线",
+              "href": "/airdrop"
+            }
+          },
+          "snapshotTitle": "实时空投快照",
+          "snapshotRows": [
+            {
+              "label": "状态",
+              "value": "当前上线"
+            },
+            {
+              "label": "奖励范围",
+              "value": "1–5 4TEEN"
+            },
+            {
+              "label": "验证",
+              "value": "必需"
+            },
+            {
+              "label": "需要钱包",
+              "value": "TRON 钱包"
+            },
+            {
+              "label": "奖励发放",
+              "value": "链上"
+            },
+            {
+              "label": "领取类型",
+              "value": "platformBit = 4"
+            }
+          ]
+        },
+        "facts": [
+          {
+            "label": "流动性",
+            "text": "释放时间、储备存储、启动准备和 DEX 执行被隔离到专用合约中。"
+          },
+          {
+            "label": "大使",
+            "text": "等级进阶和奖励百分比与真实买家数量和已验证购买分配绑定。"
+          },
+          {
+            "label": "空投",
+            "text": "社区路线基于波次、覆盖多平台，并已通过 Telegram 上线。"
+          },
+          {
+            "label": "重要意义",
+            "text": "4TEEN 像一个角色分离的系统运行，而不是一个过载的合约集合体。"
+          }
+        ]
+      },
+      "why": {
+        "eyebrow": "为什么这种结构重要",
+        "title": "产品层终于在追上协议层。",
+        "description": "合约一直拥有分离的角色。改变之处在于，应用现在把这些角色作为可读、具备钱包感知能力的页面暴露出来，而不是只让用户面对原始链上概念和分散链接。",
+        "cards": [
+          {
+            "number": "01",
+            "title": "钱包应用中已经存在一个中心",
+            "text": "应用首页已经是紧凑的产品中心：购买、解锁、流动性、空投、大使和信息都作为界面分组，而不是埋在一段冗长说明里。",
+            "note": "网站应该把用户引导到这些相同界面，而不是描述一条较旧的想象路线图。"
+          },
+          {
+            "number": "02",
+            "title": "钱包感知状态现在是真实行为",
+            "text": "只读观察钱包与签名钱包、可领取与待处理奖励、Telegram 会话状态以及资源就绪状态，都会改变用户在应用中实际能做的事。",
+            "note": "这意味着首页文案应该描述状态和操作，而不仅仅是合约理论。"
+          },
+          {
+            "number": "03",
+            "title": "验证已经是一条可用路线",
+            "text": "架构、合约角色、金库、执行器、资产钱包余额和分配重放就绪状态，不再只是白皮书主题。应用已经把它们作为一个紧凑的信息页面展示出来。",
+            "note": "当网站把这个信息层描述为实时产品，而不是未来文档时，它最有说服力。"
+          }
+        ],
+        "notePrefix": "重要意义"
+      },
+      "liveMetrics": {
+        "eyebrow": "实时协议指标",
+        "title": "实时读取入口、流动性、奖励和运行状态。",
+        "description": "这些卡片应该映射用户在应用中实际能打开的内容：直购上下文、解锁和控制器侧状态、控制台奖励流程，以及当前以 Telegram 优先的社交分发路线。",
+        "liquidity": {
+          "eyebrow": "流动性引擎",
+          "title": "基于规则的流动性流转",
+          "note": "在应用中，这会显示为阈值检查、下一次释放上下文、执行器拆分、合约链接和控制器侧历史，而不是一句不透明的“流动性”描述。",
+          "rows": [
+            {
+              "label": "控制器",
+              "value": "FourteenLiquidityController"
+            },
+            {
+              "label": "储备金库",
+              "value": "FourteenVault"
+            },
+            {
+              "label": "准备层",
+              "value": "LiquidityBootstrapper"
+            },
+            {
+              "label": "执行拆分",
+              "value": "50% / 50%"
+            },
+            {
+              "label": "DEX 路径",
+              "value": "JustMoney + Sun.io V3"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "大使层",
+          "title": "控制台奖励流程",
+          "note": "在应用中，该路线把链上控制台状态与后端归因行结合在一起，因此当前可领取、已领取总额和待重放记录会在一个地方同时存在。",
+          "ladder": [
+            {
+              "level": "青铜",
+              "meta": "0–9 位买家",
+              "value": "10%"
+            },
+            {
+              "level": "白银",
+              "meta": "10–99 位买家",
+              "value": "25%"
+            },
+            {
+              "level": "黄金",
+              "meta": "100–999 位买家",
+              "value": "50%"
+            },
+            {
+              "level": "铂金",
+              "meta": "1000+ 位买家",
+              "value": "75%"
+            }
+          ]
+        },
+        "airdrop": {
+          "eyebrow": "空投层",
+          "title": "实时社交分发快照",
+          "rows": [
+            {
+              "label": "总分配量",
+              "value": "1,500,000 4TEEN",
+              "tone": "strong"
+            },
+            {
+              "label": "波次结构",
+              "value": "6 个固定波次"
+            },
+            {
+              "label": "当前实时路线",
+              "value": "Telegram",
+              "tone": "live"
+            },
+            {
+              "label": "其他社交平台",
+              "value": "只读占位符",
+              "tone": "wait"
+            },
+            {
+              "label": "奖励发放",
+              "value": "链上"
+            }
+          ],
+          "action": {
+            "label": "打开实时 Telegram 路线",
+            "href": "/airdrop"
+          }
+        }
+      },
+      "tools": {
+        "eyebrow": "工具",
+        "title": "打开应用已经暴露的相同界面。",
+        "description": "这些不再是占位菜单项。它们直接映射到钱包式产品流程中已经存在的路线和行为，并且已经承载实时钱包状态。",
+        "cards": [
+          {
+            "status": "打开",
+            "tone": "live",
+            "title": "移动应用",
+            "text": "打开专用移动应用路线，提供商店下载选项，并可清晰回到网页界面。",
+            "href": "/app"
+          },
+          {
+            "status": "实时",
+            "tone": "live",
+            "title": "购买 4TEEN",
+            "text": "打开直购准备页面，包含金额输入、预估、分配上下文和确认路径。",
+            "href": "/buy"
+          },
+          {
+            "status": "追踪",
+            "tone": "live",
+            "title": "解锁时间线",
+            "text": "按钱包读取直购事件行、解锁时间戳、实时倒计时和交易来源。",
+            "href": "/unlock"
+          },
+          {
+            "status": "追踪",
+            "tone": "live",
+            "title": "流动性控制器",
+            "text": "跟踪阈值、6.43% 每日释放、执行器、近期控制器事件和执行就绪状态。",
+            "href": "/liquidity"
+          },
+          {
+            "status": "实时",
+            "tone": "live",
+            "title": "空投状态",
+            "text": "查看 Telegram 实时领取状态、只读观察限制、机器人会话状态和链上奖励状态。",
+            "href": "/airdrop"
+          },
+          {
+            "status": "管理",
+            "tone": "live",
+            "title": "大使控制台",
+            "text": "从一次性注册进入控制台模式，查看 slug、买家、购买、待处理行和奖励。",
+            "href": "/ambassadors"
+          },
+          {
+            "status": "验证",
+            "tone": "wait",
+            "title": "信息路由",
+            "text": "打开紧凑架构页面，查看合约、资产钱包、运行时健康状态和公开证明链接。",
+            "href": "/verification"
+          }
+        ]
+      },
+      "verification": {
+        "eyebrow": "验证 / 合约",
+        "title": "通过合约、代码仓库、文档和应用中心验证协议。",
+        "description": "公开叙事现在更强，因为钱包应用已经作为运行层，建立在这些合约、代码仓库、文档、资产钱包检查和实时界面之上。",
+        "contracts": {
+          "eyebrow": "链上合约",
+          "title": "Mainnet 部署层",
+          "links": [
+            {
+              "label": "核心",
+              "value": "FourteenToken",
+              "href": "https://tronscan.org/#/token20/TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A"
+            },
+            {
+              "label": "核心",
+              "value": "FourteenController",
+              "href": "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ"
+            },
+            {
+              "label": "核心",
+              "value": "FourteenLiquidityController",
+              "href": "https://tronscan.org/#/contract/TVKBLwg222skKnZ3F3boTiH35KC7nvYEuZ"
+            },
+            {
+              "label": "金库",
+              "value": "FourteenVault",
+              "href": "https://tronscan.org/#/contract/TNwkuHA727RZGtpbowH7q5B1yZWk2JEZTq"
+            },
+            {
+              "label": "金库",
+              "value": "TeamLockVault",
+              "href": "https://tronscan.org/#/contract/TYBfbgvMW6awPdZfSSwWoEX3nJjrKWZS3h"
+            },
+            {
+              "label": "金库",
+              "value": "AirdropVault",
+              "href": "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ"
+            },
+            {
+              "label": "执行",
+              "value": "LiquidityBootstrapper",
+              "href": "https://tronscan.org/#/contract/TWfUee6qFV91t7KbFdYLEfpi8nprUaJ7dc"
+            },
+            {
+              "label": "执行",
+              "value": "LiquidityExecutorSunV3",
+              "href": "https://tronscan.org/#/contract/TU8EwEWg4K594zwThvhTZxqzEuEYuR46xh"
+            },
+            {
+              "label": "执行",
+              "value": "LiquidityExecutorJustMoney",
+              "href": "https://tronscan.org/#/contract/TWrz68MRTf1m9vv8xpcdMD4z9kjBxiHw7F"
+            }
+          ]
+        },
+        "repositories": {
+          "eyebrow": "代码仓库",
+          "title": "公开基础设施与运行代码",
+          "links": [
+            {
+              "label": "代码仓库",
+              "value": "4teen-smart-contracts",
+              "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+            },
+            {
+              "label": "代码仓库",
+              "value": "4teen-wallet-app",
+              "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+            },
+            {
+              "label": "代码仓库",
+              "value": "4teen-ambassador-system",
+              "href": "https://github.com/info14fourteen-creator/4teen-ambassador-system"
+            },
+            {
+              "label": "代码仓库",
+              "value": "liquidity-bootstrapper-cron",
+              "href": "https://github.com/info14fourteen-creator/liquidity-bootstrapper-cron"
+            },
+            {
+              "label": "代码仓库",
+              "value": "4teen-telegram-airdrop-bot",
+              "href": "https://github.com/info14fourteen-creator/4teen-telegram-airdrop-bot"
+            }
+          ]
+        },
+        "docs": {
+          "eyebrow": "文档",
+          "title": "公开阅读层",
+          "links": [
+            {
+              "label": "文档",
+              "value": "白皮书",
+              "href": "/whitepaper"
+            },
+            {
+              "label": "文档",
+              "value": "验证",
+              "href": "/verification"
+            },
+            {
+              "label": "文档",
+              "value": "博客",
+              "href": "/blog"
+            }
+          ]
+        },
+        "hubs": {
+          "eyebrow": "中心",
+          "title": "公开生态入口",
+          "links": [
+            {
+              "label": "中心",
+              "value": "空投中心",
+              "href": "/airdrop"
+            },
+            {
+              "label": "中心",
+              "value": "大使计划",
+              "href": "/ambassadors"
+            }
+          ]
+        }
+      },
+      "faq": {
+        "eyebrow": "常见问题",
+        "title": "在打开实时界面前先获得清晰答案。",
+        "description": "正确的问题正在变化。用户现在需要清楚每条路线实际做什么，哪些操作取决于钱包类型，以及哪些增长或验证流程已经在应用中上线。",
+        "items": [
+          {
+            "question": "为什么 4TEEN 需要直购页面，而不是只有 swap？",
+            "answer": "因为应用把直购作为独立的合约侧界面处理。它准备购买即铸造流程，显示预估，解释 14 天锁定，然后进入真实确认步骤。"
+          },
+          {
+            "question": "解锁时间线究竟追踪什么？",
+            "answer": "只追踪与所选钱包关联的直购事件。每一行都会显示数量、UTC 解锁时间、实时倒计时、当前锁定状态，以及该购买事件背后的 TronScan 交易。"
+          },
+          {
+            "question": "为什么有些路线会关心钱包是否为只读观察？",
+            "answer": "因为应用现在按钱包类型执行行为规则。只读观察钱包可以读取状态，但不能注册为大使、提取奖励，或执行直购、流动性操作等签名流程。"
+          },
+          {
+            "question": "空投页面现在只是一个推广页面吗？",
+            "answer": "不是。它已经是一个有状态的页面。Telegram 是实时路线，卡片会结合本地钱包状态、当前机器人会话状态和链上领取状态，然后决定下一步可用操作。"
+          },
+          {
+            "question": "信息路由能验证哪些仅靠网站无法验证的内容？",
+            "answer": "它把合约、金库、流动性执行器、资产钱包余额和操作员侧就绪状态汇集到一个紧凑的运行页面中。这让验证成为产品流程的一部分，而不只是文档页面。"
+          }
+        ]
+      },
+      "risk": {
+        "eyebrow": "风险 / 披露",
+        "title": "结构化机制不会消除市场风险。",
+        "description": "4TEEN 是一个链上代币协议，具备可见规则、分离的合约角色和公开验证路径。这让系统更容易被检查，但不会把代币参与变成保证收益产品。",
+        "understandTitle": "用户应该理解的内容",
+        "understandItems": [
+          "协议直购价格不等同于公开市场 DEX 价格。",
+          "14 天解锁会改变时间安排，但不保证有利退出。",
+          "流动性规则描述的是释放行为，而不是未来市场结果。",
+          "大使奖励和空投路线是结构化层级，而不是保证收入。"
+        ],
+        "actionTitle": "用户应该做的事",
+        "actionItems": [
+          "在行动前验证合约、代码仓库和公开文档。",
+          "在购买前理解锁定、奖励和分发机制。",
+          "使用受支持的钱包，并仔细检查实时路线。",
+          "做出独立决策，不要把协议结构当作利润承诺。"
+        ],
+        "noteTitle": "重要提示",
+        "noteText": "4TEEN 围绕可观察的链上行为构建，而不是围绕保证结果构建。用户应自行验证系统，并只在理解风险的前提下行动。"
+      },
+      "cta": {
+        "eyebrow": "最终行动号召",
+        "title": "选择你需要的界面",
+        "lead": "获取移动应用、准备直购、验证紧凑架构路线，或直接进入实时增长与追踪界面。",
+        "cards": [
+          {
+            "status": "打开",
+            "tone": "live",
+            "title": "获取应用",
+            "text": "从移动应用路线开始，使用商店下载选项，并清晰切换到钱包产品。",
+            "href": "/app"
+          },
+          {
+            "status": "购买",
+            "tone": "live",
+            "title": "打开直购",
+            "text": "直接进入合约侧入口流程，包含金额预览、确认和钱包感知准入。",
+            "href": "/buy"
+          },
+          {
+            "status": "追踪",
+            "tone": "live",
+            "title": "打开验证",
+            "text": "使用公开证明层查看合约、代码仓库、流动性逻辑以及应用界面背后的架构图。",
+            "href": "/verification"
+          },
+          {
+            "status": "管理",
+            "tone": "live",
+            "title": "打开大使控制台",
+            "text": "在一个路由中注册、检查推荐身份、追踪购买，并处理实时奖励状态。",
+            "href": "/ambassadors"
+          }
+        ],
+        "actions": [
+          {
+            "label": "获取应用",
+            "href": "/app"
+          },
+          {
+            "label": "打开直购",
+            "href": "/buy"
+          },
+          {
+            "label": "打开实时 Telegram 路线",
+            "href": "/airdrop"
+          }
+        ]
+      }
     }
   }
 }
