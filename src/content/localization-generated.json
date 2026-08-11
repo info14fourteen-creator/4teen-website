@@ -39201,6 +39201,106 @@
           "सबसे मजबूत बातचीत इस बात से शुरू होती है कि आप क्या तेज़ कर सकते हैं, केवल इस बात से नहीं कि आप कितना वायर कर सकते हैं।"
         ]
       }
+    },
+    "privacy": {
+      "metadata": {
+        "title": "गोपनीयता",
+        "description": "4TEEN वेबसाइट और wallet सार्वजनिक blockchain डेटा, स्थानीय wallet स्थिति, बाहरी लिंक और गोपनीयता से जुड़े प्रश्नों को कैसे संभालते हैं।"
+      },
+      "hero": {
+        "eyebrow": "गोपनीयता",
+        "status": "सार्वजनिक नीति",
+        "title": "4TEEN सार्वजनिक blockchain स्थिति और non-custodial wallet व्यवहार के इर्द-गिर्द बनाया गया है, इसलिए गोपनीयता की बात सरल और सच्ची रहनी चाहिए।",
+        "lead": "सार्वजनिक वेबसाइट मुख्य रूप से जानकारी देने के लिए है। मोबाइल wallet non-custodial है। balances, resources, protocol state और campaign status दिखाने के लिए सार्वजनिक chain डेटा query किया जा सकता है, लेकिन seed phrases और private keys इस site के माध्यम से भेजे जाने के लिए नहीं हैं।"
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Operator",
+          "title": "\"AG PLUS\" LLC",
+          "body": "4TEEN सार्वजनिक वेबसाइट और आधिकारिक support routes को project के लिए Uzbekistan में registered \"AG PLUS\" Limited Liability Company द्वारा संचालित किया जाता है। D-U-N-S Number: 933906683."
+        },
+        {
+          "eyebrow": "Website",
+          "title": "यहाँ कोई wallet secrets नहीं",
+          "body": "वर्तमान सार्वजनिक site आपसे seed phrase या raw private key दर्ज करने के लिए नहीं कहती। अगर आप कभी किसी सार्वजनिक website पर ऐसा देखें, तो रुकें और पहले source verify करें।"
+        },
+        {
+          "eyebrow": "Blockchain",
+          "title": "Addresses design के अनुसार public हैं",
+          "body": "TRON पर wallet addresses, transactions, balances और contract interactions सार्वजनिक records हैं। protocol state दिखाने के लिए site और app उन्हें read कर सकते हैं, लेकिन on-chain होने के बाद वे private data नहीं रहते।"
+        },
+        {
+          "eyebrow": "Infrastructure",
+          "title": "Basic request logs फिर भी मौजूद हो सकते हैं",
+          "body": "वर्तमान web build में dedicated third-party analytics tracker न होने पर भी, सामान्य hosting, CDN, API और explorer infrastructure routine request data जैसे IP address, browser, time और requested route को process कर सकते हैं।"
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. Legal Operator",
+          "title": "आधिकारिक 4TEEN surfaces कौन संचालित करता है",
+          "body": "\"AG PLUS\" Limited Liability Company https://4teen.me पर आधिकारिक 4TEEN website, संबंधित public project routes और privacy व product questions के लिए प्रकाशित support mailbox संचालित करती है।",
+          "bullets": [
+            "Taxpayer Identification Number: 312 696 228",
+            "State registration number: 3080788, registered 06 January 2026",
+            "D-U-N-S Number: 933906683",
+            "Legal address: Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B"
+          ],
+          "note": "गोपनीयता और support questions support@4teen.me या +998 95 792 02 87 पर भेजे जा सकते हैं।"
+        },
+        {
+          "eyebrow": "2. Public Website",
+          "title": "यह website क्या करने के लिए design की गई है",
+          "body": "4TEEN website का उपयोग protocol information, release pages, public contract links, airdrop state, ambassador state, price reads और mobile app के download routes प्रस्तुत करने के लिए किया जाता है। इसका उद्देश्य funds की custody करना या secret wallet credentials collect करना नहीं है।",
+          "bullets": [
+            "Public protocol और contract information display करना",
+            "Public market, vault, controller और route snapshots read करना",
+            "Explorers, repositories, stores और official social channels के links देना"
+          ]
+        },
+        {
+          "eyebrow": "3. Mobile Wallet",
+          "title": "App device पर locally क्या रख सकता है",
+          "body": "Mobile wallet पहले से ही local wallet labels, language preference, display currency, security settings, watch-only flows और cache management support करता है। वर्तमान में दिखाई देने वाले code paths के आधार पर, app को उपयोगी बनाने के लिए इस तरह की settings device पर locally store की जा सकती हैं, जबकि private signing material को 4TEEN website server पर store होने के बजाय user के control में रहना चाहिए।",
+          "note": "यदि आप wallet import, create या unlock करते हैं, तो mobile device और अपनी backup practices को वास्तविक security boundary मानें।"
+        },
+        {
+          "eyebrow": "4. Public Blockchain Reads",
+          "title": "Balances या protocol state दिखाने के लिए क्या query किया जा सकता है",
+          "body": "Balances, resources, airdrop status, ambassador state, price information या अन्य public protocol views render करने के लिए, 4TEEN services blockchain infrastructure, explorer endpoints, proxy endpoints या 4TEEN-operated snapshot routes query कर सकती हैं। उन reads में public wallet address या public contract state शामिल हो सकता है, लेकिन उन्हें private key की आवश्यकता नहीं होती।",
+          "bullets": [
+            "Public wallet addresses जिन्हें आप जानबूझकर view या paste करते हैं",
+            "Contract addresses और contract storage values",
+            "Transaction hashes और public event history"
+          ]
+        },
+        {
+          "eyebrow": "5. External Services",
+          "title": "जब आप 4TEEN surfaces छोड़ते हैं तो क्या होता है",
+          "body": "Website और wallet TronScan, DEX routes, repositories, social channels और app-store pages खोल सकते हैं। वे external services अपने privacy और data-handling rules के तहत चलती हैं। External link खोलने का मतलब है कि आपका request उस third party द्वारा handle किया जाता है, केवल 4TEEN द्वारा नहीं।"
+        },
+        {
+          "eyebrow": "6. No false privacy promises",
+          "title": "हम क्या claim नहीं कर रहे हैं",
+          "body": "यह policy KYC processing, custody services, financial licensing या ऐसे invisible privacy guarantees का claim नहीं करती जिन्हें current code और product behavior स्पष्ट रूप से enforce नहीं करते। D-U-N-S Number Dun & Bradstreet records में organization की पहचान करता है; यह कोई promise नहीं है कि blockchain, market या third-party infrastructure risk गायब हो जाता है।"
+        }
+      ],
+      "links": [
+        {
+          "label": "Official website",
+          "href": "https://4teen.me"
+        },
+        {
+          "label": "Wallet app repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Smart contracts repository",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Public Exits",
+      "footerNote": "गोपनीयता से जुड़े questions support@4teen.me पर भेजे जा सकते हैं। Official phone और WhatsApp support: +998 95 792 02 87."
     }
   }
 }
