@@ -30718,6 +30718,315 @@
           }
         ]
       }
+    },
+    "buy": {
+      "metadata": {
+        "title": "Kup 4TEEN | Kontraktowe wejście na TRON",
+        "description": "Kup 4TEEN bezpośrednio ze smart kontraktu: wybij zablokowaną partię, śledź potwierdzone zakupy, zrozum routing TRX 90/7/3, a następnie zainstaluj portfel i wykonaj prawdziwy proces zakupu.",
+        "openGraphTitle": "Kup 4TEEN",
+        "openGraphDescription": "Wejdź do 4TEEN przez kontraktową ścieżkę zakupu. Wybij zablokowaną partię, obserwuj potwierdzone zdarzenia BuyTokens, sprawdź routing TRX i wykonaj transakcję z portfela podpisującego."
+      },
+      "hero": {
+        "eyebrow": "FourteenToken",
+        "badge": "Kontraktowa ścieżka zakupu",
+        "title": "Kup 4TEEN prosto z kontraktu",
+        "subtitle": "Wybij świeżą partię 4TEEN, zablokuj ją na 14 dni, obserwuj potwierdzone zakupy w kanale, a potem zdecyduj, co zrobić po zakończeniu timera odblokowania.",
+        "body": [
+          "To nie jest generyczny formularz swap udający DeFi. To natywna dla protokołu ścieżka wejścia.",
+          "Wprowadzasz TRX, kontrakt oblicza, ile 4TEEN zostanie wybite, transakcja tworzy osobną 14-dniową blokadę dla tej partii, a przychodzące TRX są kierowane zgodnie z regułą kontraktu: 90% do płynności, 7% do kontrolera i 3% na stronę airdrop.",
+          "Strona internetowa pokazuje mapę. Portfel wykonuje transakcję."
+        ],
+        "primaryCta": "Zainstaluj / Otwórz portfel",
+        "secondaryCta": "Zobacz najnowsze zakupy",
+        "ctaNote": "Wymagany jest portfel podpisujący. Tryb tylko do podglądu może odczytywać system, ale nie może wysłać transakcji zakupu. Ludzkość odkryła podpisy, więc teraz wszyscy musimy je szanować.",
+        "rotatingLines": [
+          "Wejście przez kontrakt. Prawdziwa blokada.",
+          "Najpierw mint. Odblokowanie później.",
+          "Kup on-chain. Śledź wszystko.",
+          "Twoja partia. Twój timer.",
+          "Bez fałszywego wolumenu. Tylko zdarzenia."
+        ],
+        "stats": {
+          "directPrice": "Cena bezpośrednia",
+          "directPriceMeta": "Aktualna cena wejścia po stronie kontraktu za 4TEEN z publicznej warstwy snapshot. Portfel odświeża wartość live przed wykonaniem.",
+          "lockRule": "Reguła blokady",
+          "lockRuleValue": "14 dni",
+          "lockRuleMeta": "Każdy zakup bezpośredni tworzy własną zablokowaną partię. Timer należy do tego zakupu, nie do całego portfela.",
+          "trxSplit": "Routing TRX",
+          "trxSplitValue": "90 / 7 / 3",
+          "trxSplitMeta": "Przychodzące TRX są kierowane wewnątrz transakcji zakupu: na stronę płynności, stronę kontrolera i stronę airdrop.",
+          "execution": "Wykonanie",
+          "executionValue": "Portfel + zasoby",
+          "executionMeta": "Prawdziwy proces zakupu działa z portfela podpisującego. Saldo TRX, Energy, Bandwidth i gotowość transakcji są sprawdzane przed finalnym podpisem.",
+          "priceFallback": "1.147500 TRX",
+          "priceUnavailable": "Cena live jest teraz niedostępna. Wartość awaryjna odzwierciedla ostatnią znaną ścieżkę bezpośrednią."
+        }
+      },
+      "sections": {
+        "executionRoute": {
+          "eyebrow": "Jak działa cykl",
+          "title": "Strona zakupu powinna wyjaśniać całą ścieżkę",
+          "intro": "Zakup bezpośredni to nie tylko „wyślij TRX, otrzymaj token”. Moduł prowadzi użytkownika przez rzeczywisty cykl on-chain: wejście przez kontrakt, mint, blokadę, routing płynności i punkt decyzyjny po odblokowaniu.",
+          "cards": [
+            {
+              "eyebrow": "Krok 1",
+              "title": "Wejdź przez kontrakt",
+              "subtitle": "To główna ścieżka protokołu, a nie rynek wtórny.",
+              "text": "Zakup bezpośredni wysyła polecenie `buyTokens()` z portfela podpisującego. Kontrakt odbiera TRX, oblicza kwotę 4TEEN i uruchamia proces mint dla dokładnie tej transakcji.\n\nBez polowania na poole. Bez ruletki tras. Bez udawania, że swap i mint to to samo, bo najwyraźniej słowa wciąż mają znaczenie."
+            },
+            {
+              "eyebrow": "Krok 2",
+              "title": "Wybij świeżą partię",
+              "subtitle": "Kontrakt tworzy nowe 4TEEN dla kupującego.",
+              "text": "Kwota 4TEEN jest wybijana w trakcie transakcji zakupu. Ta wybita partia jest powiązana z portfelem kupującego i natychmiast trafia do logiki blokady.\n\nDlatego zakup bezpośredni różni się od swap. Swap handluje istniejącą płynnością. Zakup bezpośredni tworzy nową zablokowaną partię przez kontrakt tokena."
+            },
+            {
+              "eyebrow": "Krok 3",
+              "title": "Zablokuj na 14 dni",
+              "subtitle": "Każdy zakup otrzymuje własny timer odblokowania.",
+              "text": "Kupiona partia jest zablokowana na 14 dni. Jeśli ten sam portfel kupi ponownie później, drugi zakup utworzy osobną zablokowaną partię z własnym timerem.\n\nPortfel pokazuje harmonogram odblokowania, aby użytkownik widział dokładnie, kiedy każda partia staje się przenoszalna."
+            },
+            {
+              "eyebrow": "Krok 4",
+              "title": "Zasil stronę płynności",
+              "subtitle": "Nowe zakupy dalej wprowadzają świeże TRX do systemu.",
+              "text": "Każdy zakup bezpośredni kieruje 90% przychodzących TRX na stronę płynności. Ta wartość nie leży po prostu na marketingowym zrzucie ekranu. Wchodzi do przepływu płynności protokołu i jest przetwarzana przez dzienną logikę wykonywania płynności.\n\nTo jest część, którą użytkownicy muszą rozumieć: późniejsze zakupy nadal zasilają system, podczas gdy wcześniejsi kupujący czekają przez swoją blokadę."
+            },
+            {
+              "eyebrow": "Krok 5",
+              "title": "Osiągnij punkt odblokowania",
+              "subtitle": "Po odblokowaniu użytkownik wybiera następną ścieżkę.",
+              "text": "Gdy blokada wygasa, partia staje się dostępna. Posiadacz może dalej utrzymywać pozycję albo przejść na ścieżkę rynkową i wykonać swap przez dostępną płynność.\n\nBez wymuszonego wyjścia. Bez magicznego przycisku. Tylko punkt odblokowania i decyzja rynkowa, bo DeFi i tak jest wystarczająco dramatyczne bez wymyślania kolejnych bzdur."
+            }
+          ]
+        },
+        "priceLogic": {
+          "eyebrow": "Główna logika ceny",
+          "title": "Zakup bezpośredni wchodzi teraz po cenie kontraktowej, a później spotyka cenę rynkową",
+          "cards": [
+            {
+              "eyebrow": "Baza",
+              "title": "1 TRX = 1 4TEEN przy wdrożeniu",
+              "text": "Początkowa cena zakupu bezpośredniego jest zapisana w FourteenToken jako 1.000000 TRX za token, zanim późniejsze okresy kapitalizacji przesuną ją dalej."
+            },
+            {
+              "eyebrow": "Wzrost",
+              "title": "14.75% wzrostu na okres cenowy",
+              "text": "Kontrakt przechowuje annualGrowthRate = 1475 punktów bazowych i kapitalizuje tokenPrice do przodu, gdy tylko upłynie wystarczająco dużo czasu."
+            },
+            {
+              "eyebrow": "Interwał",
+              "title": "Co 90 dni",
+              "text": "Aktualizacje ceny nie są arbitralnymi edycjami administratora. getCurrentPrice() przesuwa zapisaną cenę tokena na podstawie upłyniętych 90-dniowych okresów od lastPriceUpdate."
+            },
+            {
+              "eyebrow": "Zakres",
+              "title": "Tylko dla emisji bezpośredniej",
+              "text": "Ta cena reguluje emisję bezpośrednią przez `buyTokens()`. Nie obiecuje niczego na temat ceny DEX ani późniejszych warunków wyjścia, gdy partia zostanie odblokowana, a użytkownik przejdzie na ścieżkę rynkową."
+            }
+          ],
+          "note": "Strona odczytuje cenę bezpośrednią jako publiczną warstwę informacyjną. Prawdziwa ścieżka portfela nadal ma znaczenie, ponieważ łączy tę cenę kontraktową z wybranym portfelem podpisującym, faktycznym saldem TRX i kontrolami zasobów w momencie potwierdzenia."
+        },
+        "lockLayer": {
+          "eyebrow": "Warstwa 14-dniowej blokady",
+          "title": "Każdy zakup bezpośredni wybija natychmiast i natychmiast blokuje",
+          "bullets": [
+            "Każde wywołanie buyTokens() od razu wybija 4TEEN na adres kupującego.",
+            "Ta sama transakcja dopisuje nowy rekord blokady z releaseTime = block timestamp + 14 dni.",
+            "Blokady są przypisane do partii zakupowej, a nie do jednego połączonego timera dla całego portfela.",
+            "Transfers i transferFrom są blokowane zawsze, gdy żądana kwota zostałaby wydana z nadal zablokowanego salda.",
+            "Harmonogram odblokowania w portfelu jest naturalną ścieżką towarzyszącą po zakupie."
+          ],
+          "note": "Dlatego zakup bezpośredni i swap nie są tym samym. Zakup bezpośredni daje użytkownikowi najpierw natywną dla protokołu emisję, potem stałe oczekiwanie, a dopiero po odblokowaniu ścieżka rynkowa staje się istotna."
+        },
+        "trxRouting": {
+          "eyebrow": "Routing",
+          "title": "Dokąd trafiają TRX",
+          "rows": [
+            {
+              "share": "90%",
+              "title": "Do płynności",
+              "text": "Największa część przechodzi na stronę płynności systemu. To główny przepływ wspierający ścieżkę rynkową po tym, jak użytkownicy osiągną odblokowanie.",
+              "linkLabel": "Otwórz stronę płynności",
+              "linkHref": "/liquidity"
+            },
+            {
+              "share": "7%",
+              "title": "Do kontrolera",
+              "text": "Mniejsza część trafia do FourteenController. To warstwa kontroli i księgowania połączona z administracją tokena, śledzeniem zakupów, logiką ambasadorów i rozliczaniem nagród.",
+              "linkLabel": "Otwórz stronę ambasadorów",
+              "linkHref": "/ambassadors"
+            },
+            {
+              "share": "3%",
+              "title": "Na stronę airdrop",
+              "text": "Ostatnia część trafia na stronę airdrop, więc ten sam przepływ zakupu bezpośredniego nadal zasila publiczną dystrybucję i wzrost ekosystemu.",
+              "linkLabel": "Otwórz stronę airdrop",
+              "linkHref": "/airdrop"
+            }
+          ],
+          "note": "Podział następuje wewnątrz samej transakcji zakupu. To nie jest późniejsze ćwiczenie w arkuszu kalkulacyjnym, alokacja typu „zaufaj nam, bro” ani ręczna obietnica napisana na czacie Telegram o 3 nad ranem."
+        },
+        "walletFlow": {
+          "eyebrow": "Przepływ w portfelu",
+          "title": "Jak prawdziwy produkt przechodzi od wpisania kwoty do podpisu",
+          "steps": [
+            {
+              "eyebrow": "1. Przygotuj",
+              "title": "Wybierz portfel, który faktycznie kupi",
+              "text": "Aplikacja zaczyna od wybranego portfela podpisującego, ładuje jego saldo TRX, cenę kontraktową, zablokowane saldo i adresy kontraktów, a następnie ogranicza pole kwoty do tego, co ten portfel faktycznie może pokryć."
+            },
+            {
+              "eyebrow": "2. Sprawdź",
+              "title": "Zobacz wybitą kwotę i podział, zanim się zobowiążesz",
+              "text": "Zanim użytkownik cokolwiek zatwierdzi, portfel pokazuje szacowany wynik w 4TEEN, podział 90 / 7 / 3, kolejny krok ceny kontraktowej oraz przyszły czas odblokowania tej partii."
+            },
+            {
+              "eyebrow": "3. Potwierdź",
+              "title": "Sprawdź zasoby, zanim portfel poprosi o akceptację",
+              "text": "Warstwa potwierdzenia mierzy Energy, Bandwidth i ewentualny niedobór, aby użytkownik zobaczył realny stan wykonania przed zatwierdzeniem kodem dostępu lub biometrią."
+            },
+            {
+              "eyebrow": "4. Kontynuuj",
+              "title": "Jeśli brakuje zasobów, portfel może najpierw wypełnić lukę",
+              "text": "Gdy wybranemu portfelowi brakuje zasobów wykonawczych, aplikacja może wycenić wynajem Energy i zamknąć tę lukę przed wysłaniem zakupu bezpośredniego, zamiast pozwalać użytkownikowi wchodzić na ślepo w nieudaną transakcję."
+            },
+            {
+              "eyebrow": "5. Po zaksięgowaniu",
+              "title": "System śledzi zarówno odblokowanie, jak i atrybucję po stronie kontrolera",
+              "text": "Gdy zakup zostanie zaksięgowany, portfel może pokazać odliczanie blokady dla tej partii, podczas gdy FourteenController może powiązać kupującego, zapisać zweryfikowany zakup raz na ID zakupu i sfinalizować saldo nagrody ambasadora po udanej alokacji."
+            }
+          ],
+          "note": "Strona internetowa powinna jasno wyjaśniać tę ścieżkę, a potem przekazać użytkownika do portfela. Nie powinna udawać, że sama jest warstwą wykonania."
+        },
+        "resourceLayer": {
+          "eyebrow": "Gotowość zasobów",
+          "title": "Portfel traktuje koszt sieciowy jako część produktu, a nie pułapkę na końcu",
+          "cards": [
+            {
+              "eyebrow": "Szacunek",
+              "title": "Energy i Bandwidth są wyceniane przed podpisem",
+              "text": "Portfel szacuje koszt wywołania kontraktu dla `buyTokens()` przed podpisem, więc użytkownik widzi, czego wymaga ścieżka przed finalnym krokiem zatwierdzenia."
+            },
+            {
+              "eyebrow": "Pokrycie",
+              "title": "Bieżące zasoby portfela są porównywane ze ścieżką",
+              "text": "Krok przeglądu pokazuje nie tylko kwotę TRX, lecz także to, czy wybrany portfel może teraz czysto pokryć ścieżkę."
+            },
+            {
+              "eyebrow": "Niedobór",
+              "title": "Jeśli brakuje zasobów, aplikacja może pomóc zamknąć lukę",
+              "text": "Jeśli portfel podpisujący ma niedobór, produkt pokazuje lukę bezpośrednio i może przejść do kroku wynajmu Energy, zanim zakup zostanie wysłany."
+            }
+          ],
+          "note": "To ma znaczenie, ponieważ zakup bezpośredni nie jest tylko polem liczbowym. To aktywna ścieżka kontraktowa, a portfel już ujawnia stojący za nią stan zasobów."
+        },
+        "latestPurchases": {
+          "eyebrow": "Kanał zakupów live",
+          "title": "Potwierdzone zakupy już trafiły do kontraktu",
+          "intro": "Te wiersze pochodzą z potwierdzonych zdarzeń `BuyTokens` na FourteenToken. Prawdziwe portfele, prawdziwe transakcje, prawdziwy dowód on-chain. Nie fałszywy wolumen, nie dekoracyjna tabela, nie kolejna halucynacja dashboardu ubrana w ciemny motyw.",
+          "headers": {
+            "wallet": "Portfel",
+            "trxIn": "TRX wejściowe",
+            "minted": "Wybite",
+            "lockEnds": "Koniec blokady",
+            "transaction": "Transakcja",
+            "status": "Potwierdzone"
+          },
+          "statusConfirmed": "Potwierdzone",
+          "openTx": "Otwórz tx",
+          "note": "Kanał jest tu z jednego powodu: dowód. Użytkownicy powinni widzieć, że moduł zakupu nie jest teoretyczny. Zakupy się odbyły, kontrakt wyemitował zdarzenia, a portfel może przeprowadzić kolejnego kupującego tą samą ścieżką.",
+          "empty": "Oczekiwanie na potwierdzone zdarzenia BuyTokens.",
+          "unknownTime": "Czas niedostępny",
+          "fallbackBody": "Ostatnie zakupy bezpośrednie są tymczasowo ukryte na publicznej stronie, podczas gdy ścieżka jest stabilizowana. Aplikacja mobilna pozostaje głównym miejscem wykonywania zakupu, a publiczne linki weryfikacyjne pozostają dostępne.",
+          "fallbackPrimaryCta": "Otwórz ścieżkę w aplikacji mobilnej",
+          "fallbackSecondaryCta": "Otwórz kontrakt tokena"
+        },
+        "comparison": {
+          "eyebrow": "Zakup to nie to samo co swap",
+          "title": "Zakup bezpośredni jest ścieżką wejścia. Swap jest ścieżką rynkową.",
+          "intro": "Obie ścieżki mają znaczenie, ale wykonują różne zadania. Użytkownicy muszą wiedzieć, jakiej maszyny dotykają, zanim zaczną wciskać przyciski, jakby cywilizacja była pomyłką.",
+          "cards": [
+            {
+              "eyebrow": "Zakup",
+              "title": "Zakup",
+              "subtitle": "Bezpośrednie wejście przez kontrakt",
+              "text": "Zakup bezpośredni wysyła polecenie zakupu do kontraktu, wybija świeżą partię 4TEEN zgodnie z regułą kontraktu, tworzy nową 14-dniową blokadę dla tej partii i kieruje przychodzące TRX do przepływów płynności, kontrolera i airdrop.",
+              "footerLabel": "Najlepsze dla",
+              "footerText": "Użytkowników, którzy chcą wejść przez natywną dla protokołu ścieżkę mint i dokładnie zrozumieć, jak działa transakcja zakupu."
+            },
+            {
+              "eyebrow": "Swap",
+              "title": "Swap",
+              "subtitle": "Ścieżka rynku wtórnego",
+              "text": "Swap handluje względem dostępnej płynności na rynku. Nie wybija nowej partii, nie tworzy blokady zakupu bezpośredniego i zależy od jakości trasy, wpływu na cenę, slippage oraz warunków DEX w danym momencie.",
+              "footerLabel": "Najlepsze dla",
+              "footerText": "Użytkowników, którzy już posiadają odblokowane 4TEEN albo chcą handlować przez dostępną płynność rynkową."
+            },
+            {
+              "eyebrow": "Znaczenie",
+              "title": "Znaczenie",
+              "subtitle": "Wejdź tutaj, zdecyduj później",
+              "text": "Zakup bezpośredni to przepływ wejścia. Odblokowanie to okres oczekiwania. Swap to ścieżka rynkowa po tym, jak użytkownik ma przenoszalne tokeny.\n\nCzysta ścieżka jest prosta: kup przez kontrakt, śledź blokadę, obserwuj kanał, a potem wybierz następny ruch po odblokowaniu."
+            }
+          ]
+        },
+        "afterPurchase": {
+          "eyebrow": "Po zakupie",
+          "title": "Co dzieje się dalej, gdy zakup zostanie zaksięgowany",
+          "steps": [
+            {
+              "eyebrow": "Wybite",
+              "title": "4TEEN pojawia się natychmiast",
+              "text": "Kwota tokenów jest wybijana w tej samej transakcji, która odbiera TRX. To nie jest opóźniona alokacja backendowa."
+            },
+            {
+              "eyebrow": "Zablokowane",
+              "title": "Kupiona partia trafia do własnej 14-dniowej blokady",
+              "text": "Dla dokładnie tej partii zakupowej tworzony jest nowy rekord blokady. Portfel może później pokazać go jako osobny wiersz w harmonogramie odblokowania."
+            },
+            {
+              "eyebrow": "Śledzone",
+              "title": "Harmonogram odblokowania od razu staje się użyteczny",
+              "text": "Następny przydatny ekran to ścieżka odblokowania: pokazuje, co nadal jest zablokowane, co odblokuje się jako następne i kiedy ta partia faktycznie stanie się transferowalna."
+            },
+            {
+              "eyebrow": "Zasilone dalej",
+              "title": "Zakup nadal zasila płynność i stan po stronie kontrolera",
+              "text": "Udział 90% na płynność już wszedł na ścieżkę płynności protokołu, podczas gdy FourteenController może powiązać kupującego, zapisać zweryfikowany zakup raz na ID zakupu i rozliczyć księgowanie nagród po stronie ambasadorów."
+            }
+          ]
+        },
+        "signingWallet": {
+          "eyebrow": "Warstwa wykonania",
+          "title": "Strona internetowa wyjaśnia ścieżkę. Portfel wykonuje zakup.",
+          "body": "Publiczna strona może wyjaśnić ścieżkę kontraktową, ale prawdziwy zakup odbywa się z portfela podpisującego w aplikacji. Tryb tylko do podglądu jest przydatny do odczytu sald, sprawdzania tras i analizowania systemu. Nie może podpisać transakcji zakupu bezpośredniego.\n\nAby kupić, użytkownik potrzebuje portfela, który może podpisywać na TRON.",
+          "bullets": [
+            "Portfele tylko do podglądu mogą sprawdzać salda, trasy, stany odblokowania i publiczne dane kontraktów.",
+            "Tylko portfel podpisujący może wejść w aktywną ścieżkę zakupu bezpośredniego.",
+            "Saldo TRX, Energy, Bandwidth i gotowość transakcji są sprawdzane przed podpisem.",
+            "Portfel pokazuje oczekiwaną kwotę 4TEEN i zachowanie blokady, zanim użytkownik podpisze."
+          ],
+          "ctaTitle": "Zainstaluj portfel i uruchom prawdziwy proces zakupu",
+          "ctaText": "Strona daje Ci mapę. Portfel daje Ci wykonanie: zakup bezpośredni, kontrolę zasobów, awaryjne uzupełnienie Energy, cenę kontraktową live, potwierdzenie zakupu i śledzenie odblokowania po transakcji."
+        },
+        "verification": {
+          "eyebrow": "Kontrola źródła",
+          "title": "Powyższe twierdzenia są powiązane z kontraktami i kodem",
+          "body": "Ta strona opiera się na wdrożonym kontrakcie FourteenToken, architekturze kontrolera, module zakupu bezpośredniego w portfelu oraz ścieżce odblokowania następującej po zakupie.\n\nCel jest prosty: wyjaśnić rzeczywiste mechanizmy na tyle jasno, aby nowy użytkownik rozumiał, co dzieje się przed podpisem. Najwyraźniej koncepcja rewolucyjna.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Repozytorium kontraktów",
+          "walletRepoLabel": "Repozytorium portfela"
+        },
+        "cta": {
+          "eyebrow": "Następny krok",
+          "title": "Otwórz portfel, gdy będziesz gotowy na prawdziwy proces zakupu",
+          "body": "Publiczna strona może wyjaśnić ścieżkę. Prawdziwy zakup, kontrola zasobów, awaryjne uzupełnienie Energy, odczyt ceny live, podpis transakcji i dalsze śledzenie odblokowania znajdują się w portfelu mobilnym.\n\nZainstaluj portfel, podłącz konto podpisujące, wpisz TRX, sprawdź wybitą kwotę 4TEEN, potwierdź 14-dniową blokadę i podpisz tylko wtedy, gdy szczegóły transakcji są jasne.",
+          "openApp": "Zainstaluj / Otwórz aplikację portfela",
+          "openUnlock": "Otwórz harmonogram odblokowania"
+        }
+      }
     }
   }
 }
