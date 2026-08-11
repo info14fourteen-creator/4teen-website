@@ -45805,6 +45805,106 @@
           "最有价值的对话从你能加速什么开始，而不仅仅是你能打款多少。"
         ]
       }
+    },
+    "privacy": {
+      "metadata": {
+        "title": "隐私",
+        "description": "说明 4TEEN 网站和钱包如何处理公链数据、本地钱包状态、外部链接以及隐私相关问题。"
+      },
+      "hero": {
+        "eyebrow": "隐私",
+        "status": "公开政策",
+        "title": "4TEEN 围绕公开的区块链状态和非托管钱包行为构建，因此隐私说明需要保持简单且真实。",
+        "lead": "公开网站主要用于信息展示。移动钱包为非托管钱包。系统可能会查询公链数据，以显示余额、资源、协议状态和活动状态，但助记词和私钥不应通过本网站发送。"
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "运营方",
+          "title": "\"AG PLUS\" LLC",
+          "body": "4TEEN 公开网站和官方支持路径由在乌兹别克斯坦注册的 \"AG PLUS\" Limited Liability Company 为该项目运营。D-U-N-S Number: 933906683。"
+        },
+        {
+          "eyebrow": "网站",
+          "title": "这里不保存钱包秘密",
+          "body": "当前公开网站不会要求你输入助记词或原始私钥。如果你在任何公开网站上看到此类要求，请立即停止操作，并先核实来源。"
+        },
+        {
+          "eyebrow": "区块链",
+          "title": "地址按设计就是公开的",
+          "body": "TRON 上的钱包地址、交易、余额和合约交互都是公开记录。网站和 App 可能会读取这些数据来显示协议状态，但一旦它们上链，就不再是私密数据。"
+        },
+        {
+          "eyebrow": "基础设施",
+          "title": "基础请求日志仍可能存在",
+          "body": "即使当前网页构建中没有专门的第三方分析追踪器，常规的托管、CDN、API 和浏览器基础设施仍可能处理日常请求数据，例如 IP 地址、浏览器、时间和请求路由。"
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. 法律运营方",
+          "title": "谁运营 4TEEN 官方界面",
+          "body": "\"AG PLUS\" Limited Liability Company 运营位于 https://4teen.me 的 4TEEN 官方网站、相关公开项目路由，以及已公布的隐私和产品问题支持邮箱。",
+          "bullets": [
+            "Taxpayer Identification Number: 312 696 228",
+            "State registration number: 3080788，注册日期 2026年01月06日",
+            "D-U-N-S Number: 933906683",
+            "法定地址：Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B"
+          ],
+          "note": "隐私和支持问题可发送至 support@4teen.me，或拨打 +998 95 792 02 87。"
+        },
+        {
+          "eyebrow": "2. 公开网站",
+          "title": "本网站的设计用途",
+          "body": "4TEEN 网站用于展示协议信息、发布页面、公开合约链接、空投状态、大使状态、价格读取以及移动 App 下载路径。它并非用于托管资金或收集秘密钱包凭证。",
+          "bullets": [
+            "展示公开协议和合约信息",
+            "读取公开市场、金库、控制器和路由快照",
+            "链接至浏览器、代码仓库、应用商店和官方社交渠道"
+          ]
+        },
+        {
+          "eyebrow": "3. 移动钱包",
+          "title": "App 可能在设备本地保存什么",
+          "body": "移动钱包已支持本地钱包标签、语言偏好、显示货币、安全设置、仅观察流程和缓存管理。根据当前可见的代码路径，这类设置可以存储在设备本地，以便 App 正常使用；而私有签名材料应由用户自行控制，而不是存储在 4TEEN 网站服务器上。",
+          "note": "如果你导入、创建或解锁钱包，请将移动设备和你的备份做法视为真正的安全边界。"
+        },
+        {
+          "eyebrow": "4. 公链读取",
+          "title": "为了显示余额或协议状态可能查询什么",
+          "body": "为了呈现余额、资源、空投状态、大使状态、价格信息或其他公开协议视图，4TEEN 服务可能会查询区块链基础设施、浏览器端点、代理端点或 4TEEN 运营的快照路由。这些读取可能涉及公开钱包地址或公开合约状态，但不需要私钥。",
+          "bullets": [
+            "你有意查看或粘贴的公开钱包地址",
+            "合约地址和合约存储值",
+            "交易哈希和公开事件历史"
+          ]
+        },
+        {
+          "eyebrow": "5. 外部服务",
+          "title": "当你离开 4TEEN 界面时会发生什么",
+          "body": "网站和钱包可以打开 TronScan、DEX 路由、代码仓库、社交渠道和应用商店页面。这些外部服务按照其自身的隐私和数据处理规则运行。打开外部链接意味着你的请求由该第三方处理，而不只是由 4TEEN 处理。"
+        },
+        {
+          "eyebrow": "6. 不作虚假的隐私承诺",
+          "title": "我们没有声称什么",
+          "body": "本政策并不声称提供 KYC 处理、托管服务、金融牌照，或任何未由当前代码和产品行为明确执行的隐形隐私保证。D-U-N-S Number 用于在 Dun & Bradstreet 记录中识别组织；它并不承诺区块链、市场或第三方基础设施风险会消失。"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "href": "https://4teen.me"
+        },
+        {
+          "label": "钱包 App 代码仓库",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "智能合约代码仓库",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "公开出口",
+      "footerNote": "隐私问题可发送至 support@4teen.me。官方电话和 WhatsApp 支持：+998 95 792 02 87。"
     }
   }
 }
