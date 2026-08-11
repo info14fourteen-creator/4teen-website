@@ -36320,5 +36320,161 @@
       "linksEyebrow": "المسارات التالية",
       "footerNote": "المسار الحالي هو هيكل نظيف للنشر المستقبلي، وليس خلاصة وهمية. عندما تُنشر المقالات، يجب أن تبقى متوائمة مع طبقات الإثبات والمنتج."
     }
+  },
+  "hi": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "कॉपी करें",
+          "copied": "कॉपी हो गया",
+          "failed": "विफल",
+          "close": "बंद करें",
+          "qrCode": "QR कोड"
+        },
+        "taglines": [
+          "जल्दी प्रवेश। ऊँचा निकास।",
+          "विजेता इंतज़ार नहीं करते।",
+          "14 दिनों को लाभ में बदलें।",
+          "जल्दी कदम बढ़ाएँ। जल्दी जीतें।"
+        ],
+        "header": {
+          "home": "होम",
+          "getApp": "ऐप प्राप्त करें",
+          "primaryNavAria": "मुख्य साइट नेविगेशन"
+        },
+        "market": {
+          "loading": "कीमत लोड हो रही है",
+          "unavailable": "कीमत उपलब्ध नहीं है",
+          "liveAria": "लाइव मार्केट कीमत"
+        },
+        "refresh": {
+          "idle": "डेटा रीफ़्रेश करें",
+          "busy": "रीफ़्रेश हो रहा है",
+          "aria": "लाइव डेटा स्नैपशॉट रीफ़्रेश करें"
+        },
+        "mobileSearch": {
+          "ariaLabel": "रूट, कॉन्ट्रैक्ट और दस्तावेज़ खोजें",
+          "placeholder": "रूट, कॉन्ट्रैक्ट, दस्तावेज़ खोजें...",
+          "eyebrow": "त्वरित खोज",
+          "title": "पेज, कॉन्ट्रैक्ट और प्रूफ सरफेस",
+          "dialogAria": "खोज परिणाम",
+          "route": "रूट",
+          "external": "बाहरी",
+          "empty": "अभी कोई त्वरित मिलान नहीं है। रूट, कॉन्ट्रैक्ट या प्रूफ शब्द आज़माएँ।"
+        },
+        "desktopSearch": {
+          "prompts": [
+            "कॉन्ट्रैक्ट, रूट, दस्तावेज़ खोजें...",
+            "FourteenToken",
+            "अनलॉक टाइमलाइन",
+            "लिक्विडिटी कंट्रोलर",
+            "Ambassador रिवॉर्ड्स",
+            "व्हाइटपेपर"
+          ],
+          "ariaLabel": "4TEEN रूट और कॉन्ट्रैक्ट खोजें",
+          "actionAria": "खोज परिणाम खोलें",
+          "eyebrow": "त्वरित खोज परिणाम",
+          "title": "त्वरित पेज, कॉन्ट्रैक्ट और प्रूफ सरफेस।",
+          "dialogAria": "खोज परिणाम",
+          "closeAria": "खोज बंद करें",
+          "resultsSuffix": "परिणाम",
+          "noResultsYet": "अभी कोई परिणाम नहीं",
+          "pressEnter": "शीर्ष मिलान खोलने के लिए Enter दबाएँ।",
+          "topMatch": "शीर्ष मिलान",
+          "route": "रूट",
+          "external": "बाहरी",
+          "empty": "कोई परिणाम नहीं। `buy`, `unlock`, `airdrop`, `controller` या `whitepaper` आज़माएँ।"
+        },
+        "locale": {
+          "eyebrow": "भाषा",
+          "title": "इंटरफ़ेस भाषा चुनें",
+          "active": "सक्रिय",
+          "soon": "जल्द"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "मुख्य सरफेस",
+          "docsAndRoutes": "दस्तावेज़ और रूट",
+          "closeOpenPanelAria": "खुला पैनल बंद करें"
+        },
+        "mobileDock": {
+          "menu": "मेनू",
+          "close": "बंद करें",
+          "openMenuAria": "मोबाइल मेनू खोलें",
+          "closeMenuAria": "मोबाइल मेनू बंद करें",
+          "openHomeAria": "होम खोलें",
+          "openSearchAria": "मोबाइल खोज खोलें",
+          "openLanguageAria": "भाषा पैनल खोलें"
+        },
+        "footer": {
+          "protocol": "प्रोटोकॉल",
+          "ecosystem": "इकोसिस्टम",
+          "legal": "कानूनी",
+          "privacy": "प्राइवेसी",
+          "terms": "शर्तें",
+          "support": "सपोर्ट",
+          "investorDeck": "इन्वेस्टर डेक",
+          "onePager": "वन-पेजर",
+          "officialChannels": "आधिकारिक चैनल",
+          "brandText": "वॉलेट ऐप अब लाइव सिस्टम सरफेस लेकर आता है: डायरेक्ट बाय, अनलॉक स्थिति, कंट्रोलर ट्रुथ, Ambassador कैबिनेट, और Telegram-फर्स्ट ग्रोथ फ़्लो।",
+          "getApp": "ऐप प्राप्त करें",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. TRON पर संरचित ऑन-चेन एंट्री।",
+          "officialWebsite": "आधिकारिक वेबसाइट: 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "प्रोटोकॉल",
+          "growth": "ग्रोथ",
+          "proof": "प्रूफ",
+          "ecosystem": "इकोसिस्टम"
+        },
+        "links": {
+          "home": "होम",
+          "buy": "खरीदें",
+          "unlock": "अनलॉक",
+          "liquidity": "लिक्विडिटी",
+          "airdrop": "Airdrop",
+          "ambassadors": "Ambassadors",
+          "whitepaper": "व्हाइटपेपर",
+          "verification": "वेरिफ़िकेशन",
+          "blog": "ब्लॉग",
+          "swap": "स्वैप",
+          "mobileApp": "मोबाइल ऐप"
+        },
+        "shortLinks": {
+          "buy": "खरीदें",
+          "unlock": "अनलॉक",
+          "liquidity": "लिक्विडिटी",
+          "airdrop": "Airdrop",
+          "earn": "कमाएँ",
+          "swap": "स्वैप",
+          "app": "ऐप",
+          "home": "होम"
+        },
+        "menuLinks": {
+          "buy": "डायरेक्ट बाय",
+          "unlock": "अनलॉक टाइमलाइन",
+          "liquidity": "लिक्विडिटी कंट्रोलर",
+          "swap": "टोकन स्वैप करें",
+          "privacy": "प्राइवेसी पॉलिसी",
+          "terms": "उपयोग की शर्तें"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "मुख्य रूट",
+          "protocolSurface": "प्रोटोकॉल सरफेस",
+          "growthSurface": "ग्रोथ सरफेस",
+          "proofSurface": "प्रूफ सरफेस",
+          "downloadRoute": "डाउनलोड रूट",
+          "publicPolicy": "सार्वजनिक नीति",
+          "supportRoute": "सपोर्ट रूट",
+          "coreContract": "मुख्य कॉन्ट्रैक्ट",
+          "liquidityContract": "लिक्विडिटी कॉन्ट्रैक्ट",
+          "growthContract": "ग्रोथ कॉन्ट्रैक्ट",
+          "githubSource": "GitHub स्रोत"
+        }
+      }
+    }
   }
 }
