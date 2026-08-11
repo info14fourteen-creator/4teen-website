@@ -39777,6 +39777,808 @@
           "githubSource": "GitHubソース"
         }
       }
+    },
+    "home": {
+      "ui": {
+        "aria": {
+          "heroPoints": "プロトコルのハイライト",
+          "livePriceSummary": "ライブ価格サマリー",
+          "quickLinks": "クイックリンク",
+          "verificationLinks": "検証リンク"
+        },
+        "marketStrip": {
+          "unavailable": "利用不可",
+          "routerQuoteReadFailed": "ルーター見積もりの読み取りに失敗しました",
+          "directPriceLabel": "直接価格",
+          "directPriceSub": "プロトコル経由の1 4TEENあたり",
+          "dexReferenceLabel": "DEX参照",
+          "dexPriceLabel": "DEX価格",
+          "dexSubSuffix": "4TEENあたり",
+          "unlockCycleLabel": "アンロックサイクル",
+          "unlockCycleValue": "14日",
+          "unlockCycleSub": "直接購入のロック期間",
+          "unlockCycleDailyRuleSub": "直接購入に対する固定ロック",
+          "dailyLiquidityRuleLabel": "日次流動性ルール",
+          "dailyLiquidityRuleValue": "6.43%",
+          "dailyLiquidityRuleSub": "コントローラーのロジックによりUTC日ごとに1回リリース"
+        }
+      },
+      "hero": {
+        "eyebrow": "4TEENモバイルアプリ",
+        "meta": "TRON • 直接購入 • アンロック • 流動性 • 成長",
+        "title": "購入、ロックの可視化、流動性フローを1か所に。",
+        "lead": "ウォレットアプリはすでにシステムの運用レイヤーです。直接購入、アンロックタイムライン、流動性コントローラー、Telegram請求状態、アンバサダーキャビネット、コンパクトな情報ルートは、コピー上の約束ではなく、実際の状態を持つ実画面としてすでに存在しています。",
+        "points": [
+          "署名前に、見積もり、配分コンテキスト、確認を含む実際の直接購入フローを準備します。",
+          "各ロック済み購入イベントを、カウントダウン、アンロック状態、ソーストランザクションで追跡します。",
+          "コントラクト、資産ウォレット、実行者、ランタイム準備状況を1つの情報ルートで確認します。"
+        ],
+        "actions": [
+          {
+            "label": "アプリを入手",
+            "href": "/app"
+          },
+          {
+            "label": "直接購入を開く",
+            "href": "/buy"
+          }
+        ],
+        "sideEyebrow": "ウォレット画面",
+        "sideTitle": "アプリは現在、ライブのプロダクト作業を担っています。",
+        "sideStats": [
+          {
+            "label": "プライマリーセール",
+            "value": "準備 → 確認"
+          },
+          {
+            "label": "可視性",
+            "value": "アンロックイベント"
+          },
+          {
+            "label": "実行",
+            "value": "コントローラー状態"
+          },
+          {
+            "label": "検証",
+            "value": "情報ルート"
+          }
+        ],
+        "sideHighlightTitle": "整理されたプロダクトハブ。",
+        "sideHighlightText": "購入、ロックの可視化、コントローラーの事実、成長レール、検証が、1つのウォレット型フローを通じてつながっています。",
+        "tools": [
+          {
+            "href": "/buy",
+            "title": "直接購入",
+            "meta": "確認前に、実際の購入時ミントフローを準備します"
+          },
+          {
+            "href": "/unlock",
+            "title": "アンロックタイムライン",
+            "meta": "ウォレット、カウントダウン、アンロック状態ごとに直接購入イベントを読み取ります"
+          },
+          {
+            "href": "/liquidity",
+            "title": "流動性コントローラー",
+            "meta": "しきい値、リリース周期、実行者、コントローラー履歴を確認します"
+          },
+          {
+            "href": "/verification",
+            "title": "情報ルート",
+            "meta": "コントラクト、保管庫、資産ウォレット、ランタイム準備状況を開きます"
+          }
+        ]
+      },
+      "wallets": {
+        "eyebrow": "ウォレット対応",
+        "title": "アプリがライブ画面全体でウォレット状態を反映するようになったため、ウォレット対応は重要です。",
+        "description": "直接購入、アンロック行、キャビネット操作、Telegram請求状態はすべて、選択されたウォレットが署名できるか、ウォッチ専用か、残高とリソース状態がフロー内で正しく解決されるかによって変化します。",
+        "bestStatus": "最適なモバイル体験",
+        "bestItems": [
+          {
+            "name": "Binance Wallet",
+            "note": "動作します • 残高表示あり"
+          },
+          {
+            "name": "Bitget Wallet",
+            "note": "動作します • 残高表示あり"
+          },
+          {
+            "name": "OKX Wallet",
+            "note": "動作します • 残高表示あり"
+          },
+          {
+            "name": "TokenPocket",
+            "note": "動作します • 残高表示あり"
+          }
+        ],
+        "compatibleStatus": "モバイルブラウザで動作",
+        "compatibleItems": [
+          {
+            "name": "FoxWallet",
+            "note": "動作します • 残高は表示されません"
+          },
+          {
+            "name": "imToken",
+            "note": "動作します • 残高は表示されません"
+          },
+          {
+            "name": "MetaMask",
+            "note": "動作します • 残高は表示されません"
+          },
+          {
+            "name": "TronLink",
+            "note": "動作します • 残高は表示されません"
+          },
+          {
+            "name": "WalletConnect",
+            "note": "動作します • 残高は表示されません"
+          },
+          {
+            "name": "Trust Wallet",
+            "note": "デスクトップChrome拡張機能を使用してください"
+          }
+        ],
+        "highlightTitle": "アプリ + 購入フローで推奨:",
+        "highlightText": "Binance Wallet、Bitget Wallet、OKX Wallet、TokenPocketは、残高を正しく表示し、ウォレットを意識した各画面をより信頼しやすくするため、最もスムーズな体験を提供します。"
+      },
+      "trust": {
+        "eyebrow": "プロトコルを検証",
+        "title": "ウォレットアプリ、Webサイト画面、リポジトリ、チェーンはすべて同じ事実を指すべきです。",
+        "links": [
+          {
+            "label": "アプリ",
+            "value": "モバイルダウンロード",
+            "href": "/app"
+          },
+          {
+            "label": "Webサイト",
+            "value": "ライブ画面",
+            "href": "/buy"
+          },
+          {
+            "label": "ネットワーク",
+            "value": "TRON Mainnet",
+            "href": "https://tronscan.org",
+            "external": true
+          },
+          {
+            "label": "Repo",
+            "value": "ウォレットアプリ",
+            "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+            "external": true
+          },
+          {
+            "label": "Docs",
+            "value": "ホワイトペーパー",
+            "href": "/whitepaper"
+          },
+          {
+            "label": "情報",
+            "value": "検証",
+            "href": "/verification"
+          }
+        ]
+      },
+      "howItWorks": {
+        "eyebrow": "仕組み",
+        "title": "現在の運用画面がカバーしている内容。",
+        "description": "アプリはもはやリンクを囲むだけのシェルではありません。説明、ウォレットを意識したゲーティング、確認フロー、画面固有の履歴、コントローラー状態、報酬ルーティング、ソーシャル請求状態をすでに処理しています。",
+        "steps": [
+          {
+            "step": "1",
+            "title": "アプリ内で直接購入を準備",
+            "text": "購入画面はまず準備ステップです。選択された署名ウォレットでTRXを入力し、見積もりの4TEENを確認してから、アプリが実際のトランザクションを構築しリソースを確認する確認レイヤーへ進みます。"
+          },
+          {
+            "step": "2",
+            "title": "購入ごとにすべてのロック済みバッチを追跡",
+            "text": "アンロックタイムラインは汎用履歴ではありません。選択されたウォレットの直接購入イベントを読み取り、UTCアンロック時刻、ライブカウントダウン、ロック状態、各購入行の背後にあるTronScanトランザクションを表示します。"
+          },
+          {
+            "step": "3",
+            "title": "流動性の事実が必要なときにコントローラーを開く",
+            "text": "流動性実行はアプリ内の実画面です。100 TRXのしきい値、6.43%の日次リリースルール、実行者配分、コントラクトリンク、最近のコントローラー側履歴を表示し、そのロジックをコピーの中に隠しません。"
+          }
+        ],
+        "airdropStep": {
+          "step": "4",
+          "title": "ソーシャルエアドロップ状態を実画面として読み取る",
+          "text": "エアドロップページは、すべてのソーシャルルートが稼働中であるかのように見せるのではなく、3つのチェックを同時に組み合わせます。",
+          "items": [
+            {
+              "value": "ウォレット",
+              "label": "署名状態かウォッチ専用状態かによって、請求フローを継続できるかが変わります"
+            },
+            {
+              "value": "セッション",
+              "label": "Telegramボットセッションが、カードを利用可能、今すぐ検証、またはセッション有効のどれにするかを決定します"
+            },
+            {
+              "value": "チェーン",
+              "label": "オンチェーンの請求状態は、受領済み、キュー済み、またはレガシー使用済みをすでに表示できます"
+            }
+          ]
+        },
+        "cabinetStep": {
+          "step": "5",
+          "title": "登録、購入者、購入、保留行、報酬を1つのキャビネットで管理",
+          "text": "アンバサダーフローは、もはや行き止まりのサインアップページではありません。同じルートが一度限りのスラッグ登録から始まり、その後、紹介ID、追跡済み購入、請求可能報酬、請求済み合計、保留中の割り当てリプレイをまとめて確認できる稼働中のキャビネットになります。"
+        }
+      },
+      "architecture": {
+        "eyebrow": "アーキテクチャ図",
+        "title": "情報ルートがオンチェーンでシステムを説明する方法。",
+        "description": "アプリ内のコンパクトな情報ルートは、コントラクト、ルーティング、保管庫、実行者、資産ウォレット、ランタイムチェックを今や結び付けています。Webサイトは引き続きマップを表示できますが、このアーキテクチャの背後にはすでに稼働中のプロダクト画面があることを反映すべきです。",
+        "entry": {
+          "label": "入口",
+          "title": "ユーザーTRX",
+          "text": "直接プロトコル購入がシステムに入ります"
+        },
+        "core": {
+          "label": "コアコントラクト",
+          "title": "FourteenToken",
+          "text": "購入時ミント + 14日ロック + 自動TRX配分",
+          "pills": [
+            "購入時ミント",
+            "14日ロック",
+            "TRX配分: 90% / 7% / 3%"
+          ]
+        },
+        "liquidity": {
+          "eyebrow": "90% TRXパス",
+          "title": "流動性実行レイヤー",
+          "text": "最大の配分は専用の流動性システムへ移動します。リリースタイミング、リザーブ保管、ブートストラップ準備、DEX実行は別々の役割に分離されています。",
+          "controller": {
+            "label": "コントローラー",
+            "title": "FourteenLiquidityController",
+            "text": "UTC日ごとに1回6.43%をリリースし、流動性がいつ移動できるかを制御します"
+          },
+          "vault": {
+            "label": "リザーブ保管庫",
+            "title": "FourteenVault",
+            "text": "流動性提供専用に使用される4TEENリザーブを保管します"
+          },
+          "bootstrapper": {
+            "label": "準備レイヤー",
+            "title": "LiquidityBootstrapper",
+            "text": "必要なトークン量を計算し、FourteenVaultから引き出し、実行者へ供給し、実行フローをトリガーします"
+          },
+          "executors": [
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorJustMoney",
+              "text": "JustMoney向けのDEX固有の実行パス"
+            },
+            {
+              "label": "50%",
+              "title": "LiquidityExecutorSunV3",
+              "text": "Sun.io V3向けのDEX固有の実行パス"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "7% TRXパス",
+          "title": "制御 + アンバサダー報酬レイヤー",
+          "text": "このパスはトークン発行と流動性実行の外側に留まります。プロトコル制御と、紹介アトリビューション、検証済み購入割り当て、レベル進行、請求可能なアンバサダー報酬を組み合わせます。",
+          "controller": {
+            "label": "コントローラー",
+            "title": "FourteenController",
+            "text": "FourteenTokenを所有し、オーナー機能、オペレーターロジック、報酬会計、購入割り当て、制御された引き出しを管理します。"
+          },
+          "flow": {
+            "label": "アンバサダーフロー",
+            "title": "登録 → 紐付け → 検証済み購入 → 報酬",
+            "text": "ウォレット登録、公開スラッグID、購入者の紐付け、検証済み購入の記録、請求可能報酬の発生、報酬の引き出し。"
+          },
+          "ladderTitle": "アンバサダー報酬ラダー",
+          "ladder": [
+            {
+              "level": "Bronze",
+              "buyers": "0–9人の購入者",
+              "percent": "10%"
+            },
+            {
+              "level": "Silver",
+              "buyers": "10–99人の購入者",
+              "percent": "25%"
+            },
+            {
+              "level": "Gold",
+              "buyers": "100–999人の購入者",
+              "percent": "50%"
+            },
+            {
+              "level": "Platinum",
+              "buyers": "1000+人の購入者",
+              "percent": "75%"
+            }
+          ],
+          "noteTitle": "割り当てロジック",
+          "noteText": "アンバサダー報酬は、検証済み購入割り当て時の購入オーナーシェアから計算されます。レベル上書きがサポートされ、報酬は引き出し前に請求可能残高へ移動します。"
+        },
+        "airdrop": {
+          "eyebrow": "3% TRXパス",
+          "title": "コミュニティ配布レイヤー",
+          "text": "このパスはライブのエアドロップ構造に供給されます。配布はウェーブごとに段階化され、単発の配布として扱われるのではなく、複数のソーシャルルートへ拡張されます。",
+          "vault": {
+            "label": "保管庫",
+            "title": "AirdropVault",
+            "text": "段階的なエコシステム配布、ウォレット連動の報酬フロー、ライブキャンペーンルートに使用されるコミュニティおよび成長リザーブ"
+          },
+          "model": {
+            "label": "配布モデル",
+            "title": "1,500,000 4TEEN • 6つの固定ウェーブ",
+            "text": "現在1つのライブルートを持ち、時間とともにさらにキャンペーンルートが追加されるウェーブベースのリリース構造"
+          },
+          "pills": [
+            {
+              "label": "Telegram稼働中",
+              "tone": "live"
+            },
+            {
+              "label": "X近日公開",
+              "tone": "wait"
+            },
+            {
+              "label": "Instagram近日公開",
+              "tone": "wait"
+            },
+            {
+              "label": "今後さらにソーシャル追加",
+              "tone": "wait"
+            }
+          ],
+          "liveRoute": {
+            "label": "現在のライブルート",
+            "title": "Telegramキャンペーン",
+            "text": "ライブエアドロップインフラ内の現在の公開ルート",
+            "action": {
+              "label": "現在のライブルートを開く",
+              "href": "/airdrop"
+            }
+          },
+          "snapshotTitle": "ライブエアドロップスナップショット",
+          "snapshotRows": [
+            {
+              "label": "状態",
+              "value": "現在稼働中"
+            },
+            {
+              "label": "報酬範囲",
+              "value": "1–5 4TEEN"
+            },
+            {
+              "label": "検証",
+              "value": "必須"
+            },
+            {
+              "label": "必要なウォレット",
+              "value": "TRONウォレット"
+            },
+            {
+              "label": "報酬配布",
+              "value": "オンチェーン"
+            },
+            {
+              "label": "請求タイプ",
+              "value": "platformBit = 4"
+            }
+          ]
+        },
+        "facts": [
+          {
+            "label": "流動性",
+            "text": "リリースタイミング、リザーブ保管、ブートストラップ準備、DEX実行は専用コントラクトに分離されています。"
+          },
+          {
+            "label": "アンバサダー",
+            "text": "レベル進行と報酬率は、実際の購入者数と検証済み購入割り当てに紐付いています。"
+          },
+          {
+            "label": "エアドロップ",
+            "text": "コミュニティルートはウェーブベース、マルチプラットフォームで、Telegramを通じてすでに稼働中です。"
+          },
+          {
+            "label": "重要な理由",
+            "text": "4TEENは、1つの過負荷なコントラクトの塊ではなく、分離された役割のシステムとして動作します。"
+          }
+        ]
+      },
+      "why": {
+        "eyebrow": "この構造が重要な理由",
+        "title": "プロダクトレイヤーがついにプロトコルレイヤーに追いついてきました。",
+        "description": "コントラクトには常に分離された役割がありました。変わったのは、アプリがそれらの役割を、ユーザーに生のオンチェーン概念と散在するリンクだけを残すのではなく、読み取り可能でウォレットを意識した画面として公開するようになったことです。",
+        "cards": [
+          {
+            "number": "01",
+            "title": "ウォレットアプリ内にすでに1つのハブが存在します",
+            "text": "アプリのホームはすでにコンパクトなプロダクトハブです。購入、アンロック、流動性、エアドロップ、アンバサダー、情報が、長い説明に埋もれるのではなく画面としてグループ化されています。",
+            "note": "Webサイトは、古い想像上のロードマップを説明するのではなく、同じ画面へユーザーを導くべきです。"
+          },
+          {
+            "number": "02",
+            "title": "ウォレットを意識した状態は今や実際の動作です",
+            "text": "ウォッチ専用と署名ウォレットの違い、請求可能報酬と保留中報酬の違い、Telegramセッション状態、リソース準備状況はすべて、ユーザーがアプリで実際にできることを変えます。",
+            "note": "つまりホームページのテキストは、コントラクト理論だけでなく、状態とアクションを説明すべきです。"
+          },
+          {
+            "number": "03",
+            "title": "検証はすでに稼働中のルートです",
+            "text": "アーキテクチャ、コントラクトの役割、保管庫、実行者、資産ウォレット残高、割り当てリプレイ準備状況は、もはやホワイトペーパーだけのトピックではありません。アプリはすでにそれらを1つのコンパクトな情報画面として公開しています。",
+            "note": "サイトは、その情報レイヤーを将来のドキュメントではなく、ライブプロダクトとして説明すると最も強くなります。"
+          }
+        ],
+        "notePrefix": "重要な理由"
+      },
+      "liveMetrics": {
+        "eyebrow": "ライブプロトコル指標",
+        "title": "入口、流動性、報酬、運用状態のライブ読み取り。",
+        "description": "これらのカードは、ユーザーがアプリで実際に開けるもの、つまり直接購入コンテキスト、アンロックとコントローラー側状態、キャビネット報酬フロー、現在のTelegram優先ソーシャル配布ルートを反映すべきです。",
+        "liquidity": {
+          "eyebrow": "流動性エンジン",
+          "title": "ルールベースの流動性フロー",
+          "note": "アプリ内では、不透明な「流動性」という一文ではなく、しきい値チェック、次回リリースのコンテキスト、実行者配分、コントラクトリンク、コントローラー側履歴として表示されます。",
+          "rows": [
+            {
+              "label": "コントローラー",
+              "value": "FourteenLiquidityController"
+            },
+            {
+              "label": "リザーブ保管庫",
+              "value": "FourteenVault"
+            },
+            {
+              "label": "準備レイヤー",
+              "value": "LiquidityBootstrapper"
+            },
+            {
+              "label": "実行配分",
+              "value": "50% / 50%"
+            },
+            {
+              "label": "DEXパス",
+              "value": "JustMoney + Sun.io V3"
+            }
+          ]
+        },
+        "ambassadors": {
+          "eyebrow": "アンバサダーレイヤー",
+          "title": "キャビネット報酬フロー",
+          "note": "アプリ内では、このルートがオンチェーンのキャビネット状態とバックエンドのアトリビューション行を組み合わせるため、現在請求可能、請求済み合計、保留中リプレイが1か所に並びます。",
+          "ladder": [
+            {
+              "level": "Bronze",
+              "meta": "0–9人の購入者",
+              "value": "10%"
+            },
+            {
+              "level": "Silver",
+              "meta": "10–99人の購入者",
+              "value": "25%"
+            },
+            {
+              "level": "Gold",
+              "meta": "100–999人の購入者",
+              "value": "50%"
+            },
+            {
+              "level": "Platinum",
+              "meta": "1000+人の購入者",
+              "value": "75%"
+            }
+          ]
+        },
+        "airdrop": {
+          "eyebrow": "エアドロップレイヤー",
+          "title": "ライブソーシャル配布スナップショット",
+          "rows": [
+            {
+              "label": "総割り当て",
+              "value": "1,500,000 4TEEN",
+              "tone": "strong"
+            },
+            {
+              "label": "ウェーブ構造",
+              "value": "6つの固定ウェーブ"
+            },
+            {
+              "label": "現在のライブルート",
+              "value": "Telegram",
+              "tone": "live"
+            },
+            {
+              "label": "その他のソーシャル",
+              "value": "読み取り専用プレースホルダー",
+              "tone": "wait"
+            },
+            {
+              "label": "報酬配布",
+              "value": "オンチェーン"
+            }
+          ],
+          "action": {
+            "label": "ライブTelegramルートを開く",
+            "href": "/airdrop"
+          }
+        }
+      },
+      "tools": {
+        "eyebrow": "ツール",
+        "title": "アプリがすでに公開している同じ画面を開く。",
+        "description": "これらはもはやプレースホルダーのメニュー項目ではありません。ウォレット型プロダクトフロー内にすでに存在し、ライブのウォレット状態を保持しているルートと動作に直接対応しています。",
+        "cards": [
+          {
+            "status": "開く",
+            "tone": "live",
+            "title": "モバイルアプリ",
+            "text": "ストアのダウンロードオプションと、Web画面へきれいに戻れるフォールバックを備えた専用モバイルアプリルートを開きます。",
+            "href": "/app"
+          },
+          {
+            "status": "ライブ",
+            "tone": "live",
+            "title": "4TEENを購入",
+            "text": "金額入力、見積もり、配分コンテキスト、確認パスを備えた直接購入準備画面を開きます。",
+            "href": "/buy"
+          },
+          {
+            "status": "追跡",
+            "tone": "live",
+            "title": "アンロックタイムライン",
+            "text": "ウォレット、アンロックタイムスタンプ、ライブカウントダウン、トランザクションソースごとに直接購入イベント行を読み取ります。",
+            "href": "/unlock"
+          },
+          {
+            "status": "追跡",
+            "tone": "live",
+            "title": "流動性コントローラー",
+            "text": "しきい値、6.43%の日次リリース、実行者、最近のコントローラーイベント、実行準備状況を追跡します。",
+            "href": "/liquidity"
+          },
+          {
+            "status": "ライブ",
+            "tone": "live",
+            "title": "エアドロップ状態",
+            "text": "Telegramのライブ請求状態、ウォッチ専用制限、ボットセッション状態、オンチェーン報酬状態を確認します。",
+            "href": "/airdrop"
+          },
+          {
+            "status": "管理",
+            "tone": "live",
+            "title": "アンバサダーキャビネット",
+            "text": "一度限りの登録から、スラッグ、購入者、購入、保留行、報酬を扱うキャビネットモードへ移行します。",
+            "href": "/ambassadors"
+          },
+          {
+            "status": "検証",
+            "tone": "wait",
+            "title": "情報ルート",
+            "text": "コントラクト、資産ウォレット、ランタイムヘルス、公開証明リンクのためのコンパクトなアーキテクチャ画面を開きます。",
+            "href": "/verification"
+          }
+        ]
+      },
+      "verification": {
+        "eyebrow": "検証 / コントラクト",
+        "title": "コントラクト、リポジトリ、ドキュメント、アプリハブ全体でプロトコルを検証します。",
+        "description": "ウォレットアプリがそれらのコントラクト、リポジトリ、ドキュメント、資産ウォレットチェック、ライブ画面の上にある運用レイヤーとしてすでに機能しているため、公開ストーリーはより強くなっています。",
+        "contracts": {
+          "eyebrow": "オンチェーンコントラクト",
+          "title": "Mainnetデプロイメントレイヤー",
+          "links": [
+            {
+              "label": "コア",
+              "value": "FourteenToken",
+              "href": "https://tronscan.org/#/token20/TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A"
+            },
+            {
+              "label": "コア",
+              "value": "FourteenController",
+              "href": "https://tronscan.org/#/contract/TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ"
+            },
+            {
+              "label": "コア",
+              "value": "FourteenLiquidityController",
+              "href": "https://tronscan.org/#/contract/TVKBLwg222skKnZ3F3boTiH35KC7nvYEuZ"
+            },
+            {
+              "label": "保管庫",
+              "value": "FourteenVault",
+              "href": "https://tronscan.org/#/contract/TNwkuHA727RZGtpbowH7q5B1yZWk2JEZTq"
+            },
+            {
+              "label": "保管庫",
+              "value": "TeamLockVault",
+              "href": "https://tronscan.org/#/contract/TYBfbgvMW6awPdZfSSwWoEX3nJjrKWZS3h"
+            },
+            {
+              "label": "保管庫",
+              "value": "AirdropVault",
+              "href": "https://tronscan.org/#/contract/TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ"
+            },
+            {
+              "label": "実行",
+              "value": "LiquidityBootstrapper",
+              "href": "https://tronscan.org/#/contract/TWfUee6qFV91t7KbFdYLEfpi8nprUaJ7dc"
+            },
+            {
+              "label": "実行",
+              "value": "LiquidityExecutorSunV3",
+              "href": "https://tronscan.org/#/contract/TU8EwEWg4K594zwThvhTZxqzEuEYuR46xh"
+            },
+            {
+              "label": "実行",
+              "value": "LiquidityExecutorJustMoney",
+              "href": "https://tronscan.org/#/contract/TWrz68MRTf1m9vv8xpcdMD4z9kjBxiHw7F"
+            }
+          ]
+        },
+        "repositories": {
+          "eyebrow": "リポジトリ",
+          "title": "公開インフラと運用コード",
+          "links": [
+            {
+              "label": "Repo",
+              "value": "4teen-smart-contracts",
+              "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-wallet-app",
+              "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-ambassador-system",
+              "href": "https://github.com/info14fourteen-creator/4teen-ambassador-system"
+            },
+            {
+              "label": "Repo",
+              "value": "liquidity-bootstrapper-cron",
+              "href": "https://github.com/info14fourteen-creator/liquidity-bootstrapper-cron"
+            },
+            {
+              "label": "Repo",
+              "value": "4teen-telegram-airdrop-bot",
+              "href": "https://github.com/info14fourteen-creator/4teen-telegram-airdrop-bot"
+            }
+          ]
+        },
+        "docs": {
+          "eyebrow": "Docs",
+          "title": "公開読み物レイヤー",
+          "links": [
+            {
+              "label": "Docs",
+              "value": "ホワイトペーパー",
+              "href": "/whitepaper"
+            },
+            {
+              "label": "Docs",
+              "value": "検証",
+              "href": "/verification"
+            },
+            {
+              "label": "Docs",
+              "value": "ブログ",
+              "href": "/blog"
+            }
+          ]
+        },
+        "hubs": {
+          "eyebrow": "ハブ",
+          "title": "公開エコシステムの入口",
+          "links": [
+            {
+              "label": "ハブ",
+              "value": "エアドロップハブ",
+              "href": "/airdrop"
+            },
+            {
+              "label": "ハブ",
+              "value": "アンバサダープログラム",
+              "href": "/ambassadors"
+            }
+          ]
+        }
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "ライブ画面を開く前の明確な回答。",
+        "description": "適切な質問は変化しています。ユーザーは今、各ルートが実際に何をするのか、どのアクションがウォレット種別に依存するのか、どの成長または検証フローがアプリ内ですでに稼働しているのかを明確に理解する必要があります。",
+        "items": [
+          {
+            "question": "4TEENにスワップだけでなく直接購入画面が必要なのはなぜですか？",
+            "answer": "アプリが直接購入を、コントラクト側の独立した画面として扱うためです。購入時ミントフローを準備し、見積もりを表示し、14日ロックを説明してから、実際の確認ステップへ進みます。"
+          },
+          {
+            "question": "アンロックタイムラインは正確に何を追跡しますか？",
+            "answer": "選択されたウォレットに紐付く直接購入イベントのみです。各行には金額、UTCアンロック時刻、ライブカウントダウン、現在のロック状態、その購入イベントの背後にあるTronScanトランザクションが表示されます。"
+          },
+          {
+            "question": "一部のルートがウォレットがウォッチ専用かどうかを気にするのはなぜですか？",
+            "answer": "アプリが今ではウォレット種別に応じて動作を制御しているためです。ウォッチ専用ウォレットは状態を読み取れますが、アンバサダー登録、報酬引き出し、直接購入や流動性アクションのような署名フローは実行できません。"
+          },
+          {
+            "question": "エアドロップページは今は単なるプロモーションページですか？",
+            "answer": "いいえ。すでに状態を持つ画面です。Telegramがライブルートであり、カードは次に利用可能なアクションを決定する前に、ローカルウォレット状態、現在のボットセッション状態、オンチェーン請求状態を組み合わせます。"
+          },
+          {
+            "question": "Webサイトだけではできない何を情報ルートが検証しますか？",
+            "answer": "コントラクト、保管庫、流動性実行者、資産ウォレット残高、オペレーター側の準備状況を、1つのコンパクトな運用画面にまとめます。これにより検証は、ドキュメントページだけでなくプロダクトフローの一部になります。"
+          }
+        ]
+      },
+      "risk": {
+        "eyebrow": "リスク / 開示",
+        "title": "構造化されたメカニクスは市場リスクを取り除きません。",
+        "description": "4TEENは、可視化されたルール、分離されたコントラクトの役割、公開検証パスを持つオンチェーントークンプロトコルです。これによりシステムは検査しやすくなりますが、トークン参加が保証リターン商品になるわけではありません。",
+        "understandTitle": "ユーザーが理解すべきこと",
+        "understandItems": [
+          "直接プロトコル価格は、公開市場のDEX価格と同じではありません。",
+          "14日のアンロックはタイミングを変えますが、有利なエグジットを保証するものではありません。",
+          "流動性ルールはリリース動作を説明するものであり、将来の市場結果を示すものではありません。",
+          "アンバサダー報酬とエアドロップルートは構造化されたレイヤーであり、保証された収入ではありません。"
+        ],
+        "actionTitle": "ユーザーが行うべきこと",
+        "actionItems": [
+          "行動する前に、コントラクト、リポジトリ、公開ドキュメントを検証してください。",
+          "購入前に、ロック、報酬、配布のメカニクスを理解してください。",
+          "対応ウォレットを使用し、ライブルートを慎重に確認してください。",
+          "プロトコル構造を利益の約束として扱わず、独立した判断を行ってください。"
+        ],
+        "noteTitle": "重要",
+        "noteText": "4TEENは保証された結果ではなく、観察可能なオンチェーン動作を中心に構築されています。ユーザーは自分でシステムを検証し、理解しているリスクの範囲内でのみ行動すべきです。"
+      },
+      "cta": {
+        "eyebrow": "最終CTA",
+        "title": "必要な画面を選択",
+        "lead": "モバイルアプリを入手する、直接購入を準備する、コンパクトなアーキテクチャルートを検証する、またはライブの成長・追跡画面へ直接進むことができます。",
+        "cards": [
+          {
+            "status": "開く",
+            "tone": "live",
+            "title": "アプリを入手",
+            "text": "ストアのダウンロードオプションと、ウォレットプロダクトへのスムーズな受け渡しを備えたモバイルアプリルートから始めます。",
+            "href": "/app"
+          },
+          {
+            "status": "購入",
+            "tone": "live",
+            "title": "直接購入を開く",
+            "text": "金額プレビュー、確認、ウォレットを意識したゲーティングを備えたコントラクト側の入口フローへ直接進みます。",
+            "href": "/buy"
+          },
+          {
+            "status": "追跡",
+            "tone": "live",
+            "title": "検証を開く",
+            "text": "コントラクト、リポジトリ、流動性ロジック、アプリ画面の背後にあるアーキテクチャマップのための公開証明レイヤーを使用します。",
+            "href": "/verification"
+          },
+          {
+            "status": "管理",
+            "tone": "live",
+            "title": "アンバサダーキャビネットを開く",
+            "text": "1つのルートで登録し、紹介IDを確認し、購入を追跡し、ライブの報酬状態を扱います。",
+            "href": "/ambassadors"
+          }
+        ],
+        "actions": [
+          {
+            "label": "アプリを入手",
+            "href": "/app"
+          },
+          {
+            "label": "直接購入を開く",
+            "href": "/buy"
+          },
+          {
+            "label": "ライブTelegramルートを開く",
+            "href": "/airdrop"
+          }
+        ]
+      }
     }
   }
 }
