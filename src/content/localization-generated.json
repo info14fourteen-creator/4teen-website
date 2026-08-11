@@ -31527,6 +31527,182 @@
           "openBuy": "Otwórz ścieżkę zakupu"
         }
       }
+    },
+    "airdrop": {
+      "metadata": {
+        "title": "Airdrop",
+        "description": "Aktualny status airdropu 4TEEN z bieżącą falą, odblokowanym saldem, saldem skarbca, stanem ścieżki Telegram, dostępem do odbioru wyłącznie przez portfel oraz linkami do weryfikacji on-chain."
+      },
+      "hero": {
+        "eyebrow": "AirdropVault",
+        "status": "Ścieżka odbioru przez portfel",
+        "title": "Odbierz 4TEEN przez ścieżkę portfela",
+        "lead": "Publiczna strona pokazuje aktualny stan AirdropVault. Mobilny portfel obsługuje ścieżkę odbioru.",
+        "body": [
+          "Airdrop nie jest fałszywym przyciskiem promocyjnym na landing page’u. To skarbiec oparty na falach, stan odbioru świadomy portfela oraz ścieżka z Telegram na pierwszym miejscu, którą aplikacja odczytuje przed wykonaniem.",
+          "Ta strona odzwierciedla publiczną warstwę: bieżącą falę, saldo skarbca, odblokowany limit, zaplanowaną pozostałą część, model ścieżki oraz weryfikację on-chain. Aktywny proces odbioru należy do portfela."
+        ],
+        "rotatingLines": [
+          "Stan skarbca. Odbiór przez portfel.",
+          "Telegram działa. Warstwy społecznościowe przygotowane.",
+          "Publiczny dowód. Wykonanie w aplikacji.",
+          "Odblokowania fal. Kontrole ścieżki.",
+          "Bez fałszywych odbiorów. Tylko stan."
+        ],
+        "primaryCta": "Otwórz ścieżkę aplikacji mobilnej",
+        "secondaryCta": "Otwórz AirdropVault",
+        "ctaNote": "Strona internetowa pokazuje skarbiec i mapę ścieżek. Portfel odczytuje wybrane konto, sesję Telegram, stan odbioru i tryb podpisu, zanim otworzy się rzeczywista ścieżka odbioru.",
+        "stats": {
+          "currentWave": "Bieżąca fala",
+          "vaultBalance": "Saldo skarbca",
+          "vaultBalanceMeta": "4TEEN obecnie przechowywane w AirdropVault.",
+          "availableNow": "Dostępne teraz",
+          "availableNowMeta": "To, co może zostać teraz rozdysponowane zgodnie z regułami kontraktu.",
+          "nextWave": "Następna fala",
+          "completed": "Ukończono",
+          "readFailed": "Nie udało się odczytać skarbca na żywo.",
+          "readRetry": "Spróbuj odświeżyć za chwilę."
+        }
+      },
+      "sections": {
+        "vaultState": {
+          "eyebrow": "Stan skarbca",
+          "title": "Co kontrakt mówi w tej chwili",
+          "rows": {
+            "totalAllocation": "Całkowita alokacja",
+            "unlockedTotal": "Łącznie odblokowane",
+            "totalDistributed": "Łącznie rozdysponowane",
+            "remainingUnlocked": "Pozostałe odblokowane",
+            "remainingPlanned": "Pozostałe zaplanowane",
+            "vaultBalance": "Saldo skarbca"
+          },
+          "noteTitle": "Dlaczego istnieją dwie wartości „pozostałe”:",
+          "noteBody": "`Pozostałe odblokowane` to limit, który kontrakt już odblokował według czasu fal. `Pozostałe zaplanowane` to nierozdysponowana część pełnej alokacji 1,500,000 4TEEN. `Dostępne teraz` to mniejsza wartość z odblokowanego limitu i faktycznego salda skarbca."
+        },
+        "distribution": {
+          "eyebrow": "Zakres dystrybucji",
+          "title": "Ile już wyszło ze skarbca",
+          "cards": {
+            "distributed": {
+              "title": "Już rozdysponowane",
+              "text": "4TEEN już wysłane z pełnej alokacji."
+            },
+            "planned": {
+              "title": "Nadal zaplanowane",
+              "text": "4TEEN nadal pozostające w długoterminowym planie dystrybucji."
+            },
+            "lastDrop": {
+              "title": "Ostatni potwierdzony drop",
+              "text": "4TEEN w najnowszym potwierdzonym zdarzeniu dystrybucji ze skarbca."
+            },
+            "unlockedUndistributed": {
+              "title": "Odblokowane, ale nierozdysponowane",
+              "text": "Limit już odblokowany przez fale, ale jeszcze niewysłany."
+            }
+          },
+          "note": "Ten blok ma wyłącznie charakter informacyjny. Korzysta z lekkich odczytów na żywo, które są bezpieczne dla publicznej strony: stanu skarbca z odczytów kontraktu oraz najnowszego potwierdzonego zdarzenia airdropu z kanału zdarzeń."
+        },
+        "dateLayer": {
+          "eyebrow": "Warstwa dat",
+          "title": "Kontrakt działa według stałych znaczników czasu",
+          "rows": {
+            "issueDate": "Data emisji",
+            "currentWave": "Bieżąca fala",
+            "nextWave": "Następna fala",
+            "lastDrop": "Ostatni potwierdzony drop",
+            "snapshotUpdated": "Snapshot zaktualizowany"
+          },
+          "note": "Odblokowania fal są zapisane na stałe w kontrakcie. Strona internetowa nie wymyśla tych dat z treści; odczytuje i formatuje aktywny zegar kontraktu."
+        },
+        "routeModel": {
+          "eyebrow": "Aktywny model ścieżek",
+          "title": "Telegram działa. Pozostałe elementy społecznościowe są przygotowane.",
+          "note": "Aplikacja portfela łączy trzy kontrole dla Telegram: lokalny stan portfela, aktualny stan sesji bota oraz stan odbioru on-chain. Strona internetowa nie udaje tego procesu odbioru ani nie sugeruje odbioru przez web; pokazuje aktywny skarbiec i rzeczywisty model ścieżek wokół niego.",
+          "routes": {
+            "telegram": {
+              "title": "Telegram",
+              "statusLive": "Działa teraz",
+              "statusSoon": "Działa teraz",
+              "note": "Sesja portfela, stan bota i stan odbioru on-chain są już połączone w aplikacji mobilnej."
+            },
+            "instagram": {
+              "title": "Instagram",
+              "statusLive": "Placeholder wdrożenia",
+              "statusSoon": "Placeholder wdrożenia",
+              "note": "Ścieżka istnieje w modelu maski kontraktu, ale aktywny proces odbioru nie jest jeszcze otwarty."
+            },
+            "x": {
+              "title": "X",
+              "statusLive": "Placeholder wdrożenia",
+              "statusSoon": "Placeholder wdrożenia",
+              "note": "Ścieżka istnieje w modelu maski kontraktu, ale aktywny proces odbioru nie jest jeszcze otwarty."
+            },
+            "facebook": {
+              "title": "Facebook",
+              "statusLive": "Placeholder wdrożenia",
+              "statusSoon": "Placeholder wdrożenia",
+              "note": "Ścieżka istnieje w modelu maski kontraktu, ale aktywny proces odbioru nie jest jeszcze otwarty."
+            },
+            "youtube": {
+              "title": "YouTube",
+              "statusLive": "Placeholder wdrożenia",
+              "statusSoon": "Placeholder wdrożenia",
+              "note": "Ścieżka istnieje w modelu maski kontraktu, ale aktywny proces odbioru nie jest jeszcze otwarty."
+            }
+          }
+        },
+        "walletAccess": {
+          "eyebrow": "Dostęp do aktywnego odbioru",
+          "title": "Aktywna ścieżka airdropu działa z portfela mobilnego, nie z publicznej strony internetowej",
+          "body": "Stan odbioru przez Telegram w rzeczywistym produkcie jest świadomy portfela. Aplikacja łączy wybrany portfel, aktualną sesję bota i stan odbioru on-chain, zanim zdecyduje, czy ścieżka jest dostępna, w kolejce, już odebrana czy nadal zablokowana. Ta strona celowo pozostaje informacyjna.",
+          "bullets": [
+            "Dostępność odbioru zależy od stanu portfela, a nie tylko od wizyty na publicznej stronie.",
+            "Telegram jest dziś jedyną aktywną ścieżką odbioru; pozostałe social media pozostają przygotowanymi warstwami.",
+            "Portfel potrafi rozróżnić stany: tylko do podglądu, podpisywanie, odebrane, w kolejce oraz użyte w trybie legacy.",
+            "Użyj ścieżki w aplikacji dla rzeczywistego ekranu odbioru, a następnie wróć tutaj, aby publicznie zweryfikować skarbiec."
+          ],
+          "openApp": "Otwórz ścieżkę aplikacji mobilnej",
+          "openVault": "Otwórz AirdropVault"
+        },
+        "waveSchedule": {
+          "eyebrow": "Harmonogram fal",
+          "title": "Sześć stałych fal, jeden zegar kontraktu",
+          "headers": {
+            "wave": "Fala",
+            "cap": "Limit",
+            "unlockTime": "Czas odblokowania",
+            "status": "Status"
+          },
+          "current": "Bieżąca",
+          "unlocked": "Odblokowana",
+          "upcoming": "Nadchodząca"
+        },
+        "verification": {
+          "eyebrow": "Weryfikacja",
+          "title": "Kontrakt i operator",
+          "body": "Strona odczytuje tę samą logikę skarbca, której używa portfel: bieżącą falę, znacznik czasu następnej fali, odblokowane saldo, dostępną kwotę dystrybucji oraz saldo skarbca.",
+          "vaultLabel": "AirdropVault",
+          "operatorLabel": "Operator"
+        },
+        "productContext": {
+          "eyebrow": "Kontekst produktu",
+          "title": "Jak portfel odczytuje tę warstwę",
+          "bullets": [
+            "Telegram jest dziś jedyną aktywną społecznościową ścieżką odbioru.",
+            "Pozostałe elementy społecznościowe już istnieją w modelu maski kontraktu.",
+            "Historia odbioru i status odbioru są specyficzne dla portfela i są odczytywane w aplikacji mobilnej, a nie udawane tutaj.",
+            "Finansowanie skarbca i odblokowany limit to osobne rzeczywistości, dlatego aplikacja pokazuje oba elementy.",
+            "Ta strona internetowa sama nie wykonuje aktywnego odbioru; wskazuje ścieżkę portfela, która to robi."
+          ]
+        },
+        "fallback": {
+          "eyebrow": "Tryb awaryjny",
+          "title": "Ścieżka jest gotowa, ale odczyty na żywo nie powiodły się.",
+          "body": "Strona jest już podłączona do rzeczywistego kontraktu AirdropVault. Gdy odczyt na żywo znów się powiedzie, automatycznie uzupełni stan fali, saldo, odblokowany limit, zaplanowaną pozostałą część oraz czas następnej fali.",
+          "openVault": "Otwórz AirdropVault",
+          "openApp": "Otwórz ścieżkę aplikacji mobilnej"
+        }
+      }
     }
   }
 }
