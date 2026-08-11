@@ -39301,6 +39301,116 @@
       ],
       "linksEyebrow": "Public Exits",
       "footerNote": "गोपनीयता से जुड़े questions support@4teen.me पर भेजे जा सकते हैं। Official phone और WhatsApp support: +998 95 792 02 87."
+    },
+    "terms": {
+      "metadata": {
+        "title": "शर्तें",
+        "description": "4TEEN वेबसाइट, wallet routes, सार्वजनिक protocol pages और on-chain ecosystem surfaces के उपयोग के लिए मूल शर्तें।"
+      },
+      "hero": {
+        "eyebrow": "शर्तें",
+        "status": "सार्वजनिक शर्तें",
+        "title": "4TEEN सार्वजनिक blockchain systems, wallet execution और on-chain contracts के आसपास एक interface layer है, परिणाम का वादा नहीं।",
+        "lead": "इन शर्तों को व्यावहारिक रूप से पढ़ा जाना चाहिए: code, wallet approval, network state और smart-contract rules यह परिभाषित करते हैं कि वास्तव में क्या होता है। साइट और app आपको उन surfaces तक पहुँचने में मदद कर सकते हैं, लेकिन वे on-chain risk या market risk को हटाते नहीं हैं।"
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "ऑपरेटर",
+          "title": "\"AG PLUS\" LLC",
+          "body": "\"AG PLUS\" Limited Liability Company आधिकारिक 4TEEN वेबसाइट और प्रकाशित support routes के लिए कानूनी operator है। D-U-N-S संख्या: 933906683."
+        },
+        {
+          "eyebrow": "प्रकृति",
+          "title": "Interface, custody नहीं",
+          "body": "वेबसाइट और wallet आपको blockchain actions देखने, तैयार करने और sign करने में मदद करते हैं। वे केवल route दिखाने के कारण आपके assets के owner नहीं बन जाते।"
+        },
+        {
+          "eyebrow": "जोखिम",
+          "title": "कोई market guarantee नहीं",
+          "body": "Token price, liquidity, release timing, reward outcomes और campaign results बदल सकते हैं। साइट पर मौजूद किसी भी बात को guaranteed return या guaranteed allocation के रूप में नहीं पढ़ा जाना चाहिए।"
+        },
+        {
+          "eyebrow": "जिम्मेदारी",
+          "title": "आप action को approve करते हैं",
+          "body": "यदि आप transaction sign करते हैं, address paste करते हैं या contract के साथ interact करते हैं, तो route, asset, amount और destination की जाँच करने की जिम्मेदारी आपकी ही रहती है।"
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. कानूनी ऑपरेटर",
+          "title": "आधिकारिक 4TEEN वेबसाइट AG PLUS LLC द्वारा संचालित है",
+          "body": "\"AG PLUS\" Limited Liability Company, Republic of Uzbekistan में registered एक Limited Liability Company, https://4teen.me और 4TEEN के लिए आधिकारिक public project surfaces संचालित करती है।",
+          "bullets": [
+            "Taxpayer Identification Number: 312 696 228",
+            "State registration number: 3080788, registered 06 January 2026",
+            "D-U-N-S संख्या: 933906683",
+            "कानूनी पता: Republic of Uzbekistan, Tashkent city, Yunusabad district, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, house 3-B"
+          ],
+          "note": "आधिकारिक कानूनी और support contact: support@4teen.me; phone और WhatsApp: +998 95 792 02 87."
+        },
+        {
+          "eyebrow": "2. Product Nature",
+          "title": "साइट और app access layers हैं",
+          "body": "4TEEN surfaces में informational pages, public protocol dashboards, mobile wallet routes, direct-buy flows, liquidity controls, airdrop views और ambassador routes शामिल हैं। ये surfaces आपको blockchain actions तक पहुँचने में मदद करते हैं, लेकिन वे फिर भी public networks और deployed contracts के ऊपर layered interfaces ही हैं।"
+        },
+        {
+          "eyebrow": "3. Non-custodial और on-chain वास्तविकता",
+          "title": "Protocol contracts और user signatures द्वारा परिभाषित होता है",
+          "body": "यदि कोई behavior contract code, wallet approval या visible resource checks द्वारा enforced है, तो वह वास्तविक है। यदि कोई चीज़ केवल copy से implied है और execution logic द्वारा समर्थित नहीं है, तो उसे guarantee के रूप में न मानें।",
+          "bullets": [
+            "On-chain confirm होने के बाद transactions irreversible होते हैं",
+            "Network congestion, fees, energy और bandwidth execution को प्रभावित कर सकते हैं",
+            "Contract behavior deployed code और current state पर निर्भर करता है"
+          ]
+        },
+        {
+          "eyebrow": "4. कोई investment promise नहीं",
+          "title": "यहाँ कुछ भी financial advice नहीं है",
+          "body": "4TEEN profit, token appreciation, guaranteed airdrop value, guaranteed ambassador income या guaranteed liquidity results का वादा नहीं करता। Market behavior बाहरी है, और सभी participation user के अपने risk पर ही रहती है।"
+        },
+        {
+          "eyebrow": "5. Reward और campaign logic",
+          "title": "Eligibility कोई marketing slogan नहीं है",
+          "body": "Airdrop, ambassador और reward flows contract rules, campaign conditions, anti-abuse checks, verification logic, resource availability या backend processing queues पर निर्भर कर सकते हैं। केवल participation payout की guarantee नहीं देता।"
+        },
+        {
+          "eyebrow": "6. External links और third parties",
+          "title": "हर linked surface 4TEEN द्वारा controlled नहीं होता",
+          "body": "Explorers, repositories, DEX routes, social channels और store pages साइट या app से linked हो सकते हैं। वे services अपनी terms और uptime conditions के तहत operate करती हैं। 4TEEN उनकी availability या behavior की guarantee नहीं देता।"
+        },
+        {
+          "eyebrow": "7. User responsibility",
+          "title": "आपको फिर भी verify करना होगा कि आप क्या कर रहे हैं",
+          "bullets": [
+            "Sign करने से पहले contract addresses और asset symbols जाँचें",
+            "अपनी seed phrase, private key और device access की सुरक्षा करें",
+            "Destination addresses और transaction amounts verify करें",
+            "Releases या support जाँचते समय केवल official channels का उपयोग करें"
+          ],
+          "note": "गलत addresses, compromised devices, leaked recovery phrases या misunderstood contract behavior से होने वाला loss user-side risk ही रहता है।"
+        },
+        {
+          "eyebrow": "8. Updates",
+          "title": "Product समय के साथ बदल सकता है",
+          "body": "Pages, wallet routes, protocol integrations, campaign logic और public copy product के evolve होने के साथ बदल सकते हैं। Changes के बाद वेबसाइट या app का continued use मतलब है कि आप product के current version का उपयोग कर रहे हैं, किसी पुरानी expectation का नहीं।"
+        }
+      ],
+      "links": [
+        {
+          "label": "Mobile app page खोलें",
+          "href": "/app"
+        },
+        {
+          "label": "Verification खोलें",
+          "href": "/verification"
+        },
+        {
+          "label": "Smart contracts repository खोलें",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Public Exits",
+      "footerNote": "इन शर्तों को contract addresses, explorer state और wallet confirmation screen के साथ पढ़ें। Organization identity: \"AG PLUS\" LLC, D-U-N-S 933906683."
     }
   }
 }
