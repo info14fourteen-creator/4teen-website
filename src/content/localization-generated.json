@@ -44338,6 +44338,197 @@
           "openBuy": "打开购买路径"
         }
       }
+    },
+    "liquidity": {
+      "metadata": {
+        "title": "公共流动性控制器",
+        "description": "4TEEN 公共流动性控制器，提供实时控制器余额、公共 bootstrapper 触发路径、储备可见性以及已确认执行动态。"
+      },
+      "hero": {
+        "eyebrow": "流动性控制器",
+        "badge": "公共流动性控制器",
+        "title": "公共 4TEEN 流动性控制器",
+        "subtitle": "自动化可以唤醒该路由，但当合约闸门开启时，任何钱包仍然可以拉起 bootstrapper。",
+        "body": [
+          "这个页面不应读起来像一个封闭的运维面板。它应该清楚传达一件事：控制器侧的 TRX 是可见的，储备侧的库存是可见的，而释放规则仍然存在于链上。",
+          "如果 UTC 窗口已开启、控制器高于阈值，并且签名钱包拥有足够的网络资源，即使自动化层某天错过执行，流动性仍然可以从钱包执行。"
+        ],
+        "rotatingLines": [
+          "公共触发。合约闸门。",
+          "自动化辅助。合约决定。",
+          "先 BOOTSTRAP。链上执行。"
+        ],
+        "primaryCta": "打开钱包路由",
+        "secondaryCta": "跳转到实时执行",
+        "ctaNote": "网站是证明层。钱包是用于手动触发、资源检查和最终签名的执行界面。",
+        "stats": {
+          "controllerBalance": {
+            "label": "控制器余额",
+            "meta": "当前等待在 FourteenLiquidityController 内的 TRX。"
+          },
+          "nextRelease": {
+            "label": "下一次释放",
+            "meta": "当合约窗口有效时预计释放的 TRX。"
+          },
+          "triggerFloor": {
+            "label": "触发下限",
+            "meta": "执行有效前所需的最低控制器余额。"
+          },
+          "cadence": {
+            "label": "节奏",
+            "meta": "每个 UTC 日一次。闸门由合约强制执行，而不是由自动化强制执行。"
+          },
+          "readFailed": "实时流动性读取失败。",
+          "readRetry": "请稍后尝试刷新。"
+        }
+      },
+      "sections": {
+        "publicRoute": {
+          "eyebrow": "公共路由",
+          "title": "自动化已配置。公共执行仍属于钱包。",
+          "intro": "钱包应用已经包含自动化路径，但更重要的信息比这更广：这条路由仍然是公共的。当合约条件已经满足时，签名钱包可以唤醒 bootstrapper。",
+          "mainCard": {
+            "eyebrow": "公共流动性控制器",
+            "title": "任何钱包都可以唤醒该路由。控制器仍然决定流动性是否真正移动。",
+            "text": "这是正确的权力分离。自动化可以帮助把握时机，但控制器和 bootstrapper 仍然是权限层。如果 bot 暂停，执行路径并不会消失。",
+            "bullets": [
+              "直接购买 4TEEN 会将购买 TRX 的 90% 发送到控制器余额中。",
+              "在控制器执行之前，LiquidityBootstrapper 会先从 FourteenVault 准备代币侧。",
+              "每个 UTC 日一次的规则、最低余额、释放比例以及拆分都保留在链上。"
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "自动化",
+              "title": "钱包 repo 已经接入唤醒路径",
+              "text": "移动端流程将流动性触发器和自动化助手一起暴露出来。这让调度器可见，但不会把调度器变成隐藏的操作者。"
+            },
+            {
+              "eyebrow": "手动触发",
+              "title": "如果自动化错过，用户仍然可以手动签名该路由",
+              "text": "钱包可以从普通用户会话调用 bootstrapAndExecute()。如果闸门已开启且资源可用，流动性仍会执行。"
+            }
+          ],
+          "note": "这就是为什么页面应该描述公共控制器，而不是私有后台。该路由可以超越自动化层继续存在。"
+        },
+        "liveState": {
+          "eyebrow": "实时控制器状态",
+          "title": "控制器当前显示的状态",
+          "rows": {
+            "controllerBalance": "控制器余额",
+            "latestFunding": "最新注资",
+            "latestFundingAt": "最新注资时间",
+            "lastExecute": "上次执行",
+            "minBalance": "最低余额",
+            "dailyRelease": "每日释放",
+            "split": "目标拆分",
+            "windowState": "窗口状态",
+            "nextWindow": "下一个窗口",
+            "snapshotUpdated": "快照更新时间"
+          },
+          "valueLabels": {
+            "openNow": "当前已开启",
+            "waitForThreshold": "等待注资"
+          },
+          "stateLabels": {
+            "ready": "现在可执行",
+            "waiting": "今天已执行",
+            "threshold": "低于阈值"
+          },
+          "note": "快照很有用，因为它能清晰分离各个活动部件：控制器 TRX、注资节奏、释放规模、阈值和时间闸门都能同时保持可见。"
+        },
+        "triggerModel": {
+          "eyebrow": "触发模型",
+          "title": "当有人点击触发流动性时实际会发生什么",
+          "intro": "诚实地描述时，这条路由很简单：首先 bootstrapper 检查日期闸门并补足执行器库存，然后控制器释放 TRX，随后两个市场路径接收各自的拆分。",
+          "mainCard": {
+            "eyebrow": "bootstrapAndExecute()",
+            "title": "触发路径是公共的、具备资源感知能力，并且仍由合约规则约束。",
+            "text": "这不是一个假的管理员按钮。钱包必须满足正常的网络条件，并且只有在执行时同一套控制器规则仍然通过时，路由才会继续。",
+            "bullets": [
+              "步骤 1：bootstrapper 检查控制器窗口并计算允许的释放规模。",
+              "步骤 2：在市场侧路径运行之前，bootstrapper 从 FourteenVault 为执行器侧补足 4TEEN。",
+              "步骤 3：控制器执行释放，并将流量按 50 / 50 拆分到 JustMoney 和 Sun.io V3。"
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "资源",
+              "title": "普通钱包可以通过租赁或预加载能量来覆盖该路由",
+              "text": "应用已经将其定位为具备资源感知能力的操作。重点不是隐藏的服务器密钥。重点是公共钱包仍然可以干净地完成该路由。"
+            },
+            {
+              "eyebrow": "规则集",
+              "title": "调度便利性永远不会覆盖合约规则集",
+              "text": "错过 bot 窗口不会改写节奏。过早点击按钮不会绕过闸门。合约仍然会接受或拒绝该路由。"
+            }
+          ],
+          "note": "这才是正确的市场信号：公共触发、可见的储备准备、确定性的释放规则。"
+        },
+        "latestExecutions": {
+          "eyebrow": "最新执行",
+          "title": "来自实时动态的已确认流动性执行",
+          "body": "这个列表刻意保持精简。它展示最新的已确认执行行，让用户可以验证控制器处于活跃状态，而不会把页面变成嘈杂的区块浏览器克隆版。",
+          "headers": {
+            "total": "总释放量",
+            "split": "拆分",
+            "happened": "发生时间",
+            "day": "UTC 日期",
+            "source": "来源"
+          },
+          "empty": "尚未看到已确认的 LiquidityExecuted 行。",
+          "openTx": "打开交易",
+          "note": "每一行都来自已确认的 LiquidityExecuted(day, totalAmount, amountA, amountB) 事件。"
+        },
+        "reservePath": {
+          "eyebrow": "储备路径",
+          "title": "储备代币是库存，而不是自由流通",
+          "intro": "控制器侧的 TRX 只是这条路由的一半。代币侧也需要隔离库存，这就是为什么 FourteenVault 会在两个执行路径接收余额之前存在。",
+          "primaryCard": {
+            "eyebrow": "储备层",
+            "title": "FourteenVault 在市场执行开始之前支持公共流动性路由。",
+            "text": "这些 4TEEN 余额应被理解为储备侧的工作库存。它们不是普通钱包余额，也不应被描述为可自由流通供应。",
+            "bullets": [
+              "在控制器执行之前，Vault 库存会被补入 bootstrapper 路径。",
+              "只有当路由有效时，JustMoney 和 Sun.io V3 才会接收已准备好的余额。",
+              "储备托管、控制器 TRX 和执行器目的地是同一个引擎的不同层。"
+            ]
+          },
+          "secondaryCards": [
+            {
+              "key": "justmoney",
+              "title": "JustMoney 路径",
+              "body": "Executor A 接收允许释放量的一半，并在其代币库存准备好之后运行 AMM 侧流动性路径。"
+            },
+            {
+              "key": "sun",
+              "title": "Sun.io V3 路径",
+              "body": "Executor B 接收另一半，并通过集中流动性路径进行路由，同时使用其自身已准备好的代币侧。"
+            }
+          ],
+          "note": "这就是为什么页面应该解释一条路由，而不只是打印一个好看的总数。储备库存、控制器余额和执行目的地承担的是不同职责。"
+        },
+        "verification": {
+          "eyebrow": "验证",
+          "title": "打开证明层",
+          "body": "从叙述直接跳转到底层轨道：控制器合约、bootstrapper 路由、执行器合约，以及同时暴露自动化和手动触发的钱包实现。",
+          "labels": {
+            "controller": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "justMoney": "JustMoney 执行器",
+            "sunV3": "Sun.io V3 执行器",
+            "contractsRepo": "合约 repository",
+            "walletRepo": "钱包 repository"
+          }
+        },
+        "cta": {
+          "eyebrow": "下一步",
+          "title": "当你想自己唤醒路由时打开钱包",
+          "body": "网站是你验证状态的地方。移动钱包是真实用户检查资源、调用 bootstrapper，并在控制器闸门已经开启时签署路由的地方。",
+          "openApp": "在 App 中打开流动性",
+          "openBuy": "打开购买路由"
+        }
+      }
     }
   }
 }
