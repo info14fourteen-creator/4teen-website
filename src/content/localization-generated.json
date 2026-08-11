@@ -39411,6 +39411,148 @@
       ],
       "linksEyebrow": "Public Exits",
       "footerNote": "इन शर्तों को contract addresses, explorer state और wallet confirmation screen के साथ पढ़ें। Organization identity: \"AG PLUS\" LLC, D-U-N-S 933906683."
+    },
+    "support": {
+      "metadata": {
+        "title": "सहायता",
+        "description": "आधिकारिक 4TEEN सहायता का दायरा, संपर्क मार्ग, प्रतिक्रिया अपेक्षाएँ, और टीम किन बातों में मदद कर सकती है और किनमें नहीं।"
+      },
+      "hero": {
+        "eyebrow": "सहायता",
+        "status": "आधिकारिक चैनल",
+        "title": "सहायता का उद्देश्य आपको सही मार्ग तक पहुँचाना, सार्वजनिक सिस्टम को समझाना, और क्या हुआ यह सत्यापित करना होना चाहिए, बिना यह दिखावा किए कि कोई आपके लिए blockchain की वास्तविकता को पलट सकता है।",
+        "lead": "वेबसाइट, wallet, रिलीज़, या सार्वजनिक protocol से जुड़े सवालों के लिए आधिकारिक 4TEEN चैनलों का उपयोग करें। लेनदेन से जुड़ी किसी भी बात के लिए wallet address, transaction hash, screenshots, route name, device type, और यदि प्रासंगिक हो तो app build जैसे विशिष्ट तथ्य साथ लाएँ।"
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "सबसे उपयुक्त",
+          "title": "रूटिंग और सत्यापन सहायता",
+          "body": "सहायता आपको सही आधिकारिक पेज, wallet सतह, contract link, या सार्वजनिक status route खोजने और यह समझने में मदद कर सकती है कि ये सतहें क्या दिखा रही हैं।"
+        },
+        {
+          "eyebrow": "साथ लाएँ",
+          "title": "उपयोगी प्रमाण",
+          "body": "सबसे तेज़ रास्ता तथ्यात्मक होता है: wallet address, tx hash, page URL, screenshot, timestamp, और आपने क्या अपेक्षा की थी बनाम वास्तव में क्या हुआ इसका संक्षिप्त विवरण।"
+        },
+        {
+          "eyebrow": "कभी न भेजें",
+          "title": "कोई recovery secrets नहीं",
+          "body": "किसी भी सहायता चैनल को seed phrases, raw private keys, या device passcodes न भेजें। आधिकारिक सहायता को इनकी कभी आवश्यकता नहीं होनी चाहिए।"
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "1. आधिकारिक ऑपरेटर",
+          "title": "सहायता कानूनी 4TEEN ऑपरेटर द्वारा प्रकाशित की जाती है",
+          "body": "\"AG PLUS\" Limited Liability Company आधिकारिक 4TEEN वेबसाइट और सहायता मार्गों का संचालन करती है। प्रत्यक्ष सहायता के लिए support@4teen.me या +998 95 792 02 87 का उपयोग करें, और https://4teen.me से सहायता links सत्यापित करें।",
+          "bullets": [
+            "D-U-N-S नंबर: 933906683",
+            "पंजीकरण नंबर: 3080788",
+            "कानूनी पता: उज़्बेकिस्तान गणराज्य, ताशकंद शहर, यूनुसाबाद जिला, Katta Xasanboy MFY, Xasanboy Street, 8th Lane, मकान 3-B"
+          ]
+        },
+        {
+          "eyebrow": "2. सहायता का दायरा",
+          "title": "सहायता किन बातों को कवर करने के लिए है",
+          "body": "सहायता route guidance, तथ्यात्मक troubleshooting, official link verification, सार्वजनिक protocol जानकारी, wallet-surface clarification, release-page help, और यह पहचानने के लिए है कि आपके issue से कौन-सा contract या product layer संबंधित है।"
+        },
+        {
+          "eyebrow": "3. सहायता की सीमाएँ",
+          "title": "सहायता क्या वादा नहीं कर सकती",
+          "body": "सहायता confirmed blockchain transactions को reverse नहीं कर सकती, खोया हुआ seed phrase recover नहीं कर सकती, token price outcome की guarantee नहीं दे सकती, future rewards की guarantee नहीं दे सकती, या केवल इसलिए public contract rules को manually override नहीं कर सकती क्योंकि परिणाम वैसा नहीं था जैसा आप चाहते थे।"
+        },
+        {
+          "eyebrow": "4. प्रतिक्रिया की गुणवत्ता",
+          "title": "तेज़ उत्तर कैसे प्राप्त करें",
+          "bullets": [
+            "ठीक वही route या page शामिल करें जहाँ issue दिखाई दिया",
+            "यदि यह on-chain है, तो wallet address और tx hash शामिल करें",
+            "यदि यह app से संबंधित है, तो device, OS, और app build details शामिल करें",
+            "यदि यह visual है, तो screenshot या छोटा screen recording शामिल करें"
+          ],
+          "note": "जब report तथ्यात्मक और दोहराने योग्य होती है, केवल भावनात्मक नहीं, तो सहायता की गुणवत्ता बेहतर होती है। इससे टीम को यह सत्यापित करने में मदद मिलती है कि वास्तव में क्या हुआ।"
+        }
+      ],
+      "channels": [
+        {
+          "label": "Telegram",
+          "href": "https://t.me/fourteentoken",
+          "note": "घोषणाओं और बुनियादी मार्गदर्शन के लिए सबसे तेज़ सार्वजनिक community route।"
+        },
+        {
+          "label": "Discord",
+          "href": "https://discord.gg/jWZF6KzPCB",
+          "note": "संरचित चर्चा, troubleshooting context, और follow-up messages के लिए उपयोगी।"
+        },
+        {
+          "label": "X",
+          "href": "https://x.com/4teen_me",
+          "note": "सार्वजनिक release visibility के लिए सबसे अच्छा, लेकिन sensitive issue details के लिए आदर्श नहीं।"
+        },
+        {
+          "label": "WhatsApp",
+          "href": "https://wa.me/998957920287",
+          "note": "यदि direct support handoff की आवश्यकता हो और आधिकारिक नंबर आपके region के लिए उपयुक्त हो, तो उपयोगी।"
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app",
+          "note": "जब समस्या स्पष्ट रूप से technical हो, तो code, release, और repository-level issues के लिए उपयोगी।"
+        }
+      ],
+      "channelPanel": {
+        "eyebrow": "आधिकारिक चैनल",
+        "title": "सहायता पर भरोसा करने से पहले आधिकारिक निकासों का उपयोग करें।",
+        "routeLabel": "आधिकारिक route"
+      },
+      "scopePanel": {
+        "eyebrow": "सहायता का दायरा",
+        "title": "सहायता को स्पष्ट करना, सत्यापित करना, और route करना चाहिए। उसे ऐसी शक्तियाँ गढ़नी नहीं चाहिए जो उसके पास नहीं हैं।",
+        "canHelp": "मदद कर सकती है",
+        "cannotHelp": "मदद नहीं कर सकती"
+      },
+      "supportScope": {
+        "canHelp": [
+          "Official route verification और public page guidance",
+          "App download, release-page, और website troubleshooting",
+          "Contract, explorer, या public status-page orientation",
+          "Airdrop, ambassador, या wallet-route issues के लिए basic factual triage"
+        ],
+        "cannotHelp": [
+          "खोए हुए seed phrases, private keys, या device passcodes recover करना",
+          "Confirmed on-chain transactions को undo करना",
+          "Price outcome, token performance, या reward eligibility की guarantee देना",
+          "Custodian की तरह कार्य करना या user funds का नियंत्रण लेना"
+        ]
+      },
+      "contactPanel": {
+        "eyebrow": "संपर्क",
+        "title": "केवल आधिकारिक 4TEEN निकासों का उपयोग करें",
+        "body": "यदि कोई सहायता route आधिकारिक site, wallet, या official social list से linked नहीं है, तो उस पर भरोसा करने से पहले उसे verify करें। आधिकारिक legal operator \"AG PLUS\" LLC है और प्रकाशित D-U-N-S नंबर 933906683 है।",
+        "emailTitle": "सहायता email",
+        "emailMissing": "वर्तमान repositories में कोई dedicated public support mailbox प्रकाशित नहीं है। जब तक कोई प्रकाशित नहीं होता, नीचे दिए गए official channels का उपयोग करें और वहाँ कभी भी secret recovery material साझा न करें।",
+        "phoneTitle": "Phone और WhatsApp",
+        "legalTitle": "कानूनी ऑपरेटर",
+        "legalBody": "\"AG PLUS\" Limited Liability Company · D-U-N-S® 933906683",
+        "securityTitle": "सुरक्षा अनुस्मारक",
+        "securityBody": "किसी भी सहायता चैनल को आपका seed phrase, raw private key, या पूर्ण device unlock secrets नहीं माँगने चाहिए। यदि ऐसा होता है, तो उसे असुरक्षित मानें।"
+      },
+      "links": [
+        {
+          "label": "mobile app page खोलें",
+          "href": "/app"
+        },
+        {
+          "label": "privacy खोलें",
+          "href": "/privacy"
+        },
+        {
+          "label": "terms खोलें",
+          "href": "/terms"
+        }
+      ],
+      "linksEyebrow": "सार्वजनिक निकास",
+      "footerNote": "Release links, contract references, या public state pages के लिए https://4teen.me से शुरू करें। आधिकारिक phone और WhatsApp सहायता: +998 95 792 02 87."
     }
   }
 }
