@@ -31891,6 +31891,224 @@
           "updatedPrefix": "Snapshot zaktualizowany"
         }
       }
+    },
+    "app": {
+      "metadata": {
+        "title": "Aplikacja 4TEEN | Portfel TRON z warstwą operacyjną 4TEEN",
+        "description": "Otwórz mobilny portfel 4TEEN, przejdź przez ścieżki zakupu, odblokowania, płynności, ambasadorów i proof, a następnie pobierz produkt z linków do sklepów.",
+        "openGraphTitle": "Wydanie aplikacji 4TEEN",
+        "openGraphDescription": "Poznaj mobilny portfel 4TEEN i aktywne ścieżki operacyjne już wbudowane w produkt."
+      },
+      "hero": {
+        "eyebrow": "Aplikacja mobilna 4TEEN",
+        "status": "App Store + Google Play",
+        "title": "Prawdziwy portfel TRON z warstwą operacyjną 4TEEN już w środku.",
+        "lead": "Ta strona powinna sprawiać wrażenie strony produktu, a nie notatki o wydaniu. Aplikacja już działa jak szerszy portfel TRON z portfelami, aktywami, transferami, przepływem QR, kontaktami, językiem, ustawieniami, kontrolami zasobów i pełną mapą ścieżek 4TEEN w jednej powierzchni wykonawczej.",
+        "stayOnWeb": "Pozostań w wersji webowej",
+        "primaryCta": "Opcje pobierania",
+        "secondaryCta": "Zobacz powierzchnie protokołu",
+        "ctaNote": "Część webowa wyjaśnia system. Część mobilna podpisuje, routuje, sprawdza zasoby i uruchamia rzeczywisty przepływ transakcji.",
+        "rotatingLines": [
+          "App Store + Google Play. Jedna powierzchnia produktu.",
+          "Uniwersalny portfel. Natywna warstwa 4TEEN.",
+          "Szeroka powierzchnia tokenów. Nie tylko jedno aktywo.",
+          "Najpierw zasoby. Podpis później.",
+          "Rdzeń portfela. Ścieżki protokołu. Ten sam produkt."
+        ],
+        "stats": [
+          {
+            "label": "Rdzeń portfela",
+            "value": "Najpierw TRON",
+            "meta": "Portfele, wysyłka, zarządzanie aktywami, skanowanie, kontakty, ustawienia."
+          },
+          {
+            "label": "Zakres aktywów",
+            "value": "Szeroki",
+            "meta": "TRX, 4TEEN, aktywa stabilne oraz wpisy niestandardowych tokenów zarządzane przez użytkownika."
+          },
+          {
+            "label": "Języki",
+            "value": "16",
+            "meta": "Dedykowana ścieżka językowa z kontrolą ustawień regionalnych w całej aplikacji."
+          },
+          {
+            "label": "Warstwa 4TEEN",
+            "value": "7 ścieżek",
+            "meta": "Zakup, swap, odblokowanie, płynność, airdrop, ambasadorzy i informacje."
+          }
+        ]
+      },
+      "storeLinks": [
+        {
+          "href": "https://apps.apple.com/",
+          "label": "App Store",
+          "meta": "Pobierz na iPhone i iPad"
+        },
+        {
+          "href": "https://play.google.com/store/apps",
+          "label": "Google Play",
+          "meta": "Pobierz na Android"
+        }
+      ],
+      "entryFlow": [
+        {
+          "eyebrow": "Start",
+          "title": "Inteligentne routowanie wejścia",
+          "body": "Aplikacja mobilna nie wrzuca każdego użytkownika na jeden generyczny ekran startowy. Jeszcze zanim użytkownik dotrze do głównej warstwy produktu, wybiera między pierwszym dostępem, odblokowaniem portfela i ścieżką aktywnego portfela."
+        },
+        {
+          "eyebrow": "Ekran główny",
+          "title": "Kompaktowe centrum",
+          "body": "Rzeczywisty ekran główny już działa jako robocze centrum: bezpośredni zakup, widoczność odblokowań, kontrola płynności i ścieżki informacyjne pozostają pod ręką, nie ukrywając swoich głębszych, dedykowanych ekranów."
+        },
+        {
+          "eyebrow": "Głębokie ścieżki",
+          "title": "Pełne ekrany, gdy są potrzebne",
+          "body": "Każde poważne działanie nadal otwiera się we własnej powierzchni. Aplikacja pozostaje kompaktowa w górnej warstwie, ale nigdy nie spłaszcza ważnego przepływu do jednego płytkiego panelu."
+        }
+      ],
+      "walletFoundation": [
+        {
+          "eyebrow": "Portfele",
+          "title": "Wiele tożsamości, nie jedna sztywna powłoka",
+          "text": "Użytkownicy mogą tworzyć, importować, zmieniać nazwy, przełączać i usuwać portfele, a produkt zachowuje czytelny podział między portfelami podpisującymi a portfelami tylko do podglądu."
+        },
+        {
+          "eyebrow": "Wysyłka",
+          "title": "Rzeczywiste przygotowanie transferu",
+          "text": "Wysyłka nie jest surowym polem adresu. Już obsługuje skanowanie QR, kontakty, ostatnich odbiorców, wybór aktywa, reguły dostępnego salda do wydania oraz czytelny krok potwierdzenia."
+        },
+        {
+          "eyebrow": "Zarządzanie crypto",
+          "title": "Szerzej niż jedno aktywo ekosystemu",
+          "text": "Zarządzanie crypto to realna warstwa portfela: TRX, 4TEEN, aktywa stabilne, wpisy niestandardowych tokenów, filtry, tryby sortowania oraz wybór aktywa docelowego dla wysyłki i swapu działają w tej samej powierzchni."
+        },
+        {
+          "eyebrow": "Język",
+          "title": "16 języków interfejsu",
+          "text": "Warstwa językowa jest już wbudowana w produkt dzięki dedykowanej ścieżce i kontroli ustawień regionalnych na poziomie aplikacji w głównych regionalnych punktach wejścia."
+        }
+      ],
+      "resourceLayer": [
+        {
+          "eyebrow": "Potrzebne teraz",
+          "title": "Zasoby są mierzone przed podpisem",
+          "text": "Bezpośredni zakup, wysyłka, swap, wykonanie płynności i inne ścieżki kontraktowe szacują Energy i Bandwidth, zanim aplikacja poprosi o kod dostępu lub biometrię."
+        },
+        {
+          "eyebrow": "Niedobór",
+          "title": "Spalenie TRX jest widoczne zamiast ukryte",
+          "text": "Aplikacja porównuje wymagane zasoby z aktualnymi zasobami portfela, pokazuje niedobór i ujawnia oczekiwaną ścieżkę spalania, zamiast pozwalać użytkownikowi odkryć ją przez niepowodzenie."
+        },
+        {
+          "eyebrow": "Wynajem",
+          "title": "Doładowanie zasobów jest zintegrowane z przepływem",
+          "text": "Kod już obsługuje wycenę wynajmu, płatność, oczekiwanie i stany gotowości dla transferu wysyłki, swapu, bezpośredniego zakupu, wykonania płynności, rejestracji ambasadora oraz wypłat ambasadora."
+        },
+        {
+          "eyebrow": "Ponowienie",
+          "title": "Oczekujące wiersze pozostają operacyjnie uczciwe",
+          "text": "Jeśli strona operatora spadnie poniżej bezpiecznego progu zasobów, zakolejkowane wiersze pozostają widoczne, podczas gdy backend doładowuje zasoby, a cykl ponowienia sprawdza ponownie, aż nagroda trafi on-chain."
+        }
+      ],
+      "protocolSurfaces": [
+        {
+          "eyebrow": "Bezpośredni zakup",
+          "title": "Przygotuj → potwierdź",
+          "text": "Ścieżka zakupu najpierw przygotowuje transakcję: kwotowanie, kontekst emisji przy zakupie, 14-dniową blokadę, podgląd podziału TRX, a dopiero potem rzeczywisty krok potwierdzenia i podpisu.",
+          "href": "/buy"
+        },
+        {
+          "eyebrow": "Swap tokena",
+          "title": "Porównanie ścieżek, nie ślepa wymiana",
+          "text": "Ścieżka swapu może porównywać trasy, przełączać aktywa docelowe, pokazywać chronione minimum otrzymania i zatrzymać przepływ wcześniej, jeśli allowance lub zasoby sieci nie są gotowe.",
+          "href": "/swap"
+        },
+        {
+          "eyebrow": "Oś czasu odblokowań",
+          "title": "Widoczność blokady dla każdego zakupu",
+          "text": "Każda zablokowana partia jest pokazana według portfela, kwoty, czasu odblokowania UTC, odliczania i transakcji źródłowej. To specjalnie zaprojektowana powierzchnia blokad, a nie tylko generyczna historia.",
+          "href": "/unlock"
+        },
+        {
+          "eyebrow": "Kontroler płynności",
+          "title": "Prawda po stronie kontrolera",
+          "text": "Ścieżka płynności ujawnia próg 100 TRX, dzienne tempo uwalniania 6.43%, podział wykonawcy oraz bramkowanie wykonania wewnątrz samej aplikacji.",
+          "href": "/liquidity"
+        },
+        {
+          "eyebrow": "Airdrop",
+          "title": "Aktywny stan z Telegram na pierwszym miejscu",
+          "text": "Ścieżka airdropu łączy bieżący stan sesji bota, lokalny stan portfela i stan claim on-chain. Telegram działa teraz; inne kanały społecznościowe są przygotowanymi torami, a nie fałszywie aktywnymi przyciskami.",
+          "href": "/airdrop"
+        },
+        {
+          "eyebrow": "Ambasador",
+          "title": "Rejestracja i panel w jednej ścieżce",
+          "text": "Ścieżka ambasadora zaczyna się jako rejestracja i staje się panelem dla tego samego portfela: slug tożsamości, powiązanie kupującego, wiersze zakupów, oczekujące ponowienie, wypłaty i stan możliwy do odebrania.",
+          "href": "/ambassadors"
+        },
+        {
+          "eyebrow": "Informacje",
+          "title": "Kompaktowa architektura i mapa działania",
+          "text": "Ścieżka informacyjna łączy kontrakty, skarbce, wykonanie płynności, salda portfeli aktywów i gotowość operatora, dzięki czemu architektura oraz stan działania są widoczne wewnątrz produktu.",
+          "href": "/verification"
+        }
+      ],
+      "operatingRules": [
+        {
+          "title": "Najpierw uniwersalny portfel",
+          "text": "Najmocniejsze odczytanie tej aplikacji to nie „powłoka ekosystemu”. Działa jak szerszy portfel TRON z większym uniwersum tokenów, a 4TEEN jest wbudowany w ten fundament jako aktywna warstwa produktu."
+        },
+        {
+          "title": "Tylko podgląd i podpisywanie to różne stany",
+          "text": "Aplikacja inaczej traktuje inspekcję i działanie. Portfele tylko do podglądu mogą odczytywać portfel inwestycyjny i stan protokołu, podczas gdy bezpośredni zakup, rejestracja, wykonanie płynności i wypłata wymagają portfeli podpisujących z pełnym dostępem."
+        },
+        {
+          "title": "Gotowość operacyjna jest częścią interfejsu",
+          "text": "Bramkowanie kontrolera, pokrycie zasobów, zakolejkowane wiersze nagród i status ponowienia są wyrażone jako stany produktu. Użytkownik widzi, co jest gotowe teraz, co wymaga doładowania i co czeka."
+        },
+        {
+          "title": "Wielojęzyczność to infrastruktura produktu",
+          "text": "Obsługa języków jest już zakodowana w aplikacji, a nie pozostawiona jako przyszłe życzenie. To ważne, ponieważ produkt ma działać poza jednym rynkiem i poza jedną ścieżką wejścia społeczności."
+        }
+      ],
+      "downloadReasons": [
+        "Używaj go jako szerszego portfela TRON, nie tylko jako punktu dostępu do 4TEEN.",
+        "Trzymaj portfel inwestycyjny, obsługę niestandardowych tokenów, transfery, skanowanie, kontakty i kontrolę języka w tym samym produkcie.",
+        "Otwórz pełną warstwę 4TEEN wewnątrz portfela: zakup, swap, odblokowanie, płynność, airdrop, ambasadorzy i informacje.",
+        "Zobacz obciążenie sieci, niedobór zasobów, ochronę ścieżki i gotowość operacyjną przed podpisaniem lub ślepym czekaniem."
+      ],
+      "sections": {
+        "entryFlow": {
+          "eyebrow": "Przepływ wejścia",
+          "title": "Jak prawdziwa aplikacja prowadzi użytkownika"
+        },
+        "walletFoundation": {
+          "eyebrow": "Fundament portfela",
+          "title": "Dlaczego to najpierw prawdziwy portfel"
+        },
+        "resourceLayer": {
+          "eyebrow": "Inteligencja zasobów",
+          "title": "Dlaczego wykonanie jest bezpieczniejsze niż ślepe podpisywanie",
+          "notePrefix": "W aplikacji karty obciążenia sieci już pokazują",
+          "noteNeedNow": "Potrzebne teraz",
+          "noteMiddle": "Dostępne teraz",
+          "noteMissing": "Brakuje",
+          "noteSuffix": "oraz procent pokrycia zarówno dla Energy, jak i Bandwidth. Dzięki temu model wykonania jest łatwiejszy do zaufania, ponieważ portfel wyjaśnia koszt przed podpisaniem transakcji."
+        },
+        "protocolSurfaces": {
+          "eyebrow": "Powierzchnie 4TEEN",
+          "title": "Co warstwa protokołu już robi wewnątrz portfela"
+        },
+        "operatingRuleLabel": "Reguła operacyjna",
+        "download": {
+          "eyebrow": "Ścieżka pobierania",
+          "title": "Zainstaluj portfel, jeśli chcesz pełny produkt, a nie tylko mapę webową.",
+          "body": "Najmocniejsza wersja produktu działa w aplikacji: rzeczywiste zachowanie portfela, wielojęzyczny interfejs, wykonanie świadome zasobów oraz pełna warstwa operacyjna 4TEEN w jednym miejscu, gdy wdrożenie w sklepach zostanie otwarte.",
+          "repoLabel": "Repozytorium aplikacji portfela"
+        }
+      }
     }
   }
 }
