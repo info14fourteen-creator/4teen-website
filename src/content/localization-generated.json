@@ -31703,6 +31703,194 @@
           "openApp": "Otwórz ścieżkę aplikacji mobilnej"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "Publiczny kontroler ambasadorów",
+        "description": "Publiczny kontroler ambasadorów 4TEEN z bieżącymi sumami FourteenController, przepływem rejestracji opartym na panelu, dowodem przypisania kupującego, śledzeniem nagród i gotowością środowiska wykonawczego."
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "Publiczny kontroler ambasadorów",
+        "title": "Publiczny kontroler ambasadorów 4TEEN z prawdziwym panelem w tle",
+        "subtitle": "Strona internetowa jest warstwą dowodową. Rejestracja, własność sluga, przypisanie kupującego, naliczanie nagród i wypłaty nadal znajdują się w panelu portfela i rozliczają się względem FourteenController.",
+        "body": [
+          "Ta ścieżka nie powinna udawać, że publiczna strona jest działającym panelem. Prawdziwy przepływ zaczyna się w portfelu: użytkownik rejestruje tożsamość ambasadora, przejmuje slug, synchronizuje profil on-chain, a następnie gromadzi wolumen i nagrody przypisane do kupujących.",
+          "Publiczna strona ma inne zadanie. Powinna dowodzić, że kontroler działa, profile w panelu istnieją, przypisania kupujących są śledzone, zakupy są przetwarzane, a stan nagród pozostaje widoczny zamiast znikać w zapleczu operacyjnym."
+        ],
+        "rotatingLines": [
+          "ZAREJESTRUJ. PRZYPISZ. ZWERYFIKUJ. WYPŁAĆ.",
+          "PUBLICZNY DOWÓD. PRAWDZIWY PANEL.",
+          "NAJPIERW SLUG. PÓŹNIEJ PRZEPŁYW NAGRÓD."
+        ],
+        "primaryCta": "Otwórz ścieżkę portfela",
+        "secondaryCta": "Zobacz przepływ rejestracji",
+        "ctaNote": "Tożsamość w panelu, link polecający, wiersze kupujących, oczekujące ponowne przetworzenie i wypłaty pozostają natywne dla portfela. Strona internetowa pozostaje publiczna, czytelna i uczciwa.",
+        "stats": {
+          "profilesOnChain": {
+            "label": "Profile on-chain",
+            "meta": "Profile ambasadorów są już widoczne przez warstwę panelu opartą na kontrolerze."
+          },
+          "boundBuyers": {
+            "label": "Przypisani kupujący",
+            "meta": "Tożsamości kupujących są już połączone z profilami ambasadorów."
+          },
+          "rewardsClaimed": {
+            "label": "Odebrane nagrody",
+            "meta": "TRX już wypłacone przez ambasadorów w przepływie panelu."
+          },
+          "pendingReplay": {
+            "label": "Oczekujące ponowne przetworzenie",
+            "meta": "Wiersze nadal czekające na przetworzenie bezpieczne pod względem zasobów, zamiast być fałszywie oznaczane jako ukończone."
+          },
+          "readFailed": "Odczyt danych ambasadorów na żywo nie powiódł się.",
+          "readRetry": "Spróbuj odświeżyć za chwilę."
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "Ścieżka panelu",
+          "title": "Publiczna strona nie jest panelem. Dowodzi, że panel istnieje.",
+          "intro": "To jest czysty podział produktu. Portfel obsługuje tożsamość, przypisanie, ponowne przetwarzanie i działania wypłat. Strona wyjaśnia mechanikę i pokazuje, czy system faktycznie się porusza.",
+          "mainCard": {
+            "eyebrow": "Kontroler + panel",
+            "title": "Rejestracja i nagrody pozostają natywne dla portfela. Publiczny dowód pozostaje otwarty.",
+            "text": "Endpoint panelu już łączy stan dashboardu on-chain z wierszami bazy danych dotyczącymi kupujących, zakupów i oczekującego ponownego przetworzenia. Oznacza to, że publiczna strona może mówić prawdę o przepływie, nie udając, że może zastąpić sam panel.",
+            "bullets": [
+              "Panel rozwiązuje link polecający na podstawie sluga ambasadora.",
+              "Zakupy przypisane do kupujących są utrwalane i ponownie przetwarzane względem kontrolera, gdy pozwalają na to zasoby.",
+              "Stan nagród możliwych do odebrania i historia wypłat są śledzone razem z profilem on-chain."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Własność sluga",
+              "title": "Portfel nie staje się ambasadorem wyłącznie dzięki tekstowi marketingowemu",
+              "text": "Przepływ rejestracji sprawdza dostępność sluga, zapobiega podwójnej rejestracji portfela i oczekuje prawdziwego profilu ambasadora on-chain, zanim ścieżka zostanie uznana za ukończoną."
+            },
+            {
+              "eyebrow": "Przypisanie kupującego",
+              "title": "Ścieżka zarabiania zaczyna się wtedy, gdy zakupy są faktycznie przypisane",
+              "text": "Przypisani kupujący, przypisane zakupy, przetworzone wiersze kontrolera i oczekujące ponowne przetworzenie to odrębne stany. Panel nie spłaszcza ich do jednej dekoracyjnej liczby."
+            }
+          ],
+          "note": "Dlatego strona powinna opisywać publiczny kontroler ambasadorów z prawdziwym panelem w tle, a nie fałszywy landing page poleceń bez działającego stanu."
+        },
+        "registration": {
+          "eyebrow": "Przepływ rejestracji",
+          "title": "Rejestracja zaczyna się w portfelu, a następnie staje się profilem on-chain.",
+          "intro": "Ekran rejestracji nie jest luźnym formularzem zapisu. To punkt, w którym wybór sluga, tożsamość portfela, routing energii i synchronizacja z kontrolerem zaczynają mieć znaczenie.",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "Portfel może wycenić zasoby, zweryfikować slug i dopiero wtedy sfinalizować rejestrację.",
+            "text": "API sprawdza, czy slug jest zajęty, czy portfel jest już zarejestrowany oraz czy ścieżka energii jest gotowa dla celu ambassador_registration. Po transakcji synchronizacja panelu weryfikuje, czy profil on-chain naprawdę istnieje.",
+            "bullets": [
+              "Dostępność sluga jest sprawdzana, zanim ścieżka zostanie potwierdzona.",
+              "W razie potrzeby można zamówić wynajem energii specjalnie na potrzeby rejestracji ambasadora.",
+              "Synchronizacja panelu weryfikuje zapisany hash sluga i udostępnia finalny link polecający."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Tożsamość portfela",
+              "title": "Rejestracja staje się profilem, a nie jednorazowym wypełnieniem formularza",
+              "text": "Po synchronizacji ambasador ma profil powiązany z portfelem, z aktualnym poziomem, procentem nagrody, liczbą kupujących, wolumenem, naliczonymi nagrodami, odebranymi nagrodami i saldem możliwym do odebrania."
+            },
+            {
+              "eyebrow": "Bezpieczeństwo ponownego przetwarzania",
+              "title": "Jeśli po stronie operatora brakuje zasobów, wiersze czekają zamiast kłamać",
+              "text": "Oczekujące ponowne przetworzenie jest częścią warstwy prawdy. Panel utrzymuje je widoczne, dopóki zasoby operatora nie będą wystarczająco bezpieczne, aby czysto przetworzyć zweryfikowane zakupy."
+            }
+          ],
+          "note": "Dlatego sekwencja rejestracji nie jest kosmetyczna. To wejście do tego samego panelu, który później przechowuje stan poleceń, wiersze zakupów i wypłaty."
+        },
+        "ledger": {
+          "eyebrow": "Publiczna księga",
+          "title": "Sumy kontrolera pozostają publiczne, nawet gdy działania panelu pozostają prywatne.",
+          "note": "FourteenController udostępnia liczby i salda na poziomie systemu. Strona powinna to pokazywać, nie udając, że publiczna warstwa może podpisywać transakcje panelu.",
+          "rows": {
+            "totalAmbassadors": "Łączna liczba ambasadorów",
+            "activeAmbassadors": "Aktywni ambasadorzy",
+            "boundBuyers": "Przypisani kupujący",
+            "trackedVolume": "Śledzony wolumen",
+            "rewardsAccrued": "Naliczone nagrody",
+            "rewardsClaimed": "Odebrane nagrody",
+            "reservedRewards": "Zarezerwowane nagrody",
+            "ownerAvailable": "Dostępne dla właściciela",
+            "unallocatedFunds": "Nieprzydzielone środki z zakupów"
+          }
+        },
+        "runtime": {
+          "eyebrow": "Środowisko wykonawcze panelu",
+          "title": "Jeśli zasoby są niskie, wiersze czekają zamiast udawać, że zostały rozliczone.",
+          "note": "Publiczny widok środowiska wykonawczego ma znaczenie, ponieważ wyjaśnia, dlaczego ponowne przetwarzanie może zgodnie z prawdą trafić do kolejki. Niska energia lub przepustowość nie jest już cichą awarią; jest widocznym stanem systemu.",
+          "readyYes": "Gotowe teraz",
+          "readyNo": "Wymaga doładowania",
+          "rows": {
+            "operatorWallet": "Portfel operatora",
+            "readyNow": "Gotowe teraz",
+            "profilesOnChain": "Profile on-chain",
+            "profilesActive": "Aktywne profile",
+            "pendingReplay": "Oczekujące ponowne przetworzenie",
+            "lastPurchaseSeen": "Ostatni zaobserwowany zakup",
+            "lastWithdrawalSeen": "Ostatnia zaobserwowana wypłata",
+            "energyAvailable": "Dostępna energia",
+            "bandwidthAvailable": "Dostępna przepustowość",
+            "needPerAllocation": "Zapotrzebowanie na alokację",
+            "safeFloorAfterRun": "Bezpieczny poziom minimalny po uruchomieniu"
+          }
+        },
+        "levels": {
+          "eyebrow": "Drabina poziomów",
+          "title": "Wzrost liczby kupujących zmienia udział w nagrodach.",
+          "suffix": "% udziału w nagrodzie w kwalifikowanym przepływie."
+        },
+        "proof": {
+          "eyebrow": "Warstwa dowodowa",
+          "title": "Publiczna strona nadal powinna pokazywać to, co panel już przetworzył.",
+          "cards": {
+            "recordedPurchases": {
+              "title": "Zarejestrowane zakupy",
+              "text": "Zakupy już zapisane w śladzie panelu, obejmujące wiersze przetworzone i oczekujące."
+            },
+            "ambassadorsWithPurchases": {
+              "title": "Ambasadorzy z zakupami",
+              "text": "Profile, które mają już atrybucję zakupów przechodzącą przez ścieżkę zarabiania."
+            },
+            "withdrawals": {
+              "title": "Zdarzenia wypłat",
+              "text": "Wiersze wypłat nagród już przechwycone przez backend i synchronizację panelu."
+            },
+            "latestWithdrawal": {
+              "title": "Ostatnia zaobserwowana wypłata",
+              "text": "Najświeższy zarejestrowany znacznik czasu wypłaty nagrody ambasadora."
+            }
+          },
+          "note": "Dzięki temu strona internetowa pozostaje osadzona w rzeczywistych dowodach z panelu: zakupy, kolejka ponownego przetwarzania i wypłaty pozostawiają widoczny publiczny ślad."
+        },
+        "route": {
+          "eyebrow": "Ścieżki dowodowe",
+          "title": "Użyj publicznej warstwy, aby sprawdzić kontroler, implementację portfela i działającą aplikację.",
+          "cards": {
+            "contract": {
+              "eyebrow": "Kontrakt",
+              "title": "Otwórz FourteenController",
+              "text": "Sprawdź działający kontroler, który przechowuje statystyki i salda systemu ambasadorów."
+            },
+            "walletRepo": {
+              "eyebrow": "Pliki portfela",
+              "title": "Otwórz repo portfela",
+              "text": "Zobacz panel, routing zasobów, logikę rejestracji i przepływ ponownego przetwarzania, które napędzają prawdziwy produkt."
+            },
+            "app": {
+              "eyebrow": "Ścieżka portfela",
+              "title": "Otwórz ścieżkę aplikacji",
+              "text": "Rejestracja, stan panelu, link polecający i wypłaty należą do doświadczenia portfela."
+            }
+          },
+          "updatedPrefix": "Snapshot zaktualizowany"
+        }
+      }
     }
   }
 }
