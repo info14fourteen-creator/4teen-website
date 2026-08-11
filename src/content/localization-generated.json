@@ -38262,6 +38262,194 @@
           "openApp": "मोबाइल ऐप रूट खोलें"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "पब्लिक एम्बेसडर कंट्रोलर",
+        "description": "लाइव FourteenController टोटल्स, कैबिनेट-समर्थित रजिस्ट्रेशन फ्लो, खरीदार बाइंडिंग प्रूफ, रिवॉर्ड ट्रैकिंग और रनटाइम रेडीनेस के साथ 4TEEN पब्लिक एम्बेसडर कंट्रोलर।"
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "पब्लिक एम्बेसडर कंट्रोलर",
+        "title": "इसके पीछे वास्तविक कैबिनेट वाला एक पब्लिक 4TEEN एम्बेसडर कंट्रोलर",
+        "subtitle": "वेबसाइट प्रूफ लेयर है। रजिस्ट्रेशन, स्लग स्वामित्व, खरीदार बाइंडिंग, रिवॉर्ड accrual और withdrawals अब भी वॉलेट कैबिनेट में रहते हैं और FourteenController के विरुद्ध settle होते हैं।",
+        "body": [
+          "इस रूट को यह दिखावा नहीं करना चाहिए कि पब्लिक पेज ही काम करने वाला कैबिनेट है। वास्तविक फ्लो वॉलेट में शुरू होता है: यूज़र एक एम्बेसडर पहचान रजिस्टर करता है, स्लग क्लेम करता है, ऑन-चेन प्रोफाइल सिंक करता है, और फिर खरीदार-एट्रिब्यूटेड वॉल्यूम व रिवॉर्ड जमा करता है।",
+          "पब्लिक साइट का काम अलग है। इसे यह साबित करना चाहिए कि कंट्रोलर लाइव है, कैबिनेट प्रोफाइल मौजूद हैं, खरीदार बाइंडिंग ट्रैक हो रही हैं, खरीदारी प्रोसेस हो रही हैं, और रिवॉर्ड स्टेट किसी बैक ऑफिस में गायब होने के बजाय दिखाई देती रहती है।"
+        ],
+        "rotatingLines": [
+          "रजिस्टर करें। बाइंड करें। वेरिफाई करें। withdraw करें।",
+          "पब्लिक प्रूफ। वास्तविक कैबिनेट।",
+          "पहले स्लग। बाद में रिवॉर्ड फ्लो।"
+        ],
+        "primaryCta": "वॉलेट रूट खोलें",
+        "secondaryCta": "रजिस्ट्रेशन फ्लो देखें",
+        "ctaNote": "कैबिनेट पहचान, रेफरल लिंक, खरीदार rows, पेंडिंग replay और withdrawals वॉलेट-नेटिव रहते हैं। वेबसाइट पब्लिक, पठनीय और ईमानदार रहती है।",
+        "stats": {
+          "profilesOnChain": {
+            "label": "ऑन-चेन प्रोफाइल",
+            "meta": "एम्बेसडर प्रोफाइल पहले से ही कंट्रोलर-समर्थित कैबिनेट लेयर के माध्यम से दिखाई दे रही हैं।"
+          },
+          "boundBuyers": {
+            "label": "बाउंड खरीदार",
+            "meta": "खरीदार पहचान पहले से ही एम्बेसडर प्रोफाइल से जुड़ी हुई हैं।"
+          },
+          "rewardsClaimed": {
+            "label": "क्लेम किए गए रिवॉर्ड",
+            "meta": "एम्बेसडर द्वारा कैबिनेट फ्लो के माध्यम से पहले ही withdraw किया गया TRX।"
+          },
+          "pendingReplay": {
+            "label": "पेंडिंग replay",
+            "meta": "rows जो अभी भी complete के रूप में fake किए जाने के बजाय resource-safe processing की प्रतीक्षा कर रही हैं।"
+          },
+          "readFailed": "लाइव एम्बेसडर read विफल रहा।",
+          "readRetry": "एक क्षण बाद refresh करने का प्रयास करें।"
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "कैबिनेट रूट",
+          "title": "पब्लिक पेज कैबिनेट नहीं है। यह साबित करता है कि कैबिनेट मौजूद है।",
+          "intro": "यही साफ प्रोडक्ट split है। वॉलेट identity, binding, replay और withdrawal actions को own करता है। साइट mechanics समझाती है और दिखाती है कि सिस्टम वास्तव में चल रहा है या नहीं।",
+          "mainCard": {
+            "eyebrow": "कंट्रोलर + कैबिनेट",
+            "title": "रजिस्ट्रेशन और रिवॉर्ड वॉलेट-नेटिव रहते हैं। पब्लिक प्रूफ खुला रहता है।",
+            "text": "कैबिनेट endpoint पहले से ही buyers, purchases और pending replay के database rows के साथ on-chain dashboard state को merge करता है। इसका मतलब है कि पब्लिक साइट flow के बारे में सच बोल सकती है, बिना यह दिखावा किए कि वह खुद कैबिनेट को replace कर सकती है।",
+            "bullets": [
+              "कैबिनेट एम्बेसडर स्लग से रेफरल लिंक resolve करता है।",
+              "खरीदार-एट्रिब्यूटेड खरीदारी persist की जाती हैं और resources allow करने पर controller के विरुद्ध replay की जाती हैं।",
+              "क्लेम करने योग्य रिवॉर्ड स्टेट और withdrawal history को on-chain profile के साथ track किया जाता है।"
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "स्लग स्वामित्व",
+              "title": "सिर्फ मार्केटिंग टेक्स्ट से कोई वॉलेट एम्बेसडर नहीं बनता",
+              "text": "रजिस्ट्रेशन फ्लो स्लग availability check करता है, duplicate wallet registration रोकता है, और route को complete मानने से पहले एक वास्तविक on-chain ambassador profile की अपेक्षा करता है।"
+            },
+            {
+              "eyebrow": "खरीदार बाइंडिंग",
+              "title": "earn रूट तब शुरू होता है जब खरीदारी वास्तव में attributed होती हैं",
+              "text": "Bound buyers, attributed purchases, processed controller rows और pending replay सभी अलग-अलग states हैं। कैबिनेट उन्हें एक decorative number में flatten नहीं करता।"
+            }
+          ],
+          "note": "इसीलिए पेज को बिना operating state वाले नकली referral landing page के बजाय, इसके पीछे वास्तविक कैबिनेट वाले पब्लिक एम्बेसडर कंट्रोलर का वर्णन करना चाहिए।"
+        },
+        "registration": {
+          "eyebrow": "रजिस्ट्रेशन फ्लो",
+          "title": "रजिस्ट्रेशन वॉलेट में शुरू होता है, फिर ऑन-चेन प्रोफाइल बन जाता है।",
+          "intro": "रजिस्ट्रेशन स्क्रीन कोई loose signup form नहीं है। यह वह बिंदु है जहां slug selection, wallet identity, energy routing और controller sync मायने रखने लगते हैं।",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "वॉलेट resources quote कर सकता है, slug validate कर सकता है, और तभी registration finalize कर सकता है।",
+            "text": "API यह check करता है कि slug taken है या नहीं, wallet पहले से registered है या नहीं, और energy route ambassador_registration purpose के लिए ready है या नहीं। transaction के बाद, cabinet sync verify करता है कि on-chain profile वास्तव में मौजूद है।",
+            "bullets": [
+              "route confirm होने से पहले slug availability check की जाती है।",
+              "जरूरत पड़ने पर ambassador registration के लिए विशेष रूप से energy rental request किया जा सकता है।",
+              "cabinet sync stored slug hash verify करता है और final referral link expose करता है।"
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "वॉलेट पहचान",
+              "title": "रजिस्ट्रेशन एक profile बन जाता है, one-time form fill नहीं",
+              "text": "एक बार sync हो जाने के बाद, एम्बेसडर के पास wallet-bound profile होती है जिसमें current level, reward percent, buyer count, volume, accrued rewards, claimed rewards और claimable balance शामिल होते हैं।"
+            },
+            {
+              "eyebrow": "Replay सुरक्षा",
+              "title": "यदि operator side के resources कम हैं, तो rows झूठ बोलने के बजाय प्रतीक्षा करती हैं",
+              "text": "Pending replay truth layer का हिस्सा है। कैबिनेट इसे तब तक visible रखता है जब तक operator resources verified purchases को साफ़ तौर पर process करने के लिए पर्याप्त safe न हो जाएं।"
+            }
+          ],
+          "note": "इसलिए registration sequence cosmetic नहीं है। यह उसी कैबिनेट का doorway है जिसमें बाद में referral state, purchase rows और withdrawals रखे जाते हैं।"
+        },
+        "ledger": {
+          "eyebrow": "पब्लिक लेजर",
+          "title": "कैबिनेट actions private रहने पर भी controller totals public रहते हैं।",
+          "note": "FourteenController system-level counts और balances expose करता है। साइट को इसे visible बनाना चाहिए, बिना यह दिखावा किए कि public layer cabinet transactions sign कर सकती है।",
+          "rows": {
+            "totalAmbassadors": "कुल एम्बेसडर",
+            "activeAmbassadors": "Active एम्बेसडर",
+            "boundBuyers": "बाउंड खरीदार",
+            "trackedVolume": "ट्रैक किया गया वॉल्यूम",
+            "rewardsAccrued": "जमा हुए रिवॉर्ड",
+            "rewardsClaimed": "क्लेम किए गए रिवॉर्ड",
+            "reservedRewards": "Reserved रिवॉर्ड",
+            "ownerAvailable": "Owner Available",
+            "unallocatedFunds": "Unallocated Purchase Funds"
+          }
+        },
+        "runtime": {
+          "eyebrow": "कैबिनेट रनटाइम",
+          "title": "यदि resources कम हैं, तो rows cleared होने का दिखावा करने के बजाय प्रतीक्षा करती हैं।",
+          "note": "पब्लिक runtime view महत्वपूर्ण है क्योंकि यह समझाता है कि replay legitimately queue क्यों हो सकता है। Low energy या bandwidth अब silent failure नहीं है; यह visible system state है।",
+          "readyYes": "अभी ready",
+          "readyNo": "Top-up चाहिए",
+          "rows": {
+            "operatorWallet": "Operator Wallet",
+            "readyNow": "अभी Ready",
+            "profilesOnChain": "ऑन-चेन प्रोफाइल",
+            "profilesActive": "Active प्रोफाइल",
+            "pendingReplay": "पेंडिंग Replay",
+            "lastPurchaseSeen": "Last Purchase Seen",
+            "lastWithdrawalSeen": "Last Withdrawal Seen",
+            "energyAvailable": "Energy Available",
+            "bandwidthAvailable": "Bandwidth Available",
+            "needPerAllocation": "Need per Allocation",
+            "safeFloorAfterRun": "Safe Floor After Run"
+          }
+        },
+        "levels": {
+          "eyebrow": "Level Ladder",
+          "title": "Buyer growth reward share को बदलती है।",
+          "suffix": "qualified flow पर % reward share।"
+        },
+        "proof": {
+          "eyebrow": "प्रूफ लेयर",
+          "title": "पब्लिक side को फिर भी दिखाना चाहिए कि cabinet ने पहले से क्या process किया है।",
+          "cards": {
+            "recordedPurchases": {
+              "title": "Recorded Purchases",
+              "text": "processed और pending rows में, cabinet footprint में पहले से लिखी गई purchases।"
+            },
+            "ambassadorsWithPurchases": {
+              "title": "Ambassadors With Purchases",
+              "text": "वे profiles जिनमें purchase attribution पहले से earn route से गुजर रहा है।"
+            },
+            "withdrawals": {
+              "title": "Withdrawal Events",
+              "text": "backend और cabinet sync द्वारा पहले से capture की गई reward withdrawal rows।"
+            },
+            "latestWithdrawal": {
+              "title": "Latest Withdrawal Seen",
+              "text": "सबसे हालिया recorded ambassador reward withdrawal timestamp।"
+            }
+          },
+          "note": "यह वेबसाइट को वास्तविक cabinet evidence पर grounded रखता है: purchases, replay queue और withdrawals, सभी visible public footprint छोड़ते हैं।"
+        },
+        "route": {
+          "eyebrow": "Proof Routes",
+          "title": "controller, wallet implementation और live app inspect करने के लिए public layer का उपयोग करें।",
+          "cards": {
+            "contract": {
+              "eyebrow": "Contract",
+              "title": "FourteenController खोलें",
+              "text": "लाइव controller inspect करें जिसमें ambassador system stats और balances रखे होते हैं।"
+            },
+            "walletRepo": {
+              "eyebrow": "Wallet Files",
+              "title": "wallet repo खोलें",
+              "text": "वास्तविक product को power देने वाले cabinet, resource routing, registration logic और replay flow देखें।"
+            },
+            "app": {
+              "eyebrow": "Wallet Route",
+              "title": "app route खोलें",
+              "text": "Registration, cabinet state, referral link और withdrawals wallet experience का हिस्सा हैं।"
+            }
+          },
+          "updatedPrefix": "Snapshot updated"
+        }
+      }
     }
   }
 }
