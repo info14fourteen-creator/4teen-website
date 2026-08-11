@@ -9,6 +9,20 @@ const jiti = createJiti(import.meta.url, {
 });
 const load = (modulePath) => jiti(modulePath);
 
+function getWhitepaperTranslationSurface(content) {
+  const translated = structuredClone(content);
+
+  // Historical papers are source documents, not UI copy. Their full text in
+  // every locale overflows the Worker bundle, so only page chrome and summaries
+  // enter the locale pipeline for now.
+  delete translated.current.document;
+  for (const version of Object.values(translated.versions)) {
+    delete version.document;
+  }
+
+  return translated;
+}
+
 const moduleLoaders = {
   airdrop: async () => {
     const contentModule = load("../../src/content/airdrop-content.ts");
@@ -85,7 +99,9 @@ const moduleLoaders = {
   },
   whitepaper: async () => {
     const contentModule = load("../../src/content/whitepaper-content.ts");
-    return contentModule.getWhitepaperPageContent("en");
+    return getWhitepaperTranslationSurface(
+      contentModule.getWhitepaperPageContent("en"),
+    );
   },
 };
 
