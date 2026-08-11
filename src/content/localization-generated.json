@@ -37734,6 +37734,197 @@
           "openBuy": "Buy Route खोलें"
         }
       }
+    },
+    "liquidity": {
+      "metadata": {
+        "title": "सार्वजनिक लिक्विडिटी कंट्रोलर",
+        "description": "4TEEN सार्वजनिक लिक्विडिटी कंट्रोलर, जिसमें लाइव कंट्रोलर बैलेंस, सार्वजनिक bootstrapper ट्रिगर पाथ, रिज़र्व विज़िबिलिटी और कन्फर्म्ड execution फ़ीड शामिल है।"
+      },
+      "hero": {
+        "eyebrow": "लिक्विडिटी कंट्रोलर",
+        "badge": "सार्वजनिक लिक्विडिटी कंट्रोलर",
+        "title": "सार्वजनिक 4TEEN लिक्विडिटी कंट्रोलर",
+        "subtitle": "Automation route को जगा सकता है, लेकिन contract gate खुला होने पर कोई भी wallet फिर भी bootstrapper को खींच सकता है।",
+        "body": [
+          "यह पेज किसी बंद ops panel जैसा नहीं लगना चाहिए। इसे एक बात साफ़ कर देनी चाहिए: controller-side TRX दिखता है, reserve-side inventory दिखती है, और release rules अब भी on-chain रहते हैं।",
+          "अगर UTC window खुली है, controller threshold से ऊपर है, और signing wallet के पास पर्याप्त network resources हैं, तो automation layer किसी दिन चूक भी जाए तब भी wallet से liquidity execute हो सकती है।"
+        ],
+        "rotatingLines": [
+          "PUBLIC TRIGGER. CONTRACT GATE.",
+          "AUTOMATION HELPS. CONTRACTS DECIDE.",
+          "BOOTSTRAP FIRST. EXECUTE ON-CHAIN."
+        ],
+        "primaryCta": "Wallet Route खोलें",
+        "secondaryCta": "Live Executions पर जाएँ",
+        "ctaNote": "Website proof layer है। wallet manual trigger, resource checks और final signing के लिए execution surface है।",
+        "stats": {
+          "controllerBalance": {
+            "label": "Controller Balance",
+            "meta": "TRX जो अभी FourteenLiquidityController के अंदर प्रतीक्षा कर रहा है।"
+          },
+          "nextRelease": {
+            "label": "Next Release",
+            "meta": "जब contract window valid होगी, तब projected TRX release।"
+          },
+          "triggerFloor": {
+            "label": "Trigger Floor",
+            "meta": "Execution valid होने से पहले required minimum controller balance।"
+          },
+          "cadence": {
+            "label": "Cadence",
+            "meta": "प्रति UTC day एक बार। gate contract द्वारा enforce होता है, automation द्वारा नहीं।"
+          },
+          "readFailed": "Live liquidity read failed.",
+          "readRetry": "थोड़ी देर में refresh करके फिर कोशिश करें।"
+        }
+      },
+      "sections": {
+        "publicRoute": {
+          "eyebrow": "Public Route",
+          "title": "Automation configured है। Public execution अब भी wallet का है।",
+          "intro": "Wallet app में automation path पहले से मौजूद है, लेकिन इससे भी महत्वपूर्ण संदेश व्यापक है: यह route अब भी public है। जब contract conditions पहले से satisfied हों, तो signing wallet bootstrapper को जगा सकता है।",
+          "mainCard": {
+            "eyebrow": "Public Liquidity Controller",
+            "title": "कोई भी wallet route को जगा सकता है। liquidity सच में move होगी या नहीं, यह controller ही तय करता है।",
+            "text": "यही powers का सही separation है। Automation timing में मदद कर सकता है, लेकिन controller और bootstrapper authority layer बने रहते हैं। अगर कोई bot pause हो जाए, तो execution path गायब नहीं होता।",
+            "bullets": [
+              "Direct 4TEEN buys, purchase TRX का 90% controller balance में भेजती हैं।",
+              "Controller execute करने से पहले LiquidityBootstrapper, FourteenVault से token side तैयार करता है।",
+              "Once-per-UTC-day rule, minimum balance, release percentage और split on-chain ही रहते हैं।"
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Automation",
+              "title": "Wallet repo में wake-up path पहले से wired है",
+              "text": "Mobile flow liquidity trigger और automation helper को साथ में expose करता है। इससे scheduler visible होता है, लेकिन scheduler कोई hidden operator नहीं बन जाता।"
+            },
+            {
+              "eyebrow": "Manual trigger",
+              "title": "अगर automation चूक जाए, तो user अब भी route को manually sign कर सकता है",
+              "text": "Wallet, normal user session से bootstrapAndExecute() call कर सकता है। अगर gate खुला है और resources available हैं, तो liquidity फिर भी complete होती है।"
+            }
+          ],
+          "note": "इसीलिए इस पेज को private back office के बजाय public controller के बारे में बात करनी चाहिए। Route automation layer से आगे भी बना रहता है।"
+        },
+        "liveState": {
+          "eyebrow": "Live Controller State",
+          "title": "Controller अभी क्या कह रहा है",
+          "rows": {
+            "controllerBalance": "Controller Balance",
+            "latestFunding": "Latest Funding",
+            "latestFundingAt": "Latest Funding At",
+            "lastExecute": "Last Execute",
+            "minBalance": "Min Balance",
+            "dailyRelease": "Daily Release",
+            "split": "Target Split",
+            "windowState": "Window State",
+            "nextWindow": "Next Window",
+            "snapshotUpdated": "Snapshot Updated"
+          },
+          "valueLabels": {
+            "openNow": "अभी खुला है",
+            "waitForThreshold": "Funding की प्रतीक्षा करें"
+          },
+          "stateLabels": {
+            "ready": "अभी ready",
+            "waiting": "आज पहले ही executed",
+            "threshold": "Threshold से नीचे"
+          },
+          "note": "Snapshot उपयोगी है क्योंकि यह moving parts को साफ़-साफ़ अलग करता है: controller TRX, funding cadence, release size, threshold और time gate—सब एक साथ visible रहते हैं।"
+        },
+        "triggerModel": {
+          "eyebrow": "Trigger Model",
+          "title": "जब कोई Trigger Liquidity tap करता है, तो वास्तव में क्या होता है",
+          "intro": "ईमानदारी से कहें तो route सरल है: पहले bootstrapper day gate check करता है और executor inventory top up करता है, फिर controller TRX release करता है, फिर दोनों market paths को उनका split मिलता है।",
+          "mainCard": {
+            "eyebrow": "bootstrapAndExecute()",
+            "title": "Trigger path public है, resource-aware है, और अब भी contracts द्वारा governed है।",
+            "text": "यह कोई fake admin button नहीं है। Wallet को normal network conditions satisfy करनी होती हैं, और route तभी आगे बढ़ता है जब execution time पर वही controller rules फिर भी pass होते हैं।",
+            "bullets": [
+              "Step 1: bootstrapper controller window check करता है और allowed release size compute करता है।",
+              "Step 2: market-side leg चलने से पहले bootstrapper, FourteenVault से executor-side 4TEEN top up करता है।",
+              "Step 3: controller release execute करता है और flow को JustMoney और Sun.io V3 में 50 / 50 split करता है।"
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Resources",
+              "title": "Normal wallet rent या preloaded energy से route cover कर सकता है",
+              "text": "App इसे पहले से resource-aware action के रूप में frame करता है। मुद्दा कोई hidden server key नहीं है। मुद्दा यह है कि public wallet अब भी route को साफ़ तौर पर finish कर सकता है।"
+            },
+            {
+              "eyebrow": "Rule set",
+              "title": "Scheduler convenience कभी भी contract rule set को override नहीं करती",
+              "text": "Bot window miss होने से cadence rewrite नहीं होता। Button जल्दी दबाने से gate bypass नहीं होता। Contracts अब भी route को accept या reject करते हैं।"
+            }
+          ],
+          "note": "यही सही market signal है: public trigger, visible reserve prep, deterministic release rule।"
+        },
+        "latestExecutions": {
+          "eyebrow": "Latest Executions",
+          "title": "Live feed से confirmed liquidity executions",
+          "body": "यह list जानबूझकर tight रखी गई है। यह latest confirmed execution rows दिखाती है ताकि user verify कर सके कि controller alive है, बिना पेज को noisy block explorer clone बनाए।",
+          "headers": {
+            "total": "Total Released",
+            "split": "Split",
+            "happened": "Happened",
+            "day": "UTC Day",
+            "source": "Source"
+          },
+          "empty": "अभी तक कोई confirmed LiquidityExecuted rows visible नहीं हैं।",
+          "openTx": "tx खोलें",
+          "note": "हर row confirmed LiquidityExecuted(day, totalAmount, amountA, amountB) events से आती है।"
+        },
+        "reservePath": {
+          "eyebrow": "Reserve Path",
+          "title": "Reserve tokens inventory हैं, free circulation नहीं",
+          "intro": "Controller-side TRX route का केवल आधा हिस्सा है। Token side को भी isolated inventory चाहिए, और इसी वजह से दो execution paths को उनके balances मिलने से पहले FourteenVault मौजूद है।",
+          "primaryCard": {
+            "eyebrow": "Reserve layer",
+            "title": "Market execution शुरू होने से पहले FourteenVault public liquidity route को back करता है।",
+            "text": "इन 4TEEN balances को reserve-side working inventory के रूप में पढ़ा जाना चाहिए। ये ordinary wallet balances नहीं हैं और इन्हें freely circulating supply की तरह frame नहीं किया जाना चाहिए।",
+            "bullets": [
+              "Controller execute करने से पहले vault inventory bootstrapper path में topped की जाती है।",
+              "JustMoney और Sun.io V3 को prepared balances केवल तब मिलते हैं जब route valid होता है।",
+              "Reserve custody, controller TRX और executor destinations एक ही engine की अलग-अलग layers हैं।"
+            ]
+          },
+          "secondaryCards": [
+            {
+              "key": "justmoney",
+              "title": "JustMoney path",
+              "body": "Executor A, allowed release का आधा हिस्सा लेता है और अपनी token inventory prepared होने के बाद AMM-side liquidity path चलाता है।"
+            },
+            {
+              "key": "sun",
+              "title": "Sun.io V3 path",
+              "body": "Executor B दूसरा आधा हिस्सा लेता है और उसे अपने prepared token side के साथ concentrated-liquidity path से route करता है।"
+            }
+          ],
+          "note": "इसीलिए पेज को केवल एक vanity total print करने के बजाय route समझाना चाहिए। Reserve inventory, controller balance और execution destinations अलग-अलग काम करते हैं।"
+        },
+        "verification": {
+          "eyebrow": "Verification",
+          "title": "Proof layer खोलें",
+          "body": "Story से सीधे उसके नीचे की rails पर जाएँ: controller contract, bootstrapper route, executor contracts और wallet implementation, जो automation और manual trigger दोनों expose करता है।",
+          "labels": {
+            "controller": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "justMoney": "JustMoney executor",
+            "sunV3": "Sun.io V3 executor",
+            "contractsRepo": "Contracts repository",
+            "walletRepo": "Wallet repository"
+          }
+        },
+        "cta": {
+          "eyebrow": "Next Step",
+          "title": "जब आप route को खुद जगाना चाहें, तो wallet खोलें",
+          "body": "Site वह जगह है जहाँ आप state verify करते हैं। Mobile wallet वह जगह है जहाँ real user resources inspect कर सकता है, bootstrapper call कर सकता है, और अगर controller gate पहले से open है तो route sign कर सकता है।",
+          "openApp": "App में Liquidity खोलें",
+          "openBuy": "Buy Route खोलें"
+        }
+      }
     }
   }
 }
