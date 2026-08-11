@@ -38450,6 +38450,224 @@
           "updatedPrefix": "Snapshot updated"
         }
       }
+    },
+    "app": {
+      "metadata": {
+        "title": "4TEEN App | 4TEEN ऑपरेटिंग लेयर वाला TRON वॉलेट",
+        "description": "4TEEN मोबाइल वॉलेट खोलें, buy, unlock, liquidity, ambassadors, और proof रूट्स से गुजरें, और स्टोर लिंक से प्रोडक्ट डाउनलोड करें।",
+        "openGraphTitle": "4TEEN App रिलीज़",
+        "openGraphDescription": "4TEEN मोबाइल वॉलेट और प्रोडक्ट में पहले से बने लाइव ऑपरेटिंग रूट्स को देखें।"
+      },
+      "hero": {
+        "eyebrow": "4TEEN Mobile App",
+        "status": "App Store + Google Play",
+        "title": "एक वास्तविक TRON वॉलेट जिसके अंदर 4TEEN ऑपरेटिंग लेयर पहले से मौजूद है।",
+        "lead": "यह पेज रिलीज़ मेमो नहीं, बल्कि प्रोडक्ट पेज जैसा महसूस होना चाहिए। ऐप पहले से ही एक व्यापक TRON वॉलेट की तरह काम करता है, जिसमें वॉलेट्स, एसेट्स, ट्रांसफर, QR फ्लो, कॉन्टैक्ट्स, भाषा, सेटिंग्स, रिसोर्स जांच, और पूरा 4TEEN रूट मैप एक ही एक्ज़ीक्यूशन सतह के अंदर मौजूद हैं।",
+        "stayOnWeb": "वेब पर रहें",
+        "primaryCta": "डाउनलोड विकल्प",
+        "secondaryCta": "प्रोटोकॉल सतहें देखें",
+        "ctaNote": "वेब पक्ष सिस्टम को समझाता है। मोबाइल पक्ष साइन करता है, रूट करता है, रिसोर्स जांचता है, और वास्तविक ट्रांज़ैक्शन फ्लो चलाता है।",
+        "rotatingLines": [
+          "App Store + Google Play. एक प्रोडक्ट सतह।",
+          "Universal Wallet. नेटिव 4TEEN Layer.",
+          "व्यापक Token सतह. सिर्फ एक एसेट नहीं।",
+          "पहले रिसोर्स. बाद में सिग्नेचर।",
+          "Wallet Core. Protocol Routes. वही प्रोडक्ट।"
+        ],
+        "stats": [
+          {
+            "label": "वॉलेट कोर",
+            "value": "TRON-प्रथम",
+            "meta": "वॉलेट्स, भेजना, एसेट प्रबंधन, स्कैन, कॉन्टैक्ट्स, सेटिंग्स।"
+          },
+          {
+            "label": "एसेट दायरा",
+            "value": "व्यापक",
+            "meta": "TRX, 4TEEN, स्थिर एसेट्स, और यूज़र-प्रबंधित कस्टम token एंट्रीज़।"
+          },
+          {
+            "label": "भाषाएँ",
+            "value": "16",
+            "meta": "ऐप-व्यापी लोकेल नियंत्रण के साथ समर्पित भाषा रूट।"
+          },
+          {
+            "label": "4TEEN लेयर",
+            "value": "7 रूट्स",
+            "meta": "Buy, swap, unlock, liquidity, airdrop, ambassadors, और info."
+          }
+        ]
+      },
+      "storeLinks": [
+        {
+          "href": "https://apps.apple.com/",
+          "label": "App Store",
+          "meta": "iPhone और iPad के लिए डाउनलोड करें"
+        },
+        {
+          "href": "https://play.google.com/store/apps",
+          "label": "Google Play",
+          "meta": "Android के लिए डाउनलोड करें"
+        }
+      ],
+      "entryFlow": [
+        {
+          "eyebrow": "बूट",
+          "title": "स्मार्ट एंट्री रूटिंग",
+          "body": "मोबाइल ऐप हर यूज़र को एक ही सामान्य स्टार्ट स्क्रीन पर नहीं डालता। यूज़र के मुख्य प्रोडक्ट लेयर तक पहुँचने से पहले ही यह पहले एक्सेस, वॉलेट अनलॉक, और सक्रिय वॉलेट पाथ के बीच फैसला करता है।"
+        },
+        {
+          "eyebrow": "होम",
+          "title": "कॉम्पैक्ट हब",
+          "body": "वास्तविक होम स्क्रीन पहले से ही एक कार्यशील हब की तरह काम करती है: डायरेक्ट buy, unlock दृश्यता, liquidity नियंत्रण, और जानकारी रूट्स अपने गहरे समर्पित स्क्रीन छिपाए बिना पास ही रहते हैं।"
+        },
+        {
+          "eyebrow": "डीप रूट्स",
+          "title": "ज़रूरत पड़ने पर पूरी स्क्रीन",
+          "body": "हर गंभीर कार्रवाई फिर भी अपनी अलग सतह में खुलती है। ऐप शीर्ष लेयर पर कॉम्पैक्ट रहता है, लेकिन किसी महत्वपूर्ण फ्लो को एक उथले डैशबोर्ड में कभी नहीं समेटता।"
+        }
+      ],
+      "walletFoundation": [
+        {
+          "eyebrow": "वॉलेट्स",
+          "title": "कई पहचानें, एक स्थिर शेल नहीं",
+          "text": "यूज़र वॉलेट बना, इम्पोर्ट, रीनेम, स्विच, और हटा सकते हैं, जबकि प्रोडक्ट साइनिंग वॉलेट्स और watch-only वॉलेट्स के बीच स्पष्ट अलगाव बनाए रखता है।"
+        },
+        {
+          "eyebrow": "भेजें",
+          "title": "वास्तविक ट्रांसफर तैयारी",
+          "text": "Send कोई कच्चा एड्रेस बॉक्स नहीं है। यह पहले से ही QR स्कैन, कॉन्टैक्ट्स, हालिया प्राप्तकर्ता, एसेट चयन, खर्च योग्य बैलेंस नियम, और एक साफ़ कन्फर्मेशन स्टेप को सपोर्ट करता है।"
+        },
+        {
+          "eyebrow": "Crypto प्रबंधित करें",
+          "title": "एक इकोसिस्टम एसेट से व्यापक",
+          "text": "Manage Crypto एक वास्तविक वॉलेट लेयर है: TRX, 4TEEN, स्थिर एसेट्स, कस्टम token एंट्रीज़, फ़िल्टर, सॉर्ट मोड, और send व swap के लिए टार्गेट-एसेट चयन उसी सतह में मौजूद हैं।"
+        },
+        {
+          "eyebrow": "भाषा",
+          "title": "16 इंटरफ़ेस भाषाएँ",
+          "text": "भाषा लेयर पहले से ही प्रोडक्ट में बनी हुई है, जिसमें प्रमुख क्षेत्रीय एंट्री पॉइंट्स पर एक समर्पित रूट और ऐप-स्तरीय लोकेल नियंत्रण है।"
+        }
+      ],
+      "resourceLayer": [
+        {
+          "eyebrow": "अभी ज़रूरत",
+          "title": "सिग्नेचर से पहले रिसोर्स मापे जाते हैं",
+          "text": "डायरेक्ट buy, send, swap, liquidity एक्ज़ीक्यूशन, और अन्य कॉन्ट्रैक्ट रूट्स ऐप द्वारा पासकोड या बायोमेट्रिक्स माँगने से पहले Energy और Bandwidth का अनुमान लगाते हैं।"
+        },
+        {
+          "eyebrow": "कमी",
+          "title": "TRX burn को छिपाने के बजाय दृश्य बनाया जाता है",
+          "text": "ऐप आवश्यक रिसोर्स की तुलना मौजूदा वॉलेट रिसोर्स से करता है, कमी दिखाता है, और यूज़र को विफलता के ज़रिए पता चलने देने के बजाय अपेक्षित burn पाथ सामने रखता है।"
+        },
+        {
+          "eyebrow": "रेंटल",
+          "title": "रिसोर्स टॉप-अप फ्लो में एकीकृत है",
+          "text": "कोड पहले से ही send transfer, swap, direct buy, liquidity execution, ambassador registration, और ambassador withdrawals के लिए rental quote, payment, waiting, और ready अवस्थाओं को सपोर्ट करता है।"
+        },
+        {
+          "eyebrow": "रीप्ले",
+          "title": "Pending पंक्तियाँ ऑपरेशनल रूप से ईमानदार रहती हैं",
+          "text": "यदि ऑपरेटर पक्ष अपने सुरक्षित रिसोर्स फ़्लोर से नीचे चला जाता है, तो queued पंक्तियाँ दिखाई देती रहती हैं जबकि बैकएंड रिसोर्स टॉप-अप करता है और रीप्ले चक्र फिर से जांचता है जब तक कि reward ऑन-चेन नहीं पहुँच जाता।"
+        }
+      ],
+      "protocolSurfaces": [
+        {
+          "eyebrow": "Direct Buy",
+          "title": "तैयार करें → पुष्टि करें",
+          "text": "buy रूट पहले ट्रांज़ैक्शन तैयार करता है: quote, खरीद पर mint संदर्भ, 14-दिन का lock, TRX split preview, और उसके बाद ही वास्तविक कन्फर्मेशन और साइनिंग स्टेप।",
+          "href": "/buy"
+        },
+        {
+          "eyebrow": "Swap Token",
+          "title": "रूट तुलना, अंधा एक्सचेंज नहीं",
+          "text": "swap रूट पाथ्स की तुलना कर सकता है, टार्गेट एसेट बदल सकता है, सुरक्षित न्यूनतम प्राप्ति दिखा सकता है, और यदि allowance या नेटवर्क रिसोर्स तैयार नहीं हैं तो फ्लो को जल्दी रोक सकता है।",
+          "href": "/swap"
+        },
+        {
+          "eyebrow": "Unlock Timeline",
+          "title": "प्रति-खरीद lock दृश्यता",
+          "text": "हर locked बैच वॉलेट, राशि, UTC unlock समय, काउंटडाउन, और स्रोत ट्रांज़ैक्शन के अनुसार दिखाया जाता है। यह एक उद्देश्य-निर्मित lock सतह है, सिर्फ सामान्य इतिहास नहीं।",
+          "href": "/unlock"
+        },
+        {
+          "eyebrow": "Liquidity Controller",
+          "title": "कंट्रोलर-पक्ष की सच्चाई",
+          "text": "liquidity रूट ऐप के अंदर ही 100 TRX threshold, 6.43% दैनिक release cadence, executor split, और execution gating को सामने रखता है।",
+          "href": "/liquidity"
+        },
+        {
+          "eyebrow": "Airdrop",
+          "title": "Telegram-प्रथम लाइव अवस्था",
+          "text": "airdrop रूट मौजूदा bot session state, स्थानीय wallet state, और on-chain claim state को मिलाता है। Telegram अभी लाइव है; अन्य socials staged rails हैं, नकली active buttons नहीं।",
+          "href": "/airdrop"
+        },
+        {
+          "eyebrow": "Ambassador",
+          "title": "Registration और cabinet एक ही रूट में",
+          "text": "ambassador रूट registration के रूप में शुरू होता है और उसी वॉलेट के लिए cabinet बन जाता है: identity slug, buyer binding, purchase rows, pending replay, withdrawals, और claimable state।",
+          "href": "/ambassadors"
+        },
+        {
+          "eyebrow": "Info",
+          "title": "कॉम्पैक्ट architecture और runtime map",
+          "text": "information रूट contracts, vaults, liquidity execution, asset-wallet balances, और operator readiness को जोड़ता है, ताकि architecture और runtime state प्रोडक्ट के अंदर दिखाई दें।",
+          "href": "/verification"
+        }
+      ],
+      "operatingRules": [
+        {
+          "title": "पहले Universal wallet",
+          "text": "इस ऐप को सबसे मजबूत रूप में “एक ecosystem shell” नहीं पढ़ा जाना चाहिए। यह व्यापक token universe वाले बड़े TRON वॉलेट की तरह व्यवहार करता है, और 4TEEN उस आधार में एक लाइव प्रोडक्ट लेयर के रूप में बनाया गया है।"
+        },
+        {
+          "title": "Watch-only और signing अलग अवस्थाएँ हैं",
+          "text": "ऐप निरीक्षण और कार्रवाई को अलग तरह से संभालता है। Watch-only वॉलेट्स portfolio और protocol state पढ़ सकते हैं, जबकि direct buy, registration, liquidity execution, और withdrawal के लिए full-access signing wallets की आवश्यकता होती है।"
+        },
+        {
+          "title": "Operational readiness इंटरफ़ेस का हिस्सा है",
+          "text": "Controller gating, resource coverage, queued reward rows, और replay status को प्रोडक्ट अवस्थाओं के रूप में व्यक्त किया जाता है। यूज़र देखता है कि अभी क्या तैयार है, किसे top-up चाहिए, और क्या प्रतीक्षा में है।"
+        },
+        {
+          "title": "Multilingual प्रोडक्ट इन्फ्रास्ट्रक्चर है",
+          "text": "भाषा समर्थन पहले से ही ऐप में encoded है, इसे भविष्य की इच्छा के रूप में नहीं छोड़ा गया। यह महत्वपूर्ण है क्योंकि प्रोडक्ट एक बाज़ार और एक community entry route से आगे काम करने के लिए बनाया गया है।"
+        }
+      ],
+      "downloadReasons": [
+        "इसे केवल 4TEEN access point के रूप में नहीं, बल्कि एक व्यापक TRON वॉलेट के रूप में इस्तेमाल करें।",
+        "portfolio, custom token handling, transfers, scanning, contacts, और language control को उसी प्रोडक्ट में रखें।",
+        "वॉलेट के अंदर पूरा 4TEEN लेयर खोलें: buy, swap, unlock, liquidity, airdrop, ambassadors, और info.",
+        "साइन करने या अंधेपन में प्रतीक्षा करने से पहले network load, resource shortfall, route protection, और operational readiness देखें।"
+      ],
+      "sections": {
+        "entryFlow": {
+          "eyebrow": "Entry Flow",
+          "title": "वास्तविक ऐप यूज़र को कैसे आगे बढ़ाता है"
+        },
+        "walletFoundation": {
+          "eyebrow": "Wallet Foundation",
+          "title": "यह पहले एक वास्तविक वॉलेट क्यों है"
+        },
+        "resourceLayer": {
+          "eyebrow": "Resource Intelligence",
+          "title": "एक्ज़ीक्यूशन अंधी signing से अधिक सुरक्षित क्यों है",
+          "notePrefix": "ऐप के अंदर, network-load cards पहले से दिखाते हैं",
+          "noteNeedNow": "अभी ज़रूरत",
+          "noteMiddle": "अभी उपलब्ध",
+          "noteMissing": "कमी",
+          "noteSuffix": "और Energy व Bandwidth दोनों के लिए coverage percentage। इससे execution model पर भरोसा करना आसान होता है क्योंकि वॉलेट transaction sign होने से पहले cost समझा देता है।"
+        },
+        "protocolSurfaces": {
+          "eyebrow": "4TEEN सतहें",
+          "title": "वॉलेट के अंदर protocol layer पहले से क्या करती है"
+        },
+        "operatingRuleLabel": "ऑपरेटिंग नियम",
+        "download": {
+          "eyebrow": "Download Route",
+          "title": "यदि आप केवल web map नहीं, पूरा प्रोडक्ट चाहते हैं तो वॉलेट इंस्टॉल करें।",
+          "body": "प्रोडक्ट का सबसे मजबूत संस्करण ऐप में रहता है: वास्तविक वॉलेट व्यवहार, multilingual interface, resource-aware execution, और store rollout खुलने के बाद एक ही जगह पूरा 4TEEN operating layer।",
+          "repoLabel": "वॉलेट ऐप रेपो"
+        }
+      }
     }
   }
 }
