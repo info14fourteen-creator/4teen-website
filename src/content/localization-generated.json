@@ -38819,6 +38819,81 @@
           "openBuy": "Buy Route खोलें"
         }
       }
+    },
+    "whitepaper": {
+      "metadata": {
+        "title": "4TEEN Whitepaper 1.4",
+        "description": "वर्तमान 4TEEN सिस्टम किसी एक token contract से अधिक व्यापक है। यह अब direct mint logic, controller-side ownership, scheduled liquidity execution, vault custody, wallet-driven confirmation flows, और operator-assisted ambassador settlement layer को साथ जोड़ता है।"
+      },
+      "ui": {
+        "brandSubtitle": "Whitepaper",
+        "whitepaperLabel": "Whitepaper",
+        "currentLabel": "V1-4",
+        "historicalLabel": "इतिहास",
+        "buyLabel": "खरीदें",
+        "routesLabel": "Whitepaper routes",
+        "tableColumnPrefix": "कॉलम"
+      },
+      "current": {
+        "href": "/whitepaper",
+        "version": "संस्करण 1.4",
+        "date": "4 मई, 2026",
+        "status": "वर्तमान",
+        "title": "कॉन्ट्रैक्ट्स, wallet flows, और ऑपरेटिंग लेयर्स में वर्तमान प्रोटोकॉल स्थिति",
+        "lead": "वर्तमान 4TEEN सिस्टम किसी एक token contract से अधिक व्यापक है। यह अब direct mint logic, controller-side ownership, scheduled liquidity execution, vault custody, wallet-driven confirmation flows, और operator-assisted ambassador settlement layer को साथ जोड़ता है।"
+      },
+      "note": {
+        "eyebrow": "ऐतिहासिक आर्काइव",
+        "title": "पहले के संस्करण पढ़ने योग्य रहते हैं और वर्तमान दस्तावेज़ से अलग रखे जाते हैं।",
+        "body": "वर्तमान route अब 4 मई, 2026 का whitepaper प्रस्तुत करता है। पहले के संस्करण अपनी अलग routes पर सुरक्षित रखे गए हैं ताकि ऐतिहासिक रिकॉर्ड अक्षुण्ण, पढ़ने योग्य, और बाद में localize करने में आसान बना रहे।"
+      },
+      "switcher": {
+        "eyebrow": "संस्करण टाइमलाइन",
+        "title": "वर्तमान पहले, ऐतिहासिक संस्करण उसके साथ सुरक्षित रखे गए हैं।",
+        "body": "V1.4 वर्तमान whitepaper है। V1.3, V1.2, V1.1, और V1.0 अपनी अलग routes पर संरक्षित ऐतिहासिक दस्तावेज़ों के रूप में उपलब्ध बने हुए हैं।"
+      },
+      "document": {
+        "eyebrow": "Whitepaper दस्तावेज़",
+        "body": "नीचे दिया गया टेक्स्ट एक पढ़ने योग्य दस्तावेज़ के रूप में प्रस्तुत किया गया है। वर्तमान और ऐतिहासिक संस्करण अलग-अलग रहते हैं ताकि हम आर्काइव को फिर से लिखे बिना live दस्तावेज़ को अपडेट कर सकें।"
+      },
+      "versions": {
+        "v1-3": {
+          "slug": "v1-3",
+          "href": "/whitepaper/v1-3",
+          "version": "संस्करण 1.3",
+          "date": "28 मार्च, 2026",
+          "status": "ऐतिहासिक",
+          "title": "विजन, टेक्नोलॉजी, इकॉनॉमिक्स, और On-Chain मैकेनिक्स",
+          "lead": "liquidity automation, ambassador operations, और contracts तथा operating layers में व्यापक सिस्टम दृष्टिकोण के साथ विस्तारित प्रोटोकॉल पेपर।"
+        },
+        "v1-2": {
+          "slug": "v1-2",
+          "href": "/whitepaper/v1-2",
+          "version": "संस्करण 1.2",
+          "date": "9 फ़रवरी, 2026",
+          "status": "ऐतिहासिक",
+          "title": "विजन, टेक्नोलॉजी, इकॉनॉमिक्स, और On-Chain मैकेनिक्स",
+          "lead": "प्रोटोकॉल-शैली का whitepaper जिसने token rules, controller execution, vaults, और verification को एक लंबे दस्तावेज़ में एकीकृत किया।"
+        },
+        "v1-1": {
+          "slug": "v1-1",
+          "href": "/whitepaper/v1-1",
+          "version": "संस्करण 1.1",
+          "date": "3 जनवरी, 2026",
+          "status": "ऐतिहासिक",
+          "title": "नियम-आधारित मांग, Locks, और Liquidity Controller वृद्धि",
+          "lead": "पहले tokenomics पेपर और बाद के प्रोटोकॉल-शैली whitepapers के बीच का bridge संस्करण।"
+        },
+        "v1-0": {
+          "slug": "v1-0",
+          "href": "/whitepaper/v1-0",
+          "version": "संस्करण 1.0",
+          "date": "30 नवंबर, 2025",
+          "status": "ऐतिहासिक",
+          "title": "शॉर्ट-साइकल प्राइस एक्सपैंशन और Liquidity-Driven Tokenomics",
+          "lead": "पहला प्रकाशित tokenomics पेपर, जो fixed entry, demand-driven supply, short lock cycles, और automatic liquidity forwarding पर केंद्रित था।"
+        }
+      }
     }
   }
 }
