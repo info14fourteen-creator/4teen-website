@@ -44866,6 +44866,194 @@
           "openApp": "打开移动 App 路由"
         }
       }
+    },
+    "ambassadors": {
+      "metadata": {
+        "title": "公开 Ambassador 控制器",
+        "description": "4TEEN 公开 ambassador 控制器，提供实时 FourteenController 总量、由 cabinet 支撑的注册流程、买家绑定证明、奖励追踪和运行时就绪状态。"
+      },
+      "hero": {
+        "eyebrow": "FourteenController",
+        "badge": "公开 ambassador 控制器",
+        "title": "一个背后有真实 cabinet 支撑的公开 4TEEN Ambassador 控制器",
+        "subtitle": "网站是证明层。注册、slug 所有权、买家绑定、奖励累计和提现仍然存在于钱包 cabinet 中，并通过 FourteenController 结算。",
+        "body": [
+          "这个路由不应该假装公开页面就是实际工作的 cabinet。真实流程从钱包开始：用户注册 ambassador 身份、认领 slug、同步链上个人资料，然后累积由买家归因的成交量和奖励。",
+          "公开网站承担的是另一项工作。它应该证明控制器处于实时运行状态，cabinet 个人资料确实存在，买家绑定正在被追踪，购买正在被处理，并且奖励状态保持可见，而不是消失在后台系统里。"
+        ],
+        "rotatingLines": [
+          "注册。绑定。验证。提现。",
+          "公开证明。真实 cabinet。",
+          "先有 SLUG。之后才有奖励流。"
+        ],
+        "primaryCta": "打开钱包路由",
+        "secondaryCta": "查看注册流程",
+        "ctaNote": "Cabinet 身份、推荐链接、买家行、待重放记录和提现仍然是钱包原生的。网站保持公开、可读且诚实。",
+        "stats": {
+          "profilesOnChain": {
+            "label": "链上个人资料",
+            "meta": "已通过控制器支撑的 cabinet 层可见的 ambassador 个人资料。"
+          },
+          "boundBuyers": {
+            "label": "已绑定买家",
+            "meta": "已附加到 ambassador 个人资料的买家身份。"
+          },
+          "rewardsClaimed": {
+            "label": "已领取奖励",
+            "meta": "ambassador 已通过 cabinet 流程提现的 TRX。"
+          },
+          "pendingReplay": {
+            "label": "待重放",
+            "meta": "仍在等待资源安全处理的行，而不是被伪装成已完成。"
+          },
+          "readFailed": "实时 ambassador 读取失败。",
+          "readRetry": "请稍后尝试刷新。"
+        }
+      },
+      "sections": {
+        "cabinetRoute": {
+          "eyebrow": "Cabinet 路由",
+          "title": "公开页面不是 cabinet。它证明 cabinet 确实存在。",
+          "intro": "这就是清晰的产品分层。钱包负责身份、绑定、重放和提现操作。网站解释机制，并展示系统是否真的在运转。",
+          "mainCard": {
+            "eyebrow": "控制器 + Cabinet",
+            "title": "注册和奖励保持钱包原生。公开证明保持开放。",
+            "text": "cabinet 端点已经将链上仪表盘状态与买家、购买和待重放的数据库行合并。这意味着公开网站可以如实说明流程，而不必假装自己能取代 cabinet 本身。",
+            "bullets": [
+              "cabinet 会从 ambassador slug 解析推荐链接。",
+              "买家归因的购买会被持久化，并在资源允许时针对控制器进行重放。",
+              "可领取奖励状态和提现历史会与链上个人资料一起被追踪。"
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Slug 所有权",
+              "title": "一个钱包不会仅凭营销文案就成为 ambassador",
+              "text": "注册流程会检查 slug 可用性，防止同一钱包重复注册，并要求存在真实的链上 ambassador 个人资料，之后该路由才会被视为完成。"
+            },
+            {
+              "eyebrow": "买家绑定",
+              "title": "赚取路由从购买被真正归因时开始",
+              "text": "已绑定买家、已归因购买、已处理的控制器行和待重放记录都是彼此独立的状态。cabinet 不会把它们压平成一个装饰性的数字。"
+            }
+          ],
+          "note": "这就是为什么该页面应该描述一个背后有真实 cabinet 支撑的公开 ambassador 控制器，而不是一个没有运行状态的虚假推荐落地页。"
+        },
+        "registration": {
+          "eyebrow": "注册流程",
+          "title": "注册从钱包开始，然后成为链上个人资料。",
+          "intro": "注册界面不是一个松散的报名表。它是 slug 选择、钱包身份、能量路由和控制器同步开始变得重要的入口。",
+          "mainCard": {
+            "eyebrow": "ambassador_registration",
+            "title": "钱包可以报价资源、验证 slug，然后才最终完成注册。",
+            "text": "API 会检查 slug 是否已被占用、钱包是否已经注册，以及能量路由是否已为 ambassador_registration 用途准备就绪。交易完成后，cabinet 同步会验证链上个人资料是否确实存在。",
+            "bullets": [
+              "在路由确认之前会检查 slug 可用性。",
+              "需要时，可以专门为 ambassador 注册请求能量租赁。",
+              "cabinet 同步会验证已存储的 slug 哈希，并公开最终推荐链接。"
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "钱包身份",
+              "title": "注册会成为一个个人资料，而不是一次性填写表单",
+              "text": "同步完成后，ambassador 将拥有一个与钱包绑定的个人资料，其中包含当前等级、奖励百分比、买家数量、成交量、累计奖励、已领取奖励和可领取余额。"
+            },
+            {
+              "eyebrow": "重放安全",
+              "title": "如果运营方资源不足，行会等待，而不是撒谎",
+              "text": "待重放是事实层的一部分。cabinet 会保持其可见，直到运营方资源足够安全，可以干净地处理已验证购买。"
+            }
+          ],
+          "note": "因此，注册序列不是装饰性的。它是进入同一个 cabinet 的入口，而该 cabinet 之后会保存推荐状态、购买行和提现。"
+        },
+        "ledger": {
+          "eyebrow": "公开账本",
+          "title": "即使 cabinet 操作保持私有，控制器总量也保持公开。",
+          "note": "FourteenController 会暴露系统级数量和余额。网站应该让这些信息可见，同时不假装公开层可以签署 cabinet 交易。",
+          "rows": {
+            "totalAmbassadors": "Ambassador 总数",
+            "activeAmbassadors": "活跃 Ambassador",
+            "boundBuyers": "已绑定买家",
+            "trackedVolume": "已追踪成交量",
+            "rewardsAccrued": "已累计奖励",
+            "rewardsClaimed": "已领取奖励",
+            "reservedRewards": "已预留奖励",
+            "ownerAvailable": "所有者可用余额",
+            "unallocatedFunds": "未分配购买资金"
+          }
+        },
+        "runtime": {
+          "eyebrow": "Cabinet 运行时",
+          "title": "如果资源不足，行会等待，而不是假装已经清算。",
+          "note": "公开运行时视图很重要，因为它解释了为什么重放可以合理排队。低能量或低带宽不再是静默失败；它是可见的系统状态。",
+          "readyYes": "当前就绪",
+          "readyNo": "需要充值",
+          "rows": {
+            "operatorWallet": "运营方钱包",
+            "readyNow": "当前就绪",
+            "profilesOnChain": "链上个人资料",
+            "profilesActive": "活跃个人资料",
+            "pendingReplay": "待重放",
+            "lastPurchaseSeen": "最近看到的购买",
+            "lastWithdrawalSeen": "最近看到的提现",
+            "energyAvailable": "可用能量",
+            "bandwidthAvailable": "可用带宽",
+            "needPerAllocation": "每次分配所需资源",
+            "safeFloorAfterRun": "运行后安全下限"
+          }
+        },
+        "levels": {
+          "eyebrow": "等级阶梯",
+          "title": "买家增长会改变奖励份额。",
+          "suffix": "% 合格流量的奖励份额。"
+        },
+        "proof": {
+          "eyebrow": "证明层",
+          "title": "公开侧仍应展示 cabinet 已经处理过的内容。",
+          "cards": {
+            "recordedPurchases": {
+              "title": "已记录购买",
+              "text": "已经写入 cabinet 足迹的购买，涵盖已处理行和待处理行。"
+            },
+            "ambassadorsWithPurchases": {
+              "title": "有购买记录的 Ambassador",
+              "text": "已经有购买归因进入赚取路由的个人资料。"
+            },
+            "withdrawals": {
+              "title": "提现事件",
+              "text": "后端和 cabinet 同步已经捕获的奖励提现行。"
+            },
+            "latestWithdrawal": {
+              "title": "最近看到的提现",
+              "text": "最近记录的 ambassador 奖励提现时间戳。"
+            }
+          },
+          "note": "这让网站建立在真实的 cabinet 证据之上：购买、重放队列和提现都会留下可见的公开足迹。"
+        },
+        "route": {
+          "eyebrow": "证明路由",
+          "title": "使用公开层检查控制器、钱包实现和实时应用。",
+          "cards": {
+            "contract": {
+              "eyebrow": "合约",
+              "title": "打开 FourteenController",
+              "text": "检查保存 ambassador 系统统计数据和余额的实时控制器。"
+            },
+            "walletRepo": {
+              "eyebrow": "钱包文件",
+              "title": "打开钱包 repo",
+              "text": "查看支撑真实产品的 cabinet、资源路由、注册逻辑和重放流程。"
+            },
+            "app": {
+              "eyebrow": "钱包路由",
+              "title": "打开应用路由",
+              "text": "注册、cabinet 状态、推荐链接和提现属于钱包体验。"
+            }
+          },
+          "updatedPrefix": "快照已更新"
+        }
+      }
     }
   }
 }
