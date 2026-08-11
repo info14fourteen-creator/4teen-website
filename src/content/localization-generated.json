@@ -31027,6 +31027,154 @@
           "openUnlock": "Otwórz harmonogram odblokowania"
         }
       }
+    },
+    "unlock": {
+      "metadata": {
+        "title": "Odblokowania 4TEEN | Mapa blokad i harmonogram uwolnień",
+        "description": "Publiczna mapa odblokowań 4TEEN z aktualnie zablokowaną podażą, custody w vaultach, szacunkiem swobodnego obiegu, nadchodzącymi partiami odblokowań oraz kontekstem osi czasu odblokowań po stronie portfela.",
+        "openGraphTitle": "Odblokowania 4TEEN",
+        "openGraphDescription": "Zobacz publiczną mapę blokad 4TEEN: aktualnie zablokowaną podaż, szacunek swobodnego obiegu, nadchodzące partie odblokowań oraz ścieżkę w portfelu do śledzenia własnych uwolnień."
+      },
+      "hero": {
+        "eyebrow": "Oś czasu odblokowań",
+        "badge": "Publiczna topologia blokad",
+        "title": "Śledź odblokowania 4TEEN, zanim zablokowana partia stanie się płynna",
+        "subtitle": "Każdy zakup bezpośredni mintuje tokeny natychmiast, natychmiast je blokuje i pozwala na ich transfer dopiero po wygaśnięciu własnego 14-dniowego timera.",
+        "body": [
+          "Portfel mobilny pokazuje osobistą oś czasu odblokowań dla wybranego portfela podpisującego. Publiczna strona powinna pokazywać mapę systemu: co nadal jest zablokowane, co jest już płynne i które partie z zakupów bezpośrednich odblokują się jako następne.",
+          "Oznacza to brak fikcyjnego osobistego portfela na stronie internetowej. Tylko publiczna topologia harmonogramu uwolnień, custody rezerw oraz ścieżki partia po partii od zablokowanego mintu do salda możliwego do przeniesienia."
+        ],
+        "primaryCta": "Otwórz odblokowania w aplikacji",
+        "secondaryCta": "Otwórz ścieżkę zakupu",
+        "ctaNote": "Osobiste wiersze odblokowań, odliczania i dostępność właściwa dla adresu nadal znajdują się w portfelu mobilnym. Strona wyjaśnia mechanikę uwolnień i publiczną mapę blokad.",
+        "rotatingLines": [
+          "Każdy zakup ma własny timer.",
+          "Najpierw blokada. Płynność później.",
+          "Publiczna mapa. Oś czasu w portfelu.",
+          "Uwolnienie zależy od partii.",
+          "Transferowalność zaczyna się po odblokowaniu."
+        ],
+        "stats": {
+          "directPrice": "Cena zakupu bezpośredniego",
+          "directPriceMeta": "Aktualna cena wejścia po stronie kontraktu za 4TEEN, zanim partia trafi do własnego 14-dniowego okna blokady.",
+          "lockWindow": "Okno blokady",
+          "lockWindowMeta": "Każda partia z zakupu bezpośredniego pozostaje zamrożona do momentu nadejścia własnego znacznika czasu uwolnienia.",
+          "lockedNow": "Obecnie zablokowane",
+          "lockedNowMeta": "Systemowe partie z zakupów bezpośrednich, które nadal znajdują się w 14-dniowym oknie blokady.",
+          "circulatingNow": "Swobodnie w obiegu",
+          "circulatingNowMeta": "Publiczny szacunek po odjęciu aktywnych blokad i custody w vaultach od całkowitej podaży.",
+          "priceFallback": "1.147500",
+          "priceUnavailable": "Cena na żywo jest teraz niedostępna. Wartość zastępcza odzwierciedla ostatnią znaną ścieżkę bezpośrednią.",
+          "readFailed": "Odczyt odblokowań na żywo nie powiódł się.",
+          "readRetry": "Spróbuj odświeżyć za chwilę."
+        }
+      },
+      "sections": {
+        "unlockContext": {
+          "eyebrow": "Kontekst portfela",
+          "title": "Osobista oś czasu odblokowań znajduje się w portfelu mobilnym",
+          "body": "Strona internetowa może wyjaśniać model blokad i pokazywać publiczną topologię uwolnień, ale osobista oś czasu odblokowań należy do aplikacji, ponieważ zależy od wybranego adresu portfela, historii zakupów bezpośrednich dla tego portfela oraz odczytów on-chain na żywo dla lockedBalanceOf(account).",
+          "bullets": [
+            "Każdy zakup bezpośredni tworzy własną partię blokady z własnym znacznikiem czasu uwolnienia.",
+            "Oś czasu odblokowań w portfelu śledzi tylko historię zakupów bezpośrednich powiązaną z wybranym portfelem, a nie ogólną historię swapów.",
+            "Gdy partia zostanie odblokowana, tokeny stają się transferowalne, a ścieżki rynkowe, takie jak swap, stają się istotne."
+          ],
+          "openApp": "Otwórz ścieżkę aplikacji mobilnej",
+          "openBuy": "Otwórz ścieżkę zakupu"
+        },
+        "liveLockMap": {
+          "eyebrow": "Mapa blokad na żywo",
+          "title": "Ile 4TEEN jest zablokowane i ile faktycznie jest płynne",
+          "rows": {
+            "totalSupply": "Całkowita podaż",
+            "activeLockBatches": "Aktywne partie blokad",
+            "currentlyLocked": "Obecnie zablokowane",
+            "vaultCustody": "Custody w vaultach",
+            "freelyCirculating": "Swobodnie w obiegu",
+            "nextUnlock": "Następne odblokowanie",
+            "snapshotUpdated": "Migawka zaktualizowana"
+          },
+          "note": "Swobodny obieg w tym miejscu jest publicznym szacunkiem systemowym: całkowita podaż minus aktywne blokady zakupów bezpośrednich minus tokeny utrzymywane w kontraktach vaultów rezerwowych. Celowo jest to bardziej rygorystyczne niż naiwne spojrzenie na totalSupply."
+        },
+        "upcomingUnlocks": {
+          "eyebrow": "Nadchodzące odblokowania",
+          "title": "Ostatnie partie z zakupów bezpośrednich, którym nadal pozostał czas blokady",
+          "headers": {
+            "buyer": "Kupujący",
+            "amount": "Zablokowana partia",
+            "unlockAt": "Odblokowanie o",
+            "source": "Źródło"
+          },
+          "openTx": "Otwórz tx",
+          "empty": "W tej chwili nie widać żadnych aktywnych partii blokad z zakupów bezpośrednich.",
+          "note": "Ta mapa uwolnień jest zbudowana z potwierdzonych zdarzeń BuyTokens, które nadal znajdują się w 14-dniowym oknie blokady. Pokazuje publiczny harmonogram partii, a nie prywatny portfel inwestycyjny."
+        },
+        "vaultLayer": {
+          "eyebrow": "Warstwa vaultów",
+          "title": "Custody rezerw to nie to samo co swobodny obieg",
+          "body": "Architektura 4TEEN utrzymuje alokacje rezerwowe w dedykowanych kontraktach. FourteenVault przechowuje tokeny rezerwy płynności, AirdropVault przechowuje etapowane rezerwy dystrybucji społecznościowej, a TeamLockVault izoluje alokację zespołu. Te salda istnieją on-chain, ale nie powinny być prezentowane jako swobodnie krążąca podaż.",
+          "note": "AirdropVault otrzymuje również routowane TRX przy zakupie bezpośrednim, ale pokazane tutaj saldo tokenów to wyłącznie rezerwa 4TEEN faktycznie zaparkowana w custody vaultów."
+        },
+        "lockMechanics": {
+          "eyebrow": "Mechanika blokad",
+          "title": "Co faktycznie egzekwuje główny kontrakt tokena",
+          "cards": [
+            {
+              "eyebrow": "Mint",
+              "title": "Zakup bezpośredni najpierw mintuje",
+              "text": "buyTokens() mintuje 4TEEN w tej samej transakcji, która otrzymuje TRX. Dla zakupionej kwoty nie ma off-chainowej kolejki realizacji."
+            },
+            {
+              "eyebrow": "Partia",
+              "title": "Każdy zakup tworzy osobny wpis blokady",
+              "text": "Kontrakt tokena dodaje nowy rekord LockInfo dla każdego zakupu bezpośredniego. Blokady nie są łączone w jeden ogólny timer."
+            },
+            {
+              "eyebrow": "Reguła",
+              "title": "Transfery są blokowane przez lockedBalanceOf()",
+              "text": "transfer() i transferFrom() wymagają dostępnego salda po odjęciu lockedBalanceOf(account). Zablokowanych tokenów nie można przenieść wcześniej."
+            }
+          ]
+        },
+        "walletRoute": {
+          "eyebrow": "Ścieżka portfela",
+          "title": "Jak aplikacja zamienia ten stan kontraktu w użyteczną oś czasu",
+          "cards": [
+            {
+              "eyebrow": "Saldo",
+              "title": "Odczytuje saldo całkowite, zablokowane i dostępne",
+              "text": "Portfel łączy balanceOf(account) z lockedBalanceOf(account), aby pokazać, co nadal jest zamrożone, a co można już przenieść."
+            },
+            {
+              "eyebrow": "Historia",
+              "title": "Buduje wiersze z potwierdzonych zdarzeń BuyTokens",
+              "text": "Każde zdarzenie zakupu bezpośredniego staje się widocznym wierszem odblokowania z dokładną kwotą, czasem odblokowania, odliczaniem i ścieżką transakcji w TronScan."
+            },
+            {
+              "eyebrow": "Akcja",
+              "title": "Kieruje użytkownika do następnej prawidłowej ścieżki",
+              "text": "Oś czasu odblokowań to właściwa ścieżka po zakupie. Swap staje się istotny dopiero po uwolnieniu zablokowanej partii i jej faktycznej transferowalności."
+            }
+          ],
+          "note": "Właśnie dlatego publiczna strona powinna jasno wyjaśniać odblokowania, a następnie kierować użytkownika do portfela po osobistą historię, zamiast udawać powierzchnię wykonawczą."
+        },
+        "verification": {
+          "eyebrow": "Weryfikacja",
+          "title": "Skąd pochodzą liczby i logika blokad",
+          "body": "Ta strona wykorzystuje wdrożony kontrakt FourteenToken, implementację osi czasu odblokowań w portfelu oraz znane adresy vaultów rezerwowych. Wyjaśnia mechanikę na żywo i strukturę custody, zamiast spłaszczać wszystko do ogólnego wykresu podaży tokena.",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "Repozytorium kontraktów",
+          "walletRepoLabel": "Repozytorium portfela"
+        },
+        "cta": {
+          "eyebrow": "Następny krok",
+          "title": "Użyj aplikacji, gdy potrzebujesz swojej osobistej osi czasu odblokowań",
+          "body": "Publiczna strona może pokazać mapę blokad dla całego protokołu. Portfel pozostaje właściwą powierzchnią dla wierszy odblokowań specyficznych dla adresu, odliczań i działań po zakupie.",
+          "openApp": "Otwórz odblokowania w aplikacji",
+          "openBuy": "Otwórz ścieżkę zakupu"
+        }
+      }
     }
   }
 }
