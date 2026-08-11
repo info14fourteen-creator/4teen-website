@@ -45272,6 +45272,157 @@
           "repoLabel": "钱包 App Repo"
         }
       }
+    },
+    "verification": {
+      "metadata": {
+        "title": "验证",
+        "description": "4TEEN 验证页面，提供实时地址、储备余额、协议所有权映射，以及用于深入研究的直接证明链接。"
+      },
+      "hero": {
+        "eyebrow": "验证界面",
+        "status": "公开架构地图",
+        "title": "这是信心层：谁拥有什么、储备存放在哪里、价值如何流动，以及当前哪些公开地址支撑着项目。",
+        "lead": "认真的用户和投资者不会止步于落地页。这个页面让他们能够快速检查所有权、托管、余额和合约路径，而不会在第一次点击时就被一整面原始区块浏览器标签页淹没。",
+        "stats": {
+          "totalSupply": "总供应量",
+          "totalSupplyMeta": "当前 FourteenToken 在链上的 totalSupply。",
+          "currentPrice": "直接价格",
+          "currentPriceMeta": "当前 buyTokens() 的预览价格，以 TRX 表示。",
+          "vaultCustody": "金库托管",
+          "vaultCustodyMeta": "当前停放在 FourteenVault、TeamLockVault 和 AirdropVault 中的 4TEEN。",
+          "controllerBalance": "控制器余额",
+          "controllerBalanceMeta": "当前存放在 FourteenController 内的 TRX。",
+          "readFailed": "实时验证读取失败。",
+          "readRetry": "静态架构地图仍然有效。请稍后刷新以获取当前数据。"
+        }
+      },
+      "sections": {
+        "orientation": {
+          "eyebrow": "导览",
+          "title": "用这个页面快速回答两个问题",
+          "body": "第一：哪个合约或金库负责某一项具体的协议任务。第二：公开状态是否仍然与项目在其他地方讲述的叙事一致。本页面有意保持只读。它的职责是建立信心，而不是执行操作。",
+          "bullets": [
+            "FourteenToken 是买入、铸造、锁仓和分账入口合约。",
+            "FourteenController 是管理与归因层，而不是代币本身。",
+            "LiquidityController 和 LiquidityBootstrapper 负责释放与执行轨道。",
+            "金库余额存在于链上，但储备托管并不等同于自由流通。"
+          ],
+          "openWhitepaper": "打开白皮书",
+          "openApp": "打开移动 App"
+        },
+        "tokenMap": {
+          "eyebrow": "代币映射",
+          "title": "主代币当前的连接方式",
+          "rows": {
+            "tokenOwner": "代币所有者",
+            "liquidityRoute": "流动性路径",
+            "airdropRoute": "空投路径",
+            "directPrice": "直接价格",
+            "growthRule": "增长规则",
+            "lastPriceUpdate": "上次价格更新",
+            "snapshotUpdated": "快照已更新"
+          },
+          "note": "关键细节在于所有权链。FourteenToken 并不是一个随意由所有者钱包控制的故事。所有者路径解析到 FourteenController，这也是为什么这两个界面需要一起出现在这里。"
+        },
+        "controllerState": {
+          "eyebrow": "控制器状态",
+          "title": "控制器如何说明归因与资金库流向",
+          "rows": {
+            "controllerOwner": "控制器所有者",
+            "contractBalance": "合约余额",
+            "ownerAvailable": "所有者可用",
+            "reservedRewards": "预留奖励",
+            "unallocatedPurchaseFunds": "未分配购买资金",
+            "ambassadors": "大使总数",
+            "activeAmbassadors": "活跃大使",
+            "boundBuyers": "已绑定买家",
+            "trackedVolume": "已跟踪成交量",
+            "rewardsClaimed": "已领取奖励"
+          },
+          "note": "这就是控制器叙事重要的原因。它将所有者可用资金、预留奖励、已跟踪成交量和买家归因数量作为独立的公开资金桶，而不是把所有内容压平成一个好看的虚荣指标。"
+        },
+        "liquidityState": {
+          "eyebrow": "流动性轨道",
+          "title": "执行侧是一个独立的公开系统",
+          "rows": {
+            "controllerBalance": "流动性控制器余额",
+            "controllerOwner": "流动性控制器所有者",
+            "minBalance": "最低触发余额",
+            "dailyRelease": "每日释放规则",
+            "justMoneyExecutor": "JustMoney 执行器",
+            "sunExecutor": "Sun.io V3 执行器"
+          },
+          "note": "自动化可以唤醒这条路径，但释放阈值和比例仍然存在于合约中。便利性位于规则之外，而不是凌驾于规则之上。"
+        },
+        "architecture": {
+          "eyebrow": "架构",
+          "title": "协议被拆分为明确的职责，而不是一个巨型合约",
+          "cards": [
+            {
+              "eyebrow": "核心",
+              "title": "FourteenToken",
+              "text": "接收直接买入的 TRX，铸造 4TEEN，为每次购买创建 14 天锁仓，并以原子方式按 90 / 7 / 3 拆分购买价值。"
+            },
+            {
+              "eyebrow": "管理",
+              "title": "FourteenController",
+              "text": "拥有代币层，保存归因和奖励记账状态，公开系统汇总，并对所有者侧的余额处理进行门控。"
+            },
+            {
+              "eyebrow": "执行",
+              "title": "流动性栈",
+              "text": "FourteenLiquidityController 持有买入侧 TRX 轨道，而 LiquidityBootstrapper 准备代币库存并触发执行器侧的流动性路径。"
+            },
+            {
+              "eyebrow": "托管",
+              "title": "金库隔离",
+              "text": "FourteenVault、TeamLockVault 和 AirdropVault 按用途隔离储备余额，因此资金库、团队和增长供应不会被压平成一个通用资金池。"
+            }
+          ],
+          "note": "这种隔离是最容易公开验证的优势之一。区块浏览器链接、代码仓库和实时余额都指向同一套模块化架构。"
+        },
+        "reserveLayer": {
+          "eyebrow": "储备层",
+          "title": "金库与执行地址中的实时 4TEEN 余额",
+          "body": "这些余额展示了代币库存实际存放的位置。金库托管不是自由流通，执行器库存也不是用户钱包余额。把它们放在一起，可以让系统一目了然。",
+          "note": "随着引导和流动性流程转移库存，执行器余额可能发生变化。金库余额是储备托管中更稳定的证明层。",
+          "labels": {
+            "balance": "余额",
+            "verify": "在 Tronscan 上验证"
+          }
+        },
+        "verification": {
+          "eyebrow": "证明链接",
+          "title": "直接打开证明层",
+          "body": "下方每个分组都会把用户从叙事直接带到证明层：合约、金库、执行轨道，以及产品背后的代码仓库。",
+          "groups": {
+            "core": "核心合约",
+            "vaults": "金库合约",
+            "execution": "执行合约",
+            "source": "源代码仓库"
+          },
+          "labels": {
+            "token": "FourteenToken",
+            "controller": "FourteenController",
+            "liquidityController": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "fourteenVault": "FourteenVault",
+            "teamLockVault": "TeamLockVault",
+            "airdropVault": "AirdropVault",
+            "justMoneyExecutor": "LiquidityExecutorJustMoney",
+            "sunV3Executor": "LiquidityExecutorSunV3",
+            "contractsRepo": "合约仓库",
+            "walletRepo": "钱包仓库"
+          }
+        },
+        "cta": {
+          "eyebrow": "下一步",
+          "title": "先在这里建立信心，再到 App 中操作",
+          "body": "使用公开页面检查系统。当你需要基于真实账户状态进行签名、买入、解锁、swap、领取空投或手动流动性操作时，请使用钱包。",
+          "openApp": "打开移动 App",
+          "openBuy": "打开买入路径"
+        }
+      }
     }
   }
 }
