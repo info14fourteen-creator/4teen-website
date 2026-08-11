@@ -44190,6 +44190,154 @@
           "openUnlock": "打开解锁时间线"
         }
       }
+    },
+    "unlock": {
+      "metadata": {
+        "title": "解锁 4TEEN | 锁仓地图与释放时间",
+        "description": "公开的 4TEEN 解锁地图，包含当前锁定供应量、金库托管、自由流通量估算、即将解锁的批次，以及钱包端解锁时间线背景。",
+        "openGraphTitle": "解锁 4TEEN",
+        "openGraphDescription": "查看公开的 4TEEN 锁仓地图：当前锁定供应量、自由流通量估算、即将解锁的批次，以及用于个人释放跟踪的钱包路径。"
+      },
+      "hero": {
+        "eyebrow": "解锁时间线",
+        "badge": "公开锁仓拓扑",
+        "title": "在锁定批次变为可流通之前跟踪 4TEEN 解锁",
+        "subtitle": "每一笔直接购买都会立即铸造、立即锁定，并且只有在其各自的 14 天计时器到期后才可转账。",
+        "body": [
+          "移动钱包会显示所选签名钱包的个人解锁时间线。公开网站应展示系统地图：哪些仍处于锁定状态，哪些已经可流通，以及接下来将解锁哪些直接购买批次。",
+          "这意味着网站上不会伪造个人投资组合。这里只有释放时间、储备托管，以及从锁定铸造到可转移余额的逐批路径等公共拓扑。"
+        ],
+        "primaryCta": "在 App 中打开解锁",
+        "secondaryCta": "打开购买路径",
+        "ctaNote": "个人解锁行、倒计时和特定地址可用性仍在移动钱包中展示。网站负责解释释放机制和公开锁仓地图。",
+        "rotatingLines": [
+          "每次购买都有自己的计时器。",
+          "先锁定，后流通。",
+          "公开地图，钱包时间线。",
+          "释放取决于批次。",
+          "解锁后才开始可转账。"
+        ],
+        "stats": {
+          "directPrice": "直接购买价格",
+          "directPriceMeta": "当前合约端每枚 4TEEN 的入场价格，适用于该批次进入其自身 14 天锁定窗口之前。",
+          "lockWindow": "锁定窗口",
+          "lockWindowMeta": "每个直接购买批次都会保持冻结，直到其自身的释放时间戳到达。",
+          "lockedNow": "当前锁定",
+          "lockedNowMeta": "系统范围内仍处于 14 天锁定窗口中的直接购买批次。",
+          "circulatingNow": "自由流通",
+          "circulatingNowMeta": "从总供应量中扣除活跃锁仓和金库托管后的公开估算。",
+          "priceFallback": "1.147500",
+          "priceUnavailable": "当前无法获取实时价格。备用值反映最新已知的直接路径。",
+          "readFailed": "实时解锁读取失败。",
+          "readRetry": "请稍后尝试刷新。"
+        }
+      },
+      "sections": {
+        "unlockContext": {
+          "eyebrow": "钱包背景",
+          "title": "个人解锁时间线位于移动钱包内",
+          "body": "网站可以解释锁定模型并展示公开释放拓扑，但个人解锁时间线属于 App，因为它取决于所选钱包地址、该钱包的直接购买历史，以及对 lockedBalanceOf(account) 的实时链上读取。",
+          "bullets": [
+            "每次直接购买都会创建自己的锁定批次，并带有自己的释放时间戳。",
+            "钱包解锁时间线只跟踪与所选钱包相关的直接购买历史，而不是通用的 swap 历史。",
+            "批次解锁后，代币将变为可转账，swap 等市场路径才会变得相关。"
+          ],
+          "openApp": "打开移动 App 路径",
+          "openBuy": "打开购买路径"
+        },
+        "liveLockMap": {
+          "eyebrow": "实时锁仓地图",
+          "title": "有多少 4TEEN 被锁定，以及实际有多少可流通",
+          "rows": {
+            "totalSupply": "总供应量",
+            "activeLockBatches": "活跃锁定批次",
+            "currentlyLocked": "当前锁定",
+            "vaultCustody": "金库托管",
+            "freelyCirculating": "自由流通",
+            "nextUnlock": "下一次解锁",
+            "snapshotUpdated": "快照已更新"
+          },
+          "note": "这里的自由流通量是公开的系统估算：总供应量减去活跃直接购买锁仓，再减去储备金库合约中持有的代币。它有意比简单的 totalSupply 视图更严格。"
+        },
+        "upcomingUnlocks": {
+          "eyebrow": "即将解锁",
+          "title": "近期仍有锁定剩余时间的直接购买批次",
+          "headers": {
+            "buyer": "买方",
+            "amount": "锁定批次",
+            "unlockAt": "解锁时间",
+            "source": "来源"
+          },
+          "openTx": "打开交易",
+          "empty": "目前没有可见的活跃直接购买锁定批次。",
+          "note": "这张释放地图基于已确认且仍处于 14 天锁定窗口内的 BuyTokens 事件构建。它展示的是公开批次时间，而不是私人钱包投资组合。"
+        },
+        "vaultLayer": {
+          "eyebrow": "金库层",
+          "title": "储备托管不等同于自由流通",
+          "body": "4TEEN 架构将储备分配保存在专用合约中。FourteenVault 持有流动性储备代币，AirdropVault 持有分阶段社区分发储备，TeamLockVault 隔离团队分配。这些余额存在于链上，但不应被呈现为自由流通供应量。",
+          "note": "AirdropVault 也会在直接购买时接收路由来的 TRX，但此处显示的代币余额仅是实际停放在金库托管中的 4TEEN 储备。"
+        },
+        "lockMechanics": {
+          "eyebrow": "锁定机制",
+          "title": "主代币合约实际执行的规则",
+          "cards": [
+            {
+              "eyebrow": "铸造",
+              "title": "直接购买先进行铸造",
+              "text": "buyTokens() 会在接收 TRX 的同一笔交易中铸造 4TEEN。购买数量不存在链下履约队列。"
+            },
+            {
+              "eyebrow": "批次",
+              "title": "每次购买都会创建单独的锁定条目",
+              "text": "代币合约会为每次直接购买追加一条新的 LockInfo 记录。锁仓不会合并成一个通用计时器。"
+            },
+            {
+              "eyebrow": "规则",
+              "title": "转账会受到 lockedBalanceOf() 阻止",
+              "text": "transfer() 和 transferFrom() 都要求在扣除 lockedBalanceOf(account) 后仍有可用余额。锁定代币不能提前移动。"
+            }
+          ]
+        },
+        "walletRoute": {
+          "eyebrow": "钱包路径",
+          "title": "App 如何将该合约状态转化为可用时间线",
+          "cards": [
+            {
+              "eyebrow": "余额",
+              "title": "读取总余额、锁定余额和可用余额",
+              "text": "钱包会将 balanceOf(account) 与 lockedBalanceOf(account) 结合起来，显示哪些仍处于冻结状态，哪些已经可以移动。"
+            },
+            {
+              "eyebrow": "历史",
+              "title": "根据已确认的 BuyTokens 事件构建行",
+              "text": "每个直接购买事件都会成为一条可见的解锁行，包含精确数量、解锁时间、倒计时和 Tronscan 交易路径。"
+            },
+            {
+              "eyebrow": "操作",
+              "title": "将用户指向下一个有效路径",
+              "text": "购买之后，解锁时间线是正确路径。只有在锁定批次释放并实际可转账之后，swap 才会变得相关。"
+            }
+          ],
+          "note": "这就是为什么公开网站应清楚解释解锁，然后将用户引导至钱包查看个人历史，而不是假装自己是执行界面。"
+        },
+        "verification": {
+          "eyebrow": "验证",
+          "title": "数字和锁定逻辑来自哪里",
+          "body": "本页面使用已部署的 FourteenToken 合约、钱包解锁时间线实现，以及已知的储备金库地址。它解释实时机制和托管结构，而不是把所有内容压平成一张通用代币供应量图表。",
+          "tokenLabel": "FourteenToken",
+          "controllerLabel": "FourteenController",
+          "contractsRepoLabel": "合约代码库",
+          "walletRepoLabel": "钱包代码库"
+        },
+        "cta": {
+          "eyebrow": "下一步",
+          "title": "当你需要个人解锁时间线时，请使用 App",
+          "body": "公开网站可以展示协议范围内的锁仓地图。钱包仍然是查看特定地址解锁行、倒计时和购买后跟进的正确界面。",
+          "openApp": "在 App 中打开解锁",
+          "openBuy": "打开购买路径"
+        }
+      }
     }
   }
 }
