@@ -38668,6 +38668,157 @@
           "repoLabel": "वॉलेट ऐप रेपो"
         }
       }
+    },
+    "verification": {
+      "metadata": {
+        "title": "सत्यापन",
+        "description": "लाइव addresses, reserve balances, protocol ownership map, और गहन शोध के लिए direct proof links के साथ 4TEEN verification route."
+      },
+      "hero": {
+        "eyebrow": "Verification Surface",
+        "status": "Public architecture map",
+        "title": "यह confidence layer है: कौन क्या own करता है, reserves कहाँ रखे हैं, value कैसे move होती है, और इस समय कौन-से public addresses project को back करते हैं.",
+        "lead": "गंभीर users और investors landing page पर नहीं रुकते. यह route उन्हें ownership, custody, balances, और contract paths को जल्दी inspect करने का तरीका देता है, बिना पहले ही click में उन्हें raw explorer tabs की दीवार में भेजे.",
+        "stats": {
+          "totalSupply": "Total Supply",
+          "totalSupplyMeta": "On-chain वर्तमान FourteenToken totalSupply.",
+          "currentPrice": "Direct Price",
+          "currentPriceMeta": "buyTokens() के लिए वर्तमान preview price, TRX में व्यक्त.",
+          "vaultCustody": "Vault Custody",
+          "vaultCustodyMeta": "FourteenVault, TeamLockVault, और AirdropVault में वर्तमान में park किया गया 4TEEN.",
+          "controllerBalance": "Controller Balance",
+          "controllerBalanceMeta": "वर्तमान में FourteenController के अंदर मौजूद TRX.",
+          "readFailed": "Live verification read failed.",
+          "readRetry": "Static architecture map अभी भी valid है. वर्तमान numbers के लिए थोड़ी देर में refresh करें."
+        }
+      },
+      "sections": {
+        "orientation": {
+          "eyebrow": "Orientation",
+          "title": "इस page का उपयोग दो सवालों के quick जवाब के लिए करें",
+          "body": "पहला: कौन-सा contract या vault किसी specific protocol job को own करता है. दूसरा: क्या public state अभी भी उस story से match करती है जो project बाकी हर जगह बता रहा है. यह page जानबूझकर read-only रहता है. इसका काम confidence है, execution नहीं.",
+          "bullets": [
+            "FourteenToken buy, mint, lock, और split-entry contract है.",
+            "FourteenController admin और attribution layer है, token स्वयं नहीं.",
+            "LiquidityController और LiquidityBootstrapper release-and-execution rail को own करते हैं.",
+            "Vault balances on-chain मौजूद हैं, लेकिन reserve custody free circulation नहीं है."
+          ],
+          "openWhitepaper": "Whitepaper खोलें",
+          "openApp": "Mobile App खोलें"
+        },
+        "tokenMap": {
+          "eyebrow": "Token Map",
+          "title": "Main token अभी कैसे wired है",
+          "rows": {
+            "tokenOwner": "Token Owner",
+            "liquidityRoute": "Liquidity Route",
+            "airdropRoute": "Airdrop Route",
+            "directPrice": "Direct Price",
+            "growthRule": "Growth Rule",
+            "lastPriceUpdate": "Last Price Update",
+            "snapshotUpdated": "Snapshot Updated"
+          },
+          "note": "मुख्य detail ownership chain है. FourteenToken किसी casual owner-wallet story के under नहीं बैठता. Owner path FourteenController में resolve होता है, इसलिए यहाँ दोनों surfaces साथ belong करते हैं."
+        },
+        "controllerState": {
+          "eyebrow": "Controller State",
+          "title": "Attribution और treasury flow के बारे में controller क्या बताता है",
+          "rows": {
+            "controllerOwner": "Controller Owner",
+            "contractBalance": "Contract Balance",
+            "ownerAvailable": "Owner Available",
+            "reservedRewards": "Reserved Rewards",
+            "unallocatedPurchaseFunds": "Unallocated Purchase Funds",
+            "ambassadors": "Total Ambassadors",
+            "activeAmbassadors": "Active Ambassadors",
+            "boundBuyers": "Bound Buyers",
+            "trackedVolume": "Tracked Volume",
+            "rewardsClaimed": "Rewards Claimed"
+          },
+          "note": "इसीलिए controller story मायने रखती है. यह owner-available funds, reserved rewards, tracked volume, और buyer attribution counts के लिए अलग-अलग public buckets रखता है, सब कुछ एक vanity metric में flatten करने के बजाय."
+        },
+        "liquidityState": {
+          "eyebrow": "Liquidity Rail",
+          "title": "Execution side एक अलग public system है",
+          "rows": {
+            "controllerBalance": "Liquidity Controller Balance",
+            "controllerOwner": "Liquidity Controller Owner",
+            "minBalance": "Minimum Trigger Balance",
+            "dailyRelease": "Daily Release Rule",
+            "justMoneyExecutor": "JustMoney Executor",
+            "sunExecutor": "Sun.io V3 Executor"
+          },
+          "note": "Automation route को wake up कर सकता है, लेकिन release threshold और percentage अभी भी contracts में रहते हैं. Convenience rules के बाहर बैठती है, उनके ऊपर नहीं."
+        },
+        "architecture": {
+          "eyebrow": "Architecture",
+          "title": "Protocol को एक विशाल contract के बजाय explicit jobs में अलग किया गया है",
+          "cards": [
+            {
+              "eyebrow": "Core",
+              "title": "FourteenToken",
+              "text": "Direct buy TRX receive करता है, 4TEEN mint करता है, हर purchase के लिए 14-day locks बनाता है, और purchase value को atomically 90 / 7 / 3 में split करता है."
+            },
+            {
+              "eyebrow": "Admin",
+              "title": "FourteenController",
+              "text": "Token layer को own करता है, attribution और reward accounting state रखता है, public system summaries expose करता है, और owner-side balance handling को gate करता है."
+            },
+            {
+              "eyebrow": "Execution",
+              "title": "Liquidity Stack",
+              "text": "FourteenLiquidityController buy-side TRX rail hold करता है, जबकि LiquidityBootstrapper token inventory prepare करता है और executor-side liquidity paths trigger करता है."
+            },
+            {
+              "eyebrow": "Custody",
+              "title": "Vault Separation",
+              "text": "FourteenVault, TeamLockVault, और AirdropVault reserve balances को purpose के अनुसार isolate करते हैं, ताकि treasury, team, और growth supply एक generic pool में flatten न हो जाएँ."
+            }
+          ],
+          "note": "यह separation public रूप से verify करने योग्य सबसे आसान strengths में से एक है. Explorer links, repository code, और live balances सभी उसी modular architecture की ओर point करते हैं."
+        },
+        "reserveLayer": {
+          "eyebrow": "Reserve Layer",
+          "title": "Vault और execution addresses में live 4TEEN balances",
+          "body": "ये balances दिखाते हैं कि token inventory वास्तव में कहाँ बैठी है. Vault custody free circulation नहीं है, और executor inventory user wallet balance नहीं है. इन्हें साथ रखने से system एक नज़र में readable बनता है.",
+          "note": "Bootstrap और liquidity flow inventory को इधर-उधर shift करते समय executor balances move कर सकते हैं. Vault balances reserve custody के लिए अधिक stable proof layer हैं.",
+          "labels": {
+            "balance": "Balance",
+            "verify": "TronScan पर verify करें"
+          }
+        },
+        "verification": {
+          "eyebrow": "Proof Links",
+          "title": "Proof layer को सीधे खोलें",
+          "body": "नीचे दिया गया हर group user को story से सीधे proof layer तक ले जाता है: contracts, vaults, execution rails, और product के पीछे की repos.",
+          "groups": {
+            "core": "Core contracts",
+            "vaults": "Vault contracts",
+            "execution": "Execution contracts",
+            "source": "Source repositories"
+          },
+          "labels": {
+            "token": "FourteenToken",
+            "controller": "FourteenController",
+            "liquidityController": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "fourteenVault": "FourteenVault",
+            "teamLockVault": "TeamLockVault",
+            "airdropVault": "AirdropVault",
+            "justMoneyExecutor": "LiquidityExecutorJustMoney",
+            "sunV3Executor": "LiquidityExecutorSunV3",
+            "contractsRepo": "Contracts repository",
+            "walletRepo": "Wallet repository"
+          }
+        },
+        "cta": {
+          "eyebrow": "Next Step",
+          "title": "यहाँ conviction बनाएँ, फिर app में आगे बढ़ें",
+          "body": "System inspect करने के लिए public route का उपयोग करें. जब आपको signing, buy, unlock, swap, airdrop claim, या real account state के साथ manual liquidity action चाहिए, तब wallet का उपयोग करें.",
+          "openApp": "Mobile App खोलें",
+          "openBuy": "Buy Route खोलें"
+        }
+      }
     }
   }
 }
