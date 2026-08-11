@@ -31366,6 +31366,167 @@
           "openBuy": "Otwórz trasę zakupu"
         }
       }
+    },
+    "swap": {
+      "metadata": {
+        "title": "Swap",
+        "description": "Ścieżka swap 4TEEN z szeroką obsługą tokenów w portfelu, rankingiem tras, ochroną minimalnej kwoty do otrzymania, przeglądem zatwierdzeń i publicznymi próbkami tras na żywo."
+      },
+      "hero": {
+        "eyebrow": "Ścieżka Swap",
+        "badge": "Ścieżka swap z portfelem na pierwszym miejscu",
+        "title": "Zamień 4TEEN na szerszy świat tokenów TRON",
+        "subtitle": "Strona pokazuje tylko próbki kotwiczące. Portfel już teraz przeszukuje znacznie szerszy świat tokenów, szereguje trasy i prowadzi użytkownika przez zatwierdzenie, przegląd oraz swap.",
+        "body": [
+          "Ta strona nie powinna brzmieć tak, jakby 4TEEN można było wymieniać tylko na jeden lub dwa tokeny własne. W portfelu zestaw docelowy jest pobierany z aktywów możliwych do wysłania, niestandardowego katalogu tokenów oraz listy tokenów Tronscan, a następnie filtrowany według tego, czy routing faktycznie istnieje.",
+          "Oznacza to, że ścieżka jest szersza niż podgląd na publicznej stronie. Jeśli istnieje płynność i router może podać wycenę, portfel może ją pokazać, uszeregować i przenieść użytkownika do rzeczywistego kroku potwierdzenia."
+        ],
+        "rotatingLines": [
+          "SZEROKI ŚWIAT TOKENÓW. RANKING TRAS.",
+          "PODGLĄD NA STRONIE. WYKONANIE W PORTFELU.",
+          "MIN OUT. ZATWIERDŹ. SWAP."
+        ],
+        "primaryCta": "Otwórz ścieżkę w portfelu",
+        "secondaryCta": "Przejdź do próbek tras na żywo",
+        "ctaNote": "Strona jest warstwą potwierdzającą. Portfel to miejsce, w którym faktycznie odbywa się przełączanie tokenów, ranking tras, ochrona minimalnej kwoty do otrzymania, kontrole allowance i końcowe podpisanie.",
+        "stats": {
+          "sampleAmount": {
+            "label": "Przykładowa wielkość wyceny",
+            "meta": "Publiczne próbki tras odświeżają się względem tej samej kwoty 4TEEN."
+          },
+          "supportedTargets": {
+            "label": "Publiczne próbki tras",
+            "meta": "Strona utrzymuje publicznie tylko niewielki zestaw kotwiczący. Portfel może przeglądać znacznie więcej celów, gdy trasy istnieją."
+          },
+          "protectedRemainder": {
+            "label": "Chroniona pozostałość",
+            "meta": "Portfel zachowuje minimalną pozostałość 4TEEN zamiast sprowadzać saldo do zera."
+          },
+          "routerState": {
+            "label": "Stan routera",
+            "meta": "Szybki sygnał, czy publiczne próbkowanie tras w pełni odpowiada w tej chwili."
+          },
+          "readFailed": "Nie udało się odczytać routingu swap na żywo.",
+          "readRetry": "Spróbuj odświeżyć za chwilę.",
+          "states": {
+            "live": "Na żywo",
+            "partial": "Częściowo",
+            "offline": "Offline"
+          }
+        }
+      },
+      "sections": {
+        "tokenUniverse": {
+          "eyebrow": "Świat tokenów",
+          "title": "Portfel nie jest zamknięty w dwóch promocyjnych celach.",
+          "intro": "Publiczna strona celowo utrzymuje przekaz w wąskim zakresie. Portfel robi odwrotnie: łączy możliwe do wysłania aktywa w portfelu, wpisy z niestandardowego katalogu tokenów i listę tokenów Tronscan, a następnie pozwala routingowi określić, co faktycznie da się wymienić.",
+          "mainCard": {
+            "eyebrow": "Szeroki dostęp do celów",
+            "title": "Jeśli router może podać wycenę, portfel zwykle może ją pokazać.",
+            "text": "To jest kluczowe rozróżnienie. Podgląd na stronie jest celowo wąski. Portfel to miejsce, w którym przełączanie celu staje się realne, ponieważ może pobrać szerszy świat tokenów i sprawdzić go bezpośrednio względem warstwy routingu.",
+            "bullets": [
+              "Salda w portfelu możliwe do wysłania mogą stać się aktywami źródłowymi.",
+              "Wpisy z niestandardowego katalogu i lista tokenów Tronscan rozszerzają zestaw celów daleko poza TRX i USDT.",
+              "Trasy nadal są filtrowane według tego, czy istnieje rzeczywista wycena, więc interfejs pozostaje uczciwy zamiast udawać, że każdy token jest płynny."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Przełączanie celu",
+              "title": "Użytkownik może zmienić w portfelu zarówno aktywo źródłowe, jak i aktywo do otrzymania",
+              "text": "Flow mobilny nie jest zamrożony wokół jednej pary. Obsługuje przełączanie aktywów przed zapytaniem o wyceny, dlatego ścieżka swap powinna być przedstawiana jako szersze narzędzie rynkowe."
+            },
+            {
+              "eyebrow": "Ranking tras",
+              "title": "Trasy są sortowane według outputu, a nie według zaszytej preferencji",
+              "text": "Dostępne trasy są porządkowane od lepszego outputu do gorszego, z priorytetem dla tras możliwych do wykonania. Użytkownik widzi, co faktycznie wygrywa, zamiast jednej nieprzejrzystej ścieżki."
+            }
+          ],
+          "note": "Dlatego właściwy komunikat produktowy nie brzmi „zamień na TRX albo USDT”. Właściwy komunikat brzmi: „portfel może przeszukiwać znacznie szerszy świat celów, gdy routing jest dostępny”."
+        },
+        "liveRoutes": {
+          "eyebrow": "Próbki tras na żywo",
+          "title": "Małe publiczne okno na silnik routingu",
+          "body": "Te karty celowo pozostają wąskie. Pokazują tylko kilka próbek kotwiczących, aby strona mogła udowodnić, że silnik działa, bez udawania, że jest całym produktem swap.",
+          "labels": {
+            "route": "Trasa",
+            "execution": "Wykonanie",
+            "impact": "Wpływ",
+            "targets": "Cele",
+            "updated": "Zaktualizowano",
+            "state": "Stan"
+          },
+          "transfers": {
+            "eyebrow": "Najnowsze transfery routera",
+            "title": "Ostatni potwierdzony ruch 4TEEN dotykający publicznego routera",
+            "empty": "Obecnie nie ma w pamięci podręcznej ostatnich transferów routera 4TEEN.",
+            "note": "Ta lista jest ładowana przez backendową warstwę snapshotów, buforowana w naszej bazie danych i serwowana w trybie stale-safe, gdy zewnętrzny eksplorator działa niestabilnie.",
+            "labels": {
+              "direction": "Kierunek",
+              "counterparty": "Kontrahent",
+              "amount": "Kwota",
+              "updated": "Zaktualizowano",
+              "tx": "Tx"
+            },
+            "states": {
+              "routerIn": "Router otrzymał",
+              "routerOut": "Router wysłał",
+              "related": "Powiązane z routerem"
+            }
+          },
+          "states": {
+            "executable": "Trasa wykonywalna",
+            "reviewOnly": "Trasa tylko do przeglądu"
+          },
+          "empty": "Obecnie nie jest dostępna żadna publiczna próbka trasy.",
+          "note": "W portfelu przełączanie celów i ranking tras odbywają się względem znacznie szerszego świata tokenów. Strona pokazuje tylko kompaktową publiczną próbkę."
+        },
+        "reviewLayer": {
+          "eyebrow": "Warstwa przeglądu",
+          "title": "Portfel nie przechodzi od razu do swap. Najpierw buduje kontrolowany przegląd.",
+          "intro": "Najważniejszą częścią ścieżki nie jest marketingowy zrzut ekranu. Jest nią kontrolowane przekazanie między podglądem wyceny a końcowym wykonaniem: chronione minimum, stan zatwierdzenia, obraz zasobów sieciowych i końcowy krok podpisu.",
+          "mainCard": {
+            "eyebrow": "Zatwierdź i wykonaj swap",
+            "title": "Minimum out, zatwierdzenie i przegląd zasobów są częścią ścieżki, zanim cokolwiek zostanie wysłane.",
+            "text": "Trasa może być widoczna, a jednocześnie jeszcze niewykonalna. To zdrowe zachowanie. Portfel czeka, aż stan zatwierdzenia, ważność trasy i gotowość zasobów będą zgodne, zanim zaoferuje końcową akcję.",
+            "bullets": [
+              "Slippage chroni minimalną kwotę otrzymaną, zanim swap opuści portfel.",
+              "Zatwierdzenie jest sprawdzane najpierw, gdy brakuje allowance.",
+              "Koszty energii i bandwidth są pokazywane przed końcowym krokiem potwierdzenia."
+            ]
+          },
+          "cards": [
+            {
+              "eyebrow": "Wynajem zasobów",
+              "title": "Ścieżka może skierować użytkownika do wykonania najpierw z wynajmem, gdy jest to tańsze",
+              "text": "Portfel już traktuje logikę oszczędzania zasobów jako część flow. Dzięki temu wykonanie pozostaje praktyczne, zamiast pozwalać użytkownikom odkrywać koszty burn dopiero po podpisaniu."
+            },
+            {
+              "eyebrow": "Chroniony dust",
+              "title": "Niewielka pozostałość 4TEEN celowo zostaje w portfelu",
+              "text": "Chroniona pozostałość pozwala uniknąć kruchych przypadków brzegowych salda zerowego i uspokaja późniejszą obsługę tras. To mała reguła, ale dobra reguła portfelowa."
+            }
+          ],
+          "note": "Właśnie to sprawia, że produkt wydaje się poważny: szerokie odkrywanie tokenów z przodu i kontrolowana dyscyplina wykonania z tyłu."
+        },
+        "verification": {
+          "eyebrow": "Weryfikacja",
+          "title": "Skąd pochodzi ta historia ścieżki",
+          "body": "Ta strona podąża za rzeczywistą implementacją portfela: przełączaniem celów, ładowaniem szerszego katalogu tokenów, rankingiem wycen, ochroną minimalnej kwoty do otrzymania, kontrolami zatwierdzeń i końcowym wykonaniem przez warstwę routera za aplikacją.",
+          "labels": {
+            "router": "Smart router",
+            "token": "Token 4TEEN",
+            "walletRepo": "Repozytorium portfela"
+          }
+        },
+        "cta": {
+          "eyebrow": "Otwórz prawdziwą ścieżkę",
+          "title": "Otwórz portfel, gdy chcesz zobaczyć pełną mapę tras",
+          "body": "Strona powinna jasno pokazywać możliwość swap. Portfel mobilny to miejsce, w którym szerszy świat tokenów, uszeregowane trasy, przegląd zatwierdzeń, chronione minimum i końcowy podpis łączą się w całość.",
+          "openApp": "Otwórz aplikację mobilną",
+          "openBuy": "Otwórz ścieżkę zakupu"
+        }
+      }
     }
   }
 }
