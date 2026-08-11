@@ -32476,6 +32476,177 @@
           "Dopracowanie produktu, lokalizacja, analityka i poprawa konwersji."
         ]
       }
+    },
+    "deck": {
+      "metadata": {
+        "title": "4TEEN Deck dla inwestorów",
+        "description": "4TEEN już łączy działający portfel, bezpośredni zakup i przepływ odblokowania produktu, modułowe kontrakty TRON, zaplanowane wykonywanie płynności, custody skarbców oraz rozliczanie ambasadorów. Ta strona jest punktem wejścia dla inwestorów."
+      },
+      "hero": {
+        "eyebrow": "4TEEN Deck",
+        "status": "Prezentacja inwestorska",
+        "title": "4TEEN ma już pętlę portfela, rdzeń smart kontraktów i szyny wzrostu. Teza inwestycyjna polega na skalowaniu działającego systemu, zanim silniejsza dystrybucja dotrze do niego jako pierwsza.",
+        "lead": "4TEEN nie jest stroną tokena szukającą produktu. Portfel już udostępnia bezpośredni zakup, oś czasu odblokowań, swap, płynność, panel ambasadora i powierzchnie informacyjne. Kontrakty już egzekwują minting, 14-dniowe blokady, routing 90 / 7 / 3, rozliczanie kontrolera oraz zaplanowane wykonywanie płynności."
+      },
+      "summaryCards": [
+        {
+          "eyebrow": "Działający produkt",
+          "title": "Portfel + kontrakty są już połączone",
+          "body": "Portfel już udostępnia zakup, odblokowanie, swap, płynność, panel ambasadora i powierzchnie informacyjne, zamiast zatrzymywać się na stronie tokena lub obietnicy z whitepaper."
+        },
+        {
+          "eyebrow": "Mechanika wejścia",
+          "title": "Routing 90 / 7 / 3",
+          "body": "Każdy bezpośredni zakup kieruje TRX w ramach tej samej transakcji: 90% na stronę płynności, 7% na stronę kontrolera, 3% na stronę airdropu."
+        },
+        {
+          "eyebrow": "Projekt blokady",
+          "title": "14D na każdy zakup",
+          "body": "Tokeny z bezpośredniego zakupu są mintowane natychmiast i blokowane partiami. Każdy nowy zakup tworzy własny licznik odblokowania, zamiast modyfikować cały stan portfela."
+        },
+        {
+          "eyebrow": "Rytm płynności",
+          "title": "Okno uwalniania 6.43%",
+          "body": "Kontroler płynności może uwolnić wartość raz dziennie powyżej twardego progu 100 TRX, a następnie podzielić wykonanie na szyny właściwe dla DEX."
+        }
+      ],
+      "sections": [
+        {
+          "eyebrow": "Dlaczego teraz",
+          "title": "Praca od zera do jedynki jest już widoczna",
+          "body": "4TEEN nie czeka na pierwszy prototyp. Podstawowa pętla już istnieje w kontraktach i UX portfela: wejść przez bezpośredni zakup, zablokować każdą partię, obserwować akumulację płynności po stronie kontrolera, odblokować później i zdecydować, czy trzymać, czy skorzystać ze ścieżki rynkowej.",
+          "bullets": [
+            "Kontrakt tokena już mintuje przy zakupie i egzekwuje 14-dniową blokadę.",
+            "Kontroler już posiada uprawnienia administracyjne, zamiast pozostawiać krytyczną kontrolę zwykłemu portfelowi.",
+            "Portfel już udostępnia powierzchnie zakupu, odblokowania, swapu, płynności i ambasadora jako jedną historię produktu."
+          ]
+        },
+        {
+          "eyebrow": "Dlaczego kapitał ma znaczenie",
+          "title": "Szansa nie polega na wyobrażaniu sobie produktu. Polega na skalowaniu istniejącej pętli, zanim silniejsza dystrybucja dotrze do niej jako pierwsza.",
+          "body": "Najsilniejszy argument inwestorski tutaj nie jest sloganem. Produkt, architektura on-chain i szyny wzrostu są już połączone. Nowy kapitał może więc szybciej wzmacniać dystrybucję, pozyskiwanie użytkowników, głębokość płynności i wiarygodność niż w projekcie tokenowym budowanym od pustej kartki."
+        }
+      ],
+      "thesis": [
+        {
+          "eyebrow": "1. Ryzyko produktowe jest niższe",
+          "title": "To jest już poza etapem koncepcji",
+          "body": "Aplikacja portfela już obejmuje bezpośredni zakup, oś czasu odblokowań, swap, ekran główny portfela, routing informacyjny oraz powierzchnie operacyjne dla ambasadorów. To zmienia rozmowę inwestorską z ryzyka koncepcji na ryzyko skalowania."
+        },
+        {
+          "eyebrow": "2. Architektura jest zrozumiała",
+          "title": "Kontrola, płynność i rezerwy są rozdzielone",
+          "body": "FourteenToken, FourteenController, FourteenLiquidityController, LiquidityBootstrapper i kontrakty skarbców mają odrębne odpowiedzialności. Ten podział ułatwia weryfikację, wyjaśnianie i rozwijanie systemu."
+        },
+        {
+          "eyebrow": "3. Szyny wzrostu są realne",
+          "title": "Logika airdropu i ambasadorów jest już podłączona",
+          "body": "Kontroler przechowuje stan ambasadorów, powiązanie kupujących, rozliczanie nagród i przetworzone identyfikatory zakupów. Strona airdropu jest finansowana w ramach ścieżki bezpośredniego zakupu, zamiast pozostawać marketingowym życzeniem."
+        },
+        {
+          "eyebrow": "4. Pętla jest łatwa do przekazania",
+          "title": "Kup, zablokuj, odblokuj, a potem wybierz następną ścieżkę",
+          "body": "Ta sekwencja jest wystarczająco jasna dla użytkowników, wystarczająco mocna dla treści i wystarczająco uporządkowana dla due diligence inwestorów. Tworzy historię, którą portfel może faktycznie wykonać, a strona może udowodnić."
+        }
+      ],
+      "proofTracks": [
+        {
+          "eyebrow": "Dowód on-chain",
+          "title": "Co kontrakty już egzekwują",
+          "bullets": [
+            "FourteenToken mintuje przy zakupie, blokuje każdą partię na 14 dni i kieruje przychodzące TRX według stałych udziałów 90 / 7 / 3.",
+            "FourteenController jest właścicielem tokena i przechowuje stan ambasadorów, powiązania kupujących, przetworzone identyfikatory zakupów oraz rozliczanie nagród.",
+            "FourteenLiquidityController egzekwuje minimum 100 TRX oraz zasadę uwalniania 6.43% raz na dobę UTC.",
+            "LiquidityBootstrapper przygotowuje salda executorów przed wykonaniem po stronie kontrolera, zamiast zgadywać wejścia płynności off-chain."
+          ]
+        },
+        {
+          "eyebrow": "Dowód produktowy",
+          "title": "Co portfel już udostępnia",
+          "bullets": [
+            "Ekran bezpośredniego zakupu już wyjaśnia działającą ścieżkę kontraktu i uruchamia prawdziwy widget zakupu.",
+            "Oś czasu odblokowań już renderuje logikę uwalniania opartą na partiach, zamiast udawać, że odblokowania są abstrakcyjne.",
+            "Manage Crypto i Swap już osadzają 4TEEN w szerszym produkcie portfelowym, a nie jako jednoekranową zabawkę tokenową.",
+            "Powierzchnie informacyjne już mapują role kontraktów, salda portfeli aktywów i gotowość operatora w czytelny dashboard systemu."
+          ]
+        },
+        {
+          "eyebrow": "Dowód narracyjny",
+          "title": "Co strona może już wyjaśnić rynkowi",
+          "bullets": [
+            "Publiczna strona już tłumaczy powierzchnie tokena, kontrolera, płynności, odblokowań i dowodu w jedną czytelną historię użytkownika.",
+            "Whitepaper, działające ścieżki protokołu i linki do kontraktów zmniejszają tarcie due diligence dla nowego kapitału i partnerów strategicznych.",
+            "Najsilniejszy przekaz jest prosty: pętla produktu istnieje, logika chain istnieje, a warstwę wzrostu można już pokazać, a nie tylko sobie wyobrażać."
+          ]
+        }
+      ],
+      "capitalPlan": [
+        {
+          "eyebrow": "Wykorzystanie kapitału",
+          "title": "Dystrybucja i pętle wzrostu",
+          "body": "Rozszerzyć pozyskiwanie ambasadorów, operacje kampanijne, dystrybucję regionalną i publiczną machinę treści, która zamienia protokół w historię, za którą użytkownicy mogą faktycznie podążać."
+        },
+        {
+          "eyebrow": "Wykorzystanie kapitału",
+          "title": "Dopracowanie produktu i retencja",
+          "body": "Wzmocnić UX portfela, powierzchnie konwersji, lokalizację, instrumentację i jakość onboardingu, aby produkt mógł obsługiwać większe napływy bez wrażenia niedokończenia."
+        },
+        {
+          "eyebrow": "Wykorzystanie kapitału",
+          "title": "Zaufanie do płynności",
+          "body": "Poprawić zaufanie rynku do narracji bezpośredniego zakupu, widoczności płynności po stronie kontrolera i niezawodności wykonania, aby system był postrzegany jako trwały, a nie eksperymentalny."
+        },
+        {
+          "eyebrow": "Wykorzystanie kapitału",
+          "title": "Warstwa wiarygodności",
+          "body": "Dopracować dokumentację, materiały inwestorskie, wyjaśnienia instytucjonalne i powierzchnie weryfikacyjne, aby poważni kontrahenci mogli zrozumieć projekt bez konieczności wcześniejszego prywatnego oprowadzania."
+        }
+      ],
+      "links": [
+        {
+          "label": "Pobierz PDF Deck dla inwestorów",
+          "href": "/docs/4teen-investor-deck.pdf",
+          "download": "4teen-investor-deck.pdf"
+        },
+        {
+          "label": "Otwórz ścieżkę bezpośredniego zakupu",
+          "href": "/buy"
+        },
+        {
+          "label": "Otwórz oś czasu odblokowań",
+          "href": "/unlock"
+        },
+        {
+          "label": "Otwórz ścieżkę płynności",
+          "href": "/liquidity"
+        },
+        {
+          "label": "Przejrzyj aktualny whitepaper",
+          "href": "/whitepaper"
+        },
+        {
+          "label": "Repozytorium aplikacji portfela",
+          "href": "https://github.com/info14fourteen-creator/4teen-wallet-app"
+        },
+        {
+          "label": "Repozytorium smart kontraktów",
+          "href": "https://github.com/info14fourteen-creator/4teen-smart-contracts"
+        }
+      ],
+      "linksEyebrow": "Due Diligence inwestora zaczyna się tutaj",
+      "footerNote": "Ta strona ma rozpoczynać rozmowy inwestorskie wokół działającego systemu, a nie obiecywać zwroty ani ukrywać realia produktu za niejasnym językiem tokenowym.",
+      "contact": {
+        "eyebrow": "Kontakt z Genesis",
+        "title": "Jeśli brzmi to jak coś wartego finansowania, następnym krokiem powinien być bezpośredni kontakt.",
+        "body": "Napisz, podając wielkość alokacji, wartość strategiczną, harmonogram i obszar, w którym według Ciebie możesz najszybciej przyspieszyć system. Właściwy inwestor tutaj nie jest pasywnym kapitałem. To kapitał plus dystrybucja, wiedza rynkowa, wiarygodność płynnościowa lub zasięg ekosystemu.",
+        "emailLabel": "Kontakt inwestorski",
+        "email": "genesis@4teen.me",
+        "bullets": [
+          "Rozmowy o kapitale seed, strategicznym lub na skalę ekosystemu są mile widziane.",
+          "Wprowadzenia pomostowe, relacje market-makingowe, ścieżki giełdowe i dystrybucja wzrostu są równie istotne jak sam czek.",
+          "Najsilniejsza rozmowa zaczyna się od tego, co możesz przyspieszyć, a nie tylko od tego, co możesz przelać."
+        ]
+      }
     }
   }
 }
