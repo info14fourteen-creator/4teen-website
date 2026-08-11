@@ -33018,5 +33018,161 @@
       "linksEyebrow": "Następne trasy",
       "footerNote": "Obecna trasa jest czystą powłoką dla przyszłych publikacji, a nie fałszywym feedem. Gdy pojawią się artykuły, powinny pozostać spójne z warstwami dowodową i produktową."
     }
+  },
+  "ar": {
+    "global": {
+      "chrome": {
+        "common": {
+          "copy": "نسخ",
+          "copied": "تم النسخ",
+          "failed": "فشل",
+          "close": "إغلاق",
+          "qrCode": "رمز QR"
+        },
+        "taglines": [
+          "دخول مبكر. تخارج أعلى.",
+          "الرابحون لا ينتظرون.",
+          "حوّل 14 يومًا إلى ربح.",
+          "تحرّك مبكرًا. اربح مبكرًا."
+        ],
+        "header": {
+          "home": "الرئيسية",
+          "getApp": "احصل على التطبيق",
+          "primaryNavAria": "تنقّل الموقع الرئيسي"
+        },
+        "market": {
+          "loading": "جارٍ تحميل السعر",
+          "unavailable": "السعر غير متاح",
+          "liveAria": "سعر السوق المباشر"
+        },
+        "refresh": {
+          "idle": "تحديث البيانات",
+          "busy": "جارٍ التحديث",
+          "aria": "تحديث لقطة البيانات المباشرة"
+        },
+        "mobileSearch": {
+          "ariaLabel": "ابحث في المسارات والعقود والمستندات",
+          "placeholder": "ابحث في المسارات، العقود، المستندات...",
+          "eyebrow": "بحث سريع",
+          "title": "الصفحات والعقود وواجهات الإثبات",
+          "dialogAria": "نتائج البحث",
+          "route": "المسار",
+          "external": "خارجي",
+          "empty": "لا توجد نتائج سريعة بعد. جرّب كلمات المسار أو العقد أو الإثبات."
+        },
+        "desktopSearch": {
+          "prompts": [
+            "ابحث في العقود، المسارات، المستندات...",
+            "FourteenToken",
+            "الجدول الزمني لإلغاء القفل",
+            "متحكم السيولة",
+            "مكافآت السفراء",
+            "الورقة البيضاء"
+          ],
+          "ariaLabel": "ابحث في مسارات وعقود 4TEEN",
+          "actionAria": "فتح نتائج البحث",
+          "eyebrow": "نتائج البحث السريع",
+          "title": "صفحات سريعة وعقود وواجهات إثبات.",
+          "dialogAria": "نتائج البحث",
+          "closeAria": "إغلاق البحث",
+          "resultsSuffix": "نتائج",
+          "noResultsYet": "لا توجد نتائج بعد",
+          "pressEnter": "اضغط Enter لفتح أفضل نتيجة مطابقة.",
+          "topMatch": "أفضل نتيجة",
+          "route": "المسار",
+          "external": "خارجي",
+          "empty": "لا توجد نتائج. جرّب `buy` أو `unlock` أو `airdrop` أو `controller` أو `whitepaper`."
+        },
+        "locale": {
+          "eyebrow": "اللغة",
+          "title": "اختر لغة الواجهة",
+          "active": "نشطة",
+          "soon": "قريبًا"
+        },
+        "mobileMenu": {
+          "coreSurfaces": "الواجهات الأساسية",
+          "docsAndRoutes": "المستندات والمسارات",
+          "closeOpenPanelAria": "إغلاق اللوحة المفتوحة"
+        },
+        "mobileDock": {
+          "menu": "القائمة",
+          "close": "إغلاق",
+          "openMenuAria": "فتح قائمة الجوال",
+          "closeMenuAria": "إغلاق قائمة الجوال",
+          "openHomeAria": "فتح الرئيسية",
+          "openSearchAria": "فتح بحث الجوال",
+          "openLanguageAria": "فتح لوحة اللغة"
+        },
+        "footer": {
+          "protocol": "البروتوكول",
+          "ecosystem": "النظام البيئي",
+          "legal": "قانوني",
+          "privacy": "الخصوصية",
+          "terms": "الشروط",
+          "support": "الدعم",
+          "investorDeck": "عرض المستثمرين",
+          "onePager": "صفحة واحدة",
+          "officialChannels": "القنوات الرسمية",
+          "brandText": "يحمل تطبيق المحفظة الآن واجهة النظام المباشرة: شراء مباشر، حالة إلغاء القفل، حقيقة المتحكم، لوحة السفراء، وتدفق نمو يضع Telegram أولًا.",
+          "getApp": "احصل على التطبيق",
+          "copyright": "© 2026 4TEEN / AG PLUS LLC. دخول منظّم على السلسلة على TRON.",
+          "officialWebsite": "الموقع الرسمي: 4teen.me"
+        }
+      },
+      "nav": {
+        "groups": {
+          "protocol": "البروتوكول",
+          "growth": "النمو",
+          "proof": "الإثبات",
+          "ecosystem": "النظام البيئي"
+        },
+        "links": {
+          "home": "الرئيسية",
+          "buy": "شراء",
+          "unlock": "إلغاء القفل",
+          "liquidity": "السيولة",
+          "airdrop": "Airdrop",
+          "ambassadors": "السفراء",
+          "whitepaper": "الورقة البيضاء",
+          "verification": "التحقق",
+          "blog": "المدونة",
+          "swap": "Swap",
+          "mobileApp": "تطبيق الجوال"
+        },
+        "shortLinks": {
+          "buy": "شراء",
+          "unlock": "إلغاء القفل",
+          "liquidity": "السيولة",
+          "airdrop": "Airdrop",
+          "earn": "اكسب",
+          "swap": "Swap",
+          "app": "التطبيق",
+          "home": "الرئيسية"
+        },
+        "menuLinks": {
+          "buy": "شراء مباشر",
+          "unlock": "الجدول الزمني لإلغاء القفل",
+          "liquidity": "متحكم السيولة",
+          "swap": "Swap Token",
+          "privacy": "سياسة الخصوصية",
+          "terms": "شروط الاستخدام"
+        }
+      },
+      "search": {
+        "meta": {
+          "mainRoute": "المسار الرئيسي",
+          "protocolSurface": "واجهة البروتوكول",
+          "growthSurface": "واجهة النمو",
+          "proofSurface": "واجهة الإثبات",
+          "downloadRoute": "مسار التنزيل",
+          "publicPolicy": "سياسة عامة",
+          "supportRoute": "مسار الدعم",
+          "coreContract": "العقد الأساسي",
+          "liquidityContract": "عقد السيولة",
+          "growthContract": "عقد النمو",
+          "githubSource": "مصدر GitHub"
+        }
+      }
+    }
   }
 }
