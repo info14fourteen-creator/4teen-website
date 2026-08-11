@@ -32109,6 +32109,157 @@
           "repoLabel": "Repozytorium aplikacji portfela"
         }
       }
+    },
+    "verification": {
+      "metadata": {
+        "title": "Weryfikacja",
+        "description": "Ścieżka weryfikacji 4TEEN z aktywnymi adresami, saldami rezerw, mapą własności protokołu i bezpośrednimi linkami do dowodów dla pogłębionej analizy."
+      },
+      "hero": {
+        "eyebrow": "Warstwa weryfikacji",
+        "status": "Publiczna mapa architektury",
+        "title": "To jest warstwa zaufania: kto co posiada, gdzie znajdują się rezerwy, jak przepływa wartość i które publiczne adresy obecnie wspierają projekt.",
+        "lead": "Poważni użytkownicy i inwestorzy nie zatrzymują się na stronie głównej. Ta ścieżka daje im szybki sposób sprawdzenia własności, custody, sald i ścieżek kontraktów bez wrzucania ich przy pierwszym kliknięciu w ścianę surowych kart eksploratora.",
+        "stats": {
+          "totalSupply": "Całkowita podaż",
+          "totalSupplyMeta": "Aktualne totalSupply FourteenToken on-chain.",
+          "currentPrice": "Cena bezpośrednia",
+          "currentPriceMeta": "Aktualna cena podglądowa dla buyTokens(), wyrażona w TRX.",
+          "vaultCustody": "Custody w skarbcach",
+          "vaultCustodyMeta": "4TEEN obecnie ulokowane w FourteenVault, TeamLockVault i AirdropVault.",
+          "controllerBalance": "Saldo kontrolera",
+          "controllerBalanceMeta": "TRX obecnie znajdujące się w FourteenController.",
+          "readFailed": "Odczyt weryfikacji na żywo nie powiódł się.",
+          "readRetry": "Statyczna mapa architektury nadal jest poprawna. Odśwież za chwilę, aby zobaczyć aktualne liczby."
+        }
+      },
+      "sections": {
+        "orientation": {
+          "eyebrow": "Orientacja",
+          "title": "Użyj tej strony, aby szybko odpowiedzieć na dwa pytania",
+          "body": "Po pierwsze: który kontrakt lub skarbiec odpowiada za konkretne zadanie protokołu. Po drugie: czy stan publiczny nadal zgadza się z narracją, którą projekt komunikuje wszędzie indziej. Strona celowo pozostaje tylko do odczytu. Jej rolą jest budowanie zaufania, a nie wykonywanie działań.",
+          "bullets": [
+            "FourteenToken jest kontraktem obsługującym zakup, mint, blokady oraz wejście z podziałem wartości.",
+            "FourteenController jest warstwą administracyjną i atrybucyjną, a nie samym tokenem.",
+            "LiquidityController i LiquidityBootstrapper posiadają szynę zwalniania i wykonania.",
+            "Salda skarbców istnieją on-chain, ale custody rezerw nie oznacza wolnego obiegu."
+          ],
+          "openWhitepaper": "Otwórz Whitepaper",
+          "openApp": "Otwórz Mobile App"
+        },
+        "tokenMap": {
+          "eyebrow": "Mapa tokena",
+          "title": "Jak obecnie połączony jest główny token",
+          "rows": {
+            "tokenOwner": "Właściciel tokena",
+            "liquidityRoute": "Ścieżka płynności",
+            "airdropRoute": "Ścieżka airdropu",
+            "directPrice": "Cena bezpośrednia",
+            "growthRule": "Reguła wzrostu",
+            "lastPriceUpdate": "Ostatnia aktualizacja ceny",
+            "snapshotUpdated": "Snapshot zaktualizowany"
+          },
+          "note": "Kluczowym szczegółem jest łańcuch własności. FourteenToken nie opiera się na prostej historii właściciela-portfela. Ścieżka właściciela prowadzi do FourteenController, dlatego obie warstwy są tutaj prezentowane razem."
+        },
+        "controllerState": {
+          "eyebrow": "Stan kontrolera",
+          "title": "Co kontroler mówi o atrybucji i przepływie skarbca",
+          "rows": {
+            "controllerOwner": "Właściciel kontrolera",
+            "contractBalance": "Saldo kontraktu",
+            "ownerAvailable": "Dostępne dla właściciela",
+            "reservedRewards": "Zarezerwowane nagrody",
+            "unallocatedPurchaseFunds": "Nieprzypisane środki z zakupów",
+            "ambassadors": "Łączna liczba ambasadorów",
+            "activeAmbassadors": "Aktywni ambasadorzy",
+            "boundBuyers": "Przypisani kupujący",
+            "trackedVolume": "Śledzony wolumen",
+            "rewardsClaimed": "Odebrane nagrody"
+          },
+          "note": "Właśnie dlatego historia kontrolera ma znaczenie. Utrzymuje oddzielne publiczne koszyki dla środków dostępnych dla właściciela, zarezerwowanych nagród, śledzonego wolumenu i liczników atrybucji kupujących, zamiast spłaszczać wszystko do jednej metryki próżności."
+        },
+        "liquidityState": {
+          "eyebrow": "Szyna płynności",
+          "title": "Strona wykonawcza jest osobnym publicznym systemem",
+          "rows": {
+            "controllerBalance": "Saldo Liquidity Controller",
+            "controllerOwner": "Właściciel Liquidity Controller",
+            "minBalance": "Minimalne saldo wyzwalające",
+            "dailyRelease": "Dzienna reguła zwalniania",
+            "justMoneyExecutor": "Executor JustMoney",
+            "sunExecutor": "Executor Sun.io V3"
+          },
+          "note": "Automatyzacja może uruchomić ścieżkę, ale próg zwolnienia i procent nadal znajdują się w kontraktach. Wygoda jest poza regułami, a nie ponad nimi."
+        },
+        "architecture": {
+          "eyebrow": "Architektura",
+          "title": "Protokół jest podzielony na jasno określone zadania zamiast jednego ogromnego kontraktu",
+          "cards": [
+            {
+              "eyebrow": "Rdzeń",
+              "title": "FourteenToken",
+              "text": "Przyjmuje bezpośrednie zakupy w TRX, mintuje 4TEEN, tworzy 14-dniowe blokady dla każdego zakupu i atomowo dzieli wartość zakupu w proporcji 90 / 7 / 3."
+            },
+            {
+              "eyebrow": "Administracja",
+              "title": "FourteenController",
+              "text": "Posiada warstwę tokena, przechowuje stan atrybucji i rozliczeń nagród, udostępnia publiczne podsumowania systemu oraz kontroluje obsługę salda po stronie właściciela."
+            },
+            {
+              "eyebrow": "Wykonanie",
+              "title": "Liquidity Stack",
+              "text": "FourteenLiquidityController utrzymuje szynę TRX po stronie zakupów, podczas gdy LiquidityBootstrapper przygotowuje zapas tokenów i uruchamia ścieżki płynności po stronie executorów."
+            },
+            {
+              "eyebrow": "Custody",
+              "title": "Separacja skarbców",
+              "text": "FourteenVault, TeamLockVault i AirdropVault izolują salda rezerw według celu, dzięki czemu podaż skarbca, zespołu i wzrostu nie jest spłaszczona do jednej ogólnej puli."
+            }
+          ],
+          "note": "Ta separacja jest jedną z najłatwiejszych do publicznego zweryfikowania zalet. Linki do eksploratora, kod w repozytoriach i salda na żywo wskazują na tę samą modularną architekturę."
+        },
+        "reserveLayer": {
+          "eyebrow": "Warstwa rezerw",
+          "title": "Salda 4TEEN na żywo w adresach skarbców i wykonania",
+          "body": "Te salda pokazują, gdzie faktycznie znajduje się zapas tokenów. Custody w skarbcach nie jest wolnym obiegiem, a zapas executora nie jest saldem portfela użytkownika. Zestawienie ich razem sprawia, że system jest czytelny na pierwszy rzut oka.",
+          "note": "Salda executorów mogą się zmieniać, gdy bootstrap i przepływ płynności przesuwają zapas tokenów. Salda skarbców są stabilniejszą warstwą dowodową dla custody rezerw.",
+          "labels": {
+            "balance": "Saldo",
+            "verify": "Zweryfikuj w TronScan"
+          }
+        },
+        "verification": {
+          "eyebrow": "Linki do dowodów",
+          "title": "Otwórz warstwę dowodową bezpośrednio",
+          "body": "Każda grupa poniżej przenosi użytkownika prosto z narracji do warstwy dowodowej: kontraktów, skarbców, szyn wykonania oraz repozytoriów stojących za produktem.",
+          "groups": {
+            "core": "Kontrakty rdzeniowe",
+            "vaults": "Kontrakty skarbców",
+            "execution": "Kontrakty wykonawcze",
+            "source": "Repozytoria źródłowe"
+          },
+          "labels": {
+            "token": "FourteenToken",
+            "controller": "FourteenController",
+            "liquidityController": "FourteenLiquidityController",
+            "bootstrapper": "LiquidityBootstrapper",
+            "fourteenVault": "FourteenVault",
+            "teamLockVault": "TeamLockVault",
+            "airdropVault": "AirdropVault",
+            "justMoneyExecutor": "LiquidityExecutorJustMoney",
+            "sunV3Executor": "LiquidityExecutorSunV3",
+            "contractsRepo": "Repozytorium kontraktów",
+            "walletRepo": "Repozytorium portfela"
+          }
+        },
+        "cta": {
+          "eyebrow": "Następny krok",
+          "title": "Zbuduj przekonanie tutaj, a potem przejdź do aplikacji",
+          "body": "Użyj publicznej ścieżki, aby sprawdzić system. Użyj portfela, gdy chcesz podpisywać, kupować, odblokowywać, swapować, odebrać airdrop lub wykonać ręczną akcję płynności z rzeczywistym stanem konta w tle.",
+          "openApp": "Otwórz Mobile App",
+          "openBuy": "Otwórz ścieżkę zakupu"
+        }
+      }
     }
   }
 }
