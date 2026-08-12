@@ -1,13 +1,22 @@
-import generatedLocalization from "../content/localization-generated.json" with {
-  type: "json",
-};
+import { ungzip } from "pako";
+import { compressedLocalization } from "../content/localization-runtime";
 
 type GeneratedLocalization = Record<
   string,
   Record<string, unknown>
 >;
 
-const generated = generatedLocalization as GeneratedLocalization;
+// The source JSON is large enough to exceed the Cloudflare Worker bundle cap.
+// It is generated as gzip+base64 at build time and unpacked once per isolate.
+const generated = JSON.parse(
+  new TextDecoder().decode(
+    ungzip(
+      Uint8Array.from(atob(compressedLocalization), (character) =>
+        character.charCodeAt(0),
+      ),
+    ),
+  ),
+) as GeneratedLocalization;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);

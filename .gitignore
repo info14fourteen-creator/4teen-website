@@ -46,3 +46,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 cloudflare-env.d.ts
+
+# Generated compressed localization payload
+src/content/localization-runtime.ts
