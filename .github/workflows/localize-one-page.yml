@@ -70,6 +70,8 @@ jobs:
     env:
       CI: "1"
       NEXT_TELEMETRY_DISABLED: "1"
+      # Interface copy benefits more from reliable short responses than extended reasoning.
+      LOCALIZATION_MODEL: gpt-5-mini
       OPS_EXPORT_BASE_URL: ${{ vars.OPS_EXPORT_BASE_URL || 'https://fourteen-wallet-api-7af291023d36.herokuapp.com' }}
       OPS_GITHUB_OIDC_AUDIENCE: ${{ vars.OPS_GITHUB_OIDC_AUDIENCE || '4teen-ops-runner' }}
     steps:
