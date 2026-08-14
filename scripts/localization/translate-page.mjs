@@ -42,6 +42,7 @@ function parseArguments() {
 
 async function requestTranslation({ locale, page, source }) {
   const apiKey = process.env.OPENAI_API_KEY?.trim();
+  const model = process.env.LOCALIZATION_MODEL || "gpt-4o-mini";
   if (!apiKey) {
     throw new Error("OPENAI_API_KEY is required");
   }
@@ -53,10 +54,10 @@ async function requestTranslation({ locale, page, source }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      model: process.env.LOCALIZATION_MODEL || "gpt-5.5",
+      model,
       // Translation is a constrained rewrite, not an analysis task. Minimal
-      // reasoning keeps the batch predictable without weakening structure checks.
-      reasoning: { effort: "minimal" },
+      // reasoning keeps GPT-5 batches predictable without weakening structure checks.
+      ...(model.startsWith("gpt-5") ? { reasoning: { effort: "minimal" } } : {}),
       input: [
         {
           role: "system",
