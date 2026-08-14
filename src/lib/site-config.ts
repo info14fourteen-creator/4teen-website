@@ -52,7 +52,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "Türkçe",
     flag: "🇹🇷",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "de",
@@ -60,7 +60,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "Deutsch",
     flag: "🇩🇪",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "fr",
@@ -68,7 +68,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "Français",
     flag: "🇫🇷",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "es",
@@ -76,7 +76,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "Español",
     flag: "🇪🇸",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "it",
@@ -84,7 +84,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "Italiano",
     flag: "🇮🇹",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "pt",
@@ -92,7 +92,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "Português",
     flag: "🇵🇹",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "nl",
@@ -100,7 +100,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "Nederlands",
     flag: "🇳🇱",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "pl",
@@ -108,7 +108,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "Polski",
     flag: "🇵🇱",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "ar",
@@ -116,7 +116,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "العربية",
     flag: "🇸🇦",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "hi",

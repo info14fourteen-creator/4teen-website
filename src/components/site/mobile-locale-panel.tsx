@@ -74,6 +74,8 @@ export function MobileLocalePanel({
                 key={locale.code}
                 className={`ft-mobile-locale-panel__option ${isCurrent ? "is-active" : ""}`}
                 href={localizePathnameForLocale(pathname, locale.code)}
+                onClick={onClose}
+                preserveLocaleTarget
               >
                 {content}
               </LoaderLink>

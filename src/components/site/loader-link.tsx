@@ -91,10 +91,12 @@ function resolveExternalNavigation(href: string, target?: string) {
 
 type LoaderLinkProps = LinkProps &
   Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
-    children: ReactNode;
-    triggerLoader?: boolean;
-    showLinkIcon?: boolean;
-  };
+  children: ReactNode;
+  triggerLoader?: boolean;
+  showLinkIcon?: boolean;
+  // Locale menus already provide the final locale-prefixed route.
+  preserveLocaleTarget?: boolean;
+};
 
 export function LoaderLink({
   children,
@@ -103,6 +105,7 @@ export function LoaderLink({
   target,
   triggerLoader = false,
   showLinkIcon = false,
+  preserveLocaleTarget = false,
   ...props
 }: LoaderLinkProps) {
   const currentLocale = useCurrentSiteLocale();
@@ -112,7 +115,11 @@ export function LoaderLink({
   const isInternal = isInternalStringHref(href);
   const isString = isStringHref(href);
   const isExternal = isExternalStringHref(href);
-  const resolvedInternalHref = isInternal ? localizeSiteHref(href, currentLocale) : null;
+  const resolvedInternalHref = isInternal
+    ? preserveLocaleTarget
+      ? href
+      : localizeSiteHref(href, currentLocale)
+    : null;
   const resolvedStringHref = isString ? (resolvedInternalHref ?? href) : "";
   const resolvedHref = resolvedInternalHref ?? href;
   const animationData = isInternal ? internalLinkHover : externalLinkHover;

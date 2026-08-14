@@ -89,6 +89,7 @@ export function LocaleSwitcher({
                   className="ft-locale-switcher__inline-option"
                   href={localizePathnameForLocale(pathname, locale.code)}
                   onClick={() => setOpen(false)}
+                  preserveLocaleTarget
                 >
                   {content}
                 </LoaderLink>
@@ -163,6 +164,7 @@ export function LocaleSwitcher({
                   className={`ft-locale-switcher__option ${locale.code === current.code ? "is-active" : ""}`}
                   href={localizePathnameForLocale(pathname, locale.code)}
                   onClick={() => setOpen(false)}
+                  preserveLocaleTarget
                 >
                   {content}
                 </LoaderLink>
