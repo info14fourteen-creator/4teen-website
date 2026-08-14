@@ -55,6 +55,10 @@ async function requestTranslation({ locale, page, source }) {
     },
     body: JSON.stringify({
       model,
+      // Some page surfaces contain hundreds of independent copy strings.
+      // Reserve enough room for a complete JSON object rather than accepting
+      // a syntactically valid but truncated translation.
+      max_output_tokens: 16000,
       // Translation is a constrained rewrite, not an analysis task. Minimal
       // reasoning keeps GPT-5 batches predictable without weakening structure checks.
       ...(model.startsWith("gpt-5") ? { reasoning: { effort: "minimal" } } : {}),
