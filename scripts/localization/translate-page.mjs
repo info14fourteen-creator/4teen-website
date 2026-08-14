@@ -114,35 +114,50 @@ async function main() {
     throw new Error(`Unsupported target locale: ${locale || "(missing)"}`);
   }
 
-  if (!page || !plan.pages.includes(page)) {
+  if (!page || (page !== "all" && !plan.pages.includes(page))) {
     throw new Error(`Unsupported page: ${page || "(missing)"}`);
-  }
-
-  if (!hasPageExtractor(page)) {
-    throw new Error(
-      `Page "${page}" is planned but its source extractor is not ready yet`,
-    );
   }
 
   const targetPath = path.resolve("src/content/localization-generated.json");
   const existing = JSON.parse(await fs.readFile(targetPath, "utf8"));
-  if (existing[locale]?.[page]) {
+  const pages = page === "all" ? plan.pages : [page];
+  let written = 0;
+
+  for (const pageName of pages) {
+    if (!hasPageExtractor(pageName)) {
+      throw new Error(
+        `Page "${pageName}" is planned but its source extractor is not ready yet`,
+      );
+    }
+
+    if (existing[locale]?.[pageName]) {
+      process.stdout.write(`${locale}/${pageName}: already localized; skipping generation\n`);
+      continue;
+    }
+
+    const source = await loadEnglishPageContent(pageName);
+    const translated = await requestTranslation({ locale, page: pageName, source });
+    const validation = validateTranslatedStructure(source, translated);
+
+    if (!validation.valid) {
+      throw new Error(
+        `Translation validation failed for ${locale}/${pageName}:\n${JSON.stringify(validation, null, 2)}`,
+      );
+    }
+
+    existing[locale] ??= {};
+    existing[locale][pageName] = translated;
+    written += 1;
+    process.stdout.write(
+      `${locale}/${pageName}: prepared ${validation.translatedStringCount} translated strings\n`,
+    );
+  }
+
+  if (written === 0) {
     process.stdout.write(`${locale}/${page}: already localized; skipping generation\n`);
     return;
   }
 
-  const source = await loadEnglishPageContent(page);
-  const translated = await requestTranslation({ locale, page, source });
-  const validation = validateTranslatedStructure(source, translated);
-
-  if (!validation.valid) {
-    throw new Error(
-      `Translation validation failed:\n${JSON.stringify(validation, null, 2)}`,
-    );
-  }
-
-  existing[locale] ??= {};
-  existing[locale][page] = translated;
   await fs.writeFile(
     targetPath,
     `${JSON.stringify(existing, null, 2)}\n`,
@@ -150,7 +165,7 @@ async function main() {
   );
 
   process.stdout.write(
-    `${locale}/${page}: wrote ${validation.translatedStringCount} translated strings to ${targetPath}\n`,
+    `${locale}/${page}: wrote ${written} localization surface(s) to ${targetPath}\n`,
   );
 }
 

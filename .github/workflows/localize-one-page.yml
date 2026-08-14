@@ -24,7 +24,7 @@ on:
           - zh-CN
           - ko
       page:
-        description: One page/content surface
+        description: One page/content surface, or all remaining surfaces for a locale
         required: true
         type: choice
         options:
@@ -45,6 +45,7 @@ on:
           - terms
           - support
           - blog
+          - all
       publish:
         description: Commit the validated unit
         required: false
@@ -156,7 +157,7 @@ jobs:
         run: |
           set -euo pipefail
           case "${TARGET_PAGE}" in
-            global|home) route="/${TARGET_LOCALE}" ;;
+            all|global|home) route="/${TARGET_LOCALE}" ;;
             one-pager) route="/${TARGET_LOCALE}/one-pager" ;;
             *) route="/${TARGET_LOCALE}/${TARGET_PAGE}" ;;
           esac
@@ -223,7 +224,7 @@ jobs:
         run: |
           set -euo pipefail
           case "${TARGET_PAGE}" in
-            global|home) route="/${TARGET_LOCALE}" ;;
+            all|global|home) route="/${TARGET_LOCALE}" ;;
             one-pager) route="/${TARGET_LOCALE}/one-pager" ;;
             *) route="/${TARGET_LOCALE}/${TARGET_PAGE}" ;;
           esac

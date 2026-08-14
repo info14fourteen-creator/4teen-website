@@ -124,7 +124,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "हिन्दी",
     flag: "🇮🇳",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "ja",
@@ -132,7 +132,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "日本語",
     flag: "🇯🇵",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "zh-CN",
@@ -140,7 +140,7 @@ export const siteLocales: SiteLocale[] = [
     nativeLabel: "简体中文",
     flag: "🇨🇳",
     href: "/",
-    status: "next",
+    status: "live",
   },
   {
     code: "ko",
