@@ -137,6 +137,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Prepare localization runtime
+        run: pnpm prepare:localization-runtime
+
       - name: Translate one language and one page
         run: pnpm localization:translate --locale "${{ inputs.locale }}" --page "${{ inputs.page }}"
 
