@@ -54,7 +54,9 @@ async function requestTranslation({ locale, page, source }) {
     },
     body: JSON.stringify({
       model: process.env.LOCALIZATION_MODEL || "gpt-5.5",
-      reasoning: { effort: "medium" },
+      // Translation is a constrained rewrite, not an analysis task. Keeping
+      // reasoning off makes the batch predictable and avoids stuck runners.
+      reasoning: { effort: "none" },
       input: [
         {
           role: "system",
