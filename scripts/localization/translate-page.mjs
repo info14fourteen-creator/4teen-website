@@ -122,9 +122,9 @@ function setValueAtPath(value, path, replacement) {
 }
 
 async function translateObjectInChunks({ locale, page, source }) {
-  const translated = JSON.parse(JSON.stringify(source));
   const entries = [...collectStringPaths(source).entries()];
   const chunkSize = 80;
+  const translatedValues = new Map(entries);
 
   for (let index = 0; index < entries.length; index += chunkSize) {
     const chunk = Object.fromEntries(entries.slice(index, index + chunkSize));
@@ -143,8 +143,18 @@ async function translateObjectInChunks({ locale, page, source }) {
     }
 
     for (const path of Object.keys(chunk)) {
-      setValueAtPath(translated, path, translation[path]);
+      translatedValues.set(path, translation[path]);
     }
+  }
+
+  // Apply the completed flat map only after every response has passed
+  // validation. Deepest paths go first so a future source shape containing
+  // overlapping paths cannot discard a later translation chunk.
+  const translated = JSON.parse(JSON.stringify(source));
+  for (const [path, replacement] of [...translatedValues.entries()].sort(
+    ([left], [right]) => right.length - left.length,
+  )) {
+    setValueAtPath(translated, path, replacement);
   }
 
   return translated;
