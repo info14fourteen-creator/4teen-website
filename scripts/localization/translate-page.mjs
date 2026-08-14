@@ -7,7 +7,7 @@ import {
   hasPageExtractor,
   loadEnglishPageContent,
 } from "./page-registry.mjs";
-import { validateTranslatedStructure } from "./structure.mjs";
+import { collectStringPaths, validateTranslatedStructure } from "./structure.mjs";
 
 const localeNames = {
   ar: "Arabic",
@@ -114,18 +114,40 @@ async function requestTranslation({ locale, page, source }) {
   return parsed?.content ?? parsed;
 }
 
-function getValueAtPath(value, path) {
-  return path
-    .split(/\.|\[|\]/)
-    .filter(Boolean)
-    .reduce((current, segment) => current?.[segment], value);
-}
-
 function setValueAtPath(value, path, replacement) {
   const segments = path.split(/\.|\[|\]/).filter(Boolean);
   const last = segments.pop();
   const target = segments.reduce((current, segment) => current[segment], value);
   target[last] = replacement;
+}
+
+async function translateObjectInChunks({ locale, page, source }) {
+  const translated = JSON.parse(JSON.stringify(source));
+  const entries = [...collectStringPaths(source).entries()];
+  const chunkSize = 80;
+
+  for (let index = 0; index < entries.length; index += chunkSize) {
+    const chunk = Object.fromEntries(entries.slice(index, index + chunkSize));
+    const chunkNumber = Math.floor(index / chunkSize) + 1;
+    const translation = await requestTranslation({
+      locale,
+      page: `${page} part ${chunkNumber}`,
+      source: chunk,
+    });
+    const validation = validateTranslatedStructure(chunk, translation);
+
+    if (!validation.valid) {
+      throw new Error(
+        `Translation validation failed for ${locale}/${page} part ${chunkNumber}:\n${JSON.stringify(validation, null, 2)}`,
+      );
+    }
+
+    for (const path of Object.keys(chunk)) {
+      setValueAtPath(translated, path, translation[path]);
+    }
+  }
+
+  return translated;
 }
 
 async function main() {
@@ -157,34 +179,8 @@ async function main() {
     }
 
     const source = await loadEnglishPageContent(pageName);
-    const translated = await requestTranslation({ locale, page: pageName, source });
-    let validation = validateTranslatedStructure(source, translated);
-
-    // Models occasionally omit a few optional leaves in a large JSON object.
-    // Repair those exact strings and validate the complete shape once more.
-    if (
-      !validation.valid &&
-      validation.missing.length > 0 &&
-      validation.empty.length === 0 &&
-      validation.extra.length === 0
-    ) {
-      const missingSource = Object.fromEntries(
-        validation.missing.map((path) => [path, getValueAtPath(source, path)]),
-      );
-      const repairs = await requestTranslation({
-        locale,
-        page: `${pageName} missing fields`,
-        source: missingSource,
-      });
-      const repairValidation = validateTranslatedStructure(missingSource, repairs);
-
-      if (repairValidation.valid) {
-        for (const path of validation.missing) {
-          setValueAtPath(translated, path, repairs[path]);
-        }
-        validation = validateTranslatedStructure(source, translated);
-      }
-    }
+    const translated = await translateObjectInChunks({ locale, page: pageName, source });
+    const validation = validateTranslatedStructure(source, translated);
 
     if (!validation.valid) {
       throw new Error(
