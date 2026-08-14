@@ -121,6 +121,20 @@ function setValueAtPath(value, path, replacement) {
   target[last] = replacement;
 }
 
+function getValueAtPath(value, path) {
+  // The model may preserve dotted paths as literal keys or reconstruct their
+  // nested JSON shape. Structure validation accepts both, so write support for
+  // both forms instead of accidentally assigning undefined for nested output.
+  if (Object.hasOwn(value, path)) {
+    return value[path];
+  }
+
+  return path
+    .split(/\.|\[|\]/)
+    .filter(Boolean)
+    .reduce((current, segment) => current?.[segment], value);
+}
+
 async function translateObjectInChunks({ locale, page, source }) {
   const entries = [...collectStringPaths(source).entries()];
   const chunkSize = 80;
@@ -143,7 +157,7 @@ async function translateObjectInChunks({ locale, page, source }) {
     }
 
     for (const path of Object.keys(chunk)) {
-      translatedValues.set(path, translation[path]);
+      translatedValues.set(path, getValueAtPath(translation, path));
     }
   }
 
