@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   AnimatedLottieIcon,
   type AnimatedLottieIconApi,
@@ -15,16 +15,42 @@ type AnimationData = {
 
 export function SocialLottieLink({
   animationData,
+  animationUrl,
   href,
   label,
 }: {
-  animationData: AnimationData;
+  animationData?: AnimationData;
+  animationUrl?: string;
   href: string;
   label: string;
 }) {
   const iconApiRef = useRef<AnimatedLottieIconApi | null>(null);
   const openingRef = useRef(false);
-  const durationMs = useMemo(() => getLottieDurationMs(animationData), [animationData]);
+  const [loadedAnimation, setLoadedAnimation] = useState<AnimationData | null>(
+    animationData ?? null,
+  );
+  const durationMs = useMemo(
+    () => (loadedAnimation ? getLottieDurationMs(loadedAnimation) : 500),
+    [loadedAnimation],
+  );
+
+  useEffect(() => {
+    if (!animationUrl) return;
+
+    let cancelled = false;
+    void fetch(animationUrl)
+      .then((response) => (response.ok ? response.json() : null))
+      .then((animation) => {
+        if (!cancelled && animation) {
+          setLoadedAnimation(animation as AnimationData);
+        }
+      })
+      .catch(() => undefined);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [animationUrl]);
 
   return (
     <button
@@ -45,11 +71,13 @@ export function SocialLottieLink({
       type="button"
     >
       <span className="ft-site-footer__social-icon">
-        <AnimatedLottieIcon
-          animationData={animationData}
-          apiRef={iconApiRef}
-          playOnHover
-        />
+        {loadedAnimation ? (
+          <AnimatedLottieIcon
+            animationData={loadedAnimation}
+            apiRef={iconApiRef}
+            playOnHover
+          />
+        ) : null}
       </span>
       <span className="ft-site-footer__social-label">{label}</span>
     </button>

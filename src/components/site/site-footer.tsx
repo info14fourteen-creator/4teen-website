@@ -4,16 +4,6 @@ import { usePathname } from "next/navigation";
 import { Fragment } from "react";
 import { LoaderLink } from "@/components/site/loader-link";
 import { SocialLottieLink } from "@/components/site/social-lottie-link";
-import socialDiscordHover from "@/assets/lottie/social-discord-hover.json";
-import socialFacebookHover from "@/assets/lottie/social-facebook-hover.json";
-import socialGithubHover from "@/assets/lottie/social-github-hover.json";
-import socialInstagramHover from "@/assets/lottie/social-instagram-hover.json";
-import socialTelegramHover from "@/assets/lottie/social-telegram-hover.json";
-import socialThreadsHover from "@/assets/lottie/social-threads-hover.json";
-import socialTiktokHover from "@/assets/lottie/social-tiktok-hover.json";
-import socialWhatsappHover from "@/assets/lottie/social-whatsapp-hover.json";
-import socialXHover from "@/assets/lottie/social-x-hover.json";
-import socialYoutubeHover from "@/assets/lottie/social-youtube-hover.json";
 import { getChromeContent } from "@/content/chrome-content";
 import { getNavContent } from "@/content/nav-content";
 import {
@@ -30,16 +20,16 @@ import { stripSiteLocaleSegment } from "@/lib/site-locale";
 import { useCurrentSiteLocale } from "@/lib/use-current-site-locale";
 
 const socialLinks = [
-  { label: "Telegram", href: officialSocialUrls.telegram, animationData: socialTelegramHover },
-  { label: "Discord", href: officialSocialUrls.discord, animationData: socialDiscordHover },
-  { label: "X", href: officialSocialUrls.x, animationData: socialXHover },
-  { label: "Facebook", href: officialSocialUrls.facebook, animationData: socialFacebookHover },
-  { label: "Instagram", href: officialSocialUrls.instagram, animationData: socialInstagramHover },
-  { label: "Threads", href: officialSocialUrls.threads, animationData: socialThreadsHover },
-  { label: "TikTok", href: officialSocialUrls.tiktok, animationData: socialTiktokHover },
-  { label: "YouTube", href: officialSocialUrls.youtube, animationData: socialYoutubeHover },
-  { label: "WhatsApp", href: officialSocialUrls.whatsapp, animationData: socialWhatsappHover },
-  { label: "GitHub", href: officialSocialUrls.github, animationData: socialGithubHover },
+  { label: "Telegram", href: officialSocialUrls.telegram, animationUrl: "/lottie/social-telegram-hover.json" },
+  { label: "Discord", href: officialSocialUrls.discord, animationUrl: "/lottie/social-discord-hover.json" },
+  { label: "X", href: officialSocialUrls.x, animationUrl: "/lottie/social-x-hover.json" },
+  { label: "Facebook", href: officialSocialUrls.facebook, animationUrl: "/lottie/social-facebook-hover.json" },
+  { label: "Instagram", href: officialSocialUrls.instagram, animationUrl: "/lottie/social-instagram-hover.json" },
+  { label: "Threads", href: officialSocialUrls.threads, animationUrl: "/lottie/social-threads-hover.json" },
+  { label: "TikTok", href: officialSocialUrls.tiktok, animationUrl: "/lottie/social-tiktok-hover.json" },
+  { label: "YouTube", href: officialSocialUrls.youtube, animationUrl: "/lottie/social-youtube-hover.json" },
+  { label: "WhatsApp", href: officialSocialUrls.whatsapp, animationUrl: "/lottie/social-whatsapp-hover.json" },
+  { label: "GitHub", href: officialSocialUrls.github, animationUrl: "/lottie/social-github-hover.json" },
 ];
 
 const footerColumns = [
@@ -150,7 +140,7 @@ export function SiteFooter({
               {socialLinks.map((social) => (
                 <SocialLottieLink
                   key={social.label}
-                  animationData={social.animationData}
+                  animationUrl={social.animationUrl}
                   href={social.href}
                   label={social.label}
                 />
