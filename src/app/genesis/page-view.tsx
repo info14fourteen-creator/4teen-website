@@ -103,6 +103,83 @@ export function GenesisPageView({
         </div>
       </article>
 
+      <article className="ft-card ft-public-page__panel ft-genesis-page__panel">
+        <div className="ft-stack ft-stack--md ft-public-page__panel-stack">
+          <div className="ft-stack ft-stack--xs">
+            <p className="ft-overline">Investment Request</p>
+            <h2 className="ft-subtitle">Defined capital stages, with separate operating and liquidity budgets</h2>
+          </div>
+
+          <div className="ft-genesis-page__card-grid ft-genesis-page__capital-grid">
+            {content.fundingOptions.map((option) => (
+              <article key={option.stage} className="ft-card ft-card--plain ft-card--positive">
+                <div className="ft-stack ft-stack--xs">
+                  <p className="ft-card-title-top">{option.stage}</p>
+                  <h3 className="ft-card-title">{option.amount}</h3>
+                  <p className="ft-text">{option.purpose}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </article>
+
+      <article className="ft-card ft-public-page__panel ft-genesis-page__panel">
+        <div className="ft-stack ft-stack--md ft-public-page__panel-stack">
+          <div className="ft-stack ft-stack--xs">
+            <p className="ft-overline">Operating Model</p>
+            <h2 className="ft-subtitle">Monthly planning ranges as the user base grows</h2>
+          </div>
+
+          <div className="ft-genesis-page__card-grid ft-genesis-page__proof-grid">
+            {content.operatingStages.map((stage) => (
+              <article key={stage.stage} className="ft-card ft-card--plain ft-genesis-page__proof-card">
+                <div className="ft-stack ft-stack--xs">
+                  <p className="ft-card-title-top">{stage.stage}</p>
+                  <h3 className="ft-card-title">{stage.monthlyBudget}</h3>
+                  <p className="ft-text">{stage.detail}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </article>
+
+      <article className="ft-card ft-public-page__panel ft-genesis-page__panel">
+        <div className="ft-stack ft-stack--md ft-public-page__panel-stack">
+          <div className="ft-stack ft-stack--xs">
+            <p className="ft-overline">Contract Map</p>
+            <h2 className="ft-subtitle">Production addresses to verify independently</h2>
+          </div>
+
+          <div className="ft-genesis-page__card-grid ft-genesis-page__proof-grid">
+            {content.contractMap.map((contract) => (
+              <article key={contract.component} className="ft-card ft-card--plain ft-genesis-page__proof-card">
+                <div className="ft-stack ft-stack--xs">
+                  <p className="ft-card-title-top">{contract.component}</p>
+                  <p className="ft-link">{contract.address}</p>
+                  <p className="ft-text">{contract.role}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </article>
+
+      <article className="ft-card ft-card--plain ft-public-page__panel ft-genesis-page__panel">
+        <div className="ft-stack ft-stack--md ft-public-page__panel-stack">
+          <div className="ft-stack ft-stack--xs">
+            <p className="ft-overline">Diligence Conditions</p>
+            <h2 className="ft-subtitle">What must remain explicit before a capital decision</h2>
+          </div>
+          <ul className="ft-list ft-public-page__list">
+            {content.diligence.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </article>
+
       <article className="ft-card ft-public-page__contact-panel ft-genesis-page__contact-panel">
         <div className="ft-public-page__contact-grid ft-genesis-page__contact-grid">
           <div className="ft-stack ft-stack--md">
