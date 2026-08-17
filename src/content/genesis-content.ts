@@ -23,6 +23,22 @@ export type GenesisDeckContent = PublicPageContent & {
     title: string;
     body: string;
   }>;
+  fundingOptions: Array<{
+    stage: string;
+    amount: string;
+    purpose: string;
+  }>;
+  operatingStages: Array<{
+    stage: string;
+    monthlyBudget: string;
+    detail: string;
+  }>;
+  contractMap: Array<{
+    component: string;
+    address: string;
+    role: string;
+  }>;
+  diligence: string[];
   contact: {
     eyebrow: string;
     title: string;
@@ -174,6 +190,78 @@ const genesisContentEn: GenesisDeckContent = {
       body:
         "Cover store operations, monitoring, analytics, provider quotas, compliance-safe investor materials, and resilience reserves required as MAU grows.",
     },
+  ],
+  fundingOptions: [
+    {
+      stage: "Survival / stabilization",
+      amount: "$25k-$40k",
+      purpose: "Baseline infrastructure, API and Energy reserves, legal baseline, store operations, and controlled community tests.",
+    },
+    {
+      stage: "6-month launch runway",
+      amount: "$60k-$100k",
+      purpose: "Six months of infrastructure and operating reserve, security and legal review, provider upgrades, contractors, and measured growth.",
+    },
+    {
+      stage: "12-month growth runway",
+      amount: "$150k-$300k",
+      purpose: "10k-25k MAU readiness, stronger security, provider and cache strategy, community operations, and small-team support.",
+    },
+  ],
+  operatingStages: [
+    {
+      stage: "Launch / up to 1k MAU",
+      monthlyBudget: "$400-$980 / month",
+      detail: "Core infrastructure, APIs, TRON and Energy reserve, plus launch and operating reserve.",
+    },
+    {
+      stage: "5k MAU",
+      monthlyBudget: "$1,450-$3,050 / month",
+      detail: "Higher provider capacity, TRON reserve, observability, controlled growth, and support coverage.",
+    },
+    {
+      stage: "10k MAU",
+      monthlyBudget: "$2,900-$6,500 / month",
+      detail: "Provider scaling, stronger security and monitoring, launch operations, and resilient on-chain execution reserve.",
+    },
+    {
+      stage: "25k MAU",
+      monthlyBudget: "$6,700-$15,000 / month",
+      detail: "Scaled infrastructure, TRON and Energy capacity, community operations, and stronger service redundancy.",
+    },
+  ],
+  contractMap: [
+    {
+      component: "4TEEN Token",
+      address: "TMLXiCW2ZAkvjmn79ZXa4vdHX5BE3n9x4A",
+      role: "TRC-20 token; direct buy, 6 decimals, price and lock state.",
+    },
+    {
+      component: "FourteenController",
+      address: "TF8yhohRfMxsdVRr7fFrYLh5fxK8sAFkeZ",
+      role: "Controller layer for purchase split and ecosystem logic.",
+    },
+    {
+      component: "Liquidity Controller",
+      address: "TVKBLwg222skKnZ3F3boTiH35KC7nvYEuZ",
+      role: "90% liquidity-side TRX, daily execution rule.",
+    },
+    {
+      component: "Liquidity Bootstrapper",
+      address: "TWfUee6qFV91t7KbFdYLEfpi8nprUaJ7dc",
+      role: "Prepares executor balances and triggers liquidity execution.",
+    },
+    {
+      component: "AirdropVault",
+      address: "TV6eXKWCsZ15c3Svz39mRQWtBsqvNNBwpQ",
+      role: "Airdrop and user-growth reserve.",
+    },
+  ],
+  diligence: [
+    "Recheck contract addresses, reserves, transactions, lock state, and DEX activity directly on TRON Mainnet before an investment decision.",
+    "Planning ranges must be updated against actual MAU, provider limits, Energy pricing, and campaign metrics.",
+    "The project does not promise returns, token appreciation, passive income, or a liquidity outcome.",
+    "Airdrop acquisition should be evaluated on verified wallets, claim completion, and retention rather than installs or impressions.",
   ],
   links: [
     {
