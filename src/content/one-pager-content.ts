@@ -30,111 +30,106 @@ const onePagerContentEn: OnePagerContent = {
   metadata: {
     title: "4TEEN One-Pager",
     description:
-      "A concise 4TEEN one-pager for investors and strategic partners: product status, protocol mechanics, traction proof, capital use, and diligence links.",
+      "A concise investor and strategic-partner brief for 4TEEN: live TRON wallet infrastructure, rule-based token mechanics, user acquisition, liquidity architecture, and a programmable-settlement roadmap.",
   },
   hero: {
     eyebrow: "4TEEN One-Pager",
-    status: "Quick investor brief",
+    status: "Investor concept · August 2026",
     title:
-      "4TEEN is a live TRON wallet and token system built around direct buy, 14-day unlocks, liquidity routing, and growth rails.",
+      "4TEEN is building programmable payment and settlement infrastructure on TRON - starting with a live wallet, verifiable rules, and a wallet-first acquisition loop.",
     lead:
-      "This one-pager is the short version of the investor deck: what exists, why it matters, how the loop works, and where capital or strategic help can accelerate the system.",
+      "The system already combines a wallet, TRON assets, direct purchase, time-bound unlocks, liquidity infrastructure, airdrop and ambassador mechanics, plus Tronix.rent for Energy and Bandwidth. The long-term direction is conditional settlement: funds secured first, then released under explicit rules.",
   },
   summaryCards: [
     {
       eyebrow: "Product",
-      title: "Wallet-first token flow",
+      title: "Wallet already in market",
       body:
-        "Users enter through the app surface, not only a contract page: buy, unlock, swap, liquidity, ambassador, and proof routes are already framed as one product loop.",
+        "4TEEN Wallet is available on Google Play and brings asset custody, direct buy, unlock, swap, liquidity, airdrop, ambassador, and information surfaces into one mobile product.",
     },
     {
-      eyebrow: "Mechanics",
+      eyebrow: "Economics",
       title: "90 / 7 / 3 buy routing",
       body:
         "Every direct buy routes TRX across liquidity, controller, and airdrop sides in the same transaction, making the core economics easier to explain and verify.",
     },
     {
-      eyebrow: "Retention",
-      title: "14-day batch unlock",
+      eyebrow: "Liquidity",
+      title: "Daily controller cadence",
       body:
-        "Direct-buy tokens are minted immediately but unlock per purchase batch after 14 days, turning entry timing into a visible wallet state.",
+        "The Liquidity Controller applies a once-per-UTC-day 6.43% execution rule above its threshold, splitting the route across JustMoney and Sun.io V3 executors.",
     },
     {
       eyebrow: "Scale path",
-      title: "Growth rails already exist",
+      title: "Airdrop -> verified wallet",
       body:
-        "Ambassador accounting, airdrop funding, verification routes, and public proof pages create a foundation for distribution instead of a blank campaign shell.",
+        "Airdrop access is wallet-first, creating a measurable acquisition path. Roughly 1,000 early users have already come through this mechanism; future growth should be judged by verified wallets and retention, not impressions.",
     },
   ],
   sections: [
     {
       eyebrow: "What 4TEEN is",
-      title: "A structured entry system on TRON, packaged as a wallet experience",
+      title: "A payment and settlement stack, not only a token",
       body:
-        "4TEEN combines token mechanics, controller-side accounting, liquidity execution, ambassador tracking, and app UX into one surface. The public site explains the system; the wallet carries the user workflow.",
+        "TRON is the execution and settlement rail. USDT can act as a stable settlement asset. 4TEEN Wallet is the interface, 4TEEN is an economic and incentive layer, and smart contracts are the rule engine. Tronix.rent supports the Energy and Bandwidth side of the same user environment.",
       bullets: [
-        "Direct buy and unlock logic are contract-backed.",
-        "Liquidity and controller roles are separated for clearer verification.",
-        "The app and site already expose user, investor, and proof surfaces.",
+        "Funds can be reserved first and settled after agreed fulfilment conditions in the roadmap model.",
+        "The intended flow is Payment Commitment -> Secured Funds -> Fulfillment -> Settlement.",
+        "This is a long-term research and product direction, not a claim that real-world settlement rails are already live.",
       ],
     },
     {
-      eyebrow: "Why it is investable",
-      title: "The opportunity is scaling a live loop, not funding a concept",
+      eyebrow: "Capital model",
+      title: "Investor capital and liquidity capital do different jobs",
       body:
-        "The project already has the mechanics, routes, app story, and diligence materials needed to start serious conversations. The next step is distribution, polish, liquidity confidence, and partner reach.",
+        "Investor capital funds company and product development: infrastructure, security, integrations, legal work, operations, and measured growth. Liquidity capital is separate and is intended to build market depth. The operating budget should not depend on selling tokens.",
       bullets: [
-        "Product risk is lower because core flows already exist.",
-        "Narrative is simple enough to teach: buy, lock, unlock, then choose the next route.",
-        "Capital can go into acceleration rather than first discovery.",
+        "Core product and protocol flows already exist, shifting the discussion from concept creation to responsible scaling.",
+        "A recommended six-month operating runway is $60k-$100k; a twelve-month growth runway is $150k-$300k, with a distinct liquidity budget.",
+        "No return, token-price, listing, or market-depth outcome is promised.",
       ],
     },
   ],
   snapshot: [
     {
-      label: "Network",
-      value: "TRON",
-      detail: "Low-fee environment for direct purchase, unlock visibility, and wallet-led user actions.",
+      label: "Target architecture",
+      value: "TRON settlement stack",
+      detail: "TRON execution, USDT settlement potential, wallet UX, 4TEEN incentives, and smart-contract rules in one system direction.",
     },
     {
-      label: "Primary surfaces",
-      value: "App + site",
-      detail: "The app carries the flow; the website carries education, proof, and investor context.",
+      label: "Working product",
+      value: "Wallet + contracts",
+      detail: "Google Play wallet, direct-buy and unlock logic, liquidity controller, vaults, airdrop, ambassador, and proof routes.",
     },
     {
-      label: "Entry rule",
-      value: "90 / 7 / 3",
-      detail: "Buy-side routing splits liquidity, controller, and airdrop funding inside the transaction.",
+      label: "User acquisition",
+      value: "Airdrop -> wallet",
+      detail: "The wallet-first claim model has brought roughly 1,000 early users and creates a measurable distribution loop.",
     },
     {
-      label: "Unlock rule",
-      value: "14 days",
-      detail: "Each purchase has its own unlock batch instead of one opaque wallet-wide lock.",
+      label: "Capital principle",
+      value: "Build product / build market",
+      detail: "Investor capital funds operations and product. Liquidity capital is separately allocated to market infrastructure.",
     },
   ],
   proofPoints: [
     {
-      title: "On-chain architecture is separated",
+      title: "Rule-based architecture can be inspected",
       body:
-        "Token, controller, liquidity controller, bootstrapper, and vault contracts carry distinct responsibilities, which makes diligence easier than a single opaque contract story.",
+        "Token, controller, liquidity controller, bootstrapper, DEX executors, and vault contracts carry separate responsibilities. Contract addresses, balances, transactions, locks, and liquidity events should be independently reviewed on TRON Mainnet.",
     },
     {
-      title: "Wallet UX already maps the system",
+      title: "The wallet maps the system into user actions",
       body:
         "The app surfaces direct buy, unlock timeline, swap, liquidity, ambassador cabinet, and information routes as an operational product rather than loose documentation.",
     },
     {
-      title: "Public proof is shareable",
+      title: "The scale path is explicit",
       body:
-        "Whitepaper, verification, blog context, investor deck, and this one-pager give partners different depths of review without needing a private walkthrough first.",
+        "The current next stage is disciplined scaling: provider capacity, security and legal review, controlled acquisition, retention measurement, and partner integrations. Capital accelerates these workstreams; it does not replace on-chain verification.",
     },
   ],
   links: [
-    {
-      label: "Download One-Pager PDF",
-      href: "/docs/4teen-one-pager.pdf",
-      download: "4teen-one-pager.pdf",
-    },
     { label: "Open Investor Deck", href: "/deck" },
     { label: "Read Whitepaper", href: "/whitepaper" },
     { label: "Verify Contracts", href: "/verification" },
@@ -144,17 +139,17 @@ const onePagerContentEn: OnePagerContent = {
   ],
   linksEyebrow: "Diligence Links",
   footerNote:
-    "This one-pager is a concise project brief. It is not a promise of returns, exchange listing, liquidity outcome, or market performance.",
+    "This one-pager is an informational project brief, not an offer, a financial recommendation, or a promise of returns, token performance, listing, liquidity depth, or market outcome. Technical and financial claims require independent verification.",
   ask: {
-    eyebrow: "Strategic Ask",
-    title: "The best next conversations combine capital with distribution or execution leverage.",
+    eyebrow: "Strategic ask",
+    title: "The best conversations combine capital with an operating advantage.",
     body:
-      "4TEEN is looking for partners who can accelerate user acquisition, liquidity confidence, regional reach, market access, or ecosystem credibility.",
+      "4TEEN is looking for partners who can accelerate product execution, security, provider capacity, measured acquisition, liquidity credibility, regulatory readiness, regional reach, or ecosystem integrations.",
     email: officialGenesisEmail,
     bullets: [
-      "Growth distribution and ambassador expansion.",
-      "Liquidity, market-making, exchange, or ecosystem relationships.",
-      "Product polish, localization, analytics, and conversion improvement.",
+      "Product, infrastructure, security, legal, and settlement-direction execution.",
+      "Measured wallet acquisition, retention, and ambassador expansion.",
+      "Liquidity, market-structure, ecosystem, or strategic distribution relationships.",
     ],
   },
 };
