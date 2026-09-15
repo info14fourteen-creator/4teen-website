@@ -1,4 +1,8 @@
 import type { SupportedSiteLocale } from "@/lib/site-locale";
+import {
+  officialAppStoreUrl,
+  officialGooglePlayUrl,
+} from "@/content/official-links";
 import { getGeneratedPageContent } from "../lib/generated-localization";
 
 type StoreLink = {
@@ -142,12 +146,12 @@ const appContentEn: AppPageContent = {
   },
   storeLinks: [
     {
-      href: "https://apps.apple.com/",
+      href: officialAppStoreUrl,
       label: "App Store",
       meta: "Download for iPhone and iPad",
     },
     {
-      href: "https://play.google.com/store/apps/details?id=me.fourteen.wallet",
+      href: officialGooglePlayUrl,
       label: "Google Play",
       meta: "Download for Android",
     },
@@ -309,7 +313,7 @@ const appContentEn: AppPageContent = {
       eyebrow: "Download Route",
       title: "Install the wallet if you want the full product, not only the web map.",
       body:
-        "The strongest version of the product lives in the app: real wallet behavior, multilingual interface, resource-aware execution, and the full 4TEEN operating layer in one place once the store rollout opens.",
+        "The strongest version of the product lives in the app: real wallet behavior, multilingual interface, resource-aware execution, and the full 4TEEN operating layer in one place across App Store and Google Play.",
       repoLabel: "Wallet App Repo",
     },
   },

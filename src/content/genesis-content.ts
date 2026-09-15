@@ -68,7 +68,7 @@ const genesisContentEn: GenesisDeckContent = {
       eyebrow: "Working product",
       title: "Wallet is already in market",
       body:
-        "4TEEN Wallet is published on Google Play. It already exposes asset custody, direct buy, unlock, swap, liquidity, airdrop, ambassador, and information flows.",
+        "4TEEN Wallet is published on App Store and Google Play. It already exposes asset custody, direct buy, unlock, swap, liquidity, airdrop, ambassador, and information flows.",
     },
     {
       eyebrow: "Rule-based economics",
@@ -96,7 +96,7 @@ const genesisContentEn: GenesisDeckContent = {
       body:
         "The token, smart-contract system, direct-buy route, liquidity controller, vaults, unlock logic, airdrop and ambassador mechanics, wallet, and TRON utility layer already exist. The current task is to turn these connected components into a scalable payment ecosystem.",
       bullets: [
-        "Android is live in Google Play; iOS is prepared for release subject to the Apple developer program setup.",
+        "The wallet is live on both App Store and Google Play.",
         "The airdrop funnel has already attracted roughly 1,000 early users through a wallet-first path.",
         "Tronix.rent provides a complementary TRON Energy and Bandwidth utility layer.",
       ],

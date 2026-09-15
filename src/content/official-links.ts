@@ -33,6 +33,10 @@ export const officialLegalEntity = {
 
 export const officialWebsiteUrl = "https://4teen.me";
 export const officialTronixRentUrl = "https://tronix.rent";
+export const officialAppStoreUrl =
+  "https://apps.apple.com/uz/app/4teen/id6795239952";
+export const officialGooglePlayUrl =
+  "https://play.google.com/store/apps/details?id=me.fourteen.wallet";
 export const officialWalletRepoUrl =
   "https://github.com/info14fourteen-creator/4teen-wallet-app";
 export const officialContractsRepoUrl =

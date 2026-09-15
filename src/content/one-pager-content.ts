@@ -45,7 +45,7 @@ const onePagerContentEn: OnePagerContent = {
       eyebrow: "Product",
       title: "Wallet already in market",
       body:
-        "4TEEN Wallet is available on Google Play and brings asset custody, direct buy, unlock, swap, liquidity, airdrop, ambassador, and information surfaces into one mobile product.",
+        "4TEEN Wallet is available on App Store and Google Play and brings asset custody, direct buy, unlock, swap, liquidity, airdrop, ambassador, and information surfaces into one mobile product.",
     },
     {
       eyebrow: "Economics",
@@ -99,7 +99,7 @@ const onePagerContentEn: OnePagerContent = {
     {
       label: "Working product",
       value: "Wallet + contracts",
-      detail: "Google Play wallet, direct-buy and unlock logic, liquidity controller, vaults, airdrop, ambassador, and proof routes.",
+      detail: "App Store and Google Play wallet, direct-buy and unlock logic, liquidity controller, vaults, airdrop, ambassador, and proof routes.",
     },
     {
       label: "User acquisition",
